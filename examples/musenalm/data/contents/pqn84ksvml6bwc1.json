@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 86293, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Was du weißt und was du plauderst, / Wie du klug das Köpfchen wiegst!",
+  "language": [],
+  "musenalm_id": 86295,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Schwalbe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Schwalbe",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fzxtg3ukfmhdxde",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.192Z"
+    }
+  ]
+}

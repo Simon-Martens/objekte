@@ -1,0 +1,33 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64195, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64202,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rhein #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_1062_64202_i7v13g7ms6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Rhein #",
+  "updated": "2009-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": []
+}

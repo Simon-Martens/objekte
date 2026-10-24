@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Lieder (Sammlung INr 24244, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Noch klang die Morgenglocke nicht; / Noch nirgends sonst gewahr' ich Licht;",
+  "language": [],
+  "musenalm_id": 24251,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einem Spätjahrsmorgen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einem Spätjahrsmorgen",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uvlbjbtjke639es",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.114Z"
+    }
+  ]
+}

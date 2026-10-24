@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an den übrigen Blättern der Suite /) Graphik im Kalendarium Februar; paginiert 3. s. Textbezug INr 58823, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58776,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein ostindischer / Harem",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. M. inv. et f.",
+  "scans": [
+    "alm_837_58776_j93gg3k9ib.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein ostindischer / Harem",
+  "updated": "2008-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8bs1s9gdn662bl8",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.670Z"
+    }
+  ]
+}

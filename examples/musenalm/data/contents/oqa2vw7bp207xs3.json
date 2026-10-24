@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Du sitztest bey den schönen Scenen / Des schönsten Schauspiels nur aus Zwang;",
+  "language": [],
+  "musenalm_id": 38426,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 133,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Juristen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Juristen",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bavurwpq2fpr4j7",
+      "agents": "hu6ba8zv7wtaxe9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.696Z"
+    }
+  ]
+}

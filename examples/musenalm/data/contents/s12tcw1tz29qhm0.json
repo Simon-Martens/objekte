@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 95901, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95881,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Blumenstrauß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. u. i. Stahl gesto. v. I. Krepp",
+  "scans": [
+    "alm_3350_95881_ep4tzbqkmt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Blumenstrauß",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u8xnhwd14z9s4ko",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.719Z"
+    }
+  ]
+}

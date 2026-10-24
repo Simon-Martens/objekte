@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Es ging die Sonne so stralend auf, / es blaute der Himmel so rein,",
+  "language": [],
+  "musenalm_id": 46183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Sommerausflug",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Sommerausflug",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0dvgpp6t8wt0lvm",
+      "agents": "utgjxyadq6s0v86",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.442Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.442Z"
+    }
+  ]
+}

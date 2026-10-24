@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102684,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (L. Wolf inv. del. et schulp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. del. et schulp.",
+  "scans": [
+    "alm_3363_102684_bhqfxk80rf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5n5e6lcz583vy90",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.062Z"
+    }
+  ]
+}

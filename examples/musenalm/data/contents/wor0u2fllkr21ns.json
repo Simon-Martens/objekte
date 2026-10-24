@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus Rom (Sammlung INr 37084, Obj 209)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "350",
+  "incipit_statement": "Oft flieh' ich dich, damit mein Herz / Sich nicht zu sehr an dich gewöhne",
+  "language": [],
+  "musenalm_id": 37093,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 217,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oft flieh' ich dich, damit mein Herz / Sich nicht zu sehr an dich gewöhne…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfizer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fi76z8fbltr9t4z",
+      "agents": "sv92qni765t0f64",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.720Z"
+    }
+  ]
+}

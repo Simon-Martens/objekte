@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug INr 79071, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79070,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht der Ebene von Pompeji unterhalb des Vesuvs #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Veith. sc.",
+  "scans": [
+    "alm_2395_79070_x513sr0r07.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht der Ebene von Pompeji unterhalb des Vesuvs #",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y4u2fdcakxwbz9d",
+      "agents": "agad4ahnieynhoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.975Z"
+    }
+  ]
+}

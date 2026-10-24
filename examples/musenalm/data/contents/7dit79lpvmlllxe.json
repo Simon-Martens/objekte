@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.502Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Der Reimer Mäv klagt, daß der Rei- / mer Bav / Jüngst einen Einfall ihm gestohlen",
+  "language": [],
+  "musenalm_id": 21555,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Plagium",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Plagium",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "er7eopvsejmei8p",
+      "agents": "teyd4hg5cxxyi5t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.624Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Ein Paar Blumen auf Bürger's Grab (Sammlung INr 4052, Obj 148)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Vorübergehender! Ich weiß, warum er / weint; / Der Dichter",
+  "language": [],
+  "musenalm_id": 4053,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "(1) / Grabschrift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "(1) / Grabschrift",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9iu7m49f2pe169y",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.023Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 14971, 14972; Obj 32, 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14970,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus dem Persischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus dem Persischen",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6t78rf2g6yvuw40",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.674Z"
+    }
+  ]
+}

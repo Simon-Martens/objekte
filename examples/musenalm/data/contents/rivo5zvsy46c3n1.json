@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Dem Denker setze keine Schranken ! / Von Tartar, oder Hottentott,",
+  "language": [],
+  "musenalm_id": 11218,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "71. / An den Kunstrichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "71. / An den Kunstrichter",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b4bbl234eciwjqy",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.469Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.469Z"
+    }
+  ]
+}

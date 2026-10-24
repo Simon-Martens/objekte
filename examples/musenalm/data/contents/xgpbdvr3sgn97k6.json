@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts » Einladung zur Wasserfahrt, nach einem Trinkfest« INr 83637, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83680,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Melodie zu XV. von Herrn Benda in Potsdam",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Benda",
+  "scans": [
+    "alm_3880_83680_4x1z4r0r1p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Melodie zu XV. von Herrn Benda in Potsdam",
+  "updated": "2012-09-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sgygjmtzu4l9pvv",
+      "agents": "sn75dvdam4298qi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.017Z"
+    }
+  ]
+}

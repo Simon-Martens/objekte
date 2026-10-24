@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.525Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Ihr? Ihr seyd die schnellesten Geister / der Hölle?",
+  "language": [],
+  "musenalm_id": 92339,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faust und sieben Geister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lessing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Faust und sieben Geister",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5k0xu7c40n1nx8g",
+      "agents": "69uz48pj64zapqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.402Z"
+    }
+  ]
+}

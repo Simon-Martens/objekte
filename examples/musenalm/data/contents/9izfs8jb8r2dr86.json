@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderlieder (Sammlung INr 122173, Obj 258); # Bezeichnung an der Sammlung INr 122173, Obj 258",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Fern in Ungarns weiten Haiden / Und in kühler Alpenluft / Sehnt ich mich zum Vater Brocken / Und nach frischem Harzesduft",
+  "language": [],
+  "musenalm_id": 122183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 259,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Auf dem Brocken",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Pröhle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Auf dem Brocken",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gkvdhtdpi5srxzp",
+      "agents": "qwtd1omxjc7b309",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.815Z"
+    }
+  ]
+}

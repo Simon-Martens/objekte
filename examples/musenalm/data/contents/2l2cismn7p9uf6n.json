@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Die Herde und das Herz zu hüthen, / Das fällt der Schäferinn zu schwer.",
+  "language": [],
+  "musenalm_id": 4117,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Entschuldigung der Schäferinnen. / Triolett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Entschuldigung der Schäferinnen. / Triolett",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y1o54in990lu8az",
+      "agents": "11ylx5z0u965md8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.665Z"
+    }
+  ]
+}

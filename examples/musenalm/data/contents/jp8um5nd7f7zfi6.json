@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Freund! Freund! die Jahre fliehn- Ein Lehr- / satz, ohne Ruhm, / So alt als der: wir müssen alle sterben.",
+  "language": [],
+  "musenalm_id": 79117,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn D*** / Leipzig. d. 1. Jan. 1770",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michaelis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn D*** / Leipzig. d. 1. Jan. 1770",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0zxoc4lmdmixadq",
+      "agents": "s34fjwkh4uvwpky",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.880Z"
+    }
+  ]
+}

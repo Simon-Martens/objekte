@@ -1,0 +1,45 @@
+{
+  "annotation": "Berns Reformatoren. In vier Sonnetten (Sammlung INr 54459,Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Ein weiser, großer Geist, ein Berchtold, / baut und gründet / Zum heiligen Asyl der Freyheit unsre Stadt.",
+  "language": [],
+  "musenalm_id": 54460,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Berchtold Haller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Berchtold Haller",
+  "updated": "2008-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t6pn98xlyjxn915",
+      "agents": "kq69ntdbn8wcwoq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.887Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "O weh! O weh! / Schon deckt der Schnee / Die liebe Flur,",
+  "language": [],
+  "musenalm_id": 2681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "H. an seine Flur",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "H. an seine Flur",
+  "updated": "2000-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jukx9y15rr8uhc9",
+      "agents": "3m5nfg6fbusqjem",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.098Z"
+    }
+  ]
+}

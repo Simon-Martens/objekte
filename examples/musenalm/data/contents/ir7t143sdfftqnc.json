@@ -1,0 +1,54 @@
+{
+  "annotation": "# Bez. an der Monatstabelle Januar der Jgg 1803-1805 /) Tabellen zur Bemerkung der Festtage des häuslichen Glücks und des gesellschaftlichen Lebens (Sammlung INr 88087, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88095,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JULY",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Maillard del. J. Gerstner sc.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "JULY",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yi2i7j25fleqesa",
+      "agents": "jqx789ngxccpl2l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.956Z"
+    },
+    {
+      "id": "y2imnvrospspkz9",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.956Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Die verheimlichte Schöne. Ein erzählendes Gedicht in zwölf Balladen (Sammlung INr 29749, Obj 5) s. Graphik INr 29767, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Früh Morgens dreht sich rechts und links, / Wuchs, Anstand zu beschauen,",
+  "language": [],
+  "musenalm_id": 29766,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neunte Ballade. / Der Nebenbuhler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neunte Ballade. / Der Nebenbuhler",
+  "updated": "2002-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wy92ug0ckhsp9yb",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.286Z"
+    }
+  ]
+}

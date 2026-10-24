@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. und Titel s. Textbezug INr 83335, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83336,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Landschaft #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Both",
+  "scans": [
+    "alm_3076_83336_7cwkiykzs5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Landschaft #",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6tnit8wrhrb0mdg",
+      "agents": "kwwnhrdl70qtxgf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.055Z"
+    }
+  ]
+}

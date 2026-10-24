@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 77561, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "391",
+  "incipit_statement": "Die Werkstatt seiner Qual und Lust, / Trägt Jeder in der eignen Brust;",
+  "language": [],
+  "musenalm_id": 77562,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meister und Gesell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Rogge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meister und Gesell",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aohhak6lxv4g146",
+      "agents": "qg9jxudttjp2daq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.741Z"
+    }
+  ]
+}

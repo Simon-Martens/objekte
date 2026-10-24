@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Sonnett von Julius Schneller INr 68625, Obj 1,4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68624,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1.3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OBSTHAENDLERIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriel Mezu pt. F. John sc.",
+  "scans": [
+    "alm_228_68624_6aru4mcyo8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OBSTHAENDLERIN",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lkixni2k4jijrvi",
+      "agents": "jpaseozh34q5ize",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.473Z"
+    },
+    {
+      "id": "pmmyr8yfah57eaz",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.474Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.474Z"
+    }
+  ]
+}

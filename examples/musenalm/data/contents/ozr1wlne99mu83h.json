@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131842, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Nicht hoffe, daß du mich bethörst, / Denn was Dein Mund auch spricht,",
+  "language": [],
+  "musenalm_id": 131851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Faust und Gretchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Smidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Faust und Gretchen",
+  "updated": "2023-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ijlxp4ud85v4ht4",
+      "agents": "p5nbyct99xa1658",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.040Z"
+    }
+  ]
+}

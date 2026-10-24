@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert Tab III. /) kol. Illustration zu »Der grünfüssige Wasserläufer« von V. F. S. Fischer INr 67141, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67140,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Totanus glottis. Der grünfüssige Wasserläufer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas del. K. Müller sc.",
+  "scans": [
+    "alm_1146_67140_83akxhr4hs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Totanus glottis. Der grünfüssige Wasserläufer",
+  "updated": "2009-10-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cfzf5fwre5xzyc7",
+      "agents": "93i1cvgb16cjfey",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.337Z"
+    }
+  ]
+}

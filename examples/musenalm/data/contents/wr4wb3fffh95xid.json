@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Lieder (Sammlung INr 27295, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Oft macht es mich erschrecken, / Ein plötzliches Erwachen zu entdecken,",
+  "language": [],
+  "musenalm_id": 27334,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "39.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "39.",
+  "updated": "2002-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q38qwxx7bsxzgin",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.305Z"
+    }
+  ]
+}

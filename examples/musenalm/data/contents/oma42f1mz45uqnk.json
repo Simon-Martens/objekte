@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Feuer! Dir allein nur räum' ich / Vor den Elementen allen",
+  "language": [],
+  "musenalm_id": 22152,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das vorzüglichste Element",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das vorzüglichste Element",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wnj1hfvhn9tew1i",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.184Z"
+    }
+  ]
+}

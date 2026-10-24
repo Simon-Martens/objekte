@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Von Haus zu Haus, von Stand zu Stand, / Geh' ich, die Leier in der Hand,",
+  "language": [],
+  "musenalm_id": 16932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Reichen und des Armen / Abentheuer . / 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Reichen und des Armen / Abentheuer . / 1782",
+  "updated": "2001-08-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u8y5mdribillw3t",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.676Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.676Z"
+    }
+  ]
+}

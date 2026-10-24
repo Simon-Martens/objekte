@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Syrien, Phönicien und Nieder-Aegypten (Sammlung INr 87829, Obj 5) s. Textbezug INr 87855, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87856,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Di'Jâmi, oder die Haupt-Moschee von Hhaçan zu Cairo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Cassas del. J. Gerstner sc.",
+  "scans": [
+    "alm_3100_87856_f882t2wqxv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Di'Jâmi, oder die Haupt-Moschee von Hhaçan zu Cairo",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c6ea1esx3jtko8g",
+      "agents": "mwzww6qj9viy1kj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.339Z"
+    },
+    {
+      "id": "zbwitcgj6cjhnv8",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.339Z"
+    }
+  ]
+}

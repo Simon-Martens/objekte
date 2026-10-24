@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.549Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "Ein Knabe stand in Lust am hellen Rhein, / Die Füßchen naß vom zarten Kuß der Wogen,",
+  "language": [],
+  "musenalm_id": 41981,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 182,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Knaben Reichthum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Braunfels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Knaben Reichthum",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "riwmp8b4qz6jduc",
+      "agents": "13qcfjiisb1tzdx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.219Z"
+    }
+  ]
+}

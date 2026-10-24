@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Meinen Fenstern gegenüber / Stand einmal ein neues Haus,",
+  "language": [],
+  "musenalm_id": 94930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das neue Haus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das neue Haus",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y4ysfgpmi6anymg",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.351Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.351Z"
+    }
+  ]
+}

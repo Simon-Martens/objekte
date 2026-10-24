@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Gedichten INr 63675-63682, Obj 31-38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63674,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2009-04-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7j7r5amnu0z1vgc",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.212Z"
+    }
+  ]
+}

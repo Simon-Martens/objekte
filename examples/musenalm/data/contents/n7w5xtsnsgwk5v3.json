@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "In fremden Betten erwache ich frühe: der Versicherung mancher Leute zufolge bin ich nicht der Einzige, der auf diese Weise um seine Morgenträume kommt.",
+  "language": [],
+  "musenalm_id": 51197,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kleine Reise / über / den Lägerberg, / von Baden nach Regensperg, / im Sommer 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. X. Bronner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kleine Reise / über / den Lägerberg, / von Baden nach Regensperg, / im Sommer 1794",
+  "updated": "2007-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nxht4vf4ki29fwv",
+      "agents": "tgu359r6w056o92",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.591Z"
+    }
+  ]
+}

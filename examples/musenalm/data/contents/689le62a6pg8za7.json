@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Seht, wie voll Frühlingskraft, belebt von hei- / ßem Blut, / Der junge Titus hüpft,",
+  "language": [],
+  "musenalm_id": 11435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "53. / Für einen Jüngling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "53. / Für einen Jüngling",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bmmwe3zoeu2aten",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.142Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.142Z"
+    }
+  ]
+}

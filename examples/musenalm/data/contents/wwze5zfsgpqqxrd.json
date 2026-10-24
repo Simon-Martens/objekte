@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts»Sinnesänderung« von G. C. Richter INr 3606, Obj 56",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 3607,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebensänderung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_87_3607_eytl08fpd7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lebensänderung",
+  "updated": "2000-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t1matlksx84p886",
+      "agents": "ubitdekwc4vpg28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.073Z"
+    }
+  ]
+}

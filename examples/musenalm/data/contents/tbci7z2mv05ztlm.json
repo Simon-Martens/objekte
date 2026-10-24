@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachklänge (Sammlung INr 21186, Obj 80)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "417",
+  "incipit_statement": "Jegliche Stunde, da dieses mein Auge Dich, liebliches / Licht sah, / Jede Minute, sie lebt heilig und ewig in mir.",
+  "language": [],
+  "musenalm_id": 21193,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2002-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d2peq7t4kdm48j5",
+      "agents": "s6vrgm9x7setd1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.028Z"
+    }
+  ]
+}

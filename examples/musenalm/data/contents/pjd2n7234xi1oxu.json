@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Auf goldenem Haare die Krone, / Die Krone von funkelndem Gold, / So stehet die Fürstentochter, / Die Jungfrau so frühlingshold.",
+  "language": [],
+  "musenalm_id": 116983,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedicht / Der Page",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Patuzzi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedicht / Der Page",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9vryssyejo4fgru",
+      "agents": "onb8bft2jljf6eb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.608Z"
+    }
+  ]
+}

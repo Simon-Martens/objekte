@@ -1,0 +1,58 @@
+{
+  "annotation": "# lt. G-Verz  nach einer Zeichnung von Hodges",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42230,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der wichtige Pass von Sicry-golly",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hodges # P. Veith sc. Dresden",
+  "scans": [
+    "alm_554_42230_4g41yux6pf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der wichtige Pass von Sicry-golly",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kqusauqwxo3vs7i",
+      "agents": "xqoghpkng47rofa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.107Z"
+    },
+    {
+      "id": "mypmpofq3l9a37i",
+      "agents": "agad4ahnieynhoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.108Z"
+    }
+  ]
+}

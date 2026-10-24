@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: nach de Bruin",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41577,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sommerjurten der Samojeden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_546_41577_0x7gnxak6r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sommerjurten der Samojeden",
+  "updated": "2005-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "snizi7k9urdhwcc",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.284Z"
+    }
+  ]
+}

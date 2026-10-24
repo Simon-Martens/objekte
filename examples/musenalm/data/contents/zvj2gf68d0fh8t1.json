@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Das Kloster« von W. Scott s. Textbezug INr 43696, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Halbert Glendinning hat in Folge einer späteren weissagenden Erscheinung einen nach Glendearg geflüchteten englischen Ritter, einen lächerlichen Euphuisten, Sir Pierce Shafton, der ihn verächtlich behandelte,",
+  "language": [],
+  "musenalm_id": 43695,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Das Kloster] 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Das Kloster] 2.",
+  "updated": "2006-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n8r6h7hphmdbyw8",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.194Z"
+    }
+  ]
+}

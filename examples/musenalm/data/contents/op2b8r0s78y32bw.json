@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Ich möchte nur wissen, sagte der Koch, als er eines Abends am Bediententische, wie gewöhnlich, das große Wort hatte,",
+  "language": [],
+  "musenalm_id": 39410,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Das Geheimnis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Das Geheimnis",
+  "updated": "2005-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bs06p07ik0i4ycw",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.127Z"
+    }
+  ]
+}

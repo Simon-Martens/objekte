@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 6. s. Textbezug INr 43261, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43271,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geistesgegenwart",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voltz. del. Portmann sc.",
+  "scans": [
+    "alm_567_43271_2r2lj7typh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Geistesgegenwart",
+  "updated": "2006-04-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "inx03weqpububgz",
+      "agents": "9jdjix2kojsx6en",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.772Z"
+    },
+    {
+      "id": "jehimvij19xfd7j",
+      "agents": "dtwggxcbl5w7fng",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.772Z"
+    }
+  ]
+}

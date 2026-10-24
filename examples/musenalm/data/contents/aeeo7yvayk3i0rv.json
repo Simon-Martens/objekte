@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Zur Zeit, als in Frankreich die Bourguignons und die Armagnacs einen Bürgerkrieg erregt hatten, welcher sich verwüstend über das ganze Land ausbreitete,",
+  "language": [],
+  "musenalm_id": 86386,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Sackpfeifer von Troyes. / Altfranzösische Novelette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Sackpfeifer von Troyes. / Altfranzösische Novelette",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8bfr1cpwbwdegns",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.118Z"
+    }
+  ]
+}

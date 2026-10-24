@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Wer auf sein Vaterland, und wär's Böotien, / Schimpf sagt, und wär' er meiner Freunde / Geliebtester",
+  "language": [],
+  "musenalm_id": 4197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In einer Gesellschaft, / als geklagt wurde, große Männer schimpf- / ten auf unser Teutsches Vaterland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In einer Gesellschaft, / als geklagt wurde, große Männer schimpf- / ten auf unser Teutsches Vaterland",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n7xxv36knm3pybx",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.988Z"
+    }
+  ]
+}

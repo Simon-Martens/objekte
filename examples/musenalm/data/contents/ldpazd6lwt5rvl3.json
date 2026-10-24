@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik. lt. G-Verz: Verschiedene Scenen des geselligen Lebens",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10641,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Chodowiecki del. & sculps. 1795)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del. & sculps. 1795",
+  "scans": [
+    "alm_202_10641_7a1n89qbg7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ncvanrucaim3vw",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.578Z"
+    }
+  ]
+}

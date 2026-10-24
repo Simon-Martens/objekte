@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Die Geschirr-Fabrik, deren Etablirung durch die vielen Bestellungen auf ungrische Sättel schon vor 2 Jahren veranlaßt wurde,",
+  "language": [],
+  "musenalm_id": 85164,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anzeige / Von der Geschirr-Fabrik der ungrischen / und deutschen Sattel-Unterlegedecken und / Zäume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. von Tennecker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anzeige / Von der Geschirr-Fabrik der ungrischen / und deutschen Sattel-Unterlegedecken und / Zäume",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xekiv7ibhd6xqpv",
+      "agents": "ngfhgg967qz5l80",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.678Z"
+    }
+  ]
+}

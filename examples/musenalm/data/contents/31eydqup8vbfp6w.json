@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 7. Blatt Suite /) Graphik im Kalendarium Mai; paginiert 6. /) s. Textbezug INr 96796, Obj 15 /) Illustration zu »Der Feldzug der Deutschen, gegen die / Neufranken vom Jahr 1793« INr 96918, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96909,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutsche Heldengrösse mit Menschen- / liebe verschwistert",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Küffner inv. de. & sc. 1794",
+  "scans": [
+    "alm_1967_96909_zz24luqmwx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Deutsche Heldengrösse mit Menschen- / liebe verschwistert",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l9yytf13vw9xq4c",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.741Z"
+    }
+  ]
+}

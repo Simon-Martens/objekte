@@ -1,0 +1,56 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Syrien, Phönicien und Nieder-Aegypten (Sammlung INr 87983, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87996,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alte Grabmaehler auf der Strasse von Beryt nach Sidon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cassas del. Blaschke sc.",
+  "scans": [
+    "alm_3101_87996_vpm3zomzef.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Alte Grabmaehler auf der Strasse von Beryt nach Sidon",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hjwrg0yn4degnbs",
+      "agents": "mwzww6qj9viy1kj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.903Z"
+    },
+    {
+      "id": "w29xublnodlzjhx",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.903Z"
+    }
+  ]
+}

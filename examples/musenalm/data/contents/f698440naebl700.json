@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken im Kalendarium INr 90066, 90067; Obj 15, 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Wie sanft er schläft! / Wie schön das holde Abendroth / Sein dünnes Silberhaar beglänzt!",
+  "language": [],
+  "musenalm_id": 90076,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Salomon Geßner's / Abendruhe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Salomon Geßner's / Abendruhe",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q9x9ihkcdrr6x04",
+      "agents": "wzmgymh9fjau9gk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.274Z"
+    }
+  ]
+}

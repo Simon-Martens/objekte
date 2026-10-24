@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Obs wahr ist, daß beym nahen Falle / Der Wissenschaften, unsre Weisen blind?",
+  "language": [],
+  "musenalm_id": 18889,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Frage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Frage",
+  "updated": "2001-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p52f0onlhvx5vk5",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.403Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.403Z"
+    }
+  ]
+}

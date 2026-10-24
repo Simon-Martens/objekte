@@ -1,0 +1,51 @@
+{
+  "annotation": "Beigabe zu » III. Tanzkunst« (Sammlung INr 76008, Obj 20) Photos 76021,01-76021,05",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76021,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ballet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vincenz Righini",
+  "scans": [
+    "alm_3280_76021_01_eg559pc49y.jpg",
+    "alm_3280_76021_02_af9efat0uk.jpg",
+    "alm_3280_76021_03_5n7vatl61o.jpg",
+    "alm_3280_76021_04_q03et1gqbc.jpg",
+    "alm_3280_76021_05_w1bad1kq2o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ballet",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ud1qw8qzxqczcax",
+      "agents": "v6kacgth33bvhb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.872Z"
+    }
+  ]
+}

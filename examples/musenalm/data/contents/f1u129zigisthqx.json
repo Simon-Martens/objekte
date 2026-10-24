@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei koll. Illustrationen (INr 124882, Obj 8; INr 124883, Obj 9); # Bezeichnung aus dem Titel (INr 124877, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Endlich findet man Dich! Nach einer Abwesenheit von fünf Jahren kehrst du zurück und bis noch der nämliche Sausewind – / Der Mensch muß sich stets treu bleiben.",
+  "language": [],
+  "musenalm_id": 124881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das ändert die Sache. / Lustspiel in einem Aufzuge.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das ändert die Sache. / Lustspiel in einem Aufzuge.",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f0wcfd5eipgwuqu",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.865Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.865Z"
+    }
+  ]
+}

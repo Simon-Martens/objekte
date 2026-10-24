@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25335, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Mich selber oft im Geist hab' ich gesehn, / Erträumtem Glücke rastlos jagend nach;",
+  "language": [],
+  "musenalm_id": 25340,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Vorgefühl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Freiligrath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Vorgefühl",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0okgjfxcvgt5pe6",
+      "agents": "vmnuom11udo0f3y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.308Z"
+    }
+  ]
+}

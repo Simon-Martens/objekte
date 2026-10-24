@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.518Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "O Adonide, welche Kraft / Zwingt alle Herzen, dir zu schlagen?",
+  "language": [],
+  "musenalm_id": 2994,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Adoniden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Adoniden",
+  "updated": "2000-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2wrlt4qspsnmoj8",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.957Z"
+    }
+  ]
+}

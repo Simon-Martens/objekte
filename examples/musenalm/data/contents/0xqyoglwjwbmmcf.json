@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. L/R 106",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Sieh, du verlierest das Leben, um tod- / tes Gold zu gewinnen.",
+  "language": [],
+  "musenalm_id": 61798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gewinn und Verlust",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gewinn und Verlust",
+  "updated": "2009-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r3gtl7j15l8dzhu",
+      "agents": "a22nkw5sbrlw9i8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.082Z"
+    }
+  ]
+}

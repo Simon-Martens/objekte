@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Da liegst du nun, du, die nicht halb so viel / gefressen, / Als dieser da in einem Monat aß;",
+  "language": [],
+  "musenalm_id": 10733,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "40. Elegie / gesungen zwischen den Leichen eines reichen Voll- / wanstes und eines Mastschweins",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Jünger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "40. Elegie / gesungen zwischen den Leichen eines reichen Voll- / wanstes und eines Mastschweins",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7mrnsehj84llzmj",
+      "agents": "wbllku5shw1eqif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.406Z"
+    }
+  ]
+}

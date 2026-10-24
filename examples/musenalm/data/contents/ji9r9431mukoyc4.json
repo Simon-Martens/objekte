@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Gekitzelt von der Ehre Sporn, / sprach Junker Langohr einst im Zorn",
+  "language": [],
+  "musenalm_id": 35185,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Esel, und das Faulthier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Esel, und das Faulthier",
+  "updated": "2003-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1eyclnbxvsceo3o",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.760Z"
+    }
+  ]
+}

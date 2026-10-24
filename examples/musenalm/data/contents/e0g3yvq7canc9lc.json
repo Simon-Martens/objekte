@@ -1,0 +1,45 @@
+{
+  "annotation": "XXII. Chemische Kunststücke (Sammlung INr 84711, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.629Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Zwey Drachmen Bleyzucker werden in sechs Unzen Wasser eingelöst;",
+  "language": [],
+  "musenalm_id": 84713,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blasche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r5l2rtpl9s4d9vz",
+      "agents": "7h5ljocv7u3xkmf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.140Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.140Z"
+    }
+  ]
+}

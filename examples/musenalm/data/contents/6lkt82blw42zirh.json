@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Ich bin ein Gott, und Nektar ist der Wein: / Denn eine Hebe schenkt mir ein.",
+  "language": [],
+  "musenalm_id": 16416,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dichter, / als Chloe ihm einschenkte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dichter, / als Chloe ihm einschenkte",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z5ya3sg5ba5ha8e",
+      "agents": "teyd4hg5cxxyi5t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.283Z"
+    }
+  ]
+}

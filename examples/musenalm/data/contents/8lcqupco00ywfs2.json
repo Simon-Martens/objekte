@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 21368, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Die du bang, die Brust voll Seufzer, / Stehst am Sterbelager hier,",
+  "language": [],
+  "musenalm_id": 21369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warmfried an Luisen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stäudlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Warmfried an Luisen",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3073jyhcwjqvw1k",
+      "agents": "2f965te58psi6tx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.849Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.849Z"
+    }
+  ]
+}

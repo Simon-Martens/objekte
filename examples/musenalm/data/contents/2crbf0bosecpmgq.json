@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.229Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Was willst du, Weiser, mehr, wenn du / zur Nothdurft hast?",
+  "language": [],
+  "musenalm_id": 4006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gleiche Münze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gleiche Münze",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gx7zpz5539aer7z",
+      "agents": "t3zz4r3fvdi80ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.062Z"
+    }
+  ]
+}

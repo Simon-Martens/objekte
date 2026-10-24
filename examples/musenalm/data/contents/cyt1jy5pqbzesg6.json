@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen und Romanzen (Sammlung INr 86118, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Was sprengest du, mein Reiter, so kalt und bleich, / Durch Schlachtendonner, durch Todesbereich?",
+  "language": [],
+  "musenalm_id": 86119,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Todesritt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weiland W. Freiherr von Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Todesritt",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6kzpazi2i2zxtns",
+      "agents": "otquhrfmf15x6tw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.189Z"
+    }
+  ]
+}

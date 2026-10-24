@@ -1,0 +1,45 @@
+{
+  "annotation": "Agnes. Bruchstücke einer ländlichen Todtenfeyer. 1812 (Sammlung INr 34053, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Ihr, die auf meiner süßen Erd' ich lasse, / Ihr süßesten Geschwister und Gespielen,",
+  "language": [],
+  "musenalm_id": 34077,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXV.",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zzrx47mr4snssfn",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.757Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte (Sammlung INr 84768, Obj 39) Vermischte Gedichte (Sammlung INr 84766, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Ach! wären Räusche doch für's Podagra gesund! / Die Füße sperren mir die Weinfuhr in den Mund.",
+  "language": [],
+  "musenalm_id": 84782,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Bibus Klagen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Bibus Klagen",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jc8jvf3s8633yzt",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.155Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 86181, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Ergreift dich Ekel vor der Gegenwart, / So wand're durch der fernen Vorzeit Hallen;",
+  "language": [],
+  "musenalm_id": 86197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ergreift dich Ekel vor der Gegenwart, / So wand're durch der fernen Vorzeit Hallen;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0r36iqgfdy9r3iq",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.157Z"
+    }
+  ]
+}

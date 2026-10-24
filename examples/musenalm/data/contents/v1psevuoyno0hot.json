@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Januar",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90178,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Silein am Wagfluß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schindler del. Langer sc.",
+  "scans": [
+    "alm_3723_90178_q4t0binw9t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Silein am Wagfluß",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gpkg7awcmm5qofr",
+      "agents": "b015htf5wn6svli",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.419Z"
+    },
+    {
+      "id": "zjk1nis3ynhh0o1",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.419Z"
+    }
+  ]
+}

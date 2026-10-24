@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: S. 294 nach Barrow. d.i.: Barrow, John: A Voyage to Cochinchina, in the Years 1792 and 1793... London, T. Cadell, 1806",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41769,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter dem Banianen Baum opfert der Cochinchinese dem Gotte Fa die ersten Früchte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Darnstedt sc.",
+  "scans": [
+    "alm_548_41769_d4efp95dhk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Unter dem Banianen Baum opfert der Cochinchinese dem Gotte Fa die ersten Früchte",
+  "updated": "2005-12-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "umb44zw0tdhw4ot",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.736Z"
+    }
+  ]
+}

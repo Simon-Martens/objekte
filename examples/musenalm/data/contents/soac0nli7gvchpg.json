@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Sind sie noch nicht all' und all' / Unsre Geisel worden? / Wollen noch mit ihres Donners Knall / Meine Kinder morden?",
+  "language": [],
+  "musenalm_id": 9004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines Wilden / hinter St. Lorenzfluß in Nordamerika",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krauseneck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines Wilden / hinter St. Lorenzfluß in Nordamerika",
+  "updated": "2001-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "252z8uku71l4k20",
+      "agents": "x1mwystx1l16y0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.270Z"
+    }
+  ]
+}

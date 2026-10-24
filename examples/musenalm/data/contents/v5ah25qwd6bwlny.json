@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik # Bez. und Titel s. Textbezüge INr 48836, 48839; Obj 15, 18 /) $ s. Anm. oben",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.434Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48823,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Rubens  Malbeste $)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rubens # Malbeste $",
+  "scans": [
+    "alm_667_48823_eyjvpctorf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-03-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ve2gajpx5v3kcyb",
+      "agents": "co7d0f8bep36m8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.575Z"
+    },
+    {
+      "id": "rksvnl9zd14rxne",
+      "agents": "t6kwrc1ens7g178",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.575Z"
+    }
+  ]
+}

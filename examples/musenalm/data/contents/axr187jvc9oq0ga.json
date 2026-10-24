@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 11262, Obj 152)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "354",
+  "incipit_statement": "Mein erstes ist ein Kind der Nacht, / Und dennoch ists in seiner dunklen Tracht",
+  "language": [],
+  "musenalm_id": 11274,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lebrecht Nöller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12.",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yssvgvmvzftzh79",
+      "agents": "jwuw6kcpwyx8ojz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.505Z"
+    }
+  ]
+}

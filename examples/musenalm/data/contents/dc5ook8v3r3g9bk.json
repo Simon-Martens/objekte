@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Rein und spiegelhelle / Rauscht die Silberfluth, / Jede zarte Welle / Küsst Hyperion.",
+  "language": [],
+  "musenalm_id": 118459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wasserfahrt am Abend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wasserfahrt am Abend",
+  "updated": "2017-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7z7i0lzwdpyk0ds",
+      "agents": "jmyhk43hfbh7agh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.624Z"
+    }
+  ]
+}

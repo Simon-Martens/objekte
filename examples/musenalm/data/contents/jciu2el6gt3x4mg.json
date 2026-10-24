@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Du glaubst mich wahrscheinlich schon an dem Ziel meiner Reise, in dem romantischen Lichtenstein angelangt,",
+  "language": [],
+  "musenalm_id": 29515,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Nemesis. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Luise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Nemesis. / Erzählung",
+  "updated": "2002-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fvl0xzvp8gljnej",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.505Z"
+    }
+  ]
+}

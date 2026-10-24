@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Don Giovanni« von W. A. Mozart s. Textbezug INr 75074, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75075,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Don Juan's Strafgericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_2368_75075_anzuv39f2l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Don Juan's Strafgericht",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "15lke3gp46cu6p1",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.548Z"
+    },
+    {
+      "id": "ir1qyzeigh26b5n",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.549Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.548Z"
+    }
+  ]
+}

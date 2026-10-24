@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Schwaben (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "Oft möcht' ich sein ein Roß, das seinen Reiter / Abwerfend muthig durch die Eb'ne springt,",
+  "language": [],
+  "musenalm_id": 99534,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wunsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theobald Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wunsch",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qmdbzxoh5hrvn4e",
+      "agents": "68fm6w3e6854yig",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.785Z"
+    }
+  ]
+}

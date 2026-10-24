@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 12. /) Graphik im Kalendarium Dezember /) Illustration zu »Camille, oder Briefe zweier Mädchen aus unserm Zeitalter« übers.: J. F. Jünger, Leipzig (Dyk) 1786; s. Textbezug INr 70177, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70164,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie hatte Convulsionen als ob sie das / ganze Grab umwühlen wollte / B. IV. S. 309",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del et sc.",
+  "scans": [
+    "alm_799_70164_wkoarxu007.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie hatte Convulsionen als ob sie das / ganze Grab umwühlen wollte / B. IV. S. 309",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c1yb66b9798fvo9",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.424Z"
+    }
+  ]
+}

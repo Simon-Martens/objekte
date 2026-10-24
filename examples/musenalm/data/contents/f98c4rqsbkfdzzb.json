@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 37479, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Bei ländlich frohem Mahle saß Erwin, / Der heitre Greis, in seiner Laube.",
+  "language": [],
+  "musenalm_id": 37501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Der Herbstabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Aug. Apel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Der Herbstabend",
+  "updated": "2005-03-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "az5hesbgnu5v64f",
+      "agents": "mv54y583pvqjcic",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.775Z"
+    }
+  ]
+}

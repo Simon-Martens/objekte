@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung u. Titel aus dem G-Verz; s. Textbezug 37225, Obj 16; s. a. Gedicht INr 1410, Obj 76",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9214,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Pantomimische Attitüden der Madame Hendel-Schütz] Als Sphynx #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. Bollinger sc.",
+  "scans": [
+    "alm_38_9214_67371j7ecw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Pantomimische Attitüden der Madame Hendel-Schütz] Als Sphynx #",
+  "updated": "2000-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "43vuin2tc2bmpkh",
+      "agents": "hwl1l57k0tbbc1r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.479Z"
+    },
+    {
+      "id": "68rx2negtezbk4l",
+      "agents": "xudps8vzrobe0d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.479Z"
+    }
+  ]
+}

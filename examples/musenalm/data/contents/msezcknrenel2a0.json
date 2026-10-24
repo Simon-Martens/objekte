@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Frühling bringt der Erde wieder, / Silberquellen, Lerchenlieder, / Bringt dir süße Blumen dar, / Und ein neues Lebensjahr!",
+  "language": [],
+  "musenalm_id": 62577,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angebinde / zu meines Wilhelms sechstem Geburtstag. / 21. März 1812",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Angebinde / zu meines Wilhelms sechstem Geburtstag. / 21. März 1812",
+  "updated": "2009-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8kv69hc49tm9blq",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.072Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Xenien auf einen großen Todten (Sammlung INr 84130, Obj 125)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Kennst die Sage du wohl? Ein Held, auflauernd / dem Liebchen, / Faßte statt ihrer den Tod",
+  "language": [],
+  "musenalm_id": 84143,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kennst die Sage du wohl? Ein Held, auflauernd / dem Liebchen, / Faßte statt ihrer den Tod…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yhdlbnyjcuuiawp",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.093Z"
+    }
+  ]
+}

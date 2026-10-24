@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Thränen der Sehnsucht trüben Doris Augen; / Ihren seufzenden Busen hebt die Treue:",
+  "language": [],
+  "musenalm_id": 2282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selbstverleugnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. L. Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Selbstverleugnung",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d2hbfkcxd7a7nn0",
+      "agents": "7gwss5mvx858qah",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.925Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 59598, Obj 116",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Trinkend saßen sie zusammen in dem traulichen Ge- / mach; / In dem muntern Kreise wurde Freude, Scherz und La- / chen wach.",
+  "language": [],
+  "musenalm_id": 59599,
+  "musenalm_pagination": [
+    "6. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Die kleine Näscherin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Die kleine Näscherin",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yoxlwiun4taf0oy",
+      "agents": "ozyc7qe9178qexh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.771Z"
+    }
+  ]
+}

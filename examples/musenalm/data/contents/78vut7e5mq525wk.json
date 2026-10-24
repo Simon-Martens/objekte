@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "Das Klima der heißen Zone, die bedeutenden und schön bewässerten Thäler, im Hintergrunde ein mächtiges Kettengebirge,",
+  "language": [],
+  "musenalm_id": 41766,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Tunkin und Cochinchina] / Naturprodukte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Tunkin und Cochinchina] / Naturprodukte",
+  "updated": "2005-12-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8y95c5p26nitc6u",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.735Z"
+    }
+  ]
+}

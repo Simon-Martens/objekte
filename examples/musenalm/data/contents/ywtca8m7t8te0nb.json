@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90933,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "J. J. ROUSSEAU",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet v. D. Chodow. nach eine Buste von Basalt. D. Berger geätzt",
+  "scans": [
+    "alm_794_90933_wrq9ll0k8j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "J. J. ROUSSEAU",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fid14c9u8xsngeo",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.320Z"
+    },
+    {
+      "id": "u4jo0eolarg7n1d",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.321Z"
+    }
+  ]
+}

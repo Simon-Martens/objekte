@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählungen des alten Cantors (Sammlung INr 64687, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "Es war vor vier Jahren, wenn ich nicht irre. Noch in den letzten Tagen des April fing es neuerlich an zu stürmen und zu stöbern,",
+  "language": [],
+  "musenalm_id": 64689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tochter des Flurhirten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Fentsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Tochter des Flurhirten",
+  "updated": "2009-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1871,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0sncjaqlfsav0ml",
+      "agents": "euexsjcr9ar4su1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.995Z"
+    }
+  ]
+}

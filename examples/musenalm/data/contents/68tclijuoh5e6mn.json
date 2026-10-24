@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Dem engen Ausschusse Jener, denen im Sommer 1781 Hyginia im Karlsbade den Eintritt in das neunzehnte Jahrhundert garantirte,",
+  "language": [],
+  "musenalm_id": 37502,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Die Badereise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Oertel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Die Badereise",
+  "updated": "2005-03-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9og019g1kt8izm3",
+      "agents": "u657j3m1foor2a9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.775Z"
+    }
+  ]
+}

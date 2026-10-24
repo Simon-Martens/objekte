@@ -1,0 +1,45 @@
+{
+  "annotation": "7. Distichen (Sammlung INr 67427, Obj 64) VIII. Gedichte (Sammlung INr 67420, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Sehnen der Liebe vertrauen mir gern die Sänger / des Waldes",
+  "language": [],
+  "musenalm_id": 67434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Buchsbaum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Buchsbaum",
+  "updated": "2009-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1xfib5uwjupgpiy",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.352Z"
+    }
+  ]
+}

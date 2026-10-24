@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium August s. Textbezug INr 71614, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71584,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nein! Länger kann ich ihn nicht leiden sehen!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gest. v. Ant. Karcher Mannh. 1799",
+  "scans": [
+    "alm_2668_71584_fm4gej2l1w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nein! Länger kann ich ihn nicht leiden sehen!",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v044vkljeqva9a7",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.620Z"
+    }
+  ]
+}

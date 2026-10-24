@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit einer Illustration (INr 125525, Obj 12) und einer Nachschrift d. Hrsg. (INr 125526, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Da sitz’ ich wiederum einmal! – Allein wie lange? / Bald wieder drückt die Luft, das Athmen macht / mir bange",
+  "language": [],
+  "musenalm_id": 125524,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schatz. / Lustspiel in einem Akt / von / C. W. Contessa. / Zuerst aufgeführt in Berlin am 13. Jun. 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. Contessa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schatz. / Lustspiel in einem Akt / von / C. W. Contessa. / Zuerst aufgeführt in Berlin am 13. Jun. 1817",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9k9omkt2drz8861",
+      "agents": "jho0bsnjm9w01d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.897Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.897Z"
+    }
+  ]
+}

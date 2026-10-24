@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13217,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gegend bei Rathen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zingg del. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_216_13217_5f1d5vzfcg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gegend bei Rathen",
+  "updated": "2001-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y57c8xm17khkxk0",
+      "agents": "tv0kfo1dowgyyed",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.451Z"
+    },
+    {
+      "id": "ix4l8vjadz5e6yy",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.451Z"
+    }
+  ]
+}

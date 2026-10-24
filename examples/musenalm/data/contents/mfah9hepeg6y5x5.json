@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten mit einer Illustration INr 30510-30514, Obj 20-24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2002-11-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "law25xfmzg61c8n",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.663Z"
+    }
+  ]
+}

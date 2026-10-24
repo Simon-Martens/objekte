@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Der Gang nach dem Eisenhammer« von Fr. Schiller  # Titel s. Strophe aus dem Gedicht INr 64395, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64401,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang nach dem Eisenhammer #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Noack delt. E. Wagner sculpt.",
+  "scans": [
+    "alm_1071_64401_nf16wbittd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang nach dem Eisenhammer #",
+  "updated": "2009-05-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ab56yt8ipns246z",
+      "agents": "6g8a6ln0xqsj1k7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.095Z"
+    }
+  ]
+}

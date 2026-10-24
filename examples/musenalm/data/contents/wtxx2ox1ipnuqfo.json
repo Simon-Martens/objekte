@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Hier lieg' ich, Herr! Du hörtest mein Gebet. / Hier lag ich täglich, wenn im Scheideglanze / Sich deine Sonne uns'rem Thal entzog,",
+  "language": [],
+  "musenalm_id": 100491,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 155,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kain. / In drei Scenen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Roquette",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kain. / In drei Scenen",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b4um9gwdi0tdwnt",
+      "agents": "3dic1qz3r9hhz39",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.963Z"
+    }
+  ]
+}

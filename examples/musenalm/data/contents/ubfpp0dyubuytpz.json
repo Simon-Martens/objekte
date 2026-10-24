@@ -1,0 +1,56 @@
+{
+  "annotation": "Topographie (Sammlung INr 67073, Obj 22) mit einer Illustration s. Graphik IN 67076, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Dieses königlich baierische Jagdschloß liegt zwei Stunden von der Haupt- und Residenzstadt München, mitten im Walde, an der Hauptstraße,",
+  "language": [],
+  "musenalm_id": 67075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Fürstenried",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Fürstenried",
+  "updated": "2009-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ibgjhxkc3hfe7l2",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.096Z"
+    },
+    {
+      "id": "3s6lwnroigb3sa0",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.096Z"
+    }
+  ]
+}

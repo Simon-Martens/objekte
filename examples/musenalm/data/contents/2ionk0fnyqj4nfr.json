@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24061, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Junge, schnüre meinen Ranzen, / Denn ich muß wahrhaftig fort;",
+  "language": [],
+  "musenalm_id": 24063,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Abentheurer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Immermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Abentheurer",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "grs6wsyfus7fe9l",
+      "agents": "47huvmykx9z6337",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.234Z"
+    }
+  ]
+}

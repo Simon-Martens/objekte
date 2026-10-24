@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichts (Sammlung INr 25234, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Das Wissen, wenn es nun will auch den Glauben wissen, / Und seine Wurzeln faßt, hat es sie ausgerissen.",
+  "language": [],
+  "musenalm_id": 25301,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "67.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "67.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w6x0iliza98qyf6",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.014Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Lieder (Sammlung INr 24987, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Männer, wenn ihr sicher wollt / Seyn vom Hörnertragen,",
+  "language": [],
+  "musenalm_id": 25010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23. / Die Hörnerträgerinnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23. / Die Hörnerträgerinnen",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zwligg7i6ljexei",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.111Z"
+    }
+  ]
+}

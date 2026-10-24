@@ -1,0 +1,46 @@
+{
+  "annotation": "s. einleitendes Gedicht INr 19776, Obj 71; mit einer Illustration s. Graphik INr 19715, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "395",
+  "incipit_statement": "Mit diesem Liede empfingen die Vasallen der Gräfin von Negremont ihre reizende Herrin",
+  "language": [],
+  "musenalm_id": 19777,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ardennerwald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ardennerwald",
+  "updated": "2001-11-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "szpuj3mo83anohc",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.990Z"
+    }
+  ]
+}

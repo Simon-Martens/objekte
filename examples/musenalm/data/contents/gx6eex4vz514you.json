@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.961Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Wenn kühl das Morgenlüftlein weht, / So gehn wir schon zur Wiese hin;",
+  "language": [],
+  "musenalm_id": 128693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heulied. / (S. Ign. Fellners Neue Allem. Gedichte)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heulied. / (S. Ign. Fellners Neue Allem. Gedichte)",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gn9q731c4efrj9n",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.930Z"
+    }
+  ]
+}

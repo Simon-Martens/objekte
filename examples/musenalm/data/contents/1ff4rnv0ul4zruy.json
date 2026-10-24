@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht in drei Teilen mit einer Illustration INr 4061-4063, 4065; Obj 6-9; s. a. die erste Fassung des Gedichts in: Musenalmanach (Göttinger) 1774 INr 2124, 39059-39061",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36290,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 5.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nachtfeier der Venus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nachtfeier der Venus",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9ctd19l34qfwqnx",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.033Z"
+    }
+  ]
+}

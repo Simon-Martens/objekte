@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Blühet eine Seligkeit auf Erden, / Die von Lichtgefild' der Engel stammt:",
+  "language": [],
+  "musenalm_id": 91898,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebenden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Hanslick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebenden",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f7yrsehlbmsuer6",
+      "agents": "di8se2a1a4e0boz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.438Z"
+    }
+  ]
+}

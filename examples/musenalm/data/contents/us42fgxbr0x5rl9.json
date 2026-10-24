@@ -1,0 +1,45 @@
+{
+  "annotation": "Slovenische Sagen und Geschichten (Sammlung INr 89695, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Die Sonne sank hinter der Rinka hinab und vergoldete mit ihren letzten Strahlen die Zackenränder der vorstehenden Felsgebirge,",
+  "language": [],
+  "musenalm_id": 89700,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Wolkensage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Wolkensage",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2ghdblbjdntx2rm",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.376Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Gedichte (Sammlung INr 39853, Obj 142)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "398",
+  "incipit_statement": "Du, mit meines wunden Herzens Beute! / Amor, dem ich tausend Opfer weihte!",
+  "language": [],
+  "musenalm_id": 39855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Amor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Amor",
+  "updated": "2005-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cnziegz9z2bjb09",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.056Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "lithogr. Titel # Bez. s. Textbezug INr 68631, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68629,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SYLVAN, / ein Jahrbuch / für / Forstmänner, Jäger und / Jagdfreunde / auf das Jahr 1819. / von / C. P. LAUROP, / Grosh. Badischem Oberforstrathe / und / V. F. FISCHER, / Grosh. Badischem Forstrathe. / Marburg und Cassel / bey Johann Christian Krieger",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Müller",
+  "scans": [
+    "alm_1148_68629_1mcx0hryxq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SYLVAN, / ein Jahrbuch / für / Forstmänner, Jäger und / Jagdfreunde / auf das Jahr 1819. / von / C. P. LAUROP, / Grosh. Badischem Oberforstrathe / und / V. F. FISCHER, / Grosh. Badischem Forstrathe. / Marburg und Cassel / bey Johann Christian Krieger",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qy42pntz3mnocyp",
+      "agents": "rpwztxof37gz7i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.591Z"
+    }
+  ]
+}

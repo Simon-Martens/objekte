@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.724Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2039,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Felix Mendelssohn-Bartholdy",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. Th. Hildebrand Gest. v. Ed. Eichens. 1839",
+  "scans": [
+    "alm_66_2039_1qvd7e5igm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Felix Mendelssohn-Bartholdy",
+  "updated": "2000-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lbdzr73i959ivd3",
+      "agents": "mb3mjtp0wkmk6y5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.984Z"
+    },
+    {
+      "id": "up9c5yv51668e07",
+      "agents": "08mp0at2gr8kp3n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.984Z"
+    }
+  ]
+}

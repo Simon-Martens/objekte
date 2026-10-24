@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Zu lang schon waltest über dem Haupte mir / Du in der dunklen Wolke, du Gott der Zeit!",
+  "language": [],
+  "musenalm_id": 21976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 140,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zeitgeist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölderlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Zeitgeist",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0qhllqyopzncywf",
+      "agents": "0lnasue8ibiowgx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.973Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgendes Gedicht INr 80131, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80130,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Giulietta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rubio invt. C. Kotterba sc.",
+  "scans": [
+    "alm_1696_80130_jowqadkuzm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Giulietta",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bor3a024qy67v37",
+      "agents": "ud139mkx4aj0t07",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.790Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.790Z"
+    },
+    {
+      "id": "gdfebjo7aywqhwu",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.790Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.790Z"
+    }
+  ]
+}

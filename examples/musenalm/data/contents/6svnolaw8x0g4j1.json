@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Mich rufen an die Sänger der Heroen, / Ich reiche Dir den Kranz der Ehrenpforten,",
+  "language": [],
+  "musenalm_id": 78350,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Musen und Apoll / An Ihre Majestät die Kaiserinn von Oesterreich / in Grätz im October 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Musen und Apoll / An Ihre Majestät die Kaiserinn von Oesterreich / in Grätz im October 1810",
+  "updated": "2011-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oh01thxzw4sa8bq",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.842Z"
+    }
+  ]
+}

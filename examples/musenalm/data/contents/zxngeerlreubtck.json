@@ -1,0 +1,45 @@
+{
+  "annotation": "Fliegende Blätter (Sammlung INr 55899, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.101Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Der Unglaube kommt bei'm Jüngling aus dem Verstande und der Einbildungskraft,",
+  "language": [],
+  "musenalm_id": 55917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Unglaube kommt bei'm Jüngling aus dem Verstande und der Einbildungskraft,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "92b5tfv27avz81i",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.543Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.543Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Dagobert oder Ehe und Liebe« von L. Brachmann INr 28960, Obj 63",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28961,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc: aus der Erzählung: Dagobert, / oder Ehe und Liebe v. L. Brachmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Cornelius del. W. Jury sculp.",
+  "scans": [
+    "alm_374_28961_9j1uaq1ckf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc: aus der Erzählung: Dagobert, / oder Ehe und Liebe v. L. Brachmann",
+  "updated": "2002-10-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pc7gfedskve6m6i",
+      "agents": "ns8syak978vfvbp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.453Z"
+    },
+    {
+      "id": "vklmym291u51tvs",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.453Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das Tiberthal bei Rom nach dem alten Fidenae zu« INr 68799, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht des Tiberthals gegen Fidenae",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinhart Roma 1809",
+  "scans": [
+    "alm_1187_68798_85xjrman4i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht des Tiberthals gegen Fidenae",
+  "updated": "2009-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qwtkhwpz65zpz51",
+      "agents": "xeh43apdx4986px",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.556Z"
+    }
+  ]
+}

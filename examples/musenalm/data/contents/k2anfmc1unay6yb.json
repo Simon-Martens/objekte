@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.170Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "398",
+  "incipit_statement": "O, die in ewig blühender Jugendkraft, / Kein irdisch Weib, die lohnende Gunst vertheilt,",
+  "language": [],
+  "musenalm_id": 41304,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Muse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Muse",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "teim3pmklvm2roa",
+      "agents": "2i4oqqhryhrdin4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.286Z"
+    }
+  ]
+}

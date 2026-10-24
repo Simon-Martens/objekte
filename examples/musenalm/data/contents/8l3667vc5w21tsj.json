@@ -1,0 +1,67 @@
+{
+  "annotation": "paginiert 3. /) s. Textbezug INr 88163, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88174,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Altdeutsche Schule. / Lucas Cranach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lucas Cranach. F. H. Müller del. J. Lips sc. Zürich",
+  "scans": [
+    "alm_575_88174_3g4aqo31hi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Altdeutsche Schule. / Lucas Cranach",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sdxyn6upl6852uz",
+      "agents": "rej9gy7ybrg6fzx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.113Z"
+    },
+    {
+      "id": "cize33intcgxexi",
+      "agents": "j12p4vv4qgvdxl0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.113Z"
+    },
+    {
+      "id": "ft7hcg0wp2oqasd",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.113Z"
+    }
+  ]
+}

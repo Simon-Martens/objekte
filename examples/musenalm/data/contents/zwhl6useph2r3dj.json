@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumenlese aus deutschen Dichtern des siebenzehnten Jahrhunderts (Sammlung INr 131276, Obj 195) # Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "459",
+  "incipit_statement": "Du fragst: was will das Ach! / Das ich bey deinem Kommen sprach?",
+  "language": [],
+  "musenalm_id": 131295,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 214,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. Abschatz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ach!",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hjh2txmd43we74t",
+      "agents": "zqagfqn8g3oskms",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.025Z"
+    }
+  ]
+}

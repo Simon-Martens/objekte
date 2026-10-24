@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 46521, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.767Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "An der Grenze von Westpahlen finden wir einen der Hauptflüsse von Deutschland, die Weser, an deren Ufern sich die Hauptstämme der uralten Deutschen ausbreiteten,",
+  "language": [],
+  "musenalm_id": 46520,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hohenstein / und / Wasserfall bey Langenfeld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hohenstein / und / Wasserfall bey Langenfeld",
+  "updated": "2006-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bxbo6iqof5j8nkd",
+      "agents": "o2pvd0n9c0ulrf4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.598Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.598Z"
+    }
+  ]
+}

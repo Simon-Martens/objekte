@@ -1,0 +1,45 @@
+{
+  "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Die Hirschbrunft hatte bei dem herrlichen Frühlingswetter und Vorsommer des Jahres 1841 von starken Hirschen außer gewöhnlich frühzeitig begonnen,",
+  "language": [],
+  "musenalm_id": 69837,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Eine seltene Hirschjagd / Mitgetheilt von F. C. Seyffarth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Seyffarth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Eine seltene Hirschjagd / Mitgetheilt von F. C. Seyffarth",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gy02zssy53g21lr",
+      "agents": "o21hxq359ew0vra",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.345Z"
+    }
+  ]
+}

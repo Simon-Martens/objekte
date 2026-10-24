@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik; lt. G-Verz.: nach Pr. Sprengel aus dessen hist.-geneal. Calender",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42222,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hindostanischer Edelmann im Hofkleide",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_554_42222_5bo0qhfr17.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hindostanischer Edelmann im Hofkleide",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9o59e62psbjrhb4",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.940Z"
+    }
+  ]
+}

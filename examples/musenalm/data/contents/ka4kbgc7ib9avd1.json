@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Wo weilt die Seele wie meine gestimmt? / Der Stern des dunkelnden Abends vernimt",
+  "language": [],
+  "musenalm_id": 6266,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Matthisson",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Matthisson",
+  "updated": "2000-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iqsx9cmgzr8sdt5",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.252Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.252Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Ein Teich, der einst so hell und klar / Wie ein poliertes Silber war, / Fand lange sich auch mit dem Loos zufrieden,",
+  "language": [],
+  "musenalm_id": 84699,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. Der Teich und der See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weiße",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. Der Teich und der See",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0jb24vmibhzrx41",
+      "agents": "b4ycj3ue3as52r2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.102Z"
+    }
+  ]
+}

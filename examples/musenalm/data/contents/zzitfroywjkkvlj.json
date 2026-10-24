@@ -1,0 +1,58 @@
+{
+  "annotation": "# lt. G-Verz: nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Kamtschadale",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_545_41561_db4ci781mf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Kamtschadale",
+  "updated": "2005-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ajin9gf9hdc18v",
+      "agents": "c9lbuy81jn5wuz9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.230Z"
+    },
+    {
+      "id": "vsv2e6jba2xoevb",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.230Z"
+    }
+  ]
+}

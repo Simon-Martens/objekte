@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "O, hätt' ich eure Weisen / Und euren süßen Ton,",
+  "language": [],
+  "musenalm_id": 17821,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die / Töchter des Harzes. / (Göttingen, am 27. Mai 1793.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die / Töchter des Harzes. / (Göttingen, am 27. Mai 1793.)",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h3gpqqv4nog4mfc",
+      "agents": "11ylx5z0u965md8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.876Z"
+    }
+  ]
+}

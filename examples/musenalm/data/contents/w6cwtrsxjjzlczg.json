@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 55866,Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55867,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Salem",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Kuntz del. Haldenwang sc.",
+  "scans": [
+    "alm_754_55867_hboouy30kc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Salem",
+  "updated": "2008-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "groegvstvs0g25m",
+      "agents": "ziafym76n6gr1cm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.003Z"
+    },
+    {
+      "id": "vj72h1g2vwfijnb",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.003Z"
+    }
+  ]
+}

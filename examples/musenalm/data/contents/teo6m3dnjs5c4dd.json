@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Nel tal profonda tomba / La sposa è casca",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Unter freudigem,donnerndem Jauchzen, das aus Tausenden von Gondeln und Barken erscholl, lief im Spätsommer des Jahres 1171 aus den Lagunen von Venedig eine Flotte so zahlreich und furchtbar, als noch jemals den Spiegel des adriatischen Meeres durchfurchte",
+  "language": [],
+  "musenalm_id": 63665,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Meeresbraut. / Venezianische Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Meeresbraut. / Venezianische Sage",
+  "updated": "2009-04-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g7mjogabedr2kzc",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.219Z"
+    }
+  ]
+}

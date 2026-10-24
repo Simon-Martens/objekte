@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: Thema. / Warum heißt ein Freyer so? / Weil der sich zu frey gewesen, / Und zu sanften Banden floh / Von der Freyheit zu genesen. Rückert",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.005Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Gibt es wohl ein größer Leid, Als die Freyheit einzubüßen? / Nein! das Leben uns versüßen",
+  "language": [],
+  "musenalm_id": 14752,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freyer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Robert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freyer",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k7ob8wic5hjvs12",
+      "agents": "shwrrrsohbx2ih5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.464Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.464Z"
+    }
+  ]
+}

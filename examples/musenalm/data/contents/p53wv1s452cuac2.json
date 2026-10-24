@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Dritte Lieferung. Peveril vom Gipfel und Ivanhoe (Sammlung INr 43661, Obj 6) s. Graphik INr 4366",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Julian, der Sohn Sir Gottfired Peveril's, eines Landedelmanns in der Grafschaft Derby, der ein eben so eifriger Anhänger des Königs (Carl II.) war,",
+  "language": [],
+  "musenalm_id": 43662,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Peveril vom Gipfel / 1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Peveril vom Gipfel / 1.",
+  "updated": "2006-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n13qsvozhrhrlcg",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.137Z"
+    }
+  ]
+}

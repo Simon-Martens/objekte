@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ardinghello« von J. J. W. Heinse s. Textbezug INr 130547, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131077,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Dähling del. 1801 C. Frosch sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Dähling del. 1801 C. Frosch sc.",
+  "scans": [
+    "alm_4339_131077_jh73o81hsq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rkfo3vhxe4o48gz",
+      "agents": "fu5wv6odvdsjkbe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.020Z"
+    },
+    {
+      "id": "hoho0ts3pfx9lfm",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.020Z"
+    }
+  ]
+}

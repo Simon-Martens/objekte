@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 6.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50813,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Via Mala in Pündten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Heß del. J. H. Meyer sc.",
+  "scans": [
+    "alm_689_50813_ykva1qo3gb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Via Mala in Pündten",
+  "updated": "2007-07-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wbcwt6sp0okivrk",
+      "agents": "uc4ahm2w7hhtikb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.718Z"
+    },
+    {
+      "id": "u5xbg8kg6mfjngt",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.718Z"
+    }
+  ]
+}

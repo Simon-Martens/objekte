@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-malerische Reise durch Neapel und Sicilien. Wien, MDCCCVI. Bey J. V. Degen, Buchdrucker und Buchhändler (Sammlung INr 88045, Obj 7) s. Textbezug INr 88073, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88074,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Innere Ansicht einer zu den Katakomben von Syracus gehörigen Begräbnisskammer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Desprez del.J. Gerstner sc.",
+  "scans": [
+    "alm_3102_88074_thi59i5er2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Innere Ansicht einer zu den Katakomben von Syracus gehörigen Begräbnisskammer",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "namc365n8laux62",
+      "agents": "rnhfkecjm7ntu6v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.254Z"
+    },
+    {
+      "id": "tylcnvs0pf9kscb",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.254Z"
+    }
+  ]
+}

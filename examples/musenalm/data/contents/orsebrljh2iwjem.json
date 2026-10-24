@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium; # Bez. am 1. Blatt der Suite /) Illustration zu »Das Portrait« INr 120815, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.856Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120803,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Portrait",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Maillard del. Cl. Kohl. sc.",
+  "scans": [
+    "alm_3285_120803_bjx6xs4813.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Portrait",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fm0zvnuyly3i232",
+      "agents": "jqx789ngxccpl2l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.681Z"
+    },
+    {
+      "id": "woqdg4lrnzrvb8s",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.681Z"
+    }
+  ]
+}

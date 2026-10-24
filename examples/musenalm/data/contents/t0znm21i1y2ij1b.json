@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung fehlt an 4 Grafiken der Suite /) Graphik im Kalendarium paginiert 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7388,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nim Pan mein Vögelchen das wir zum Opfer geben / Und auch dies Blumen-Körbgen an. / Verlängre du des besten Vaters Leben, / Gieb, daß er uns noch ferner Lehren kan.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_148_7388_0ao6cc70qf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nim Pan mein Vögelchen das wir zum Opfer geben / Und auch dies Blumen-Körbgen an. / Verlängre du des besten Vaters Leben, / Gieb, daß er uns noch ferner Lehren kan.",
+  "updated": "2000-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a0iz9t7y0p2l487",
+      "agents": "83bgj21cr6rcy33",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.407Z"
+    }
+  ]
+}

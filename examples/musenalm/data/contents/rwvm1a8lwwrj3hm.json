@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 37002-37005, Obj 127-130",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Waldbilder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Graf von Würtemberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Waldbilder",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ladd6zyfx11xku6",
+      "agents": "c5uqr1fmm5o5hnx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.959Z"
+    }
+  ]
+}

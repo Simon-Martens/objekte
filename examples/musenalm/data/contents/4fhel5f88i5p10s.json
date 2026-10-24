@@ -1,0 +1,45 @@
+{
+  "annotation": "Distischen (Sammlung INr 83821, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Liebliche Blumenbeete von Gott gepflanzt sind die / Kinder;",
+  "language": [],
+  "musenalm_id": 83829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gittermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9oof8at1hwv5kne",
+      "agents": "csr350ne0svibrz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.089Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.089Z"
+    }
+  ]
+}

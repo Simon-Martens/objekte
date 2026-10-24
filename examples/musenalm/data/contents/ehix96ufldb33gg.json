@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.565Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Blüh' und wachse schön empor, / Was wir wünschten und verlangen!",
+  "language": [],
+  "musenalm_id": 53583,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Toasts des Sängerbundes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. T. Pfeiffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Toasts des Sängerbundes",
+  "updated": "2007-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aga6nvdc8zf9tnb",
+      "agents": "42yarzq0yz2e1hp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.794Z"
+    }
+  ]
+}

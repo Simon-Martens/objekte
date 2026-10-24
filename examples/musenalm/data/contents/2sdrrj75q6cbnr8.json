@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug INr 51232, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51216,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ruinen der Burg Maschwanden, Canton Zürich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Heinrich Meyer f. ad nat.",
+  "scans": [
+    "alm_698_51216_njhm0ztylr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ruinen der Burg Maschwanden, Canton Zürich",
+  "updated": "2007-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2jodgocl33urd3z",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.541Z"
+    }
+  ]
+}

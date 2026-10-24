@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 38 Gedichten INr 68057-68094, Obj 74-111",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68056,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hafisklänge. / An J. W. v. Göthe und Fr. Rückert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rousseau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hafisklänge. / An J. W. v. Göthe und Fr. Rückert",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xj7kqy6m40rsffs",
+      "agents": "xojpiwzkdga93tk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.224Z"
+    }
+  ]
+}

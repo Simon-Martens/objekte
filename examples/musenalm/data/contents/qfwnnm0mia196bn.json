@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Weh! Es weckte mich der Kummer, / Mein Begleiter überall,",
+  "language": [],
+  "musenalm_id": 3449,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiederkehr des Grames",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. Ae. Kl.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiederkehr des Grames",
+  "updated": "2000-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4gbatazhprghh9c",
+      "agents": "1dwn08ijjsd5m1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.133Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Der arme Stax schreibt, um zu leben. / Den armen Stax bedaur' ich sehr.",
+  "language": [],
+  "musenalm_id": 4351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 140,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schreiben und Leben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ck.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schreiben und Leben",
+  "updated": "2000-09-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m9rw1grxx3o1d8y",
+      "agents": "27lkhlbux1m8s5c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.052Z"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Abendlied« von Schmidt (von Lübeck) INr 13678, Obj 112 /) Photos 79103,01; 79103,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79103,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 178,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_218_79103_01_ugxzd22t2q.jpg",
+    "alm_218_79103_02_o7dxo0br5y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abendlied",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h1ctvm434k8duk6",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.520Z"
+    }
+  ]
+}

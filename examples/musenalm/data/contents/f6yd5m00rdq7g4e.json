@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.443Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62781,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Wiesner Nbg.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Wiesner Nbg.",
+  "scans": [
+    "alm_1029_62781_q0rgug923p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-03-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kah21jcx8ykzas8",
+      "agents": "v6whpg6896rh6jd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.638Z"
+    }
+  ]
+}

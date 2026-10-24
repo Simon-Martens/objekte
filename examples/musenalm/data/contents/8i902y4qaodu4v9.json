@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Dir, vom Himmel auserkohrne / Freundinn edler Menschlichkeit,",
+  "language": [],
+  "musenalm_id": 3756,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesungen bey Einweihung eines Garten- / hauses, das zur Aufschrift hat: Serenity. / with thée, serene Philosophy, / and thy bright garland let me crown / my song. / Thompson",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emilie von Berlepsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesungen bey Einweihung eines Garten- / hauses, das zur Aufschrift hat: Serenity. / with thée, serene Philosophy, / and thy bright garland let me crown / my song. / Thompson",
+  "updated": "2000-09-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "je7xok96gr9652q",
+      "agents": "8qf8v6035kmy0ob",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.011Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.011Z"
+    }
+  ]
+}

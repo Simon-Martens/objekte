@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Unter die empfindlichsten Demüthigen, denen die Großen der Erde oft ausgesetzt sind, und recht wie absichtlich nach dem Willen höherer Macht müssen anheimfallen,",
+  "language": [],
+  "musenalm_id": 53273,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Friedrich II. / und sein Sohn Heinrich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. P. Conz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Friedrich II. / und sein Sohn Heinrich",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wfe1ggpggrzdlix",
+      "agents": "2hig42wpgako8md",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.866Z"
+    }
+  ]
+}

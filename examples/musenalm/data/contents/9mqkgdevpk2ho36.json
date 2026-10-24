@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 25630-25633, Obj 161-164",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25629,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 160,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nic. Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "391nl4d9aa5k1yn",
+      "agents": "mx9csh9d4aqs9fu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.899Z"
+    }
+  ]
+}

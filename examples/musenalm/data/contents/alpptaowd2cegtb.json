@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "In Austädt, einem sehr sittsamen Städtchen, das in einem friedlichen Thale lag,",
+  "language": [],
+  "musenalm_id": 13976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Prügelsuppe. / Ein Schwank",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Prügelsuppe. / Ein Schwank",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6ik8477sd8w2fl3",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.519Z"
+    }
+  ]
+}

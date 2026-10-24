@@ -1,0 +1,46 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken INr 13376, 13377 Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Haben Sie die Eremitage schon besucht? fragte mich Freund B. kurz nach meiner Ankunft am Brunnen zu ***",
+  "language": [],
+  "musenalm_id": 13430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied",
+    "Prosa"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier Wochen im Bade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vier Wochen im Bade",
+  "updated": "2001-04-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "df4r9pozur2zoaz",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.663Z"
+    }
+  ]
+}

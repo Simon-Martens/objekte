@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Nicht nur die Menschen führten unter einander Klagen und Beschwerden und Processe, auch die Tugenden und Laster, die Verbrechen und Vergehen,",
+  "language": [],
+  "musenalm_id": 44835,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Allegorische Processe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Allegorische Processe",
+  "updated": "2006-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tpv1v5i3g6zc9gd",
+      "agents": "wd7yy1894regb5j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.704Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Tändeleien (Sammlung INr 29525, Obj 60)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "316",
+  "incipit_statement": "Es scheint, du treibst mit mir nur Spott; / Du meynst, daß der Geliebt' und Gott",
+  "language": [],
+  "musenalm_id": 29531,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Gegen einen Liebesgrundsatz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Gegen einen Liebesgrundsatz",
+  "updated": "2002-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4i902cqcbr12qu3",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.775Z"
+    }
+  ]
+}

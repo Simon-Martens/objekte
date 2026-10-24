@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juni. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Zweiter Theil« INr 59129, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59122,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hünerdorfer Thor zu Tangermünde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gest. v. Schulin",
+  "scans": [
+    "alm_877_59122_jr21xax340.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hünerdorfer Thor zu Tangermünde",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c1cj1pb2chni27j",
+      "agents": "upsrb82zs34rpbh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.819Z"
+    }
+  ]
+}

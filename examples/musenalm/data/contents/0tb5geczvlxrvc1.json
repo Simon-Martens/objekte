@@ -1,0 +1,58 @@
+{
+  "annotation": "Bilderchronik der theatralischen Zeiterscheinungen (Sammlung INr 77292, Obj 7) Illustration zu »Die Stumme von Portici« von Auber s. Textbezug INr 77299, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77300,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Stumme von Portici. von Auber. / Act IV. Scene 7",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. Jos. Kovatsch sc. Viennae",
+  "scans": [
+    "alm_2402_77300_3m7g35i3ks.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Stumme von Portici. von Auber. / Act IV. Scene 7",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ki62rvulmk083b",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.539Z"
+    },
+    {
+      "id": "6n89x4vlinyy5qv",
+      "agents": "7b9443ro2tn4o8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.539Z"
+    }
+  ]
+}

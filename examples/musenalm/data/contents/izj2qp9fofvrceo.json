@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. s. Goed VIII. 71",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Der District Bundelkhund wird bekanntlich in verschiedenen Richtungen von weiten, tiefen Schluchten durchschnitten,",
+  "language": [],
+  "musenalm_id": 44019,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Erzählung aus dem Serai",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Erzählung aus dem Serai",
+  "updated": "2006-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kv9rwsjnwa8r0ma",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.386Z"
+    }
+  ]
+}

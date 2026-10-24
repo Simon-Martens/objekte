@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Lieder. Liebesfrühling (Sammlung INr 1718, Obj 86)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Er ist gekommen / In Sturm und Regen, / Ihm schlug beklommen",
+  "language": [],
+  "musenalm_id": 1746,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXVIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXVIII.",
+  "updated": "2000-08-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eqbzi9f4mtn15ay",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.684Z"
+    }
+  ]
+}

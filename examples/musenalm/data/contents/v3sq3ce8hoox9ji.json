@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Bey Ebbe und Flut« von C. Spindler; s. Textbezug INr 103141, Obj 15 /) unter der Graphik: gedr. v. Lange i. Darmstadt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103139,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE WALLFAHRT DES KÖNIGS LUDWIG. / Aus Spindlers Erzählungen bey Ebbe und Fluth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zeich. v. F. Fellner St. v. L. Burckart. D. v. L. Beyer",
+  "scans": [
+    "alm_3410_103139_9hoi2qowua.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE WALLFAHRT DES KÖNIGS LUDWIG. / Aus Spindlers Erzählungen bey Ebbe und Fluth",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fo4gluembo1o3wn",
+      "agents": "9z4h7ka6ovxy0ac",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.049Z"
+    },
+    {
+      "id": "ai0z785ytu8386p",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.049Z"
+    }
+  ]
+}

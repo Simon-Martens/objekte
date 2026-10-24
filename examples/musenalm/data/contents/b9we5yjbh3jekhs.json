@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r. /) # Zuschreibung: Fischer S. 280",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.593Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74277,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3111_74277_lb7uw2vmla.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vyo38crubknlkdu",
+      "agents": "0qzneijgjsm86gl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.811Z"
+    },
+    {
+      "id": "d5vzw4ws5sq04ys",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.811Z"
+    }
+  ]
+}

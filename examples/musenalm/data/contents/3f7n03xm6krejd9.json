@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Immer regsam Leben / Mühsames Bestreben, / Stets zu nehmen, geben;",
+  "language": [],
+  "musenalm_id": 71140,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Immer regsam Leben / Mühsames Bestreben, / Stets zu nehmen, geben;…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rostorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9dtob4yiy7hy9m4",
+      "agents": "nt4h9rywajl3p54",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.526Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert 1",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7940,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Habillemens a la Mode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Riep. f",
+  "scans": [
+    "alm_141_7940_rlgv8qcfrr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Habillemens a la Mode",
+  "updated": "2000-11-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jdcay21q7d70ku6",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.256Z"
+    }
+  ]
+}

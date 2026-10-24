@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette, Octaven (Sammlung INr 71005, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Von Dir getrennet, lieg' ich wie begraben, / Mich grüßt kein Säuseln linder Frühlingslüfte;",
+  "language": [],
+  "musenalm_id": 71014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geisterleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geisterleben",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aprvifkypzulf1w",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.375Z"
+    }
+  ]
+}

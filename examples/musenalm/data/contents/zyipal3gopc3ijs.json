@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Scenen aus der Familie Ehrenberg.« INr 47206, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47207,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klatscherey tödet den ehelichen Frieden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sc. 1793",
+  "scans": [
+    "alm_639_47207_2h57nwoz0q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Klatscherey tödet den ehelichen Frieden",
+  "updated": "2006-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "thv5tyr11qlp9yf",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.372Z"
+    },
+    {
+      "id": "zky8a3hbriqhyfv",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.372Z"
+    }
+  ]
+}

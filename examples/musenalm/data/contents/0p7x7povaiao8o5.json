@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.933Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Schön und köstlich ist das Leben, / Fasse nur des Lebens Sinn,",
+  "language": [],
+  "musenalm_id": 47913,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hoffnung und Erinnerung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hoffnung und Erinnerung",
+  "updated": "2007-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0tdfinc02ntfs26",
+      "agents": "cqrs6fj7ecvzmh8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.673Z"
+    }
+  ]
+}

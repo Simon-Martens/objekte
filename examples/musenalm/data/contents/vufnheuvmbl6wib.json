@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "Was muß wohl unserm Arzt im Kopfe liegen, / Ein Haus so nah am Kirchhof sich zu baun?",
+  "language": [],
+  "musenalm_id": 10799,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 154,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "101. / Frage und Antwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Jünger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "101. / Frage und Antwort",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qa2q5bkyjh8sdwg",
+      "agents": "wbllku5shw1eqif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.445Z"
+    }
+  ]
+}

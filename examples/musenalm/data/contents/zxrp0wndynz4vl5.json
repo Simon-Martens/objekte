@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Februar /) Illustration zu »Leier und Schwert« von J. P. E. Weiner INr 89553, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89541,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leyer und Schwert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. del. A. D. sc.",
+  "scans": [
+    "alm_3354_89541_fmpvhuwa0i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Leyer und Schwert",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vntmt66nlssq0vy",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.405Z"
+    },
+    {
+      "id": "5r5vqjl17v1gbg8",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.405Z"
+    }
+  ]
+}

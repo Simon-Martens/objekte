@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar /) s. folgenden Textbezug INr 82698, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82697,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (A. Berka inv. sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Berka inv. sc.",
+  "scans": [
+    "alm_3817_82697_qm0mj2y2c4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "45e64dkg4rf6z66",
+      "agents": "jlkwrxo4vggz8uy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.826Z"
+    }
+  ]
+}

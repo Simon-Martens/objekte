@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Unter'm Schatten alter Linden / Saß vor seines Hauses Gitter, / Abufar der Abasside,",
+  "language": [],
+  "musenalm_id": 14943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Abassiden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Christian Baron v. Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Abassiden",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k0a11g3r4ao7dsv",
+      "agents": "id1mj19iathigp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.714Z"
+    }
+  ]
+}

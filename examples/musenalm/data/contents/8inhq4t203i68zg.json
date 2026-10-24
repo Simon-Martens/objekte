@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Der Steiger fuhr, der Knappe folgt / In dunkle, stille Nacht;",
+  "language": [],
+  "musenalm_id": 97257,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glück zu",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mann Friedrich Bauer Fallenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glück zu",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fhibfxm12t6dvs7",
+      "agents": "3gtxsu95wib1zui",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.399Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.399Z"
+    }
+  ]
+}

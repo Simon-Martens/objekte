@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.230Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wenn Donner rollt, wenn Todespfeile sausen; / Wenn Feuerswuth das Obdach wild ergreift;",
+  "language": [],
+  "musenalm_id": 29244,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Begrüßung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Begrüßung",
+  "updated": "2002-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z34wesdey22pxi0",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.477Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Seit Menschengedenken hatte man in dem Hafenquartiere der dänischen Stadt Helsingoer keine solche Lebendigkeit gesehen.",
+  "language": [],
+  "musenalm_id": 40915,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Prinz und Kramer / als / Nebenbuhler. / Eine historische Novelleteta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Blumenhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Prinz und Kramer / als / Nebenbuhler. / Eine historische Novelleteta",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nmriqx0rifs7e01",
+      "agents": "7qi9w7fd9odbdoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.143Z"
+    }
+  ]
+}

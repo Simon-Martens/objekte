@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "Was nie ein Mensch mir glauben kann, / Das will ich itzt erzählen,",
+  "language": [],
+  "musenalm_id": 31218,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bella Donna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. J. Koller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bella Donna",
+  "updated": "2003-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kk0sn4hv8lr346i",
+      "agents": "klmzscnh01mej5u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.648Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.648Z"
+    }
+  ]
+}

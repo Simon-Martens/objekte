@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.307Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Wir suchen in der Ferne, was nahe liegt. / Das Heiligste, das Höchste der Menschheit spielt",
+  "language": [],
+  "musenalm_id": 11789,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. / Das nahe Göttliche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. / Das nahe Göttliche",
+  "updated": "2001-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "66t1tbe4qmul5fu",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.408Z"
+    }
+  ]
+}

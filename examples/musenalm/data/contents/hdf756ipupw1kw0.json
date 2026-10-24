@@ -1,0 +1,45 @@
+{
+  "annotation": "nummeriert 6. Illustration zu »Robert, oder der Mann wie er seyn sollte« s. Textbezug INr 132064, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132065,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach nein! da ist an keine Rettung mehr zu denken. / Robert. S. 246",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. & fec.",
+  "scans": [
+    "alm_1951_132065_vi7hprmzr9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ach nein! da ist an keine Rettung mehr zu denken. / Robert. S. 246",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fc9jiu8ft9bs52b",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.086Z"
+    }
+  ]
+}

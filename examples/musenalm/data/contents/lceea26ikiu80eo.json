@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Nicht aus leichtem Schaum geboren, / Nicht vergänglich schön wie er,",
+  "language": [],
+  "musenalm_id": 91698,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Göttin Freya",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gräter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Göttin Freya",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jczbk1oysywgq4a",
+      "agents": "6b95o6o4p7mql27",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.399Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.399Z"
+    }
+  ]
+}

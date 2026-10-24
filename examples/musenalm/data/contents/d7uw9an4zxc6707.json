@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung (bez.: Stan. Jülien) zum nachstehenden Gedicht »Das Dorf Kiang von Tu Fu« von Adolf Elissen INr 35110, Obj 80 /) Nach dem Chinesischen (Sammlung INr 35108, Obj 77) /) Gedichte (Sammlung INr 35106, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Nach Ssu-Dsong's Thronbesteigung verließ Tu-Fu schleunigst Fu-Dschu, um dem neuen Kaiser seine Dienste anzubieten,",
+  "language": [],
+  "musenalm_id": 35111,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach Ssu-Dsong's Thronbesteigung verließ Tu-Fu schleunigst Fu-Dschu, um dem neuen Kaiser seine Dienste anzubieten,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Elissen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "odshnagc395d40l",
+      "agents": "g3mog3e4iqetkn4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.746Z"
+    }
+  ]
+}

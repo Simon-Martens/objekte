@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Du bist so jung, und wenn wir dich erblicken, / So huldigt jeder voll Entzücken",
+  "language": [],
+  "musenalm_id": 35917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Suschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Suschen",
+  "updated": "2003-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ybve8jkoga0bvqd",
+      "agents": "x9exqq2c4bm6xsq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.279Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Beiträgen INr 116240-116245, Obj 32-37 /) Anm. am Objekt: Vorliegende »Blätter aus meinem Wanderbuche« enthalten die Resultate einer österreichischen Gebirgsreise [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116239,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blätter aus meinem Wanderbuche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blätter aus meinem Wanderbuche",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v9gpix0fa69lx8x",
+      "agents": "17xjqe49v1xcoot",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.450Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.450Z"
+    }
+  ]
+}

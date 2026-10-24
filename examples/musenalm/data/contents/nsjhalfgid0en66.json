@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Griechenland (Sammlung INr 89944, Obj 9) s. Textbezug INr 89962, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89961,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weiber von der Insel Scio",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Hilair del. J. Blaschke sc.",
+  "scans": [
+    "alm_3104_89961_mv5y966xkg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Weiber von der Insel Scio",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u81q6ds01eucsnh",
+      "agents": "a0ldppgdsdbno74",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.449Z"
+    },
+    {
+      "id": "eud85m3n2f4e6y0",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.449Z"
+    }
+  ]
+}

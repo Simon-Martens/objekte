@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Kleine Notitzen meistens in Betreff Graubündens (Sammlung INr 51238, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Graubünden trug in den Tagen der Römer den Namen Rhätiens. Die Gallier, welche zur Zeit des ältern Targuin Norditalien überschwemmten, verdrängten einen Haufen Tuscier,",
+  "language": [],
+  "musenalm_id": 51240,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Name",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Name",
+  "updated": "2007-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "blbd30dfteybeas",
+      "agents": "2zqoqv8fdrs839t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.650Z"
+    }
+  ]
+}

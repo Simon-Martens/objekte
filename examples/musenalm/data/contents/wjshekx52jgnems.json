@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel mit kleiner Graphik: (geflügelte Victoria)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22254,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TASCHENBUCH / zum / geselligen Vergnügen / auf das Jahr 1821. / Mit Königl. Sächs. allergnädigsten Privilegio. / LEIPZIG, / bei Joh. Friedrich Gleditsch. / Wien, bei Carl Gerold",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Martin sc.",
+  "scans": [
+    "alm_299_22254_f6azx38woo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / zum / geselligen Vergnügen / auf das Jahr 1821. / Mit Königl. Sächs. allergnädigsten Privilegio. / LEIPZIG, / bei Joh. Friedrich Gleditsch. / Wien, bei Carl Gerold",
+  "updated": "2002-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tcc01nf9b9ighn6",
+      "agents": "u3ev7bjxvo21hzz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.070Z"
+    }
+  ]
+}

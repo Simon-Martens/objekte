@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Der Mahler Rafael, und Rafael der Engel, / Besahn dein Werk, und suchten Mängel,",
+  "language": [],
+  "musenalm_id": 6545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Ramberg; als er mit seinem Gemählde vom Zuge / Alexanders durch den Granikus, für den / Prinzen von Wallis, fertig war. / Im Febr. 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Ramberg; als er mit seinem Gemählde vom Zuge / Alexanders durch den Granikus, für den / Prinzen von Wallis, fertig war. / Im Febr. 1791",
+  "updated": "2000-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6r3b3qr37uqyu43",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.228Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Tändeleien (Sammlung INr 29047, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Bald ist ihr Antlitz roth, bald ist es lilienweiß, / Die Wange, die sie heut mit Rosen aufgefrischet,",
+  "language": [],
+  "musenalm_id": 29052,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die geschminkte Daphne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. A. W. von Kyaw",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die geschminkte Daphne",
+  "updated": "2002-10-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xin7ecc3ti7upbx",
+      "agents": "3euwjw9rlb5537y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.297Z"
+    }
+  ]
+}

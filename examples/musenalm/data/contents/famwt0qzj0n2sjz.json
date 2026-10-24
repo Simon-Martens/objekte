@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.143Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "In einem kühlen Grunde, / Da geht ein Mühlenrad, / Meine Liebste ist verschwunden, / Die dort gewohnet hat.",
+  "language": [],
+  "musenalm_id": 70962,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Florens",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vmv7o3uyr0f8uf2",
+      "agents": "h99uxdryiugeh6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.502Z"
+    }
+  ]
+}

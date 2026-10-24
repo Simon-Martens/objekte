@@ -1,0 +1,45 @@
+{
+  "annotation": "Stimmen des chinesischen Volkes, dem Deutschen angeeignet (Sammlung INr 24706, Obj 283)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.183Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "378",
+  "incipit_statement": "Am Boden winden sich die Ranken, / Weil auf kein Baum sie nahm;",
+  "language": [],
+  "musenalm_id": 24712,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 288,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die verlassene Braut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die verlassene Braut",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gzc1qlb294d6x18",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.065Z"
+    }
+  ]
+}

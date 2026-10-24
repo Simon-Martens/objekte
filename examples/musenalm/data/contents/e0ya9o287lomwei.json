@@ -1,0 +1,45 @@
+{
+  "annotation": "Hafisische Vierzeilen (Sammlung INr 14835, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.447Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Sieh! die Narzisse, wo du trittst zur Erden, / Die Rose, wo du gehst mit Huldgeberden,",
+  "language": [],
+  "musenalm_id": 14849,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14.",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zg7zamlgxpnjh9t",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.619Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.619Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24872, Obj 153)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Wie glänzt der Schnee so weit und breit im hellen / Mondenschein!",
+  "language": [],
+  "musenalm_id": 24873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 154,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Noch aus der Neujahrsnacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schnetzler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Noch aus der Neujahrsnacht",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s3rds3yuwne7872",
+      "agents": "dz5hqr7uvnamp20",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.152Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Bilder (Sammlung INr 34542, Obj 5) s. Graphik INr 34544, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Wir sehen hier ein herrliches Seitenstück zu dem Seesturm, welcher im vorigen Jahrgang dieses Taschenbuchs so trefflich auf dem Bilde der Leuchtturm von Eddystone darge stellt war.",
+  "language": [],
+  "musenalm_id": 34545,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Sturm. / The Land Storm",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Sturm. / The Land Storm",
+  "updated": "2003-06-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oaoxidhl9hz4p8z",
+      "agents": "iiexbt3f7jmpzqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.416Z"
+    }
+  ]
+}

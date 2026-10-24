@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /)  paginiert 5. /) Illustration zu »Geschichte von Polen« INr 58328, Obj 15 /) s. a. G-Verz INr 58338, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58336,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sobieski nimmt den Tataren den gemachten Raub / wieder ab, und danket Gott. 1672 / Sobieski reprend aux Tartares le butin qu'ils / avoient enlevé, & rend grâce à Dieu 1672",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del & sc.",
+  "scans": [
+    "alm_831_58336_m7axqu2bwr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sobieski nimmt den Tataren den gemachten Raub / wieder ab, und danket Gott. 1672 / Sobieski reprend aux Tartares le butin qu'ils / avoient enlevé, & rend grâce à Dieu 1672",
+  "updated": "2008-06-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t2uqfapcxy9hsn8",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.858Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.858Z"
+    }
+  ]
+}

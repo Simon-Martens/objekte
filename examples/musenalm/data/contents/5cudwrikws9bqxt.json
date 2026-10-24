@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "421",
+  "incipit_statement": "Mit den früher empfundenen Ahnungen empfing mich die nördliche Gränze des wunderbaren Böhmens auch diesmal wieder.",
+  "language": [],
+  "musenalm_id": 40438,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Gemälde aus Böhmen. / Reiseerinnerungen, zusammengestellt aus Briefen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Gemälde aus Böhmen. / Reiseerinnerungen, zusammengestellt aus Briefen",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2bv2wwdndjj7mhc",
+      "agents": "j5e1jto7rj2ibw3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.915Z"
+    }
+  ]
+}

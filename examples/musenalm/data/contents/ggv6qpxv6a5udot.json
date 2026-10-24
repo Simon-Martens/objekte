@@ -1,0 +1,45 @@
+{
+  "annotation": "Luftstücke (Sammlung INr 85431, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Es ist erwiesen, daß die Flachheit, Linkheit und Verschrobenheit, die in unserem jetzigen männlichen Cotterien-Geiste liegt, die Werthlosigkeit und Plattheit des weiblichen Geschlechtes bedingt und producirt.",
+  "language": [],
+  "musenalm_id": 85436,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es ist erwiesen, daß die Flachheit, Linkheit und Verschrobenheit, die in unserem jetzigen männlichen Cotterien-Geiste liegt, die Werthlosigkeit und Plattheit des weiblichen Geschlechtes bedingt und producirt.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. G. Saphir",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yu1smskw93xfs73",
+      "agents": "31iymrx6tazubtp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.088Z"
+    }
+  ]
+}

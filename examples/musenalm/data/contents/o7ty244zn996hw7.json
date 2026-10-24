@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Uebersicht der Geschichte der Abtey Beinwyl, und ihrer Versetzung nach Maria-Stein« IN 82880, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82879,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ANSICHT DES KLOSTERS BEINWYLL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Follenweider ft. Lith. v. Hosch Merian",
+  "scans": [
+    "alm_3739_82879_a590appw8l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ANSICHT DES KLOSTERS BEINWYLL",
+  "updated": "2011-12-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "60r4267arnmmi3s",
+      "agents": "3w4eg8ezib2fp09",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.785Z"
+    }
+  ]
+}

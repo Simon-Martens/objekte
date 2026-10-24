@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Faust« von J. W. von Goethe s. Textbezug INr 40878, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40879,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faust 14s. Blatt. / Faust. Ach! Mitten im Gesange sprang / Ein rothes Mäuschen ihr aus dem Munde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury sc.",
+  "scans": [
+    "alm_533_40879_076af4mpxo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Faust 14s. Blatt. / Faust. Ach! Mitten im Gesange sprang / Ein rothes Mäuschen ihr aus dem Munde",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mep78dxko2xbtye",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.185Z"
+    },
+    {
+      "id": "ckfesnimtntmc3u",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.185Z"
+    }
+  ]
+}

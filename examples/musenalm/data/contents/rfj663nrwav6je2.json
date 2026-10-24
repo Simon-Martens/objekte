@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Hell wird's um mich. Ist dir's mein Geist gelungen, / Den Ausgang aus den dunklen Irrgewinden",
+  "language": [],
+  "musenalm_id": 14826,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Emma",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R. Walther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Emma",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4zlot8x4gu8znfg",
+      "agents": "6nwmu2j1m8xu6n4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.588Z"
+    }
+  ]
+}

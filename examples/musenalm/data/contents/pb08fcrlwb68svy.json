@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In diesen Grotesken, Satiren und Naivitäten, die als Fortsetzung meines Taschenbuchs für Freunde des Scherzes und der Satire, nur nach einem erweiterten Plan, zu betrachten sind,",
+  "language": [],
+  "musenalm_id": 73163,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VORREDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "DER HERAUSGEBER",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VORREDE",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pj9pgae8an4oawb",
+      "agents": "bjik5dzyzk4cu0g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.662Z"
+    }
+  ]
+}

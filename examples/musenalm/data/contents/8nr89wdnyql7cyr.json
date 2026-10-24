@@ -1,0 +1,45 @@
+{
+  "annotation": "Ischler Bilder (Sammlung INr 57781, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "401",
+  "incipit_statement": "Des Himmels blauer Bogen / Im milden Abendschein / Blickt in die klaren Wogen / Des Sees tief hinein.",
+  "language": [],
+  "musenalm_id": 57783,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wolfgang-See",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sephine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wolfgang-See",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1yliyjxnohxoxvl",
+      "agents": "sztz4gyoqux83kc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.969Z"
+    }
+  ]
+}

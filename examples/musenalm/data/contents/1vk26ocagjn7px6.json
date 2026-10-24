@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Auszug aus »De l'esprit des lois« von Montesquieu",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Joseph der II. ist nicht mehr. Wir, die wir ihn überlebt haben, sind als seine Nachwelt zu betrachten,",
+  "language": [],
+  "musenalm_id": 71351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Skizze / des Charakters Joseph des II. / Der Tod versöhnet uns mit ihm! / G.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Skizze / des Charakters Joseph des II. / Der Tod versöhnet uns mit ihm! / G.",
+  "updated": "2010-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6q875rodai1pahy",
+      "agents": "a1tvqjbk8115iq7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.439Z"
+    }
+  ]
+}

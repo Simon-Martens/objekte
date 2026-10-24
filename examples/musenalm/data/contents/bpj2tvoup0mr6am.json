@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 102446, Obj 12 und folgenden Beitrag INr 102448, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.542Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102447,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LIEBE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl del. C. Kotterba sc.",
+  "scans": [
+    "alm_4080_102447_btyb7gvyvu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LIEBE",
+  "updated": "2013-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vzeipckk0dsqfc8",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.164Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.164Z"
+    },
+    {
+      "id": "3m4f1rq35xqztpp",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.164Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.164Z"
+    }
+  ]
+}

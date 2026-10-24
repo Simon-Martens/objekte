@@ -1,0 +1,45 @@
+{
+  "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Schon hüllte Phöbus sich ins dunkle Nachtgewand, / Das seine Schleppe legt auf dieses weite Land,",
+  "language": [],
+  "musenalm_id": 132838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Lohensteinisches",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Lohensteinisches",
+  "updated": "2023-12-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lodk8p5j0cd9lg0",
+      "agents": "g7ovzuyzi8c0g2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.094Z"
+    }
+  ]
+}

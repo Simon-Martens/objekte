@@ -1,0 +1,45 @@
+{
+  "annotation": "Türkische und Allerwelts-Nüsse (Sammlung INr 65133, Obj 193) VIII. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1829-1831 (Sammlung INr 65015, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.873Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "So sanft sich auch der Friedensschluß entwickelt, / Die Türken sind doch derb genickelt.",
+  "language": [],
+  "musenalm_id": 65136,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 196,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aliud",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aliud",
+  "updated": "2009-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ycl1ni3sv4st8lw",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.960Z"
+    }
+  ]
+}

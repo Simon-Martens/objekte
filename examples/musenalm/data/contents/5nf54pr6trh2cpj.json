@@ -1,0 +1,45 @@
+{
+  "annotation": "3. Erzählung aus »Das Wirthshaus im Spessart«",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.530Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Zur Zeit Harun Alraschids, des Beherrschers von Bagdad, lebte ein Mann in Balsora, mit Namen Benezar.",
+  "language": [],
+  "musenalm_id": 41620,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Said's Schicksale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Said's Schicksale",
+  "updated": "2005-12-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a9f9ouatzwu4z85",
+      "agents": "ntl4yryhhmz1v3s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.216Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.216Z"
+    }
+  ]
+}

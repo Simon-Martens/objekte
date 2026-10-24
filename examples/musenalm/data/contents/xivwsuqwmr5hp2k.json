@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "König Sancho von Castilien, dessen Regierung durch so viele glänzende Siege über die Mauren verherrlicht wurde, war in der trügerischen Kunst bewandert, welche menschliche Schicksale aus den Sternen lies't.",
+  "language": [],
+  "musenalm_id": 129628,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Macht der Sterne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "And. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Macht der Sterne",
+  "updated": "2022-02-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ncnf5eyb3y4gsqo",
+      "agents": "w54qzevkgviemdi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.046Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Nach Ovid. Fast. 4",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.626Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Aus Enna war Proserpina verschwunden / Durch unbegreiflich schnelle Flucht.",
+  "language": [],
+  "musenalm_id": 16383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Weihe Triptolems",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Weihe Triptolems",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fcn22hmg4k4mthl",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.790Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.790Z"
+    }
+  ]
+}

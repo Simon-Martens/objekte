@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.729Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Ein Hagedorn am Wege stand / Wie unnütz in der Welt,",
+  "language": [],
+  "musenalm_id": 45455,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hagedorns Sohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Merckel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hagedorns Sohn",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l2n2g8v3swrbe5u",
+      "agents": "43zf9fb3jx70ouy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.447Z"
+    }
+  ]
+}

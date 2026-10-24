@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Der Köngin Irene, Gemahlin des Königs Sidonius von Phönicien, wurde auf einer Reise, die sie durch Egypten machte, von einem Prinzen entbunden,",
+  "language": [],
+  "musenalm_id": 129204,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prinz Florian",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prinz Florian",
+  "updated": "2021-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "231u95q6e362w0f",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.007Z"
+    }
+  ]
+}

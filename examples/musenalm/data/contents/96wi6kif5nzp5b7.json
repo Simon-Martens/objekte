@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Pl. 6. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne [übers.: unbezeichnet] INr 111594, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111599,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Le Roi acceptant La Constitution, au / milieu de l'Aßemblée Nationale. / Le 14 Septembre 1791.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moerau invent. De Longueil sculp.",
+  "scans": [
+    "alm_4320_111599_gbxl5j84a0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Le Roi acceptant La Constitution, au / milieu de l'Aßemblée Nationale. / Le 14 Septembre 1791.",
+  "updated": "2016-06-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lkc633w0iclcdwd",
+      "agents": "6v2mea0laepybs2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.279Z"
+    },
+    {
+      "id": "dg7qd8kwj5q2c1u",
+      "agents": "fefojuqn8m9sm1d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.279Z"
+    }
+  ]
+}

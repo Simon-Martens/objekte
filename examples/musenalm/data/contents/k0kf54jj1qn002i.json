@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "Der Anblick des Buchbergerthals in Unterösterreich ist für dem Beschauer von drastischer Wirkung. Es bietet dem Auge ein Panorama von Bergen,",
+  "language": [],
+  "musenalm_id": 116132,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bärbel. / Ein Blatt aus meinem Wanderbuche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bärbel. / Ein Blatt aus meinem Wanderbuche",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "38p08hptcg5em1e",
+      "agents": "17xjqe49v1xcoot",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.481Z"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 89498, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Der Doktor Paulus Florenius zu Wien galt zu seiner Zeit für ein ganz besonderes Genie unter seinen Landsleuten,",
+  "language": [],
+  "musenalm_id": 89501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der hochgelahrte Doktor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der hochgelahrte Doktor",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qjhdkgvhofltzld",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.360Z"
+    }
+  ]
+}

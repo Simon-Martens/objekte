@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.678Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Es war um die Mittagszeit eines hellen Sommertages, als der Harburger Postever in den engen Furthen des Köhlbrands kreuzte,und den freien Elbstrom zu gewinnen suchte.",
+  "language": [],
+  "musenalm_id": 44198,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tonnenleger. / Eine Seenovelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Smidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tonnenleger. / Eine Seenovelle",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ddv2ovyqjegkgay",
+      "agents": "p5nbyct99xa1658",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.107Z"
+    }
+  ]
+}

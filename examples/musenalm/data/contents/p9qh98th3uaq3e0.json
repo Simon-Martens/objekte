@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "So hat der Zufall mich gemacht, / Dieß die Gebeerde, dieß die Tracht,",
+  "language": [],
+  "musenalm_id": 13613,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter einem Bildnisse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt von Lübeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unter einem Bildnisse",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "szorbrsj8lsg2jn",
+      "agents": "zcowt1c8qli1wm3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.454Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 54122, Obj 33 /) mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Freundlich lacht die Sonne / An des Festes Abend, / Und die Mütter schmücken / Ihre Kinder aus,",
+  "language": [],
+  "musenalm_id": 54121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Stadtleute",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. U.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Stadtleute",
+  "updated": "2008-01-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q7q7oq7999tuowx",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.635Z"
+    }
+  ]
+}

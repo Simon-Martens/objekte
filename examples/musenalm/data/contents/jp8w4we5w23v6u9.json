@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Liederbukett von einem Gatten und drei Kindern zum Geburtstage der Gattin und Mutter den 6ten December 1814 (Sammlung INr 39621, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Ich möcht' auch wohl Verse machen, / Doch die Andern werden lachen,",
+  "language": [],
+  "musenalm_id": 39624,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig von Germar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2005-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uvtt5azpx9o146r",
+      "agents": "qc9rivowlr9gkjc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.944Z"
+    }
+  ]
+}

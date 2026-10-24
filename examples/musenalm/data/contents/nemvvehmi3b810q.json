@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "O lieber See, in deinen stillen Fluthen, / In deiner süßbewegten Wellen Spiel,",
+  "language": [],
+  "musenalm_id": 78366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freih. v. d. Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der See",
+  "updated": "2011-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0eiq6leznxtoibc",
+      "agents": "7pclzh61bvgdvvq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.795Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Wachse, blühe, holder Knabe! / Kraft und Fülle sey dein Loos!",
+  "language": [],
+  "musenalm_id": 42597,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beim Tauffeste eines Knaben zu singen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Eckermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beim Tauffeste eines Knaben zu singen",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q01jm43zd24r0ig",
+      "agents": "kzwzs9hnc6kboxh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.273Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 60543, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60542,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KROLLS WINTERGARTEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Gärtner. Gest v. J. Hasse",
+  "scans": [
+    "alm_880_60542_lhatj9rywm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KROLLS WINTERGARTEN",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2tiwxuh7uyd3w9t",
+      "agents": "067ouu3fi9o7n2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.843Z"
+    },
+    {
+      "id": "nve8ud0jpbfdm20",
+      "agents": "h7uaqdezzsr8nde",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.843Z"
+    }
+  ]
+}

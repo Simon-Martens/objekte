@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August; paginiert 8. Illustration zu »Der glückliche Traum« von A. F. E. Langbein INr 59214, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59200,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der glückliche Traum. / von Langbein IItes Blatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. F. Meyer sc.",
+  "scans": [
+    "alm_890_59200_2ptzlp50jg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der glückliche Traum. / von Langbein IItes Blatt",
+  "updated": "2008-08-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ue8qdwyysvvizhr",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.715Z"
+    },
+    {
+      "id": "63glavihv7k3t7z",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.715Z"
+    }
+  ]
+}

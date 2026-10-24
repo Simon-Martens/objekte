@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Liuta - eine Jungfrau, Dichterin, Schwester und Braut - hatte in das Kriegsfeuer hinein alles ziehen sehen müssen, was ihr theuer gewesen,",
+  "language": [],
+  "musenalm_id": 33509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Traum einer Wahnsinnigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Traum einer Wahnsinnigen",
+  "updated": "2003-04-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1vq2is3si0p7tra",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.533Z"
+    }
+  ]
+}

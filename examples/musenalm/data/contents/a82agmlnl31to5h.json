@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Gedichte (Sammlung INr 40004, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Drei Ritter zogen in fremdes Land; / Sie baten all' um ein Liebespfand",
+  "language": [],
+  "musenalm_id": 40010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebesprobe. / (Aus den Fabliaux et Contes etc.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebesprobe. / (Aus den Fabliaux et Contes etc.)",
+  "updated": "2005-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fwlcj2zvp2wd0xh",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.025Z"
+    }
+  ]
+}

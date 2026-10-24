@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 31",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Ein süßes Nein mit einem süßen Lächeln, / In aller Welt nicht süßres fänd' ich leicht",
+  "language": [],
+  "musenalm_id": 17059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Süßes Nein. / (Siehe Alm 1786. S. 80.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Süßes Nein. / (Siehe Alm 1786. S. 80.)",
+  "updated": "2001-08-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tm65ygs4rvub24u",
+      "agents": "n4kki21smc12tdq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.841Z"
+    }
+  ]
+}

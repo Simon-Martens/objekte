@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder an Amara (Sammlung INr 100262, Obj 202)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "359",
+  "incipit_statement": "Du warst ein Stein auf düsterm Pfad, / Du warst ein Stein, den Jeder trat,",
+  "language": [],
+  "musenalm_id": 100267,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 207,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9ho55umns96ls8z",
+      "agents": "ujjt9xntbdmu6em",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.813Z"
+    }
+  ]
+}

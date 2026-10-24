@@ -1,0 +1,45 @@
+{
+  "annotation": "§2§ Titel aus dem I-Verz SS 102, 103 nicht bedruckt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.689Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebelik §2§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebelik §2§",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xubh9mcizntrio0",
+      "agents": "wdbc0arxqqntge1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.798Z"
+    }
+  ]
+}

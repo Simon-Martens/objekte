@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Euer Königlichen Hoheit zweites Vaterland zu seyn, gehört unter die schönsten Vorzüge Wirtembergs.",
+  "language": [],
+  "musenalm_id": 58118,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Durchlauchtigste Herzogin / Gnädigste Herzogin und / Frau!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Löflund",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Durchlauchtigste Herzogin / Gnädigste Herzogin und / Frau!",
+  "updated": "2008-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ghvk637ro9pi0d4",
+      "agents": "f1yvhyt8r3wpl41",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.940Z"
+    }
+  ]
+}

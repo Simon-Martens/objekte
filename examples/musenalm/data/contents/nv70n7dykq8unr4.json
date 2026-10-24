@@ -1,0 +1,45 @@
+{
+  "annotation": "Beyträge zur Menschenkenntniß, Regeln der Lebensweisheit, und moralischen Wahrheiten (Sammlung INr 21909, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Das Weib wird durch die Ehe frey; der Mann verliert dadurch seine Freyheit.",
+  "language": [],
+  "musenalm_id": 21926,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Weib wird durch die Ehe frey; der Mann verliert dadurch seine Freyheit.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kant; L. d. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u1kodhx9jfc4yae",
+      "agents": "wy2v3l6z3yxzbuk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.962Z"
+    }
+  ]
+}

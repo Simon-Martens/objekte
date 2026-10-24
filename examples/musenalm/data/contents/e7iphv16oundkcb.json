@@ -1,0 +1,58 @@
+{
+  "annotation": "graph. Zwischentitel. s. Beiträge INr 71321-71325, Obj 108-112 /) CERVANTES (s. Zwischentitel INr 71319, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71320,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PERSILES u. / SIGISMUNDA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiek i. Fr. Bolt sc.",
+  "scans": [
+    "alm_3600_71320_96natudlo7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PERSILES u. / SIGISMUNDA",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "chhrtn8dkb288v1",
+      "agents": "jo4gipjsowa4j99",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.617Z"
+    },
+    {
+      "id": "kat1435fjoncpn8",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.617Z"
+    }
+  ]
+}

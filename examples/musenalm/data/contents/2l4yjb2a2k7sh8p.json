@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Mathias, Ungarns König, sitzt / Zu Ofen bei dem Mahl, / Von Gold und Edelstein umblitzt,",
+  "language": [],
+  "musenalm_id": 58041,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Geächtete. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Geächtete. / Ballade",
+  "updated": "2008-06-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s3z7vbgx83ufvti",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.963Z"
+    }
+  ]
+}

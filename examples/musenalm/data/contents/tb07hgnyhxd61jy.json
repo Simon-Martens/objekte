@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "Die Schöpfung ist ein Buch von Gottes Hand, / In unserm Herzen und Verstand",
+  "language": [],
+  "musenalm_id": 16535,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Welt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Welt",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y21nrcyro9gagft",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.545Z"
+    }
+  ]
+}

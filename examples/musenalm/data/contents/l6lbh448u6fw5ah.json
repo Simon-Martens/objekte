@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen und Balladen (Sammlung INr 68022, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Es schimmert der Mond in's neblige Grau, / Und das Küsterlein suchet, - wen? wen? / Das schlanke Schwarzäugel, sie möcht er zur Frau,",
+  "language": [],
+  "musenalm_id": 68025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Der Tappzu",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. Kurowski-Eichen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Der Tappzu",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "283z6j35b8avkqm",
+      "agents": "prvw4acsenveets",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.246Z"
+    }
+  ]
+}

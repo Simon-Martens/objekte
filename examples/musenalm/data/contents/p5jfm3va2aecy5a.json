@@ -1,0 +1,45 @@
+{
+  "annotation": "6. Weihnachtslieder (Sammlung INr 63199, Obj 29) Aus dem Nachlasse des Max von Schenkendorf (Sammlung INr 63193, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Himmelsbotschaft ist erklungen, / Gar ein wunderbarer Klang!",
+  "language": [],
+  "musenalm_id": 63200,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Hirten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max von Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Hirten",
+  "updated": "2009-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "go3nmkraitj6ipt",
+      "agents": "591e69im25wvavb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.103Z"
+    }
+  ]
+}

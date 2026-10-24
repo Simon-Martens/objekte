@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Ein Blick, und noch ein Blick in diese Höh'n, / In diese Tiefen, so unendlich schön!",
+  "language": [],
+  "musenalm_id": 99932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das erste Fernrohr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johannes Minckwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das erste Fernrohr",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "snlwsejs3nv1iyv",
+      "agents": "dpkh7u6gok5xlc0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.957Z"
+    }
+  ]
+}

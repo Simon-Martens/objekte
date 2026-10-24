@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. Gallerie aus Walter Scott's Werken. Zweite Lieferung. Kenilworth (Sammlung INr 43626, Obj 4) mit einer Illustration s. Graphik INr 43628, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Bei dem guten Wirthe zu Cumnor hatte sich eine fröhliche Gesellschaft zusammengefunden, welche der Wein, den des Wirtthes Neffe, Michael Lambourne spendete nicht wenig begeisterte,",
+  "language": [],
+  "musenalm_id": 43627,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kenilworth. / 1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kenilworth. / 1.",
+  "updated": "2006-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "szafgzqsvkc9zpb",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.065Z"
+    }
+  ]
+}

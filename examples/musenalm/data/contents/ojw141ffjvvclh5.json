@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Auf meiner frischen Wellen / Gekühlten Wangen / Empfind ich euch, ihr goldenen Morgenküsse.",
+  "language": [],
+  "musenalm_id": 55685,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "27. / Der Raub / der / Proserpina. / Eine Frühlingsfeier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. v. Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "27. / Der Raub / der / Proserpina. / Eine Frühlingsfeier",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rer2q3xla1pbvbu",
+      "agents": "j5e1jto7rj2ibw3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.609Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.609Z"
+    }
+  ]
+}

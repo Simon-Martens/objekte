@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 27431, Obj 158)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Wenn ihr noch lächeltet, ihr lieben Sterne, / So hold als ihr mir sonst gelächelt habt:",
+  "language": [],
+  "musenalm_id": 27436,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 163,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Sonett",
+  "updated": "2002-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gvvos5idhpzo8ds",
+      "agents": "ep2ivkqi4f7w9jh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.283Z"
+    }
+  ]
+}

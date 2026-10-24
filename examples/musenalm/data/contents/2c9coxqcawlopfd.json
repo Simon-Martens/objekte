@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Die Morgensterne priesen / Im hohen Jubelton / Den Schöpfer grüner Wiesen / Viel tausend Jahr schon;",
+  "language": [],
+  "musenalm_id": 101540,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vertrauen auf Gott",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vertrauen auf Gott",
+  "updated": "2013-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wc7vlsi279qn837",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.995Z"
+    }
+  ]
+}

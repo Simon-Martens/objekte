@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 57727, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dandár und Isidoral",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Barabás gez. Carl Mayer's Kunst-Anstalt in Nürnberg",
+  "scans": [
+    "alm_768_57728_fy6og42pfi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dandár und Isidoral",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7szchy5qntq6gtk",
+      "agents": "jt9vrpcti67n6hx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.922Z"
+    }
+  ]
+}

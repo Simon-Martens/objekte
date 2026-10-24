@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumenlese aus deutschen Dichtern des siebenzehnten Jahrhunderts (Sammlung INr 131276, Obj 195) # Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "452",
+  "incipit_statement": "Schlüpft die Blume Winters gleich / In das kalte Erdenreich, / Sehen wir sie doch im Lenzen / Nochmals auf den Auen glänzen;",
+  "language": [],
+  "musenalm_id": 131287,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 206,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiederkehrt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Opitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiederkehrt",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qjc8b5tcvggp4ra",
+      "agents": "tbjfsz6p9q8bcrh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.011Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.011Z"
+    }
+  ]
+}

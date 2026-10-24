@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Nur auf dem Lande zeigt sich Amor unverstellt, / Ein nacktes Kind, das sich an Kinderspielen / weidet;",
+  "language": [],
+  "musenalm_id": 11377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Die beiden Amorn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Manso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Die beiden Amorn",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ohj7lva4snicch0",
+      "agents": "z30t9keae9ak7mu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.141Z"
+    }
+  ]
+}

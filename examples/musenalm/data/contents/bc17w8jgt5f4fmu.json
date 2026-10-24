@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Bemerkungen aus der Kinderstube (Sammlung INr 48565, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "359",
+  "incipit_statement": "Das Leben ist zur Verworrenheit geneigt. Es gehört ein eigener Takt dazu, immer zur Entwirrung zu lenken,",
+  "language": [],
+  "musenalm_id": 48567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Leben ist zur Verworrenheit geneigt. Es gehört ein eigener Takt dazu, immer zur Entwirrung zu lenken,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ymonxmz4wzf7bip",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.528Z"
+    }
+  ]
+}

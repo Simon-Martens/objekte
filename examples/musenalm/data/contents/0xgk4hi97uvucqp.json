@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Ich lag vor einem alten Schlosse, / Es war die Welt gar öd und still,",
+  "language": [],
+  "musenalm_id": 122699,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wenzig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloß",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sjltu3j82pw64ct",
+      "agents": "vus37dvhecsoaq7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.753Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Walgerß und Hildegunde (Sammlung INr 26347, Obj 72)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.188Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Ein heimlich Sinnen schwebt, gleichwie ein Flor, / Am Morgen drauf um Fräulein Hildegund,",
+  "language": [],
+  "musenalm_id": 26352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sieg der Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sieg der Lieder",
+  "updated": "2002-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i9s09yp579hqewv",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.357Z"
+    }
+  ]
+}

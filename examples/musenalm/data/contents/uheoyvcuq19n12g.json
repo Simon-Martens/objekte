@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-08-04T10:22:37.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Vom Himmel sah der Mond mit Neide / Auf meinen Erdenmond herab,",
+  "language": [],
+  "musenalm_id": 140275,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beiden Monde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beiden Monde",
+  "updated": "2026-08-05T08:25:31.599Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "x5kb1id5yqyvns8",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-04T10:23:13.446Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-04T10:23:13.446Z"
+    }
+  ]
+}

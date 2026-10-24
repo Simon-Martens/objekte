@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Bemerkungen über das männliche und weibliche Geschlecht (Sammlung INr 39141, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Die Verdienste des Mannes wirken beym Frauenzimmer nicht so viel Achtung, als die Verdienste des Frauenzimmers beym Manne.",
+  "language": [],
+  "musenalm_id": 39150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Verdienste des Mannes wirken beym Frauenzimmer nicht so viel Achtung, als die Verdienste des Frauenzimmers beym Manne.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kant",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-07-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6cicd3qlyw8hc4d",
+      "agents": "wy2v3l6z3yxzbuk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.943Z"
+    }
+  ]
+}

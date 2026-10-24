@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.724Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Sie sagten, ich sollt' es dem Doctor nur klagen, / Die Angst in der Brust, und wie Schmerzen mich plagen,",
+  "language": [],
+  "musenalm_id": 111953,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die sympathetische Kur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die sympathetische Kur",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "an6ie25ic2vhgts",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.394Z"
+    }
+  ]
+}

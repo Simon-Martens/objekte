@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am Titelportrait /) Graphik (Portrait) im Kalendarium August",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72453,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rudolph v. Erlach",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Diogg pinx. M. Haas sc.",
+  "scans": [
+    "alm_841_72453_0thrqhnvtl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rudolph v. Erlach",
+  "updated": "2008-07-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nom5pzogcjvcblk",
+      "agents": "io5x7lvcmmezwyj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.669Z"
+    },
+    {
+      "id": "hlk23i4nqfcjkcr",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.669Z"
+    }
+  ]
+}

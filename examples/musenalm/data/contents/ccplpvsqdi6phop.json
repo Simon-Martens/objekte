@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus häuslichem Kranze (Sammlung INr 21118, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Lebe wohl, schönes Jahr, / Das so reich an Freuden war,",
+  "language": [],
+  "musenalm_id": 21120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Am letzten Tage des Jahres / (Nach der Mozartschen Melodie des Liedes: Eheliche gute Nacht)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Treumund Wellentreter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Am letzten Tage des Jahres / (Nach der Mozartschen Melodie des Liedes: Eheliche gute Nacht)",
+  "updated": "2002-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p2st5f2pj68r604",
+      "agents": "0lth2adu21imy6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.945Z"
+    }
+  ]
+}

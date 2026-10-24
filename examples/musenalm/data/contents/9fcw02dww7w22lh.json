@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Ihr Herrn und Fraun, zur Wasserfahrt! / Es stehe das Both bereit.",
+  "language": [],
+  "musenalm_id": 4649,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied. / Bei einer Wasserfahrt gesungen. / 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied. / Bei einer Wasserfahrt gesungen. / 1797",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "27yjajv9mllyqr9",
+      "agents": "scmt2snhwdglbs9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.051Z"
+    }
+  ]
+}

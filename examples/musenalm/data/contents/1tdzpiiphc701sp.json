@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Vorüber! Ach, vorüber! / Geh wilder Knochenmann!",
+  "language": [],
+  "musenalm_id": 2327,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Tod und das Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Claudius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Tod und das Mädchen",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mr9mazy3qv9pbwt",
+      "agents": "bm6n1x459jfghwe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.875Z"
+    }
+  ]
+}

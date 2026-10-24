@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 32",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Brüder! Brüder! wenn ich trinke, / Seht! ich Sohn der Erde dünke / Mir ein Himmelsgott zu sein!",
+  "language": [],
+  "musenalm_id": 34925,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der vornehme Trinker",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dt.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der vornehme Trinker",
+  "updated": "2001-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "isv8hj09eyopvj8",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.990Z"
+    }
+  ]
+}

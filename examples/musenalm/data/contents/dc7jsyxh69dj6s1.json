@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72399,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Catharina II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Bollinger sc. Berol. 97",
+  "scans": [
+    "alm_833_72399_lbdwtnm8yf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Catharina II.",
+  "updated": "2008-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t8hx4115yosqejj",
+      "agents": "xudps8vzrobe0d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.666Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.666Z"
+    }
+  ]
+}

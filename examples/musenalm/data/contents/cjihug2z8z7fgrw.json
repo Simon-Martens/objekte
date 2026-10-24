@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium September; nummeriert 9. /) Illustration zu »Virgils Aeneis, travestirt« von J. A. Blumauer /) s. G-Verz INr 108348, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.670Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108338,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was die beyden Liebenden / In der Höhle thaten, / lasst - Maro uns errathen. / IV. B. 148 S.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki f.",
+  "scans": [
+    "alm_2168_108338_nd6350a3yo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Was die beyden Liebenden / In der Höhle thaten, / lasst - Maro uns errathen. / IV. B. 148 S.",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oc0b6zwjwnz3qde",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.223Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.223Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "388",
+  "incipit_statement": "Im Reich der Thier war Revolution, / Es bebte des Königs Nobel-Thron",
+  "language": [],
+  "musenalm_id": 100040,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 204,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reineke's Verbannung und Rückkehr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Freiherr von Leutrum-Ertingen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reineke's Verbannung und Rückkehr",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3dqswfr1vvb0mh2",
+      "agents": "sjdkhvhq60b5nsf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.987Z"
+    }
+  ]
+}

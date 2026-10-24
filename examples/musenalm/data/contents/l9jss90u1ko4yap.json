@@ -1,0 +1,45 @@
+{
+  "annotation": "Die sechs Schubertschen Kupfer (Sammlung INr 60263, Obj 47) XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60271, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.428Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Die getreue Darstellung des Auflaufes, welchen die französische Botschaft durch Aushängung einer dreyfarbigen Fahne den 13. April 1708 in Wien veranlaßt hat.",
+  "language": [],
+  "musenalm_id": 60269,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Die dreyfarbige Fahne und Bernadotte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Die dreyfarbige Fahne und Bernadotte",
+  "updated": "2008-10-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ecaipgmbnpxl1k",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.933Z"
+    }
+  ]
+}

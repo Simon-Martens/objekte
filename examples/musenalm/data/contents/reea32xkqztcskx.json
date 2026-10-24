@@ -1,0 +1,45 @@
+{
+  "annotation": "Rabbinische Legenden (Sammlung INr 128594, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Am Morgen eines Sabbaths eilete Jahel, die Tochter Jehu, das Gebeth des Herrn zu vollbringen, mit andächtigem Eifer hinauf in den Tempel.",
+  "language": [],
+  "musenalm_id": 128598,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Kraft des Gebeths",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Kraft des Gebeths",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rliqlxk9kdjma7n",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.993Z"
+    }
+  ]
+}

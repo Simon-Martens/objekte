@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Es waltet, ja es waltet / Ein liebevoller guter Geist;",
+  "language": [],
+  "musenalm_id": 101378,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vorsehung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Rudolphi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Vorsehung",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "96mgfwu4g3zbbcb",
+      "agents": "dxi2hql7exffxou",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.110Z"
+    }
+  ]
+}

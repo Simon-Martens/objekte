@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VII (Sammlung INr 77129, Obj 5) s. Graphik INr 77137, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Seyd gegrüßt, Ihr Frühlingskinder / Unter heiterm Himmelsdach!",
+  "language": [],
+  "musenalm_id": 77136,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klage der Ceres: Glosse. / Keime, die dem Auge starben / In der Erde kaltem Schooß, / In das heit're Reich der Farben / Ringen sie sich freudig los",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klage der Ceres: Glosse. / Keime, die dem Auge starben / In der Erde kaltem Schooß, / In das heit're Reich der Farben / Ringen sie sich freudig los",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n4xdf6bd5sq49nt",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.584Z"
+    }
+  ]
+}

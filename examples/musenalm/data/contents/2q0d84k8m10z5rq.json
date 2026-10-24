@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Daß man das Stück nicht spielt, was man uns / spielen wollte,",
+  "language": [],
+  "musenalm_id": 8434,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als die Komödianten Cronegks verfolgte / Komödie angekündigt hatten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göckingh",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als die Komödianten Cronegks verfolgte / Komödie angekündigt hatten",
+  "updated": "2026-06-23T09:01:04.895Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b18egzz2mpccshv",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.447Z"
+    }
+  ]
+}

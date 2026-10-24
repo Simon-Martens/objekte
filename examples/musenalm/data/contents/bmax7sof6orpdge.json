@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 26; Goed IV/1 1095",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.711Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Immer spricht Sie, ich, mein Trauter, / Liebe zärtlicher als Du.",
+  "language": [],
+  "musenalm_id": 17698,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebesfehde. / Aus einem ungedruckten Roman",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Ue.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebesfehde. / Aus einem ungedruckten Roman",
+  "updated": "2001-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ux773q1srqssjxk",
+      "agents": "f19nlby6rz6ae27",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.649Z"
+    }
+  ]
+}

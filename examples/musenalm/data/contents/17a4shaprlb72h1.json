@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte (Sammlung INr 40237, Obj 6) s. Graphik INr 40250, Obj 19 /) Mit einer Einleitung: Pausias von Sieyon, der Mahler, war als Jüngling in Glyceren, seine Mitbürgerin verliebt, welche Blumenkränze zu winden und einen sehr erfinderischen Geist hatte. [...] Plinius B. XXXV. E. XL.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Schütte die Blumen nur her, zu meinen Füßen und deinen! / Welch' ein chaotisches Bild holder Verwirrung du streust!",
+  "language": [],
+  "musenalm_id": 40251,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der neue Pausias und sein Blumenmädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der neue Pausias und sein Blumenmädchen",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u0fkdncfbo7ohnv",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.749Z"
+    }
+  ]
+}

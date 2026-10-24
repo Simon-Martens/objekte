@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Der verlorene Schlüssel« von J. Falk INr 22347, Obj 91 /) Musik zu dem Taschenbuch zum geselligen Vergnügen auf das Jahr 1821 (Sammlung INr 22732, Obj 116) (Photos 22375,01; 22375,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22375,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der verlorene Schlüssel. / (S. 432)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Schulz",
+  "scans": [
+    "alm_299_22375_01_yivfb4jv86.jpg",
+    "alm_299_22375_02_6p5crwmrkl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der verlorene Schlüssel. / (S. 432)",
+  "updated": "2002-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "efx8p5l1vcjknub",
+      "agents": "manakippfdpd18n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.910Z"
+    }
+  ]
+}

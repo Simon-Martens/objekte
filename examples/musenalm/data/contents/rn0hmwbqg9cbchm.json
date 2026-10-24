@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "My Papa seyt: ih syg es Vögeli. / Und wenn ig einisch älter bih,",
+  "language": [],
+  "musenalm_id": 52747,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ahndung. / (Stadt-Dialect von Bern)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rud. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ahndung. / (Stadt-Dialect von Bern)",
+  "updated": "2007-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n50bt8yukyfwawl",
+      "agents": "kq69ntdbn8wcwoq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.710Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.565Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "Sterben ist es ausgeträumet haben, / Oder ists der Anfang erst vom Traume?",
+  "language": [],
+  "musenalm_id": 37475,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Frage und Antwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Frage und Antwort",
+  "updated": "2005-03-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oar32h6fbxq292t",
+      "agents": "5uss88okhpw2gvm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.917Z"
+    }
+  ]
+}

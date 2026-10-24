@@ -1,0 +1,56 @@
+{
+  "annotation": "auszufaltende Graphik; lt. G-Verz.: Zwei Karikaturen: 2) Pedanterieen alter Zeiten, oder Uebertreibungen löblicher militairischer Einrichtungen. s. Textbezug INr 130313, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130332,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Ramberg del. Gsler fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Gsler fec.",
+  "scans": [
+    "alm_2206_130332_hehmz7s1j9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8guescuzl820nnw",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.066Z"
+    },
+    {
+      "id": "ev06bknvkjrkzn4",
+      "agents": "iojwntogak3m4db",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.066Z"
+    }
+  ]
+}

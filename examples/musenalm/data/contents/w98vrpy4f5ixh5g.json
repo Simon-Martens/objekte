@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gegenstände (Sammlung INr 67078, Obj 27) Anm. am Objekt: Etwas frei erzählt nach A. Gellius Noctes atticae. Lib. XV. cap. 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Der Herr General-Feldmarschall Sertorius, ein Mann, der im langen bürgerlichen Kriege der Spanier gegen die Römer manche gewonnene Schlacht und manchen glorreichen Rückzug seiner kunstreichen Erfahrung zu danken hatte,",
+  "language": [],
+  "musenalm_id": 67082,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Hirschkuh des Sertorius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Wildungen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Hirschkuh des Sertorius",
+  "updated": "2009-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "21200zv0rdr5v63",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.365Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.365Z"
+    }
+  ]
+}

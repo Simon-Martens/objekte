@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Wo, Schmuck der Tauben, eilst du hin? / Wo du hin, Favorit des Bändigers der Wetter?",
+  "language": [],
+  "musenalm_id": 8037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Adler Jupiters und die Taube der / Venus. / Nach d'Arnaud",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michaelis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Adler Jupiters und die Taube der / Venus. / Nach d'Arnaud",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cf248avpg1dztzu",
+      "agents": "s34fjwkh4uvwpky",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.310Z"
+    }
+  ]
+}

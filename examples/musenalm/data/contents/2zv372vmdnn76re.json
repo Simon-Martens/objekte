@@ -1,0 +1,45 @@
+{
+  "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "Der Dichtungs-Phönix und der Kriegs-Adler haben oft die Darre oder den Pips,",
+  "language": [],
+  "musenalm_id": 33720,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12.",
+  "updated": "2003-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y30q036oxqgnjq7",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.544Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.544Z"
+    }
+  ]
+}

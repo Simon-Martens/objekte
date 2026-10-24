@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Uns klingt aus alten Mähren / Viel Wunders alter Zeit, / Von Helden reich an Ehren / Und arbeitvollem Streit.",
+  "language": [],
+  "musenalm_id": 62555,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seinem ältesten Freunde / Karl Grafen von der Gröben, / als er sich mit dem / Fräulein Selma von Dörnberg / vermählte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max von Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Seinem ältesten Freunde / Karl Grafen von der Gröben, / als er sich mit dem / Fräulein Selma von Dörnberg / vermählte",
+  "updated": "2009-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6cohmxduuq3hgwx",
+      "agents": "591e69im25wvavb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.844Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.844Z"
+    }
+  ]
+}

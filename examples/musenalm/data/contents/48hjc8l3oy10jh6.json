@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert I. /) kol. Illustration zu »Der Vielfraß« von V. F. S. Fischer INr 67240, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.027Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67239,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ursus Gulo (Linn.) Taxus Gulo (Tiedem.) Der Vielfraß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas jun. del. G. Boettger sen. sc.",
+  "scans": [
+    "alm_1149_67239_ovvafxjq4e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ursus Gulo (Linn.) Taxus Gulo (Tiedem.) Der Vielfraß",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dnna4d7k7q06q2x",
+      "agents": "93i1cvgb16cjfey",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.973Z"
+    },
+    {
+      "id": "aou7tyxg31s135h",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.973Z"
+    }
+  ]
+}

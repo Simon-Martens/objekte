@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Laßt mein hohes Glück mich preisen! / Denn ich fand nach langem Reisen",
+  "language": [],
+  "musenalm_id": 39486,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was und wo ich's fand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Was und wo ich's fand",
+  "updated": "2005-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8rvat42trl5pejn",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.749Z"
+    }
+  ]
+}

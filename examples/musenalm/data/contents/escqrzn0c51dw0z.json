@@ -1,0 +1,45 @@
+{
+  "annotation": "Drey Erzählungen (Sammlung INr 38320, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Im dunkeln jener Zeit, von der mit küh- / nem Dichten / Kein feiler Hozier uns wagt zu unter- / richten,",
+  "language": [],
+  "musenalm_id": 38321,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Aus der Hölle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Aus der Hölle",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3z2y7otw4kiwnzi",
+      "agents": "6cp00jd21onlhwl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.899Z"
+    }
+  ]
+}

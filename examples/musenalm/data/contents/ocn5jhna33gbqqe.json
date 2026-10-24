@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel mit kleiner Graphik",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.473Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20980,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TASCHENBUCH / zum / geselligen Vergnügen / auf das Jahr 1830 / herausgegeben von / Fr. Kind. / Leipzig bei C. H. F. Hartmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rensch del. Fleischmann sc.",
+  "scans": [
+    "alm_278_20980_r66slscufr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / zum / geselligen Vergnügen / auf das Jahr 1830 / herausgegeben von / Fr. Kind. / Leipzig bei C. H. F. Hartmann",
+  "updated": "2002-01-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i3kldvalpt083hl",
+      "agents": "ail6kpkgq3rdfot",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.876Z"
+    },
+    {
+      "id": "tzlrjxe0dv0dngb",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.876Z"
+    }
+  ]
+}

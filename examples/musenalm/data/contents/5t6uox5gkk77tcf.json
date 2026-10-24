@@ -1,0 +1,45 @@
+{
+  "annotation": "# Nachdruck des Gedichts »Einfalt« von J. G. Jacobi INr 23305 aus: Taschenbuch, Überflüssiges (J. G. Jacobi) 1800 s. Bemerkung im Vorwort des Herausgebers INr 48780, Obj 7; mit einer Musikbeigabe s. INr 48785, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Seit meinen ersten Kinderspielen / Wie oft entwich der Frühling schon!",
+  "language": [],
+  "musenalm_id": 48784,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einfalt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einfalt",
+  "updated": "2007-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u8ue67fyjk73ia7",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.519Z"
+    }
+  ]
+}

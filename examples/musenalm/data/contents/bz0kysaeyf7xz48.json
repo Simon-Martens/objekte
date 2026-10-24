@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Churfürstin Anna von Sachsen, Churfürst August des Ersten Gemahlin. Biographische Skizze« INr 76746, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Es pflegte sonst der Erste der Auguste / In Ostra's Schatten-Au sich zu ergehn,",
+  "language": [],
+  "musenalm_id": 76747,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Churfürst August I. von Sachsen und / die Magd aus Ostra bei Dresden. / Geschichtliche Anekdote",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Churfürst August I. von Sachsen und / die Magd aus Ostra bei Dresden. / Geschichtliche Anekdote",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5bsr2b601ot3rl6",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.801Z"
+    }
+  ]
+}

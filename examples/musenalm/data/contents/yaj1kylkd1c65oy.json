@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder der Quanchen (Sammlung INr 318866, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Klagt die schöne Attrapaja; / Von den Thränen ihrer Augen",
+  "language": [],
+  "musenalm_id": 31867,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Attrapaja und Trajoba",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Heinr. Leop. Reinhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Attrapaja und Trajoba",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qh3nm1zfe2i15kp",
+      "agents": "gf4l82e3ts949b7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.690Z"
+    }
+  ]
+}

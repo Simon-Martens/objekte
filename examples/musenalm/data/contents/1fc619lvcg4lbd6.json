@@ -1,0 +1,56 @@
+{
+  "annotation": "Xenien (Sammlung INr 38179, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Ist diess die Frau des Künstlers Vulkan? Sie / spricht von dem Handwerk,",
+  "language": [],
+  "musenalm_id": 38505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 368,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Charis",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ujfptgpkr0t3sea",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.320Z"
+    },
+    {
+      "id": "bno5b7y16246go0",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.320Z"
+    }
+  ]
+}

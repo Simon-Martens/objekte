@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Die schwerste Last muß ich euch Wahrheit nennen; / Weil sie die Menschen nicht ertragen können.",
+  "language": [],
+  "musenalm_id": 91930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gnome",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. W. Schießler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gnome",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jlkh6y5wsobk3vf",
+      "agents": "eips0ml7kk6xorw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.480Z"
+    }
+  ]
+}

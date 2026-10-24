@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 3. Blatt der Suite /) Graphik im Kalendarium September; paginiert 9. /) # Titel s. Textbezug INr 107213, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.230Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107201,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein englisches Geschirr für Kutschenpferde in der Stadt #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent",
+  "scans": [
+    "alm_3124_107201_l597n1twtu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein englisches Geschirr für Kutschenpferde in der Stadt #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mqlra2hpujtj2zs",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.085Z"
+    }
+  ]
+}

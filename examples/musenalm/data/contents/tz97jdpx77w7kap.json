@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Als wir noch zur Zeit der Blüthe, / Leicht umscherzt von süßem Wahn,",
+  "language": [],
+  "musenalm_id": 14130,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Minna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Minna",
+  "updated": "2001-04-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1cehejy8e5jf9tn",
+      "agents": "ufh0csiazwb0bf6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.458Z"
+    }
+  ]
+}

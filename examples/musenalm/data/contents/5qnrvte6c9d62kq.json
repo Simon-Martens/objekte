@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 4872, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Mama, daß Sie mich liebreich hü- / ten, / Das kann ich Ihnen nicht verbieten;",
+  "language": [],
+  "musenalm_id": 4871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tochter. / Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Tochter. / Lied",
+  "updated": "2000-10-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x0kprulf6v5y780",
+      "agents": "6cp00jd21onlhwl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.009Z"
+    }
+  ]
+}

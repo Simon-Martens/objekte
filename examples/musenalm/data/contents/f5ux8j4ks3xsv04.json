@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 2. u. 3. Blatt der Suite /) kol. Graphik im Kalendarium Dezember",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109407,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Denn ich habe gelernt / immer Brav zu sein",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Seb. Mansfeld fe.",
+  "scans": [
+    "alm_4246_109407_947p4s3scm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Denn ich habe gelernt / immer Brav zu sein",
+  "updated": "2016-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fan141d3u9wbh9u",
+      "agents": "ze1m2gdl2g6avu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.347Z"
+    }
+  ]
+}

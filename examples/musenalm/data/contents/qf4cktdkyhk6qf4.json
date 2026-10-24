@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Soll einst so blühend schön, wie sich die junge Rose / Aus ihrer Knosp' enthüllt, / Berlin, aus deinem mütterlichen Schooße / Dein lächelnd Ebenbild",
+  "language": [],
+  "musenalm_id": 135696,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode an die Stadt Berlin 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. P. Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode an die Stadt Berlin 1779",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hyiywnl3lq9f9s8",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.154Z"
+    }
+  ]
+}

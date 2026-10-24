@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Lebende Todte« von J. Kachler INr 113414, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 113415,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf! ihr Geister der Unterwelt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del. Stöber sc.",
+  "scans": [
+    "alm_2699_113415_degibedbgt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auf! ihr Geister der Unterwelt",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gppm0rixmz2s2io",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.539Z"
+    },
+    {
+      "id": "fkyodgv6f4peuis",
+      "agents": "yk9ibu96ud1308d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.539Z"
+    }
+  ]
+}

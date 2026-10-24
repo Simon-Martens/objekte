@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.678Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Dem Kahlenberge überzwerg, / Nicht fern von Weidling, liegt ein Berg, / Umringt von Buchenholze.",
+  "language": [],
+  "musenalm_id": 92066,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hermannskobel / bey Weidling in Österreich unter der Enns",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hermannskobel / bey Weidling in Österreich unter der Enns",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zz1esvqaf0b4fko",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.310Z"
+    }
+  ]
+}

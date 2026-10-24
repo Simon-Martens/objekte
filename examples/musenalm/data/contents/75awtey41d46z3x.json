@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.553Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Ha! Wie artig seh' ich aus / Vor dem blanken goldnen Spiegel!",
+  "language": [],
+  "musenalm_id": 36248,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / kleine Eitelkeit vor dem Spiegel; / und - der Todtenkopf. / 1777",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippine Gatterer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / kleine Eitelkeit vor dem Spiegel; / und - der Todtenkopf. / 1777",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "90d70s6jq5pt02b",
+      "agents": "e50fn3dat2tsaev",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.915Z"
+    }
+  ]
+}

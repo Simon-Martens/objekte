@@ -1,0 +1,67 @@
+{
+  "annotation": "Graphik im Kalendarium Juni /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.721Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67970,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tabaksgesellschaft Friedrichs I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach Leygebe gez. von Stürmer. G. Bretzing sc. 1821",
+  "scans": [
+    "alm_857_67970_myks88mrgz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Tabaksgesellschaft Friedrichs I.",
+  "updated": "2008-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1h76moxj6ft96ub",
+      "agents": "mtsa21z6u49e7nn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.327Z"
+    },
+    {
+      "id": "a20q76y01p5opfg",
+      "agents": "xsc8m0e0lt02y28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.327Z"
+    },
+    {
+      "id": "g8v4vh7hnm77tl5",
+      "agents": "mpznkfyt4qhxfg1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.327Z"
+    }
+  ]
+}

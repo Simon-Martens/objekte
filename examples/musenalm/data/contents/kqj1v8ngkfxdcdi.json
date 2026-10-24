@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Beitrag »Tannhäuser« INr 43916, Obj 27 vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "O faltet nicht die Stirn zur Strenge, / Bei'm ersten Blick verurtheilt nicht,",
+  "language": [],
+  "musenalm_id": 43915,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tannhäuser. / Das Mährchen / als Prolog an die günstigen Leser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Duller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tannhäuser. / Das Mährchen / als Prolog an die günstigen Leser",
+  "updated": "2006-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p8k65pszmf6yrmx",
+      "agents": "7bekt7k216mxue5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.116Z"
+    }
+  ]
+}

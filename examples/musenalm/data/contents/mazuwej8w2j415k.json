@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag in 12 Gedichten /) s. Graphik INr 77211, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Als zu dem Wartburgkampf die Dichter / Sich eingestellt von weit und breit",
+  "language": [],
+  "musenalm_id": 77233,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die heilige Elisabeth. / Romanzen-Cyklus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die heilige Elisabeth. / Romanzen-Cyklus",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "plv9jd6qd5sogcp",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.872Z"
+    }
+  ]
+}

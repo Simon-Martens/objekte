@@ -1,0 +1,45 @@
+{
+  "annotation": "Derr Beitrag übernommen aus: Taschenbuch zum geselligen Vergnügen 1813 /) mit 2 Illustrationen s. Graphiken INr 133480-1334",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Diejenigen, die das südliche Italien durchreist haben, werden sich vielleicht eines verlassenen Felsenschlosses erinnern.",
+  "language": [],
+  "musenalm_id": 133479,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bianka",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bianka",
+  "updated": "2024-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i647464r72k1t1b",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.108Z"
+    }
+  ]
+}

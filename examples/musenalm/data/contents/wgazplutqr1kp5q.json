@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.152Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Eine schöne Seele kann / Schöner Wünsche leicht entbehren;",
+  "language": [],
+  "musenalm_id": 46543,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In das Stammbuch der Fräulein / von Sch...",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In das Stammbuch der Fräulein / von Sch...",
+  "updated": "2006-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yv6qd36re99rwiq",
+      "agents": "o2pvd0n9c0ulrf4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.483Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.483Z"
+    }
+  ]
+}

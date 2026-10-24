@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 10313, Obj 77",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Nichts ist so schön, als jung und froh: / Drum sei du froh, denn du bist jung;",
+  "language": [],
+  "musenalm_id": 10312,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "30. / Gesundheiten. / Die Composition ist von Herrn Schmiedt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "30. / Gesundheiten. / Die Composition ist von Herrn Schmiedt",
+  "updated": "2001-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kvfe1o2j05u1sbo",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.517Z"
+    }
+  ]
+}

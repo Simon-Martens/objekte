@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den landschaftlichen Kupfern (Sammlung INr 20620, Obj 18) s. Graphik INr 29627, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Das Original-Gemälde befindet sich auf der Königl. Galerie zu Dresden.",
+  "language": [],
+  "musenalm_id": 20623,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Das Schloß von Bentheim, von Ruisdael",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. A. Frenzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Das Schloß von Bentheim, von Ruisdael",
+  "updated": "2002-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j7zud8swu75jbut",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.682Z"
+    }
+  ]
+}

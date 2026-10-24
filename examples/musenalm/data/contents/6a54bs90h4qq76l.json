@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 11650, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "265",
+  "incipit_statement": "Die Erde ruht, das Herz erwacht, / Auf strebt der innre Sinn!",
+  "language": [],
+  "musenalm_id": 11649,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "21. / Nachtlied. / Die Compos. ist v. Hrn. Capellmstr. Seydelmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "21. / Nachtlied. / Die Compos. ist v. Hrn. Capellmstr. Seydelmann",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9e9z90vplgudx03",
+      "agents": "5uss88okhpw2gvm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.440Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Februar",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.864Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73399,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SCHLOSS ELTZ",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Biermann Gest. v. H. Fincke",
+  "scans": [
+    "alm_879_73399_go5j14ispr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SCHLOSS ELTZ",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wbkz9h048s0ginf",
+      "agents": "ulca7kvs9vkm8e6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.767Z"
+    },
+    {
+      "id": "jzxnunolzski3zh",
+      "agents": "kxthlk7g2kfou9x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.767Z"
+    }
+  ]
+}

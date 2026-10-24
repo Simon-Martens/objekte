@@ -1,0 +1,45 @@
+{
+  "annotation": "Kinderlieder (Sammlung INr 100086, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Drei Maikäfer kamen zusammen / Und sprachen allerhand: / Sie fühlten sich gar nicht zufrieden,",
+  "language": [],
+  "musenalm_id": 100087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die drei Maikäfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die drei Maikäfer",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ebcxtxrtrn9dz5r",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.780Z"
+    }
+  ]
+}

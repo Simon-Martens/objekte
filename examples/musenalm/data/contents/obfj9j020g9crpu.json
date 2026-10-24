@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 40 Beiträgen INr 115787-115826, Obj 33-72 /) Anm. am Objekt: Aus einer Vorrede Franklin's zu einem alten pensilvanischen Almanache, betitelt: Pour Richard improved",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sprüche des armen Richards",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sprüche des armen Richards",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ase5zqu37liozaq",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.420Z"
+    }
+  ]
+}

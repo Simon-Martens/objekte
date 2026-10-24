@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.071Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Wenn ein holdes Mädchenherz / Bis zur Thorheit sinket,",
+  "language": [],
+  "musenalm_id": 3248,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Entehrte. / Nach dem Englischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlez",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Entehrte. / Nach dem Englischen",
+  "updated": "2000-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jt2gz0otni8e7ma",
+      "agents": "emp0e7sw474z41u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.036Z"
+    }
+  ]
+}

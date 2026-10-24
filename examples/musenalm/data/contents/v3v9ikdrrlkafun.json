@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.734Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Mein Mädchen ist vor Liebe krank. / Ey, seht mir doch den Arzt mit tausend Freuden eilen!",
+  "language": [],
+  "musenalm_id": 8182,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die unzeitige Kur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Demselben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die unzeitige Kur",
+  "updated": "2000-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xnygg37ckilztx1",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.145Z"
+    }
+  ]
+}

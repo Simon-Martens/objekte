@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Von ferner Brittenküste / Zog einst in gläubger Ruh / Winfried der Haidewüste / Germanscher Marken zu;",
+  "language": [],
+  "musenalm_id": 26395,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wunderbare. / Ostthüringische Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Krug v. Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wunderbare. / Ostthüringische Legende",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a61u93aftoyydyk",
+      "agents": "ynj6s229zp88pv2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.277Z"
+    }
+  ]
+}

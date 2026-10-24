@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Es ist eine alte Wahrheit, daß die Lügen wenigstens zur Hälfte ihre Entstehung dem Wunsche zu gefallen,",
+  "language": [],
+  "musenalm_id": 16499,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Lügen und Lügner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Lügen und Lügner",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "39ri1u6smowsm98",
+      "agents": "teyd4hg5cxxyi5t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.623Z"
+    }
+  ]
+}

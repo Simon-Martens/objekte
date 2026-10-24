@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Die Jungfrau Rosa blüht so schön, / Als auf dem Feld ein Lilien,",
+  "language": [],
+  "musenalm_id": 35033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Minnelied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Minnelied",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iiowoq0jjcsd0e8",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.694Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 22134, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Bei Nacht und Sturm ein Zwerglein kömmt / Durchs Dorf mit müdem Schritte,",
+  "language": [],
+  "musenalm_id": 22140,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Der wandernde Zwerg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Der wandernde Zwerg",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hhgv2b0z277s570",
+      "agents": "s6vrgm9x7setd1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.863Z"
+    }
+  ]
+}

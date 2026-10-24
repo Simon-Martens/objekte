@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 81094, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.676Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Die Liebe hat der Seligkeiten sieben, / Ihr Stufengang ist Allen vorgeschrieben.",
+  "language": [],
+  "musenalm_id": 81096,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g51hqxot1k2o74k",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.816Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.816Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "An des Kreuzes Fuß verschmachtet / Stand die Mutter gramumnachtet, / Dran der Sohn geschlagen war,",
+  "language": [],
+  "musenalm_id": 60741,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter am Kreuze. / Hymne aus dem Lateinischen: / (Stabat mater dolorosa.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. CHAMISSO",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter am Kreuze. / Hymne aus dem Lateinischen: / (Stabat mater dolorosa.)",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u98n2iimnc1dspb",
+      "agents": "3emdj29jey7pglq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.019Z"
+    }
+  ]
+}

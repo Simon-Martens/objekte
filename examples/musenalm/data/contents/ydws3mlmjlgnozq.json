@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Buche der Weisheit des Mirza-Schaffy (Sammlung INr 45360, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Wenn im Tanz die jungen Mädchen / Sich im Mondenscheine dreh'n,",
+  "language": [],
+  "musenalm_id": 45361,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mirza-Schaffy",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Bodenstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mirza-Schaffy",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cx4w254npyso3dp",
+      "agents": "3bb8mhymqsjn5dk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.451Z"
+    }
+  ]
+}

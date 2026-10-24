@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. VIII. (Sammlung INr 77161, Obj 6) s. Graphik INr 77165, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Horch die Glocken hallen dumpf zusammen, / Und der Zeiger hat vollbracht den Lauf. / Lodert's nicht in wilden Unmuths Gluthen / In der Brust von jedem Bessern auf?",
+  "language": [],
+  "musenalm_id": 77164,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Männerschuld. / (Die Kindesmörderin.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Männerschuld. / (Die Kindesmörderin.)",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yic5ei7l9b2lwbi",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.731Z"
+    }
+  ]
+}

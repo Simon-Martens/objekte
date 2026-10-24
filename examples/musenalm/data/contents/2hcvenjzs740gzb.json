@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Knabenkraut, gefleckt und hell, / Fleisch- und Schmalzblum', Küchenschell';",
+  "language": [],
+  "musenalm_id": 99623,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingsregister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingsregister",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ou8tr8cd8e92ac4",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.725Z"
+    }
+  ]
+}

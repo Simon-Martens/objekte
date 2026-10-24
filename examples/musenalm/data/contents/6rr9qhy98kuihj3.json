@@ -1,0 +1,45 @@
+{
+  "annotation": "Seebilder (Sammlung INr 90413, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Der Erde flaches Leben fliehend, ging / Ich froh zur See. Als mich die Fluth umfing, / Traf mich des Erdengeistes schnelle Rache;",
+  "language": [],
+  "musenalm_id": 90418,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. Fläche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter Braun von Braunthal. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. Fläche",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kz4u3d2dg5ty929",
+      "agents": "7vcuasq6vh9n9b3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.506Z"
+    }
+  ]
+}

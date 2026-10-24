@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Dank dem zauberischen Gedanken, / dass du unterm Sternenhimmel / mit der Saiten wütendem Getümmel / Silbertöne aus dem Felsen rufst,",
+  "language": [],
+  "musenalm_id": 75249,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Impromptü / während eines Nacht-Concerts zwischen / den Giebichensteiner Bergen bei Halle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmieder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Impromptü / während eines Nacht-Concerts zwischen / den Giebichensteiner Bergen bei Halle",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xi054it4ue4pgzo",
+      "agents": "ii78f2x1yo6pd2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.517Z"
+    }
+  ]
+}

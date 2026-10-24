@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Jugend, die mir täglich schwindet, / Wird durch kühnern Muth ersetzt, […] H. Heine /) mit einer Illustration s. Titelgraphik INr 81286, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Es ist noch früh amTage, aber das soll uns nicht abhalten, einen Morgenbesuch zu machen. Wir betreten ein schönes, reich möblirtes Studirzimmer, das wenig Ähnlichkeit mit derartigen Geisteswerkstätten gewöhnlicher Gelehrten hat,",
+  "language": [],
+  "musenalm_id": 81310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe durch drei Generationen. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Patuzzi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe durch drei Generationen. / Novelle",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "453dwr6b52nokbz",
+      "agents": "onb8bft2jljf6eb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.968Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.968Z"
+    }
+  ]
+}

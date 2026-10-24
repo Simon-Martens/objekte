@@ -1,0 +1,45 @@
+{
+  "annotation": "Dalmatinische Volksweisen (Sammlung INr 86823, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Herzliebes, liebstes Mägdelein, / Sag', willst du nicht die meine sein?",
+  "language": [],
+  "musenalm_id": 86837,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14.",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "arluc8fp4af6kq2",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.215Z"
+    }
+  ]
+}

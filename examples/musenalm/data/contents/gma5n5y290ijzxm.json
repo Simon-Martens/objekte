@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgen 6 Beiträge INr 95858-95863, Obj 12-17 als Textbezüge zu den Graphiken des Taschenbuchs",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Kupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Kupfer",
+  "updated": "2014-04-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9puoyhrokc79y6a",
+      "agents": "zta4jxuxzdm872n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.482Z"
+    }
+  ]
+}

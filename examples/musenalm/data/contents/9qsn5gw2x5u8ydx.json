@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug (Gedicht) INr 959226, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95021,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Mayer pinx. Ch. Hoffmeister sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Mayer pinx. Ch. Hoffmeister sculp.",
+  "scans": [
+    "alm_1878_95021_b0cw2odqt9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "91sr9xbk1jsmy23",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.435Z"
+    },
+    {
+      "id": "15d119m3d3s7j5o",
+      "agents": "zuqeig2avlr6rku",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.435Z"
+    }
+  ]
+}

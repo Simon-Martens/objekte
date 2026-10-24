@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.253Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Wohl rauh ist das Araberzelt, / Doch wo du weilest, meine Welt, / Und selbst vom Fürstenbaldachin",
+  "language": [],
+  "musenalm_id": 14640,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Antwort des Europäers",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Antwort des Europäers",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "at5lhc5viyz09ef",
+      "agents": "1tsjgk40ftnty4f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.592Z"
+    }
+  ]
+}

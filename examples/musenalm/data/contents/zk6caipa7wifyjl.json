@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. /) s. Textbezug INr 27460, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.983Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27461,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Stürmer del. F. Buser sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Stürmer del. F. Buser sc.",
+  "scans": [
+    "alm_353_27461_k1t48ml06j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gjyfttwngz6r010",
+      "agents": "6bm0o5ohkrr9ip0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.043Z"
+    },
+    {
+      "id": "me1x7xwy3tqp6m7",
+      "agents": "gpua5gdwasv89sy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.043Z"
+    }
+  ]
+}

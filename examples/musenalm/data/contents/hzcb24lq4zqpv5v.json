@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von Textbezügen in Sammlungen zu den Graphiken des Almanachs INr 60313-60323, Obj 40-50",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.911Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60312,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XV. / Erklärung der Kupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vom alten Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XV. / Erklärung der Kupfer",
+  "updated": "2008-10-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cqd0sm6bxy1yzie",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.906Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 26181, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Seh' ich so vorüberschweben / Welt, dein wirres Bunterlei,",
+  "language": [],
+  "musenalm_id": 26185,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / In der Postkutsche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johnn N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / In der Postkutsche",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6k672iqx8ts7a3s",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.190Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.190Z"
+    }
+  ]
+}

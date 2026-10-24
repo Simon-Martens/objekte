@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.449Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Allein geht durch ein fremdes kaltes Land / Die arme Psyche ihren Trauergang,",
+  "language": [],
+  "musenalm_id": 11018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 160,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "103. / Amor und Psyche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "103. / Amor und Psyche",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ttmgy7ro4ns6mih",
+      "agents": "5uss88okhpw2gvm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.346Z"
+    }
+  ]
+}

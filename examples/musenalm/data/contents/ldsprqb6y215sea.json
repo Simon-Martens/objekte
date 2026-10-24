@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Freund Leser! Die Sardelle ist ein kleines leckeres Fischlein von feinem Salze, so in einem See von Essig, Oel und Pfeffer schimmt,",
+  "language": [],
+  "musenalm_id": 70600,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Kurze Vorrede über Sardellen / und Heringe, Kochsalz und atti- / sches Salz, nebst Abschweifung / in das Kapitel vom Einsalzen, / namentlcih des Rindfleisches",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T. H. Friedrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Kurze Vorrede über Sardellen / und Heringe, Kochsalz und atti- / sches Salz, nebst Abschweifung / in das Kapitel vom Einsalzen, / namentlcih des Rindfleisches",
+  "updated": "2010-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m42f9yv8hcmidyl",
+      "agents": "ig1o98q79i5gv1i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.265Z"
+    }
+  ]
+}

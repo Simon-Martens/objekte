@@ -1,0 +1,45 @@
+{
+  "annotation": "129b /) Anhang (Sammlung INr 48748, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Weggethaut von lauen Winden / Muß der mürr'sche Winter schwinden.",
+  "language": [],
+  "musenalm_id": 48751,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An *. / Im Frühjahr. / (Nach des Horaz: solvitur acris hyems -)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An *. / Im Frühjahr. / (Nach des Horaz: solvitur acris hyems -)",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "55ofae312ecuxpw",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.593Z"
+    }
+  ]
+}

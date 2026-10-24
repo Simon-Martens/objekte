@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. vom Titel; paginiert 3. /) s. Textbezug INr 42153, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42154,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marsch der Fränkischen ReserveArmée / über den Bernhard (16. May.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_196_42154_bu1dxpde2i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marsch der Fränkischen ReserveArmée / über den Bernhard (16. May.)",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ia5d1iw8e3k05sx",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.799Z"
+    }
+  ]
+}

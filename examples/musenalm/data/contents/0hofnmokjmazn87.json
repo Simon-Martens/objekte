@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Rotzbergerin« von A. E. Fröhlich INr 55154, Obj 164",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "368",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55155,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 165,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (M. Disteli inv.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Disteli inv.",
+  "scans": [
+    "alm_746_55155_quh3jqydxy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6t5z8cjk55vipec",
+      "agents": "yf0tgu146w1t5rh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.828Z"
+    }
+  ]
+}

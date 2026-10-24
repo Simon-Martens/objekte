@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "In einer jener langen finstern Gassen des alten Dresdens, die so eng sind,",
+  "language": [],
+  "musenalm_id": 2012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Die Alchymisten. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Freiherr von Sternberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Die Alchymisten. / Novelle",
+  "updated": "2000-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u0le36kj6sxryw5",
+      "agents": "323k0krc681l77m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.697Z"
+    }
+  ]
+}

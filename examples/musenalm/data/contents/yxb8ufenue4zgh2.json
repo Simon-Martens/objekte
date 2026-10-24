@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59270,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vision",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Stilke del. S. Halle sc.",
+  "scans": [
+    "alm_892_59270_4j3zrbn5k1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Vision",
+  "updated": "2008-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p7z8mgr28xyq6qm",
+      "agents": "4ht5ezov61cxhie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.809Z"
+    }
+  ]
+}

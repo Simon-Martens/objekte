@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Lisch aus mein Licht! / Was dir gebricht, / Das ist nun fort,",
+  "language": [],
+  "musenalm_id": 26553,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Resignation",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Graf v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Resignation",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ea3aazxrqys3w74",
+      "agents": "bt92eejgtvavmav",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.277Z"
+    }
+  ]
+}

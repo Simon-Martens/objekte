@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug INr 127170, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 128157,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht vom Meuselthurm bei Bingen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eisen sc.",
+  "scans": [
+    "alm_2752_128157_nb8hqw90or.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht vom Meuselthurm bei Bingen",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6tfp91pdqbjg0m5",
+      "agents": "e4ofmmug7c18d10",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.978Z"
+    }
+  ]
+}

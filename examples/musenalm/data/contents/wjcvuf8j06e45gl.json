@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94438,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen mit der Harfe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Mezler del. I. Krepp sc. Viennae",
+  "scans": [
+    "alm_1871_94438_1s50j03tme.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen mit der Harfe",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tqkugp9d1b6ivml",
+      "agents": "4ydtp3mjohkj17q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.429Z"
+    },
+    {
+      "id": "chdx0kw53lnne8w",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.429Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbstblumenkranz für Fanny gewunden (Sammlung INr 128312, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Mich auch wählst du? du denkest gewiß des / belebenden Geistes / Der aus dem Aug' ihr strahlt, süß von den Lippen ihr strömt?",
+  "language": [],
+  "musenalm_id": 128316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nelke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. Methus. Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nelke",
+  "updated": "2011-08-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z91domygdpikbmt",
+      "agents": "9g2bjngyi7jp8ga",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.982Z"
+    }
+  ]
+}

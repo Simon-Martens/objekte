@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Gewährten eine Wunsch mir die Himmlischen! / Seyn möcht' ich wohl ein Lüftchen!",
+  "language": [],
+  "musenalm_id": 65856,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wunsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ecker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wunsch",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f1xivqc40y3a749",
+      "agents": "68mny3pz0slux0m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.027Z"
+    }
+  ]
+}

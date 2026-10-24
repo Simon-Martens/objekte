@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 40163, Obj 96)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Du, dessen blaues Meer sich durch den Raum / ergießet, / Das alle Wesen trägt und alle Wesen nährt,",
+  "language": [],
+  "musenalm_id": 40164,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Aether. / Bei heftigen rheumatischen Leiden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Therese von Artner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Aether. / Bei heftigen rheumatischen Leiden",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jinh5oyof7kuho3",
+      "agents": "easxd2ciuxkfl7o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.871Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dichter-Reliquien (Sammlung INr 20678, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "392",
+  "incipit_statement": "Entfernt vom Vaterlande, Hoch über'm Erdentande, / Bei Gräbern der Tyrannen",
+  "language": [],
+  "musenalm_id": 20680,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Werners Klagen / um seine Königin, / Luisa von Preußen. / Rom, den 4. August 1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Ludwig Zacharias Werner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Werners Klagen / um seine Königin, / Luisa von Preußen. / Rom, den 4. August 1810",
+  "updated": "2002-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7gtzo74aicne8kn",
+      "agents": "g7f1xv6d8kkyhx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.885Z"
+    }
+  ]
+}

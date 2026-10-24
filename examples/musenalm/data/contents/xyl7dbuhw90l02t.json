@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "So ruht das tragische Gepäcke, / Die flittergoldnen Fischbeinröcke,",
+  "language": [],
+  "musenalm_id": 827,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epistel / an Madam Henseln, / die zu Wien fünf und zwanzig Mädchen / Unterricht im Filet giebt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gotter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epistel / an Madam Henseln, / die zu Wien fünf und zwanzig Mädchen / Unterricht im Filet giebt",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "28n64nmyogzixrs",
+      "agents": "hu6ba8zv7wtaxe9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.639Z"
+    }
+  ]
+}

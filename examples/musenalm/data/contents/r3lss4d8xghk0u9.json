@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Gedichten INr 39260-39267, Obj 27-34",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39259,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Gedichte",
+  "updated": "2005-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xn9fvremd4owl2a",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.913Z"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "annotation": "[unter der Graphik. J. G. Sauerländer's Verlag in Frankfurt] s. Textbezug INr 44555, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44558,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE ERSCHLAGENEN PILGER. / (Nach einem Sagenmärchen Achim von Arnim's)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Fellner Figuren v. C. Barth Landschaft von E. Grünewald gest.",
+  "scans": [
+    "alm_608_44558_xbmamt9exj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE ERSCHLAGENEN PILGER. / (Nach einem Sagenmärchen Achim von Arnim's)",
+  "updated": "2006-07-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wat6gj2e5aega5u",
+      "agents": "9z4h7ka6ovxy0ac",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.242Z"
+    },
+    {
+      "id": "p75jym2o6p13v86",
+      "agents": "ak2qa5c9tflxdbf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.242Z"
+    },
+    {
+      "id": "ie3x7lfyqsass1t",
+      "agents": "1ih3q5zwi5sbzkz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.242Z"
+    }
+  ]
+}

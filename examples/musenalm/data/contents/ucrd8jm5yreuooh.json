@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110242,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloß Karky",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Pacht del. J. P. Veith sculp.",
+  "scans": [
+    "alm_3744_110242_pvf2su25zi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloß Karky",
+  "updated": "2011-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8s4xawd1ns4h61y",
+      "agents": "agad4ahnieynhoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.265Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Distichen INr 22567, 22568; Obj 80, 81 /) Distichen (Sammlung INr 22522, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22566,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Grabschriften",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Grabschriften",
+  "updated": "2002-03-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kizeq9v1hioivfz",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.021Z"
+    }
+  ]
+}

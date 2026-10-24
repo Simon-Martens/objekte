@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Dem Kußgelispel ähnlich, wenn Freunde sich / Umarmen, rausche Harfe! Du Lindenbaum,",
+  "language": [],
+  "musenalm_id": 18834,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bund, von Haining",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölty",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bund, von Haining",
+  "updated": "2001-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mcce6s60fc8vhhk",
+      "agents": "zddol7mg2ooigi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.497Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 beigefügten Gedichten, einer Übersetzung und einer Tabelle INr 66805-66808, Obj 23-26 /) mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Kein edler Hirsch ist in den Annalen der Natur- und Jagdgeschichte je berühmter geworden, als jener stolze Sechsundsechzig-Ender, den König Friedrich der Erste von Preussen am Schlusse des 17ten Jahrhunderts erlegt hat.",
+  "language": [],
+  "musenalm_id": 66804,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X. / Auszug aus einer seltenen alten Chronik, / zwei merkwürdige Jagdbegebenheiten / betreffend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X. / Auszug aus einer seltenen alten Chronik, / zwei merkwürdige Jagdbegebenheiten / betreffend",
+  "updated": "2009-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h41dp6yx4wkchpo",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.171Z"
+    }
+  ]
+}

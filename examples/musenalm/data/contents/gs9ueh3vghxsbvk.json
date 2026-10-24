@@ -1,0 +1,45 @@
+{
+  "annotation": "Deutsche Grüße (Sammlung INr 100150, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.073Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Es zog die alte Kunde: / Tief liegt im deutschen Wald / In grüner Eichen Runde / Ein Steinbild hehr und alt,",
+  "language": [],
+  "musenalm_id": 100151,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / An Jakob und Wilhelm Grimm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller von Königswinter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / An Jakob und Wilhelm Grimm",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ub3yh0b95nhrnz2",
+      "agents": "dii69uyjdj5ln7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.954Z"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "s.Textbezug INr 103921, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103920,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS WOHNZIMMER EINES MALERS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Screta pinx. S. v. Perger del. J. Kovatsch sculp.",
+  "scans": [
+    "alm_1929_103920_41w7eh2t99.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS WOHNZIMMER EINES MALERS",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yigmy5sq2s2eb2r",
+      "agents": "oc40m11w5dhsb40",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.073Z"
+    },
+    {
+      "id": "ovpupowhpmng1gd",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.073Z"
+    },
+    {
+      "id": "nmfwk0zwbk80j6l",
+      "agents": "7b9443ro2tn4o8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.074Z"
+    }
+  ]
+}

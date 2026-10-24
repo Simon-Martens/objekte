@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wenn Ihre Frage wirklich so ernsthaft ist, mütterliche Freundin, so will ich ernsthaft antworten.",
+  "language": [],
+  "musenalm_id": 451,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verstand kommt nicht vor Jahren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Therese Huber, geb. Heyne",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verstand kommt nicht vor Jahren",
+  "updated": "2000-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jqgi7ueks5cwowz",
+      "agents": "6pw6iul8mmx44oj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.818Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Das Mädel, das ich meine« von Bürger INr 2653, Obj 129",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2654,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädel, das ich meyne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weis",
+  "scans": [
+    "alm_78_2654_diuzzgiqxf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädel, das ich meyne",
+  "updated": "2000-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4cu5aiou0ib3vne",
+      "agents": "x1lckegivk1oedd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.127Z"
+    }
+  ]
+}

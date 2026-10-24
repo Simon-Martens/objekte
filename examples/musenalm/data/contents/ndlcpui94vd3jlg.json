@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Adieu, Alphons! fief Frau von B... eine junge Witwe, meine Freundin, die Braut des Barons ihrem Bräutigam zu,",
+  "language": [],
+  "musenalm_id": 115784,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Damals!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mathilde Feldherrn Rolf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Damals!",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hka0878n0m3lt1g",
+      "agents": "5fgsfkvvla04u8e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.420Z"
+    }
+  ]
+}

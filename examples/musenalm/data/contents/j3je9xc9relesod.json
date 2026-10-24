@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die Nacht war frisch und sternenhell; aber unter den breitästigen Tannen herrschte ein undurchdringliches, rabenschwarzes Dunkel.",
+  "language": [],
+  "musenalm_id": 64429,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach zwanzig Jahren. / Eine Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Hilarius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach zwanzig Jahren. / Eine Erzählung",
+  "updated": "2009-06-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3u7vwkfmsizsa98",
+      "agents": "euexsjcr9ar4su1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.346Z"
+    }
+  ]
+}

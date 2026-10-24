@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Sammlung ist nicht mit ihren Beiträgen aufgenommen /) Mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Wer hat Verstand, / Hat auch das Nöthige in der Hand.",
+  "language": [],
+  "musenalm_id": 81821,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein halbes Hundert venezianische / Sprichwörter und Redensarten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Constant",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein halbes Hundert venezianische / Sprichwörter und Redensarten",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nspcqrh5yfrwz2v",
+      "agents": "wm9mmfgzc6wy00i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.817Z"
+    }
+  ]
+}

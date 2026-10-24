@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Von der Phantasie empor getragen, / Sieht der Jüngling in den Frühlingstagen",
+  "language": [],
+  "musenalm_id": 18152,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bund der Freundschaft. / Eine Jugend-Reliquie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rühs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bund der Freundschaft. / Eine Jugend-Reliquie",
+  "updated": "2001-10-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vj7d8d768y8tfwr",
+      "agents": "q5rzjlx40lnqx6r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.890Z"
+    }
+  ]
+}

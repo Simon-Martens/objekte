@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Die vier Freunde saßen wie gewöhnlich beisammen; es war ein schöner Sonntags-Abend, und die Stunde, wo die Leute von ihren Spaziergängen heimkehren.",
+  "language": [],
+  "musenalm_id": 15137,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Frauenherz. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Frauenherz. / Novelle",
+  "updated": "2001-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yyer4bwykccszmv",
+      "agents": "98q4i55rpu2zkyi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.621Z"
+    }
+  ]
+}

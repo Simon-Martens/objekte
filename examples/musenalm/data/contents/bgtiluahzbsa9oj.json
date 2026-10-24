@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Fleug auf durch Gottes Sternenheere, / Mein wonnetrunkner Geist,",
+  "language": [],
+  "musenalm_id": 6135,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sterne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sterne",
+  "updated": "2000-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s8kml0i2jgs38ma",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.084Z"
+    }
+  ]
+}

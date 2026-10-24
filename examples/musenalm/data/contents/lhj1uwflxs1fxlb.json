@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium. Illustration zu »Wilhelm und Minchen« von L. ($ vermutl. K. Lang) INr 35173, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35164,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer ist dein Vater Knabe? / aus dem 3ten Gemaelde / des häusl. Lebens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gauermann del. Guttenberg sc.",
+  "scans": [
+    "alm_485_35164_a5hnnopqw3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wer ist dein Vater Knabe? / aus dem 3ten Gemaelde / des häusl. Lebens",
+  "updated": "2003-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1t9gp4zqs4mni8u",
+      "agents": "2mva6jy22bwfmo3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.717Z"
+    },
+    {
+      "id": "ceego9tp263arr4",
+      "agents": "p79994clraf220s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.717Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Constance von Clermont« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110896, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "398",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110897,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Constance von Clermont / Königin von Neapel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Fr. Stöber gest.in Stahl. Wi.",
+  "scans": [
+    "alm_3470_110897_a5vr31l079.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Constance von Clermont / Königin von Neapel",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d8yim7a38ajmi82",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.438Z"
+    },
+    {
+      "id": "q8kxjjsbl0bxa2x",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.438Z"
+    }
+  ]
+}

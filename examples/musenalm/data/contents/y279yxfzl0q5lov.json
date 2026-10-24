@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Tirol (Sammlung INr 45936, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Ich wanderte im Waldesgrunde, / Es hing das Laub schon welk und fahl,",
+  "language": [],
+  "musenalm_id": 45937,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Walde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Pichler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Walde",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uitrcbb7vmq8w5u",
+      "agents": "xgh72r9y3fxa6u5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.461Z"
+    }
+  ]
+}

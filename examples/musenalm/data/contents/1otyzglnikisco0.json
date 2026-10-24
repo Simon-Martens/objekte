@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Kennt ihr das Land wo Cypressen und Reben / Und herrlich die Blumen, die lieblichen blühn; [...] Byron",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "An den Hafenufern der kleinen, sonnigen Insel Siffanto unter griechischem Himmel, drängte sich die bewegliche, handelsbegierige Bevölkerung der Stadt in buntem Getümmel durcheinander.",
+  "language": [],
+  "musenalm_id": 63975,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Andronika. / Novelle, 1611",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Walter Tesche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Andronika. / Novelle, 1611",
+  "updated": "2009-05-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "orb3tl4m79yzboi",
+      "agents": "ayxe6k12ru1cyko",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.270Z"
+    }
+  ]
+}

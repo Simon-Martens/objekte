@@ -1,0 +1,45 @@
+{
+  "annotation": "Legenden, Balladen, Mährchen (Sammlung INr 71073, Obj 146)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.064Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Das war Jungfrau Sieglinde, / Die wollte früh aufstehn, / Mit ihrem Hofgesinde,",
+  "language": [],
+  "musenalm_id": 71079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 152,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jungfrau Sieglinde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jungfrau Sieglinde",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fvcd1as6e5lxp7x",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.351Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.351Z"
+    }
+  ]
+}

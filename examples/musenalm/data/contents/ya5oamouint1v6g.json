@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60913, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Als das erste Jahrtausend der christl. Zeitrechnung sich seinem Schlusse näherte, glaubte man allgemein, daß auch das Ende der Welt vor der Thür sey,",
+  "language": [],
+  "musenalm_id": 60927,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2008-11-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ndooejy87t7nmoh",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.936Z"
+    }
+  ]
+}

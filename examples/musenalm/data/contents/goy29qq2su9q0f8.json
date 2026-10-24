@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.713Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8723,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "K. E. K. Schmidt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. sc.",
+  "scans": [
+    "alm_185_8723_jufj0h5awr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "K. E. K. Schmidt",
+  "updated": "2001-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pxe9mwm9o0nrxev",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.366Z"
+    }
+  ]
+}

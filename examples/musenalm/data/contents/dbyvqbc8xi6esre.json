@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Zerissen sind des Weltgewirres Ketten / Entzückt grüß ich die Hirtenflur.",
+  "language": [],
+  "musenalm_id": 47476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rückkehr auf das Land",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rückkehr auf das Land",
+  "updated": "2007-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p0r0zlpmb7iz4zo",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.370Z"
+    }
+  ]
+}

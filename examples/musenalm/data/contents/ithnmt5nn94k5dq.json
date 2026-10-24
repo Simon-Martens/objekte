@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "351",
+  "incipit_statement": "Zwei Engel leiten uns durchs Leben, / Ein wunderholdes Schwesterpaar / Die leicht, wie Amorinen schweben,",
+  "language": [],
+  "musenalm_id": 76984,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwestern. / (In das Stammbuch des Frl. Cl. v. N. u. J.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwestern. / (In das Stammbuch des Frl. Cl. v. N. u. J.)",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vhfks5qvacdz3gw",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.377Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 81926-91930, Obj 83-87 /) DerSammlung vorangestellt: Theils was du lebend selbst gedacht, / Theils mein Gefühl dir dargebracht.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81925,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder. / Den heiligen Schatten meines verklärten Freundes!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hugo vom Schwarzthale",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder. / Den heiligen Schatten meines verklärten Freundes!",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "os5qnvet5tta9lu",
+      "agents": "wgv00y69o1rn8le",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.935Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.935Z"
+    }
+  ]
+}

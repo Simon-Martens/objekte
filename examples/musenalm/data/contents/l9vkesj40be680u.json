@@ -1,0 +1,47 @@
+{
+  "annotation": "s. folgenden Beitrag INr 81209, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81208,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nicolaus Lenau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franck del. C. Kotterba sc.",
+  "scans": [
+    "alm_1807_81208_2tlgztu9tn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nicolaus Lenau",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fiulb12ruwwe89h",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.984Z"
+    }
+  ]
+}

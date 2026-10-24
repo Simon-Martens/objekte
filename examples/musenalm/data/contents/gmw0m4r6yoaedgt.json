@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik paginiert 1. Illustration zu »Undine« von Fouqué s. Textbezug INr 68995, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.693Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68975,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wo bist du, liebe, liebe, Undine?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf. M. Haas",
+  "scans": [
+    "alm_851_68975_uhysq9nckh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wo bist du, liebe, liebe, Undine?",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f7dhv5ugvm6ftdz",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.014Z"
+    },
+    {
+      "id": "tjlixrsyx4gs8wg",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.014Z"
+    }
+  ]
+}

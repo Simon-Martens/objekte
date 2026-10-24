@@ -1,0 +1,47 @@
+{
+  "annotation": "Neue Tänze (Sammlung INr 10627, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10638,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 154,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walzer III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Siegfr. Schmiedt",
+  "scans": [
+    "alm_202_10638_d5cwlirjx6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Walzer III.",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uq609lzwqnd5jl5",
+      "agents": "m8h0i8atzha2rbr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.578Z"
+    }
+  ]
+}

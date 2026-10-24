@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 32005, 32006, Obj 33, 34",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.873Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / 1. Der Fürstenbrunnen bei Jena. / 2. Haß und Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Mereau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / 1. Der Fürstenbrunnen bei Jena. / 2. Haß und Liebe",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2k1se4ue62unv4t",
+      "agents": "zoqy5th408hrb4e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.428Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "So muß doch auch bei mir das Sprichwort / richtig sein: / Wer andern eine Grube gräbt, fällt endlich / selbst hinein.",
+  "language": [],
+  "musenalm_id": 31710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GRABSCHRIFT EINES TODTEN- / GRÄBERS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max. Fischel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "GRABSCHRIFT EINES TODTEN- / GRÄBERS",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pck0dnmsaad54wz",
+      "agents": "9fm6ody20z4gtke",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.437Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.437Z"
+    }
+  ]
+}

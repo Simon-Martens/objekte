@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Willst du allein seyn unter Vielen? / Ehre das, womit Andre spielen.",
+  "language": [],
+  "musenalm_id": 42553,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Willst du allein seyn unter Vielen? / Ehre das, womit Andre spielen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Veit",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "is5g77wyaovna1g",
+      "agents": "5fdnbj9xwyjpym9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.253Z"
+    }
+  ]
+}

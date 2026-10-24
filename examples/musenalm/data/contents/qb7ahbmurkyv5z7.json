@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 69515, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Ich wollte, könnte sprechen, / Wie deine Augen so schön,",
+  "language": [],
+  "musenalm_id": 69517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Unaussprechlich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alex. Jul. Schindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Unaussprechlich",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1q74il71nerdk4n",
+      "agents": "c5g4qkh29vufd7a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.155Z"
+    }
+  ]
+}

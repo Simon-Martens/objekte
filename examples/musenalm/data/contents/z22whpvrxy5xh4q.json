@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67232,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihren Hoheiten / dem Herrn Markgrafen / Leopold / dem Herrn Markgrafen / Wilhelm / und / dem Herrn Markgrafen / Maximilian / zu Baden, Herzogen zu Zähringen etc etc / den edelsten Jagd- und Jägerfreunden / ehrfurchtsvoll gewidmet / von den Herausgebern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von den Herausgebern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihren Hoheiten / dem Herrn Markgrafen / Leopold / dem Herrn Markgrafen / Wilhelm / und / dem Herrn Markgrafen / Maximilian / zu Baden, Herzogen zu Zähringen etc etc / den edelsten Jagd- und Jägerfreunden / ehrfurchtsvoll gewidmet / von den Herausgebern",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e0j99zt4b5ajt2u",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.286Z"
+    },
+    {
+      "id": "g5rhj9rfkqblqxi",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.286Z"
+    }
+  ]
+}

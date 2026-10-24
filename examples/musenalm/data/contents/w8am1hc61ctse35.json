@@ -1,0 +1,45 @@
+{
+  "annotation": "Salomonische Lieder (Sammlung INr 18044, Obj 92)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Mein Freund ist mein, und ich bin seine / Liebe. / Ihr Töchter, sagt, o sagt, was würd' ich / seyn,",
+  "language": [],
+  "musenalm_id": 18048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2001-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ihmd25wjoa0y730",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.779Z"
+    }
+  ]
+}

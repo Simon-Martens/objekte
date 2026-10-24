@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.974Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Unfehlbar mochtet Ihr Alle schon / Vom wilden Jäger vernehmen:",
+  "language": [],
+  "musenalm_id": 27789,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haymon und Truthina. / Thüringische Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krug v. Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Haymon und Truthina. / Thüringische Sage",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xrbvz2bmqsizi85",
+      "agents": "ynj6s229zp88pv2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.340Z"
+    }
+  ]
+}

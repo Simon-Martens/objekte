@@ -1,0 +1,45 @@
+{
+  "annotation": "Sieben Trauergedichte des persischen Dichters Selman Sawedschi (Sammlung INr 95532, Obj 34) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Wehe! daß des Jugendlenzes Wonne, / Wie der zweite Morgen kurz vor Wonne, / Wehe!",
+  "language": [],
+  "musenalm_id": 95538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mesnewi. / Weheklage auf den Tod Schah Kasim's",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mesnewi. / Weheklage auf den Tod Schah Kasim's",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j2hu5sf9boi7hkc",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.714Z"
+    }
+  ]
+}

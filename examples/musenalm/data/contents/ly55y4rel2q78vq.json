@@ -1,0 +1,45 @@
+{
+  "annotation": "9. Vermischte Gedichte (Sammlung INr 29962, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Mit der Lerche möcht' ich schweben, / Nach des Himmels stillem Blau;",
+  "language": [],
+  "musenalm_id": 29963,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Herbst 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lina Reinhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Herbst 1822",
+  "updated": "2002-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3inmwv0rksq1rf2",
+      "agents": "mkz3b0l4gdht2nh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.319Z"
+    }
+  ]
+}

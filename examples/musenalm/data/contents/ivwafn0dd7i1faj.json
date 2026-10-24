@@ -1,0 +1,45 @@
+{
+  "annotation": "Mancherlei für Manche (Sammlung INr 91749, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Man weiß nicht, soll man sagen, es sey gut, wenn Jemand gleich beim Antritt einen wohlgefälligen Eindruck macht, oder nicht gut.",
+  "language": [],
+  "musenalm_id": 91789,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Man weiß nicht, soll man sagen, es sey gut, wenn Jemand gleich beim Antritt einen wohlgefälligen Eindruck macht, oder nicht gut.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hzwrvtwn0snbr71",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.565Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.565Z"
+    }
+  ]
+}

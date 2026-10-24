@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus dem Brautstande (Sammlung INr 55472, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.865Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Sitzen sollt' ich, lesen, schreiben, / Bücher wälzen ohne Zahl:",
+  "language": [],
+  "musenalm_id": 55484,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII.",
+  "updated": "2008-02-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jiyiahu8nx0i82k",
+      "agents": "ana89fnya97gfjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.728Z"
+    }
+  ]
+}

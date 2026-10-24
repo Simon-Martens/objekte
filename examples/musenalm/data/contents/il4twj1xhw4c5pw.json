@@ -1,0 +1,45 @@
+{
+  "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.187Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Ein alter griechischer Prälat / Besaß ein Kabinet von heiligen Gebeinen,",
+  "language": [],
+  "musenalm_id": 23321,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Reliquien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Reliquien",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6lw8wesk8a6yczw",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.066Z"
+    }
+  ]
+}

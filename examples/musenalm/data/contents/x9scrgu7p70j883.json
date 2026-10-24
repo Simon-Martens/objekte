@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Königinn von vielen Thronen, höre, / O unsterbliche Cythere, / Kind des Zeus, das ihn und uns bestrickt!",
+  "language": [],
+  "musenalm_id": 8380,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sappho und Venus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von derselben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sappho und Venus",
+  "updated": "2000-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wdj2nvspf9w63ib",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.240Z"
+    }
+  ]
+}

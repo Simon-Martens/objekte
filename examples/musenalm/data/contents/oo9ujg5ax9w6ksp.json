@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Gedichte (Sammlung INr 32161, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Wohin, mein Kind, / Im Abendthau, / Es weht der Wind, / Der Weg wird rauh,",
+  "language": [],
+  "musenalm_id": 32165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen und der Unrechte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Gubitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen und der Unrechte",
+  "updated": "2003-02-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h2gqhgbi21cidl1",
+      "agents": "5riql8l2fq0wx5f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.674Z"
+    }
+  ]
+}

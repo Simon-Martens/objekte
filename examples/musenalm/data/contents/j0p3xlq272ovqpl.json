@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Beiträgen INr 91847-91851, Obj 115-119",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "356",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91846,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansichten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ansichten",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u8p69psbuzv22dw",
+      "agents": "e0jidz7fwbzecy6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.277Z"
+    }
+  ]
+}

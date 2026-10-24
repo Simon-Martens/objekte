@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 99497, Obj 76) X. Rheinland (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Genieß, genieß die letzte Stunde, / Noch ist die Stunde so hold,",
+  "language": [],
+  "musenalm_id": 99500,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Letzte Stunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Letzte Stunde",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iamcg4hl8a1zugf",
+      "agents": "ujjt9xntbdmu6em",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.976Z"
+    }
+  ]
+}

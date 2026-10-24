@@ -1,0 +1,45 @@
+{
+  "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Zittert, ungläubige Krieger! / Glaubt ihr so früh euch schon Sieger?",
+  "language": [],
+  "musenalm_id": 66235,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort eines Janitscharen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dunker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort eines Janitscharen",
+  "updated": "2009-08-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8z837qgh8rjta5v",
+      "agents": "n5liie3i2dvrx17",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.099Z"
+    }
+  ]
+}

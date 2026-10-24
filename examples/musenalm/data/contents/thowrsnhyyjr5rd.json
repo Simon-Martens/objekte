@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Briefe, von Schiller, Johannes Müller und Iffland (Sammlung INr 48593, Obj 12) s. Briefe INr 48597, 48598; Obj 16, 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Wer etwas dazu beiträgt, um unsers Johannes Andenken zu heiligen, thut ein gutes Werk; so schrieb mir Heyne am 8ten Juny 1809, 9 Tage nach Müllers Tod.",
+  "language": [],
+  "musenalm_id": 48596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Johannes von Müller an Böttiger / Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Johannes von Müller an Böttiger / Vorwort",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "89k2dtx5ab5e1ff",
+      "agents": "7cdnqd525rp9gi5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.570Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.570Z"
+    }
+  ]
+}

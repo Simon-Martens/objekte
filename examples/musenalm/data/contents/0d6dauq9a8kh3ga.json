@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichtes (Sammlung INr 37123, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "402",
+  "incipit_statement": "Aus Finsterniß zum Licht steigt eine Stufenleiter, / Die dunkel ist am Fuß und an der Spitze heiter.",
+  "language": [],
+  "musenalm_id": 37130,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 254,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Finsterniß zum Licht steigt eine Stufenleiter, / Die dunkel ist am Fuß und an der Spitze heiter.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "izd2ja8wax3vl0h",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.766Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.766Z"
+    }
+  ]
+}

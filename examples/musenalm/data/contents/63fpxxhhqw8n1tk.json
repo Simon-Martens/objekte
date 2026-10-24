@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Die See ging hoch; der Wellensand / Quoll wirbelnd auf vom dunklen Land,",
+  "language": [],
+  "musenalm_id": 14383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sanct Augustin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Hannusch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sanct Augustin",
+  "updated": "2001-04-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uzzng1jas8d4rvq",
+      "agents": "1gx7z956tuv7ghs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.528Z"
+    }
+  ]
+}

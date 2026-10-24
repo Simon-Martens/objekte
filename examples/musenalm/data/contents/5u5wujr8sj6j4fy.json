@@ -1,0 +1,45 @@
+{
+  "annotation": "Priameln. Im Jahre 1826 (Sammlung INr 94496, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "Willst du dich der Tugend weih'n? / Glück kann ich dir dann versprechen",
+  "language": [],
+  "musenalm_id": 94506,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Willst du dich der Tugend weih'n? / Glück kann ich dir dann versprechen…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sztp2kk8jf28lu5",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.722Z"
+    }
+  ]
+}

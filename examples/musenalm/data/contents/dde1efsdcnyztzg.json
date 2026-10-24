@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln und Naturbilder (Sammlung INr 37073, Obj 198)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "Schon senkt das Weizenkorn sein Haupt; / Der Tod ist da, eh man es glaubt,",
+  "language": [],
+  "musenalm_id": 37079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 204,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Letzter Trost",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abr. Em. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Letzter Trost",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f80u95a0cx5hqjo",
+      "agents": "94rmjnpm6yfqwop",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.786Z"
+    }
+  ]
+}

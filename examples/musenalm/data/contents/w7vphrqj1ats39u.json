@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Hier lieget, und Gott seys gedanket! / Ein Weib, das Tag und Nacht gezanket.",
+  "language": [],
+  "musenalm_id": 16897,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weckherlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift",
+  "updated": "2001-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bi464o6q1533gdc",
+      "agents": "dmhdtdzyx859r2k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.377Z"
+    }
+  ]
+}

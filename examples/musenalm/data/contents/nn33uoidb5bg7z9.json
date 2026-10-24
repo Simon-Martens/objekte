@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Blumen (Sammlung INr 84228, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Nützliches rühmst du mit Recht, doch kalt' ist's ohne das / Schöne;",
+  "language": [],
+  "musenalm_id": 84234,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kornblume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Horn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kornblume",
+  "updated": "2010-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ls7eny678qthhz4",
+      "agents": "9vkmi7lv0745wmz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.019Z"
+    }
+  ]
+}

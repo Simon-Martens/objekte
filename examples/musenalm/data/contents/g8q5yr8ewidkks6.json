@@ -1,0 +1,45 @@
+{
+  "annotation": "Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Umstarrt vom Eis des Norden, / In trüber Einsamkeit, / Ist mir ein Blümchen worden,",
+  "language": [],
+  "musenalm_id": 48003,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geduld",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Natalie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geduld",
+  "updated": "2007-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qml2wsxu3cujuqm",
+      "agents": "l4enih6aag2oyqg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.263Z"
+    }
+  ]
+}

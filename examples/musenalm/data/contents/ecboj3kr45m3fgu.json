@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Als du sagtest: Ich muß scheiden! / Faßt' ich jene Drohung kaum;",
+  "language": [],
+  "musenalm_id": 17843,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsucht. / (Nach einer Melodie von Righini, una / breue lontananza etc)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsucht. / (Nach einer Melodie von Righini, una / breue lontananza etc)",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s9lrcmp1ffp0xvl",
+      "agents": "byuhkknqr79s51g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.820Z"
+    }
+  ]
+}

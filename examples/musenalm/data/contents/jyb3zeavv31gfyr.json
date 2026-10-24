@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64193, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64200,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Aussendung der Apostel #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. Gleyre pxt. J. W. Baumann sct.",
+  "scans": [
+    "alm_1062_64200_27snw9hnad.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Aussendung der Apostel #",
+  "updated": "2009-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qsybfi45rvv9jin",
+      "agents": "ub8j5qieypxehii",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.248Z"
+    },
+    {
+      "id": "wb7ql0xyj1ab0ed",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.248Z"
+    }
+  ]
+}

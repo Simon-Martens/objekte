@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Wie am lenzischen Himmel sich die kleinen / Silberwolligten Wölkchen lagern, sanft und / Wunderlieblich,",
+  "language": [],
+  "musenalm_id": 8447,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das gefährliche Auge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. E. K. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das gefährliche Auge",
+  "updated": "2026-06-23T09:01:04.896Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "firmnmbzfne8ge0",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.447Z"
+    }
+  ]
+}

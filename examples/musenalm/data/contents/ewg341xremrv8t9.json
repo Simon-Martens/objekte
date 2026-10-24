@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "Nun weichet den Winden / Des Süden der Schnee; / Schon suchen und finden / Wir Blumen der Höh'.",
+  "language": [],
+  "musenalm_id": 93783,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Freih. von Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sie",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j0pq8y9nx9tvte3",
+      "agents": "otquhrfmf15x6tw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.676Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.676Z"
+    }
+  ]
+}

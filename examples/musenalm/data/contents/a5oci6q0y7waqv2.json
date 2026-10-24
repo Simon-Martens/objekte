@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Erlkönig« von J. W. von Goethe s. Gedicht INr 40241, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40240,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erlkönig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. J. Romney sc.",
+  "scans": [
+    "alm_525_40240_txpw3zqjyp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erlkönig",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "86w9ck9ru4vfsm8",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.057Z"
+    },
+    {
+      "id": "qhsa87c6bbc03je",
+      "agents": "lrv91ysphbdyf39",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.057Z"
+    }
+  ]
+}

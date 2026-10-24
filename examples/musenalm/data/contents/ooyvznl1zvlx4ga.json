@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) Sammlung von 8 Distichen INr 116461-116468, Obj 32-29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "346",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116460,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Distichen / an die vollendete Ida",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Distichen / an die vollendete Ida",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "04h3d1l55g923au",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.560Z"
+    }
+  ]
+}

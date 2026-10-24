@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Die ihr, zur Liebe nur geboren, / Die süße Kunst, zu reitzen, wißt,",
+  "language": [],
+  "musenalm_id": 4302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Schriftstellerinnen. / Nach Le Brun",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. v. K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Schriftstellerinnen. / Nach Le Brun",
+  "updated": "2000-09-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cllq9sf8fzuxpb7",
+      "agents": "5z7qom88v60ghpp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.123Z"
+    }
+  ]
+}

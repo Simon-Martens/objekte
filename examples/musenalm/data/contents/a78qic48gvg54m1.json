@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Was haben wir doch zu Leide gethan / Dir Sänger, daß du Philisterwahn",
+  "language": [],
+  "musenalm_id": 25117,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 139,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der alte Komödiant. / An Anastasius Grün",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl von Holtei",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der alte Komödiant. / An Anastasius Grün",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a8muh3sj5iru3wy",
+      "agents": "zg6jbd5dfgl0cyy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.015Z"
+    }
+  ]
+}

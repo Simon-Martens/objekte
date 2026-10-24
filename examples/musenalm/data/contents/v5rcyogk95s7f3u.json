@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Du beugtest jüngst auf deinen Rosenstrauch / Dich sorgsam spähend nieder, ob er auch",
+  "language": [],
+  "musenalm_id": 22456,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Fiona",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst v. Houwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Fiona",
+  "updated": "2002-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "npg43zsul6nf3lr",
+      "agents": "yekzbr1mkxuaimv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.060Z"
+    }
+  ]
+}

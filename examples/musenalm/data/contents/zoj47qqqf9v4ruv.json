@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Die jugendliche Cypris hätte / Bey Phoebus jüngst dein scharfer Blick / gesehn?",
+  "language": [],
+  "musenalm_id": 38315,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort / bey der Durchreise der königl. Braut / von Preussen. / Den 11. Jun. 1769",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort / bey der Durchreise der königl. Braut / von Preussen. / Den 11. Jun. 1769",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "twm42c47yq6qnvy",
+      "agents": "hu6ba8zv7wtaxe9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.692Z"
+    }
+  ]
+}

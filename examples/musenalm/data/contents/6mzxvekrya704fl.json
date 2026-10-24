@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85780,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nord-östliche Ansicht vom Königlichen Schloss in Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Mauch del. Engraved by Cook",
+  "scans": [
+    "alm_895_85780_gnn8kja5yw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nord-östliche Ansicht vom Königlichen Schloss in Berlin",
+  "updated": "2008-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rku260sidhz23v4",
+      "agents": "4qmuru1kuzg7ngl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.243Z"
+    },
+    {
+      "id": "7s9xj3firiuxxp9",
+      "agents": "a7m5750fz1o3qqp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.243Z"
+    }
+  ]
+}

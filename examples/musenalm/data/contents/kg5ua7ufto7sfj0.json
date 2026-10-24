@@ -1,0 +1,45 @@
+{
+  "annotation": "Heldensage in Romanzen (Sammlung INr 72083, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Herr Gothrich scherzte nimmer, / Denn seiner tapfern Brust / War Krieg und Waffenschimmer / Die allerbeste Lust.",
+  "language": [],
+  "musenalm_id": 72086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angriff",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Angriff",
+  "updated": "2010-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yt2d4edgbt1tkvx",
+      "agents": "ynj6s229zp88pv2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.425Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "Wir sind im Dorfe. Alles ist still auf der Straße, die Häuser sind verschlossen,",
+  "language": [],
+  "musenalm_id": 2076,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sträflinge. / Dorfgeschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Berthold Auerbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sträflinge. / Dorfgeschichte",
+  "updated": "2000-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4pq7oowjv1p7trl",
+      "agents": "scn3nfipy9dsgv6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.719Z"
+    }
+  ]
+}

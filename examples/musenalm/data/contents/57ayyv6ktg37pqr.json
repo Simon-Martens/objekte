@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86479, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86480,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gabriele",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Theer gemalt Adolf Dvorzack gest.",
+  "scans": [
+    "alm_1601_86480_odnp7bsm6z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gabriele",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d27hqkr3v5dpg0f",
+      "agents": "512hnx3l2hp6y3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.225Z"
+    },
+    {
+      "id": "tpbdxm69x4ygrge",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.225Z"
+    }
+  ]
+}

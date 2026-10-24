@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 6. Illustration zu »Manfred, Karl von Anjou und Konradin von Hohenstaufen« INr 32415, Obj 14; s. a. Textbezug INr 32429, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.724Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32410,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Konradins Flucht; sein Begleiter bietet dem / Schiffer einen Ring",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Study del. D. Berger sc. 1809",
+  "scans": [
+    "alm_449_32410_z12d8y1qoc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Konradins Flucht; sein Begleiter bietet dem / Schiffer einen Ring",
+  "updated": "2003-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zi88bgexnwp1119",
+      "agents": "rcmptupq08d0ih1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.687Z"
+    },
+    {
+      "id": "jqg78cozyu2d6tg",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.687Z"
+    }
+  ]
+}

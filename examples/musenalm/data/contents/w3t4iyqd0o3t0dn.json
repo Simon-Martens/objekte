@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Zu welchem Freudenfest füllt deines Volkes / Menge / Heut deine Strassen, lautes Wien!",
+  "language": [],
+  "musenalm_id": 31104,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiens Freudenfeyer / über die Eroberung Belgrads / am 14. Okt. 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiens Freudenfeyer / über die Eroberung Belgrads / am 14. Okt. 1789",
+  "updated": "2003-01-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ys9a4ph3yu8cis",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.993Z"
+    }
+  ]
+}

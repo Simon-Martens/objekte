@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 65164, Obj 10,04",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Ermuntert durch die vielen Kriege, worin Eduard der Dritte verwickelt war, versuchten die Schotten von Neuem mit Waffengewalt ihre Selbstständigkeit zu erringen.",
+  "language": [],
+  "musenalm_id": 20839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gräfin von Salisbury",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gräfin von Salisbury",
+  "updated": "2002-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j1bfdhf1z7k9iit",
+      "agents": "z3f86v065s6vcml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.025Z"
+    }
+  ]
+}

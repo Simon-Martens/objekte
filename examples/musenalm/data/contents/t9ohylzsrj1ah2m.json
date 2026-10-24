@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Merkt auf, wer Freund von Mährchen ist, / Und plaudert nicht, ihr Weiber!",
+  "language": [],
+  "musenalm_id": 6295,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die drei Diebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die drei Diebe",
+  "updated": "2000-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tcg7gq9g4iilyud",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.286Z"
+    }
+  ]
+}

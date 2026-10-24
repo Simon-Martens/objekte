@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 24890, Obj 175)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Da kommt die braune Hexe an / Im tiefen Forst gegangen:",
+  "language": [],
+  "musenalm_id": 24902,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 188,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. / Der Nachtwandler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Albert Graf von Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. / Der Nachtwandler",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7t9bil35c6ei014",
+      "agents": "23ylvw2tykdsah6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.995Z"
+    }
+  ]
+}

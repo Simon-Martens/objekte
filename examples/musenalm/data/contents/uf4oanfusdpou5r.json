@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollständige Bezeichnung am ersten Blatt der Suite /) Graphik im Kalendarium August",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 126660,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Thal in der Brüll gegen Mödling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schindler del. # S. Langer sc.",
+  "scans": [
+    "alm_4764_126660_l2mojlkjqy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Thal in der Brüll gegen Mödling",
+  "updated": "2020-12-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0itfhlawsfxji07",
+      "agents": "b015htf5wn6svli",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.797Z"
+    },
+    {
+      "id": "1nqbeze31sldc3x",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.797Z"
+    }
+  ]
+}

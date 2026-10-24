@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Seht ihr dort die altergrauen / Schlösser sich entgegen schauen, / Leuchtend in der Sonne Gold,",
+  "language": [],
+  "musenalm_id": 32951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hero und Leander. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hero und Leander. / Ballade",
+  "updated": "2003-04-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rdg5bkri3wwk0zb",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.657Z"
+    }
+  ]
+}

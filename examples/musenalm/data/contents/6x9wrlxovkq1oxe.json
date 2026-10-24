@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80203, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Nimmer wird mein Mund dir lügen, / Wenn er dir von Liebe spricht,",
+  "language": [],
+  "musenalm_id": 80205,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Vergebliche Forderung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betti Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Vergebliche Forderung",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1ah689mk04qaoiv",
+      "agents": "rpx0m3s76l0s5s5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.987Z"
+    }
+  ]
+}

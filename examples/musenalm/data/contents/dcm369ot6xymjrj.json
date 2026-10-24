@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Sonst, wenn die Brust mir wund, / Sonst, wenn das Herz mir schwoll,",
+  "language": [],
+  "musenalm_id": 20143,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herzeinigkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Christ. Baron v. Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herzeinigkeit",
+  "updated": "2001-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dy7k28w5x7xxqvg",
+      "agents": "id1mj19iathigp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.084Z"
+    }
+  ]
+}

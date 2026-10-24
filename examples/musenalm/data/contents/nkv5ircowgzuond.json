@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.177Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "361",
+  "incipit_statement": "Seht auf dem Hügel ihr dort das Grab / Im zitterndem Mondenschein?",
+  "language": [],
+  "musenalm_id": 77605,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Grab des Herrschers. / Ein Nachtstück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Gottfried Neumann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Grab des Herrschers. / Ein Nachtstück",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r7mlwt8txld39qs",
+      "agents": "u56d09jffk0z5ur",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.583Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.583Z"
+    }
+  ]
+}

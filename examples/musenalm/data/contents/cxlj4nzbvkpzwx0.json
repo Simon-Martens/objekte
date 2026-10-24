@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Feldblumen (Sammlung INr 44382, Obj 30) Rheinischer Dichter-Salon (Sammlung INr 44376, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Als mir golden um die Stirne / Noch die Knabenlocke flog, / Und ich aus des Schicksals Urne / Leichten Sinns mir Nieten zog;",
+  "language": [],
+  "musenalm_id": 44396,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. Die goldne und die silberne Zeit. / (Aarau 1819, Epistel an Dr. Schmuziger.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. Die goldne und die silberne Zeit. / (Aarau 1819, Epistel an Dr. Schmuziger.)",
+  "updated": "2006-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cp90s3vfbelk928",
+      "agents": "2zqoqv8fdrs839t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.296Z"
+    }
+  ]
+}

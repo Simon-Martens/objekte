@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Tief unter Roma's Burg, tief unter ihren Thälern, / erstrecken sich, im ausgehölten Gang, / die Katakomben; Rom entsprang",
+  "language": [],
+  "musenalm_id": 76857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Katakomben. / Nach Delille. / ( L'imagination. Fin du Chant IV.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Norstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Katakomben. / Nach Delille. / ( L'imagination. Fin du Chant IV.)",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a5fgs9imy8ynenc",
+      "agents": "1tsjgk40ftnty4f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.795Z"
+    }
+  ]
+}

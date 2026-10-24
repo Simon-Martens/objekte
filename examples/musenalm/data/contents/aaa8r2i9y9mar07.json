@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Ach Mutter, ein' Laut' ist erklungen, / Da hat sich das Herz mir geregt,",
+  "language": [],
+  "musenalm_id": 55693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "35. / Will auch mit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwiga",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "35. / Will auch mit",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "937szch0jvsu9mo",
+      "agents": "m5h823rnh3hnfzr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.863Z"
+    }
+  ]
+}

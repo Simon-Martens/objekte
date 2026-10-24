@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Dämpfer brausen, Segel schwellen, / Werber lauern fern und nah, / Locken euch zum hoffnungshellen / Freiheitsland Amerika",
+  "language": [],
+  "musenalm_id": 45994,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bleibt, o bleibt auf deutschem / Grund. / An die Heimatmüden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Brauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bleibt, o bleibt auf deutschem / Grund. / An die Heimatmüden",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nm9fd4w7urjtu56",
+      "agents": "q3hkrc4mbx3ugx0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.237Z"
+    }
+  ]
+}

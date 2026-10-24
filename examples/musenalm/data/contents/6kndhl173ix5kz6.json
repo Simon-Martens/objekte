@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonettenkranz in drei Bildern (Sammlung INr 22289, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Ins Zauberland der Kunst, zu edlen Griechen / Bin ich entrückt! Auf tiefbegrabnen Mauern,",
+  "language": [],
+  "musenalm_id": 22290,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erstes Bild: / Amor im Käfig; nach einem / bekannten Herkulanischen Gemälde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Mosengeil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erstes Bild: / Amor im Käfig; nach einem / bekannten Herkulanischen Gemälde",
+  "updated": "2002-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fbf3f0gz6o8lkb1",
+      "agents": "on9jq8q7af8kfmj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.085Z"
+    }
+  ]
+}

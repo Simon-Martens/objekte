@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Ein Flüsterm, Rauschen, Klingen / Geht durch den Frühlingshain,",
+  "language": [],
+  "musenalm_id": 28893,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Waldessprache",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Pellegrin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Waldessprache",
+  "updated": "2002-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kt8nu4ss9dcojmk",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.063Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.063Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6. /) s. Textbezug INr 27462, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.988Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27463,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Götzenberger del. A. Delvaux sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Götzenberger del. A. Delvaux sc.",
+  "scans": [
+    "alm_353_27463_y9kajn4w93.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f6l2s1zp8qpzldq",
+      "agents": "k52j0ci4hisa6dc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.341Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.341Z"
+    },
+    {
+      "id": "ejf5h3yy19o5623",
+      "agents": "4oq6qeg5u3kwukz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.341Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.341Z"
+    }
+  ]
+}

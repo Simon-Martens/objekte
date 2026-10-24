@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Bathyll, ein kleiner Schäfer / Fing einen Mayenkäfer,",
+  "language": [],
+  "musenalm_id": 2727,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mayenkäfer. / An Hr. J. S. in B.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mayenkäfer. / An Hr. J. S. in B.",
+  "updated": "2000-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7wv7clkzknwy0wi",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.911Z"
+    }
+  ]
+}

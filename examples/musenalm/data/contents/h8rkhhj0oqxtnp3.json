@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theater-Botanik. / Von / Theod. Drobisch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theod. Drobisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Theater-Botanik. / Von / Theod. Drobisch",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2rv04iqvrsrsv2b",
+      "agents": "qf0rumqvyhc5lnw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.031Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.446Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Mit einer Lüge schloß, um würdig ihn zu / schließen, / Der lügende Marull den schlechten Lebenslauf.",
+  "language": [],
+  "musenalm_id": 16668,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selbstmord eines Lügners",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Selbstmord eines Lügners",
+  "updated": "2001-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ignngsbd98cnq5v",
+      "agents": "teyd4hg5cxxyi5t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.755Z"
+    }
+  ]
+}

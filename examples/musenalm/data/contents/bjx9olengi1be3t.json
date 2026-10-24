@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Bemerkungen, Anekdoten und Einfälle (Sammlung INr 11340, Obj 23) Prosaische Aufsätze (Sammlung INr 11335, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Ein recht braver, aber ein wenig wunderlich gelaunter Componist, bewohnte das erste Stockwerk eines Hauses,",
+  "language": [],
+  "musenalm_id": 11342,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Musik und Text",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Musik und Text",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9mm9j1sfh7yb7oh",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.516Z"
+    }
+  ]
+}

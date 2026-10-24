@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung Inr 38857, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Wenn sich die fremd- und irdischen Gedanken / In meiner Harfe schwachen Klang verirren,",
+  "language": [],
+  "musenalm_id": 38863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Nach Abfassung eines politischen Gedichts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. von Stägemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Nach Abfassung eines politischen Gedichts",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "quwfkbhlgrvth7t",
+      "agents": "3otd6uv72ls66y4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.052Z"
+    }
+  ]
+}

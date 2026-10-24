@@ -1,0 +1,45 @@
+{
+  "annotation": "s. G 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Oft in tiefen Winternächten / Rief ich an die holden Musen:",
+  "language": [],
+  "musenalm_id": 285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Musageten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "JUSTUS AMMAN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Musageten",
+  "updated": "2000-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q199mowycdqi85b",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.667Z"
+    }
+  ]
+}

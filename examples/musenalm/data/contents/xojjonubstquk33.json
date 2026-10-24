@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es war in einer trüben und gewitterschwülen Juliusnacht zwischen zehn und elf Uhr,",
+  "language": [],
+  "musenalm_id": 730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Der Dreizehnte. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Der Dreizehnte. / Novelle",
+  "updated": "2000-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ebj1s62zzw1gdxd",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.749Z"
+    }
+  ]
+}

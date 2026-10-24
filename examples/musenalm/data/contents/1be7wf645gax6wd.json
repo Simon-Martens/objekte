@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumen (Sammlung INr 48975, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Es ist ein kleiner Garten, / Drin ruh ich vielmals aus;",
+  "language": [],
+  "musenalm_id": 48978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Moosröslein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Heinrich, Graf von Löben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Moosröslein",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "djphq1x7k5vwtz0",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.525Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.525Z"
+    }
+  ]
+}

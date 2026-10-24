@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Warum, Cythere, hauchet für Julie'n / Umsonst dein Jünger zärtliche Seufzer aus?",
+  "language": [],
+  "musenalm_id": 4597,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bitte. / Nach Peter Pindar",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H-g.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bitte. / Nach Peter Pindar",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2fbz1j61mmga2pq",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.038Z"
+    }
+  ]
+}

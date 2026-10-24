@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Du meiner Tage einz'ge Wonne, / Mein Nachtgedanke! Morgentraum!",
+  "language": [],
+  "musenalm_id": 114259,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die entfernte Gattin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stierle Holzmeister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die entfernte Gattin",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ndjg5lc5jweuskn",
+      "agents": "5dlgex4wmvni1qx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.431Z"
+    }
+  ]
+}

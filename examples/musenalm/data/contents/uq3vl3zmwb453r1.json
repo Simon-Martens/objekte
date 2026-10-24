@@ -1,0 +1,45 @@
+{
+  "annotation": "Frauenblätter (Sammlung INr 95156, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "Es pflegte, da ich krank jüngst war, / Sorgfältig mich ein schönes Frauenzimmer.",
+  "language": [],
+  "musenalm_id": 95165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. Böse Heilung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. Böse Heilung",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2a7h5pwt0gm70xk",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.617Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Mit A zuletzt (man liest es so / In Hübner's Zeitungslexiko) / Ist's eine Stadt in Asia",
+  "language": [],
+  "musenalm_id": 93061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / Schlußlogogryph",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / Schlußlogogryph",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "stnpya26ke87sbt",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.289Z"
+    }
+  ]
+}

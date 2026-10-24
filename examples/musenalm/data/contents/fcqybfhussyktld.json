@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit Anmerkungen des Autors",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Schön ist's, von Aetna's Haupt des Meeres / Plan, / Voll grüner Eiland', und die Fabelauen",
+  "language": [],
+  "musenalm_id": 6326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragment",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragment",
+  "updated": "2000-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "os0qdrl7b0dgkhr",
+      "agents": "z3510nlbg6hd1qt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.153Z"
+    }
+  ]
+}

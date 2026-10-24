@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 44131, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44126,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "P. v. Cornelius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kaulbach del. Neubauer sc.",
+  "scans": [
+    "alm_599_44126_1fxi3flbrr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "P. v. Cornelius",
+  "updated": "2006-06-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g2df4oorzdtbwqu",
+      "agents": "c7q5lldf9je7fx6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.224Z"
+    }
+  ]
+}

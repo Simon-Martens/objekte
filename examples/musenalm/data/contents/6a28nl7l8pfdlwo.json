@@ -1,0 +1,43 @@
+{
+  "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29545, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Horch! rauschend schlägt die gold'nen Schwingen / Rings um uns her die Musica;",
+  "language": [],
+  "musenalm_id": 29544,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k0o2vap5h68iowd",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.321Z"
+    }
+  ]
+}

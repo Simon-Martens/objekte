@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85781,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nord-westliche Ansicht vom Kloster Corin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Mauch del. Engraved by Cook",
+  "scans": [
+    "alm_895_85781_h6ug0ctfhl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nord-westliche Ansicht vom Kloster Corin",
+  "updated": "2008-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "61o3g5a98nqkhao",
+      "agents": "4qmuru1kuzg7ngl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.243Z"
+    },
+    {
+      "id": "j65fke3wteld58p",
+      "agents": "a7m5750fz1o3qqp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.243Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Monologe (Sammlung INr 93790, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "363",
+  "incipit_statement": "Ach! Schon wider einMädchen! Das heißt: schon wieder Eines jener räthselhaften Wesen, die vom Anfange der Schöpfung berufen und gewidmet, uns Pardiese zu rauben und zu geben,",
+  "language": [],
+  "musenalm_id": 93791,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Monolog eines Weiberfeindes an der Wiege eines / neugebornen Mädchens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ign. Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Monolog eines Weiberfeindes an der Wiege eines / neugebornen Mädchens",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fiew45erbznnqjm",
+      "agents": "ink6oi00gx0e0hw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.665Z"
+    }
+  ]
+}

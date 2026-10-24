@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 59590, Obj 108",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Siehst Du drüben in der Ferne, an des blauen / Flusses Strand, / Jene grauen Zinnen ragen auf der steilen Felsenwand?",
+  "language": [],
+  "musenalm_id": 59591,
+  "musenalm_pagination": [
+    "6. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Mädchen auf dem Berge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Mädchen auf dem Berge",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8bwcb2nxaa7wgpy",
+      "agents": "ozyc7qe9178qexh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.914Z"
+    }
+  ]
+}

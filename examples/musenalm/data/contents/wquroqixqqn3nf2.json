@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgendes Gedicht INr 81653, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81652,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Häusliches Glück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. FRANK INV. P. BARFUS SC. Ausführung u. Stich d. Mainz' Kunst-Verlag",
+  "scans": [
+    "alm_1814_81652_yqmi6n6hsn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Häusliches Glück",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qhwl3a6hpqqb32f",
+      "agents": "o35i7adsgmmovy5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.821Z"
+    },
+    {
+      "id": "na8il0o7dkxs5jw",
+      "agents": "0tu8cry0wmpyo1i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.821Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.121Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Dumpfer Schrecken lag über allen Hunderttausenden von Konstantinopel. In den Quartieren der fränkischen Botschafter war es um so lebhafter, aber aus verschiedenen Gründen.",
+  "language": [],
+  "musenalm_id": 43948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Türkisches Glück. / (Genrebild.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von Biedenfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Türkisches Glück. / (Genrebild.)",
+  "updated": "2006-06-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zbxmi3ctrhufnc9",
+      "agents": "pfo0elfwwaodex8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.284Z"
+    }
+  ]
+}

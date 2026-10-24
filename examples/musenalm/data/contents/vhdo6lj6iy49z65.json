@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Theater-Reden (Sammlung INr 104646, Obj 12) Gedichte (Sammlung INr 104645, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Nun, liebste Stadt! hier sind wir wieder! / So gehts, wo man sein Conto fand / Wo es uns wohl ergieng, sucht man sein Vaterland!",
+  "language": [],
+  "musenalm_id": 104648,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rede, / von Madam Seyler zu Leipzig / gehalten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weiße",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rede, / von Madam Seyler zu Leipzig / gehalten",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wdv6zc7nd07gj7s",
+      "agents": "b4ycj3ue3as52r2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.847Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.847Z"
+    }
+  ]
+}

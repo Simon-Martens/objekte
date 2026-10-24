@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühjahr 1842 (Sammlung INr 59698, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Ich armes Unkraut, wo ich nur mag schnaufen, / Gleich kommt der Gärtner nach mir hergelaufen,",
+  "language": [],
+  "musenalm_id": 59735,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "37.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "37.",
+  "updated": "2008-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0po30sa4aybh4as",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.909Z"
+    }
+  ]
+}

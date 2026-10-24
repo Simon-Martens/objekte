@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Unter Göttern wandelt Eine, / Hoch, des Harfengottes Braut,",
+  "language": [],
+  "musenalm_id": 22147,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Iduna. / In vier Liedern. / (Nach der Edda)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Iduna. / In vier Liedern. / (Nach der Edda)",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fhuc1u49q0hipd0",
+      "agents": "s6vrgm9x7setd1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.184Z"
+    }
+  ]
+}

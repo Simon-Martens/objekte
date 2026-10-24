@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung aus dem Vorwort (INr 127378, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.464Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Es sieht ein jeder leicht und klar, / Als fertig einst die Erde war, / Der Mensch darauf, zuerst sich zeigt, / Zum Schauspiel gleich, er sich geneigt, / Wie’s selbst auch schon im Paradies / Das erste Menschenpaar uns wies.",
+  "language": [],
+  "musenalm_id": 127398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie May",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zgygpyvpjreipfr",
+      "agents": "lonqcs6pn486ebs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.887Z"
+    }
+  ]
+}

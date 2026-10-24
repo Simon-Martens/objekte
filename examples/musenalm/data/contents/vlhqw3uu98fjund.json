@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Herzensruhe« von Johann Langer INr 94673, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94669,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. W. Wright del. Stahlstich von Ig. Krepp)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Wright del. Stahlstich von Ig. Krepp",
+  "scans": [
+    "alm_1873_94669_mx8e8ml0bs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oc7wcnrwjilfmvu",
+      "agents": "35wup32jgodbno9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.365Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.365Z"
+    },
+    {
+      "id": "mjmqz0pot6unp3o",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.365Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.365Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Die holde Göttin guter Ehen / Sorgt für die Frauen liebevoll, / Sie sendet zwey von ihren Feen, / Wenn eine Mutter werden soll.",
+  "language": [],
+  "musenalm_id": 128784,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weihe. / Bey der Entbindung einer Freundinn, / den 4. Dec.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriele Batsányi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Weihe. / Bey der Entbindung einer Freundinn, / den 4. Dec.",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6cjacoedy0mq1cl",
+      "agents": "sjp9eapkpagxg0d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.964Z"
+    }
+  ]
+}

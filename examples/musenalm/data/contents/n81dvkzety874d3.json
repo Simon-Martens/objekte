@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Widmungsgedicht  und einleitendem Gedicht INr 61682, 61683; Obj 34, 35 /) mit zwei Illustrationen s: Graphiken INr 61663, 61664; Obj 15, 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.054Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Seltsam und schauerlich drangen die dunklen Worte in des raschen Reiters Sinn, der auf seinem schnaubenden Rappen flüchtig durch das Gebüsch sprengte,",
+  "language": [],
+  "musenalm_id": 61684,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Der Wunderstein. Fantasiegemälde]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Der Wunderstein. Fantasiegemälde]",
+  "updated": "2009-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0nebyqpfpl17ral",
+      "agents": "kjfa5zse6o9jzto",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.749Z"
+    }
+  ]
+}

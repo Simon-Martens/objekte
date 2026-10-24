@@ -1,0 +1,56 @@
+{
+  "annotation": "4. Abentheuerliche Wolfsjagden (Sammlung INr  67184, Obj 58) V. Vermischte Gegenstände (Sammlung INr 67156, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Vor nicht gar langen Jahren, wo man in der Markgrafschaft Baden, besonders in den Gebürgsgegenden, häufiger Wölfe antraf",
+  "language": [],
+  "musenalm_id": 67227,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 58.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2009-10-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xt469d2v0f01mad",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.285Z"
+    },
+    {
+      "id": "pfkvvmoqhrywg7v",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.285Z"
+    }
+  ]
+}

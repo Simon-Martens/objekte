@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "352",
+  "incipit_statement": "O Böhmerland mit Bergen stolz, / Mit dunklem Holz, / Mit süßen, frischen Quellen!",
+  "language": [],
+  "musenalm_id": 56149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Böhmenkönigin in Schwaben. / Romanze. / Nach der Weise: Mag ich Unglück nicht widerstahn etc.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Böhmenkönigin in Schwaben. / Romanze. / Nach der Weise: Mag ich Unglück nicht widerstahn etc.",
+  "updated": "2008-03-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gnz0622o9gm9dtb",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.004Z"
+    }
+  ]
+}

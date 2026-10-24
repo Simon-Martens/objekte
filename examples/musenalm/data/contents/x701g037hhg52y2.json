@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Frühlings-Empfindungen (Sammlung INr 25149, Obj 171) Lieder (Sammlung INr 25148, Obj 170)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Sonst wohl in frohern Lenzestagen / Konnt' ich euch Vögeln selber sagen",
+  "language": [],
+  "musenalm_id": 25153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 175,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Sonst und Jetzt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Sonst und Jetzt",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qu6ztecnufq6w3p",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.385Z"
+    }
+  ]
+}

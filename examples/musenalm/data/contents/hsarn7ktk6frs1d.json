@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Glühend ging die Sonne hinter goldnen Sommerwolken zur Ruhe, als ein stattlicher Reiterofficier über eine der unabsehbaren ungarischen Haiden sprengte,",
+  "language": [],
+  "musenalm_id": 64133,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Ungarschloß. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Ziehen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Ungarschloß. / Novelle",
+  "updated": "2009-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zoh9ijofladj5gh",
+      "agents": "n93zvl8q72c04nh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.237Z"
+    }
+  ]
+}

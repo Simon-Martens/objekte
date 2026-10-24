@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Rosion! Staub ist Staub, er stäub' im Weg hin, / Oder werde vom Söldling eines Sultans",
+  "language": [],
+  "musenalm_id": 4719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reichthum des Geldes. / An Rosion. / Nach dem Lateinischen eines Ungenannten aus dem 17. Jahrhunderte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Maßlieben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reichthum des Geldes. / An Rosion. / Nach dem Lateinischen eines Ungenannten aus dem 17. Jahrhunderte",
+  "updated": "2000-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9gxgplwibw0k5mf",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.104Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.104Z"
+    }
+  ]
+}

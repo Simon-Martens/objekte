@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 9. /) Illustration zu »Der Todte zu Roß« von A. F. E. Langbein. INr 13642, Obj 76",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13578,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Todte zu Roß. von Langbein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_218_13578_r88gm57n1b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Todte zu Roß. von Langbein",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gp90834plcrf0sf",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.654Z"
+    },
+    {
+      "id": "b6cwkuqqtobf1wj",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.655Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.655Z"
+    }
+  ]
+}

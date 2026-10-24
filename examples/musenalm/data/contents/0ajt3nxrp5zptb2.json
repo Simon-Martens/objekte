@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder vom See (Sammlung IN r80037, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Es liegen die Nebel so dick und schwer / Auf dem schlummernden See, der träumend sich regt,",
+  "language": [],
+  "musenalm_id": 80040,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Morgennebel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carlopago",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Morgennebel",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "le9tmvxzt1ovpdt",
+      "agents": "xaj6m1llkx5hiyx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.952Z"
+    }
+  ]
+}

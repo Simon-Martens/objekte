@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ja, der Nordwind ist verstummet, / Und der Wald ist grün,",
+  "language": [],
+  "musenalm_id": 95729,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maigesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maigesang",
+  "updated": "2014-03-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fykkzzudpaerc9l",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.516Z"
+    }
+  ]
+}

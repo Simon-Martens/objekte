@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38996, Obj 184)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "Ein farbenheller Regenbogen, / Hinüber bis zu Dir gezogen,",
+  "language": [],
+  "musenalm_id": 38998,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 186,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / An Madame K. / mit Uebersendung meiner Iris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Mörike",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / An Madame K. / mit Uebersendung meiner Iris",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o3cuy828jwjx7ts",
+      "agents": "sazh274fui35fcn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.179Z"
+    }
+  ]
+}

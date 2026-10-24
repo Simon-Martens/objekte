@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.457Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32852,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihrer Majestät, / der Königin von Preußen, / Louise Auguste Wilhelmine / Amalie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Verleger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihrer Majestät, / der Königin von Preußen, / Louise Auguste Wilhelmine / Amalie",
+  "updated": "2003-04-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "09m2xfm4ew8wwdq",
+      "agents": "0rnyqiybfu5n3e2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.101Z"
+    }
+  ]
+}

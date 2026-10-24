@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Wo nehmen Sie für Ihr zahlreiches Heer / Amasien wohl alles Haar noch her,",
+  "language": [],
+  "musenalm_id": 17475,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Lockengeschenk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Lockengeschenk",
+  "updated": "2001-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rv965cjp42c6ere",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.684Z"
+    }
+  ]
+}

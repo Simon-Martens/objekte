@@ -1,0 +1,45 @@
+{
+  "annotation": "Oesterreichische Volkssagen (Sammlung INr 129951, Obj 94)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Obwohl unter Ludwig dem Frommen trotz des ränkesüchtigen Grenzgrafen Rabbot (J. 831) die Ostmark an Cultur und Bevölkerung bedeutend sich erhob;",
+  "language": [],
+  "musenalm_id": 129959,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Das vermauerte Fenster auf dem Kranichberge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Das vermauerte Fenster auf dem Kranichberge",
+  "updated": "2022-03-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oo7brcsfc1u3et3",
+      "agents": "wzmgymh9fjau9gk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.027Z"
+    }
+  ]
+}

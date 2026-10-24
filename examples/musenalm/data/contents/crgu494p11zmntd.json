@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Das Schauspielhaus war so gedrängt voll, daß Leo nur mit großer Mühe noch einen Platz erhielt, weil er, aufgehalten durch Geschäfte, ziemlich spät kam.",
+  "language": [],
+  "musenalm_id": 63340,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nina. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalia Schoppe, geb. Weise",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nina. / Erzählung",
+  "updated": "2009-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "02te6rha6qxihq8",
+      "agents": "2nm1hcqes98n5i9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.181Z"
+    }
+  ]
+}

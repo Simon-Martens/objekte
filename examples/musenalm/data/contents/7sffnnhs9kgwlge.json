@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichts (Sammlung INr 25234, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Den Grund, auf welchem ruht dein Daseyn, umzuwühlen, / Kann dir nicht helfen um dich seyender zu fühlen.",
+  "language": [],
+  "musenalm_id": 25277,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "43.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "43.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iojz0kpyj5sqd1o",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.840Z"
+    }
+  ]
+}

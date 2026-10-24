@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag in 9 Briefen",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Da gehts nun wieder in vollem Galoppe nach dem geliebten Vaterlande zurück!",
+  "language": [],
+  "musenalm_id": 32995,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rückkehr ins Vaterland.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rückkehr ins Vaterland.",
+  "updated": "2003-04-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oyt5oruz0xzy18k",
+      "agents": "0w2k67v3yzi61te",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.609Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.609Z"
+    }
+  ]
+}

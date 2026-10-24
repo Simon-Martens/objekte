@@ -1,0 +1,45 @@
+{
+  "annotation": "$§2§ vermutlich fehlt Portrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Hört Ihr dort die Glocken schallen, / Es erbebt das heil'ge Erz; / Seht des Volkes banges Wallen, / Tief bewegt von herbem Schmerz",
+  "language": [],
+  "musenalm_id": 78227,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / die / verewigte / Prinzessin Wilhelm von Preußen. / Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Königliche Hoheit Kronprinz von Bayern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / die / verewigte / Prinzessin Wilhelm von Preußen. / Gedicht",
+  "updated": "2008-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0sz2d1uncmiyvl0",
+      "agents": "0lj8fztokin6ffi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.689Z"
+    }
+  ]
+}

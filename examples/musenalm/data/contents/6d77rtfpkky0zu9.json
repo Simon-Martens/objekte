@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Was ist Glaube? Eine alte Muhme, / Die unter Kindern ihre Schüler wählt,",
+  "language": [],
+  "musenalm_id": 95062,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trias",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trias",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zujv0qui9qc1nzs",
+      "agents": "e22fzyl0voj5sux",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.247Z"
+    }
+  ]
+}

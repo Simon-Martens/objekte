@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Der Redner kömmt, und sieht die weiten Hallen / Gefüllet, sieht mit freudigem Erbeben / Wie Kunst und Edelmuth sich liebend einen",
+  "language": [],
+  "musenalm_id": 113466,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog, / gesprochen bey einem Gesellschaftsconzerte, zum Vortheil / des hiesigen Blindeninstituts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog, / gesprochen bey einem Gesellschaftsconzerte, zum Vortheil / des hiesigen Blindeninstituts",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hvue5qikyu4mo47",
+      "agents": "nz03xhzpzbg7xlq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.279Z"
+    }
+  ]
+}

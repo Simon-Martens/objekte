@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem G-Verz. Graphik im Kalendarium paginiert 6. s. Textbezug INr 7607, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7589,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Apoll's Triumpf. / Triomphe d'Apollon",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert inv. et sc.",
+  "scans": [
+    "alm_163_7589_m4cnjs8ojv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Apoll's Triumpf. / Triomphe d'Apollon",
+  "updated": "2000-12-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zsfqr9tqh251rkk",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.302Z"
+    }
+  ]
+}

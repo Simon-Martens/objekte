@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Er ist dem Baum des Lebens gleich, / An Blüt' und Früchten ewig reich.",
+  "language": [],
+  "musenalm_id": 62457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Raphael",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mahler Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Raphael",
+  "updated": "2009-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "svkvng8rv8uw65p",
+      "agents": "xudibmgptrwrx3w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.639Z"
+    }
+  ]
+}

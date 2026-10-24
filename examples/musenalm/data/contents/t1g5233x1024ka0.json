@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 55860, Obj 5) s. Graphik INr 55867, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Dieses ehemalige Reichsstift, von der Regel des heiligen Bernhard, liegt nicht weit von Ueberlingen und Meersburg, in einem anmuthigen, fruchtbaren Thale,",
+  "language": [],
+  "musenalm_id": 55866,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Salem",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Salem",
+  "updated": "2008-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rwkykyvr5tchala",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.003Z"
+    }
+  ]
+}

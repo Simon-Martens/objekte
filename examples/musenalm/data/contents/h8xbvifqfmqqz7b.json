@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung an der 1. Graphik im Kalendarium. paginiert 10. Illustration zu »Aurora von Königsmark« von L. D. Gloxin s. Textbezug INr 32210, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32194,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aurora las, las emsig. / Seite 205",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. & sc.",
+  "scans": [
+    "alm_438_32194_qqkh4llovr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aurora las, las emsig. / Seite 205",
+  "updated": "2003-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a9kqa49gc82h3yi",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.710Z"
+    }
+  ]
+}

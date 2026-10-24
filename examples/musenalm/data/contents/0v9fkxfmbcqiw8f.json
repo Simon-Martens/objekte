@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 4. s. Textbezug INr 43264, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43275,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwingenberg am Neckar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kehrer del. Haldenwang sc.",
+  "scans": [
+    "alm_567_43275_95o8u708a1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zwingenberg am Neckar",
+  "updated": "2006-04-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g5f7w6ad4isk4do",
+      "agents": "ojcl4on55yemj53",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.775Z"
+    }
+  ]
+}

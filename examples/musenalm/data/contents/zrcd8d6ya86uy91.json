@@ -1,0 +1,43 @@
+{
+  "annotation": "Sammlung von 6 Textbezügen zu 6 engl. Karikaturen INr 60250-60261,Obj 34-45 /) XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.635Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Sie sind, ursprünglich, aus einem größern Kupferwerke entlehnt, das in England erschien, und die Umschaffung einer benachbarten Republik zum Gegenstand hatte.",
+  "language": [],
+  "musenalm_id": 60249,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die 6. Karikaturen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die 6. Karikaturen",
+  "updated": "2008-10-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v301xzb6ojlc16w",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.890Z"
+    }
+  ]
+}

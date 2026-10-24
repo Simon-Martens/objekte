@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Froh nach dem reichen Fischfang / Im Nachen Emanor und Cilia.",
+  "language": [],
+  "musenalm_id": 2342,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fischer / Idylle / aus einer Unschuldswelt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brückner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Fischer / Idylle / aus einer Unschuldswelt",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w9p01p2zj9gitob",
+      "agents": "ewuwl9lvke5jtiz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.062Z"
+    }
+  ]
+}

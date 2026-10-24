@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 130121, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Es streicht die Morgenluft so frisch / Durch Baum und Gebüsch,",
+  "language": [],
+  "musenalm_id": 130132,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wandrer und der Windmüller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wandrer und der Windmüller",
+  "updated": "2009-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9usjgn10ugtedwx",
+      "agents": "4g2r3ta4uzw1gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.058Z"
+    }
+  ]
+}

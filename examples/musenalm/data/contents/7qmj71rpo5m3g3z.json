@@ -1,0 +1,45 @@
+{
+  "annotation": "Venezianische Epigramme (Sammlung INr 967, Obj 103) # s. Anmerkung dort",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Ist's denn so großes Geheimniss, was Gott und der / Mensch und die Welt sei?",
+  "language": [],
+  "musenalm_id": 18494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 167,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "65.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "65.",
+  "updated": "2000-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bjpf22xgj95xjso",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.814Z"
+    }
+  ]
+}

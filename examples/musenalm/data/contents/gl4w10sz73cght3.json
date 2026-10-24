@@ -1,0 +1,45 @@
+{
+  "annotation": "Junge Lieder (Sammlung INr 100037, Obj 201)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "387",
+  "incipit_statement": "Und ist dieß Leben nun herum, / Und komm' ich in's Elysium, / Meiner Ahne Haus muß mit hinein,",
+  "language": [],
+  "musenalm_id": 100039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 203,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elysioum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elysioum",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t2x6skm25lhwfsr",
+      "agents": "qrvhchv0ha68b9y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.987Z"
+    }
+  ]
+}

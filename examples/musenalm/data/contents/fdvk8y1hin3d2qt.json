@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 1575-1579, Obj 64-67 /) Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "408",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19333,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fünf Sprüche eines Tages",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fünf Sprüche eines Tages",
+  "updated": "2000-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gkb27h39dhpx68h",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.930Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "353",
+  "incipit_statement": "Wenn man von Oberplan nördlich über den Brunnberg geht, so steht das Gnadenkirchlein zum guten Wasser, und noch weiter oben steht ein einfaches rothes Kreuz.",
+  "language": [],
+  "musenalm_id": 44297,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der beschriebene Tännling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adalbert Stifter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der beschriebene Tännling",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9r36uukzlufonqw",
+      "agents": "gqt48yh8xk0p2zo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.261Z"
+    }
+  ]
+}

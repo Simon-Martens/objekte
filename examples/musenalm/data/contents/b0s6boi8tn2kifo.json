@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.452Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Schnittermädchen! es hat dich die Sichel tückisch / verwundet, / Und die goldene Saat thauet dein purpurnes Blut.",
+  "language": [],
+  "musenalm_id": 13389,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schnittermädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. H. Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schnittermädchen",
+  "updated": "2001-04-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pd0490rc9zsuz77",
+      "agents": "hdhytmzu9u57ana",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.621Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Auf einem Marmor-Tische lag, / Verkündigend den Galla-Tag,",
+  "language": [],
+  "musenalm_id": 23442,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Krone und die Nachtmütze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Krone und die Nachtmütze",
+  "updated": "2002-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jpkh93dsxizsa3o",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.255Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.255Z"
+    }
+  ]
+}

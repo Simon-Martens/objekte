@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von  6 Gedichten INr 132945-132950, Obj 38-43",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132944,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phantasien. / (An Eugenia.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Aug. Ritter v. Zerboni die Sposetti",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Phantasien. / (An Eugenia.)",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gic64aqwq54eo4j",
+      "agents": "e3km19xmbzdye28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.099Z"
+    }
+  ]
+}

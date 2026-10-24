@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Leiden des jungen Werther« von J. W. von Goethe; s. Textbezug INr 116440, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116449,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Werthers Leiden. / Fünfte Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg Rosmäsler in Heidelberg 1830",
+  "scans": [
+    "alm_534_116449_68o9cxnrop.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Werthers Leiden. / Fünfte Scene",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aghqvwycolgopa1",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.652Z"
+    },
+    {
+      "id": "7bdtewyrmwdu9co",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.652Z"
+    }
+  ]
+}

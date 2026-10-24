@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 51388, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28389,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Clytie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt v. Annibal Caracci. Gest. v. Ant. Karcher",
+  "scans": [
+    "alm_252_28389_bzsclrme4v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Clytie",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9fe8drp8qguw3oi",
+      "agents": "bqfhzpplxu9hy7t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.470Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.470Z"
+    },
+    {
+      "id": "vg1jo8a10rxa7vb",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.470Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.470Z"
+    }
+  ]
+}

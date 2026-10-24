@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Im Gefühle deiner Vatertreue / Fliegt das Herz zu dir, zu dir empor,",
+  "language": [],
+  "musenalm_id": 101545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gebet der Eltern für ihre Kinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Witschel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gebet der Eltern für ihre Kinder",
+  "updated": "2013-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y2dswch2h8wr7p9",
+      "agents": "mw3vx85yjchtpzu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.915Z"
+    }
+  ]
+}

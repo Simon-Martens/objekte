@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Possenreisser auf der Bühne / Waren sonst die Harlekine.",
+  "language": [],
+  "musenalm_id": 36177,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Harlekine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Harlekine",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9d92hnsvz0r76in",
+      "agents": "tvrder99cpa3fos",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.811Z"
+    }
+  ]
+}

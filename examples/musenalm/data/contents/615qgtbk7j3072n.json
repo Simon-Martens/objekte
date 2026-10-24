@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das Fest der Armürins in Neuenburg« von W. INr 53511, Obj 41 /) unter der Graphik : Alpenrosen 10r. Jahrg.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53512,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fest der Armorins in Neuenburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Girardet del. et sculp",
+  "scans": [
+    "alm_732_53512_fdzxue0hmu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Fest der Armorins in Neuenburg",
+  "updated": "2007-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2i7ainp04r1i4g5",
+      "agents": "6m0s14aoyx1hbur",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.603Z"
+    }
+  ]
+}

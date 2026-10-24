@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Es ist eine mehr verbreitete als gegründete Klage, daß die Zahl der Taschenbücher zur Bildung und Unterhaltung des weiblichen Geschlechts zu sehr anwachse.",
+  "language": [],
+  "musenalm_id": 37434,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. P. Stampeel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2005-03-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mrkngzvjcrvz5a4",
+      "agents": "s96imdco8knk8xx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.736Z"
+    }
+  ]
+}

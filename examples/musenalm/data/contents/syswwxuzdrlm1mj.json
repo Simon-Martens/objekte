@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Buhlt länger nicht mit eitlem Wortgeklinge! / Unedle lasst in Hochmuth sich aufblähen,",
+  "language": [],
+  "musenalm_id": 71105,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Dichter",
+  "updated": "2010-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "inu0gn2yu2zdqq6",
+      "agents": "dz9l16q76ffup70",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.602Z"
+    }
+  ]
+}

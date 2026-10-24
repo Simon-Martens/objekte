@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.523Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Ach! Unter diesem Leichensteine / Ruht, deren Herz ich mir erwarb,",
+  "language": [],
+  "musenalm_id": 33127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selt'ne Grabschrift. / (auf O. Verlangen gesetzt.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Selt'ne Grabschrift. / (auf O. Verlangen gesetzt.)",
+  "updated": "2003-04-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bpovdajijq5bq7p",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.280Z"
+    }
+  ]
+}

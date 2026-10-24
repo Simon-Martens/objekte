@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Wie hold, wie süß ist deine spröde Miene, / Seitdem du vierzigjährig bist!",
+  "language": [],
+  "musenalm_id": 83755,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Lesbia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herklots",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Lesbia",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3v1molmsakl7sxn",
+      "agents": "j34hzsrw81cdjdh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.072Z"
+    }
+  ]
+}

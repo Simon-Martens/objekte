@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Ikaros« von F. L. zu Stolberg INr 6078, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95439,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 30.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (J. A. P. Schulz)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_120_95439_3o46961kd6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rmg31u2ods625s4",
+      "agents": "oqecb466dne8cni",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.715Z"
+    }
+  ]
+}

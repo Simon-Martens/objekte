@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Wohin du klare Welle? / Was soll dein reges Eilen? / Kannst du denn nicht verweilen",
+  "language": [],
+  "musenalm_id": 1373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen und die Welle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen und die Welle",
+  "updated": "2000-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9rcrz5u066avd7g",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.004Z"
+    }
+  ]
+}

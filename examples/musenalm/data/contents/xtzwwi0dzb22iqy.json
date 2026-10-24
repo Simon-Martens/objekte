@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 31931,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER HAEUSLICHKEIT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hein. Ramberg del. Hanover Ridley sc. London",
+  "scans": [
+    "alm_364_31931_6r5ks8ib1i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER HAEUSLICHKEIT",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7g2akfklzp8p4er",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.455Z"
+    },
+    {
+      "id": "2a3fj1n575jszkq",
+      "agents": "01vck2fus4d9d65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.455Z"
+    }
+  ]
+}

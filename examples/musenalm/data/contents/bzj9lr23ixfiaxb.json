@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58350,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fissau bey Eutin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Strack del. Lütke sc.",
+  "scans": [
+    "alm_311_58350_zmzy9gmkgt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fissau bey Eutin",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dsib02cq73nu12x",
+      "agents": "w7gyb4f5e9renta",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.730Z"
+    },
+    {
+      "id": "ogw12u8yswinf7x",
+      "agents": "1y6xbfxhnpqc2nc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.730Z"
+    }
+  ]
+}

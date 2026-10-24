@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Bei Nürnberg steht nicht gar zu weit, / Ein Kirchlein noch aus alter Zeit,",
+  "language": [],
+  "musenalm_id": 73503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Meß' um Mitternacht. / (Volkssage.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Meß' um Mitternacht. / (Volkssage.)",
+  "updated": "2011-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bs5fnvuoc4mzkr6",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.761Z"
+    }
+  ]
+}

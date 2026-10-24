@@ -1,0 +1,45 @@
+{
+  "annotation": "Fidibusschnitzel aus meinem Gedenkbuche (Sammlung INr 116165, Obj 30) Beigabe zum Beitrag »Leipzig« INr 116171, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Das dumpfe Brüllen der schweren Geschütze, / Der Schwerter Geklirr und der Fechter Geschrei,",
+  "language": [],
+  "musenalm_id": 116172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das dumpfe Brüllen der schweren Geschütze, / Der Schwerter Geklirr und der Fechter Geschrei,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Fürst Schwarzenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jb0endmh13s3myb",
+      "agents": "i4dbqkjouxbrnw0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.615Z"
+    }
+  ]
+}

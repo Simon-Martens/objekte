@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "König Darnley liegt erschlagen, Graf Bothwell hat es gethan; / Sechs Lords von Schottland tragen / Die Leiche nach Sankt Alban,",
+  "language": [],
+  "musenalm_id": 45831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 238,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria und Bothwell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Fontane",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria und Bothwell",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4wc0tcay0yp3fee",
+      "agents": "w23mh2qset0124k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.461Z"
+    }
+  ]
+}

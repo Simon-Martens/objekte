@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Bergt es nicht, geliebte Blicke, / Dass mich Eure Huld verlässt, / Wie auch Lieb' es immer schicke, / Bleibt sie doch ein ewig Fest.",
+  "language": [],
+  "musenalm_id": 51273,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Entsagung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "PELLEGRIN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Entsagung",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "brb29wjlozslpsa",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.642Z"
+    }
+  ]
+}

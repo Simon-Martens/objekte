@@ -1,0 +1,47 @@
+{
+  "annotation": "Deutsche Treue von August Klingemann (INr 119825, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 119822,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutsche Treue 4. Blatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jury fec.",
+  "scans": [
+    "alm_2210_119822_9ip60irlbe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Deutsche Treue 4. Blatt",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xmqf4cbm2vl3rl7",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.581Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.581Z"
+    }
+  ]
+}

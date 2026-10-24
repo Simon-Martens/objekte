@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Ich stand einmal auf einem Felsengipfel, / Die finstern Blicke in das Thal gesenkt;",
+  "language": [],
+  "musenalm_id": 46024,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Engels Vorüberziehen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Freiherr v. Leutrum-Ertingen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Engels Vorüberziehen",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ci7v0f422oysxtz",
+      "agents": "sjdkhvhq60b5nsf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.555Z"
+    }
+  ]
+}

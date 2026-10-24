@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus dem Brautstande (Sammlung INr 55472, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Dürstend nach der Liebe Kelche, / Hungernd nach der Liebe Brot",
+  "language": [],
+  "musenalm_id": 55480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII.",
+  "updated": "2008-02-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p8h6r8a3syis1qx",
+      "agents": "ana89fnya97gfjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.690Z"
+    }
+  ]
+}

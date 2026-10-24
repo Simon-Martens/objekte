@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.121Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62354,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HEBE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gav. Hamilton p. Ant. Karcher sc.",
+  "scans": [
+    "alm_1024_62354_r04bykg2pr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HEBE",
+  "updated": "2009-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9jusinjs224j81v",
+      "agents": "o70d4ugi54mnjtm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.915Z"
+    },
+    {
+      "id": "ez9fvj5j2o1gui0",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.915Z"
+    }
+  ]
+}

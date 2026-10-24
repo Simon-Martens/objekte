@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Du bist im Zorn von mir gegangen, / Und sagtest mir kein Lebewohl",
+  "language": [],
+  "musenalm_id": 69535,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Friedensboten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Friedensboten",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vkuahsdk9rz1v0f",
+      "agents": "emg65x4ze46kant",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.227Z"
+    }
+  ]
+}

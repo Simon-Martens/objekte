@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. und Titel aus dem G-Verz und den Beiträgen INr 82913, 82931; Obj 4, 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Marktschreier #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gerhard Daw. Prof. Heß",
+  "scans": [
+    "alm_3072_82932_2xg26j4fjv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Marktschreier #",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bplt5o7xh5iwtmq",
+      "agents": "qo8f6jhlwjfq6qx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.995Z"
+    },
+    {
+      "id": "xmsgsw48v8lisxt",
+      "agents": "dvhp1mfxgvurunq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.995Z"
+    }
+  ]
+}

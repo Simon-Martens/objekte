@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober; Illustration zu »Unterricht für Reiterinnen von Frauen Petronillen verwitwete Ohler-Madsen« von K. Fr. Kretschmann; INr 132967, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132964,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unterricht in Reiten für Frauenzimmer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Berka inv. et sc. Wien",
+  "scans": [
+    "alm_4864_132964_tuy6lvf7s7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Unterricht in Reiten für Frauenzimmer",
+  "updated": "2024-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nc4wdd12c4v7hkm",
+      "agents": "jlkwrxo4vggz8uy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.100Z"
+    }
+  ]
+}

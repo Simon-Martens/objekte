@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Vor drei Jahren erschien das erste Bändchen dieser dramatischen Festspiele, für die Jugend, und fand eine freundliche, nachsichtsvolle Aufnahme;",
+  "language": [],
+  "musenalm_id": 128570,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moritz Thieme",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2009-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4p81l29bhp9blvj",
+      "agents": "l4w058wzote60qs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.991Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Kinder des sonnigen Lenzes, welche gewiegt von Zephyren / Sanft in lauen ambrosischen Nächten,",
+  "language": [],
+  "musenalm_id": 15913,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rosen im October. / An Klopstock. / 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Rudolphi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rosen im October. / An Klopstock. / 1800",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hjq84d08toy336c",
+      "agents": "dxi2hql7exffxou",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.549Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.549Z"
+    }
+  ]
+}

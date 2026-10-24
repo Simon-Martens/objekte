@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik v.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36133,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (G. G. Endner fec. Schnorr del.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. G. Endner fec. Schnorr del.",
+  "scans": [
+    "alm_128_36133_zlfcju40en.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bc9kkixjcj74jo3",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.886Z"
+    },
+    {
+      "id": "j9dyiy40lvuzv36",
+      "agents": "lyz2x127nyb2cxs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.886Z"
+    }
+  ]
+}

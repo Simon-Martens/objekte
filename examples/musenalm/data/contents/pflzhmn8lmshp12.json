@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Geliebtes Thal, das, ohne Künstelei / Natürlichschön, dem alten Tempe gleichet,",
+  "language": [],
+  "musenalm_id": 12109,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Empfindungen auf einem schönen Landsitze. / Pötzleindorf im Herbstmond 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Empfindungen auf einem schönen Landsitze. / Pötzleindorf im Herbstmond 1800",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y9m5g9yl1n8lp0v",
+      "agents": "y0pp926xdweonfb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.560Z"
+    }
+  ]
+}

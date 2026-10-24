@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 6. s. Textbezug INr 51248, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51219,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey Dalväza gegen die Schlösser Stralegg und Castels, in Bündten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Bullinger del. ad. nat.1797 J. H. Meyer sc.",
+  "scans": [
+    "alm_698_51219_8i0u9gufkn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bey Dalväza gegen die Schlösser Stralegg und Castels, in Bündten",
+  "updated": "2007-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gs7p72ikysytr3v",
+      "agents": "c93bd6dwcggtij0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.541Z"
+    },
+    {
+      "id": "4k0rwqcs32lzneg",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.541Z"
+    }
+  ]
+}

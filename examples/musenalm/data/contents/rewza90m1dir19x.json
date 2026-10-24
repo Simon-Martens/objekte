@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Hat Dich das erste Bruchstück aus meinen musikalischen Wanderungen wirklich so angezogen, daß Du die Schilderung der ganzen Reise verlangst?",
+  "language": [],
+  "musenalm_id": 76890,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Begräbniß. / Ein zweites Bruchstück aus meinen musikalischen / Wanderungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst von Houwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Begräbniß. / Ein zweites Bruchstück aus meinen musikalischen / Wanderungen",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zz70lepdd6k2a4x",
+      "agents": "yekzbr1mkxuaimv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.677Z"
+    }
+  ]
+}

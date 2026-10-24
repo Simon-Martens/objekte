@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Es waren doch in unsrer Oper heute / So ziemlich gute Leute,",
+  "language": [],
+  "musenalm_id": 18854,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Graun; / (den Kapellmeister, als er beym Herausgehen / aus dem Opernhause dem Verfasser klagte, / daß so wenig gute Leute wären.) / 1755",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Graun; / (den Kapellmeister, als er beym Herausgehen / aus dem Opernhause dem Verfasser klagte, / daß so wenig gute Leute wären.) / 1755",
+  "updated": "2001-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "78ks9opch4ac2j7",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.742Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.742Z"
+    }
+  ]
+}

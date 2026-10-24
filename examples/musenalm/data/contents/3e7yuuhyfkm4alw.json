@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.496Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Im Raum der Nacht entzünden sich die Kerzen / Des ew'gen Himmels und die Erde ruht.",
+  "language": [],
+  "musenalm_id": 12098,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Leukadische Felsen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. S. Siegfried",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Leukadische Felsen",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mcc27k3cevdinxx",
+      "agents": "xz1tbmlybgjc5rf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.269Z"
+    }
+  ]
+}

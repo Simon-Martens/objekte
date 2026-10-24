@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait # Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94586,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihre königliche Hoheit, die Prinzessin Louise, Amalie, Stephanie von Baden, Gemahlin Sr. königl. Hoheit des Prinzen Gustav von Wasa #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Schlesinger del. C. Mahlknecht sc.",
+  "scans": [
+    "alm_1872_94586_cgotbttcyi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ihre königliche Hoheit, die Prinzessin Louise, Amalie, Stephanie von Baden, Gemahlin Sr. königl. Hoheit des Prinzen Gustav von Wasa #",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4pknadn6pmx27um",
+      "agents": "q0ll739boyttklq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.630Z"
+    },
+    {
+      "id": "jauazfh5lpxt424",
+      "agents": "z8rsr5de0jmn33o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.630Z"
+    }
+  ]
+}

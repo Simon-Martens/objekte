@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Statistischer Versuch über den Kanton Waat« INr 52370, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52371,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Canton Waat. / Winzer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_715_52371_mfm22rrgno.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Canton Waat. / Winzer",
+  "updated": "2007-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sgkhb8cjaxebkxj",
+      "agents": "grbttvgkqnprgwf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.562Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "413",
+  "incipit_statement": "Seht Ihr den lieblichen Knaben wohl? / Seine Wangen sind blaß, sein' Äuglein hohl,",
+  "language": [],
+  "musenalm_id": 94042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sanct Odilo / Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sanct Odilo / Legende",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kafzgg6477rlmz4",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.638Z"
+    }
+  ]
+}

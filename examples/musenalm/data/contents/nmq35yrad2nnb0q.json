@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die beiden Pilger« von C. Ahlefeld INr 29156, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29157,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus den beiden Pilgern, / von Charlotte von Ahlefeld geb. von Seebach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury sc.",
+  "scans": [
+    "alm_377_29157_kwbgcppw3t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus den beiden Pilgern, / von Charlotte von Ahlefeld geb. von Seebach",
+  "updated": "2002-10-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hyrd8bczalh8db0",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.524Z"
+    },
+    {
+      "id": "wsupyk9xgom8ie4",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.524Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Zwei Epigramme aus Brief Nr. 109 und 110 s.: Nachträge in: Lichtenberg, Georg Christoph, Briefwechsel 5, Hrsg Ulrich Joost München 2004",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Deutsch, unerschöpflich, rein, / So wie dein Herz, sey auch dein Wein;",
+  "language": [],
+  "musenalm_id": 2104,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ***",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ***",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2yas8tz2x6ckbsw",
+      "agents": "b349lt9abynr81b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.668Z"
+    }
+  ]
+}

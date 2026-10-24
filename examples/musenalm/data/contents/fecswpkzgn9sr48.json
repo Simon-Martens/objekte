@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 35150-35156, Obj 119-125",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lcmqi8rm7s70hun",
+      "agents": "snnpz92vgxnioxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.691Z"
+    }
+  ]
+}

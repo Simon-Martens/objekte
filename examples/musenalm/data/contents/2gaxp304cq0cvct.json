@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 129264, Obj 10 /) Nachstich aus Taschenbuch der Grazien 1807, nach Ramberg, mit veränderter Unterschrift",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129265,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sieht, und sieht ein Nest voll junger / Götter.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_2643_129265_jizxuowhoh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sieht, und sieht ein Nest voll junger / Götter.",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mgc7aow68732nrv",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.007Z"
+    }
+  ]
+}

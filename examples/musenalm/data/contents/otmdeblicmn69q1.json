@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Eya Poleya! Was rasselt im Stroh? / Schlafet, sonst wird man des Lebens nicht / froh;",
+  "language": [],
+  "musenalm_id": 2271,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ttfnrppfmsmszu",
+      "agents": "70seai9x3f3abl4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.969Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Du, für die mein Herz so zärtlichliebend schläget, / Und nach dir sich in geheimen Seufzern reget,",
+  "language": [],
+  "musenalm_id": 30802,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Sylli Wallberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Sylli Wallberg",
+  "updated": "2003-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yap0c4ph8z7md7i",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.660Z"
+    }
+  ]
+}

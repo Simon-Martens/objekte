@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35076, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Ich war ein schöner Stern in meinem Kreise, / Umsaust von kühngemess'nen Harmonien,",
+  "language": [],
+  "musenalm_id": 35084,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Der Komet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Sallet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Der Komet",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pl2vp25c6swmqup",
+      "agents": "paudfbsdce3dysa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.821Z"
+    }
+  ]
+}

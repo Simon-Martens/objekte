@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Nicht wahr, Compthur, der Diamant / An deiner schmucken Köchin Hand / Ist falsch?",
+  "language": [],
+  "musenalm_id": 37375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Diamant",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Diamant",
+  "updated": "2001-03-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fdy7zo13idippri",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.884Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.884Z"
+    }
+  ]
+}

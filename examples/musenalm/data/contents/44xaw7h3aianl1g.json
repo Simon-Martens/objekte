@@ -1,0 +1,45 @@
+{
+  "annotation": "Allemannische Lieder (Sammlung INr 14296, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Der Pfarrer sagt so viel zum Preis / Uns vom verlornen Paradeis;",
+  "language": [],
+  "musenalm_id": 14297,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Mein Paradies. / (Aus dem Allemannischen. S. Alpenrosen auf das Jahr / 1811, S. 36.) / Unusquisque facere se beatum potest. / Seneca",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Mein Paradies. / (Aus dem Allemannischen. S. Alpenrosen auf das Jahr / 1811, S. 36.) / Unusquisque facere se beatum potest. / Seneca",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uh10mobh7s77awm",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.297Z"
+    }
+  ]
+}

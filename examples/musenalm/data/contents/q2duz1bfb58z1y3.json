@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Nach einer wahren Anekdote , in Laudons  Kunst. Annalen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Ritter Rubens saß und mahlte / Mit der Farben Zauberlicht,",
+  "language": [],
+  "musenalm_id": 52987,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Stein der Weisen. / Gewidmet der Schweizerischen Künstler- / Gesellschaft in Zofingen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rud. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Stein der Weisen. / Gewidmet der Schweizerischen Künstler- / Gesellschaft in Zofingen",
+  "updated": "2007-11-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "131h3gtjwxauz2z",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.841Z"
+    }
+  ]
+}

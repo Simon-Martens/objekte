@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert B. /) Beigabe zu »Weiße Modestickerei« INr 76465, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76467,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Anleitung"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[graph. Anleitung (Netto fec. 1806)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto fec. 1806",
+  "scans": [
+    "alm_3704_76467_ok11pdxquu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jc1hzkwpi62vsmh",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.909Z"
+    }
+  ]
+}

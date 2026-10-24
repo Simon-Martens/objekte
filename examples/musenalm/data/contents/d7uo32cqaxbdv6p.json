@@ -1,0 +1,56 @@
+{
+  "annotation": "MADRIGALE (s. graph. Zwischentitel INr 71303, Obj 90) GUARINI (s. Zwischentitel INr 71291, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Licoris gab Bathyllen / Ein Röschen, wie mir schien, des Paradieses.",
+  "language": [],
+  "musenalm_id": 71309,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guarini; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI.",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xowlv9b0963j278",
+      "agents": "sjkch1k7fhhouea",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.359Z"
+    },
+    {
+      "id": "eu1wbs3b6dwgfrp",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.359Z"
+    }
+  ]
+}

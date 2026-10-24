@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Adler und Taube« INr 132826, Obj 8; nummeriert 3; # Bez. an der ersten Graphik der Suite",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Voltz inv. Nördlingen  Paul Laminit sc. Aug.",
+  "scans": [
+    "alm_4858_132829_9jdyp5446c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2023-12-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zjj2br6nwt9tptr",
+      "agents": "9jdjix2kojsx6en",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.096Z"
+    },
+    {
+      "id": "p5hhy1s4al4kly1",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.096Z"
+    }
+  ]
+}

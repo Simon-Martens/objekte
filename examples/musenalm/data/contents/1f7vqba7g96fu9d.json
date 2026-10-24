@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Christ. Brand pinx.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christ. Brand pinx.",
+  "scans": [
+    "alm_4674_123702_kafdbtoyfq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2019-10-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c17zb4wz8ty66ij",
+      "agents": "ldww2qony5dkhiw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.846Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.846Z"
+    }
+  ]
+}

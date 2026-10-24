@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Romance de Gonzalve de Cordue« von Florian",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Présens du ciel, bien-faits charmans, tendre amour, aimable hymenée, vous seuls de nos plus beaux momens serrez la chaîne fortunée",
+  "language": [],
+  "musenalm_id": 76030,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romance de Gonzalve de Cordoue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Götzloff",
+  "scans": [
+    "alm_3280_76030_54ejcq2llp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Romance de Gonzalve de Cordoue",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t3nciu4ckhrq3hj",
+      "agents": "82puxmj55u8npjd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.686Z"
+    }
+  ]
+}

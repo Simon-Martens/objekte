@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Die goldnen Becher blinken, / Gefüllt mit edlem Wein,",
+  "language": [],
+  "musenalm_id": 35632,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 151,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied. / Dem Tänzer in St. gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied. / Dem Tänzer in St. gewidmet",
+  "updated": "2003-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tdq8hn8xxtotts0",
+      "agents": "x9exqq2c4bm6xsq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.854Z"
+    }
+  ]
+}

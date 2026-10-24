@@ -1,0 +1,45 @@
+{
+  "annotation": "# es folgt: Beispiel eines »Fidibusgedichte« INr 21588, Obj 75",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ich habe, seit der Herausgabe dieser Blumenlese, der Fidibusbeiträge so viel erhalten,",
+  "language": [],
+  "musenalm_id": 21587,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachrede",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_287_21587_3fe1p0poo2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nachrede",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ckexmle9qoecwk",
+      "agents": "2f965te58psi6tx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.023Z"
+    }
+  ]
+}

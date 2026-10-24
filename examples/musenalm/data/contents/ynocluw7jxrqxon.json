@@ -1,0 +1,45 @@
+{
+  "annotation": "Historische Aufsätze (Sammlung INr 43499, Obj 27) mit einer Illustration s. Graphik INr 43485, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Schon einmal wagte die Verfasserin dieser Blätter, auf die gütige Nachsicht des Publikums rechnend, Schilderungen und Skizzen aus dem Leben eines ritterlichen Fürsten darzustellen,",
+  "language": [],
+  "musenalm_id": 43501,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Züge aus dem Leben / des / deutschen Kaisers, Maximilian dem Ersten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cäcilie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Züge aus dem Leben / des / deutschen Kaisers, Maximilian dem Ersten",
+  "updated": "2006-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3y7p8uvfnh6ik96",
+      "agents": "e2rrjjwetvb2bmn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.335Z"
+    }
+  ]
+}

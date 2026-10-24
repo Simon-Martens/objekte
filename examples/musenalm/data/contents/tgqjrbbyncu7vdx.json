@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 42",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Auf offnem Markte mit Gebieterton / Erschien in Herrscherpracht der Gott Im- / perativus.",
+  "language": [],
+  "musenalm_id": 37941,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die verschiedene Weise der Moral",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "V.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die verschiedene Weise der Moral",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hanfulh25oxfjnl",
+      "agents": "stasese2l43xq94",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.040Z"
+    }
+  ]
+}

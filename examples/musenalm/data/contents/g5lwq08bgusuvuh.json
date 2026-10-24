@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Verl. v. J. D. Sauerländer] s. Textbezug INr 44581, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.710Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44580,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MUTTERGLÜCK",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gem. v. van Muyden gest. v. Sichling",
+  "scans": [
+    "alm_609_44580_59hwy3hnuv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MUTTERGLÜCK",
+  "updated": "2006-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ikkzyfe6hfjtdrs",
+      "agents": "oxd8z9k6l3g7yoe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.439Z"
+    },
+    {
+      "id": "hzi076uj49ksqe3",
+      "agents": "4h5l66xotmujbik",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.439Z"
+    }
+  ]
+}

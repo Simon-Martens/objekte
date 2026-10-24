@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 8. /) Illustration zu »Drei Sonette zu einem Gemälde von Eduard Ratti«  von Friederike von M. INr 59582, Obj 100 ; INr 59584-59586, Obj 102-104 # Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59583,
+  "musenalm_pagination": [
+    "5. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Engel der Barmherzigkeit #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ed. Ratti p. Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59583_ayjj8ejhs4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Engel der Barmherzigkeit #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n7gnnw0lswonjpz",
+      "agents": "nqn3l0r2bd2t8rn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.861Z"
+    },
+    {
+      "id": "kaqi4qih4zma47x",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.861Z"
+    }
+  ]
+}

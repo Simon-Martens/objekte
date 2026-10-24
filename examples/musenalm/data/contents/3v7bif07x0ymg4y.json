@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.783Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Ich und mein Weib / War'n nicht ein Leib.",
+  "language": [],
+  "musenalm_id": 90321,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Sarge meiner alten häßlichen / Gattinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tschink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Sarge meiner alten häßlichen / Gattinn",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5dyvlbptrspp44v",
+      "agents": "hk847xs3arg62qe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.150Z"
+    }
+  ]
+}

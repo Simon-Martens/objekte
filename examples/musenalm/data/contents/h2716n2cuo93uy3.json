@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 45254, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Bei Rosse in Irland lebte der ältere Cashill auf seinen Gütern, die mit dem väterlichen Titel sein Erbe geworden waren; der jüngere Bruder, George, lebte zu Dublin.",
+  "language": [],
+  "musenalm_id": 45253,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Glück aus Unglück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Glück aus Unglück",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p58vtjxjxag6gdf",
+      "agents": "0w2k67v3yzi61te",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.291Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.291Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "s. folgenden Beitrag INr 81087, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.495Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81086,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dräxler-Manfred",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach einer Photographie gestochen von C. Kotterba",
+  "scans": [
+    "alm_1806_81086_v0xcw0troh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dräxler-Manfred",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "25eh0ui72ry7lfm",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.062Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.177Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "Welch ein Narr im vor'gen Jahre, / Bin ich heu'r nicht der Klügste!",
+  "language": [],
+  "musenalm_id": 20659,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das neue Leben. / Nach Gongora",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Beauregard Pandin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das neue Leben. / Nach Gongora",
+  "updated": "2002-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "if9t2x6xkoktw49",
+      "agents": "9mav4omm7dqt3ib",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.064Z"
+    }
+  ]
+}

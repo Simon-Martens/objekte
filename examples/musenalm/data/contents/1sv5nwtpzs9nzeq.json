@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte und prosaische Aufsätze (Sammlung INr 10094, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Ein keckes Herrchen und ein verwöhntes Hündchen, sind beides nicht durch ihre Schuld.",
+  "language": [],
+  "musenalm_id": 10149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein keckes Herrchen und ein verwöhntes Hündchen, sind beides nicht durch ihre Schuld.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. v. Wallenrodt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q9vu996rsxr8s30",
+      "agents": "hcd8t0hxbx8bldt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.209Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.209Z"
+    }
+  ]
+}

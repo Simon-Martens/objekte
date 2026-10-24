@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 13329, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "356",
+  "incipit_statement": "Mit fünfen komm' ich, die Blätter zu rühren; / Am Eisen nag' ich nur mit vieren,",
+  "language": [],
+  "musenalm_id": 13349,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 139,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17. / Logogryph",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17. / Logogryph",
+  "updated": "2001-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e2lcdluk4nforkj",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.729Z"
+    }
+  ]
+}

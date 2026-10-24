@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Sperlings Theaterpredigt« von Schütz (INr 130398, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Heisa, Juchheisa, dudeldumdei! / Das geht ja hoch her; bin auch dabei!",
+  "language": [],
+  "musenalm_id": 130397,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXVIII. / Rede des Capuziners, / aus / Wallensteins Lager, / von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXVIII. / Rede des Capuziners, / aus / Wallensteins Lager, / von Schiller",
+  "updated": "2009-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n0mwsrtcl4pm0yr",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.069Z"
+    }
+  ]
+}

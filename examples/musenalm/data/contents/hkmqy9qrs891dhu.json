@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem G-Verz; Graphik im Kalendarium paginiert 3. /) Illustration zu »Die Stiefschwestern, ein Mährchen« von  F. C. Weisser INr 43399, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43403,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Stiefschwestern / von Weisser. S. 134",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schwerdgeburth",
+  "scans": [
+    "alm_570_43403_gmkh2av8tk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Stiefschwestern / von Weisser. S. 134",
+  "updated": "2006-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0d9mq7mdarhbg1s",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.225Z"
+    }
+  ]
+}

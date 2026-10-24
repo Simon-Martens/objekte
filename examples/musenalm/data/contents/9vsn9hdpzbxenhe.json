@@ -1,0 +1,56 @@
+{
+  "annotation": "zus. Bezeichnung : gedruckt bei E. Grünewald in Darmstadt /) s. Textbezug INr 30544, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30543,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Sonderland del. Ed. Schuler sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sonderland del. Ed. Schuler sc.",
+  "scans": [
+    "alm_402_30543_xpx15ftiuu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9vqa22dsv7f4rir",
+      "agents": "qy6yej73pl7anzc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.653Z"
+    },
+    {
+      "id": "jmdvyw4u9dd6k1i",
+      "agents": "hk6k9w6jym7fe8o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.653Z"
+    }
+  ]
+}

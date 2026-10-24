@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Sittenbilder. Fortsetzung der Auszüge aus dem Achlak al-mohseni (Sammlung INr 14263, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Ein gewisser Zeki, ein edler Mann, hatte von einer Griechischen Sklavinn, Nuscha genannt,",
+  "language": [],
+  "musenalm_id": 14266,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23. / Das Bild der Ältern in ihren Kindern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23. / Das Bild der Ältern in ihren Kindern",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "puaki7h2osf0wmx",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.621Z"
+    }
+  ]
+}

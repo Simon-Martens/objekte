@@ -1,0 +1,45 @@
+{
+  "annotation": "Frauenspiegel (Sammlung INr 94517, Obj 86)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "348",
+  "incipit_statement": "Das Herz des Manns wünscht Veränderung, / Das Herz der Frau will Beschäftigung.",
+  "language": [],
+  "musenalm_id": 94547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "30.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "30.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v06xr3tms5wab5d",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.641Z"
+    }
+  ]
+}

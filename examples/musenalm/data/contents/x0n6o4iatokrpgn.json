@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bezeichnung aus dem Titel (INr 125008, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "In einem der ersten Jahrgänge dieses Taschenbuchs [...] befindet sich »Das Ideal«, Lustspiel in drei Akten, welches [...] mit günstigem Erfolg, mehrmals aufgeführt wurde.",
+  "language": [],
+  "musenalm_id": 125009,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wusgboq1a4cmj3m",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.863Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus der Schweiz (Sammlung INr 41829, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Meilentief abstürzt ein wilddurchbrechendes Weltmeer, / Aber lautlos, du hörst pochen nur leise dein Herz.",
+  "language": [],
+  "musenalm_id": 41839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Am Lys-Gletscher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Menzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Am Lys-Gletscher",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1n1gt3p476temse",
+      "agents": "6z5qy0vfiswoqx8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.892Z"
+    }
+  ]
+}

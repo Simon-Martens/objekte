@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Musik erklingt zum Hochzeitsschmaus, / Sie tanzen im erhellten Haus.",
+  "language": [],
+  "musenalm_id": 25170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 192,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Braut vom Bergsee",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Braut vom Bergsee",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qcpspd2h0q7qc6a",
+      "agents": "hoxjtedfq4ub3f9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.368Z"
+    }
+  ]
+}

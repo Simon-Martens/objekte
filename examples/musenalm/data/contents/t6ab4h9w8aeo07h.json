@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86173, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86174,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bitte um Einlass",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach P. Fendi. Chr. Hoffmeister sc.",
+  "scans": [
+    "alm_1597_86174_1ertv0vdv9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Bitte um Einlass",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pahw1k2t5s304f1",
+      "agents": "aj12jgcexyaf6b2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.141Z"
+    },
+    {
+      "id": "ipuwsj6pbzbjla4",
+      "agents": "zuqeig2avlr6rku",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.142Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.142Z"
+    }
+  ]
+}

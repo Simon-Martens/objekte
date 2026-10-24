@@ -1,0 +1,56 @@
+{
+  "annotation": "Xenien (Sammlung INr 38179, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.168Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Schade dass ein Talent hier auf dem Kathe- / der verhallet,",
+  "language": [],
+  "musenalm_id": 38245,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 314,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verfehlter Beruf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verfehlter Beruf",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rtpan24yl5fk6xm",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.737Z"
+    },
+    {
+      "id": "opwc2cx64ohuozp",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.737Z"
+    }
+  ]
+}

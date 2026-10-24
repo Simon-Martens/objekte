@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel /) s. Gedicht INr 116294, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.004Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116288,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THALIA. / WIEN, 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haselwander del. F. Zastiera sc.",
+  "scans": [
+    "alm_3215_116288_dn1k8nsq35.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THALIA. / WIEN, 1848",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lz83hajsczy8nw8",
+      "agents": "rb0is2za5c4lggc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.347Z"
+    },
+    {
+      "id": "9enu49iqcyo0hhl",
+      "agents": "ocng47uzapri3n3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.347Z"
+    }
+  ]
+}

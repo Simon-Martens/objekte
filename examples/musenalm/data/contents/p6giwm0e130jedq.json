@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67308, Obj 8) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 67312, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Mehr der Jäger als der Naturforscher belegt einige Familien unter dem ausgebreiteten und mannigfaltig verzweigten Geschlecht der Hunde mit dem Namen der Hatzhunde;",
+  "language": [],
+  "musenalm_id": 67311,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Hatzhund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Hatzhund",
+  "updated": "2009-10-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4757jcqo4s00dv0",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.192Z"
+    }
+  ]
+}

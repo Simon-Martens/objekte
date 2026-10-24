@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Ein finstrer Unmuth drückte mich / Ich kann es nicht beschreiben",
+  "language": [],
+  "musenalm_id": 14772,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Rettungsmittel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Rettungsmittel",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s26avjj6dx0xa6p",
+      "agents": "7z02zmx8ocy9uwz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.530Z"
+    }
+  ]
+}

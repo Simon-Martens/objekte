@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 115386, Obj 77",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.600Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115311,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "J. L. Liebich / Schauspieler und Director / des königl. Ständ. Theaters zu Prag. / Gebohren zu Mainz am 5ten Aug. 1773",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bayer del. J. Berka sc. Pragae",
+  "scans": [
+    "alm_3246_115311_7afibz6rft.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "J. L. Liebich / Schauspieler und Director / des königl. Ständ. Theaters zu Prag. / Gebohren zu Mainz am 5ten Aug. 1773",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b2aokswyeqq3ecq",
+      "agents": "awkkthw51bj1y7d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.456Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.456Z"
+    }
+  ]
+}

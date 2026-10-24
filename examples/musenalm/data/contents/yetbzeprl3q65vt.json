@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Amor trägt eine Himmelskugel« von N. Meyer INr 32017, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Meÿer del. F. Kaiser sc. Weimar 1802)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Meÿer del. F. Kaiser sc. Weimar 1802",
+  "scans": [
+    "alm_366_32018_lcexfhgggc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ppbneowvcll2c44",
+      "agents": "oo9udbnis38dav0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.523Z"
+    },
+    {
+      "id": "x2xc9c1ipj6r8s8",
+      "agents": "temkw600l59vchm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.523Z"
+    }
+  ]
+}

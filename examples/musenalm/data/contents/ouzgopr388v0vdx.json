@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 34551, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.911Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34550,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die verwaiste Familie #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Chisholme pinxt. S. Davenport sculpt.",
+  "scans": [
+    "alm_480_34550_nlj29bj1da.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die verwaiste Familie #",
+  "updated": "2003-06-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bz7ty6wre4u7cpk",
+      "agents": "516mtf4qnmfxdqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.711Z"
+    },
+    {
+      "id": "p5xwjk20z0cb2zk",
+      "agents": "u41fyo3eshx0kfq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.711Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Todtenfeier« von -er. INr 21621, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21620,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todtenfeier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christmann",
+  "scans": [
+    "alm_290_21620_v7j9nsjguz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Todtenfeier",
+  "updated": "2002-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x2fmia9uyrh35ti",
+      "agents": "ussav0kjrpl2ljc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.975Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 62825, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Kurd von Dachau brachte den Herbst in einem Kloster zu, dem sein Oehm als Abt vorstand. Sein Vater und seine beyden ältern Brüder hatten auf dem Zuge des Kaisers ihren Tod gefunden, und er war der letzte seines Stammes.",
+  "language": [],
+  "musenalm_id": 62832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rache",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rache",
+  "updated": "2009-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c4ak63w50q4h6hi",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.162Z"
+    }
+  ]
+}

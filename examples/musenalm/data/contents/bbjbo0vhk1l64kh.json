@@ -1,0 +1,37 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Verlassene« von G. INr 32418, Obj 17 (Photos 32417,01-32417,03)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32417,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Verlassene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frl. A. v. C",
+  "scans": [
+    "alm_449_32417_01_5fi8az2zho.jpg",
+    "alm_449_32417_02_jmmhncnaxl.jpg",
+    "alm_449_32417_03_3sur4eicgq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Verlassene",
+  "updated": "2003-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": []
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 20914, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.675Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20905,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Titians Frau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paris Bordone pinx. F. Fleischmann sc.",
+  "scans": [
+    "alm_276_20905_c8nw78lrme.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Titians Frau",
+  "updated": "2002-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n497eyj168pvyxv",
+      "agents": "goloew0b9lvkvjs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.130Z"
+    },
+    {
+      "id": "ronkhipzmhong50",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.131Z"
+    }
+  ]
+}

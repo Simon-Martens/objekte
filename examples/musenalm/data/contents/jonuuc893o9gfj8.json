@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Der Ritter Siegmund von Freisingen saß noch allein an der Tafel, sein Haupt auf beide Hände gestützt,",
+  "language": [],
+  "musenalm_id": 40003,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Frauentreue. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Rudolf Hermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Frauentreue. / Erzählung",
+  "updated": "2005-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0q2225pv6unm012",
+      "agents": "kvqo68p64ik630m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.741Z"
+    }
+  ]
+}

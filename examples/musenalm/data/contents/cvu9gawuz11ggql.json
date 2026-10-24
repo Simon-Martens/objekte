@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "O Natur, allwirkende Göttinn, allsäugende / Mutter, / Urgebohrne, und Erstgebohrne, und Aelteste / aller,",
+  "language": [],
+  "musenalm_id": 17729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne an die Natur. / Nach Orpheus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Th. Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymne an die Natur. / Nach Orpheus",
+  "updated": "2001-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dg7x8wuo81a2phm",
+      "agents": "nz3ytz19v6fnz1k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.636Z"
+    }
+  ]
+}

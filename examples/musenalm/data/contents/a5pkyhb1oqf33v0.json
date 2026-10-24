@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41207,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MUSENALMANACH / MDCCLXXV / IN SARDONYCHE / GOETTINGEN / BEY I. C. DIEDERICH",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil inv.",
+  "scans": [
+    "alm_76_41207_9ymtt355jh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MUSENALMANACH / MDCCLXXV / IN SARDONYCHE / GOETTINGEN / BEY I. C. DIEDERICH",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1i3r3fri1gzc8o1",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.721Z"
+    }
+  ]
+}

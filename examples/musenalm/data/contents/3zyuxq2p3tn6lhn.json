@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 10. # Titel und Bez. aus dem G-Verz INr 15495 Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15423,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Landhaus von der Erfindung des englischen Architecten Lewis #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lewis",
+  "scans": [
+    "alm_245_15423_hcsjqplwhb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Landhaus von der Erfindung des englischen Architecten Lewis #",
+  "updated": "2001-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qmd0qswf0b663xe",
+      "agents": "dq41odqlm2qlji6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.485Z"
+    }
+  ]
+}

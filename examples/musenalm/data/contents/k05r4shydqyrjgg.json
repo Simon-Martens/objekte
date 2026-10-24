@@ -1,0 +1,51 @@
+{
+  "annotation": "Photos 56381,01-56381,05",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Hört! Sianitinnen, meine Gespielinnen! Seht mich mitleidig an, saget dem Bräutigam:",
+  "language": [],
+  "musenalm_id": 56381,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die vor Liebe sterbende Maria / Hymnus nach dem Lateinischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Schneider",
+  "scans": [
+    "alm_24_56381_01_e21k1v5w1c.jpg",
+    "alm_24_56381_02_vs30zpwrjw.jpg",
+    "alm_24_56381_03_gjvwym8sfj.jpg",
+    "alm_24_56381_04_0z27snzkdm.jpg",
+    "alm_24_56381_05_6e9z0pz6fj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die vor Liebe sterbende Maria / Hymnus nach dem Lateinischen",
+  "updated": "2008-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t87nta5z2nb4gpr",
+      "agents": "5j4ifce1qy52izk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.911Z"
+    }
+  ]
+}

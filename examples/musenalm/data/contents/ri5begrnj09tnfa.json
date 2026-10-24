@@ -1,0 +1,45 @@
+{
+  "annotation": "Sannlung von 3 Rätseln INr 13331-13333, Obj 121-123 /) Charaden und Räthsel (Sammlung INr 13329, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13330,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Charade",
+  "updated": "2001-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "atmsr38fjd5u6ms",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.629Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Beigabe zu: Statistische Verzeichnisse des kaiserl. königl. Hofoperntheaters nächst dem Kärthnerthore (Sammlung INr 114765, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.415Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114775,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fräulein v. Marra / in der Oper: Der Liebeszauber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Leybold sc.",
+  "scans": [
+    "alm_3837_114775_auamc19jj4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fräulein v. Marra / in der Oper: Der Liebeszauber",
+  "updated": "2012-06-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "05z9seaor8d0hxt",
+      "agents": "zefb5ir07ld7tkj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.318Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.318Z"
+    }
+  ]
+}

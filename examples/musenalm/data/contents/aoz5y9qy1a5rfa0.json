@@ -1,0 +1,56 @@
+{
+  "annotation": "Nummeriert VII. /) Graphik im Kalendarium Dezember",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104568,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Madame Böck u. Herr Koch, / als Fähndrich und Johann / in der grossen Batterie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. M. Kraus del. G. A. Liebe sc.",
+  "scans": [
+    "alm_3249_104568_6mic4eyc3s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Madame Böck u. Herr Koch, / als Fähndrich und Johann / in der grossen Batterie",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "amydjfoy8lp6km2",
+      "agents": "vvn2bsy8p7l2qv3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.798Z"
+    },
+    {
+      "id": "i9z8m1wlj4ub9nu",
+      "agents": "v0k80momy67j3zt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.798Z"
+    }
+  ]
+}

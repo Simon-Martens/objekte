@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Oberon (Titel aus dem I-Verz) s. Graphik INr 75369, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "(Die Wolken hüllen Oberon und Titania ein. Als sie sich wieder zerstreuen, erblikt man Karls des Großen Palast.",
+  "language": [],
+  "musenalm_id": 75362,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "600o0kfnw3jslnr",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.687Z"
+    }
+  ]
+}

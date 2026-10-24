@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Freileute von der Herrenwiese« aus »Scenen und Geschichten« von C. Spindler; s. Textbezug INr 103244, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103243,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE FREILEUTE VON DER HERRENWIESE. / Scenen und Geschichten II. Bd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hasselwander del. Leop. Beyer sc.",
+  "scans": [
+    "alm_3415_103243_xruha3czab.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE FREILEUTE VON DER HERRENWIESE. / Scenen und Geschichten II. Bd",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8kywviwo0au8pms",
+      "agents": "rb0is2za5c4lggc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.872Z"
+    },
+    {
+      "id": "6plcscqtx82duiq",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.872Z"
+    }
+  ]
+}

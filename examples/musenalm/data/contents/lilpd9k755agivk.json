@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "401",
+  "incipit_statement": "Wie jauchzt meine Seele / Und singet in sich! / Kaum daß ich's verhehle, / So glücklich bin ich.",
+  "language": [],
+  "musenalm_id": 26566,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liedchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Freiherr v. Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liedchen",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vpjawaetm305k8l",
+      "agents": "h99uxdryiugeh6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.074Z"
+    }
+  ]
+}

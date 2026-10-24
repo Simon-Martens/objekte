@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Unterdeß schliefen die übrigen Jünger, vom / Kummer ermüdet, / In des Oelbergs Umschattungen ein.",
+  "language": [],
+  "musenalm_id": 92326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Judas Ischarioth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Judas Ischarioth",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sxagjx40t2vyi0k",
+      "agents": "ckd4l48jtgsgmor",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.637Z"
+    }
+  ]
+}

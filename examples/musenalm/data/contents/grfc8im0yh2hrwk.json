@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 9111, Obj 5) s. Graphik INr 18677, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "S. Seite 178 des Textes. Der brave östreichische Krieger, der hier mit so viel Theilnahme",
+  "language": [],
+  "musenalm_id": 18677,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.) / Kray an Marceau's SterbeBette. / (20 Sept)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.) / Kray an Marceau's SterbeBette. / (20 Sept)",
+  "updated": "2001-01-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ylqey2j4hempdr",
+      "agents": "b68wiq4xeilaqf3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.588Z"
+    }
+  ]
+}

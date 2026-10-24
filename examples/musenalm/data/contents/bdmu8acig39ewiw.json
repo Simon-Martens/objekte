@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Ein Haase ward, wie Lockmann sagt, / Von einem Windspiel aufgejagt",
+  "language": [],
+  "musenalm_id": 3514,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Windspiel und der Haase",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Windspiel und der Haase",
+  "updated": "2000-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "clzmu1l5k12i2ul",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.134Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.134Z"
+    }
+  ]
+}

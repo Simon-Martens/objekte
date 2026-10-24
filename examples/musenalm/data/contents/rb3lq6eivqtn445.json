@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Lebe wohl, du Mann der Lust und Schmerzen! / Mann der Liebe, meines Lebens Stab!",
+  "language": [],
+  "musenalm_id": 3407,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Molly's Abschied / versificiert / 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Molly's Abschied / versificiert / 1782",
+  "updated": "2000-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cfy2utb36ealsyd",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.757Z"
+    }
+  ]
+}

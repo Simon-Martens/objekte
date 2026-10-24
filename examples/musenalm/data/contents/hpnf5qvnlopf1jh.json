@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.883Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41369,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Römische Bilder IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thomas del. Roma. Friedr. Geißler sculp. Nbg.",
+  "scans": [
+    "alm_483_41369_xxml5cxg4q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Römische Bilder IV.",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kyopz7ovzokwdhn",
+      "agents": "axerjmclyw1o0sc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.946Z"
+    },
+    {
+      "id": "ci9d9to2f02zi64",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.946Z"
+    }
+  ]
+}

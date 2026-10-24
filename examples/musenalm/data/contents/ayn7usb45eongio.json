@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 104001, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104000,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER SCHWARZWÄLDER BAUER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Pauditz pinx. S. v. Perger del. Rossmäsler sculp.",
+  "scans": [
+    "alm_1930_104000_titk3d6d3p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER SCHWARZWÄLDER BAUER",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o9itivq5vqd1gf8",
+      "agents": "fzq40adu3hp39b4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.904Z"
+    },
+    {
+      "id": "8ikrjfl928auhd0",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.904Z"
+    },
+    {
+      "id": "hrum2a05ja1uzbp",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.904Z"
+    }
+  ]
+}

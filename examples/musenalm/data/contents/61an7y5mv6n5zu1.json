@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. Dem Beitrag vorangestellt: Die Abendgrillen sind Aufsätze von einer sehr liebenswürdigen Frau, oder sie könnten es seyn. [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Freude, Vergnügen, Wollust, Ruhe, Zufriedenheit? keins von den Worten paßt. Wie arm ist die Sprache, die Gefühle zu bezeichnen!",
+  "language": [],
+  "musenalm_id": 32710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendgrillen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abendgrillen",
+  "updated": "2003-04-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "826ejp8k1tpaatp",
+      "agents": "0w2k67v3yzi61te",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.536Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24337, Obj 117)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.013Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Aus des Ostens Gluten steigend, / Eilend durch das Rosenmeer,",
+  "language": [],
+  "musenalm_id": 24338,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Phönix",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. Heyden",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Phönix",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wxtytm31zqnk8mo",
+      "agents": "y4sojkg698u6ihg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.048Z"
+    }
+  ]
+}

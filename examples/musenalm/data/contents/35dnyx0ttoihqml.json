@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Es lebt' in einem Kloster Portugalls / Bernhardus, von dem Orden Dominiks,",
+  "language": [],
+  "musenalm_id": 14194,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Das Gastgebot",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Meinert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Das Gastgebot",
+  "updated": "2001-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pj12q7ghpr5mgbh",
+      "agents": "6g8r11hxaocz3tf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.457Z"
+    }
+  ]
+}

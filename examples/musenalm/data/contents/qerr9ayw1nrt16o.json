@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Dichtungen (Sammlung INr 74965, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "Schwebe von dem Himmel nieder, / Dort muß Deine Wohnung seyn,",
+  "language": [],
+  "musenalm_id": 74969,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Ruhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schnezler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Ruhe",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "imjqocywit43lhr",
+      "agents": "dz5hqr7uvnamp20",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.775Z"
+    }
+  ]
+}

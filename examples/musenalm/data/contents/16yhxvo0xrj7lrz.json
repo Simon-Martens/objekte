@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 4.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.580Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72342,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carl August von Struensee",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Arndt sc.",
+  "scans": [
+    "alm_828_72342_ck8htd0m50.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Carl August von Struensee",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e37eui1o0inf816",
+      "agents": "72r3qe0psneye9d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.612Z"
+    }
+  ]
+}

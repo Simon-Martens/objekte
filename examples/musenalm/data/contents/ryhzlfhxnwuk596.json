@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite bzw aus dem G-Verz /) Graphik im Kalendarium Februar; paginiert 2. /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Anfange des siebzehnten Jahrhunderts« von Fr. Wilken INr 58497, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58487,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Lustgarten im J. 1690 vom Schlosse angesehen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Stridbeck # L. Wolf del. Jügel sc.",
+  "scans": [
+    "alm_855_58487_jtxmpbrnj7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Lustgarten im J. 1690 vom Schlosse angesehen",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "93wiqjz67rnyrfd",
+      "agents": "hme5av0o5bms2s7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.982Z"
+    },
+    {
+      "id": "6jiiw1ekld3sad6",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.982Z"
+    },
+    {
+      "id": "wpfh1tfw1tscmz5",
+      "agents": "flivu8hnh9tq1va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.982Z"
+    }
+  ]
+}

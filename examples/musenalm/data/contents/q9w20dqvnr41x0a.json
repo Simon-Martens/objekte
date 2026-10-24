@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 80937, Obj 9 /) Illustration zu »Das Haus der Todten« von I. F. Castelli INr 80968, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.495Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80936,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diana von Tonquedec",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Grevedon del. C. Kotterba sc.",
+  "scans": [
+    "alm_1803_80936_wot3ecmrdd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Diana von Tonquedec",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "71meftd19626k5u",
+      "agents": "fnowuly66bkynwc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.805Z"
+    },
+    {
+      "id": "cgl3dxo6ji9iomk",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.805Z"
+    }
+  ]
+}

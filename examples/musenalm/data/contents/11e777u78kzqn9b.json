@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Februar /) Illustration zu »Gold und Gewissen« von Fr. Fitzinger INr 89612, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89599,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gold und Gewissen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. Jung sc.",
+  "scans": [
+    "alm_3356_89599_1sa77nqb9t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gold und Gewissen",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a9td1fg9q9o0niy",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.214Z"
+    }
+  ]
+}

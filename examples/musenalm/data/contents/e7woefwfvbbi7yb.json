@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 27954, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27951,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Maltheser #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Näcke; Rosmäsler in München 1828",
+  "scans": [
+    "alm_359_27951_p8fqkip2z7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Maltheser #",
+  "updated": "2002-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6sz2v9iqmwdbt52",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.266Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.266Z"
+    },
+    {
+      "id": "1wnne4oxw7jk9ty",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.266Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.266Z"
+    }
+  ]
+}

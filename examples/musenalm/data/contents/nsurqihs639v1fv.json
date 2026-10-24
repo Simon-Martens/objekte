@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Fein Liesli stellt die Blumen fort, / Und dämpfte der Ampel flackernden Schimmer:",
+  "language": [],
+  "musenalm_id": 45453,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 162,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Verlassene. / (Nach einer französischen Idee.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Titus Ullrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Verlassene. / (Nach einer französischen Idee.)",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z6hhe6nauooj7m9",
+      "agents": "tczftje9868adfs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.460Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "O Flasche, mir in Einem Decennium / Mit Gleim gebohren! Fröhliches oder Leid, / Haß oder Liebe sei dein Inhalt,",
+  "language": [],
+  "musenalm_id": 34815,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / eine Flasche alten Hochheimer; / nach Horaz Od. III. 21. / d. 2. April 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / eine Flasche alten Hochheimer; / nach Horaz Od. III. 21. / d. 2. April 1797",
+  "updated": "2001-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "71l91iz373a9agm",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.726Z"
+    }
+  ]
+}

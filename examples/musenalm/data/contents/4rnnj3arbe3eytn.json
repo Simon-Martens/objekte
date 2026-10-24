@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Engel schreiten, Jahre schwinden, / Blumen werden und vergehn,",
+  "language": [],
+  "musenalm_id": 22123,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Neujahrswunsch / von zweihundert Knaben an ihre Wohlthäter zu / Weimar 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johannes Falk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Neujahrswunsch / von zweihundert Knaben an ihre Wohlthäter zu / Weimar 1816",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "apl6ujb388djj40",
+      "agents": "bjik5dzyzk4cu0g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.000Z"
+    }
+  ]
+}

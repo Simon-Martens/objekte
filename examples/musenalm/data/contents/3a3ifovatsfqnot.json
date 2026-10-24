@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Die Tageulen (INr 70529, Obj 21) II. Naturhistorische Aufsätze (Sammlung INr 70518, Obj 10) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 70528, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "der Matador des Kleeblattes! Sie ist noch bedeutend groß und nur um Weniges, etwa 1 bis 2 Zolle kleiner als der Wächter in unseren Fasanerien, der famöse Uhu.",
+  "language": [],
+  "musenalm_id": 70530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1) Die Schnee-Eule. (Strix nyctea Lin)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1) Die Schnee-Eule. (Strix nyctea Lin)",
+  "updated": "2009-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mp07633eibngczp",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.643Z"
+    }
+  ]
+}

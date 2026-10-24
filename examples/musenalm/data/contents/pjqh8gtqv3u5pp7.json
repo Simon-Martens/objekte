@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderung (Sammlung INr 25890, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Was wollt' Ihr fliehen, / Und über Berg in weite Ferne ziehen?",
+  "language": [],
+  "musenalm_id": 25898,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtigall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtigall",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7uaj1bfitxv1w33",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.276Z"
+    }
+  ]
+}

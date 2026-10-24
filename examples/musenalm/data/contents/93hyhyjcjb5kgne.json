@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Beiträgen INr 125293-125295, Obj 147-149 /) XIV. Uebersetzungen und Bearbeitungen von Gedichten aus fremden Sprachen (Sammlung INr 125289, Obj 143)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "378",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125292,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 146,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Übersetzungen aus dem Lateinischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Bernard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Übersetzungen aus dem Lateinischen",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bg2sp71lfg1fbkd",
+      "agents": "32czpb0kbok37kn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.862Z"
+    }
+  ]
+}

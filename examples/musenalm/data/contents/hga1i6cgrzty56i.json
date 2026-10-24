@@ -1,0 +1,56 @@
+{
+  "annotation": "mit ausführlicher Einleitung des Übersetzers INr 76792, Obj 20 /) mit einer Illustration s. Graphik INr 76783, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Auf der Abendseite von Italien steht der berühmte Vesuv, einer der höchsten Berge der Appeninen-Kette, der mit seinem Scheitel durch die Wolken bis in den klaren Aether ragt;",
+  "language": [],
+  "musenalm_id": 76793,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Griselda / oder / Frauentreue. / Eine Novelle von Fr. Petrarcha dem Boccaccio nacherzählt. / Aus dem Lateinischen von A. Wendt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarcha [übers.] A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Griselda / oder / Frauentreue. / Eine Novelle von Fr. Petrarcha dem Boccaccio nacherzählt. / Aus dem Lateinischen von A. Wendt",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dpkbtgng7xjvtf9",
+      "agents": "jjhjybjbxkieqjg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.894Z"
+    },
+    {
+      "id": "ajnfob7tvgm08im",
+      "agents": "67zaqw1ahn1z54k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.894Z"
+    }
+  ]
+}

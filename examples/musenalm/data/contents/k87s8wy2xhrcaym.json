@@ -1,0 +1,45 @@
+{
+  "annotation": "Odysse II, 2. Gesang v. 77-133 übers. von Bodmer: Beigabe zum Beitrag VII »Penelope« von Bertuch INr 32668, Obj 68",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Telemach, sprach er, du redest heftige Worte; / du bist doch / Schwach an Kräften; du wolltest uns gern in / Ithaca Feinde / Machen.",
+  "language": [],
+  "musenalm_id": 32669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Telemach, sprach er, du redest heftige Worte; / du bist doch / Schwach an Kräften; du wolltest uns gern in / Ithaca Feinde / Machen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bodmer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-03-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u7xta4ln0h54djw",
+      "agents": "511bmjvz8bod02h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.744Z"
+    }
+  ]
+}

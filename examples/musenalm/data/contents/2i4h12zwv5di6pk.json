@@ -1,0 +1,45 @@
+{
+  "annotation": "Philosophische Facultät (Sammlung INr 71449, Obj 67) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "323",
+  "incipit_statement": "ist eigentlich gar kein Studiosus, denn er studirt nicht. Er fürchtet sich nicht vor dem Examen, denn er macht keins, oder ist des hohen Schutzes seiner Gönner so gewiß, daß er sich deshalb keine Sorgen macht.",
+  "language": [],
+  "musenalm_id": 71450,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Studiosus der Philosophie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav v. Struve",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Studiosus der Philosophie",
+  "updated": "2010-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kn9cdwxjwp3ls1f",
+      "agents": "qwibej56fq45fjs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.422Z"
+    }
+  ]
+}

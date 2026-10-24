@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Ein prächtiges Gemach, durch die Flammen des Kaminfeuers traulich hell! Die Art des Baues, die hohen Fenster, das kunstreich gearbeitete Getäfel aus Eichenholz,",
+  "language": [],
+  "musenalm_id": 44148,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann von Aragon. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Duller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Johann von Aragon. / Erzählung",
+  "updated": "2006-06-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q3z7s609xg42m8g",
+      "agents": "7bekt7k216mxue5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.272Z"
+    }
+  ]
+}

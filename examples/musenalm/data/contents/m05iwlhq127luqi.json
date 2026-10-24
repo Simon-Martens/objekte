@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "356",
+  "incipit_statement": "Starr ist mein Liebchen, starr und stolz, / Mein Liebchen, ach! sie ist von Holz,",
+  "language": [],
+  "musenalm_id": 94729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Volkslied. / (Finnländisch.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Liber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Volkslied. / (Finnländisch.)",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hykzoacmqk82y8r",
+      "agents": "zfc98s6qn3u27oa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.379Z"
+    }
+  ]
+}

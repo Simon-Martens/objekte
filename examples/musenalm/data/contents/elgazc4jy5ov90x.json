@@ -1,0 +1,46 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 89565, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Im Reiche eines Königs lag ein Jüngling gefangen, welchen die Korsaren eingebracht hatten.",
+  "language": [],
+  "musenalm_id": 89568,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weibliche Fürsprache. / (Gesta Romanorum. Lugduni. 1555. p. 14.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Weibliche Fürsprache. / (Gesta Romanorum. Lugduni. 1555. p. 14.)",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tarc0nmti902fim",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.338Z"
+    }
+  ]
+}

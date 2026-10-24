@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Mit innigem Vergnügen über die gütige Aufnahme des mit dem Jahre 1798 begonnenen Taschenbuches für Geschichte und Unterhaltung, übergiebt der Herausgeber hier den fünften Jahrgang desselben dem Publikum,",
+  "language": [],
+  "musenalm_id": 81974,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht",
+  "updated": "2012-06-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wyfsqosa4721hxo",
+      "agents": "n8qx3uzpvdlhykc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.116Z"
+    }
+  ]
+}

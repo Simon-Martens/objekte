@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 5 Graphiken §1§ mit 5 Textbezügen (Gedichten) 77537-77345, Obj 10-18, dazu Graphik INr 77535, Obj 8 /) §1§ 5. Graphik fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Unsre Hoffnung einer beifälligen und freundlichen Aufnahme der ersten Aufstellung von Scenen aus dem italienischen Volksleben, welche wir im vorigen Jahrgange dieses Taschenbuchs versuchten, ist über unsre Erwartung erfüllt worden,",
+  "language": [],
+  "musenalm_id": 77536,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweite Ausstellung von Scenen aus / dem italienischen Volksleben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweite Ausstellung von Scenen aus / dem italienischen Volksleben",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "43bap1a3wr2janv",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.732Z"
+    }
+  ]
+}

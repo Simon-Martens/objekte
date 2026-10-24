@@ -1,0 +1,36 @@
+{
+  "annotation": "Photos 41519,01-41519,02",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.721Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41519,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anzeige des Inhalts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_544_41519_01_ww8inkbg32.jpg",
+    "alm_544_41519_02_utzayiojq5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Anzeige des Inhalts",
+  "updated": "2005-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": []
+}

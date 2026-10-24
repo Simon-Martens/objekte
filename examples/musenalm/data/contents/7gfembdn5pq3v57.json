@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am Gedicht INr 122778, Obj 121",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.077Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Ein Wegweiser im Felde steht, / Damit auf Stunden weit im Kreis, / Wohin er seiner Wege geht, / Ein jeder fremde Wandrer weiß",
+  "language": [],
+  "musenalm_id": 122779,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Holzmann",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rudolf Hirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Holzmann",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g6jqq90qpk129r9",
+      "agents": "0iut14o5ga25sd7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.696Z"
+    }
+  ]
+}

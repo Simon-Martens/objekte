@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 34605, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Es waren die Monde, die zwölfe, beisammen / Im Tempel der Sonne, von welcher sie stammen,",
+  "language": [],
+  "musenalm_id": 34630,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Maytrank",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Schenk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Maytrank",
+  "updated": "2003-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gjmw71f0zmpdb1t",
+      "agents": "v42buu0bbkquom4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.626Z"
+    }
+  ]
+}

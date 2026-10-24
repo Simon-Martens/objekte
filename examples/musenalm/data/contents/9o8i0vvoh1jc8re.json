@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Gedichte (Sammlung INr 32151, Obj 11) mit einer Illustration s. Graphik INr 32154, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Heh! guten Abend, liebes Weibchen! / Bist noch gesund? / Und hielt'st du, wie ein treues Täubchen, / Den Ehebund?",
+  "language": [],
+  "musenalm_id": 32152,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kater",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kater",
+  "updated": "2003-02-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g0e4adilveakuiy",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.384Z"
+    }
+  ]
+}

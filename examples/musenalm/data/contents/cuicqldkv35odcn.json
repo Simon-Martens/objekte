@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41230,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Xinga als Oberpriester und Heerführer der Jaggas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Darnstedt sc.",
+  "scans": [
+    "alm_538_41230_hbpbirrsix.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Xinga als Oberpriester und Heerführer der Jaggas",
+  "updated": "2005-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8x9uxldblk3mrpd",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.904Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "In der Schweiz wurde in einer Abendgesellschaft viel darüber gesprochen, ob man den Frauen Monathgeld auf Verrechnung geben, oder ihnen täglich den Bedarf für Haushaltung zuzählen solle.",
+  "language": [],
+  "musenalm_id": 89091,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauen sollen rechnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Unger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frauen sollen rechnen",
+  "updated": "2013-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "httfuchfabkl4c1",
+      "agents": "14s4e7sp59idp02",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.388Z"
+    }
+  ]
+}

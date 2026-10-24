@@ -1,0 +1,43 @@
+{
+  "annotation": "Verlagsmitteilung . Hinweis auf späteren Abdruck der von M. Eßlinger nicht fertiggestellten Illustration zum Beitrag »Der Paria« von M. Beer INr 721, Obj 11. s. Graphik in: Urania 1827, INr 9358",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19050,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Nachricht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Brockhaus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zur Nachricht",
+  "updated": "2000-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tnjovr5ipv4vs8l",
+      "agents": "manlqagw1uz9rp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.831Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.831Z"
+    }
+  ]
+}

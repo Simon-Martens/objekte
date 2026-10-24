@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.168Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Im stillen heitern Glanze / Trit er so mild einher; / Wer ist im Sternenkranze / So schön geschmükt, als er?",
+  "language": [],
+  "musenalm_id": 96853,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mond",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Rudolphi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mond",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k3rfyf2efdvmhyf",
+      "agents": "dxi2hql7exffxou",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.653Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Wehe, wehe mir! Wohin / Treibt mich mein geschlagner Sinn?",
+  "language": [],
+  "musenalm_id": 5288,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kain am Ufer des Meers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kain am Ufer des Meers",
+  "updated": "2000-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u4jmglats6w8y9t",
+      "agents": "7gwss5mvx858qah",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.937Z"
+    }
+  ]
+}

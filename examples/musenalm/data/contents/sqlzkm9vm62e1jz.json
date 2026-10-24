@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.525Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104920,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seiner / Königlichen Hoheit / FRIEDRICH WILHELM / Markgrafen zu Brandenburg / Schwedt. / Zugeeignet / von / Reichard",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reichard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Seiner / Königlichen Hoheit / FRIEDRICH WILHELM / Markgrafen zu Brandenburg / Schwedt. / Zugeeignet / von / Reichard",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pz97ngwi66z2az4",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.985Z"
+    }
+  ]
+}

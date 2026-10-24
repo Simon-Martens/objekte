@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Zög're nicht länger Delphin! Ach rette!",
+  "language": [],
+  "musenalm_id": 86438,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Arion's Delphin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Rain",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Arion's Delphin",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p13t32q6txfhf7b",
+      "agents": "ut3gc8g2lomjo63",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.047Z"
+    }
+  ]
+}

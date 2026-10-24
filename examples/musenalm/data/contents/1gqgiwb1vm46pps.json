@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Was weilest du, heilige Pilgerinn, / So einsam am rieselnden Quell!",
+  "language": [],
+  "musenalm_id": 54024,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Pilgerinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hanhart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Pilgerinn",
+  "updated": "2008-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jhlxybofx2wteee",
+      "agents": "r7qty9urjd87rae",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.869Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Neapel (Sammlung INr 69069, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Möchte, wo ich geboren, doch bald mein Gedächtniß erlöschen, / Jedem mein Name, mein Bild gleich einem Traume verwehn,",
+  "language": [],
+  "musenalm_id": 69092,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22.",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pgib0eftvudcsts",
+      "agents": "6li7ibbf1vr3nv9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.440Z"
+    }
+  ]
+}

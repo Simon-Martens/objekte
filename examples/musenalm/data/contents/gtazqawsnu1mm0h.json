@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "Es läßt sich fragen, ob mehr Inkonsequenz bey den Purpurträgern selbst, oder mehr bey deren Kreauturen anzutreffen sey;",
+  "language": [],
+  "musenalm_id": 92605,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Encomia, / derer von Gottes Gnaden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Encomia, / derer von Gottes Gnaden",
+  "updated": "2012-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wv75xw3q3amof0y",
+      "agents": "i1m0o75lvyphony",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.202Z"
+    }
+  ]
+}

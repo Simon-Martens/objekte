@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Wie mancher Geck, der Kronen trägt, / Trüg' izt als Domherr die Kalotte;",
+  "language": [],
+  "musenalm_id": 5625,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Baharam. / An Bodmer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Baharam. / An Bodmer",
+  "updated": "2000-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ke3kl6ya9mv9g8n",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.150Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 66857, Obj 11) mit einer Anmerkung /) mit zwei Illustrationen s. Graphiken INr 67000, 67001, Obj 17, 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Unter den so merklichen Abweichungen unserer gewöhnlichen deutschen Eichenarten folgt nun die Ledereiche, welcher ich wegen ihrer großen, starken, festen, steifen und daher gleichsam lederartigen Blätter diesen Namen gegeben habe.",
+  "language": [],
+  "musenalm_id": 67002,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die Ledereiche. Quercus coriacea",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die Ledereiche. Quercus coriacea",
+  "updated": "2009-09-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gr2el1hn1hcvjiy",
+      "agents": "kq4g56g38zxvy1z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.322Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.322Z"
+    }
+  ]
+}

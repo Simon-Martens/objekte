@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Im Wald, im hellen Sonnenschein, / Wenn alle Knospen springen,",
+  "language": [],
+  "musenalm_id": 59688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Waldgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emanuel Geibel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Waldgesang",
+  "updated": "2008-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kubfrt5n5dhc345",
+      "agents": "h8j0pzrwje92vvq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.135Z"
+    }
+  ]
+}

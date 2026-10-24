@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4. /) Graphik im Kalendarium April /) Illustration zu »Schweizerisch-Burgundischer Krieg« INr 72510, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72501,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. 104. / Der Herzog muß fliehen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. inv. Meno Haas sc.",
+  "scans": [
+    "alm_849_72501_1m291l6gtr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. 104. / Der Herzog muß fliehen",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7g9qrc3j87xbvgn",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.744Z"
+    },
+    {
+      "id": "03nhw222zacul4u",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.744Z"
+    }
+  ]
+}

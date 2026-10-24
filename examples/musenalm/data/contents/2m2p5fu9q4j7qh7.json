@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "König der Vögel, geliebter Genosse deines / Gebieters, / Lieblicher Redner der künstlich erlernten Sprache / der Menschen,",
+  "language": [],
+  "musenalm_id": 3673,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf den Tod eines Papagays / Nach Statius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lenz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf den Tod eines Papagays / Nach Statius",
+  "updated": "2000-09-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "194935aj8ek6ivv",
+      "agents": "fu6aysv76d2t1pi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.015Z"
+    }
+  ]
+}

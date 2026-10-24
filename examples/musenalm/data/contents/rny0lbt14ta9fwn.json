@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Dichter (Sammlung INr 31725, Obj 97)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "In einer Rosenlaube saß, umstrahlet vom / Himmel, / Sinnig die Fantasie;",
+  "language": [],
+  "musenalm_id": 31727,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Gesang der Phantasie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kristof Kueffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Gesang der Phantasie",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "71p2gtflgjgj7ga",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.646Z"
+    }
+  ]
+}

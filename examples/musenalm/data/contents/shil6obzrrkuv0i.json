@@ -1,0 +1,45 @@
+{
+  "annotation": "Klänge aus der Ferne (Sammlung INr 86227, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "Hast du ein Haus, o, dann bestell' es gut, / Und hast du keines, such' ein's zu erwerben.",
+  "language": [],
+  "musenalm_id": 86229,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Häuslichkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Häuslichkeit",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a1m6id4d2nty1g6",
+      "agents": "tcaorsyhw9evcti",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.220Z"
+    }
+  ]
+}

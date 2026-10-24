@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Das Rosenfest« INr 10084, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10085,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schubert del. G. Boettger sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. G. Boettger sc.",
+  "scans": [
+    "alm_135_10085_dzctyx0585.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fw4ghjvhg0pw3pq",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.296Z"
+    },
+    {
+      "id": "ctjd2lalpo9qjoh",
+      "agents": "iypyb8g8bxed1eq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.296Z"
+    }
+  ]
+}

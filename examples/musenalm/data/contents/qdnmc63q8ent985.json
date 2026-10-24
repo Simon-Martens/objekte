@@ -1,0 +1,45 @@
+{
+  "annotation": "Erkärung der Kupfer (Sammlung INr 37510, Obj 11) Textbezug nach Motiven aus »Die Neue Heloise« von J. J. Rousseau s. Graphik INr 37521, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Wir sahen Julien schon einmal auf dem Sterbelager;",
+  "language": [],
+  "musenalm_id": 37522,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / (N. H. VI. Th. 11ter Brief.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stampeel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / (N. H. VI. Th. 11ter Brief.)",
+  "updated": "2010-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nkukb32fwtclnnf",
+      "agents": "s96imdco8knk8xx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.926Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.926Z"
+    }
+  ]
+}

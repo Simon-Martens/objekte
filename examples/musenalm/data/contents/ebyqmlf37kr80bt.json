@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Vorschriften für und Bemerkungen über Leckermäuler (Sammlung INr 50494, Obj 28) Mannigfaltigkeiten zur Belehrung und Belustigung der Leckermäuler (Sammlung INr 50493, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Der wahre Gorurmand ißt mit allen fünf Sinnen.",
+  "language": [],
+  "musenalm_id": 50522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der wahre Gorurmand ißt mit allen fünf Sinnen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grimod de la Reyniere; [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-07-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qz53dhux5r5cdte",
+      "agents": "ndyaxges5n0jd1z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.839Z"
+    }
+  ]
+}

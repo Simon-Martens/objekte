@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 8. /) Illustration zu »Der ewige Jude« von Fr. Horn INr 26404, Obj 34 s. a. Textbezug INr 26390, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26391,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der ewige Jude von Fr. Horn. / S.126",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. G. Rist sc.",
+  "scans": [
+    "alm_340_26391_3yhc5ig0yi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der ewige Jude von Fr. Horn. / S.126",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tqzgrdlvcbbmncr",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.076Z"
+    },
+    {
+      "id": "4joglxce8y8d4et",
+      "agents": "b508kdfhrvb4cbp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.076Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert V ./) # Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13994,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NYMPHE",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottschick",
+  "scans": [
+    "alm_220_13994_2g91lzyee0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NYMPHE",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qnsbemoawzh8tw2",
+      "agents": "anvuxewtojf01i3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.583Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.583Z"
+    }
+  ]
+}

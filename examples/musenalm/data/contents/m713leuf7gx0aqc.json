@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Ste. 128 /) Illustration zu »Die Fürstenkinder« von O. H. v. Loeben INr 62766, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62767,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fürstenkinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heidlff. gez. Fleischm. gest.",
+  "scans": [
+    "alm_1028_62767_liittoi33s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Fürstenkinder",
+  "updated": "2009-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xeszils68a5x4mj",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.946Z"
+    },
+    {
+      "id": "2mr5n297ymcqv9i",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.946Z"
+    }
+  ]
+}

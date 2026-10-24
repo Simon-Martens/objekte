@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Dröscherlied« von J. H. Voß INr 6174, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6175,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dröscherlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_121_6175_4pi51qvgv9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dröscherlied",
+  "updated": "2000-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tx4d21c6jwh4d92",
+      "agents": "oqecb466dne8cni",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.109Z"
+    }
+  ]
+}

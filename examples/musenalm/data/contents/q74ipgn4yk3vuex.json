@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. an der Monatstabelle Januar /) Tabellen zur Bemerkung der Festtage des häuslichen Glücks und des gesellschaftlichen Lebens (Sammlung INr 87922, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87933,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NOVEMBER",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Maillard del. J. Gerstner sc.",
+  "scans": [
+    "alm_3099_87933_naas555mnx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NOVEMBER",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "929ufz2i9fzmpob",
+      "agents": "jqx789ngxccpl2l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.187Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.187Z"
+    },
+    {
+      "id": "ekina4khnuxvoqj",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.187Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.187Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Gedicht INr 116502, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.533Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GANYMED",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Correggio pinx. Blaschke sculp.",
+  "scans": [
+    "alm_2720_116501_8xb5y607jc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GANYMED",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "745qjx57j61r2ak",
+      "agents": "irhvezh3jd0m3va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.590Z"
+    },
+    {
+      "id": "75hpadi6d5qv2h2",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.590Z"
+    }
+  ]
+}

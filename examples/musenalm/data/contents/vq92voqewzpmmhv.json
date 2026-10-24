@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Wann der Morgen Deine Scheiben röthet, / Wann Du strickst auf Deinem Fenstertritt,",
+  "language": [],
+  "musenalm_id": 75831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Allgegenwart der Liebe. / An die Entfernte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Allgegenwart der Liebe. / An die Entfernte",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8jqfq80vxehxlq9",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.465Z"
+    }
+  ]
+}

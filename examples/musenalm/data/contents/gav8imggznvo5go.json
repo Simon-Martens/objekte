@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59092,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brandenburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gest. v. H. Fincke",
+  "scans": [
+    "alm_876_59092_41ilmjysto.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Brandenburg",
+  "updated": "2008-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ln12kspukn1s569",
+      "agents": "kxthlk7g2kfou9x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.857Z"
+    }
+  ]
+}

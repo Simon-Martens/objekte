@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Zu dem Kummer sprach die Freude: / Böser, warum fliehst du mich?",
+  "language": [],
+  "musenalm_id": 36236,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Versöhnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gallisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Versöhnung",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "exnwjgz16miualc",
+      "agents": "rokicgeuwmlq2s3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.673Z"
+    }
+  ]
+}

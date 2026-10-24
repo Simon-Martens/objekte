@@ -1,0 +1,45 @@
+{
+  "annotation": "Liedertexte zu Melodieen (Sammlung INr 45344, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Der Sonne Gold lag auf den lichten Wogen, / Die Winde gaben mir ein hold Geleite;",
+  "language": [],
+  "musenalm_id": 45356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / Gondolierlied. / Neapolitanische Melodie: Fenesta vascia é patrona crudele",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Kugler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / Gondolierlied. / Neapolitanische Melodie: Fenesta vascia é patrona crudele",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gctnmu0raipu34u",
+      "agents": "dlauvagqjefeu2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.474Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.474Z"
+    }
+  ]
+}

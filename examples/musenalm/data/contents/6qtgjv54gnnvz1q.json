@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Zwischentitel. Es folgt: Sammlung von 9 Graphiken mit 10 Textbezügen INr 88128- 88146, Obj 8-26; s.a. Titelgraphik INr 88122, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88127,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SCHILDERUNG / des / OTTOMANISCHEN REICHES",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blaschke sc.",
+  "scans": [
+    "alm_3103_88127_fijfpjzvdn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SCHILDERUNG / des / OTTOMANISCHEN REICHES",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ums6k38c62erz74",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.257Z"
+    }
+  ]
+}

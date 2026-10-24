@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Wer sollte wohl nicht der ganzen Welt, / Vom Nigerstrome bis zum Belt,",
+  "language": [],
+  "musenalm_id": 16392,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Freyburger-Wochenblatt an seine / Leser. / Am 1. Januar 1809",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Freyburger-Wochenblatt an seine / Leser. / Am 1. Januar 1809",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dsdla4w80h4xb69",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.669Z"
+    }
+  ]
+}

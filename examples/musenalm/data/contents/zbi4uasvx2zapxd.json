@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Wie irre, wie irre reden / Doch die veliebten Poeten! / Der möcht' des Liebchens Vöglein sein, / Gesperrt im gold'nen Käfig ein,",
+  "language": [],
+  "musenalm_id": 99994,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die verliebten Poeten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die verliebten Poeten",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p8anaz97rvo32sc",
+      "agents": "knoskc7ee942ezb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.983Z"
+    }
+  ]
+}

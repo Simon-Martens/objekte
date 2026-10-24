@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz; Illustration zum Gedicht »Das Mädchen aus der Fremde« von Fr. Schiller s. Textbezug INr 33524, Obj 12 /) s.a. Nachstich dieser Graphik in: Almanach für Freundinnen romantischer Lectüre 1814; alm 3392, INr 89911",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33540,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen aus der Fremde #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen del. H. Lips sculp.",
+  "scans": [
+    "alm_465_33540_x3kmvwr0hq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen aus der Fremde #",
+  "updated": "2003-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ftzyc9bu06kp20",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.426Z"
+    },
+    {
+      "id": "g052y64g89iyfh6",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.426Z"
+    }
+  ]
+}

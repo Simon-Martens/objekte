@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober. /) Illustration zu »Einige Denkmahle des Edelmuths und der Tapferkeit aus dem jetzigen Kriege wider die Türken / 4. Prinz de Ligne, Graf Nobili, Corporal Masuri« INr 75609, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.600Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75589,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prinz de Ligne empängt bey Schabaz den kleinen / Theresien Orden aus den Händen Se. Maj. des Kaysers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kininger inv. et del. Malvieux sc",
+  "scans": [
+    "alm_2141_75589_a24avtob7f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Prinz de Ligne empängt bey Schabaz den kleinen / Theresien Orden aus den Händen Se. Maj. des Kaysers",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ts4f3i812vomsk0",
+      "agents": "60p50kezhrh7h42",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.747Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.747Z"
+    },
+    {
+      "id": "0gd6ie3i8tj41k5",
+      "agents": "rpm3jfs7o8do52j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.747Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.747Z"
+    }
+  ]
+}

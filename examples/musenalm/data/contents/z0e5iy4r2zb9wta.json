@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Wiedersehn! Mit raschen Schlägen / Klopft die Brust dir warm entgegen:",
+  "language": [],
+  "musenalm_id": 47906,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiedersehn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fernow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiedersehn",
+  "updated": "2007-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1rm4wli24q3mgpl",
+      "agents": "29znr1cu0wo4ctf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.473Z"
+    }
+  ]
+}

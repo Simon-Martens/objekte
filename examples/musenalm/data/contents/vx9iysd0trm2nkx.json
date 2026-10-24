@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.121Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Hier, Brüder, an der Tafel ist / Mein neues Liebchen; daß ihrs wißt!",
+  "language": [],
+  "musenalm_id": 10439,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "19. / Liebeserklärung an der Tafel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "19. / Liebeserklärung an der Tafel",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vokp8gptkoumpk2",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.231Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.231Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge vermischten Inhalts 1793 (Sammlung 10185, Obj 110)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Hoch auf Bergen und im Thale, / Auf dem sanften Mondenstrahle / Und wo deine Schöpfung lacht",
+  "language": [],
+  "musenalm_id": 10201,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIII. / An Gott. / Mel. Die du Herzen sanft umwindest",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Albrecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIII. / An Gott. / Mel. Die du Herzen sanft umwindest",
+  "updated": "2001-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "liu2mswcm9khvoj",
+      "agents": "fby2gdha04397wg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.449Z"
+    }
+  ]
+}

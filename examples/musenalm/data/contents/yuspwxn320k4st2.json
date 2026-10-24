@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Der Freuden sind so wenig, / Es liegt der Schnee so hoch!",
+  "language": [],
+  "musenalm_id": 104294,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Mädchens Frühlingssehnsucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Mädchens Frühlingssehnsucht",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9d7atwbzbgfpzv3",
+      "agents": "arq1wi6im7bawmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.953Z"
+    }
+  ]
+}

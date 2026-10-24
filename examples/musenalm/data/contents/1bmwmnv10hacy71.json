@@ -1,0 +1,45 @@
+{
+  "annotation": "Thautropfen (Sammlung INr 27610, Obj 160)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.883Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "341",
+  "incipit_statement": "Thau glänzt auf des Grases Spitzen. / Wie die Wasseräuglein blitzen,",
+  "language": [],
+  "musenalm_id": 27612,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 162,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2002-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8dpjkepvo5f55s6",
+      "agents": "tcaorsyhw9evcti",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.318Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.318Z"
+    }
+  ]
+}

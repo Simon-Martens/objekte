@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Willkommen, trautes Dämmerlicht! / Willkommen Mondenschein!",
+  "language": [],
+  "musenalm_id": 62498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Weihnachtsabend. / Achen 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max v. Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Weihnachtsabend. / Achen 1814",
+  "updated": "2009-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hzo1d4p9xi3g0wk",
+      "agents": "591e69im25wvavb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.072Z"
+    }
+  ]
+}

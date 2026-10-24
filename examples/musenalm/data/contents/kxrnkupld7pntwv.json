@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "In Stambul, in Berlin, am schwarzen Meer, / am Belt, / Scheint Eine Sonne nur am hohen Firnament, / Und herrscht ein Schöpfer nur.",
+  "language": [],
+  "musenalm_id": 127548,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem / Gesandten der hohen Pforte, / Herrn / Asmi Achmet Effendi / zum Andenken gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Susanne von Bandemer, geb. von Franklin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem / Gesandten der hohen Pforte, / Herrn / Asmi Achmet Effendi / zum Andenken gewidmet",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w8ibe4obbrtf022",
+      "agents": "63e8s8hkpbnksyg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.916Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 49257, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 49258,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wurfscheibe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. C. Schule sc.",
+  "scans": [
+    "alm_675_49258_r7dka8gvpc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Wurfscheibe",
+  "updated": "2007-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "65dpc3nzvt4fmc4",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.463Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.463Z"
+    },
+    {
+      "id": "mmizlm9cmjqygi9",
+      "agents": "c0fepqesuedn747",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.464Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.464Z"
+    }
+  ]
+}

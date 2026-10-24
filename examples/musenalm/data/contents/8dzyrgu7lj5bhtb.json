@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Vom bösen Männchen, wie Ihr wißt, / Jetzt wieder viel Redens und Lärmens ist,",
+  "language": [],
+  "musenalm_id": 98479,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Unhold. / Ein Blatt aus Weimars Chronik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Sondershausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Unhold. / Ein Blatt aus Weimars Chronik",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0alz7aof0wbw50d",
+      "agents": "36njivcmrbhn7t6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.774Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.774Z"
+    }
+  ]
+}

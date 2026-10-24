@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Petrus Apianus, oder Achtung der Wissenschaft« von F. Kind in: Taschenbuch zum geselligen Vergnügen 1820 INr 20005",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.670Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20099,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Apian v. Fr. Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Stoelzel d. j. sc.",
+  "scans": [
+    "alm_269_20099_xpulggp7nd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Apian v. Fr. Kind",
+  "updated": "2001-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sdqncbmb0b1ror4",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.796Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.796Z"
+    },
+    {
+      "id": "bm9natqv2n2g1f3",
+      "agents": "faptm77901k6u4a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.796Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.796Z"
+    }
+  ]
+}

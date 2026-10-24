@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 88219, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Wer streut den ersten Samen wol, den zarten, / Als Gärtnerin des Herrn in uns're Brust?",
+  "language": [],
+  "musenalm_id": 88220,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Die Mutter, als erste Lehrerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Staub",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Die Mutter, als erste Lehrerin",
+  "updated": "2013-04-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "usgylli73ycxbrm",
+      "agents": "51bbzv9i5oo6wa1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.182Z"
+    }
+  ]
+}

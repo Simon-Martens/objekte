@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Nein, sage mir, bist du gescheidt? / Sprach Meister Paul zum Nachbar Veit,",
+  "language": [],
+  "musenalm_id": 13948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Grämling und der Frohsinnige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Grämling und der Frohsinnige",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1e097kfccvjnkct",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.541Z"
+    }
+  ]
+}

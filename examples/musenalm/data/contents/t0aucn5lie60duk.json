@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Sinds Träume, die dem Sinn vorüberwallten, / Und die ein Morgenlüftchen mit sich rafft?",
+  "language": [],
+  "musenalm_id": 1311,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der neue Pygmalion. / An Iffland. / Sonnett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der neue Pygmalion. / An Iffland. / Sonnett",
+  "updated": "2000-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4h5z0kkpnr409t3",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.894Z"
+    }
+  ]
+}

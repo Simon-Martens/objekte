@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Im Innern wollten Blumen schön erblühen, / Der jugendlichen Fantasie entsprossen;",
+  "language": [],
+  "musenalm_id": 51381,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonet",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "ROSA MARIA",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonet",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tw2n3p0kfps6y74",
+      "agents": "7qd9korfk9bcwc9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.695Z"
+    }
+  ]
+}

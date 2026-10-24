@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 42076, Obj 276)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "401",
+  "incipit_statement": "Komm und sieh, mein trautes Mädchen, / Komm und wähle dir in Eil:",
+  "language": [],
+  "musenalm_id": 42078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 278,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Architekt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Kugler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Architekt",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nizf21eqdxlj3bf",
+      "agents": "dlauvagqjefeu2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.213Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.213Z"
+    }
+  ]
+}

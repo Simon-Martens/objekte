@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80490, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Kleine, leichtbeschwingte Wesen, / Bunt und kraus, voll raschen Muthwills / Sagt, wer seid ihr,",
+  "language": [],
+  "musenalm_id": 80492,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Auswanderer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Auswanderer",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rbcbfvjibstz541",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.884Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.884Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juni; nummeriert 6. # Bez. am 1. Blatt der Suite /) Illustration zu »Der lustige Tag oder Figaro's Hochzeit« von Beaumarchais",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.075Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 134928,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Himmel! er ist es / III. Handl. 16. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del. Geyser sc.",
+  "scans": [
+    "alm_2036_134928_6zz3legtlo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Himmel! er ist es / III. Handl. 16. Auftr.",
+  "updated": "2010-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y9nekvguvsukmn6",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.126Z"
+    },
+    {
+      "id": "01m0b1lrj86bt95",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.126Z"
+    }
+  ]
+}

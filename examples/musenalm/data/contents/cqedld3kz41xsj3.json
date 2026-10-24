@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Da sitzt sie in des Nußbaums Kühle, / Auf einer grünen Lattenbank;",
+  "language": [],
+  "musenalm_id": 96422,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sch.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter",
+  "updated": "2014-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6iu3xw6li75i8im",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.236Z"
+    }
+  ]
+}

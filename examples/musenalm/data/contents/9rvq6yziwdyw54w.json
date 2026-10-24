@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.192Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Eine wohlthätige Stuimmung, durch die Zeitumstände erzeugt oder wenigstens genährt, ruft seit einiger Zeit die Aufmerksamkeit unserer Landsleute von der Bewunderung des Auslandes zurück,",
+  "language": [],
+  "musenalm_id": 92034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Maria-Zell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler, geborene von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Maria-Zell",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ugoss1dbzvbx9n4",
+      "agents": "vxzn7evqhv18e38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.110Z"
+    }
+  ]
+}

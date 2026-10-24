@@ -1,0 +1,45 @@
+{
+  "annotation": "Arabesken (Sammlung INr 14712, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Wenn der Geliebten ich grollt', und wie leicht flammt Hef- / tigen Zorn auf!",
+  "language": [],
+  "musenalm_id": 14713,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn der Geliebten ich grollt', und wie leicht flammt Hef- / tigen Zorn auf!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Christ. Bar. v. Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "juh3njwmc8ddx79",
+      "agents": "id1mj19iathigp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.418Z"
+    }
+  ]
+}

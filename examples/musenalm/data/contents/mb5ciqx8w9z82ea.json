@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik Illustration zu »Die Braut von Abydos« von George Gordon Byron s. Textbezug INr 43954, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43950,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Braut von Abydos. - Zuleika",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Painted by E. T. Parris Engraved by H. Cook",
+  "scans": [
+    "alm_592_43950_xugzfs8tiv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Braut von Abydos. - Zuleika",
+  "updated": "2006-06-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g1dz55ts10f61bg",
+      "agents": "9gep2y6vxxwiktu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.276Z"
+    },
+    {
+      "id": "ak7igk4snm4lh4c",
+      "agents": "li9bs4mqvtf7drh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.276Z"
+    }
+  ]
+}

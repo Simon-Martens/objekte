@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.525Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Tonleiterartig steiget der Klaggesang / Voll-schwellend auf, wie wenn man Bouteillen füllt:",
+  "language": [],
+  "musenalm_id": 23007,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. An Philomele",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Mörike",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. An Philomele",
+  "updated": "2002-04-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v9xqhjnjle1tkca",
+      "agents": "sazh274fui35fcn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.880Z"
+    }
+  ]
+}

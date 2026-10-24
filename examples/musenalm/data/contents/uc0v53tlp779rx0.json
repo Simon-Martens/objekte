@@ -1,0 +1,45 @@
+{
+  "annotation": "Deutsche Geisterstimmen (Sammlung INr 44326, Obj 27) Rheinischer Dichter-Salon (Sammlung INr 44325, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Ihr wagt's die Toten aufzuwecken? / O laßt den alten Luther ruhn!",
+  "language": [],
+  "musenalm_id": 44327,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Bei Martin Luthers dritter Jahrhunderttodesfeier an die Protestanten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. M. Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Bei Martin Luthers dritter Jahrhunderttodesfeier an die Protestanten",
+  "updated": "2006-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c3053fhyg2m825g",
+      "agents": "qab571spaxuq9fk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.030Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.030Z"
+    }
+  ]
+}

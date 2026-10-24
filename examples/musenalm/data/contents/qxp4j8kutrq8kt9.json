@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Willkommen, herer, milder Todesengel! / Dein Antlitz hat mich nie erschreckt,",
+  "language": [],
+  "musenalm_id": 132453,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Todesengel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stierle Holzmeister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Todesengel",
+  "updated": "2022-06-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fs8rrj9a9ed453w",
+      "agents": "5dlgex4wmvni1qx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.091Z"
+    }
+  ]
+}

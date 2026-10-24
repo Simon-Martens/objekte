@@ -1,0 +1,45 @@
+{
+  "annotation": "Beyträge zur Menschenkenntniß, Regeln der Lebensweisheit, und moralischen Wahrheiten (Sammlung INr 21909, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Die Frau will herrschen, der Mann beherrscht seyn (vornämlich vor der Ehe).",
+  "language": [],
+  "musenalm_id": 21915,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Frau will herrschen, der Mann beherrscht seyn (vornämlich vor der Ehe).…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kant; L. d. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k188kj9epu59zzg",
+      "agents": "wy2v3l6z3yxzbuk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.036Z"
+    }
+  ]
+}

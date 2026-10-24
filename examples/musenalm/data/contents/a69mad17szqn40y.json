@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Sonette der Maria Stuart, geschrieben an Bothwell vor ihrer Vermählung mit demselben. Aus dem Altfranzösischen (Sammlung INr 51354, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Mein Sohn, mein Leben, meine Ehr' soll liegen / In seiner vollen Macht. In seine Hände / Leg' ich mein Land, mein Volk.",
+  "language": [],
+  "musenalm_id": 51356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "ROBERT",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6mo9suqzsvm1gp6",
+      "agents": "shwrrrsohbx2ih5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.612Z"
+    }
+  ]
+}

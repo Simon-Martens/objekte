@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juni; Illustration zu »Maria, oder die Weihe der Pflicht.« von Sophie May d.i. Sophie Friederike Elise Meyer; Nr 58907, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58896,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kann Maria dem unfreundlichen Gatten verzeihen?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Constantin Schroeter del. Auguste Hüssener sc. Berlin",
+  "scans": [
+    "alm_866_58896_aznpet2h8l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kann Maria dem unfreundlichen Gatten verzeihen?",
+  "updated": "2008-07-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g616muta6tbzpx2",
+      "agents": "25ta425ah7d6eta",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.715Z"
+    },
+    {
+      "id": "smhvioi6oism3m8",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.715Z"
+    }
+  ]
+}

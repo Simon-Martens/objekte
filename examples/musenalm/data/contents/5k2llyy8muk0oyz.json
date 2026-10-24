@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75652, Obj 37 /) s.a. Textbezug INr 75646, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75647,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herzog Bernhardt / von Weimar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Lips fec.",
+  "scans": [
+    "alm_2142_75647_voq2mpbyh7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herzog Bernhardt / von Weimar",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eiusxyqqx3qnvz7",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.720Z"
+    }
+  ]
+}

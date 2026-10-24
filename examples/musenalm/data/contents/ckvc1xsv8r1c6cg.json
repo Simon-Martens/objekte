@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingslieder (Sammlung INr 133558, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.596Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Der Winter fliehet uns're Fluren, / Ein leises Lüftchen säuselt lau,",
+  "language": [],
+  "musenalm_id": 133561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das erste Blatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das erste Blatt",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hg8xakj316msmhc",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.111Z"
+    }
+  ]
+}

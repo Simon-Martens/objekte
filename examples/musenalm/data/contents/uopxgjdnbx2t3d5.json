@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait s.Textbezug INr 44306, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44301,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "J. E. Steinle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. v. Stralendorff del. Joh. Carl Müller sculp.",
+  "scans": [
+    "alm_602_44301_757ydfkld1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "J. E. Steinle",
+  "updated": "2006-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0xsbdgscwy4zb3x",
+      "agents": "3wnjv1otn10l1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.261Z"
+    }
+  ]
+}

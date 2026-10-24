@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Pl. 3. Pag. 106 /) Illustration zu »Précis de l'histoire de la révolution francoise« von J. R. Rabaut INr 79452, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79454,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prise de la Bastille. / Le 14 Juillet 1789.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Moreau le Jne. 1791 Gravés par L. M. Halbou",
+  "scans": [
+    "alm_3776_79454_fgm7mlp1l3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Prise de la Bastille. / Le 14 Juillet 1789.",
+  "updated": "2012-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tstm79t7josl7ph",
+      "agents": "6v2mea0laepybs2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.939Z"
+    },
+    {
+      "id": "9rh0fxrh3b7zd8f",
+      "agents": "a0ch83ela7xomff",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.939Z"
+    }
+  ]
+}

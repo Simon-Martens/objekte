@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Wenn auch Alles Täuschung wäre, / Jeder Glaub' uns untersagt,",
+  "language": [],
+  "musenalm_id": 42722,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 255,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn auch Alles Täuschung wäre, / Jeder Glaub' uns untersagt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Maltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9beu0zgkjde42o6",
+      "agents": "enmi0t9mog462m5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.892Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Graf Wolf von Hohenkrähen. Ballade« von F. W. A. Schmidt (von Werneuchen) INr 48771, Obj 118 : Nachstich der Graphik (mit Titel) aus Jg. 1796 INr u. Photo 48772",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie fleht im Thurm ach ! Erbarmen mein Gott / Bewahre mich Arme vor Marter und Spott / Und faltete bebend die Hände",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Ch-ki del. [unleserlich]",
+  "scans": [
+    "alm_665_50087_08d7255c6h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie fleht im Thurm ach ! Erbarmen mein Gott / Bewahre mich Arme vor Marter und Spott / Und faltete bebend die Hände",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gdgsm4wmt43xpog",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.654Z"
+    }
+  ]
+}

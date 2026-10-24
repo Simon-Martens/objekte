@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zum vierten Kapitel des Beitrags »Lebensbeschreibung der Mecklenburgischen Stute Amante von ihr selbst erzählt« INr 85210, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.873Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85206,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein erster Reiter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Berggold. del. G. Boettger sen. sc. 1804",
+  "scans": [
+    "alm_3708_85206_1c53mhjidv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mein erster Reiter",
+  "updated": "2011-08-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dzq7v4q9sxlnc9n",
+      "agents": "qfv1293iysdb1xb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.337Z"
+    },
+    {
+      "id": "8ddjtbynx0k8f21",
+      "agents": "72r3qe0psneye9d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.337Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Mit jedes Morgens Grauen, / Sieht man durch Thales Grün, / Zum Wald ein' edle Frauen / Gar still vorüber ziehn.",
+  "language": [],
+  "musenalm_id": 1394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rosen. / Lied eines alten Minnesängers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rosen. / Lied eines alten Minnesängers",
+  "updated": "2000-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "srqv4kyjl5cs9xn",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.863Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.502Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80710,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GEDENKE MEIN 1841. / Wien und Leipzig. / Friedrich Wlihlem Pfautsch. (Seitzergasse No. 423.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl del. Dvorzack sc.",
+  "scans": [
+    "alm_1798_80710_11j9zk849o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GEDENKE MEIN 1841. / Wien und Leipzig. / Friedrich Wlihlem Pfautsch. (Seitzergasse No. 423.)",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6z2770ykbvyt80f",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.933Z"
+    },
+    {
+      "id": "cfjqoo11jwfrh04",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.934Z"
+    }
+  ]
+}

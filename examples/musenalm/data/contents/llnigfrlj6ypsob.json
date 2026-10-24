@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 131844, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Leise kräuselt sich die Welle, / Murmelnd fließt sie auf und ab;",
+  "language": [],
+  "musenalm_id": 131853,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Ave Maria",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Smidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Ave Maria",
+  "updated": "2023-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8fung4yd7g80lkx",
+      "agents": "p5nbyct99xa1658",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.041Z"
+    }
+  ]
+}

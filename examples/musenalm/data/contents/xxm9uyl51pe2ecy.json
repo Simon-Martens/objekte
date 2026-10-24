@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Süßer duftet die Flur, und kühler hauchet / der Abend; / Nur ein welkendes Roth weilt am azu- / renem West.",
+  "language": [],
+  "musenalm_id": 2182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Curt / Freyherrn von Haugwitz; / Elegie. / Den 26sten Jul. 1773",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Curt / Freyherrn von Haugwitz; / Elegie. / Den 26sten Jul. 1773",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v227tt1cboijrxz",
+      "agents": "gtq8zou6jpsfpy4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.959Z"
+    }
+  ]
+}

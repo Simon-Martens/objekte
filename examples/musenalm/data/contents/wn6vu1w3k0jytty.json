@@ -1,0 +1,45 @@
+{
+  "annotation": "Überlieferungen Mohammeds (Sammlung INr 14876, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Ich bin ein Mensch, verläugne nicht den Stamm, / Ein wunderlich Gemisch von Licht und Schlamm.",
+  "language": [],
+  "musenalm_id": 14879,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Homo sum, humani nil a me alienum puto",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph von Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Homo sum, humani nil a me alienum puto",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2bg3pxejy1jdl9x",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.720Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Die dunkle Landcharte; Etwas aus den Kreisen des heil. röm. Reichs.(Sammlung INr 85017, Obj 19) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.701Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Auf dies gewöhnlich lichtgelb illuminirte Land könnte man ohne Bedenken ein Tintenfaß schütten, dann hätte es die rechte Farbe.",
+  "language": [],
+  "musenalm_id": 85018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "a) Oesterreichischer Kreis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "a) Oesterreichischer Kreis",
+  "updated": "2012-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xb1k4mhpblzqqfm",
+      "agents": "i1m0o75lvyphony",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.947Z"
+    }
+  ]
+}

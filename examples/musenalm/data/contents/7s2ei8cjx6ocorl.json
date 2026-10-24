@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. S. I; INr 81647, Obj 4 /) Illustration zu »Die Vergeltung« von Klara von Massow INr 81657, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.751Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81645,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Miranda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer gez. Wien C. Kotterba gest. Wien",
+  "scans": [
+    "alm_1814_81645_b6ka5z5nyq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Miranda",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "06vkxxtjheksx2f",
+      "agents": "512hnx3l2hp6y3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.820Z"
+    },
+    {
+      "id": "v9vfpdwbg5rphk1",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.820Z"
+    }
+  ]
+}

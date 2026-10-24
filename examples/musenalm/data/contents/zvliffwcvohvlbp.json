@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Beiträgen INr 20206-20213, Obj 127-134",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "413",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20205,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Tänze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Tänze",
+  "updated": "2001-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b1k8h2ht1fbc3wt",
+      "agents": "czigb25jnrfsy98",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.751Z"
+    }
+  ]
+}

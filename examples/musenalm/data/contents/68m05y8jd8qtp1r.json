@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 90352-90354, Obj 49-51",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey Uebersendung meiner Davidischen / Kriegsgesänge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Thomas v. Schönfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bey Uebersendung meiner Davidischen / Kriegsgesänge",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6eudjdtszeo9cwm",
+      "agents": "g2mjz3npda4fz9f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.196Z"
+    }
+  ]
+}

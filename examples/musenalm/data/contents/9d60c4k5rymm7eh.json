@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Ungarisch. (Sammlung INr 99336, Obj 242) VI. Bayern. Franken (Sammlung INr 99331, Obj 237)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "341",
+  "incipit_statement": "Ich kranke, sinke, sterbe, / Um Tschurgo dort, das Städtchen.",
+  "language": [],
+  "musenalm_id": 99337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 243,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Friedrich Daumer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mqn0cm0rpr9ci8j",
+      "agents": "t36jhwo4crudqp3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.829Z"
+    }
+  ]
+}

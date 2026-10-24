@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.455Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Vor Hunger starb Herrn Sassafras / Sein einzig Pferd: wie sehr ihn das / Geschmerzet,",
+  "language": [],
+  "musenalm_id": 41092,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Harr Sassafras",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Einem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Harr Sassafras",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "abezig1n22titgg",
+      "agents": "cnpmi5umijfxrao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.074Z"
+    }
+  ]
+}

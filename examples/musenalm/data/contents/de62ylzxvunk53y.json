@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Fromme Freude« von Th. Hell d. i. K. G. Th. Winkler INr 1919811, Obj 54 /) Anhang zu Beckers Taschenbuch 1818 enthaltend: Compositionen und Tänze von Blüher, Dotzauer, Ehrhardt, Methfessel, Minna Schütze, C. M. v. Weber (Sammlung INr 19807, Obj 100) (Photos 19809,01; 19809,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19809,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fromme Freude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dotzauer",
+  "scans": [
+    "alm_266_19809_01_9wtozx0nkc.jpg",
+    "alm_266_19809_02_n99fwhoxvk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fromme Freude",
+  "updated": "2001-11-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fabcbhj6z40jok9",
+      "agents": "ij45jg2izry2pga",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.824Z"
+    }
+  ]
+}

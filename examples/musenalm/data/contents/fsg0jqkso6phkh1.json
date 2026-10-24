@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Als die drei Frauen, die mit Salben nahten, / Bei Sabbathsfrüh' zum heil'gen Grabe traten,",
+  "language": [],
+  "musenalm_id": 26407,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Christus als Gärtner. / (Altdeutsches Altarbild.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Christus als Gärtner. / (Altdeutsches Altarbild.)",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pspsfaqp0s9sbyu",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.362Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.362Z"
+    }
+  ]
+}

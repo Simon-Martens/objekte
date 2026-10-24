@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik (Doppelportrait) INr 77490, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Am westlichen Ende Neapels, getrennt durch das Fort St. Elmo, erheben sich die sanften Hügel des Posilipp.",
+  "language": [],
+  "musenalm_id": 77505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Virtuose aus Genua. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Arnold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Virtuose aus Genua. / Novelle",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hejk7sccn120urg",
+      "agents": "ywf9jr8cwlo32f3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.862Z"
+    }
+  ]
+}

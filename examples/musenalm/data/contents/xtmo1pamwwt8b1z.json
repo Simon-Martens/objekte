@@ -1,0 +1,45 @@
+{
+  "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Heißt ein bewohnter Garten die Welt, wenn Freunde zer- / streut rings",
+  "language": [],
+  "musenalm_id": 28878,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17. / Donnerstags, den 18ten Februar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. Varnhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17. / Donnerstags, den 18ten Februar",
+  "updated": "2002-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ko9cqbs1p3oihk9",
+      "agents": "ep8tm0egvn3ld0y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.511Z"
+    }
+  ]
+}

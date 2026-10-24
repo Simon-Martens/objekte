@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Strickanleitung paginiert II. s. Textbezug INr 47684, Obj 59",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47687,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Anleitung"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[graph. Anleitung (Netto fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto fec.",
+  "scans": [
+    "alm_649_47687_janswjxhfk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jrbtaby72v4eh4u",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.674Z"
+    }
+  ]
+}

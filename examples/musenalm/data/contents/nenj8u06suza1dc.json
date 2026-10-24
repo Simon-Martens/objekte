@@ -1,0 +1,45 @@
+{
+  "annotation": "Dichtungen (Sammlung INr 63741, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Ein grauer Duft umhüllte Flur und Wald / Und durch die Wiesen, wo der Weiden Laub / Gesunken, floß das Bächlein traurig hin.",
+  "language": [],
+  "musenalm_id": 63742,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Idylle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Idylle",
+  "updated": "2009-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mo265ujtbfseaij",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.164Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.164Z"
+    }
+  ]
+}

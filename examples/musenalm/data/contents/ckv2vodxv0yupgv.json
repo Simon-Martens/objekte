@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s.Textbezug INr 87046, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87041,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ad. Theer del. J. L. Raab sculp. Nürnberg",
+  "scans": [
+    "alm_1611_87041_zz97wlhb58.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rosa",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j19blhuej6mqikb",
+      "agents": "512hnx3l2hp6y3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.296Z"
+    },
+    {
+      "id": "89dthm4cg0i4kit",
+      "agents": "qj9lyly28p7qgq7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.296Z"
+    }
+  ]
+}

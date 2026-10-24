@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Was nach des Schicksals Zorngerichte / Den kühnsten Freier treffen kann,",
+  "language": [],
+  "musenalm_id": 8148,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der blindgewordene Anton",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Löwen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der blindgewordene Anton",
+  "updated": "2000-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yrx17u93t7pz802",
+      "agents": "d9adsrmbhk70tpd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.328Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.328Z"
+    }
+  ]
+}

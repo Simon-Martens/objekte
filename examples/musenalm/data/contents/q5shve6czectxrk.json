@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123988, Obj 2); Illustration zu »Das Erntefest« (INr 123994, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123995,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Verwalter. / Ich bin kein reicher Mann, / Dock glücklich, daß ich mich mit jedem messen kann. / Das Erndtefest. 8r Auftritt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G Boettger senior sc.",
+  "scans": [
+    "alm_1290_123995_2bmr6my6lc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Verwalter. / Ich bin kein reicher Mann, / Dock glücklich, daß ich mich mit jedem messen kann. / Das Erndtefest. 8r Auftritt",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "asn3dy7mx66ofnc",
+      "agents": "hwl1l57k0tbbc1r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.827Z"
+    },
+    {
+      "id": "wx56n07hok95kb9",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.827Z"
+    }
+  ]
+}

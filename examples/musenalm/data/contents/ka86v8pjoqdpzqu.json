@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24842, Obj 123)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Daß ich nie versäume / Euch zu preisen, grüne Bäume!",
+  "language": [],
+  "musenalm_id": 24846,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Im Garten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Im Garten",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3gz9ygdr230vygh",
+      "agents": "ana89fnya97gfjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.031Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Die Glocke auf dem Wartthurme zu Sagres tönte die achte Morgenstunde. Don Gonzales, der graue Astrolog, legte bedächtig den metallenen Zirkel und das Astrolabium in seine Mappe,",
+  "language": [],
+  "musenalm_id": 117366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der König der Wüste. / Historische Erzählung aus der Seegeschichte Portugals",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr . F. I. Proschko",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der König der Wüste. / Historische Erzählung aus der Seegeschichte Portugals",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c6g6an6u9quut7n",
+      "agents": "agwsn5i724aiq5h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.529Z"
+    }
+  ]
+}

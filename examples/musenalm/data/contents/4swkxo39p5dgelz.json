@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. vorstehendes Gedicht INr 71032, Obj 106 /) Sinngedichte (Sammlung INr 71031, Obj 105)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Lieblich bist du, und sanft, wie ein heiterer Früh- / lingsmorgen,",
+  "language": [],
+  "musenalm_id": 71033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Furchtbarkeit des Geliebten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Derselbe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Furchtbarkeit des Geliebten",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rorlpa63ols7evl",
+      "agents": "ep8tm0egvn3ld0y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.268Z"
+    }
+  ]
+}

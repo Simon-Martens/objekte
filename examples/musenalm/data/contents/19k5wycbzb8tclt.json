@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik vor dem Kalendarium s. Textbezug INr 75884, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75891,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (A. W. Küffner del.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner del.",
+  "scans": [
+    "alm_2694_75891_rceqskmir0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yeziyjw0ef475tz",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.391Z"
+    }
+  ]
+}

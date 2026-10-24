@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 22122, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Berühmten Leuten wird gemeiniglich viel Böses nachgesagt, gleichviel ob aus wahrhaftigem Grunde, oder nicht.",
+  "language": [],
+  "musenalm_id": 22154,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Signor Formica. / Eine Novelle / Der berühmte Maler Salvator Rosa kommt nach / Rom und wird von einer gefährlichen Krankheit / befallen. Was ihm in dieser Krankheit begegnet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. T. A. Hofmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Signor Formica. / Eine Novelle / Der berühmte Maler Salvator Rosa kommt nach / Rom und wird von einer gefährlichen Krankheit / befallen. Was ihm in dieser Krankheit begegnet",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2m7v1au1le18na3",
+      "agents": "hhytu0neum83euj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.183Z"
+    }
+  ]
+}

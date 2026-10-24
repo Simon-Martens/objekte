@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Tab. VI /) kol. Illustration zu »Der Gold-Regenpfeiffer« INr 66799, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charadrius auratus. Gold-Regenpfeiffer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Hergenroeder del. G. Boettger sen. sc.",
+  "scans": [
+    "alm_1142_66798_q6tdn3c713.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Charadrius auratus. Gold-Regenpfeiffer",
+  "updated": "2009-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vkzfo7fah9lzgtj",
+      "agents": "o58ig7o5mujizos",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.245Z"
+    },
+    {
+      "id": "8vad52912dsg0v6",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.245Z"
+    }
+  ]
+}

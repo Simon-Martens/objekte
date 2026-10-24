@@ -1,0 +1,45 @@
+{
+  "annotation": "Logogryphen, Charaden und Räthsel (Sammlung INr 13844, Obj 115)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "365",
+  "incipit_statement": "Man raubt mich oft, doch bleib' ich, wo ich bin, / Und niemals hält der Dieb mich in den Händen,",
+  "language": [],
+  "musenalm_id": 13852,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Räthsel",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6wu726xh941gx06",
+      "agents": "ufh0csiazwb0bf6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.552Z"
+    }
+  ]
+}

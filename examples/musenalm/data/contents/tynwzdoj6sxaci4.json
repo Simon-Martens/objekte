@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "Wer kann dir in die dunklen Augen sehen, / Und wäre nicht geblendet von dem Licht,",
+  "language": [],
+  "musenalm_id": 46347,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 191,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Siegmund",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonett",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yylev3baiduuodf",
+      "agents": "fpnd1gzhfjqx9bk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.233Z"
+    }
+  ]
+}

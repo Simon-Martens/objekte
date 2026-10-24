@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Gedichte (Sammlung INr 29109, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.713Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Große Theurung war im Land', / Wo ein armer Bergmann lebet,",
+  "language": [],
+  "musenalm_id": 29112,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Annaberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Annaberg",
+  "updated": "2002-10-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zop9lmtv8ze5i2h",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.414Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.414Z"
+    }
+  ]
+}

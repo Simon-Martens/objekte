@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium November; Illustration zu »Glück giebt Verstand« von L. Tieck INr 58681, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58677,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seite 221",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. W. Jury fec.",
+  "scans": [
+    "alm_862_58677_rbi51sksg9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seite 221",
+  "updated": "2008-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "slh0ea3eeue6irt",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.624Z"
+    },
+    {
+      "id": "l1uc3lzwhcnpjbf",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.624Z"
+    }
+  ]
+}

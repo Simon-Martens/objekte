@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "O Nachtigall im Blütenhage, / Im dufterfüllten Gartenahin, / Wie singst du mit so hellem Schlage,",
+  "language": [],
+  "musenalm_id": 45767,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 174,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtigallenseele",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtigallenseele",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6gh9432b4bxu6qa",
+      "agents": "utgjxyadq6s0v86",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.408Z"
+    }
+  ]
+}

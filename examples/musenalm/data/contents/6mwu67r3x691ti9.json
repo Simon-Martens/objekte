@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Aus den Alpthälern, von denen nicht sehr fern die uralte Ritterburg Wart in der Ebene des Thurgaues gelegen war, brach um die Abenstunde ein wüster Wirbelwind los,",
+  "language": [],
+  "musenalm_id": 48647,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Die Burgen / Wart und Aspermont. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Die Burgen / Wart und Aspermont. / Eine Erzählung",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nsh1ph1kv76qg5k",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.600Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.600Z"
+    }
+  ]
+}

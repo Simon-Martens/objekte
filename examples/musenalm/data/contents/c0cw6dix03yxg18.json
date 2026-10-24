@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Ehedem Geheimerat und Professor in Halle, iezt tod. Machte zu seiner Zeit viel Aufsehn, theils durch seinen exemplarischen Wandel, in welchem er Sir Hartensteinen nichts nachgab.",
+  "language": [],
+  "musenalm_id": 98709,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Christian Adolph Klotz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Christian Adolph Klotz",
+  "updated": "2009-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dqqzktce8d1lgum",
+      "agents": "wqzupcw1vi6tnne",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.790Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.790Z"
+    }
+  ]
+}

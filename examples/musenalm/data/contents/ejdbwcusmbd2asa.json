@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar; nummeriert 1.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102146,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du weinst, daß jezt das Feur dein Haus verzehrt! / O weine nicht, du bist ja noch am Leben, / Du die der Himmel mir zum Glück gegeben / Du bist mehr als Haus u. Schätze wert.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sturm sc.",
+  "scans": [
+    "alm_4167_102146_ikru4hsrfj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Du weinst, daß jezt das Feur dein Haus verzehrt! / O weine nicht, du bist ja noch am Leben, / Du die der Himmel mir zum Glück gegeben / Du bist mehr als Haus u. Schätze wert.",
+  "updated": "2015-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x82leu4w1ue7b9j",
+      "agents": "83bgj21cr6rcy33",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.119Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.119Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. Kleine Romane und Erzählungen (Sammlung INr 43366, Obj 28) mit einer Illustration s. Graphik INr 43350, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Laßt mir doch ja den Herbst bei Ehren - schrieb Huldberg an seine Geschwister in die Heimath - oder rüstet Euch zu einer recht ernstlichen Fehde!",
+  "language": [],
+  "musenalm_id": 43367,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Astern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Astern",
+  "updated": "2006-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pbmlnp1fyl1ignb",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.905Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert II. /) Illustration zu »Maria Antonia, die unglücklichste Königin Frankreichs« INr 59880, Obj 46, s.a. Textbezug INr 59850, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59851,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie Antonia, kaum ihren / Mördern entronnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Cl. Kohl sc. V.",
+  "scans": [
+    "alm_933_59851_xzs0x09lfs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marie Antonia, kaum ihren / Mördern entronnen",
+  "updated": "2008-09-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t435zxo3n9tbc0g",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.958Z"
+    },
+    {
+      "id": "6cnj7dekph5g1s4",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.958Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 46133-46138, Obj 237-242",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "365",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46132,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 236,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sprüche und Scherze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sprüche und Scherze",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sv7hl27gdzu95hk",
+      "agents": "ujjt9xntbdmu6em",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.509Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.509Z"
+    }
+  ]
+}

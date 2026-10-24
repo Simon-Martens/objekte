@@ -1,0 +1,15 @@
+{
+  "type": "data",
+  "path": "data/contents",
+  "format": "json",
+  "id": "filename",
+  "schema": ".editor/collections/contents/schema.json",
+  "ui": ".editor/collections/contents/ui.json",
+  "operations": [
+    "read",
+    "create",
+    "update",
+    "rename",
+    "delete"
+  ]
+}

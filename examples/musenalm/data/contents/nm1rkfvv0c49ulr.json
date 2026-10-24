@@ -1,0 +1,45 @@
+{
+  "annotation": "# zur Autorschaft s. E. F. Kossmann: Der Deutsche Musenalmanach 1833-1839. Haag 1909 S. 130",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.938Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Konntest du die Sehnsucht zwingen / Schmerzensvolle Jahre schon,",
+  "language": [],
+  "musenalm_id": 36963,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Novemberfahrt / 2.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H. Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Novemberfahrt / 2.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "05r3mzjy1pg34kt",
+      "agents": "5fdnbj9xwyjpym9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.815Z"
+    }
+  ]
+}

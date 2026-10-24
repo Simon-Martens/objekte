@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Sympathie« von Lebrun (INr 124105, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.797Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124102,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Horst. / Vor der Hochzeit reden sie so leise, daß man / jeden Augenblick »was beliebt?« fragen muß; aber in der Ehe, da wachsen die Stimmchen. / Sympathie. 2r Act. 1te Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1293_124102_x7rg0eobu1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "I. / Horst. / Vor der Hochzeit reden sie so leise, daß man / jeden Augenblick »was beliebt?« fragen muß; aber in der Ehe, da wachsen die Stimmchen. / Sympathie. 2r Act. 1te Scene",
+  "updated": "2010-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7tserxmknml0ucc",
+      "agents": "hwl1l57k0tbbc1r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.732Z"
+    },
+    {
+      "id": "sy1f2zaooqn6yst",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.732Z"
+    }
+  ]
+}

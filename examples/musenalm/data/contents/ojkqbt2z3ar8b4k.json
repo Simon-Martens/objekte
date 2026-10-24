@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Daß tausend Ehen nicht gelingen, / So zärtlich auch als Bräutigam der Mann,",
+  "language": [],
+  "musenalm_id": 47420,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymens Meisterstück. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Pockels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymens Meisterstück. / Eine Erzählung",
+  "updated": "2007-01-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ad1qmkpzz08r67w",
+      "agents": "byawwvreucy8ohr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.615Z"
+    }
+  ]
+}

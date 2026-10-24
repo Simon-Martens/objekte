@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "401",
+  "incipit_statement": "Es war achthundert und zwei Jahre nach Christi Geburt, als Karl über Frankreich herrschte und römischer Kaiser war.",
+  "language": [],
+  "musenalm_id": 26951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 209,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Legende / von / Kaiser Karl dem Großen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Rudolf Herrmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Legende / von / Kaiser Karl dem Großen",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "48hs0q8oikr1mj7",
+      "agents": "kvqo68p64ik630m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.830Z"
+    }
+  ]
+}

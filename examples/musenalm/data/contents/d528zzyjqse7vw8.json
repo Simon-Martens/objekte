@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthsel und Charaden (Sammlung INr 20763, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "454",
+  "incipit_statement": "Oft wird, selbst wenn die erste Sylbe fehlt, / und rüst'ge Federn nur die beiden letzten",
+  "language": [],
+  "musenalm_id": 20764,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Worträthsel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Worträthsel",
+  "updated": "2002-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ngffa9rswfmuhn",
+      "agents": "1tsjgk40ftnty4f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.970Z"
+    }
+  ]
+}

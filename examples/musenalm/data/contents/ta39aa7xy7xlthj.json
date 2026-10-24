@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 26; Goed IV/1 1095",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Nein, ich kann von dir nicht schweigen, / Jedes Wort wird mir Gesang;",
+  "language": [],
+  "musenalm_id": 17749,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingsliedchen. / Am 2. April 1786",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Ue.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingsliedchen. / Am 2. April 1786",
+  "updated": "2001-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "haklg0o0vio2fio",
+      "agents": "f19nlby6rz6ae27",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.690Z"
+    }
+  ]
+}

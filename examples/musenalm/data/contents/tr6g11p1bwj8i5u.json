@@ -1,0 +1,45 @@
+{
+  "annotation": "Skizzen (Sammlung INr 44917, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.154Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Siehst Du im Theater einen Mann, der entweder einen Glatzkopf oder eine Platte, oder nur so viel Haare auf dem Kopfe als auf seinen Zähnen hat,",
+  "language": [],
+  "musenalm_id": 44918,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2006-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y4htcv22i3c7vi8",
+      "agents": "wd7yy1894regb5j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.284Z"
+    }
+  ]
+}

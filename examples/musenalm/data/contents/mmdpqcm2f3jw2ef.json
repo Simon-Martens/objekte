@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ach! der leuchtende Stern am heiligen Tage der Weisen / War durch Wolken des Grams unserem Auge verhüllt;",
+  "language": [],
+  "musenalm_id": 63916,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Gedächtniß / der Gattin meines Bruders, / Frau Clementine Geib, gebornen Schäffer, / welche am 6. Januar 1842 von dieser Erdenwelt schied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Gedächtniß / der Gattin meines Bruders, / Frau Clementine Geib, gebornen Schäffer, / welche am 6. Januar 1842 von dieser Erdenwelt schied",
+  "updated": "2009-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2tzy45m7lupz83q",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.157Z"
+    }
+  ]
+}

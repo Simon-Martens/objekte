@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Süße Wonne, wenn im Lichtgewande / Hoffnung sich dem müden Waller zeigt,",
+  "language": [],
+  "musenalm_id": 3954,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dichterlohn. / An Hrn. Reg. Rath. V. Wildungen. / Sonett",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dichterlohn. / An Hrn. Reg. Rath. V. Wildungen. / Sonett",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h9svvksspfqk04r",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.680Z"
+    }
+  ]
+}

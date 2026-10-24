@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium November paginiert P. 86. /) Illustration zu »Schöpfung des Vergissmeinnicht«  von Leop. Schlecht INr 61685, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61665,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schöpfung des Vergissmeinnicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. K. del. S. Langer sc.",
+  "scans": [
+    "alm_1000_61665_h7bctqqe6m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schöpfung des Vergissmeinnicht",
+  "updated": "2009-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p6pq0kiren6jggu",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.831Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.831Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Viel Dänenschiffe ankern und lauern / Die Fracht zu löschen in Luna's Mauern;",
+  "language": [],
+  "musenalm_id": 103627,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "König Hadding",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "König Hadding",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "02zansipaeb0kur",
+      "agents": "7s5akx33j2gpr6y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.153Z"
+    }
+  ]
+}

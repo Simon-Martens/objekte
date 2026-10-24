@@ -1,0 +1,43 @@
+{
+  "annotation": "Sammlung von 3 Beiträgen INr 96415-96417, Obj 11-13 als Textbezüge zu den Graphiken des Taschenbuchs",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96414,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Kupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Kupfer",
+  "updated": "2014-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ij48avmll093nsd",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.446Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.446Z"
+    }
+  ]
+}

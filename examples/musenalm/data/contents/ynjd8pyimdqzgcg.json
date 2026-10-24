@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41611,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Gezeichnet von Fohr Gestochen bei Klauber)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von Fohr Gestochen bei Klauber",
+  "scans": [
+    "alm_551_41611_j50k8c7541.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-12-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "46rjx8ycmy5tkrn",
+      "agents": "0w2wp8jkpgtwflf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.286Z"
+    }
+  ]
+}

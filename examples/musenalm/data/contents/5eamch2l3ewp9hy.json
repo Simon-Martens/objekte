@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Die beiliegende Episode aus Gleims Leben ist faktisch, selbst in Bezug auf viele wörtliche Aeußerungen der geschilderten Persönlichkeiten; bei der novellistischen Einkleidung sind der poetischen Freiheit nur die nothwendigsten Rechte eingeräumt.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "255",
+  "incipit_statement": "Im Harzgebirge, am Fuße der Roßtrappe, da, wo der Gießbach schäumend über die Klippen seines engen felsigen Bettes an dem breitetn grünen Rande desselben vorüberbraust",
+  "language": [],
+  "musenalm_id": 58081,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Brautfahrt. / Eine Episode aus Gleims Leben / aus authentischen Quellen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie von Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Brautfahrt. / Eine Episode aus Gleims Leben / aus authentischen Quellen",
+  "updated": "2008-06-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9qk9c8ph5nuahvd",
+      "agents": "pg4xeyhd29oq3nl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.930Z"
+    }
+  ]
+}

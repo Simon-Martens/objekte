@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Seitenstück zu Iris, in Ramlers lyrischer Blumenlese. /) mit einer Musikbeigabe s. INr 53107, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Lieblich rauscht der Wasserfall / vom Gebirge nieder, / Lieblich singt die Nachtigall. / Ihrer Minne Lieder.",
+  "language": [],
+  "musenalm_id": 53106,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Margareth / (Mit Musik)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Margareth / (Mit Musik)",
+  "updated": "2007-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n55qsaiafzcgn9v",
+      "agents": "kq69ntdbn8wcwoq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.764Z"
+    }
+  ]
+}

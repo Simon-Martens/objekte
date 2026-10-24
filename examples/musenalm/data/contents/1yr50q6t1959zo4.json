@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Der du mit trüber Stirn mich liesest, du Neid- / hard, beneide",
+  "language": [],
+  "musenalm_id": 83758,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Schelsüchtigen. / Martials 41. Sinngedicht des 1. Buches",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. W. Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Schelsüchtigen. / Martials 41. Sinngedicht des 1. Buches",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2v0wik54hw8j996",
+      "agents": "uxrssb0qlf0ghgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.940Z"
+    }
+  ]
+}

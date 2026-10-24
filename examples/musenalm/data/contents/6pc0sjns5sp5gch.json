@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Ach! hättest du nicht dies und das geschrieben; / Du wärest wol noch hier du armer Zimmer- / mann!",
+  "language": [],
+  "musenalm_id": 78748,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Zimmermanns Grabe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Maßlieben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Zimmermanns Grabe",
+  "updated": "2009-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dg0ykzehuwskiw4",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.713Z"
+    }
+  ]
+}

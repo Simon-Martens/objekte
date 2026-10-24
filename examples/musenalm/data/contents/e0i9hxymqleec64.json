@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24770, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Der Wintermorgen glänzt so klar, / Ein Wandrer kommt von ferne,",
+  "language": [],
+  "musenalm_id": 24777,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Heimkehr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freiherr von Eichendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Heimkehr",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s8fb87jqrqihxj1",
+      "agents": "h99uxdryiugeh6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.154Z"
+    }
+  ]
+}

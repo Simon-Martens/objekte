@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachflor und Spätlinge des Taschenbuchs (Sammlung INr 34262, ,Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Die Jugend, die für die vaterländische Zukunft mit Opferentschlüssen glüht,",
+  "language": [],
+  "musenalm_id": 34271,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Für Jünglinge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Für Jünglinge",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gnvb0f1luhkn6ge",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.695Z"
+    }
+  ]
+}

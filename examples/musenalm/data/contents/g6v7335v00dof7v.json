@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht aus »Aus der Chronicka eines fahrenden Schülers« INr 55727, Obj 116 /) Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "O Mutter halte dein Kindlein warm, / Die Welt ist kalt und helle, / Und trag es fromm in deinem Arm / An deines Herzens Schwelle",
+  "language": [],
+  "musenalm_id": 55744,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O Mutter halte dein Kindlein warm, / Die Welt ist kalt und helle, / Und trag es fromm in deinem Arm / An deines Herzens Schwelle…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Brentano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bdel8k79l7yomut",
+      "agents": "yp673px8ri3kgep",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.694Z"
+    }
+  ]
+}

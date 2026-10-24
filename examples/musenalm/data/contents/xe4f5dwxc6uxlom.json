@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung: Vorerinnerung: Rhytmus, Melodie und Harmonie, die Elemente der Musik, besitzt die Natur nicht [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Auf nacktem Felsen lieg' ich hier, / Und über mir, in ungemeßner Ferne,",
+  "language": [],
+  "musenalm_id": 28350,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Lebenstag / des / Tonkünstlers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Lebenstag / des / Tonkünstlers",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0rejw2l4t11a55d",
+      "agents": "2wsoz27ytrsps8l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.422Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwischentitel. Es folgen: I-Verz und 11 Gedichte mit 2 Illustrationen INr 52115-52128, Obj 99-112",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52114,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Siebentes Jahr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Siebentes Jahr",
+  "updated": "2007-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nm1cpnhlo8i4t1g",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.374Z"
+    }
+  ]
+}

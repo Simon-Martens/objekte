@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. s. Titelblatt /) Erklärung der Kupfer (Sammlung INr 60923, Obj 25) s. Graphik INr 60921, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Kaiser aus dem Hause Hohenstauffen erwarben sich auch um Deutschland das Verdienst, daß sie, die seit Karl d. Gr. vernachlässigte Muttersprache wieder in Aufnahme brachten.",
+  "language": [],
+  "musenalm_id": 60936,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11.",
+  "updated": "2008-11-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w8jqemrj20i3p44",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.730Z"
+    }
+  ]
+}

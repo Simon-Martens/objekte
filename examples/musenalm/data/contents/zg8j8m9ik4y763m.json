@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zum folgenden Beitrag INr 93885, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Es ist freilich eine wahre Kleinigkeit, alljährlich ein Mal den Frauen zu huldigen, doch mag es etwas schwer sein, ihnen nicht alltäglich zu huldigen.",
+  "language": [],
+  "musenalm_id": 93884,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Ehe und Liebe. / Mitgetheilt nebst einem Vorworte / von Ign. Jeittles",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ignaz Jeittelles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Ehe und Liebe. / Mitgetheilt nebst einem Vorworte / von Ign. Jeittles",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tknk8w8gk5v841q",
+      "agents": "ink6oi00gx0e0hw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.622Z"
+    }
+  ]
+}

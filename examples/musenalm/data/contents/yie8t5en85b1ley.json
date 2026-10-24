@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.783Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Ein Mann ging ruhig durch den Wald; / Doch plötzlich fand er sich in Nöthen.",
+  "language": [],
+  "musenalm_id": 17470,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mensch, der Wolf, und der / Löwe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mensch, der Wolf, und der / Löwe",
+  "updated": "2001-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "txl0ow5ik3u6wgo",
+      "agents": "v5ht3d6rw3do6ml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.810Z"
+    }
+  ]
+}

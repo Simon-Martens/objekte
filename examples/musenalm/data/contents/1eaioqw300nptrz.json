@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbst 1833 in Neuseß (Sammlung INr 98982, Obj 8) Gedichte (Sammlung INr 98981, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Nicht allein von Namen einzler Todten / Gibt Erinnerung mir die Berichte;",
+  "language": [],
+  "musenalm_id": 99006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nicht allein von Namen einzler Todten / Gibt Erinnerung mir die Berichte;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rzmnewpprdh69hr",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.989Z"
+    }
+  ]
+}

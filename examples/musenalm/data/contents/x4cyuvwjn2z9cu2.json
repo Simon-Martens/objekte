@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.917Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Du schlägst die schönen Augen nieder, / Und fühlest deine Gottheit nicht?",
+  "language": [],
+  "musenalm_id": 2537,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lottchen / im Negligee",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "I. F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lottchen / im Negligee",
+  "updated": "2000-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4880tphd8yfb0im",
+      "agents": "vurjmtt5tprr0cw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.002Z"
+    }
+  ]
+}

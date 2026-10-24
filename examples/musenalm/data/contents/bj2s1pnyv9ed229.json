@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 11. /) Illustration zu »Thomiris« INr 100947, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thomiris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thom. Weber del. P. J. Laminit sc.",
+  "scans": [
+    "alm_2013_100948_8x16lk1xv6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Thomiris",
+  "updated": "2010-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jxspe0ii8o7k3bd",
+      "agents": "h38sezk5a79h4rw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.841Z"
+    },
+    {
+      "id": "9vvdseduzh30lt1",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.841Z"
+    }
+  ]
+}

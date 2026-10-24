@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73419,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kinder! bleibt Gott und der Tugend getreu!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf fec. Hambg.",
+  "scans": [
+    "alm_3646_73419_u11nljwyme.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kinder! bleibt Gott und der Tugend getreu!",
+  "updated": "2011-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xd0khsm1a6jc8yu",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.307Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.307Z"
+    }
+  ]
+}

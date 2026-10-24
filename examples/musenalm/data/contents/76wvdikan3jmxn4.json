@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen und Romanzen (Sammlung INr 80386, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Der Jäger ruht von dem Pürschen aus / Bei den Trümmern vom Windecker Schloß,",
+  "language": [],
+  "musenalm_id": 80388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die schöne Kellnerin von Windeck. / Rheinische Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die schöne Kellnerin von Windeck. / Rheinische Sage",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gz86lsr75nn5hgf",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.896Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.896Z"
+    }
+  ]
+}

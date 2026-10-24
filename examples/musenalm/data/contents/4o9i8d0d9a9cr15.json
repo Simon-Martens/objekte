@@ -1,0 +1,45 @@
+{
+  "annotation": "Mädchen-Gedanken (Sammlung INr 29274, Obj 60) /) XI. Gedichte (Sammlung INr 29273, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Die Männer sind es gar nicht werth, / Sich drum in Sorgen zu begraben,",
+  "language": [],
+  "musenalm_id": 29283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Ursula",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Ursula",
+  "updated": "2002-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "48t2jpujs1sl0um",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.453Z"
+    }
+  ]
+}

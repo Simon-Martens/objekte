@@ -1,0 +1,45 @@
+{
+  "annotation": "Schleswig-Holsteinische Lieder (Sammlung INr 122793, Obj 126); # Bezeichnung am Gedicht INr 122792, Obj 135",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Vor Friedrichstadt, vor Friedrichstadt / da kämpften wir, da strümten wir, / Von Blut trank sich die Erde satt, / Auf ihr stand mancher Musketier",
+  "language": [],
+  "musenalm_id": 122794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Heinrich Claussen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Günther Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Heinrich Claussen",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uek02tbujw1w9z8",
+      "agents": "o11zrg5nk396fgh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.697Z"
+    }
+  ]
+}

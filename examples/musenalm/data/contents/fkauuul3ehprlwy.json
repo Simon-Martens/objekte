@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 59657, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "O wer hier ruhte, wer hier schliefe! / Kein feindlich Auge dränge nach,",
+  "language": [],
+  "musenalm_id": 59661,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Friedhof im Walde. / (Zum Titelkupfer.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Kletke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Friedhof im Walde. / (Zum Titelkupfer.)",
+  "updated": "2008-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dvgfppryl9dv9b4",
+      "agents": "oxvlsvgq5f4m5gr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.066Z"
+    }
+  ]
+}

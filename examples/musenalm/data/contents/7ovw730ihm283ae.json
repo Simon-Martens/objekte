@@ -1,0 +1,45 @@
+{
+  "annotation": "Weinlieder (Sammlung INr 24512, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Blut das von der Rebe Stamme / Floß in meines Bechers Rund,",
+  "language": [],
+  "musenalm_id": 24518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Der Schatzgräber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Der Schatzgräber",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ged4t9zx2w5v8qn",
+      "agents": "ana89fnya97gfjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.193Z"
+    }
+  ]
+}

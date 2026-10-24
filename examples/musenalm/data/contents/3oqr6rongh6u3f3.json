@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juli nummeriert 7; s. Textbezug INr 135477, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135490,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hofer's Tod / La mort d'André Hofer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Zschoch sc.",
+  "scans": [
+    "alm_2071_135490_ujr8o4ll01.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hofer's Tod / La mort d'André Hofer",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "765p5dzdwes3dqs",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.150Z"
+    },
+    {
+      "id": "akkhrfueptj8i7e",
+      "agents": "s4g5qqmtfq8rt8j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.150Z"
+    }
+  ]
+}

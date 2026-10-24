@@ -1,0 +1,67 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102986,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (P. C. Geissler gez. n. C. Stahlstich v. Carl Mayer's Kunstanstalt in Nürnberg)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. C. Geissler gez. n. C. Stahlstich v. Carl Mayer's Kunstanstalt in Nürnberg",
+  "scans": [
+    "alm_2486_102986_wrilinsqqb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "82e3o8e13dc5p7q",
+      "agents": "x4wr3clisfzne16",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.966Z"
+    },
+    {
+      "id": "yp6ugsvwzw737sv",
+      "agents": "1v07c6j6mxrdvwn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.966Z"
+    },
+    {
+      "id": "5o10p0xtxs1rfiy",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.966Z"
+    }
+  ]
+}

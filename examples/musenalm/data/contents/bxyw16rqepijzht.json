@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 95099, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Im Hintergrunde die Jungfrau von Eis, / Umschimmert vom rosigen Lichte,",
+  "language": [],
+  "musenalm_id": 95100,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Liesli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Liesli",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m7bjtbslq66u99s",
+      "agents": "arq1wi6im7bawmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.392Z"
+    }
+  ]
+}

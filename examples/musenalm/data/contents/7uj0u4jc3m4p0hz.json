@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.650Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Gerühmt, bewundert und verehrt zu / werden / Hat einen wünschenswehrten Schein;",
+  "language": [],
+  "musenalm_id": 38385,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gerühmt, bewundert und verehrt zu / werden / Hat einen wünschenswehrten Schein;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sts76tvhvk4gs89",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.788Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.788Z"
+    }
+  ]
+}

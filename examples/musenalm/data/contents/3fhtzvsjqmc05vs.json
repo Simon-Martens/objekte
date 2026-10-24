@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 133540,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Joh. Mezler del. I. Krepp sc. Viennae)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Mezler del. I. Krepp sc. Viennae",
+  "scans": [
+    "alm_1870_133540_il28jtk5jp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f4587jzb8fsuht9",
+      "agents": "4ydtp3mjohkj17q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.110Z"
+    },
+    {
+      "id": "2pf6o7pmusjds9w",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.110Z"
+    }
+  ]
+}

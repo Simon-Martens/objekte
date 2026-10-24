@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Titelgraphik INr 89678, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Am Hals der Mutter hängt der Knabe, / Und schmeichelt um ein Küßchen ihr,",
+  "language": [],
+  "musenalm_id": 89692,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gegengabe. / (Zum Titelkupfer.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gegengabe. / (Zum Titelkupfer.)",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "su7blbck2bhdps4",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.267Z"
+    }
+  ]
+}

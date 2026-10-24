@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit 5 beigegebenen Gedichten INr 71208-71212, Obj 106-110",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.816Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "335",
+  "incipit_statement": "Vor Zeiten regierte ein König in einem Lande des fernsten Nordens, Thule; die goldne Zeit nannten die Einwohner seine glükliche Regierung;",
+  "language": [],
+  "musenalm_id": 71207,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mährchen von Thule",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sylvester",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mährchen von Thule",
+  "updated": "2010-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5kf4czapu581d06",
+      "agents": "ift6i2oy1gozbs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.482Z"
+    }
+  ]
+}

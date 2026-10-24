@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette und Distichen (Sammlung INr 49072, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Die Stelle, wo ich auf verschlungnen Wegen / Begegnete dem wunderschönen Kinde,",
+  "language": [],
+  "musenalm_id": 49085,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die theure Stelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Derselbe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die theure Stelle",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "shs1cj83ken7y4d",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.732Z"
+    }
+  ]
+}

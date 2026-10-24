@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Holde Scham, Bescheidenheit, / Demut, Liebe, Freundlichkeit,",
+  "language": [],
+  "musenalm_id": 5075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die fromme Wilhelmine",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Z. T.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die fromme Wilhelmine",
+  "updated": "2000-10-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h7rrl4rl51emwi2",
+      "agents": "5zi0b6u2dct0970",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.247Z"
+    }
+  ]
+}

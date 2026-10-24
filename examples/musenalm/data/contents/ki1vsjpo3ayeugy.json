@@ -1,0 +1,45 @@
+{
+  "annotation": "Scenen aus dem Landleben (Sammlung INr 52133, Obj 117)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.693Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Schwirre, lieber Regen! / Schwirr' uns Gottes Segen. / Träufle nieder lind und warm,",
+  "language": [],
+  "musenalm_id": 52137,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied / der Bauern an den Regen, vor Johannis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied / der Bauern an den Regen, vor Johannis",
+  "updated": "2007-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m2e0tz3gunb1s41",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.594Z"
+    }
+  ]
+}

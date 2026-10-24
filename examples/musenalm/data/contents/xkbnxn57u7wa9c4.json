@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81076,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GEDENKE MEIN! / Wien. / Verlag von Pfautsch & Voss",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl. del. A. Dvorźack sc",
+  "scans": [
+    "alm_1806_81076_a76wm2n2r6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GEDENKE MEIN! / Wien. / Verlag von Pfautsch & Voss",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "40xc6ia18gwzxlc",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.061Z"
+    },
+    {
+      "id": "brdjwna07ox4rkv",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.062Z"
+    }
+  ]
+}

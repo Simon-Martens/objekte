@@ -1,0 +1,45 @@
+{
+  "annotation": "Fables traduites de l'Allemand de Mr. Pfeffel (Sammlung INr 16004, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Timanthe, l’honneur de la Grèce, / De Jupiter entreprit le tableau.",
+  "language": [],
+  "musenalm_id": 88,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. TIMANTHE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "PFEFFEL (Fréderique P.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. TIMANTHE",
+  "updated": "2001-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8g0m6gv4fb4v1o4",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.973Z"
+    }
+  ]
+}

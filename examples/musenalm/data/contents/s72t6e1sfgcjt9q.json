@@ -1,0 +1,54 @@
+{
+  "annotation": "Sammlung von 5 Textbezügen zu den Graphiken des Almanachs INr 69447-69455, Obj 6-14; s.a. Titelgraphik INr 69442, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.465Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69446,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Kupfer. / Fünf Ansichten aus den leberbergischen Gegenden / des / Kanton Bern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Juillerat del. F. Hegi sc.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Kupfer. / Fünf Ansichten aus den leberbergischen Gegenden / des / Kanton Bern",
+  "updated": "2007-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9l6410mbg3x7890",
+      "agents": "xh6k6nw5l5dihva",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.382Z"
+    },
+    {
+      "id": "98vzagkw8ib5eni",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.382Z"
+    }
+  ]
+}

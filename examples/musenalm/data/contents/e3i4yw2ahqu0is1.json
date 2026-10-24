@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 36",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Tadel des schlechteren Manns achtet der Bessere / nichts.",
+  "language": [],
+  "musenalm_id": 17247,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sittenspruch des Demokrates",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "P.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sittenspruch des Demokrates",
+  "updated": "2001-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vbj9kg9dewke7wb",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.581Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.581Z"
+    }
+  ]
+}

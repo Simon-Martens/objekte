@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) s. Textbezug INr 113030, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 113012,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LAFOSSE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Lips sc.",
+  "scans": [
+    "alm_2689_113012_64u33z4noz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LAFOSSE",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cepdo8rzndsmzvj",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.413Z"
+    }
+  ]
+}

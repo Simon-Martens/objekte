@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen und Romanzen (Sammlung INr 80386, Obj 13) mit einer Illustration s. Graphik INr 80380, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Das war in finstrer, in stürmischer Nacht, / Als König Bolelslaus schlug die Schlacht,",
+  "language": [],
+  "musenalm_id": 80389,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Orlike Wappenschild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Orlike Wappenschild",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xbru05sa5xy7r50",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.896Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.896Z"
+    }
+  ]
+}

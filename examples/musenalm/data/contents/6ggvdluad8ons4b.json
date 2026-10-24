@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 82107, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82119,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Egydienplatz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Duttenhofer",
+  "scans": [
+    "alm_3070_82119_sgdhmww7pb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Egydienplatz",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qd7ws913onncnmp",
+      "agents": "xo0woto4ruw1tjl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.942Z"
+    },
+    {
+      "id": "z4um96cyofu49wm",
+      "agents": "2wfa45xu4b0q4dp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.942Z"
+    }
+  ]
+}

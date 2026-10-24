@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Beiträgen INr 129952-129959, Obj 95-102",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oesterreichische Volkssagen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Oesterreichische Volkssagen",
+  "updated": "2022-03-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ijiigxazrxxppsy",
+      "agents": "wzmgymh9fjau9gk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.026Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.026Z"
+    }
+  ]
+}

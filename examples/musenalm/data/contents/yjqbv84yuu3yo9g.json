@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "265",
+  "incipit_statement": "Der Thau steht auf der Rose, / Das Abendroth verglimmt, / Hoch in der Dämmrung Schoose,",
+  "language": [],
+  "musenalm_id": 12156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Serenate",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Serenate",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gil8fp1hunha5av",
+      "agents": "5uss88okhpw2gvm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.605Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.605Z"
+    }
+  ]
+}

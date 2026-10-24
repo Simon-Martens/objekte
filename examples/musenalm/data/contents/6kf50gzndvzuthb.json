@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "So gehst auch du schon, getreuer Achat, / Mein trauter Aly, den finsteren Pfad?",
+  "language": [],
+  "musenalm_id": 4002,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie auf Aly. / (Gest. Am Neujahrstage 1794)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie auf Aly. / (Gest. Am Neujahrstage 1794)",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hbrbnz6co2b7gt8",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.056Z"
+    }
+  ]
+}

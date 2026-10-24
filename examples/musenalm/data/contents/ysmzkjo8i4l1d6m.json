@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 13010, Obj 112)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "Im schönsten Schmucke geht aus mir / Hervor ein leichtes Frühlingskind;",
+  "language": [],
+  "musenalm_id": 13025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15.",
+  "updated": "2001-03-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dm7vfng66rsd0jr",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.385Z"
+    }
+  ]
+}

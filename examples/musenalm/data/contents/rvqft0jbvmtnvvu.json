@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik # Titel s. Textbezug (Gedicht) INr 64535, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64529,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Verkäuferin #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. E. Masurel pinx. D. J. Sluyter sculps.",
+  "scans": [
+    "alm_1075_64529_rjagcvq51l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Verkäuferin #",
+  "updated": "2009-06-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1867,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f1zohgtbdgz1lxc",
+      "agents": "tdzmlqjs5se9wob",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.292Z"
+    },
+    {
+      "id": "1y3avye7xcjojga",
+      "agents": "lxkw0pi082wa1ak",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.292Z"
+    }
+  ]
+}

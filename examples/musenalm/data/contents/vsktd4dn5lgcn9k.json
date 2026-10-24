@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Es brauset das Meer in wilder Wuth, / Wie die Wellen schäumen und grollen!",
+  "language": [],
+  "musenalm_id": 99663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der alte Matrose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günter Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der alte Matrose",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h93zqh1j70cwkf6",
+      "agents": "o11zrg5nk396fgh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.663Z"
+    }
+  ]
+}

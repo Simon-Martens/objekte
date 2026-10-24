@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 69544, 69545; Obj 82, 83",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "267",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69543,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Frank",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "thgnv35f3yszugp",
+      "agents": "km9osfzve59w4c0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.058Z"
+    }
+  ]
+}

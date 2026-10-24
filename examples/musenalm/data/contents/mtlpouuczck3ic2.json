@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zu den folgenden Gedichten »Wanderlieder« /) Lieder (Sammlung INr 36371, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Mit vorstehendem Liede wollte ich die diesjährigen lyrischen Gaben beschließen, als ein Freund mich darauf aufmerksam machte,",
+  "language": [],
+  "musenalm_id": 36383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mit vorstehendem Liede wollte ich die diesjährigen lyrischen Gaben beschließen, als ein Freund mich darauf aufmerksam machte,…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. T. Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jabkm6ltsaurdhe",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.824Z"
+    }
+  ]
+}

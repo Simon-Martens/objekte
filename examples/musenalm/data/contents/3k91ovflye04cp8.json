@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Was flogst du, Stolz des Deutschen, zur / Sternenhöh', / Und blickest lächelnd nieder auf alles Volk,",
+  "language": [],
+  "musenalm_id": 2199,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutschland. / An / Friedrich Leopold / Graf zu Stolberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Deutschland. / An / Friedrich Leopold / Graf zu Stolberg",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xouvmqq7utfa84u",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.810Z"
+    }
+  ]
+}

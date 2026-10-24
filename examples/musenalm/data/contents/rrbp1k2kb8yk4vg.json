@@ -1,0 +1,45 @@
+{
+  "annotation": "Politische Allerlei (Sammlung INr 34364,Obj 87)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Stets wird das Alter die Jugend bekriegen. Ein großes haben aber gewöhnlich die Minister,",
+  "language": [],
+  "musenalm_id": 34375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Zweikampf zwischen Alter und Jugend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Zweikampf zwischen Alter und Jugend",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u4769h5fgmfq2gr",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.530Z"
+    }
+  ]
+}

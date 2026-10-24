@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Zur rechten Zeit, wenn sich die Sterne gatten, / Wenn lächelnd die Gelegenheit",
+  "language": [],
+  "musenalm_id": 22683,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zu rechten Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Contessa d. ä.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zu rechten Zeit",
+  "updated": "2002-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nf9p66x5uh8yyh0",
+      "agents": "kpi9u93u4rl2rz9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.150Z"
+    }
+  ]
+}

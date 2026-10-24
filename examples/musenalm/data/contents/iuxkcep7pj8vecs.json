@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober; paginiert 10.unter der Graphik: gedr. v. Prêtre /)  Illustration zu »Rip van Winkle« von S. H. Spiker INr 59360, Obj 39 aus »Bruchstücke aus Crayons Skizzenbuche«",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59335,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "zu Rip van Winkle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. W. Jury sc.",
+  "scans": [
+    "alm_893_59335_wcrf78jlh5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "zu Rip van Winkle",
+  "updated": "2008-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n93bgba0p7s0vsq",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.702Z"
+    },
+    {
+      "id": "uk0mmnhealpbnyd",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.702Z"
+    }
+  ]
+}

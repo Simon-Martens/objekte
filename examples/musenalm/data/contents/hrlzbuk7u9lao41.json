@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Amalie Trunemann« INr 46883, Obj 58",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Mechau del. Frentzel sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mechau del. Frentzel sc.",
+  "scans": [
+    "alm_632_46885_u6cr1mn7nx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-11-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u7vjdlmhyy2dxf3",
+      "agents": "37z1qs9sbpbcupa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.521Z"
+    },
+    {
+      "id": "081cvr0ynq1yplq",
+      "agents": "xw49a3odxesumyw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.521Z"
+    }
+  ]
+}

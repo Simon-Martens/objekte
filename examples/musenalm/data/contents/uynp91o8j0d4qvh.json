@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) Illustration zu »Grundzüge einer Geschichte der Universität zu Marburg« von Justi INr 97868, Obj 13; s.a. Textbezug INr 97861, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97857,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WILHELM VI. DER GERECHTE / Landgraf von Hessen Kassel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Schäffler pi. C. Westermayr sc.",
+  "scans": [
+    "alm_3500_97857_jetcpp5ump.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WILHELM VI. DER GERECHTE / Landgraf von Hessen Kassel",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ahsba6ookz927ar",
+      "agents": "2d34emvmf13qf3h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.931Z"
+    }
+  ]
+}

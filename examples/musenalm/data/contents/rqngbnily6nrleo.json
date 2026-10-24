@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung an Blatt 3 der Suite /) paginiert 6. s. Textbezug INr 60097, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60096,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Entwafnung der Pickenmänner der Vorstadt / St. Antoine",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen sculps.",
+  "scans": [
+    "alm_937_60096_12sw7luckl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Entwafnung der Pickenmänner der Vorstadt / St. Antoine",
+  "updated": "2008-09-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gz2h9zx8haq7i8c",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.901Z"
+    },
+    {
+      "id": "q9lmsl9imm04ybd",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.902Z"
+    }
+  ]
+}

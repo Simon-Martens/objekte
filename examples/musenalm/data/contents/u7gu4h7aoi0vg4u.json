@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Aus dem vierten Gesang des Messias",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.473Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Müd' und voll Schmerz, sie hatte den Sohn / nun Tage gesuchet, / Lange Nächte geweint!",
+  "language": [],
+  "musenalm_id": 92427,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die heiligen Frauen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die heiligen Frauen",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gxv56wi79nwiucl",
+      "agents": "ckd4l48jtgsgmor",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.203Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik (Portrait) im Kalendarium März /) s. Textbezug INr 96204, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96188,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz Otto von Pirch, / Kön. Pr. General Lieut. v. d. Inf.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas",
+  "scans": [
+    "alm_2183_96188_gpmwp9md9b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Franz Otto von Pirch, / Kön. Pr. General Lieut. v. d. Inf.",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pih1467c7wq39em",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.875Z"
+    }
+  ]
+}

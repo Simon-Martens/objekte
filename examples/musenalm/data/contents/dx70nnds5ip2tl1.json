@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Goethe's Briefe an die Gräfin Auguste zu Stolberg, verwitwete Gräfin von Bernstorf (Sammlung INr 2034, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Den 28. Aug. 1776. Guten Morgen Gustgen! Wie ich aus dem Bette steige guten Morgen.",
+  "language": [],
+  "musenalm_id": 18820,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Funfzehnter Brief",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Funfzehnter Brief",
+  "updated": "2000-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kg63jw47hqb3m7x",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.957Z"
+    }
+  ]
+}

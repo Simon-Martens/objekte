@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Mit tausend Seufzern pflückt ich euch, / Mit tausend Wünschen band ich euch,",
+  "language": [],
+  "musenalm_id": 107710,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf ein Band ans Bouquet. / Für Louisen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zachariä",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf ein Band ans Bouquet. / Für Louisen",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6aoeth9j39a4a4e",
+      "agents": "wj40krq87n1bwgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.054Z"
+    }
+  ]
+}

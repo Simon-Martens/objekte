@@ -1,0 +1,67 @@
+{
+  "annotation": "Titelportrait /) s. Textbezüge INr 10369, 103771; Obj 5, 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103766,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KAISERINN MARIA THERESIA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Maron pinx. S. v. Perger del. J. Kovatsch sculps.",
+  "scans": [
+    "alm_1927_103766_iglier27p0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KAISERINN MARIA THERESIA",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kijkio94dxlw1k7",
+      "agents": "15kq0yd0ulvi19f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.013Z"
+    },
+    {
+      "id": "e6lkh5gi1b2whhm",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.013Z"
+    },
+    {
+      "id": "c447erqfyzixgaw",
+      "agents": "7b9443ro2tn4o8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.014Z"
+    }
+  ]
+}

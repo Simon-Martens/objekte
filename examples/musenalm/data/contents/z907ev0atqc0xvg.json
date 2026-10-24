@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Jery und Bätely« von J. W. von Goethe s. Textbezug INr 42388, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42387,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jerry u. Baetely. / Thomas. Nur recht frech gethan, musicirt und so sachte retirirt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_530_42387_6p96liijwx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jerry u. Baetely. / Thomas. Nur recht frech gethan, musicirt und so sachte retirirt",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gxc6y1snz55n54w",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.089Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.089Z"
+    },
+    {
+      "id": "b8najkdiyo3t9k3",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.089Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.089Z"
+    }
+  ]
+}

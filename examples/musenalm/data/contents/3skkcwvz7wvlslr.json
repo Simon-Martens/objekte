@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium. Illustration zu »Zamora« INr 35177, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35166,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jeder Abend hört Zamorens Klagen. / aus Zamora",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Lang del. A. W. Küffner sc.",
+  "scans": [
+    "alm_485_35166_hc3zig0k1f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jeder Abend hört Zamorens Klagen. / aus Zamora",
+  "updated": "2003-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s9l2kxo7zgdvl0l",
+      "agents": "0vejvx9ns82bwxr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.717Z"
+    },
+    {
+      "id": "fw17hesr6n0tyb4",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.717Z"
+    }
+  ]
+}

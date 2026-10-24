@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Gedanken eines Ehemanns« (INr 130533, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Edler Freund! Wo öffnet sich dem Frieden, / Wo der Freiheit sich ein Zufluchtsort?",
+  "language": [],
+  "musenalm_id": 130532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV. / Der Antritt des neuen Jahr- / hunderts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV. / Der Antritt des neuen Jahr- / hunderts",
+  "updated": "2009-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8poj8idi1sdw7fb",
+      "agents": "wqze1ivkmgxwz33",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.073Z"
+    }
+  ]
+}

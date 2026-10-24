@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehenden Textbezug INr 102888, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102889,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRÄULEIN PAULINE VON SCHAETZEL, / Sängerin der Königl. Oper zu Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos Kowatsch u. Fr. Stöber in Stahl",
+  "scans": [
+    "alm_3376_102889_mel7jw5wb7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRÄULEIN PAULINE VON SCHAETZEL, / Sängerin der Königl. Oper zu Berlin",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pxt4hues7p1bg28",
+      "agents": "7b9443ro2tn4o8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.937Z"
+    },
+    {
+      "id": "yzqds2aggfz4ygi",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.937Z"
+    }
+  ]
+}

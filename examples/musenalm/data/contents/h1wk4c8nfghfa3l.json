@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Wer liebend sich nach Liebe sehnt, / Wem insgeheim das Auge thränt,",
+  "language": [],
+  "musenalm_id": 2740,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum / Andenken eines Gesprächs / im Jänner 1777",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum / Andenken eines Gesprächs / im Jänner 1777",
+  "updated": "2000-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2gak1qtx9m5sbyz",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.948Z"
+    }
+  ]
+}

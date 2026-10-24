@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Tempeltrümmer« von Betty Paoli d.i. Barabara Grund INr 58102, Ob 14 /) unter der Graphik: Gustav Heckenast in Pest. Druck v. Kargl",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.446Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58103,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Römerruinen aus Spalatro",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. Alt pinx. J. Axmann sc. Viennae",
+  "scans": [
+    "alm_775_58103_678r4qdq8f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Römerruinen aus Spalatro",
+  "updated": "2008-06-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w3kqh79ik988xi7",
+      "agents": "h4j7ryi5wx72vf0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.631Z"
+    },
+    {
+      "id": "cxwkb8rmz15yqsc",
+      "agents": "eb0uid8s7k1f7eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.631Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Schweizersage von der Lorelei« von Karl Schneider INr 89658, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89659,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schweizersage von der Lorelei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. H. Weigl del.",
+  "scans": [
+    "alm_3357_89659_cnnlxwhoz1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Schweizersage von der Lorelei",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yk9ftfrr74wiqpv",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.443Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.443Z"
+    },
+    {
+      "id": "q9rjol90zm3ifu4",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.443Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.443Z"
+    }
+  ]
+}

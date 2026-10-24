@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 7. /) Illustration zu »Verirrung und Rükkehr eine Erzählung« INr 100941, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100942,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hier gelobt mir Treue im Dienste / der Tugend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thom. Weber del. P. J. Laminit sc.",
+  "scans": [
+    "alm_2013_100942_4ttm7nxld6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hier gelobt mir Treue im Dienste / der Tugend",
+  "updated": "2010-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e3te5x0h7p1unga",
+      "agents": "h38sezk5a79h4rw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.840Z"
+    },
+    {
+      "id": "l3dor2rh1y6dmqc",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.840Z"
+    }
+  ]
+}

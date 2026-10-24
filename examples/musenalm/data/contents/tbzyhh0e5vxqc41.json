@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 2. /) Graphik im Kalendarium August. /) Illustration zu »Einige Denkmahle des Edelmuths und der Tapferkeit aus dem jetzigen Kriege wider die Türken / 2. Großer Muth einiger Oesterreichischen Soldaten« INr 75607, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.596Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75587,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brüder wollen wir uns ergeben? / Sieg oder Tod?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Geyser sc.",
+  "scans": [
+    "alm_2141_75587_gcx88kjicj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Brüder wollen wir uns ergeben? / Sieg oder Tod?",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9anywy3qfpw4l86",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.746Z"
+    },
+    {
+      "id": "1xbtti3wfn5b04i",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.746Z"
+    }
+  ]
+}

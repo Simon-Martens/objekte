@@ -1,0 +1,45 @@
+{
+  "annotation": "7. Distichen (Sammlung INr 67427, Obj 64) VIII. Gedichte (Sammlung INr 67420, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Kraftvoll steh' ich Jahrhunderte schon, in der Fülle / des Lebens,",
+  "language": [],
+  "musenalm_id": 67428,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Eiche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Eiche",
+  "updated": "2009-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "82of26w4b4r4lks",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.368Z"
+    }
+  ]
+}

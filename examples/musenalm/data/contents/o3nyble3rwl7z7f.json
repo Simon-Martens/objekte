@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. u. Titel aus dem I-Verz s. a. INr 33164, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Und so geschah's! Dem friedenreichen Klange / Bewegt sich neu das Land und segenbar.",
+  "language": [],
+  "musenalm_id": 33165,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Andenken Schillers # / Concordia soll ihr Name seyn! / Freude dieser Stadt bedeute, / Friede sey ihr erst Geläute!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Andenken Schillers # / Concordia soll ihr Name seyn! / Freude dieser Stadt bedeute, / Friede sey ihr erst Geläute!",
+  "updated": "2003-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qr9d77is8gzi99v",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.701Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.917Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Warum das Genus verschieden ist, / Aurora! wollen Sie wissen?",
+  "language": [],
+  "musenalm_id": 94629,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Genus. / Dem schönen Geschlechte gewidmet. / An Auroren, / und Allen, die ihr gleichen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Hannusch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Genus. / Dem schönen Geschlechte gewidmet. / An Auroren, / und Allen, die ihr gleichen",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vezcro7cuynahtt",
+      "agents": "1gx7z956tuv7ghs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.624Z"
+    }
+  ]
+}

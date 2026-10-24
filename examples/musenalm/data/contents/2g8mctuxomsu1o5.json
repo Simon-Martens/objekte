@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "Ich hatte nach diesem entscheidenden Vorfalle wieder Zeit zu meinen gewöhnlichen Beschäftigungen überzugehen.",
+  "language": [],
+  "musenalm_id": 1419,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Etwas über Seume. / Fragment aus einer Selbstbiographie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johanne Caroline Wilhelmine Spazier, geb. Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Etwas über Seume. / Fragment aus einer Selbstbiographie",
+  "updated": "2000-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "evtk4tpw91qdu35",
+      "agents": "6bba95qi5qffiw1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.695Z"
+    }
+  ]
+}

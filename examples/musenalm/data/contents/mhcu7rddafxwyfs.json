@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Während kunstgewandter Hände / Fleiß und Liebe sich bemüht,",
+  "language": [],
+  "musenalm_id": 24730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Goethe, / (Zu seinem 82sten Geburtstage, mit einem Schlummerpfühl; / darauf ein gestickter Kranz von orientalischen Mohnen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Riemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Goethe, / (Zu seinem 82sten Geburtstage, mit einem Schlummerpfühl; / darauf ein gestickter Kranz von orientalischen Mohnen.)",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jcomdv3gmbvnpir",
+      "agents": "rw4d1lc8bcz0sk7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.181Z"
+    }
+  ]
+}

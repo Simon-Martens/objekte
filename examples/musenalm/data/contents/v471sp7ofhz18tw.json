@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Wer kennt das Thal mit grüner Au, / Wo schöne Blümlein stehn zur Schau,",
+  "language": [],
+  "musenalm_id": 52863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Sommerabendmärchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ulrich Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Sommerabendmärchen",
+  "updated": "2007-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h2a85oge3jey3dd",
+      "agents": "5xr1i06rwmguu38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.702Z"
+    }
+  ]
+}

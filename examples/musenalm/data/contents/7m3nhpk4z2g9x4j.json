@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Mög' auch oft die Arbeit, felsenähnlich, / Gleich dem Sisyphus, mir neu entrollen;",
+  "language": [],
+  "musenalm_id": 65817,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nikol. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abend",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rusc1qssskc9f7z",
+      "agents": "vd3inw12z8a6gd2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.186Z"
+    }
+  ]
+}

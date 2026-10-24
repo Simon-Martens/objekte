@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Zeitverse (Sammlung INr 64840, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Nordafrika! du warst des Kornes Kammer / Für das gewalt'ge Rom, als mit dem Schwerte / Es herrschte auf der weltbekannten Erde,",
+  "language": [],
+  "musenalm_id": 64849,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nordafrika und die Europäer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Cebes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nordafrika und die Europäer",
+  "updated": "2009-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dlexvj1tr6lv1oj",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.127Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82353,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chapeau Polonais. / Douilette Anglaise / Habit à Revers Boutonnés. / Col dépassant la Cravate",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grape sc.",
+  "scans": [
+    "alm_168_82353_fy88qayc5h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Chapeau Polonais. / Douilette Anglaise / Habit à Revers Boutonnés. / Col dépassant la Cravate",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0f01kjy7ubuvyvl",
+      "agents": "t2z8lq4qwm3oov7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.978Z"
+    }
+  ]
+}

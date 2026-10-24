@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.508Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Eis und Schnee sind nun zerflossen, / Und der grüne Rasen schwillt.",
+  "language": [],
+  "musenalm_id": 3425,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Märzlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Märzlied",
+  "updated": "2000-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jfsk21l0g04og1a",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.744Z"
+    }
+  ]
+}

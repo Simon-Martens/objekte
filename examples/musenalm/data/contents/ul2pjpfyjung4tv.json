@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Der Abt Metastasio",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Jüngst kam vor Charons altem Kahn / Der Schatten eines Dichters * an / Mit einer sehr zufriedenen Miene.",
+  "language": [],
+  "musenalm_id": 93177,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charon und der Schatten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. T. Dick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Charon und der Schatten",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rf5kooh4ff71bdq",
+      "agents": "7muxj8z983an85h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.250Z"
+    }
+  ]
+}

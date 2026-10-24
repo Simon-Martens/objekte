@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 7843, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7844,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Quacksalber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hog. inv. Rip. f.",
+  "scans": [
+    "alm_170_7844_v8gkfxfuz9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Quacksalber",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2ueie6wgutbp1oo",
+      "agents": "yylanvnf5ct4jbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.213Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.213Z"
+    },
+    {
+      "id": "fy7ys7puzme6lt5",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.213Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.213Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Führwahr ich thäte selbst, wenn ich Cytheren / hätte,",
+  "language": [],
+  "musenalm_id": 38314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sinngedicht / über den Eintritt der Venus in die / Sonne. / Den 3. Jun. 1769",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sinngedicht / über den Eintritt der Venus in die / Sonne. / Den 3. Jun. 1769",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tah4jmbxqcp85eq",
+      "agents": "6cp00jd21onlhwl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.745Z"
+    }
+  ]
+}

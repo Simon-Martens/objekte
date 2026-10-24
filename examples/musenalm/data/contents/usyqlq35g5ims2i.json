@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122011, Obj 165)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.495Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Leuchtkäferlein / Mit grünem Schein, / Halt’ still und laß diech fangen! / Sollst mir ein treuer Leuchter sein, / Zu stillen mein Verlangen.",
+  "language": [],
+  "musenalm_id": 122013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 167,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leuchtkäferlein",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leuchtkäferlein",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m8uu7jkghtqh1b9",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.514Z"
+    }
+  ]
+}

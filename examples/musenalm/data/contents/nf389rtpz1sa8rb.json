@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "O Stück das die Bühne mit Trauer bezog! / Der fünfte Akt nahm Männern und Wei- / bern das Leben,",
+  "language": [],
+  "musenalm_id": 3541,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf ein modernes Trauerspiel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Albr. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf ein modernes Trauerspiel",
+  "updated": "2000-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0kkkkw480ghh86x",
+      "agents": "ql9bbd2ltci2fxo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.225Z"
+    }
+  ]
+}

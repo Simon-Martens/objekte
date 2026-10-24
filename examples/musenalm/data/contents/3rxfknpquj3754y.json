@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Des Kindes Traum« von Wilh. Müller INr 41378, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.080Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41364,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Kindes Traum, / von Wilhelm Müller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. Westall pinx. Fr. Walther sc.",
+  "scans": [
+    "alm_483_41364_aoz52dy3pl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des Kindes Traum, / von Wilhelm Müller",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "smi1c0mqmnn5p8x",
+      "agents": "uq6rhrihzl9bx5q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.156Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.156Z"
+    }
+  ]
+}

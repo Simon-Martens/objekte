@@ -1,0 +1,45 @@
+{
+  "annotation": "Versuche in gebundener Rede (Sammlung INr 65623, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Dem Ziele nähert uns nicht Ungeduld, dem fernen;",
+  "language": [],
+  "musenalm_id": 65695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 264,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ungeduld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Adam Seuffert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ungeduld",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vtme8nueevy6mfa",
+      "agents": "b6lr2rx1hatxube",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.405Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) Illustration zu »Venus« von K. Ph. Moritz INr 91544, Obj 68",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Carstens del. D. Berger sc. 1791)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carstens del. D. Berger sc. 1791",
+  "scans": [
+    "alm_4074_91545_g3gschc7mq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jjatfdnonomvkee",
+      "agents": "g3hedbg3ghoqo3o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.397Z"
+    },
+    {
+      "id": "pks5fs6j80b3vsm",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.397Z"
+    }
+  ]
+}

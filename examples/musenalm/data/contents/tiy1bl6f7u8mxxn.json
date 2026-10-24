@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Es sei in Bergestiefen / Hat weiser Mund gelehrt, / Ein Edelstein verborgen, / Von unschätzbarem Werth.",
+  "language": [],
+  "musenalm_id": 86889,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwei Steine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwei Steine",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r38vml1crzlf6wu",
+      "agents": "roqd4m2swedwv3j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.197Z"
+    }
+  ]
+}

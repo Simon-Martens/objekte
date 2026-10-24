@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 4 /) Graphik im Kalendarium April /) Illustration zu »Hamlet« v. W. Shakespeare /) s. G-Verz INr 69979, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69970,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": ".......ich will beten gehen. / II. Aufz. 9ter Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp.",
+  "scans": [
+    "alm_790_69970_8e3870m1oy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": ".......ich will beten gehen. / II. Aufz. 9ter Auftr.",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4gob6ifjk8txl93",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.434Z"
+    },
+    {
+      "id": "5iv5rqu01dz9e1l",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.434Z"
+    }
+  ]
+}

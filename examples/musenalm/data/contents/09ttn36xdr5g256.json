@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Demetrius« von Fr. Schiller s. Textbezug INr 39896, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.212Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39897,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Demetrius 2r. Aufz.1te Scene. / Marva. O höchste Allmacht, habe Dank! Dank! Dank! / Dass du mir endlich Rettung, Rache sendest.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_522_39897_a9lq4op3xj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Demetrius 2r. Aufz.1te Scene. / Marva. O höchste Allmacht, habe Dank! Dank! Dank! / Dass du mir endlich Rettung, Rache sendest.",
+  "updated": "2005-08-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eaabwsj2pgdka84",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.874Z"
+    },
+    {
+      "id": "eu94xv6qeshkgp3",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.874Z"
+    }
+  ]
+}

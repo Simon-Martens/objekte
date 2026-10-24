@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "353",
+  "incipit_statement": "Ein Jüngling, rosenroth, / Erblich im schnellen Tod:",
+  "language": [],
+  "musenalm_id": 27122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 152,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Braut",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Orlay",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Braut",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ubgyho3wzoani7h",
+      "agents": "4g2r3ta4uzw1gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.210Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25046, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Noch hatte der Rabbiner nicht begonnen / Zu unterrichten, im gedrängten Kreise",
+  "language": [],
+  "musenalm_id": 25060,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Ein Baal Teschuba",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Ein Baal Teschuba",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q0c6gfhp9n7m4i1",
+      "agents": "3emdj29jey7pglq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.886Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Sünde und ihr Fluch.« von Pazzani INr 94027, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur poetischen Erzählung: Die Sünde / und ihr Fluch, von Pazzani",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Rieder del. Bl. Höfel sc. Wr. Neustadt",
+  "scans": [
+    "alm_1865_94029_jz7hlh4gm1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur poetischen Erzählung: Die Sünde / und ihr Fluch, von Pazzani",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w5il9ek8wj8hazh",
+      "agents": "djf4nkfvic4s191",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.487Z"
+    },
+    {
+      "id": "ka6n907481ioqf5",
+      "agents": "y1qct7tl0hidcy2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.487Z"
+    }
+  ]
+}

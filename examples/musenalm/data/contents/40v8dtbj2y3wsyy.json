@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Fr. Schiller's Gedichten. II. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76918, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ein frommer Knecht war Fridolin, / Und in der Furcht des Herrn",
+  "language": [],
+  "musenalm_id": 76917,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang nach dem Eisenhammer. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang nach dem Eisenhammer. / 1.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ed0jryqkt53enbq",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.401Z"
+    }
+  ]
+}

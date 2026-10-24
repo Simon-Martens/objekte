@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Wunsch nach Schönheit! manchmal drüktest / Du mich armen Jüngling schwer!",
+  "language": [],
+  "musenalm_id": 35029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wunsch eines Jünglings",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prandstetter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wunsch eines Jünglings",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cy4fp4bciibik9u",
+      "agents": "v5wbuj6yomki99q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.729Z"
+    }
+  ]
+}

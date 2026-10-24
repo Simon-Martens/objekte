@@ -1,0 +1,45 @@
+{
+  "annotation": "Zeitbetrachtungen im Wonnemonat Europas, im Mai 1814 (Sammlung INr 33929, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "390",
+  "incipit_statement": "Nur ein Jahr schied den Unglaubigen der Vorsehung von ihrem Glaubigen;",
+  "language": [],
+  "musenalm_id": 33930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die misverstandene Zukunft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die misverstandene Zukunft",
+  "updated": "2003-05-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9iov7frzy9ycxey",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.755Z"
+    }
+  ]
+}

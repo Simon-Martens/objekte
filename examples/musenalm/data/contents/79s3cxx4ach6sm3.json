@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Rosenkranz (Sammlung INr 40508, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "467",
+  "incipit_statement": "Welch' neuer Glanz umfließt dein zartes Haupt, / Welch' frische Helle ist umhergebreitet,",
+  "language": [],
+  "musenalm_id": 40515,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Fr. Jacobs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tmc27mt5s4in9sd",
+      "agents": "ll7waoj43h6ojrc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.244Z"
+    }
+  ]
+}

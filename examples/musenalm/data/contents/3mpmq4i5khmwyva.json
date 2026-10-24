@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 3 Illustrationen s. Graphiken INr 110791-110793, Obj 7-9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Es war am 19ten des April-Monats, in dem so thatenreichen Kriegsjahre 1632, als Robert Imhof, ein junger Patrizier von Augsburg, mit verschränkten Armen in dem hohen Saale seines Hauses auf und abging.",
+  "language": [],
+  "musenalm_id": 110790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die drei Wünsche. / Eine schwäbische Sage aus den Zeiten des dreißig- / jährigen Krieges",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. von Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die drei Wünsche. / Eine schwäbische Sage aus den Zeiten des dreißig- / jährigen Krieges",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ymz07bhg5vuqj6t",
+      "agents": "iiexbt3f7jmpzqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.144Z"
+    }
+  ]
+}

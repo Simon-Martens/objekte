@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Das edeste Schön' ist das Schöne der Seele, / Wann der Geist von der Erde zum Quell der / Schönheit emporblüht.",
+  "language": [],
+  "musenalm_id": 92332,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schöne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bodmer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schöne",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ui62y2hvi8cxg4",
+      "agents": "d4v5f8ipt5yar1l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.614Z"
+    }
+  ]
+}

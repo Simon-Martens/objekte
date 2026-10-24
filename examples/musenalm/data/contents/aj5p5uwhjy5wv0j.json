@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Lied eines Mädchens« von Henriette INr 16876, Obj 92 (Photos 16875,01; 16875,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16875,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines Mädchens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Juliane Reichardt, geb. Benda",
+  "scans": [
+    "alm_110_16875_01_hv9a4c10np.jpg",
+    "alm_110_16875_02_usxenxtohy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines Mädchens",
+  "updated": "2001-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fpwkchpu5tdnsor",
+      "agents": "3yhlkmaw0c4nfr1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.784Z"
+    }
+  ]
+}

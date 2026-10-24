@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) paginiert Pag. 124 /) Illustration zu »Lohn der Tugend« von der Verfasserin der Claudine Lahn, Klara von Walburg (Pseud.) INr 87796, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87766,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (F. L. Lehmann del. Heinr. Müller sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Lehmann del. Heinr. Müller sc.",
+  "scans": [
+    "alm_2384_87766_iqi9ykyp6h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "18wczexs2wm0tzw",
+      "agents": "dsxgxd2rsqe5f4z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.042Z"
+    }
+  ]
+}

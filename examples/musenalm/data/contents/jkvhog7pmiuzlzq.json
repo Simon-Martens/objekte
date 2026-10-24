@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Wahrhaftig ein gesunder Ort! / Er sah, schon ganzer dreyßig Jahre,",
+  "language": [],
+  "musenalm_id": 5059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesunder Ort",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frh. v. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesunder Ort",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kpt4wz1b6fyu1cn",
+      "agents": "6y2vclvz6pkp0l9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.246Z"
+    }
+  ]
+}

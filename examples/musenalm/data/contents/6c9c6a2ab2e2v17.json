@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Bemerkungen, Anekdoten und Einfälle (Sammlung INr 10664, Obj 19) Prosaische Aufsätze (Sammlung INr 10660, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Ein Stück Erde, das anfangs abgestochen, dann getrocknet, dann gebrannt,",
+  "language": [],
+  "musenalm_id": 10686,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22. / Der Dachziegel und der Mensch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22. / Der Dachziegel und der Mensch",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ivcfwoiftd0p6hi",
+      "agents": "pbt3h5zr358vg6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.430Z"
+    }
+  ]
+}

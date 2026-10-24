@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 111437, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Abenschein liegt ausgegossen, / Und die Blumen und die Winde / Ruhen; hell von Licht umflossen / Sitzt die Mutter mit dem Kinde.",
+  "language": [],
+  "musenalm_id": 111444,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Muttersegen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Muttersegen",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z2h2aqmwhfwoeiz",
+      "agents": "kfaol2n4gz6m4dn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.088Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "9. Kleine Notizen (Sammlung INr 97813, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.430Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "In der Marburger Universitäts-Bibliothek findet sich folgende Seltenheit; ein Exemplar von Melanchthon's locis theolog.",
+  "language": [],
+  "musenalm_id": 97819,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "e) Eigenhändig von Phil. Melanchthon / geschriebene Verse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "e) Eigenhändig von Phil. Melanchthon / geschriebene Verse",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "utcy02u94aj0dgg",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.779Z"
+    }
+  ]
+}

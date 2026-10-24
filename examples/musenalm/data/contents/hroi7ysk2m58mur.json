@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 35",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Was schwingest du mit Adlerblick / Deß Straußes schweren Flügel?",
+  "language": [],
+  "musenalm_id": 5262,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An -",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "O.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An -",
+  "updated": "2000-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ni0egilf9un0f7o",
+      "agents": "stasese2l43xq94",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.329Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.329Z"
+    }
+  ]
+}

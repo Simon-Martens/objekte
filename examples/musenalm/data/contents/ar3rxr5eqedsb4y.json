@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Beiträgen mit 3 Illustrationen INr 103561-103571, Obj 23-33",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.368Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hoz a mai, domaun a tai. / (Heute mir, morgen dir.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hoz a mai, domaun a tai. / (Heute mir, morgen dir.)",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gfl5tyyxbsdubn0",
+      "agents": "jo3symqxy3hqpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.035Z"
+    }
+  ]
+}

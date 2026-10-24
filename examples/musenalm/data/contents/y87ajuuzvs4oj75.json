@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite; Graphik im Kalendarium paginiert 8. s. Textbezug INr 7574, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7549,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Betragen. / Manière d'agir",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert inv. & del.",
+  "scans": [
+    "alm_162_7549_tv5tk59kk1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Betragen. / Manière d'agir",
+  "updated": "2000-12-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qhqhih8ubn33z2b",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.203Z"
+    }
+  ]
+}

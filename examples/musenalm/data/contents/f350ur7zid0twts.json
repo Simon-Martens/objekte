@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Liebliches Kind, du ruhest sanft im Grabe, / Von den blühenden Linden hold umsäuselt,",
+  "language": [],
+  "musenalm_id": 83528,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todtenkranz für ein Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todtenkranz für ein Kind",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7fdfcs8skep1t3f",
+      "agents": "ijn3e3gugtz46hh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.779Z"
+    }
+  ]
+}

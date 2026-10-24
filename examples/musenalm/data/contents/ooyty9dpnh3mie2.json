@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke] s. Textbezug INr 44068, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44067,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE BRAUT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Rustige pinx. T. S. Engleheart sc.",
+  "scans": [
+    "alm_597_44067_5fit74j89g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE BRAUT",
+  "updated": "2006-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xnasu5isdo5fw74",
+      "agents": "uqsdu0nifidzvmw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.149Z"
+    },
+    {
+      "id": "4myvug2wazws49j",
+      "agents": "8w6n9g0x6dcpwhp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.149Z"
+    }
+  ]
+}

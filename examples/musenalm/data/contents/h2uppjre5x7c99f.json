@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 34558, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34559,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabmahl am Ufer des Ganges #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Daniell. R. A. pinxt. E. Finden sculpt.",
+  "scans": [
+    "alm_480_34559_ulpna1mpb0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Grabmahl am Ufer des Ganges #",
+  "updated": "2003-06-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ir6nb9pfmqtvbo5",
+      "agents": "qvi69ismyu8brau",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.976Z"
+    },
+    {
+      "id": "8azy2axa4i40ihs",
+      "agents": "n6a5xd0oqtupi8s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.976Z"
+    }
+  ]
+}

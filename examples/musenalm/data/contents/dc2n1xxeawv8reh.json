@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Gedichte (Sammlung INr 107279, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.468Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Willkommen, liebes neues Jahr! / Beginne Deinen Lauf!",
+  "language": [],
+  "musenalm_id": 107280,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neujahrslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neujahrslied",
+  "updated": "2015-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "17twfhevapl24df",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.042Z"
+    }
+  ]
+}

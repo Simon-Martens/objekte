@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Tagebuch von J. Charlotte Ehrenberg« INr 58640, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.394Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88778,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 51.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Penzel del. et sculp.1784 Dresdae)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. et sculp.1784 Dresdae",
+  "scans": [
+    "alm_624_88778_c2z3yore93.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i95q5ll8wg492h9",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.925Z"
+    }
+  ]
+}

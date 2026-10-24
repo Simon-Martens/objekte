@@ -1,0 +1,45 @@
+{
+  "annotation": "Chöre und Lieder für gesellige Cirkel (Sammlung INr 116531, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Am Rhein, am Rhein! da blühen tausend Hügel / Im goldnen Sonnenstrahl,",
+  "language": [],
+  "musenalm_id": 116533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einem Rheinländer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Andr. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einem Rheinländer",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c37cyq9ljzmoeb6",
+      "agents": "w54qzevkgviemdi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.580Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.580Z"
+    }
+  ]
+}

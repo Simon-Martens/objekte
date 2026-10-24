@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 37",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Ein Affe hatte Lust Kastanien zu naschen, / Die man für seinen Herrn just briet,",
+  "language": [],
+  "musenalm_id": 5702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Affe und der Kater",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Affe und der Kater",
+  "updated": "2000-10-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ihavq98h8mje40k",
+      "agents": "3m5nfg6fbusqjem",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.124Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.124Z"
+    }
+  ]
+}

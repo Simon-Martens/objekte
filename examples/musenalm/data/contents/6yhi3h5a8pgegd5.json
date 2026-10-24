@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien für das Jahr 1819. gesammelt von Theodor Hell (Sammlung INr 40033, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "491",
+  "incipit_statement": "Seh' ich Dich, die meinem Herzen / Treu erwählt in Sehnsucht ist,",
+  "language": [],
+  "musenalm_id": 40057,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "24. / Charade in drei Sylben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "24. / Charade in drei Sylben",
+  "updated": "2005-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kbdf2qwj4h3lpcn",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.949Z"
+    }
+  ]
+}

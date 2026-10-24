@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert II. /) s. Textbezug INr 50376, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (F. Catel inv. de. N. Le Mire sculp. 1799)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Catel inv. de. N. Le Mire sculp. 1799",
+  "scans": [
+    "alm_9_50377_mom6j4peb0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-06-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dodrhby02402unn",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.827Z"
+    },
+    {
+      "id": "gksr8l7z07jfzb4",
+      "agents": "rnot6v4znxeb5el",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.828Z"
+    }
+  ]
+}

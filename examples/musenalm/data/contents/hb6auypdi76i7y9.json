@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Wem lispeln die Saiten? Wem rollen die / Töne? / Was heischen Bellonens kriegdonnernde Söhne?",
+  "language": [],
+  "musenalm_id": 16955,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einem glücklichen Gatten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sander",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einem glücklichen Gatten",
+  "updated": "2001-08-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "45g4jnqhla4v8jl",
+      "agents": "anq3gu79zmuyrfg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.848Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.848Z"
+    }
+  ]
+}

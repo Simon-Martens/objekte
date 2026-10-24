@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Kurz: um sein ganzes Lob in Eins zu fassen, / Das selber seine Feind' ihm müssen lassen:",
+  "language": [],
+  "musenalm_id": 56947,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der Leichenpredigt auf einen / Nachdrucker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "-u-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus der Leichenpredigt auf einen / Nachdrucker",
+  "updated": "2008-04-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4tahq05qwmwiwo9",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.783Z"
+    }
+  ]
+}

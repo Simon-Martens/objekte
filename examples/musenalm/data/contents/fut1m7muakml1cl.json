@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert II. /) s. Textbezug INr 47885,Obj 72",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.919Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "302",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47887,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "graph. Anleitung"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[graph. Anleitung (Netto)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto",
+  "scans": [
+    "alm_652_47887_zivv9a81r1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hjst9015je7z6kx",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.535Z"
+    }
+  ]
+}

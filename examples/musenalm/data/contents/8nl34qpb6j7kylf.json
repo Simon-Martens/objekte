@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Nicht schaamroth weichen soll der Sängerorden, / Wann Kriegesschaaren zieh'n im Waffenglanze;",
+  "language": [],
+  "musenalm_id": 26314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesang und Krieg / 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesang und Krieg / 2.",
+  "updated": "2002-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uqmb4xlhc4nlxlh",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.246Z"
+    }
+  ]
+}

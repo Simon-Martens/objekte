@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnette (Sammlung INr 131175, Obj 115)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Was schönes ich in dieser Welt gesehen, / Was hold und anmuthsvoll ich in ihr fand,",
+  "language": [],
+  "musenalm_id": 131177,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was schönes ich in dieser Welt gesehen, / Was hold und anmuthsvoll ich in ihr fand,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zuj0hn3hy86of0g",
+      "agents": "wty417vt1e1tkcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.024Z"
+    }
+  ]
+}

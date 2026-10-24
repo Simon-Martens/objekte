@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Lieblichster Sänger der Schweiz, o Salis! darf ich im Lied dich / Am heimathlichen Herd, darf ich begrüßen den / Greis?",
+  "language": [],
+  "musenalm_id": 53695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Salis. / 1821",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Salis. / 1821",
+  "updated": "2007-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yz65zq6ro95gjro",
+      "agents": "ep2ivkqi4f7w9jh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.704Z"
+    }
+  ]
+}

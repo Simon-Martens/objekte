@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert 29. /) »Oestreichs Gelehrten« (Sammlung INr 48092, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48124,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Joseph Fran. Ratschky",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48124_8j4jzxj0sx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Joseph Fran. Ratschky",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "173x6cm75yqqw16",
+      "agents": "theiyy8sya8no7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.691Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am Blatt Kreuz-Zehn der Serie /) kol. Spielkarte: Herz-Bube; Illustration zu »Wallenstein« von Fr. Schiller",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61309,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Peni",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Faber du Faur inv. et del.",
+  "scans": [
+    "alm_961_61309_wilmv881gc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Peni",
+  "updated": "2009-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kiv5gn3fbf5fr5f",
+      "agents": "l35pyvjvc73os7p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.859Z"
+    }
+  ]
+}

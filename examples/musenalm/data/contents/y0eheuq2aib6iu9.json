@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke] s. Textbezug INr 44069, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44070,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "EZELIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Lessing pinx.T. S. Engleheart sc.",
+  "scans": [
+    "alm_597_44070_8vkdqvapaw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "EZELIN",
+  "updated": "2006-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xh4n86xgj2d11tm",
+      "agents": "qwoc4n9phr2r6vu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.199Z"
+    },
+    {
+      "id": "gaa4b3gzfm2g9g9",
+      "agents": "8w6n9g0x6dcpwhp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.199Z"
+    }
+  ]
+}

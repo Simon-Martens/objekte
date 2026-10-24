@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "In einem alterthümlichen Saale zu Gothenburg war zu später Nachtzeit noch eine kleine Gesellschaft versammelt, die mit Musik und Geplauder sich die Zeit vertrieb.",
+  "language": [],
+  "musenalm_id": 77866,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Swedenborg. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Sternberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Swedenborg. / Eine Novelle",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ry2ckso9zpo0g0g",
+      "agents": "323k0krc681l77m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.675Z"
+    }
+  ]
+}

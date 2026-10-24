@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.370Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Minchen war die einzige Tochter des Verwalters, oder, wie er sich lieber nennen hörte, des Inspectors auf der gräflichen Herrschaft Ottenberg",
+  "language": [],
+  "musenalm_id": 14729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Postzug",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler, geb. von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Postzug",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s2lzwxdeyvjlt9v",
+      "agents": "vxzn7evqhv18e38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.737Z"
+    }
+  ]
+}

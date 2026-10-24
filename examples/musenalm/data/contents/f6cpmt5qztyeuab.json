@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 81335, Obj 7 /) Illustration zu »Tambour-Röschen« von Fr. Steinebach INr 81346, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.443Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81334,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arabella",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. Carl Mayer's K. A. in Nürnberg",
+  "scans": [
+    "alm_1810_81334_19c2pbnutx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Arabella",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ytlome36njd5ca7",
+      "agents": "512hnx3l2hp6y3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.928Z"
+    },
+    {
+      "id": "era2piphlvmdhxs",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.928Z"
+    }
+  ]
+}

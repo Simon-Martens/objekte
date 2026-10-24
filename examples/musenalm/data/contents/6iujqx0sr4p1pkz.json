@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "Wißt Ihr's noch? Als wir in dichten Schaaren / Hielten auf dem Plan, weit um den Hügel her?",
+  "language": [],
+  "musenalm_id": 19547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kosacken-Erinnerungen. / Mel. Kommt hervor aus Euren Kemenaten; von Göthe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kosacken-Erinnerungen. / Mel. Kommt hervor aus Euren Kemenaten; von Göthe",
+  "updated": "2001-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u6fxv4i23fxen1f",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.968Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.968Z"
+    }
+  ]
+}

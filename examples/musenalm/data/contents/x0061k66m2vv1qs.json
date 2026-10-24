@@ -1,0 +1,43 @@
+{
+  "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29609, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Es streichelt ihrem Sohn die Wangen / Die Mutter Pastorin und spricht:",
+  "language": [],
+  "musenalm_id": 29608,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Siebenter Gesang. / Tollkühn bricht die Natur hervor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Siebenter Gesang. / Tollkühn bricht die Natur hervor",
+  "updated": "2002-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kx4jmeo62gneyi1",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.367Z"
+    }
+  ]
+}

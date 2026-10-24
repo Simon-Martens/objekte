@@ -1,0 +1,45 @@
+{
+  "annotation": "Blätter und Blüthen (Sammlung INr 79374, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Frühe trat der Gott der Lieder / Zu mir mit dem vollen Kranz,",
+  "language": [],
+  "musenalm_id": 79375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ll5pjb8vod4acbs",
+      "agents": "ep2ivkqi4f7w9jh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.919Z"
+    }
+  ]
+}

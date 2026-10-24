@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 9. /) Graphik im Kalendarium September /) Illustration zu »Kurzgefaßte Geschichte der Deutschen seit der Erwählung Rudolfs von Habsburg bis zum Tode Karls des Fünften oder seit der Wiederherstellung des deutschen Königthums bis zum Religionsfrieden 1273-1558« INr 79209, Obj 31 /) s.a. Textbezug INr 79205, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79191,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ketzern muss man nicht Wort halten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del & fec. 1796",
+  "scans": [
+    "alm_1122_79191_yo928ul73o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ketzern muss man nicht Wort halten",
+  "updated": "2009-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o156l4i1eywegfr",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.717Z"
+    }
+  ]
+}

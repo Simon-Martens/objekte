@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Es war Anfang September 1850, als sich einer der kleinen Flußdampfer, nur von einem breiten Rade an seinem Stern getrieben, den Cumberlandfluß hinauf arbeitete.",
+  "language": [],
+  "musenalm_id": 64407,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nachbarn. / Erzählung aus dem deutsch-amerikanischen Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Ruppius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nachbarn. / Erzählung aus dem deutsch-amerikanischen Leben",
+  "updated": "2009-05-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vlgmm48drk7q15p",
+      "agents": "478a7t8nsa3su6c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.185Z"
+    }
+  ]
+}

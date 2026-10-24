@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert Pl. 2. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne  übers.: unbezeichnet] INr 111594, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111595,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eid der Volksrepraesententen im Ballhause / Den 20ten Junius 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Moreau inv. Guerin sculp.",
+  "scans": [
+    "alm_4320_111595_2hde0asjxo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eid der Volksrepraesententen im Ballhause / Den 20ten Junius 1789",
+  "updated": "2016-06-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ffw9xmwf6rjfnj",
+      "agents": "6v2mea0laepybs2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.312Z"
+    }
+  ]
+}

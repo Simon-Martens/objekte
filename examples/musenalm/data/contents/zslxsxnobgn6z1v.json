@@ -1,0 +1,48 @@
+{
+  "annotation": "sep. Beilage: paginiert 1-4; Vertonung des Gedichts »Bitte an den Strom« von J. G. Seidl /) Photos 69465,01-669465,04",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wohin, wohin mit deinen Fluten, du stiller Strom aus fernem Land?",
+  "language": [],
+  "musenalm_id": 69465,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BITTE AN DEN STROM / Gedicht von Joh. Gabriel Seidl. / Musik von A. Emil Titl. / Kapellmeister des k.k. pr. Josephstädter-Theaters in Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Emil Titl",
+  "scans": [
+    "alm_758_69465_01_ikj1sb5lyx.jpg",
+    "alm_758_69465_02_fd1omwph3d.jpg",
+    "alm_758_69465_03_891kxt148w.jpg",
+    "alm_758_69465_04_q1stzqpzyp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BITTE AN DEN STROM / Gedicht von Joh. Gabriel Seidl. / Musik von A. Emil Titl. / Kapellmeister des k.k. pr. Josephstädter-Theaters in Wien",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ayynbwoq6o3nl3",
+      "agents": "hp1fsjxa35rvvhh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.436Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.436Z"
+    }
+  ]
+}

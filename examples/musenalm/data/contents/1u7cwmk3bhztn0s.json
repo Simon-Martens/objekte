@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Geselligkeit gewidmete Lieder. (Sammlung INr 50243, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Wie kommt's, daß du so traurig bist, / Da alles froh erscheint?",
+  "language": [],
+  "musenalm_id": 50253,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost in Thränen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trost in Thränen",
+  "updated": "2007-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xls8gj1edh472ty",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.638Z"
+    }
+  ]
+}

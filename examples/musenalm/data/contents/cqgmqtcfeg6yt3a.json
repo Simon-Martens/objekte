@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts » Das neue Leben« von G. A. Bürger INr 2474, Obj 101",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das neue Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weiß",
+  "scans": [
+    "alm_77_2521_jemv1uwge0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das neue Leben",
+  "updated": "2000-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kqtmncsw38dds02",
+      "agents": "x1lckegivk1oedd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.915Z"
+    }
+  ]
+}

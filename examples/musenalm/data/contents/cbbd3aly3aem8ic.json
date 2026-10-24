@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 10. /) s. INr 18645, Obj 27 # Bezeichnung vom Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18643,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Letzte Sitzung der Jacobiner (11. Novbr)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_192_18643_ckakj4vaoa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Letzte Sitzung der Jacobiner (11. Novbr)",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f015rqb6b0r5pjo",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.781Z"
+    }
+  ]
+}

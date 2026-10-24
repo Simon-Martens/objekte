@@ -1,0 +1,45 @@
+{
+  "annotation": "Apollo (Sammlung INr 91527, Obj 51) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Was steht der Dichter vor Apollo, / Indem er aus der Opferschale / Den ersten Wein ausgießt?",
+  "language": [],
+  "musenalm_id": 91536,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was steht der Dichter vor Apollo, / Indem er aus der Opferschale / Den ersten Wein ausgießt?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz [übers.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7b9v5o24fuocq2k",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.396Z"
+    }
+  ]
+}

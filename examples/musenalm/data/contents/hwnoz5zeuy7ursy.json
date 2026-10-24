@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Plauische Grund« von W. G. Becker INr 10253, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37347,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prospect von Tarant",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Veith del. Darnstedt sc.",
+  "scans": [
+    "alm_134_37347_0trck5tf93.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Prospect von Tarant",
+  "updated": "2001-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jza9g9mw6d7ypnl",
+      "agents": "agad4ahnieynhoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.146Z"
+    },
+    {
+      "id": "0tpw6l6qph417u2",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.147Z"
+    }
+  ]
+}

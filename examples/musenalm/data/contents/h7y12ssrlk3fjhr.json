@@ -1,0 +1,45 @@
+{
+  "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) Erklärungen der Zeichnungen (Sammlung INr 36341, Obj 5) s. Graphik INr 36349, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Nr. 6 gehört zu Meyerbeer's »Robert der Teufel« und stellt den Bertram vor, wie er aus der Höhle stürzt,",
+  "language": [],
+  "musenalm_id": 36345,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nr. 6 gehört zu Meyerbeer's »Robert der Teufel« und stellt den Bertram vor, wie er aus der Höhle stürzt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "84cvky94tayxpnq",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.901Z"
+    }
+  ]
+}

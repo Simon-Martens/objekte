@@ -1,0 +1,45 @@
+{
+  "annotation": "Anekdoten und Charakterzüge aus dem franz. Kriege (Sammlung INr 61834, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Eine Kolonne republikanischer Truppen rückte gegen Laval. Alles wurde verheert; Feuer und Schwerd wütheten um die Wette.",
+  "language": [],
+  "musenalm_id": 61836,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Folgende Anekdote hab' ich von einem alten, biedern franz. Stabsoffiziere. Sie ist ein kleiner Beitrag zu den verabscheuungswürdigen Gräueln des Vendeekrieges.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Folgende Anekdote hab' ich von einem alten, biedern franz. Stabsoffiziere. Sie ist ein kleiner Beitrag zu den verabscheuungswürdigen Gräueln des Vendeekrieges.",
+  "updated": "2009-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uzqxmy2a95d1zmu",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.782Z"
+    }
+  ]
+}

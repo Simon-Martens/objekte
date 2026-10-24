@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 25195-25198, Obj 217-220 /) Gedichte (Sammlung INr 25193, Obj 215)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "341",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25194,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 216,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Heinrich der Löwe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Mosen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Heinrich der Löwe",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tc2yv8vsc0e9tq0",
+      "agents": "ya686aytqngnsyo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.077Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.077Z"
+    }
+  ]
+}

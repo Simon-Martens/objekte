@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.663Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "Was ist die Heimath, die theure, süße, / Die zu vergessen ich nimmer lerne?",
+  "language": [],
+  "musenalm_id": 90578,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 174,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Heimath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. L. Schleifer. (Am Traunsee.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Heimath",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "79centuevnze8dz",
+      "agents": "90zse4ajt2jiztn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.306Z"
+    }
+  ]
+}

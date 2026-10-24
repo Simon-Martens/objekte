@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Aus den einleitenden Partien des Werkes (Sammlung INr 27719, 69) /) Aus Nisami's Iskandername / (Alexanders-Buch) (Sammlung INr 27718, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "428",
+  "incipit_statement": "Die Welt, so Gut als Böses hegt und pflegt sie, / Viel Gut und Böses auf dem Nacken trägt sie.",
+  "language": [],
+  "musenalm_id": 27726,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "(Doppelz. 602 f.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "(Doppelz. 602 f.)",
+  "updated": "2002-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w6g5hu0wzbnoxpv",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.327Z"
+    }
+  ]
+}

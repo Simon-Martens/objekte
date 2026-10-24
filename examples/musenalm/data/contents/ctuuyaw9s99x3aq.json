@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Sei mir in deiner neuen Natur gegrüsst, / Du Gott der Güte und der Erhabenheit!",
+  "language": [],
+  "musenalm_id": 75201,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Gott. / (Im Frühlinge.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. Gf. v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Gott. / (Im Frühlinge.)",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wqmwifrmuhifzrz",
+      "agents": "2i4oqqhryhrdin4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.057Z"
+    }
+  ]
+}

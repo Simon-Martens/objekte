@@ -1,0 +1,45 @@
+{
+  "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59979, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "365",
+  "incipit_statement": "Ludwig brachte den Sonntag, den 20. Januar, mit der Vorbereitung auf seinen Tod zu.",
+  "language": [],
+  "musenalm_id": 59980,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Brandmahl unsers Jahrhunderts, am 21. / Januar 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Brandmahl unsers Jahrhunderts, am 21. / Januar 1783",
+  "updated": "2008-09-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3qsptpqcrbkitru",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.071Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Wallensteins Lager« von Fr. Schiller s. Textbezug INr 39240, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39239,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wallensteins Lager 8r. Auftr. / - könnte nicht drein schlagen? Ist jetzt Zeit zu Saufgelagen? / zu Banketten und Feiertagen?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Hess sc.",
+  "scans": [
+    "alm_515_39239_l7s2na0pr6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wallensteins Lager 8r. Auftr. / - könnte nicht drein schlagen? Ist jetzt Zeit zu Saufgelagen? / zu Banketten und Feiertagen?",
+  "updated": "2005-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vh2a9plcwjswrzx",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.734Z"
+    }
+  ]
+}

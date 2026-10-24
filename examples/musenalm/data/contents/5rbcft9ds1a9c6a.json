@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Laß das Gespenst des Bangens schwinden! / Es ist der Geist allein, der lebt,  [...] / Ernst Freiherr v. Feuchtersleben",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "423",
+  "incipit_statement": "Es war November, träg und verdrossen rieselte ein feiner Regen herunter, die Stadt sah aus als sei Mylady Langeweile, an einem Herbstsonntag zu London geboren, auf ihrer Reise über den Continent hier eingetroffen",
+  "language": [],
+  "musenalm_id": 57845,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein / einsamer Abend",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein / einsamer Abend",
+  "updated": "2008-06-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "89e69y3c1a7mpi5",
+      "agents": "rpx0m3s76l0s5s5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.936Z"
+    }
+  ]
+}

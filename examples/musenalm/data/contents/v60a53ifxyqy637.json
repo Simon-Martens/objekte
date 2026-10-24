@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Sinnige Form des Kreuzes, du bist ein Bild / mir der Wahrheit:",
+  "language": [],
+  "musenalm_id": 126695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Kreuz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Kreuz",
+  "updated": "2020-12-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tkbd5cf35pkisxf",
+      "agents": "q7zvyheam3iyblc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.839Z"
+    }
+  ]
+}

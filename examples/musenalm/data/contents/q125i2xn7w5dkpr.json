@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Quisdam magnus videlicet vir et sapiens cognovit, quae materia esset, […] Cic.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Wer die Vorzüge des gesitteten Lebens ohne Vorurtheil erwägt, wird nicht in Abrede seyn, daß der Mensch in diesem Zustande erst eigentlich der Natur, die ihn mit Fähigkeiten ausrüstete, ein Genüge zu leisten anfängt,",
+  "language": [],
+  "musenalm_id": 80769,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neuholland und die brittische Colonie / in Botany-Bay",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Forster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neuholland und die brittische Colonie / in Botany-Bay",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vtlla2c8psgjh64",
+      "agents": "1pak95y0mo37cff",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.825Z"
+    }
+  ]
+}

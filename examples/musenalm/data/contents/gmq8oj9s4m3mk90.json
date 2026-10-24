@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.066Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Zu Wien, vor zweiundsechzig Jahren, / Stand eine Wiege schmal und klein,",
+  "language": [],
+  "musenalm_id": 117378,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Immortellenkranz. / Gelegt auf Franz Schuberts Grab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Steinebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Immortellenkranz. / Gelegt auf Franz Schuberts Grab",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n6rb36dwq2xuk5m",
+      "agents": "lzi1zyn6aqla0ny",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.561Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.561Z"
+    }
+  ]
+}

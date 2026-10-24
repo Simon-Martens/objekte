@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.309Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Hier liegt ein Mann, der trug im Her- / zen Hochgefühl;",
+  "language": [],
+  "musenalm_id": 5418,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jacob Roußeau's Grabschrift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jacob Roußeau's Grabschrift",
+  "updated": "2000-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vlmkuk1nxo52l8z",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.070Z"
+    }
+  ]
+}

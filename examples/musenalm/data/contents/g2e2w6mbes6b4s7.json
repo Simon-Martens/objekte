@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "Ein Tempel und Altar der Wissenschaft, / Der Poesie ein trauter Zufluchtsort,",
+  "language": [],
+  "musenalm_id": 111835,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 223,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die deutschen Argonauten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Zeise",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die deutschen Argonauten",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xoykk982uq7hx4q",
+      "agents": "25tty2pxsf7ri44",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.414Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.414Z"
+    }
+  ]
+}

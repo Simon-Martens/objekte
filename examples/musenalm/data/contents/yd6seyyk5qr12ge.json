@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 28302, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.864Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Genießen, was da ist! / Die Philosophie, / Die Allen so nah' ist, / Verlasse Dich nie!",
+  "language": [],
+  "musenalm_id": 28325,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23. / In Betty's Stammbuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23. / In Betty's Stammbuch",
+  "updated": "2002-10-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v1wswbveawyveoi",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.179Z"
+    }
+  ]
+}

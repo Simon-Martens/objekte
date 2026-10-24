@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Trink' aus, die Sorgen zu zerstreuen ! / Denn, Stax, was hats mit dir für Noth?",
+  "language": [],
+  "musenalm_id": 8348,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Witwer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eschenburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Witwer",
+  "updated": "2000-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f07l86izfdw3dt2",
+      "agents": "zjm0wp8bizr6m9i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.262Z"
+    }
+  ]
+}

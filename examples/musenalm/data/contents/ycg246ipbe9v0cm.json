@@ -1,0 +1,45 @@
+{
+  "annotation": "Funken (Sammlung INr 91961, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Wie? Du lächelst über die Ewigkeit meiner Liebe zu Louisen? Wo fände ich realer mein Ideal, als eben in Louisen,",
+  "language": [],
+  "musenalm_id": 91976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragment eines Gesprächs / 17.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ig. Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragment eines Gesprächs / 17.",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pi5k4hme47q79hg",
+      "agents": "ink6oi00gx0e0hw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.303Z"
+    }
+  ]
+}

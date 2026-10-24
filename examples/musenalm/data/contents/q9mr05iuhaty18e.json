@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 55862, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55863,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bertha von Burgund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff del. F. Fleischmann sculp.",
+  "scans": [
+    "alm_754_55863_859gki3uzw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bertha von Burgund",
+  "updated": "2008-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3tdof730uh5sm8h",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.709Z"
+    },
+    {
+      "id": "aqxmpjkwp1y27ix",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.709Z"
+    }
+  ]
+}

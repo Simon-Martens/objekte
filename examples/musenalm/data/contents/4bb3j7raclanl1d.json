@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 19557, Obj 91)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "388",
+  "incipit_statement": "Leicht sind die ersten Sylben zu ergründen, / Ihr dürft euch nur vier eitle Nummern mahlen;",
+  "language": [],
+  "musenalm_id": 19559,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Charade",
+  "updated": "2001-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yj1jbbdm77nxctw",
+      "agents": "ufh0csiazwb0bf6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.873Z"
+    }
+  ]
+}

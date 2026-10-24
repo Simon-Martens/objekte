@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Südliche Gluth« von F. *** (INr 120360, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120334,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mirza / Zur Erzählung: Südliche Gluth, von F. ***",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rich. Lanc, gestoch. v. C. Kotterba",
+  "scans": [
+    "alm_1789_120334_8x9zgv0vnf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mirza / Zur Erzählung: Südliche Gluth, von F. ***",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xy5r01u3ut6la2f",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.743Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Corsar« von G. G. Byron s. Textbezug INr 127761, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.615Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127760,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Corsar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gestochen von Martin Esslinger Zürich",
+  "scans": [
+    "alm_588_127760_voxaec8fwy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Corsar",
+  "updated": "2006-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j49zt01iy5a9pzw",
+      "agents": "zfprrqdgr3ky9ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.957Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Solothurn« INr 52311, Obj 5 /) s.a. Textbezug INr 52335, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Solothurn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hegi sc",
+  "scans": [
+    "alm_713_52314_4nogcf0tny.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Solothurn",
+  "updated": "2007-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k4ssa6yb0k36dp7",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.464Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.464Z"
+    }
+  ]
+}

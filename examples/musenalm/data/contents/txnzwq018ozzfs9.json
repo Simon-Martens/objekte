@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Ja, er ist mein, der wirklich gigantische Räuber, der am Schluß des Christmonds vorigen Jahres bei Idstein so weidmännisch erlegt wurde!",
+  "language": [],
+  "musenalm_id": 102433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVI. / Mein ist der Wolf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Wildungen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVI. / Mein ist der Wolf",
+  "updated": "2009-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x2pcma69uka0jf5",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.147Z"
+    }
+  ]
+}

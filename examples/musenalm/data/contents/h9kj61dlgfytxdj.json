@@ -1,0 +1,47 @@
+{
+  "annotation": "Zwei Vertonungen des Gedichts »Wechselliebe« von Karl Reinhard INr 4083, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.441Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4215,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wechselliebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_93_4215_y2yoyhcxsf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wechselliebe",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nlcsg0pbkao00cf",
+      "agents": "ubitdekwc4vpg28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.098Z"
+    }
+  ]
+}

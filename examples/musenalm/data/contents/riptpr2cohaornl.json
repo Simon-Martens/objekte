@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 81261-81263, Obj 30-32 /) Anm. am Objekt: Aus einem, zum Drucke fertigen, größeren Werke: Eine Dichterwoche, oder Lustflug von Wien auf den Wechsel.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton X. Schurz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2aozk9owdybm8y7",
+      "agents": "m6v439nrgynzyi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.013Z"
+    }
+  ]
+}

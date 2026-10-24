@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Euch Nothgestallen nahe ein ächter deutscher / Gruß, / Euch, ihr am nord'schen Meere und ihr am blauen Fluß;",
+  "language": [],
+  "musenalm_id": 97199,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eines wackerlichen Degen Mähre an seine / Nothgestallen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mann Friedrich Bauer Fallenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eines wackerlichen Degen Mähre an seine / Nothgestallen",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7alzh7a503rwl3p",
+      "agents": "3gtxsu95wib1zui",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.667Z"
+    }
+  ]
+}

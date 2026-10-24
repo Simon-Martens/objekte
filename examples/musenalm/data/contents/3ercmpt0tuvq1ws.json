@@ -1,0 +1,45 @@
+{
+  "annotation": "Sprüche des armen Richards (Sammlung INr 15786, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Fliehe die Vergnügungen, und sie werden dir folgen",
+  "language": [],
+  "musenalm_id": 115798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fliehe die Vergnügungen, und sie werden dir folgen…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v35w5mp1ikf4or2",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.540Z"
+    }
+  ]
+}

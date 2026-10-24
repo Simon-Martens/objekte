@@ -1,0 +1,43 @@
+{
+  "annotation": "# Titel s. Gedicht INr 111400, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wie ist das zugegangen? / Die Bäume stehen kahl, / Von allem Blüh'n und Prangen, / Und was die Vögel sangen, / Blieb nichts auf Berg und Thal.",
+  "language": [],
+  "musenalm_id": 111401,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Guter Rath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Guter Rath",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2mrfwqh15vn4ei2",
+      "agents": "kfaol2n4gz6m4dn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.355Z"
+    }
+  ]
+}

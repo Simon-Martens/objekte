@@ -1,0 +1,45 @@
+{
+  "annotation": "Briefe aus Schottland. Geschrieben im Herbste 1840 (Sammlung INr 44089, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "347",
+  "incipit_statement": "Von dem Dache des Rathauses zu Liverpool übersah ich noch einmal das in der Morgensonne schimmernde Panorama dieser herrlichen, in jugendlicher Schönheit glänzenden Stadt,",
+  "language": [],
+  "musenalm_id": 44090,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erster Brief. / Glasgow",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erster Brief. / Glasgow",
+  "updated": "2006-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o1v5t9sct87n40i",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.456Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.456Z"
+    }
+  ]
+}

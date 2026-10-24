@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Des Goldes Aechtheit probt sich im Feuer nur; / Des Helden Geist strahlt auf in des Todes Schlacht;",
+  "language": [],
+  "musenalm_id": 65842,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An König Friedrich Wilhelm III. / Bei Gelegenheit der Huldigung zu / Münster 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nadermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An König Friedrich Wilhelm III. / Bei Gelegenheit der Huldigung zu / Münster 1815",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iw72snjh600etvd",
+      "agents": "hvog8xr1ihwqtcg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.283Z"
+    }
+  ]
+}

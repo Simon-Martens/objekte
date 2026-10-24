@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8255,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "C. M. WIELAND",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Füger pinx. G. sc.",
+  "scans": [
+    "alm_180_8255_eqxf93pe6b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "C. M. WIELAND",
+  "updated": "2000-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wpe78s52rjoq205",
+      "agents": "1wu4h08v9ndrssx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.229Z"
+    },
+    {
+      "id": "1gzyif5m7n4dliv",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.230Z"
+    }
+  ]
+}

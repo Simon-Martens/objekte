@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Traurig sinnend saß Jukunde / Auf dem hohen Felsenschloß,",
+  "language": [],
+  "musenalm_id": 47843,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jukunde. / Eine Romanze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jukunde. / Eine Romanze",
+  "updated": "2007-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2ee2f41qgpqf4r2",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.671Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 54474, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Als ich in heitrer Morgenstunde / Mit ihr am Rosenhügel stand,",
+  "language": [],
+  "musenalm_id": 54475,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Morgengabe. / (Mit Musik)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Morgengabe. / (Mit Musik)",
+  "updated": "2008-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "28okcwn1a6fjn4x",
+      "agents": "nj18pm3lt87v37m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.540Z"
+    }
+  ]
+}

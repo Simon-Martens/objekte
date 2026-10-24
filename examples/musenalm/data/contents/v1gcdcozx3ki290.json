@@ -1,0 +1,43 @@
+{
+  "annotation": "Frauen-Blumen. Kupfererklärung (Sammlung INr 95279, Obj 5) s. Graphik INr 95283, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.711Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Hyazintha, junge Schöne, / Die den Frühling uns verkündet,",
+  "language": [],
+  "musenalm_id": 95284,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jazintha",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jazintha",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fofd7bsjooy7q0o",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.577Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.577Z"
+    }
+  ]
+}

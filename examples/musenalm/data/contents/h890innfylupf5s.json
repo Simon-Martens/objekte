@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "In einem Saal, wo Affen, Papagoyn, / Kurz, Vögel aller Art, zur Lust des Fürsten / saßen,",
+  "language": [],
+  "musenalm_id": 63032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sprosser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goekingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sprosser",
+  "updated": "2000-10-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9n4r2150m66u97w",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.925Z"
+    }
+  ]
+}

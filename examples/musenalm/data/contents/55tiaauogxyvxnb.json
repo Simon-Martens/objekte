@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 3. Illustration zu »Die Söhne des Thales, erster Teil: Die Templer auf Cypern« s. Textbezug 32386, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.449Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32368,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philipp. / Ruh' aus an Freundes Brust!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Study del. D. Berger Sculps. 1807",
+  "scans": [
+    "alm_447_32368_c960488ayc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Philipp. / Ruh' aus an Freundes Brust!",
+  "updated": "2003-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "98nls1elnl8c4va",
+      "agents": "rcmptupq08d0ih1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.270Z"
+    },
+    {
+      "id": "fij6tsjp79kpx7b",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.270Z"
+    }
+  ]
+}

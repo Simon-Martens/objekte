@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Italienische Ständchen in Ritornellen (Sammlung INr 1817, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Ueber die Form und den Charakter der italienischen Ritornelli hat der Verfasser der hier abgedruckten Gedichte in seinen Briefen über Rom gesprochen.",
+  "language": [],
+  "musenalm_id": 1818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2000-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5xs9k9f9x3lvan4",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.013Z"
+    }
+  ]
+}

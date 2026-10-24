@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 9 Gedichten INr 125262-125270, Obj 116-124 /) XIII. Poetische Kleinigkeiten (INr 125235, Obj 89)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "358",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125261,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sinngedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sinngedichte",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pq8uozvdtbqgtmr",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.878Z"
+    }
+  ]
+}

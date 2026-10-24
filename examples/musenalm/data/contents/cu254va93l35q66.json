@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 59025, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Meine Mutter ist gestorben, und einen Vater hab' ich auch nicht mehr; also gehe ich billig für mich, und für uns alle zu meinem Bruder, zu meinen Brüdern!",
+  "language": [],
+  "musenalm_id": 59029,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Verbrechen des Irrthums. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Verbrechen des Irrthums. / Novelle",
+  "updated": "2008-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e56ctp05hd66rvj",
+      "agents": "rlu2d4ml9zlhov2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.627Z"
+    }
+  ]
+}

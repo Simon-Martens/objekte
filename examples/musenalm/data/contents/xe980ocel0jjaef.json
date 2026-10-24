@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "424",
+  "incipit_statement": "Was treibet ihr so nimmersatt, / Ihr Freunde, für ein Spiel? / was jagt ihr euch so todesmatt? / Und welches ist das Ziel?",
+  "language": [],
+  "musenalm_id": 94819,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Häuslicher Herd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Häuslicher Herd",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x489tto8nbcvn8a",
+      "agents": "roqd4m2swedwv3j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.740Z"
+    }
+  ]
+}

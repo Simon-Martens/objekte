@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Wunder-Vögelein im Bruderholz« von J. J. L..n. INr 54528, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54527,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS WUNDERVÖGELEIN IM BRUDERHOLZ",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Disteli del. H. Meyer sc. in Zürich",
+  "scans": [
+    "alm_742_54527_hd6zevuk5c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS WUNDERVÖGELEIN IM BRUDERHOLZ",
+  "updated": "2008-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8mawdwpmknsdtcw",
+      "agents": "yf0tgu146w1t5rh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.877Z"
+    },
+    {
+      "id": "qf4qbrr8uwjvw76",
+      "agents": "pklgpi3o0ul4b99",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.877Z"
+    }
+  ]
+}

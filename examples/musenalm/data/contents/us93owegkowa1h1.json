@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Die Bevölkerung der Insel ist sehr schwankend und es ist wohl ausgemacht, daß sie in den ältern Berichten sehr übertrieben ist",
+  "language": [],
+  "musenalm_id": 42297,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bevölkerung. Einwohner. A. Die Javaner",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bevölkerung. Einwohner. A. Die Javaner",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m7fa4o83s65qb0h",
+      "agents": "q5rzjlx40lnqx6r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.988Z"
+    }
+  ]
+}

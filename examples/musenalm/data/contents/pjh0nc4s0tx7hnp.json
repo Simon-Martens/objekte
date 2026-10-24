@@ -1,0 +1,43 @@
+{
+  "annotation": "Dem Kalendarium vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Das Jahr hat seine Kreise / Vollendet abermal. / Uns winkt auf unsrer Reise / Des Himmels näh'rer Stral.",
+  "language": [],
+  "musenalm_id": 56760,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog",
+  "updated": "2008-04-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w9kc6gmul97dir8",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.832Z"
+    }
+  ]
+}

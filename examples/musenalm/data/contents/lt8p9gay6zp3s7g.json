@@ -1,0 +1,45 @@
+{
+  "annotation": "Parodie auf »Die Huldigung der Künste« von Schiller (INr 130491, Obj 11); # Bezeichnung aus dem Titel (INr 130484, Obj 3), vgl. dazu die Anm. S. 7f",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Springe, springe, lustiger Vers / mit dem haarigen Bockspedale, / Daß du durch’s Hundegebell der Journale / Kommst in die Supplemente von Ersch!",
+  "language": [],
+  "musenalm_id": 130492,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Feinde der Parodie. / Ein phantasirtes Parodrama",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Röller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Feinde der Parodie. / Ein phantasirtes Parodrama",
+  "updated": "2009-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n78o356rg8dj64y",
+      "agents": "ruqpk5pzwdjeoju",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.072Z"
+    }
+  ]
+}

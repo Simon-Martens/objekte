@@ -1,0 +1,45 @@
+{
+  "annotation": "Heldensage in Romanzen (Sammlung INr 72083, Obj 6) mit Anmerkung",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.081Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Bis an die Lippe war Gothrich schon gerückt / Als plötzlich fränkisch Erz ihm schroff entgegenblickt,",
+  "language": [],
+  "musenalm_id": 72092,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frevel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frevel",
+  "updated": "2010-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zdvknuufehgaoo0",
+      "agents": "ynj6s229zp88pv2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.426Z"
+    }
+  ]
+}

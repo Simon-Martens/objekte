@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Lebensodem wehet wieder: / Alles zeigt des Frühlings Spur.",
+  "language": [],
+  "musenalm_id": 3562,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines deutschen Weibes, / aus den Zeiten der Kreuzzüge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. C. L. Senf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines deutschen Weibes, / aus den Zeiten der Kreuzzüge",
+  "updated": "2000-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rf9fy1tq5x41g1j",
+      "agents": "jw839qn8xbse64z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.066Z"
+    }
+  ]
+}

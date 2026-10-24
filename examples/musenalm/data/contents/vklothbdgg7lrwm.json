@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung 23125, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Es giebt (nach meiner und vieler andrer Schriftsteller unumstößlichen Meinung), auf der Welt nichts süßeres, als die Liebe,",
+  "language": [],
+  "musenalm_id": 11765,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Liebesnoth und Liebesglück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Liebesnoth und Liebesglück",
+  "updated": "2001-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oclagb7p0o0sf26",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.493Z"
+    }
+  ]
+}

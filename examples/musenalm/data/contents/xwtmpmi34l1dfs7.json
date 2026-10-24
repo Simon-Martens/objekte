@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder-Gallerie (Sammlung INr 16020, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "328",
+  "incipit_statement": "Nicht betrachte so müßig den rinnenden Sand! / es fällt dir",
+  "language": [],
+  "musenalm_id": 16023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Greis hält eine Sanduhr. / Von Rembrandt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wyß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Greis hält eine Sanduhr. / Von Rembrandt",
+  "updated": "2001-06-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g8cnvnfskutulan",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.730Z"
+    }
+  ]
+}

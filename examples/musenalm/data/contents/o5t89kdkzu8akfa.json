@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das verlorene Paradies« von Fr. Steinebach INr 117914, Obj 16 /) s.a. Textbezug INr 117906, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117905,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blumenkönigin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Katzler del. J. W. Baumann sc.",
+  "scans": [
+    "alm_3232_117905_ao6k2og6e1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Blumenkönigin",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l6ad1jzvex4xka0",
+      "agents": "he3qh02om9n8rxy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.618Z"
+    },
+    {
+      "id": "coimxdfkj8z46lt",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.618Z"
+    }
+  ]
+}

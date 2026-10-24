@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13214,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die heilige Cäcilie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach C. Dolce von H. Schmidt",
+  "scans": [
+    "alm_216_13214_yuy21rkyq3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die heilige Cäcilie",
+  "updated": "2001-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "817dm76yj1x9pjj",
+      "agents": "euk2i6r7y1kmuys",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.334Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.334Z"
+    },
+    {
+      "id": "ky269bbfdf6l3df",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.334Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.334Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "über der Graphik: p. 93 /) Illustration zu »Sanct Walburgis zu Eichstädt« von J. N. Vogl INr 81937, Obj 94",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81854,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "St. Walpurgis zu Eichstadt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schw. Blaschke sc.",
+  "scans": [
+    "alm_3321_81854_m7q419nul2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "St. Walpurgis zu Eichstadt",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w3pai8djfi7ngxm",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.874Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6. /) Illustration zu »Der Unbekannte in Brachfeld« von Carl Streckfuß INr 13619, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13575,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Unbekannte in Brachfeld. Von Streckfuß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Jury sc.",
+  "scans": [
+    "alm_218_13575_0me8f4dc9k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Unbekannte in Brachfeld. Von Streckfuß",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "64nox2258dw4tnp",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.654Z"
+    },
+    {
+      "id": "n8jxx6wfojg7ghz",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.654Z"
+    }
+  ]
+}

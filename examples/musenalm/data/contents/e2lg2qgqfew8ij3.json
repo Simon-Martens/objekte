@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 81700, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.114Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "222",
+  "incipit_statement": "Ein Jüngling hat aus mancher Schlacht / Sich Ruhm und Wunden heimgebracht",
+  "language": [],
+  "musenalm_id": 81702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Gebrochene Treue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Gebrochene Treue",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dlk0u73ot4op0bf",
+      "agents": "tcaorsyhw9evcti",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.844Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.844Z"
+    }
+  ]
+}

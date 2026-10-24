@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Sittenbilder. Schluß der Auszüge aus dem Achlak al-mohseni (Sammlung INr 14324, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Ein König, dessen Wesir mit den Gütern des Staates sehr freygebig war, verboth seinem Schatzmeister bey Strafe, die Hand zu verlieren,",
+  "language": [],
+  "musenalm_id": 14326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "32. / Gemeinnützigkeit im Wohlthun / Fürstliche Wohlthaten sollen, so viel als möglich, gemein- / nützig seyn.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "32. / Gemeinnützigkeit im Wohlthun / Fürstliche Wohlthaten sollen, so viel als möglich, gemein- / nützig seyn.",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5w00giq95nzgvlj",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.640Z"
+    }
+  ]
+}

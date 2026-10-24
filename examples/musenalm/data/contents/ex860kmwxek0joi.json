@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "Ein wilder Kater schleicht kurz vor der Nacht / Ins Feld, auf Beut' und Raub bedacht.",
+  "language": [],
+  "musenalm_id": 18909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kiwiz und der Kater, / eine Fabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weppen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kiwiz und der Kater, / eine Fabel",
+  "updated": "2001-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "83nrtg7d5991fz3",
+      "agents": "wx8h2mpbw2hmdqp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.828Z"
+    }
+  ]
+}

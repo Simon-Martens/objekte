@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38898, Obj 86)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Einst wird ein Frühling auf die Erde kommen, / Wie seit Jahrtausenden kein schönrer war;",
+  "language": [],
+  "musenalm_id": 38900,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der letzte Frühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der letzte Frühling",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r5vp8u1kwwlbb7v",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.249Z"
+    }
+  ]
+}

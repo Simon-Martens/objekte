@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Abt« von Gleim INr 12729, Obj 74",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Abt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_213_12728_ypkhzlrixt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Abt",
+  "updated": "2001-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sqrf7ka2zrmcoed",
+      "agents": "oqecb466dne8cni",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.491Z"
+    }
+  ]
+}

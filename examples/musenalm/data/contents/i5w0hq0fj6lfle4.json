@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "In freundlichem Garten ein Bäumchen einst stand, / Das pflegte der Gärtner mit zärtlicher Hand;",
+  "language": [],
+  "musenalm_id": 65915,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bäumchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hackländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Bäumchen",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0p1x6myeabinitu",
+      "agents": "rfscpfqhlkbw9t8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.188Z"
+    }
+  ]
+}

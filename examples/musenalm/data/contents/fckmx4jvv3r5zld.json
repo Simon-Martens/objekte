@@ -1,0 +1,45 @@
+{
+  "annotation": "Historische Aufsätze (Sammlung INr 43394, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Helden erschüttern die Welt, Trümmer bilden ihr Denkmal und im Strome der Zeit braust kühn und laut ihr Ruhm,",
+  "language": [],
+  "musenalm_id": 43397,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der heilige Suibert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Suibert Seibertz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der heilige Suibert",
+  "updated": "2006-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bliiuuegrc5q4rm",
+      "agents": "bo9t0tqr6rdjg43",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.225Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Blandchen. Eine Romanze« von Buri INr 126172, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 126173,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sind deine Aeltern Kind zu Hause",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger inv. J. Gerstner sc.",
+  "scans": [
+    "alm_4372_126173_1e9dh0kewy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sind deine Aeltern Kind zu Hause",
+  "updated": "2017-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zr39gubs6pbxics",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.767Z"
+    },
+    {
+      "id": "ur0zdihrct5k0q7",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.767Z"
+    }
+  ]
+}

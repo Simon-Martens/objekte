@@ -1,0 +1,45 @@
+{
+  "annotation": "Dornenkranz für Benöthigte (Sammlung INr 53173, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Herrlich ist mein neues Trauerkleid; / O wie freu' ich mich auf's nächste Leid!",
+  "language": [],
+  "musenalm_id": 53175,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Julia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Schnyder v. Wartensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Julia",
+  "updated": "2007-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rarxdtmmj1wpz80",
+      "agents": "qn8g13ehspgkph8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.402Z"
+    }
+  ]
+}

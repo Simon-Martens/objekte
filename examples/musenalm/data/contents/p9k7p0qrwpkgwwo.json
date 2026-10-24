@@ -1,0 +1,39 @@
+{
+  "annotation": "Photos 114648,01-114648,05",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.724Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114648,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_4345_114648_01_rl1t5oh6go.jpg",
+    "alm_4345_114648_02_3li8mp6gm2.jpg",
+    "alm_4345_114648_03_dwu05l9a6v.jpg",
+    "alm_4345_114648_04_kiujtdwvfm.jpg",
+    "alm_4345_114648_05_i3yddxjsrv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-11-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": []
+}

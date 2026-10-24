@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 36",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Knabenhaft, nicht männlich, ein Ding unmäßig / begehren.",
+  "language": [],
+  "musenalm_id": 6701,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SITTENSPRUCH DES / DEMOKRATES",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "P.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SITTENSPRUCH DES / DEMOKRATES",
+  "updated": "2000-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8row1jip0gsbqq1",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.338Z"
+    }
+  ]
+}

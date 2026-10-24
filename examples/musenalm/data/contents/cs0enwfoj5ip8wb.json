@@ -1,0 +1,45 @@
+{
+  "annotation": "Erläuterung der Kupferstiche aus: »Käthchen von Heilbronn, oder die Feuerprobe, großes historisches Ritterschauspiel von Heinrich von Kleist« (Nach der Original-Ausgabe, Berlin bei Reimer, 1810.) s. Graphik INr 21024, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Nun, bei meiner Treu, so kann ich mich in's Grab / legen: der Traum des Grafen von Strahl ist aus",
+  "language": [],
+  "musenalm_id": 21026,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zu. Bl. I. / Zweiter Act. Neunter Auftritt. (S. 79.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich von Kleist",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zu. Bl. I. / Zweiter Act. Neunter Auftritt. (S. 79.)",
+  "updated": "2002-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gh0qc21vzda9i1b",
+      "agents": "jaer15own8gb04o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.903Z"
+    }
+  ]
+}

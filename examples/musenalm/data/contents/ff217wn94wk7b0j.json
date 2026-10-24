@@ -1,0 +1,45 @@
+{
+  "annotation": "Votiv-Tafeln (Sammlung INr 71844, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.187Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Wer sich des Genius freut, der lächelt dem Spott / des Gemeinen,",
+  "language": [],
+  "musenalm_id": 71848,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / An die Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Christian Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / An die Dichter",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8beizlyg6bkaqug",
+      "agents": "zx4hokgptxl8kwz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.432Z"
+    }
+  ]
+}

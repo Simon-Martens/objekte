@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 24214-24220, Obj 197-203",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 24213,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 196,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bilder des weibliches Lebens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bilder des weibliches Lebens",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dxx93z79xd5daud",
+      "agents": "67zaqw1ahn1z54k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.013Z"
+    }
+  ]
+}

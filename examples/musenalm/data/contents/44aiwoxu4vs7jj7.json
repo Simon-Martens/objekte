@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Ein einfach Kind, / Das frisch, gesund und roth",
+  "language": [],
+  "musenalm_id": 26657,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir sind sieben. / (Nach dem Englischen des Wln. Wordsworth.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Gr. v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wir sind sieben. / (Nach dem Englischen des Wln. Wordsworth.)",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hck4bdivvekem2b",
+      "agents": "bt92eejgtvavmav",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.219Z"
+    }
+  ]
+}

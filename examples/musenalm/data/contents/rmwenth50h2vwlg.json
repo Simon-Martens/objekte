@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 30 Gedichten und einem Nachtrag INr 34054-34084, Obj 52-82; Rückert veröffentlichte bereits im Frauentaschenbuch 1816 zwei Sonette aus der »Ländlichen Todtenfeyer« s. INr 26397, 26398",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34053,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agnes. / Bruchstücke einer ländlichen Todtenfeyer. / 1812",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Agnes. / Bruchstücke einer ländlichen Todtenfeyer. / 1812",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k7yznibzfkva2c2",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.542Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel s. Gedicht INr 111305, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111306,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erlöse uns",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. KRUSEMANN. Uitg. door A. C. Krusemann J. W. Kaiser sculps.",
+  "scans": [
+    "alm_3457_111306_m0yjb44m9k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erlöse uns",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uulh3kizp076q2h",
+      "agents": "wb0o68qmro2zvva",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.295Z"
+    },
+    {
+      "id": "0ev4vp0wtzqkr7c",
+      "agents": "p3hijooo9pslzw2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.295Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed V, 167",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Freund! Genügsam ist der Wesenlenker / Schämen sich kleinmeisterische Denker,",
+  "language": [],
+  "musenalm_id": 41718,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Freundschaft. / (aus den Briefen Julius an Raphael; einem / noch ungedruckten Roman.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Y.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Freundschaft. / (aus den Briefen Julius an Raphael; einem / noch ungedruckten Roman.)",
+  "updated": "2005-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ovrj9soc1ciy30",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.202Z"
+    }
+  ]
+}

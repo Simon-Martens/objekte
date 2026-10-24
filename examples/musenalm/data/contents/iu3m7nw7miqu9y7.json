@@ -1,0 +1,58 @@
+{
+  "annotation": "Sechs Charakter-Bilder nach Zeichnungen von G. Opiz (Sammlung INr 9373, Obj 7) s. Textbezug INr 19029, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9367,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Convenienz I",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opiz del. J. Lips sc.",
+  "scans": [
+    "alm_52_9367_xgr8gwc8gq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Convenienz I",
+  "updated": "2000-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xiyx0fy0xgctw7m",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.480Z"
+    },
+    {
+      "id": "aqmkks535i4olmc",
+      "agents": "iwoqrcn7d9iuxfi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.481Z"
+    }
+  ]
+}

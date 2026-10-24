@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86399, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86400,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die kranke Puppe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clementine Russ del. I. Krepp sc.",
+  "scans": [
+    "alm_1600_86400_efh31xxalw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die kranke Puppe",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v9rxiowzyzl542l",
+      "agents": "iexyvzdzwrb4rqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.154Z"
+    },
+    {
+      "id": "fc7hik722tliooq",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.154Z"
+    }
+  ]
+}

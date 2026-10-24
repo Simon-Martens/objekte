@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 77672, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "368",
+  "incipit_statement": "Fröhlich läßt es wohl sich leben / An des Alsterspiegels Strand.",
+  "language": [],
+  "musenalm_id": 77674,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Meine neue Heimath. / (Am 24. März 1837.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Meine neue Heimath. / (Am 24. März 1837.)",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mdyjy1tr7utb9xu",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.752Z"
+    }
+  ]
+}

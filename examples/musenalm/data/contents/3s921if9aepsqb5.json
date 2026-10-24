@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 5. Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60929, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.432Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60915,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Papst Gregor nimmt den Geistlichen die Weiber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1795",
+  "scans": [
+    "alm_949_60915_pef6bew908.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Papst Gregor nimmt den Geistlichen die Weiber",
+  "updated": "2008-11-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vdxn8zbklq0bku5",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.933Z"
+    }
+  ]
+}

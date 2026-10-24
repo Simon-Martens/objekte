@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen (Sammlung INr 116908, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Es saßen Zwei zusammen / In letzter Jahresnacht, / Die manche Jugendnächte / Gar fröhlich hingebracht.",
+  "language": [],
+  "musenalm_id": 116909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Zwei Sylvesternächte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Joh. Nep Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Zwei Sylvesternächte",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kae5zoakh6evlnm",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.524Z"
+    }
+  ]
+}

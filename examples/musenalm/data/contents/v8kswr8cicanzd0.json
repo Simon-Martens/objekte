@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.593Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Im Schneegewande tobt des Winters Grauen / Den Blumenschmuck verhüllt sie Trauerflor;",
+  "language": [],
+  "musenalm_id": 133543,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Frauen. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Anschütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Frauen. / Sonett",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lagq7ewnn89qefs",
+      "agents": "8cuyojyme38mdvw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.110Z"
+    }
+  ]
+}

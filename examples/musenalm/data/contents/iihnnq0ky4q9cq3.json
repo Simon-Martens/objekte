@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Der Eris wilde Fackel ist verglommen, / Doch Trümmer zeugen vom gewalt'gen Streit;",
+  "language": [],
+  "musenalm_id": 31863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romanze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidoris Orientalis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Romanze",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dl35bnvmcm89vv1",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.690Z"
+    }
+  ]
+}

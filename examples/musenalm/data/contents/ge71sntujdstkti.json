@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 117728, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Im Saalgewölb' des Urwald's ruh'n im Kreis / Viel kräft'ge Männer, manch' ein ernster Greis,",
+  "language": [],
+  "musenalm_id": 117729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Beil",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Beil",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wjknkpg2zccu17k",
+      "agents": "7s5akx33j2gpr6y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.617Z"
+    }
+  ]
+}

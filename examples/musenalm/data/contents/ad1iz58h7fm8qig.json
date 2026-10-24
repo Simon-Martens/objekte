@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 86759-86761, Obj 56-58",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86758,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[An Nikolaus Lehnau.] Döbling. (1848. 1849)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[An Nikolaus Lehnau.] Döbling. (1848. 1849)",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "49bcbsyz2m2ye1f",
+      "agents": "7s5akx33j2gpr6y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.176Z"
+    }
+  ]
+}

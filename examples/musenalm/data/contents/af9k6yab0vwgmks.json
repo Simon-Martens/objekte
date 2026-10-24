@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.308Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Ein banger Traum erschreckte mich, / O würd' er nie erfüllt!",
+  "language": [],
+  "musenalm_id": 5277,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klaglied / eines Mädchens über den Tod ihres / Geliebten. / Aus den Zeiten der Kreuzzüge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölty",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klaglied / eines Mädchens über den Tod ihres / Geliebten. / Aus den Zeiten der Kreuzzüge",
+  "updated": "2000-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "81oy52j8rnm97df",
+      "agents": "zddol7mg2ooigi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.070Z"
+    }
+  ]
+}

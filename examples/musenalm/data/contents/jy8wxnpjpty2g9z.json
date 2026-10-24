@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Daß ich nun scheiden geh' / Thut mir von Herzen weh;",
+  "language": [],
+  "musenalm_id": 62494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied von liebgewordener Fremde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Gr. v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied von liebgewordener Fremde",
+  "updated": "2009-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "21ay9118ytdan1x",
+      "agents": "bt92eejgtvavmav",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.118Z"
+    }
+  ]
+}

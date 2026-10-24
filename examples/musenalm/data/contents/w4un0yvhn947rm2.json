@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Freund, noch einen Kuß mir gieb, / Einen Kuß von deinem Munde,",
+  "language": [],
+  "musenalm_id": 24286,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Küssen will ich, ich will küssen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert v. Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Küssen will ich, ich will küssen",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mbxipj3ksfb242u",
+      "agents": "3emdj29jey7pglq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.139Z"
+    }
+  ]
+}

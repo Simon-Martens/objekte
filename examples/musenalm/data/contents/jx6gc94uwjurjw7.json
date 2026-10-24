@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "O Hiob! hartgestrafter Sünder! / Voll gift'ger Beulen war dein Leib;",
+  "language": [],
+  "musenalm_id": 83742,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theilnehmung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herklots",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Theilnehmung",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jtc8pp0c3gdnh05",
+      "agents": "j34hzsrw81cdjdh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.068Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.068Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an der 1. Illustration /) paginiert 3. /) kol. Illustration zu »Naturgeschichte der Rohrdommel« INr 66134, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66135,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (G. G. Endner fec.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. G. Endner fec.",
+  "scans": [
+    "alm_1114_66135_xl5rn096v5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-08-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gztprniszqmktqm",
+      "agents": "lyz2x127nyb2cxs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.239Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.239Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "O Liebe deiner Zaubermacht / Hat sich mein Herz entwunden,",
+  "language": [],
+  "musenalm_id": 17611,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied / den 18ten Aug. 1780",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Aemilia",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied / den 18ten Aug. 1780",
+  "updated": "2001-09-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lt4dgapout4wkjb",
+      "agents": "u7poegszzbmufqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.967Z"
+    }
+  ]
+}

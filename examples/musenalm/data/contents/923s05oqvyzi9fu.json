@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Ich möchte gern etwas Fröhliches erzählen; da ich aber nicht auf dem Felde der Fantasie einen Strauß pflücke,",
+  "language": [],
+  "musenalm_id": 33903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichte eines armen Juden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichte eines armen Juden",
+  "updated": "2003-05-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fdo6x8oc1rjt84n",
+      "agents": "6pw6iul8mmx44oj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.355Z"
+    }
+  ]
+}

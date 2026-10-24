@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Kater« von A. F. E. Langbein INr 32152, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32154,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nichts schlimm'res hab' ich zu bekennen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. Meno Haas sculp.",
+  "scans": [
+    "alm_434_32154_h4ifturl1z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nichts schlimm'res hab' ich zu bekennen",
+  "updated": "2003-02-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2siar8896ivu7xq",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.593Z"
+    },
+    {
+      "id": "zx9mndlbasrpk4c",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.593Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.593Z"
+    }
+  ]
+}

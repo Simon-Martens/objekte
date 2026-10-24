@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Das zarteste Gefühl für Männernoth und / Schmerz / Durchglühet unsrer Schönen Herz.",
+  "language": [],
+  "musenalm_id": 96377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aufmerksamkeit der Schönen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Stein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aufmerksamkeit der Schönen",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p82gnaeleokd9pw",
+      "agents": "x9u4n2qst16e030",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.760Z"
+    }
+  ]
+}

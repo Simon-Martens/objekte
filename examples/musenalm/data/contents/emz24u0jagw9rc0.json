@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Eva« von Th. Mügge INr 111237, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111220,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eva",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Geyer sc.",
+  "scans": [
+    "alm_3454_111220_cn3hq6ebb3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eva",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1vtnusz3xuf5o2i",
+      "agents": "k9ac0a5lkd5h6nx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.425Z"
+    }
+  ]
+}

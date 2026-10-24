@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsäzze (Sammlung INr 35941, Obj 12) mit 3 Illustrationen s. Graphiken INr 35933, 35943, 35944; Obj 4, 14, 15. Dem Text vorangestellt: Der Kampf mit Sorgen, Thorheiten und Wünschen ist das stete Geschäft des Menschen. [...] Schilling",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Nein, du weißt nicht, Ludwig, sagte Hellmuth zu seinem Sohne beym Kaffeetische, gewiß, du weißt es nicht,",
+  "language": [],
+  "musenalm_id": 35942,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Familie Hellmuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Familie Hellmuth",
+  "updated": "2003-08-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "equ8id26s0vi2tw",
+      "agents": "x9exqq2c4bm6xsq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.480Z"
+    }
+  ]
+}

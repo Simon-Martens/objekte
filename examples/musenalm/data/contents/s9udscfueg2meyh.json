@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Erzählungen eines Reisenden« von W. Irving; s. Textbezug INr 127663, Obj 9 /) über der Graphik: Irvings Werke Bd. 9. S. 63 /) # vollst. Bezeichnung an der vorstehenden Graphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127664,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erzählungen eines Reisenden. / (Der junge Mann von grossen Ansichten.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. # Leop. Beyer sc.",
+  "scans": [
+    "alm_586_127664_rmgx9h7j58.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erzählungen eines Reisenden. / (Der junge Mann von grossen Ansichten.)",
+  "updated": "2006-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cw6rwsu5munnclm",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.951Z"
+    },
+    {
+      "id": "kvu27op93dk284j",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.951Z"
+    }
+  ]
+}

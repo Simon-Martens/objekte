@@ -1,0 +1,45 @@
+{
+  "annotation": "Diavolini (Sammlung INr 23478, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Jetzt wie vor tausend Jahren / Ist Rom ein Zauberwort,",
+  "language": [],
+  "musenalm_id": 23498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20. Ehrenerklärung. / Der Name »Rom« ist noch heute, wie vor 2000 Jahren ein Zauberwort [...] / W. von Lüdemann in Frommels pittoresken / Italien (Lpzg. 1840) S. 296",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20. Ehrenerklärung. / Der Name »Rom« ist noch heute, wie vor 2000 Jahren ein Zauberwort [...] / W. von Lüdemann in Frommels pittoresken / Italien (Lpzg. 1840) S. 296",
+  "updated": "2002-05-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kxptejsbm2uno4g",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.258Z"
+    }
+  ]
+}

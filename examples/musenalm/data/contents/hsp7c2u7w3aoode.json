@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Wie jeder Mensch ein doppeltes Dasein, einmal innerlich für sich selbst und dann im äußern bürgerlichen Leben hat, so kann auch Jeglicher doppelt glücklich oder ebenso unglücklich sein.",
+  "language": [],
+  "musenalm_id": 77814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebende Bilder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Mosen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebende Bilder",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "54a193q3fbtrhvr",
+      "agents": "ya686aytqngnsyo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.771Z"
+    }
+  ]
+}

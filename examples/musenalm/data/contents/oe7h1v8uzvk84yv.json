@@ -1,0 +1,43 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in neun Gedichten (Sammlung INr 64238, Obj 6) s. Graphik INr 64255, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Sieh hier der Festung drohendes Gemäuer, / Auf hohem Felsen mächtig hingereckt,",
+  "language": [],
+  "musenalm_id": 64247,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. Blick auf Ofen und Pesth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. Blick auf Ofen und Pesth",
+  "updated": "2009-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "20lqxcy0pnnr8br",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.062Z"
+    }
+  ]
+}

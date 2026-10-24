@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Der König aus dem Ungarland und Kasimir von / Polen, / Jedweder opfert großes Volk, sich Schlesien zu holen:",
+  "language": [],
+  "musenalm_id": 38961,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Cicero / (Kurprinz von Brandenburg)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kopisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Johann Cicero / (Kurprinz von Brandenburg)",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6taxcixraawyde8",
+      "agents": "aq3u8k3couckqq1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.865Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.865Z"
+    }
+  ]
+}

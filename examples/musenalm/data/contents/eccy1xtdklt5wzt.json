@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Meister Martin und seine Gesellen « von E. T. A. Hoffmann INr 21124, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21107,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meister Martin und seine Gesellen v. E. T. A. Hoffmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Kolbe H. Schmidt",
+  "scans": [
+    "alm_281_21107_71u9qennwh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Meister Martin und seine Gesellen v. E. T. A. Hoffmann",
+  "updated": "2002-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f4owm4lsusoln0s",
+      "agents": "n8dsvfjir5hw9xq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.962Z"
+    },
+    {
+      "id": "j3a85zrf94ooxi9",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.962Z"
+    }
+  ]
+}

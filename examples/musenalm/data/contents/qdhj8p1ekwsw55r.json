@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-08-12T09:23:26.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Rezia / Ah!  -Huon! Rette mich! - Hülfe! Hülfe!",
+  "language": [],
+  "musenalm_id": 140340,
+  "musenalm_pagination": [
+    "2. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Planché [übers.]: Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2026-08-12T09:26:33.755Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "ngwj2qnmxqkd06x",
+      "agents": "e5me99lnv5l0sbd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-12T09:24:37.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-12T09:26:33.757Z"
+    },
+    {
+      "id": "kx8lgblm8f8th28",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-12T09:24:51.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-12T09:26:33.756Z"
+    }
+  ]
+}

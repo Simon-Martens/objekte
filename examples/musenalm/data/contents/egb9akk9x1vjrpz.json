@@ -1,0 +1,45 @@
+{
+  "annotation": "#$ lt. Re 21; vermutl. A. A. Nomis wie in: Musenalmanach, Wiener 1793, 1794 /) Wir danken Hern Dr. Peter Rastl (Wien) für die Auflösung des Pseudonyms A. Nmis = Anton Simon; 1760-1810 (geb. in Reichenberg) und weisen hin auf seine Recherche nach unbekannten Textdichtern von Schubertliedern in »Die Musikforschung«, 71. Jahrgang 2018, Heft 2, S. 166 ff.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Du klagst, daß deiner Zofe Hand, / Längst vor Verlauf des dritten Zehnts der / Jahre,",
+  "language": [],
+  "musenalm_id": 17880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Cölia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Nmis #$",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Cölia",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ey7gft31xmcoh31",
+      "agents": "bqsgwi9w7kt5uq1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.894Z"
+    }
+  ]
+}

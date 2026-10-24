@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 63983, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "553",
+  "incipit_statement": "Im Kreis Ormonds, im waadländischen Distrikt Aigle, hatten sich wilde Ritter ein festes Raubschloß erbaut, und drückten das Land umher so furchtbar, daß das Volk sich erhob,",
+  "language": [],
+  "musenalm_id": 63891,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hirt und der Bergeist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alyos Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hirt und der Bergeist",
+  "updated": "2009-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nhmc1ax9bqlkas6",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.304Z"
+    }
+  ]
+}

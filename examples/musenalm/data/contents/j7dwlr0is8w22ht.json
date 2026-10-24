@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Schaurig ist der Ulmen Flüstern / In dem geistervollen Hain;",
+  "language": [],
+  "musenalm_id": 17884,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Elfen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Woltmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Elfen",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ok08lyfwpj9er1i",
+      "agents": "s1uxwuwtfdr9if2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.894Z"
+    }
+  ]
+}

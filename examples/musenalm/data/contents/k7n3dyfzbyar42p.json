@@ -1,0 +1,45 @@
+{
+  "annotation": "s. die zwei vorstehenden Beiträge INr 79827, 79828; Obj 21, 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Der reine Kunstgeschmack unter Großen und Vornehmen ist unserm lieben deutschen Vaterlande, verglichen mit dessen Umfange und vielen Mittelpuncten,",
+  "language": [],
+  "musenalm_id": 79829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Versuch / einer / Ausgleichung / der / in beiden vohergehenden Aufsätzen geäußer- / ten Meinungen über engländische und / französische Gärten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Versuch / einer / Ausgleichung / der / in beiden vohergehenden Aufsätzen geäußer- / ten Meinungen über engländische und / französische Gärten",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5thgcels16aj7px",
+      "agents": "n7zgo9f1gh6x37x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.586Z"
+    }
+  ]
+}

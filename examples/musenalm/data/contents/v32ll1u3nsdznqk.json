@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Am Sonnabend Morgen stand der alte Schurek ungewöhnlich spät auf. Der Wachhund vor der Comptoirthüre wußte sich's nicht zu erklären,",
+  "language": [],
+  "musenalm_id": 30361,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Versprochenen. / Hinterlassene Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dan. Lessmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Versprochenen. / Hinterlassene Novelle",
+  "updated": "2002-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6n2xk8gk0amjcvu",
+      "agents": "be4im3j6k51346r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.003Z"
+    }
+  ]
+}

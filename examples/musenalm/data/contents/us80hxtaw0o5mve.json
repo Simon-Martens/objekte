@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 40660-40662, Obj 26-28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40659,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Gedichte",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ad2w1kz8gofjff5",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.799Z"
+    }
+  ]
+}

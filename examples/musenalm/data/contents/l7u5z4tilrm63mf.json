@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70607,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spott- und Jubelalmanach / für Deutsche / von / Johann Friedrich Schink. / Hamburg 1815 / in der Bohn'schen Buchhandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_2975_70607_jak94nzjir.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Spott- und Jubelalmanach / für Deutsche / von / Johann Friedrich Schink. / Hamburg 1815 / in der Bohn'schen Buchhandlung",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3jvga6hd3aw9p2s",
+      "agents": "scmt2snhwdglbs9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.315Z"
+    }
+  ]
+}

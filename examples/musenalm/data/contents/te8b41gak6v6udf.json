@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Er lacht dich an mit Eidexblicken, / Und schmiegt und biegt vor dir den Rücken.",
+  "language": [],
+  "musenalm_id": 2826,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Falsche",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Falsche",
+  "updated": "2000-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fig4dui7iwfp9ht",
+      "agents": "jn3l1dg6imwx04v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.998Z"
+    }
+  ]
+}

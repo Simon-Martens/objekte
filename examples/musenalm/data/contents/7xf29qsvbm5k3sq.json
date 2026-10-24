@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Gedichte (Sammlung INr 39485, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Wenn der himmlische Mai segnend herunter schwebt / Prangt in blühendem Schmuck lieblich der Rosenstock;",
+  "language": [],
+  "musenalm_id": 39490,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rose",
+  "updated": "2005-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hes0u4figcvubri",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.773Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.773Z"
+    }
+  ]
+}

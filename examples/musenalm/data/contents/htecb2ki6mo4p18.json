@@ -1,0 +1,45 @@
+{
+  "annotation": "Fortsetzung des Beitrags aus: Taschenbuch, Deutsches (G. Keller) 1845; INr 23581und 1846; INr 23637; # Bezeichnung von dort",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Der gute Junge konnt nur nicht wissen, / Daß unterdessen eine höh're Hand / Schon das Ressort von Jenseits und Gewissen / Dem geistlichen Minister zuerkannt;",
+  "language": [],
+  "musenalm_id": 92818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans von Katzenfingen. / Zweiten Gesanges Schluß",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Apelles Storchschnabel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans von Katzenfingen. / Zweiten Gesanges Schluß",
+  "updated": "2013-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y6iofuqnfc6l3be",
+      "agents": "i8agbijlcc6ijdm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.604Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.604Z"
+    }
+  ]
+}

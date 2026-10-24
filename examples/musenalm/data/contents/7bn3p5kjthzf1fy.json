@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "In Aachen ward vor grauer Zeit / Ein KirchENbau voll Eifer angefangen.",
+  "language": [],
+  "musenalm_id": 965,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kirchenbau in Aachen. / Eine Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "LANGBEIN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kirchenbau in Aachen. / Eine Legende",
+  "updated": "2000-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7zo301rwu31d568",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.924Z"
+    }
+  ]
+}

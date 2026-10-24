@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Walter Scott's Werken. Sechste Lieferung. Robin der Rothe. - Der Alterthümler. - Die Presbyterianer. - St. Ronansbrunnen. Das Herz von Midlothian (Sammlung INr 43754, Obj 5) s. Graphik INr 43767, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.829Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Das Herz von Mithlothian (der Kerker von Edinburg) hat bei dem Publikum eine glänzende Aufnahme gefunden; selbst in einer sehr mittelmäßigen deutschen Uebertragung zog dies warme, lebensvolle Gemälde die Leser der Art an,",
+  "language": [],
+  "musenalm_id": 43768,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Herz von Midlothian / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Herz von Midlothian / 1.",
+  "updated": "2006-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ef1x7tdzj18dfsd",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.131Z"
+    }
+  ]
+}

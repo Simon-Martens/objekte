@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 46438, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Wenn mich am Morgen freut der hohe Sänger, / Der einst im Schatten griechischer Platanen / Besang die Kämpfer auf Olympias's Bahnen,",
+  "language": [],
+  "musenalm_id": 46439,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ariost",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ariost",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i4xk24ym16fdxvc",
+      "agents": "ujjt9xntbdmu6em",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.526Z"
+    }
+  ]
+}

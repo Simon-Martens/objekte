@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Der Kalif Chasid zu Bagdad saß einmal an einem schönen Nachmittag behaglich auf seinem Sopha,",
+  "language": [],
+  "musenalm_id": 41630,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Geschichte vom Kalif Storch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Geschichte vom Kalif Storch",
+  "updated": "2005-12-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xyop98z36u0etl2",
+      "agents": "ntl4yryhhmz1v3s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.133Z"
+    }
+  ]
+}

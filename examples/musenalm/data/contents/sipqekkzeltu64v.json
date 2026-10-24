@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 3. /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 65757, Obj 7; s. Textbezug INr 65765, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65766,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abfertigung des Doctors April als derselbe dem K. / Preuss. Gesandten zu Regensburg, Freyherrn von Plo- / tho, die Kaiserliche Reichs-Acht notifizierte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. E. Henne sculp.",
+  "scans": [
+    "alm_1105_65766_61q1x75bf1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abfertigung des Doctors April als derselbe dem K. / Preuss. Gesandten zu Regensburg, Freyherrn von Plo- / tho, die Kaiserliche Reichs-Acht notifizierte",
+  "updated": "2009-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nyvfiqojulp1bqn",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.925Z"
+    },
+    {
+      "id": "jmj0z63an2mrnmq",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.925Z"
+    }
+  ]
+}

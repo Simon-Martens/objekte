@@ -1,0 +1,46 @@
+{
+  "annotation": "Dem Text vorangestellt: Difficile est satiram non scribere. / Horaz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Seitdem es auf der lieben Erde so unendlich viele Narren und Narretheien giebt, ist es keine Kunst mehr, Satiren zu schreiben.",
+  "language": [],
+  "musenalm_id": 44942,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verwahrung gegen Injurienklagen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verwahrung gegen Injurienklagen",
+  "updated": "2006-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6enmuobdx38p1lf",
+      "agents": "wd7yy1894regb5j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.982Z"
+    }
+  ]
+}

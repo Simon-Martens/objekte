@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte (Sammlung INr 39737, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Eil' zu Ardven's seeumfloßnem Felsen, / Sprach zum Barden Starno's falscher Mund",
+  "language": [],
+  "musenalm_id": 39740,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fingal und Agandekka. / (Frei nach Ossian.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fingal und Agandekka. / (Frei nach Ossian.)",
+  "updated": "2005-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "651q6xgaolzjvdd",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.603Z"
+    }
+  ]
+}

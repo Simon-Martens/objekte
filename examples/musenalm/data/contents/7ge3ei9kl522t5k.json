@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Gesungen an der Festtafel des 3. Septbr. 1838 in der Erholungsgesellschaft zu Weimar",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.187Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Es ziemt sich wohl bei frohem Mahle / Zu preisen seiner Tage Lauf,",
+  "language": [],
+  "musenalm_id": 30600,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stephan Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung #",
+  "updated": "2002-11-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1rw94op03kte15b",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.356Z"
+    }
+  ]
+}

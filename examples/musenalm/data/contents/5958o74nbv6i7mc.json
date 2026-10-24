@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Lieder (INr 93373, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Sey mir gegrüßt, o May! mit deinem Blüthenhimmel, / Mit deinem Lenz, mit deinem Freudenmeer;",
+  "language": [],
+  "musenalm_id": 93376,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Gruß an den May",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ermin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Gruß an den May",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "17jr9nrpcrn51sl",
+      "agents": "789wjmtdto8ioae",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.464Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.464Z"
+    }
+  ]
+}

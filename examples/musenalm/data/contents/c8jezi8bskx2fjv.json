@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Theresa« von J. G. Seidl INr 85479, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.983Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85460,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THERESE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sig. v. Perger del. I. Krepp sc.",
+  "scans": [
+    "alm_1583_85460_f3jxsubzuz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THERESE",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n8fptmrsmf5888w",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.969Z"
+    },
+    {
+      "id": "9k8r5q8jl47jati",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.969Z"
+    }
+  ]
+}

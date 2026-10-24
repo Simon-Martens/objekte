@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder der Quanchen (Sammlung INr 318866, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Amarka, unerbittlich spröde / Verschloß in Einsamkeit ihr Herz",
+  "language": [],
+  "musenalm_id": 31868,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Amarka, und Garriraiga",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Heinr. Leop. Reinhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Amarka, und Garriraiga",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y9ajvvu8r1tq8s8",
+      "agents": "gf4l82e3ts949b7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.690Z"
+    }
+  ]
+}

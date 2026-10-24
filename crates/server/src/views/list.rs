@@ -1,58 +1,52 @@
 use super::*;
 use std::collections::HashMap;
-use structured_editor_core::ListRequest;
+use structured_editor_core::{ListPage, ListRequest, SearchMatcher};
 
 pub(super) const GET: &str = "data-on:submit__prevent=\"@get(el.getAttribute('action')+'?'+new URLSearchParams(new FormData(el)),{filterSignals:{include:/^$/}})\"";
 
-/// Escape first; match ranges are computed against Unicode characters, never HTML.
-pub fn highlighted(text: &str, query: &str, excerpt: bool) -> String {
-    let chars: Vec<char> = text.chars().collect();
-    let mut folded = String::new();
-    let mut mapping = Vec::new();
-    for (index, c) in chars.iter().enumerate() {
-        for lower in c.to_lowercase() {
-            let start = folded.len();
-            folded.push(lower);
-            mapping.extend(std::iter::repeat_n(index, folded.len() - start));
-        }
-    }
-    let needle = query.trim().to_lowercase();
-    let ranges: Vec<(usize, usize)> = if needle.is_empty() {
-        Vec::new()
-    } else {
-        folded
-            .match_indices(&needle)
-            .map(|(i, m)| (mapping[i], mapping[i + m.len() - 1] + 1))
-            .collect()
-    };
+/// Match original UTF-8 text with the same engine as search, then escape each slice.
+pub fn highlighted(text: &str, matcher: &SearchMatcher, excerpt: bool) -> String {
+    // An excerpt has at most 230 nonempty matches; do not allocate offsets for a
+    // whole multi-megabyte field just to render a short preview.
+    let ranges = matcher.ranges(text, if excerpt { 230 } else { usize::MAX });
+    let first = ranges.first().map_or(0, |r| r.start);
     let start = if excerpt {
-        ranges.first().map(|r| r.0.saturating_sub(60)).unwrap_or(0)
+        text[..first]
+            .char_indices()
+            .rev()
+            .nth(59)
+            .map_or(0, |(i, _)| i)
     } else {
         0
     };
     let end = if excerpt {
-        (start + 230).min(chars.len())
+        text[start..]
+            .char_indices()
+            .nth(230)
+            .map_or(text.len(), |(i, _)| start + i)
     } else {
-        chars.len()
+        text.len()
     };
     let mut html = if start > 0 {
-        "…".into()
+        "…".to_owned()
     } else {
         String::new()
     };
-    for i in start..end {
-        if ranges.iter().any(|r| r.0 == i) {
-            html += "<mark>";
+    let mut cursor = start;
+    for range in ranges {
+        let from = range.start.max(start);
+        let to = range.end.min(end);
+        if from >= to {
+            continue;
         }
-        html += &escape(&chars[i].to_string());
-        if ranges.iter().any(|r| r.1 == i + 1) {
-            html += "</mark>";
-        }
-    }
-    if ranges.iter().any(|r| r.0 < end && r.1 > end) {
+        html += &escape(&text[cursor..from]);
+        html += "<mark>";
+        html += &escape(&text[from..to]);
         html += "</mark>";
+        cursor = to;
     }
-    if end < chars.len() {
+    html += &escape(&text[cursor..end]);
+    if end < text.len() {
         html += "…";
     }
     html
@@ -115,6 +109,8 @@ pub fn render(
         .and_then(|v| v.parse().ok())
         .unwrap_or(0);
     let q = params.get("q").cloned().unwrap_or_default();
+    let regex = params.get("regex").is_some_and(|value| value == "1");
+    let case_sensitive = params.get("case_sensitive").is_some_and(|value| value == "1");
     let tree = params.get("tree").cloned().unwrap_or_else(|| "[]".into());
     let category = serde_json::from_str(&tree)
         .map_err(|_| crate::error::WebError::bad("Invalid tree path"))?;
@@ -163,6 +159,8 @@ pub fn render(
             None
         },
         query: q.clone(),
+        regex,
+        case_sensitive,
         category,
         sort: sort.into(),
         descending: direction == "desc",
@@ -176,7 +174,19 @@ pub fn render(
             })
             .collect(),
     };
-    let page = editor.query_collection_with_ui(name, &request, &ui)?;
+    let compiled = SearchMatcher::with_case_sensitivity(&q, regex, case_sensitive);
+    let search_error = compiled.as_ref().err().map(ToString::to_string);
+    let matcher = compiled.unwrap_or_else(|_| SearchMatcher::new("", false).unwrap());
+    let page = if search_error.is_some() {
+        ListPage {
+            rows: Vec::new(),
+            total: 0,
+            matched: 0,
+            facets: Vec::new(),
+        }
+    } else {
+        editor.query_collection_with_ui(name, &request, &ui)?
+    };
     let props = c.editor_schema["properties"]
         .as_object()
         .cloned()
@@ -189,7 +199,11 @@ pub fn render(
         "<main id=\"workspace\" class=\"collection-workspace\" data-url=\"{}\" data-section=\"{base}\" tabindex=\"-1\"><div class=\"page-heading\"><div><p class=\"eyebrow\">Content / Collection</p><h1>{} <span class=\"heading-count mono\">{}</span></h1></div><div class=\"actions\">",
         escape(&url),
         escape(&c.label),
-        page.total
+        if search_error.is_some() {
+            String::new()
+        } else {
+            page.total.to_string()
+        }
     );
     if request.ids.is_some() {
         let marker = format!(
@@ -360,12 +374,44 @@ pub fn render(
             escape(&query_url(&base, &clear))
         );
     }
+    let show_all = if q.is_empty() {
+        String::new()
+    } else {
+        let mut all = params.clone();
+        all.remove("q");
+        all.remove("offset");
+        format!(
+            "<a class=\"button quiet\" data-nav href=\"{}\">Show all</a>",
+            escape(&query_url(&base, &all))
+        )
+    };
     body += &format!(
-        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form\" action=\"{base}\" {get}>{}<label class=\"search-input\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><span class=\"sr-only\">Search</span><input type=\"search\" name=\"q\" value=\"{}\" placeholder=\"Search all indexed fields…\"></label><button>Search</button></form>{}</div>",
-        hidden(params, &["q", "offset"]),
+        "<section class=\"surface table-panel\" aria-label=\"Records\"><div class=\"list-toolbar\"><form class=\"search-form has-search-validation\" data-search-validation=\"{base}/search-validation\" action=\"{base}\" {get}>{}<div class=\"search-input has-search-mode {case_class}\"><i class=\"ri-search-line\" aria-hidden=\"true\"></i><label class=\"sr-only\" for=\"collection-search\">Search</label><input id=\"collection-search\" data-search-pattern type=\"search\" name=\"q\" value=\"{}\" placeholder=\"{}\" {}><input type=\"hidden\" name=\"regex\" value=\"{}\"><input type=\"hidden\" name=\"case_sensitive\" value=\"{case_value}\"><button type=\"button\" class=\"search-mode-toggle search-case-toggle\" data-search-case aria-label=\"Match case\" aria-pressed=\"{case_sensitive}\" data-tooltip=\"Match case\" {case_hidden}><span aria-hidden=\"true\">Aa</span></button><button type=\"button\" class=\"search-mode-toggle\" data-search-regex aria-label=\"Use regular expression\" aria-pressed=\"{regex}\" data-tooltip=\"Use regular expression (.*)\"><span aria-hidden=\"true\">.*</span></button></div><button>Search</button>{show_all}<p id=\"search-pattern-feedback\" class=\"search-pattern-feedback\" data-search-feedback role=\"status\" aria-live=\"polite\" hidden></p></form>{}</div>",
+        hidden(params, &["q", "regex", "case_sensitive", "offset"]),
         escape(&q),
-        choices.picker(&base, params)
+        if regex {
+            "Search with a regular expression…"
+        } else {
+            "Search configured fields…"
+        },
+        if search_error.is_some() {
+            "aria-invalid=\"true\" aria-describedby=\"search-error\""
+        } else {
+            ""
+        },
+        if regex { "1" } else { "0" },
+        choices.picker(&base, params),
+        case_class = if regex { "" } else { "has-search-case" },
+        case_value = if case_sensitive { "1" } else { "0" },
+        case_hidden = if regex { "hidden" } else { "" },
     );
+    if let Some(error) = search_error {
+        body += &format!(
+            "<div id=\"search-error\" class=\"search-error\" role=\"alert\"><strong>Check the regular expression</strong><pre>{}</pre><p>Edit the pattern or switch off <span class=\"mono\">.*</span> to search for literal text.</p></div></section></div></main>",
+            escape(&error)
+        );
+        return Ok(body);
+    }
     let mut page_controls = String::new();
     for (enabled, next_offset, label, icon) in [
         (
@@ -470,7 +516,7 @@ pub fn render(
                 _ => row.display.get(key),
             };
             let text = text
-                .map(|s| highlighted(s, &q, true))
+                .map(|s| highlighted(s, &matcher, true))
                 .unwrap_or_else(|| "<span class=\"muted\">—</span>".into());
             let numeric = matches!(
                 props.get(key).and_then(|s| s["type"].as_str()),
@@ -537,7 +583,7 @@ pub fn render(
                 body += &format!(
                     "<p><span class=\"match-field\">{}</span>{}</p>",
                     escape(label),
-                    highlighted(&m.text, &q, true)
+                    highlighted(&m.text, &matcher, true)
                 );
             }
             body += &crate::hierarchy::record_actions(

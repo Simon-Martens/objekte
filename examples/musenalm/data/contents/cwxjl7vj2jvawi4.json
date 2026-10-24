@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug INr 43553, Obj 9 /) über der Graphik: Italienische Schule No. 531",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43552,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hagar #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pietro Beretini J. Felsing jun. sc.",
+  "scans": [
+    "alm_577_43552_khpeumaf0i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hagar #",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vr8q1ydj8hv718s",
+      "agents": "xfwdfdd0grf8opc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.434Z"
+    },
+    {
+      "id": "xozshd28nywp4if",
+      "agents": "7d7eetuzv17gjex",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.435Z"
+    }
+  ]
+}

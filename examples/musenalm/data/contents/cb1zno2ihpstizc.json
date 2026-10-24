@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Weg mit trüben schwarzen Sorgen, / Da uns noch die Freude winkt;",
+  "language": [],
+  "musenalm_id": 52489,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine Lebensregel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. von Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meine Lebensregel",
+  "updated": "2007-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w2xsziufnzm7n7o",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.694Z"
+    }
+  ]
+}

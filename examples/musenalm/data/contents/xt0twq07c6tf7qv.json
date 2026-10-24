@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.676Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Durch Liebe sich beliebt zu machen / Und glücklich seyn, wär eine Kunst?",
+  "language": [],
+  "musenalm_id": 11838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "57. / Liebeskunst. / Nach dem Französischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "57. / Liebeskunst. / Nach dem Französischen",
+  "updated": "2001-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8jw9lc3qpyx1vxr",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.130Z"
+    }
+  ]
+}

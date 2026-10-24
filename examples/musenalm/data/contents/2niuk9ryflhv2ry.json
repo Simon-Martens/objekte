@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83560,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Winter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Diez inv. Senff del. Grünler sculp.",
+  "scans": [
+    "alm_3881_83560_5s75xmzv4r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Winter",
+  "updated": "2012-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "952yipp83lnrefh",
+      "agents": "x0ogu0rnknnjdtv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.834Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.834Z"
+    },
+    {
+      "id": "7xzgrmozwg7medm",
+      "agents": "ridwblfgc44phs2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.834Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.834Z"
+    }
+  ]
+}

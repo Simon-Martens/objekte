@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April /) s. Textbezug INr 116398, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116384,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pilgrim",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'A. sc.",
+  "scans": [
+    "alm_3121_116384_9ocx0n5oao.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pilgrim",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j0jmp2k72m8g0v1",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.506Z"
+    }
+  ]
+}

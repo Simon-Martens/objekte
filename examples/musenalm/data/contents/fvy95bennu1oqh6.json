@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 10. /) Illustration zu »Die hohe Liebe« von W. G. Beckerin: Taschenbuch zum geselligen Vergnügen 1806 INr 12562",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12911,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "»O! scheue dich nicht du englisches Mädchen«, / Ebendaselbst. S. 230",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Cl. Kohl sc.",
+  "scans": [
+    "alm_214_12911_v4u4v4lb0w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "»O! scheue dich nicht du englisches Mädchen«, / Ebendaselbst. S. 230",
+  "updated": "2001-03-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gpo172dbwg10jpt",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.603Z"
+    },
+    {
+      "id": "cw83qpz6329uz0a",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.603Z"
+    }
+  ]
+}

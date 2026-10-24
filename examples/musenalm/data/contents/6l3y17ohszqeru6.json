@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. aus dem I-Verz /) paginiert Ste. 225 /) Illustration zu »Die Erscheinung« von Karl Reinhard INr 45259, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.549Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O Gott, Gott, ist es nicht genung an Einer? / Es sind Zwei!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Schubert del. Riepenhausen sc.",
+  "scans": [
+    "alm_619_45260_ukumb3s738.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O Gott, Gott, ist es nicht genung an Einer? / Es sind Zwei!",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ao0px9psbfydxlc",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.410Z"
+    },
+    {
+      "id": "ik4p7juij6ieppc",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.410Z"
+    }
+  ]
+}

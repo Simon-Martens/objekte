@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April; nummeriert III. /) Illustration zu »Macbeth« von W. Shakespeare",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105160,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MACBETH hört sein Schicksal. / Sei Löwenartig, keck und unverzagt, / Was knirschend auch und bellend Aufruhr wagt! / Ich schwöre dir, dass Macbeth keinem weicht, / Bis Birnams Wald den Dunsinan ersteigt. / IV. Aufz. 2r. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stotthard pinx. Liebe sc.",
+  "scans": [
+    "alm_3258_105160_xjqdwppf0r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MACBETH hört sein Schicksal. / Sei Löwenartig, keck und unverzagt, / Was knirschend auch und bellend Aufruhr wagt! / Ich schwöre dir, dass Macbeth keinem weicht, / Bis Birnams Wald den Dunsinan ersteigt. / IV. Aufz. 2r. Auftr.",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6tnlb6se8bfr3zp",
+      "agents": "uadmjwx3g0fmtcu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.928Z"
+    },
+    {
+      "id": "7z1alas444aevn0",
+      "agents": "v0k80momy67j3zt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.929Z"
+    }
+  ]
+}

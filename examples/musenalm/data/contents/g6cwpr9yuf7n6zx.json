@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von kleinen Gedichten und prosaischen Aufsätzen, in Stammbücher (Sammlung INr 9657, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Wer frey darf denken, denket wohl! / Ein weiser Spruch, des tiefsten Sinnes voll!",
+  "language": [],
+  "musenalm_id": 9750,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer frey darf denken, denket wohl! / Ein weiser Spruch, des tiefsten Sinnes voll!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eschenburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bnukg5gw0butz91",
+      "agents": "zjm0wp8bizr6m9i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.268Z"
+    }
+  ]
+}

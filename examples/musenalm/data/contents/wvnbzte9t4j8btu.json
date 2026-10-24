@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Neapel (Sammlung INr 69069, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Lob' ich den reitzenden Weg vom Pompejanischen Weinberg, / Stabiäs waldigen Berg, Ulmen und Reben und Au'n",
+  "language": [],
+  "musenalm_id": 69161,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "90. / Salerno",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "90. / Salerno",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fxhmxovdxz8tgnt",
+      "agents": "6li7ibbf1vr3nv9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.238Z"
+    }
+  ]
+}

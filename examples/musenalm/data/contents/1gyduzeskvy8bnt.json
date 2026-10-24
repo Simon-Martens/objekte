@@ -1,0 +1,45 @@
+{
+  "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.961Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Diese Wiese ist die vornehmste Straße in Carlsbad. Rechts stehen schöne, solide, drey Etagen hohe Häuser,",
+  "language": [],
+  "musenalm_id": 92159,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "k) Die Wiese",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz Sartori",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "k) Die Wiese",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mf869vhomio67vm",
+      "agents": "swlf1imgk3sevcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.342Z"
+    }
+  ]
+}

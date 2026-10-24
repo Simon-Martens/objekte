@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ländlicher Briefwechsel« INr 46944, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.446Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46945,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dank dir Natur! Daß du die Macht / des Vorurtheils besiegest",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp. 1787",
+  "scans": [
+    "alm_633_46945_2sdbxgq1oj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dank dir Natur! Daß du die Macht / des Vorurtheils besiegest",
+  "updated": "2006-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "us6cz7iv7kw949f",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.576Z"
+    },
+    {
+      "id": "ubpsygs0hz7g113",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.576Z"
+    }
+  ]
+}

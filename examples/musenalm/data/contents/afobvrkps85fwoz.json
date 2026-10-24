@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43997,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "A. von Sternberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Barth sc.",
+  "scans": [
+    "alm_594_43997_3x8e2k4jp0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "A. von Sternberg",
+  "updated": "2006-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "09009iruqs5fr62",
+      "agents": "ak2qa5c9tflxdbf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.292Z"
+    }
+  ]
+}

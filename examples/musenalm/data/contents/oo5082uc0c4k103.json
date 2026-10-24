@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Seine und Kaukasus«  von C. von Wachsmann INr 77581, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77571,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "EUDOXIA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Beck # Dav. Weiss gest. in Stahl Wien",
+  "scans": [
+    "alm_2408_77571_owgqhldu60.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "EUDOXIA",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y4gk4w128skxtc3",
+      "agents": "h6vkl5iyf4hrnx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.742Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.742Z"
+    },
+    {
+      "id": "m1lmjqhst68fmca",
+      "agents": "yf7uqcfkp0nwlnb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.742Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.742Z"
+    }
+  ]
+}

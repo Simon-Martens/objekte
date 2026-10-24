@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 7. /) Graphik im Kalendarium Dezember /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75868,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Den Kindern des Admirals wird / sein Leichnam gezeigt. / Le cadavre de Coligni, montré à ses enfants",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del & sc.",
+  "scans": [
+    "alm_835_75868_cp9qmj3kti.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Den Kindern des Admirals wird / sein Leichnam gezeigt. / Le cadavre de Coligni, montré à ses enfants",
+  "updated": "2008-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2u5bllyrprtfnez",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.664Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.664Z"
+    }
+  ]
+}

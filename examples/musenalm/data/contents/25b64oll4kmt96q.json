@@ -1,0 +1,45 @@
+{
+  "annotation": "Beruf (Sammlung INr 24047, Obj 30) Buntes aus Ost und West (Sammlung INr 24035, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Da ich des Lebens Lust und Leid erfuhr, / Mein Herz vermag zu hassen und zu lieben,",
+  "language": [],
+  "musenalm_id": 24048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ia65unaa57lmsew",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.951Z"
+    }
+  ]
+}

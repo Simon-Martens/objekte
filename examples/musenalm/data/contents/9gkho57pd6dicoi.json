@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Ihr Bologneser ist Armidens höchste Lust. / Sie drückt ihn tausendmal an ihre Schwa- / nenbrust,",
+  "language": [],
+  "musenalm_id": 17657,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bedenklichkeit / über einen Bologneser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bedenklichkeit / über einen Bologneser",
+  "updated": "2001-09-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nljmvda312u1fyw",
+      "agents": "tvrder99cpa3fos",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.721Z"
+    }
+  ]
+}

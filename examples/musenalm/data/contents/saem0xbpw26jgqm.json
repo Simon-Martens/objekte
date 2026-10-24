@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Leben des Benvenuto Cellini Florentinischen Goldschmieds und Bildhauers von ihm selbst geschrieben« übers. von Goethe , Tübingen (Cotta) 1803 s. Textbezug INr 50236, Obj 11 /) Bezeichnung spiegelverkehrt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50235,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Nach F. Catels Zeichnung gestochen von F. W. Bollinger)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach F. Catels Zeichnung gestochen von F. W. Bollinger",
+  "scans": [
+    "alm_6_50235_ch2lgky9dm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lljeufgcqfydmnt",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.878Z"
+    },
+    {
+      "id": "mkm7qp7zngbpjxj",
+      "agents": "xudps8vzrobe0d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.878Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Zwischen der alten Tillysburg und der uralten Stadt Wels ging und wimmelte es im September des Jahres 1805 von Soldaten.",
+  "language": [],
+  "musenalm_id": 118018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Prinz von Wales. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz Isidor Ritter v. Proschko",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Prinz von Wales. / Novelle",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iax0rr3w64dhtwt",
+      "agents": "agwsn5i724aiq5h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.573Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.693Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50726,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Michalis Capell oder Wild-Kirchlein, Canton Appen Zell, inner Roden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hartmann del. S. G. f.",
+  "scans": [
+    "alm_686_50726_94nr1v0347.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Michalis Capell oder Wild-Kirchlein, Canton Appen Zell, inner Roden",
+  "updated": "2007-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "onjreb319be2vxy",
+      "agents": "dfkf4jy7uhhqn2k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.979Z"
+    },
+    {
+      "id": "deooxfze2tm1ye2",
+      "agents": "pua8u6y6ts6oo5o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.979Z"
+    }
+  ]
+}

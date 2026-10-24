@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 63816, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.577Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63822,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER GROSSE PLATZ IN TRIEST",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. L. Hoffmeister Stahlst. v. Joh. Poppel",
+  "scans": [
+    "alm_1049_63822_sgx0f0xsvy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER GROSSE PLATZ IN TRIEST",
+  "updated": "2009-04-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ne7sugdcjdkra79",
+      "agents": "09vqyzz1zzz8g9y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.156Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.156Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.081Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Wehe dem grämlichen Neide, wie starret von / stechenden Dornen,",
+  "language": [],
+  "musenalm_id": 11210,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "63. / Der Neid",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. C. Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "63. / Der Neid",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zjoriv4zz9oqpvg",
+      "agents": "lw3uqo50dp1mpif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.220Z"
+    }
+  ]
+}

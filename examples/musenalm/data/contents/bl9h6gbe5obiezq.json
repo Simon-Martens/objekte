@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Aus tiefgeheimißvollen Quellen / Erschließt sich liebend die Natur.",
+  "language": [],
+  "musenalm_id": 42623,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 157,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ****",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ****",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c8ogdutdechnati",
+      "agents": "1obisuoppirekjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.198Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.198Z"
+    }
+  ]
+}

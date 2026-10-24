@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Der begierige Jügling, der seine Heimat mit geringem Schmerz verlassen hatte, beschleunigte die Schritte der Gefährten,",
+  "language": [],
+  "musenalm_id": 85624,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Quell im Walde. / Nach / Giovanni Boccaccio",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. Gerle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Quell im Walde. / Nach / Giovanni Boccaccio",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ssu796wkc9rjkc",
+      "agents": "1g5ju8pfs3rggmg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.358Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik. paginiert I. /)  Illustration zu »Die Wildschützen« aus: Bodmer (Übers.): »Altenglische Balladen« Th. II. S. 78-111. 8. Zürich 1781. s. # Titel aus dem G-Verz INr 16537, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16453,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die drey geächteten Wildschützen (Adam Bell, Klym von Klug und Wilhelm Klodesley sind ihre Namen) im Wald. #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hegi del et sculp.",
+  "scans": [
+    "alm_259_16453_guttv0fpts.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die drey geächteten Wildschützen (Adam Bell, Klym von Klug und Wilhelm Klodesley sind ihre Namen) im Wald. #",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0np4pzf2r5ooms2",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.561Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.561Z"
+    }
+  ]
+}

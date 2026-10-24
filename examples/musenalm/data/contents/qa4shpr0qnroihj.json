@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Thüringen. Sachsen. Preußen (Sammlung INr 99291, Obj 197)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Ein Lied zu dichten in Maientagen; / Was soll ich im Mai nach Reimen jagen,",
+  "language": [],
+  "musenalm_id": 99299,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 205,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Mai",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Busso von Hagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Mai",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mwjd7grum5degsf",
+      "agents": "wdt4oar5625fx14",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.871Z"
+    }
+  ]
+}

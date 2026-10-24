@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am letzten Blatt der Suite /) Graphik (Portrait) im Kalendarium März /) s. Textbezug INr 96245, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96230,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "von Schenck, / Kön. Pr. Gen. Lieut. und Chef eines / Dragoner Regiments",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas",
+  "scans": [
+    "alm_2184_96230_j7yoouwbii.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "von Schenck, / Kön. Pr. Gen. Lieut. und Chef eines / Dragoner Regiments",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "piw3s0g3eda8zp0",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.755Z"
+    }
+  ]
+}

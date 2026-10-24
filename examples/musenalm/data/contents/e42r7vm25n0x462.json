@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "O Blätter, welket nicht so sehr / Und sinket nicht so früh!",
+  "language": [],
+  "musenalm_id": 20517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blätter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Gr. Bl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blätter",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dijna2vn2zg4dya",
+      "agents": "l8ofx6a8nd7fpu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.809Z"
+    }
+  ]
+}

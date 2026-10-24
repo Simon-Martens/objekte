@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 86365, Obj 44) Gedichte (Sammlung INr 86357, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Man sendet sie auf Reisen, denn das bildet; / So sind sie bald verreist, und bald - verbildet.",
+  "language": [],
+  "musenalm_id": 86368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Bildungsreisen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Bildungsreisen",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tnqr2fuzu7tt08p",
+      "agents": "arq1wi6im7bawmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.106Z"
+    }
+  ]
+}

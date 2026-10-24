@@ -1,0 +1,43 @@
+{
+  "annotation": "Gedichte (Sammlung INr 104228, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ihr trauert? ihr verstummt? nur eure Thränen / reden? / Schwermüthig, widerstrebend wollt ihr fort?",
+  "language": [],
+  "musenalm_id": 105229,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epilog / nach einem Schlußballet: Die Schauspieler haben den Altar der Dankbarkeit bekränzt [...] gesprochen von Madam Ernst in Oldenburg 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epilog / nach einem Schlußballet: Die Schauspieler haben den Altar der Dankbarkeit bekränzt [...] gesprochen von Madam Ernst in Oldenburg 1784",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oghqn8parez7ht4",
+      "agents": "jn3l1dg6imwx04v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.112Z"
+    }
+  ]
+}

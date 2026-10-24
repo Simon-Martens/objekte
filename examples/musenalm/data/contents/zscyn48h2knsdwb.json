@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 132191, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132192,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emilie als Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del et fec.",
+  "scans": [
+    "alm_4079_132192_sl4r1g11wy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Emilie als Kind",
+  "updated": "2013-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vl3w8z0un5kckds",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.088Z"
+    }
+  ]
+}

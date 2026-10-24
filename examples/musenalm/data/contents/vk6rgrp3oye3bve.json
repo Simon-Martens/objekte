@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. vorstehendes Gedicht INr 71087, Obj 160 /) Legenden, Balladen, Mährchen (Sammlung INr 71073, Obj 146)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.475Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Mach' auf die Thüre, Mütterlein, / Mach' auf! Bin heimgekommen aus dem Feld,",
+  "language": [],
+  "musenalm_id": 71088,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 161,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wahnsinnige",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Derselbe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wahnsinnige",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bc954kget9dabpw",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.456Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.456Z"
+    }
+  ]
+}

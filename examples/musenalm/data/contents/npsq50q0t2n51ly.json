@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Freund! Was säumst du mir lang in niedriger Zelle, wo brütend / Finstere Sorge dich engt.",
+  "language": [],
+  "musenalm_id": 127379,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einladung aufs Land. / 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einladung aufs Land. / 1790",
+  "updated": "2020-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n53z9699uyt4r5h",
+      "agents": "snjzg3ez48mced1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.887Z"
+    }
+  ]
+}

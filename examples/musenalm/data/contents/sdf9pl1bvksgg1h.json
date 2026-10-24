@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Ein halb Pfund Unbescheidenheit, / So viel von frecher Dreistigkeit,",
+  "language": [],
+  "musenalm_id": 36055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Moralischer Pot-Pouri",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weppen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Moralischer Pot-Pouri",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5echoylzilvxuh0",
+      "agents": "wx8h2mpbw2hmdqp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.815Z"
+    }
+  ]
+}

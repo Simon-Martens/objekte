@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 98443, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Am zweiten Pfingsttag war das sogenannte Webersche Zelt, ein öffentlicher Ort im Berliner Thiergarten, von Menschen allerlei Art und Gattung, so überfüllt, daß Alexander nur durch unabläßiges Rufen",
+  "language": [],
+  "musenalm_id": 98448,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Fragment / aus dem Leben dreier Freunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. T. Hoffmann, Verfasser der Phantasiestücke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Fragment / aus dem Leben dreier Freunde",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cu9m5gfut1zdaet",
+      "agents": "hhytu0neum83euj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.892Z"
+    }
+  ]
+}

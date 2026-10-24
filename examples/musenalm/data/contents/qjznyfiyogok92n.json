@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Dir, o heilige Nacht, ertönt die feyernde / Harfe, / Du bist jetzt mein Gesang! Von dir fleußt hohe / Begeistrung",
+  "language": [],
+  "musenalm_id": 16567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne an die Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymne an die Nacht",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2kuwj3pbooym4xf",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.814Z"
+    }
+  ]
+}

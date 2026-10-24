@@ -1,0 +1,45 @@
+{
+  "annotation": "Merkur (Sammlung INr 91587, Obj 111) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Den Herrscher von Cyllene, / Merkur, den Götterboten, / Den mächtigen will ich singen,",
+  "language": [],
+  "musenalm_id": 91596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymnus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz [übers.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymnus",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tyznmzy90nrpak7",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.313Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Agrionien für 1827. Gesammelt von Theodor Hell (Sammlung INr 40761, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "379",
+  "incipit_statement": "Versteht Ihr Griechisch? Nun wohlan, / So könnt Ihr leicht die Sylbe rathen",
+  "language": [],
+  "musenalm_id": 40790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22. / Charade",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mqq9q4t8g6nud1s",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.157Z"
+    }
+  ]
+}

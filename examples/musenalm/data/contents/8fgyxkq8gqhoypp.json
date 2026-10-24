@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 112993, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "495",
+  "incipit_statement": "In jenen Zeiten, die wir preisen, / Davon noch gern die Sage spricht,",
+  "language": [],
+  "musenalm_id": 113004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Das Pferd als Kläger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Das Pferd als Kläger",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5nriq0mdb2mj6ot",
+      "agents": "dgebk50hujqbvc5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.413Z"
+    }
+  ]
+}

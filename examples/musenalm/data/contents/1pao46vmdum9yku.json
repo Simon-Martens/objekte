@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken INr 13220, 13222; Obj 8, 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "In jener grauen Vorzeit, wo der noch ungetaufte Wittekind seine Sachsen so glücklich und weislich regierte,",
+  "language": [],
+  "musenalm_id": 13247,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klein Friedel. / Eine Sage deutschen Ur-Alterthums",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klein Friedel. / Eine Sage deutschen Ur-Alterthums",
+  "updated": "2001-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8z1sggnmz8upk5v",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.610Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.610Z"
+    }
+  ]
+}

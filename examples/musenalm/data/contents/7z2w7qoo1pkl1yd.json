@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "So gewiß die ersten Menschen überzeugt waren, daß ein mächtiges, weises und gütiges, obgleich unsichtbares Wesen, Himmel und Erde geschaffen habe, welches die dankbarste Verehrung und Liebe verdiene, so vergaßen ihre Nachkommen dies Wahrheit gar bald.",
+  "language": [],
+  "musenalm_id": 75181,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von den eingebildeten Göttern / der alten Völker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Von den eingebildeten Göttern / der alten Völker",
+  "updated": "2011-05-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "97s4p6lw9dlhhvb",
+      "agents": "58byfz890fzelu8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.594Z"
+    }
+  ]
+}

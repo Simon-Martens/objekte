@@ -1,0 +1,47 @@
+{
+  "annotation": "nummeriert I /) Illustration zu »Heinrich Wahlburg eine Geschichte zur Belehrung und Ermunterung« von Franz Ehrenberg d.i. Georg Karl Claudius INr 130028, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.533Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hülfe zur rechten Zeit ist nur Wohlthat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dornheim sc.",
+  "scans": [
+    "alm_3055_130029_pyw6r5rvw6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hülfe zur rechten Zeit ist nur Wohlthat",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mdqc9t77bvei8n4",
+      "agents": "praird5i9f22ccy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.055Z"
+    }
+  ]
+}

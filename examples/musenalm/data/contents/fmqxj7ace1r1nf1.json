@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 34554, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34555,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Improvisatrise #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. T. Bone delt. J. Romney sculp.",
+  "scans": [
+    "alm_480_34555_jg48p9sfy1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Improvisatrise #",
+  "updated": "2003-06-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b37d9k2cs7awmca",
+      "agents": "nbojv3psmaxks9p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.705Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.705Z"
+    },
+    {
+      "id": "axkg00tbf1t0yf0",
+      "agents": "lrv91ysphbdyf39",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.705Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.705Z"
+    }
+  ]
+}

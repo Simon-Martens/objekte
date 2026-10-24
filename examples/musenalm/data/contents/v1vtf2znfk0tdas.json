@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Herbstlied« von Overbeck INr 6499, Obj 61",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbstlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. G. Schwenke",
+  "scans": [
+    "alm_125_6533_89qctf80z3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herbstlied",
+  "updated": "2000-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n5gw67dvgx89m95",
+      "agents": "ril08zfv8fsz27l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.224Z"
+    }
+  ]
+}

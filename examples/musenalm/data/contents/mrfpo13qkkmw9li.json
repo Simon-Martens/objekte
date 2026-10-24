@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 11. /) Illustration zu »Das Theater zu Abdera« von J. Fr. Schink s. Textbezug INr 61227, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.589Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61226,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das ist ja eine ordentliche / Priesterglazze / Schinks Abdera. 2. T. p. 292",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Barbiez del. J. Ramberg sc.",
+  "scans": [
+    "alm_956_61226_1h3gvzhtjw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das ist ja eine ordentliche / Priesterglazze / Schinks Abdera. 2. T. p. 292",
+  "updated": "2008-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x7sjawj0tqi2pr1",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.883Z"
+    }
+  ]
+}

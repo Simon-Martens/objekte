@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "494",
+  "incipit_statement": "In Fesseln legt des Menschen Geistesstärke, / Die ersten Beiden, nützt als Sklaven sie,",
+  "language": [],
+  "musenalm_id": 42464,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "27. / Viersylbige Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "27. / Viersylbige Charade",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "on2ou016iitmome",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.880Z"
+    }
+  ]
+}

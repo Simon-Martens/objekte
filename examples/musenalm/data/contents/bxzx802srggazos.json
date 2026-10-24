@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 97231, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Geh', Laute, mit dem zarten Sinn, / Geh' dort zu meinem Mädchen hin / Und sei ihr der Vertraute!",
+  "language": [],
+  "musenalm_id": 97230,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Laute. / Mit einer Tonweise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mann Friedrich Bauer Fallenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Laute. / Mit einer Tonweise",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zji8a7d9ryqywmq",
+      "agents": "3gtxsu95wib1zui",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.702Z"
+    }
+  ]
+}

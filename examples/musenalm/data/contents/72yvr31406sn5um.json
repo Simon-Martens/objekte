@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik; wohl Bildnis des Orpheus",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56334,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Arndt sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Arndt sc.",
+  "scans": [
+    "alm_24_56334_yj0dz7msck.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8gubqghqvbpv9g8",
+      "agents": "72r3qe0psneye9d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.735Z"
+    }
+  ]
+}

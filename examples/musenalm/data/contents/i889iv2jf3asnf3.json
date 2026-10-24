@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Das nenn' ich doch einen schönen Octobertag! warm wie im August! - rief Harko, als er aus dem Thorweg seines Göhlenhofs trat, um den Weg auf hohem Wiesenrand am Mühlbach hinzugehen.",
+  "language": [],
+  "musenalm_id": 77864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Haideburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Starklof",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Haideburg",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8pi6u1nsa6qpndg",
+      "agents": "tux46t2b96six6d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.803Z"
+    }
+  ]
+}

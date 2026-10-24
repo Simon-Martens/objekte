@@ -1,0 +1,45 @@
+{
+  "annotation": "Theolinde. Drey Romanzen (Sammlung INr 63250, Obj 14) Rheinische Sagen (Sammlung INr 63245, Obj 9) s. Graphiken INr 63258, 63259 Obj 22, 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.386Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Was sind die Freuden der Erde? / Ein leerer, nichtiger Traum",
+  "language": [],
+  "musenalm_id": 63253,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2009-04-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "knlvhvzctl7y88v",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.295Z"
+    }
+  ]
+}

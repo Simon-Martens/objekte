@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.711Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "362",
+  "incipit_statement": "Füll' aus die weißen Blätter meines Herzens / Mit Deinen Wünschen all;",
+  "language": [],
+  "musenalm_id": 77664,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carta bianca",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter Braun von Braunthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Carta bianca",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ku0n4g7iz4bgnl9",
+      "agents": "7vcuasq6vh9n9b3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.818Z"
+    }
+  ]
+}

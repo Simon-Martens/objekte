@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht im Beitrag »Das Marmorbild« INr 26943, Obj 192",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "351",
+  "incipit_statement": "Wie kühl schweift sich's bei nächt'ger Stunde, / Die Zitter treulich in der Hand!",
+  "language": [],
+  "musenalm_id": 36450,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 196,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie kühl schweift sich's bei nächt'ger Stunde, / Die Zitter treulich in der Hand!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Freiherr v. Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3kzyq81suqup330",
+      "agents": "h99uxdryiugeh6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.864Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.864Z"
+    }
+  ]
+}

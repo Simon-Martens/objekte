@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Zerbino« von L. Tieck # Titel s. Textbezug INr 65397, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65402,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cleon findet seine Lila wieder im Beisein von Helikanus und Dorus #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Führich del. Ernst Rauch sc.",
+  "scans": [
+    "alm_1102_65402_z5sab8gcag.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cleon findet seine Lila wieder im Beisein von Helikanus und Dorus #",
+  "updated": "2009-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5j10ix15hk698e0",
+      "agents": "m8y5g9ap5pw6fd8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.128Z"
+    },
+    {
+      "id": "zmnhnn02u4z2l9t",
+      "agents": "k7ib4tmw0w1jiao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.128Z"
+    }
+  ]
+}

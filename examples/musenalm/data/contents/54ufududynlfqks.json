@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Vater von Allen, / Was soll ich flehen? / Klagen erschallen, / Müde Seufzer ergehen,",
+  "language": [],
+  "musenalm_id": 59675,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wahrsagerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aus dem Nachlasse Achim's von Arnim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wahrsagerin",
+  "updated": "2008-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oysedqawkhnxdju",
+      "agents": "nj1bnjvv1lsid0i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.959Z"
+    }
+  ]
+}

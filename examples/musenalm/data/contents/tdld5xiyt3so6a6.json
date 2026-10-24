@@ -1,0 +1,47 @@
+{
+  "annotation": "auszufaltende Illustration zu »Die Kirche der heiligen Elisabeth, zu Marburg, und ihre Kunstdenkmäler« von Justi INr 97774, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97775,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Begräbnis Denkmahl der heil. Eilsabeth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von Kessler Lithographie von C. F. Müller in Carlsruhe",
+  "scans": [
+    "alm_3498_97775_8idyu3td36.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Begräbnis Denkmahl der heil. Eilsabeth",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8btq8m3cj6yzotd",
+      "agents": "2e0zj08qq2qshay",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.871Z"
+    }
+  ]
+}

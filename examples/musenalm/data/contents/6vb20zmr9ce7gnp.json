@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember, nummeriert 12;  # Bez. am 6. Blatt der Suite /) Illustration zu »Emilia Galotti« von G. E. Lessing",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 134656,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emilia Galotti. / Aufz. 5. Auftr. 8.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meil f.",
+  "scans": [
+    "alm_2025_134656_zfq41jf9nc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Emilia Galotti. / Aufz. 5. Auftr. 8.",
+  "updated": "2010-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jca8nijqkqgsll2",
+      "agents": "tofq8m4srkv5wfy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.114Z"
+    }
+  ]
+}

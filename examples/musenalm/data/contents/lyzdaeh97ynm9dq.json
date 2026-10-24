@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Es ziehn die Stern' am Himmelszelt / Wohl ihren gleichen Lauf:",
+  "language": [],
+  "musenalm_id": 72153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebchens Sehnsucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Fink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebchens Sehnsucht",
+  "updated": "2010-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "645qh8iafa9qvu3",
+      "agents": "kv8ey7ottu85n6z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.663Z"
+    }
+  ]
+}

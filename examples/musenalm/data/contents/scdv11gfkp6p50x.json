@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug INr 88200, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.008Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88197,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CORDELIA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Boxall del. W. C. Wrankmore sc",
+  "scans": [
+    "alm_2417_88197_4e5u07408g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CORDELIA",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6wlls36ycp46fv2",
+      "agents": "5zue3c6yyyrfjr9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.158Z"
+    }
+  ]
+}

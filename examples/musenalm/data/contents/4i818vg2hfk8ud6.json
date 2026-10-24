@@ -1,0 +1,45 @@
+{
+  "annotation": "Neptun (Sammlung INr 91519, Obj 43) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Was beginn ich am Feste Neptuns? / Hervor mit dem alten Cäkuber!",
+  "language": [],
+  "musenalm_id": 91525,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was beginn ich am Feste Neptuns? / Hervor mit dem alten Cäkuber!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz [übers.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qdstbc9gj24be2n",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.245Z"
+    }
+  ]
+}

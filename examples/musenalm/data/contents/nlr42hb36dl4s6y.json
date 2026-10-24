@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123235, Obj 4); Illustration zu »Die gefährliche Nachbarschafft« von Kotzebue (INr 123236, Obj 5); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / »Ich Rindvieh! habe selbst das / Brautkleid gemacht!« / Die gefährliche Nachbarschafft. 16te Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / »Ich Rindvieh! habe selbst das / Brautkleid gemacht!« / Die gefährliche Nachbarschafft. 16te Scene",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lwicwme2rqhzldx",
+      "agents": "vvn2bsy8p7l2qv3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.829Z"
+    }
+  ]
+}

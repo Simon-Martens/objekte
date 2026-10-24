@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Liebliche Freundni! so frühe, so früh' / Hat sich dein lächelndes Haupt schon geneigt,",
+  "language": [],
+  "musenalm_id": 51431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied der Jungfrauen am Grabe der / jungen / Freundin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Rudolphi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied der Jungfrauen am Grabe der / jungen / Freundin",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tdrmgdraby3aiz0",
+      "agents": "dxi2hql7exffxou",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.577Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.577Z"
+    }
+  ]
+}

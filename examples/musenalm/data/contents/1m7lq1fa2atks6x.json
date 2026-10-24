@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechs Blumenlieder (Sammlung INr 81266, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Die Rose ist die Königein / Im duft'gen Reich der Blumen,",
+  "language": [],
+  "musenalm_id": 81271,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Königin Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Königin Rose",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "35wb91tbzqbyg0d",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.802Z"
+    }
+  ]
+}

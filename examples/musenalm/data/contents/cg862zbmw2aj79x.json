@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Mythen und Allegorien (Sammlung INr 93535, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Im jungen Lenz auf Florens Beete / Entblüht ein Hyanzinthen-Flor;",
+  "language": [],
+  "musenalm_id": 93536,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ungetreue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. J. C. Graf v. Sermage",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ungetreue",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oajyqnifz9tpbbh",
+      "agents": "nf6hcprj7w45n4m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.249Z"
+    }
+  ]
+}

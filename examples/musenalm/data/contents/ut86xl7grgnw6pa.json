@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Steigst Du herauf aus dem Grabe, gigantischer heiliger / Schatten, / Dessen entschwundenen Geist angebetet ich stets?",
+  "language": [],
+  "musenalm_id": 130726,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Schillers Schatten / Parodie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Blum",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Schillers Schatten / Parodie",
+  "updated": "2010-02-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "azb2hkf07to8u29",
+      "agents": "29bzu7e1ijooqgq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.075Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "347",
+  "incipit_statement": "Lange war ich stumm und trübe / weil mich Sündenmacht umfing,",
+  "language": [],
+  "musenalm_id": 27802,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erwachen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Hensel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erwachen",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yr7e0kjvkgw6n6z",
+      "agents": "902nw56856wz9rx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.220Z"
+    }
+  ]
+}

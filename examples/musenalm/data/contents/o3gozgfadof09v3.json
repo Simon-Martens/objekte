@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait [unter der Graphik: W. Maas impr.] s. Textbezug INr 44062, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44055,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ph. Veit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steinle del. Schäffer sc.",
+  "scans": [
+    "alm_597_44055_q9dd01qrkw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ph. Veit",
+  "updated": "2006-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "soirc6l90649apr",
+      "agents": "wdyn1i7226e5p59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.193Z"
+    },
+    {
+      "id": "i0o30ozb1o35354",
+      "agents": "esns1204g1raav7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.193Z"
+    }
+  ]
+}

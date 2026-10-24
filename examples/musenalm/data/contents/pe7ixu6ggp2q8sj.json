@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthselkranz (Sammlung INr 93048, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Das erste Paar begrüßt dein erster Blick, / Sobald dein kindlich Auge Licht bekommen,",
+  "language": [],
+  "musenalm_id": 93052,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Charade",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q5q3m9qdc1lunz4",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.468Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Winter. Der Weihnachtsabend. Drei kleine Dialogen (Sammlung INr 95938, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Du mußt recht schwer tragen, armer Mann, an deinem Holze, du hättest dir nicht so viel zumuthen sollen.",
+  "language": [],
+  "musenalm_id": 95840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Caspar und Marthe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Caspar und Marthe",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ocn6jgbp60mkpg",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.738Z"
+    }
+  ]
+}

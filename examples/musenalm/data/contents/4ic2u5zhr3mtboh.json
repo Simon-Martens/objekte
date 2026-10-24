@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Pfeif' mein munt'res Stückelein / Fröhlich in die Welt hinein!",
+  "language": [],
+  "musenalm_id": 27932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwei Lieder / 1. / Der lustige Bursche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwei Lieder / 1. / Der lustige Bursche",
+  "updated": "2002-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "omsvqmexzkgmo92",
+      "agents": "g7ovzuyzi8c0g2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.297Z"
+    }
+  ]
+}

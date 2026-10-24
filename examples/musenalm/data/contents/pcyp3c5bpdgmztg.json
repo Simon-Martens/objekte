@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »... on leaving Newstad Abbey« by G. G. Byron (INr 130063, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130064,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NEWSTEAD ABBEY",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Schnell",
+  "scans": [
+    "alm_4814_130064_uvtdavloqk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NEWSTEAD ABBEY",
+  "updated": "2022-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j8tn9bdp8p1762m",
+      "agents": "vbyfdjf3wft42hq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.057Z"
+    }
+  ]
+}

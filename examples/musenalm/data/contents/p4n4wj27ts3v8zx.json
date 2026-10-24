@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.230Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Soll nur Der ein Heil'ger sein, / Der da Weib und Kind verschmähte?",
+  "language": [],
+  "musenalm_id": 100399,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Singt Litanei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Singt Litanei",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ptuzdl5imqouyng",
+      "agents": "rlu2d4ml9zlhov2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.866Z"
+    }
+  ]
+}

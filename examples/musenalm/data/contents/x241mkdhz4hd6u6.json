@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer kol. Illustration s. Graphik INr 123648, Obj 1; # Bezeichnung aus den Vrwt. bis Jg 1806",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Frühling ist erschienen, / Die jungen Birken grünen, / Veilchen hauchen Duft; / Es bringen laue Weste / Gefiederte, singende Gäste, / Die Schwalbe zwitschert im Neste / Und der Cuckuk ruft.",
+  "language": [],
+  "musenalm_id": 123650,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Feodore. / Ein Singspiel in Einem Akt. / (Den Stoff hat eine wahre Begebenheit geliefert.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Feodore. / Ein Singspiel in Einem Akt. / (Den Stoff hat eine wahre Begebenheit geliefert.)",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y1lp5ef5czxehd2",
+      "agents": "sse24vstbh0jbtd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.845Z"
+    }
+  ]
+}

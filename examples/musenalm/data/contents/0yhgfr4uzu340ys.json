@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Weil du den Schwan auf Wolken einst getragen, / Will Scribs mit dir den kühnen Flug auch wagen;",
+  "language": [],
+  "musenalm_id": 13672,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Scribs Feder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rehfues",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Scribs Feder",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9gvazz0zh6k4wi2",
+      "agents": "sqr8n6vxztg3h6m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.551Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.551Z"
+    }
+  ]
+}

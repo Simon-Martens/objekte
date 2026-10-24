@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 99786, 99787m Obj 190, 191",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 99785,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 189,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weinlieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Iganz Hub",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Weinlieder",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cg2na49qqr1357q",
+      "agents": "szz6mzfzlpcduar",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.843Z"
+    }
+  ]
+}

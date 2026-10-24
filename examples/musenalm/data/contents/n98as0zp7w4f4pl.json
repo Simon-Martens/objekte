@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Ich schwör' es dir, o Laura, dich zu hassen, / Gerechten Haß schwör' ich dir zu!",
+  "language": [],
+  "musenalm_id": 92358,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der schwörende Liebhaber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lessing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der schwörende Liebhaber",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2484jd36s4lm3gu",
+      "agents": "69uz48pj64zapqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.475Z"
+    }
+  ]
+}

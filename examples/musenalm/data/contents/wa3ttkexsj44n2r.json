@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Nur dem Rächer Achill und nicht dem Zerstörer von / Troja, / Hat der Latona Sohn einen Homeros geschenkt;",
+  "language": [],
+  "musenalm_id": 51436,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Iliade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerning",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Iliade",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hb3fxm6ctfondl4",
+      "agents": "ka1wm9mc4kl7y0b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.577Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.577Z"
+    }
+  ]
+}

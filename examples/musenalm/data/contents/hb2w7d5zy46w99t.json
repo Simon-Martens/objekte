@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Der Gallier, meint ihr, war doch der beste / Feind! / Es sey, denn focht' er gleich aus Ehr'",
+  "language": [],
+  "musenalm_id": 8856,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franzosenkrieg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler d. jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Franzosenkrieg",
+  "updated": "2001-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bgrxmkqrewhde4v",
+      "agents": "60dpq63kk6xup5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.312Z"
+    }
+  ]
+}

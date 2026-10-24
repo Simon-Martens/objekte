@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Guten Morgen, Neffe der Musen! rief mit munterem Tone der junge Rempen einem Bekannten zu,",
+  "language": [],
+  "musenalm_id": 27931,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die letzten Ritter von Marienburg. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Hauff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die letzten Ritter von Marienburg. / Novelle",
+  "updated": "2002-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2ovrsk8qpcyq1e5",
+      "agents": "ntl4yryhhmz1v3s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.297Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Mönch« von A. Schreiber INr 62718, Obj 74; s.a. Textbezug INr 62657, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mönch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Heideloff. Gest. v. Fleischmann",
+  "scans": [
+    "alm_1027_62719_62h1x4f8fs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Mönch",
+  "updated": "2009-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rm0cexnswlpndzh",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.048Z"
+    },
+    {
+      "id": "h05hghc8bv3e5i1",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.048Z"
+    }
+  ]
+}

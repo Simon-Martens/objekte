@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Balladen, Sagen und Romanzen (Sammlung INr 100641, Obj 304)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "409",
+  "incipit_statement": "Frau Nachtigall im Busche sang / In süßen Maiennächten,",
+  "language": [],
+  "musenalm_id": 100645,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 308,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Der Herr von Weihers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Der Herr von Weihers",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w7bushgxs8meq9d",
+      "agents": "ozbm86woe020u89",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.986Z"
+    }
+  ]
+}

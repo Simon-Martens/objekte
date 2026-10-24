@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Einsam stand, emporgehoben vom jähen / Gestade, / Sandwichs eigenes Häuschen.",
+  "language": [],
+  "musenalm_id": 12746,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Nachtwandler. / Ein häusliches Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sander in D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Nachtwandler. / Ein häusliches Gedicht",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h6myitalfll6yk6",
+      "agents": "anq3gu79zmuyrfg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.467Z"
+    }
+  ]
+}

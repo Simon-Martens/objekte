@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96745, Obj 16) mit einer Übersetzung s. Gedicht INr 96751, Obj 22 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96737, 96738; Obj 8, 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Sur la branche d'un arbre étoit en / sentinelle / Un vieux Coq adroit et matois.",
+  "language": [],
+  "musenalm_id": 96750,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Le coq et le Renard",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Le coq et le Renard",
+  "updated": "2014-05-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ogi6tmttkkowzy4",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.739Z"
+    }
+  ]
+}

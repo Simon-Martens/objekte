@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Von Arbeit und Ruhe (Sammlung INr 22791, Obj 36) Gedichte (Sammlung INr 22784, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Soll ich die Arbeit thun, um zu ruh'n? / Oder ruh'n um die Arbeit zu thun?",
+  "language": [],
+  "musenalm_id": 22792,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1)",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9oiyb1njcaz4fot",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.916Z"
+    }
+  ]
+}

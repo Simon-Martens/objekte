@@ -1,0 +1,47 @@
+{
+  "annotation": "unter der Musikbeigabe: Tiek",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "O, alte Heimath! süß Wo find' ich wieder dich? Welche Qual ist dies?",
+  "language": [],
+  "musenalm_id": 56385,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lid",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_24_56385_mjys2qr67u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lid",
+  "updated": "2008-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f6ccoy9hxmnjy8q",
+      "agents": "5j4ifce1qy52izk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.957Z"
+    }
+  ]
+}

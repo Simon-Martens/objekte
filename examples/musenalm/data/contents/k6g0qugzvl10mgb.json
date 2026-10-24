@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "433",
+  "incipit_statement": "Ergebt Euch, Ohm! Bezwingt Euer starkes Herz / Allein durchhaut Ihr nimmer den Wall von Erz",
+  "language": [],
+  "musenalm_id": 26967,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 225,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wagen gewinnt. / Heroische Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Krug v. Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wagen gewinnt. / Heroische Romanze",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "emgwvbws4wlzloh",
+      "agents": "ynj6s229zp88pv2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.255Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.255Z"
+    }
+  ]
+}

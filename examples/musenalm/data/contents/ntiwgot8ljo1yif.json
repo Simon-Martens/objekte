@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Fest, wo es gilt, sich selbst zu bezwingen, / Schnell, wo es gilt, den Menschen Opfer bringen, […] /) mit 2 Illustrationen s. Titelgraphik INr 81233, Obj 2 und Graphik INr 81237, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Was halten Sie von jenem Buch? hörte ich kürzlich Jemand fragen. Der Gefragte legte das Buch fort und sagte ziemlich gelangweilt: Nun, es ist die Geschichte eines kleinen Kindes, das groß wird.",
+  "language": [],
+  "musenalm_id": 81246,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ansiedler auf den Halligen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martha von der Höhe. (Clara von Massow.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ansiedler auf den Halligen",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mo8f3dp9kwqmzx1",
+      "agents": "gsh6emx95anxaro",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.025Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung am letzten Blatt der Suite. Graphik im Kalendarium paginiert 1",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebliche Gaben spendet der Lenz auf blumigen Beeten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R. f.",
+  "scans": [
+    "alm_165_7728_v0svqrerqz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Liebliche Gaben spendet der Lenz auf blumigen Beeten",
+  "updated": "2000-12-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x1zwmrhavq06s70",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.278Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Auch die Hansa entschlief, der Todtentanz, mahnet ans / Sterben,",
+  "language": [],
+  "musenalm_id": 76989,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lübeck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Baldamus D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lübeck",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "agc82lc8wonuflh",
+      "agents": "gvrm573djft0g9v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.668Z"
+    }
+  ]
+}

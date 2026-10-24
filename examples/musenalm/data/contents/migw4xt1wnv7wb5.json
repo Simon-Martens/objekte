@@ -1,0 +1,45 @@
+{
+  "annotation": "Ein Brief aus London. Zur Erklärung der Stahlstiche (Sammlung INr 44000, Obj 4) s. Graphik INr 44010, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Ohne Zweifel gehört das Blatt, welches ich hier wähle, einer Reihe von Darstellungen an, welche sich auf die Zeit Karls I. beziehen.",
+  "language": [],
+  "musenalm_id": 44009,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Wiedersehen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Wiedersehen",
+  "updated": "2006-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fdwwmlfeyt8p3ie",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.394Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Drücke du Schweigende, / Deines entschlummerten / Engeleins Ruhebett / Sanfter an dich!",
+  "language": [],
+  "musenalm_id": 111663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Mutter, die den Sarg ihres Kindes trug",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Ludwig Deinhardstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Mutter, die den Sarg ihres Kindes trug",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rhyqtdizf7qma2g",
+      "agents": "y1ldqx10hdpig92",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.368Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert IV. /) s. Textbezug INr 76727, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76712,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stötteritz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lehmann del. G. Boettger senior sc. 1813",
+  "scans": [
+    "alm_2385_76712_a150phy44x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Stötteritz",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8tl38gw9y09zn1a",
+      "agents": "dsxgxd2rsqe5f4z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.716Z"
+    },
+    {
+      "id": "myxxk369k06igzq",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.716Z"
+    }
+  ]
+}

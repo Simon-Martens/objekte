@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Die Achse der Erde die nutzt sich ab; / Der Geist geht zum Himmel, der Körper / in's Grab!",
+  "language": [],
+  "musenalm_id": 84111,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zechlied. / Nach dem 25. Februar, 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Ries",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zechlied. / Nach dem 25. Februar, 1814",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w0ajowqcq33w3an",
+      "agents": "qto9t6cuwltpfja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.121Z"
+    }
+  ]
+}

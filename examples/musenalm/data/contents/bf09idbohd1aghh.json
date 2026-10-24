@@ -1,0 +1,45 @@
+{
+  "annotation": "Lyrische Blätter (Sammlung INr 80333, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Ach! / Da der Bach, / Rein und klar wie Gold, / Über Kieseln hingerollt,",
+  "language": [],
+  "musenalm_id": 80338,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Bach und Strom",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Bach und Strom",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "si2lz3lniwysek6",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.727Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Wie sehr die Geistlichkeit des Mittelalters die fromme Denkart der Zeitgenossen zu benutzen, und Fürsten und Privatpersonen zu Gaben und Schenkungen",
+  "language": [],
+  "musenalm_id": 25841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bischof Meinwerk von Paderborn; / oder / wie wurden im Mittelalter die Stifter reich",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Prof. Tychsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bischof Meinwerk von Paderborn; / oder / wie wurden im Mittelalter die Stifter reich",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qvl9p59zxrdwd4h",
+      "agents": "tn63mjhlzn2th7n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.315Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Neue Tänze (Sammlung INr 10627, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.154Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10634,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angl. V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Siegfr. Schmiedt",
+  "scans": [
+    "alm_202_10634_hl4erfkahr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Angl. V.",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6pkne0qyc2tnozi",
+      "agents": "m8h0i8atzha2rbr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.577Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.577Z"
+    }
+  ]
+}

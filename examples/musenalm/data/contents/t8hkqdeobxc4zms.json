@@ -1,0 +1,45 @@
+{
+  "annotation": "Nummeriert VI. /) Graphik (Silhouette) im Kalendarium Oktober",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104567,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Madam Henisch / geb. Gieranek",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Endner fec.",
+  "scans": [
+    "alm_3249_104567_t4wvn9yuem.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Madam Henisch / geb. Gieranek",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yg8f1wixqiv52wt",
+      "agents": "lyz2x127nyb2cxs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.798Z"
+    }
+  ]
+}

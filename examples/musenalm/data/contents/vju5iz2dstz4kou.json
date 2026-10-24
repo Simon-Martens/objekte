@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Die du dort oben wandelst, rund gleich dem Schilde der Väter, / Deine Strahlen, woher? Woher dein ewiges Leuchten, / Sonne?",
+  "language": [],
+  "musenalm_id": 127158,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ossians Sonnengesang aus Carthon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. W. Bommer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ossians Sonnengesang aus Carthon",
+  "updated": "2021-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zy5yx2w3sdvotep",
+      "agents": "s5myzcuzsygfm34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.920Z"
+    }
+  ]
+}

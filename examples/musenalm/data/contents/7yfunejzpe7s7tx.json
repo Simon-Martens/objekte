@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1828-1829 (Sammlung INr 64851, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Was hilft die Karte - noch so gut gelegt, / Wenn, wer sie gibt, die Volte schlägt?",
+  "language": [],
+  "musenalm_id": 64862,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Volte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Volte",
+  "updated": "2009-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pq23am40cg4xzl7",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.160Z"
+    }
+  ]
+}

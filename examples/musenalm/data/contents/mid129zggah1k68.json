@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 59430, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Und wenn der Schmerz das heiße Herz umziehet, / Wem fremd ward holde Freud' und Lebenslust,",
+  "language": [],
+  "musenalm_id": 59432,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zusatz für Manche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl von Reinhard II",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zusatz für Manche",
+  "updated": "2008-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qcwcw6mqdkjcv7w",
+      "agents": "11ylx5z0u965md8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.685Z"
+    }
+  ]
+}

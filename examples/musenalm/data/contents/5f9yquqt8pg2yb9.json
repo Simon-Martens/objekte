@@ -1,0 +1,45 @@
+{
+  "annotation": "Mewlana Dschelaleddin Rumi (Sammlung INr 43100, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Ich sah empor, und sah in allen Räumen Eines, / Hinab, und sah in allen Wellenschäumen Eines.",
+  "language": [],
+  "musenalm_id": 43103,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8wa7ft53tvhrgwy",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.312Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Veranlaßt durch ein schönes Frescogemälde des alten florentinischen Malers Andreas Orgagna, […] mit einer Illustration s. Graphik INr 78356, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "In Castruccio Castracanis Laube / Saßen Herrn und Damen lobesan; / Baß geschwelget hatten sie beim Schmause / In des welschen Herzog's Marmorhause,",
+  "language": [],
+  "musenalm_id": 78355,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sieg des Todes. / Eine Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sieg des Todes. / Eine Ballade",
+  "updated": "2011-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "51gs8oel6qa9mko",
+      "agents": "g7f1xv6d8kkyhx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.518Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.518Z"
+    }
+  ]
+}

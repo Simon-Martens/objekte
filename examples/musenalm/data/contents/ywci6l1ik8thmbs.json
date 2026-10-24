@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Es ist der Tanz ein treues Bild vom Leben, / Bald sinkt der Fuß, bald hebt er froh sich / wieder;",
+  "language": [],
+  "musenalm_id": 18316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tanz. / Sonnett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vermehren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tanz. / Sonnett",
+  "updated": "2001-10-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yqzbtng7io5p1b2",
+      "agents": "nvdnek6niibgjex",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.740Z"
+    }
+  ]
+}

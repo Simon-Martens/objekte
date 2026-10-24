@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129381,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seiner Majestät, / dem König Wilhelm / von Württemberg; / und / Ihrer Majestät / der / Königin Catharina / von Württemberg / in / tiefster Ehrfurcht zugeeignet / von / dem Herausgeber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Korsinsky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Seiner Majestät, / dem König Wilhelm / von Württemberg; / und / Ihrer Majestät / der / Königin Catharina / von Württemberg / in / tiefster Ehrfurcht zugeeignet / von / dem Herausgeber",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wiqwrurejxgun1d",
+      "agents": "wm9j08mfjk3c14b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.956Z"
+    }
+  ]
+}

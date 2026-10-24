@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus den Scholien zu den Bildern (Sammlung 9204, Obj 9) s. Textbezug INr 19381, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9201,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die heilige Familie #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Näcke pinx. Heinr. Schmidt sc.",
+  "scans": [
+    "alm_37_9201_upglxmmzng.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die heilige Familie #",
+  "updated": "2000-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dowxfk7s1r6pj5m",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.339Z"
+    },
+    {
+      "id": "o401d1uxqewdhck",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.339Z"
+    }
+  ]
+}

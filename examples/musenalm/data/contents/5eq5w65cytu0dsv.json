@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Wallenstein« von Fr. Schiller s. Textbezug INr 31985, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 31986,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wallenstein von Schiller III ter Act: / Thekla zu Max: Trau ihnen nicht. Sie meynens falsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinr. Ramberg del. Weinrauch sc. Vienne",
+  "scans": [
+    "alm_366_31986_e5m3dz4iam.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wallenstein von Schiller III ter Act: / Thekla zu Max: Trau ihnen nicht. Sie meynens falsch",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o2ynldouajlefg9",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.565Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.565Z"
+    },
+    {
+      "id": "1zctl0s4h9gvt7v",
+      "agents": "nhcnwrqiq042uja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.565Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.565Z"
+    }
+  ]
+}

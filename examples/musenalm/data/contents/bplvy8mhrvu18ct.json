@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung am ersten Gedicht (INr 122200, Obj 275)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Wohl läßt ein Damm sich ziehen einem Bache, / Doch bald, der Haft entwindend seine Glieder, / Stürzt auf die durst’ge Flur er voller nieder, / Daß sie in frischem Grün frohlock’ und lache",
+  "language": [],
+  "musenalm_id": 122200,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 276,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Germania Rediviva",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Nicolaus Delius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Germania Rediviva",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mjv38hqfs0pzy1p",
+      "agents": "bxpc42dcojfrl4n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.816Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.816Z"
+    }
+  ]
+}

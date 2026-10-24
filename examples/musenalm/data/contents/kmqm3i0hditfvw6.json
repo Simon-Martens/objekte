@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juni",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57071,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. Moderne Kunstapotheose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L.",
+  "scans": [
+    "alm_760_57071_em8dit5sau.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. Moderne Kunstapotheose",
+  "updated": "2008-04-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u9xhhnk3vwqz4gy",
+      "agents": "dsxgxd2rsqe5f4z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.878Z"
+    }
+  ]
+}

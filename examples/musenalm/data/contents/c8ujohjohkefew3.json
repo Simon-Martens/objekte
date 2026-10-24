@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Rosenknospen in der Hand, / Hochgefühl im frohen Herzen, / Wall' ich durch mein Vaterland,",
+  "language": [],
+  "musenalm_id": 83721,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frohgesang. / Im Sommer 1793",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rud. Agrikola",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frohgesang. / Im Sommer 1793",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6h3cv92tp200oxq",
+      "agents": "yvwmvtjd7z5rjtc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.031Z"
+    }
+  ]
+}

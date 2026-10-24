@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41446,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Vogelfang auf Island und den Orkadischen Inseln",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Darnstedt sc.",
+  "scans": [
+    "alm_540_41446_t0rp0ziv1m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Vogelfang auf Island und den Orkadischen Inseln",
+  "updated": "2005-11-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bpesfxq0uy2shdi",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.936Z"
+    }
+  ]
+}

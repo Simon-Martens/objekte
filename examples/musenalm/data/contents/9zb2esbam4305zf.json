@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 9 Rätseln z. T. in 2 Sammlungen INr 132852-132862, Obj 33-43",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.636Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agrionien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Agrionien",
+  "updated": "2023-12-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9gsc5wq336nagzr",
+      "agents": "g7ovzuyzi8c0g2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.005Z"
+    }
+  ]
+}

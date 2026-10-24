@@ -1,0 +1,47 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33375, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33396,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die fromme Tochter #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Autenrieth fec. 1807",
+  "scans": [
+    "alm_463_33396_t1e57ecmtp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die fromme Tochter #",
+  "updated": "2003-04-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b1n4cwp0tr7dnwl",
+      "agents": "494d92fqsi62f1e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.354Z"
+    }
+  ]
+}

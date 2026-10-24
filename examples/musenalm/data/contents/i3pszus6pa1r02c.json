@@ -1,0 +1,56 @@
+{
+  "annotation": "Allemannische Gedichte (Sammlung INr 128586, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Horcht, was ich euch will sagen! / Die Glock' hat Zehn geschlagen. / Jetzt bethet, und geht dann in's Nest!",
+  "language": [],
+  "musenalm_id": 128590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Nachtwächterruf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel [übers.:] Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Nachtwächterruf",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f6ryv12m48w1oq7",
+      "agents": "u04oy46tu9dlk6x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.992Z"
+    },
+    {
+      "id": "be86pk71lrxx1xj",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.993Z"
+    }
+  ]
+}

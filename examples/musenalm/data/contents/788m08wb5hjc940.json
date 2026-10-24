@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium März; paginiert 3. /) s. Textbezug INr 96029, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96016,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JOACHIM FRIEDRICH / von STUTTERHEIM",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. H. sc.",
+  "scans": [
+    "alm_3961_96016_fr0ris89pf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "JOACHIM FRIEDRICH / von STUTTERHEIM",
+  "updated": "2013-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "790e1kavi5okqxa",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.765Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgendes Gedicht INr 80574, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80573,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Himmelsbote",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Parris del. C. Kotterba sc.",
+  "scans": [
+    "alm_1796_80573_hmwtlai6xc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Himmelsbote",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kyl2rf48im27k3j",
+      "agents": "9gep2y6vxxwiktu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.908Z"
+    },
+    {
+      "id": "9b8tyh9xobad7au",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.909Z"
+    }
+  ]
+}

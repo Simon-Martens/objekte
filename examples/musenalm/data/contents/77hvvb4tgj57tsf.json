@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Der junge Graf von Thoren, / Gar stattlich, reich und fein, / Des Müllers Tochter liebte / So innig, treu und rein.",
+  "language": [],
+  "musenalm_id": 42770,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Graf von Thoren. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vermehren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Graf von Thoren. / Romanze",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wfhfth8si5ywp1b",
+      "agents": "nvdnek6niibgjex",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.808Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Oden (Sammlung INr 24479, Obj 57) Gedichte (Sammlung INr 24470, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Stets am Stoff klebt unsere Seele, Handlung / Ist der Welt allmächtiger Puls,",
+  "language": [],
+  "musenalm_id": 24483,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Loos des Kritikers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Loos des Kritikers",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fd0igk4kgcnmjll",
+      "agents": "on0a0wityl8730t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.240Z"
+    }
+  ]
+}

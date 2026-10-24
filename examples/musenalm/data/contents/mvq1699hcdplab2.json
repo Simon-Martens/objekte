@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Feldblumen (Sammlung INr 44382, Obj 30) Rheinischer Dichter-Salon (Sammlung INr 44376, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Mädchen, Mädchen, hüte dich! / Amor läßt sich ungern necken.",
+  "language": [],
+  "musenalm_id": 44392,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. Warnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. Warnung",
+  "updated": "2006-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i4d7do0rfaxcqr2",
+      "agents": "2zqoqv8fdrs839t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.750Z"
+    }
+  ]
+}

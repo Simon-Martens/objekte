@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Lawinensturz« von M. Neumayer INr 80425, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80381,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Lawinensturz. Gedicht von M. Neumayer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Lecomte pinx. C. Kotterba sc.",
+  "scans": [
+    "alm_1792_80381_trhrixq14b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Lawinensturz. Gedicht von M. Neumayer",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xt1mx2zly51quvl",
+      "agents": "dogib1pjryndrja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.972Z"
+    },
+    {
+      "id": "zrqug8h0vk0dsa2",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.972Z"
+    }
+  ]
+}

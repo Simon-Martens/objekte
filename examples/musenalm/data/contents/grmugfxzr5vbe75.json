@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Mit der Pokale hellem Klang / Läutet das alte Jahr zu Grabe.",
+  "language": [],
+  "musenalm_id": 80632,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied. / (Am Sylvester-Abend zu singen.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied. / (Am Sylvester-Abend zu singen.)",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7fl5iuuyrtn68to",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.966Z"
+    }
+  ]
+}

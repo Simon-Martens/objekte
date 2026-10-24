@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 2. Blatt der Suite /) Graphik im Kalendarium Januar; über der Graphik: Lebensbilder 1. P. 9.; Illustration zu »Lebensbilder« von C. Burger INr 133296, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 133285,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Huberta du hängst den Kopf",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotterba",
+  "scans": [
+    "alm_3531_133285_ecqxo1v17f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Huberta du hängst den Kopf",
+  "updated": "2024-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aqmzu5q3jahl7oq",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.104Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.104Z"
+    }
+  ]
+}

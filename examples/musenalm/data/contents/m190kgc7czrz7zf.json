@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem I-Verz s. Textbezug INr 33600, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33628,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die sechs Stationen des Lebens. Wiedergeburt #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Catel del. Lips sculp",
+  "scans": [
+    "alm_466_33628_vcmno9qv40.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die sechs Stationen des Lebens. Wiedergeburt #",
+  "updated": "2003-05-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ip4gskizgth9tt",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.723Z"
+    },
+    {
+      "id": "u81kokosvmp9981",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.724Z"
+    }
+  ]
+}

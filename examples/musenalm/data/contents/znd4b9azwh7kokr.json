@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 103740, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103739,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER ZAHNBRECHER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. van Ostade pinx. S. v. Perger del. Seb. Langer sc.",
+  "scans": [
+    "alm_1926_103739_nllg9goflz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER ZAHNBRECHER",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sl6coqtyqkf5ndi",
+      "agents": "yaglcrwubhltnbq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.131Z"
+    },
+    {
+      "id": "btun9xp5f07dvgj",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.131Z"
+    },
+    {
+      "id": "iwtx2kgq1evttcm",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.131Z"
+    }
+  ]
+}

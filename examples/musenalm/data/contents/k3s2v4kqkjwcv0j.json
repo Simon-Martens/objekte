@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Aufathmend nach des Sommers heißer Schwüle, / Di bang und schwer auf unsern Fluren lag, / Erfrischt uns nun herbstlich willkommne Kühle, / Da naht uns ein ersehnter Freudentag",
+  "language": [],
+  "musenalm_id": 126277,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rede / zur Feier des Allerhöchsten Geburtsfestes / Sr. Majestät des Königs. / Gedichtet von F. Förster. / Im Königlichen Opernhause von Madame Crelinger, und in / dem Königliochen Schauspielhause von Herrn Devrient, / am 15. Oktober 1842 gesprochen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rede / zur Feier des Allerhöchsten Geburtsfestes / Sr. Majestät des Königs. / Gedichtet von F. Förster. / Im Königlichen Opernhause von Madame Crelinger, und in / dem Königliochen Schauspielhause von Herrn Devrient, / am 15. Oktober 1842 gesprochen",
+  "updated": "2010-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pkbfe60i5vyone8",
+      "agents": "5dfik7lfhc9fltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.927Z"
+    }
+  ]
+}

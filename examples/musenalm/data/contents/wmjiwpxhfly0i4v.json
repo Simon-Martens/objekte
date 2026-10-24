@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Tausendkünstler« von Wilh. v. Lüdemann INr 112526, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112527,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DONNA ANTONIA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Ender del. J. Axmann sc.",
+  "scans": [
+    "alm_2473_112527_as0c0pbvsk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DONNA ANTONIA",
+  "updated": "2010-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "buoiafqxhoibc20",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.427Z"
+    },
+    {
+      "id": "jpq4yumylsw8l5r",
+      "agents": "eb0uid8s7k1f7eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.427Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Erst war ihm die ältere Schwester ver- / sprochen, / Und weil ihm ein Böhme das Mädchen / entriß,",
+  "language": [],
+  "musenalm_id": 3075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Inhalt des Trauerspiels / Otto von Wittelsbach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Inhalt des Trauerspiels / Otto von Wittelsbach",
+  "updated": "2000-09-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1jdu60jc2b4173t",
+      "agents": "6cp00jd21onlhwl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.096Z"
+    }
+  ]
+}

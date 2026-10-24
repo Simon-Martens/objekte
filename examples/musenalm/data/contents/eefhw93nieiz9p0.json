@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "So wie deiner Kinder du dich freuest, / Und an ihrem Krankenbette weinst,",
+  "language": [],
+  "musenalm_id": 5816,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Frau G. R***. / Im Namen eines Waisen; dessen Mutter, / nach dem sie das Ihrige verloren hatte, / an der Schwindsucht gestorben war",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Frau G. R***. / Im Namen eines Waisen; dessen Mutter, / nach dem sie das Ihrige verloren hatte, / an der Schwindsucht gestorben war",
+  "updated": "2000-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e6u3ujk0baddjg4",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.330Z"
+    }
+  ]
+}

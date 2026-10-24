@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Februarius",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38298,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. H. Meil f.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meil f.",
+  "scans": [
+    "alm_177_38298_9jql4zsxx6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ut883ycx4t6ut3",
+      "agents": "tofq8m4srkv5wfy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.806Z"
+    }
+  ]
+}

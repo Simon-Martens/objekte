@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Owen Tudor« von L. A. v. Arnim INr 22283, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22261,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Owen Tudor v. A. v. Arnim",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_299_22261_h0ifs84lwf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Owen Tudor v. A. v. Arnim",
+  "updated": "2002-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x5ekdeq12axzizd",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.977Z"
+    },
+    {
+      "id": "6l1xrjuwnri9a9b",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.977Z"
+    }
+  ]
+}

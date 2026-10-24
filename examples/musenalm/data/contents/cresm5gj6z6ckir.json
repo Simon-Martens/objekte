@@ -1,0 +1,43 @@
+{
+  "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30224, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Theekessel soll man keinen schelten; / Er muß im fein gesell'gen Kreis / Jetzt für die Lebenssonne gelten.",
+  "language": [],
+  "musenalm_id": 30225,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Theegesellschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Theegesellschaft",
+  "updated": "2002-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cwsfdrboccr8nhi",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.577Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.577Z"
+    }
+  ]
+}

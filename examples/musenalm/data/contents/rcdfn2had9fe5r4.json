@@ -1,0 +1,58 @@
+{
+  "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr 34616, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34617,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Boa-Ghaut in Ostindien #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Westall A. R. A. pinxt. E. Finden sculpt.",
+  "scans": [
+    "alm_481_34617_wd3ouoe559.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Boa-Ghaut in Ostindien #",
+  "updated": "2003-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sm3h79kwcp65ell",
+      "agents": "mvnr6du759sctvp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.492Z"
+    },
+    {
+      "id": "hiamrhs4hnckjrk",
+      "agents": "n6a5xd0oqtupi8s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.492Z"
+    }
+  ]
+}

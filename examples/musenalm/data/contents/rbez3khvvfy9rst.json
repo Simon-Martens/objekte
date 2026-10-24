@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Karoline, Gräfin von Mallzahn, stand jetzt an einem Zeitpunkt, der Wenigen gefällt, am Schluß ihres mittlern Alters.",
+  "language": [],
+  "musenalm_id": 37504,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / War dieser Betrug verzeihlich?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / War dieser Betrug verzeihlich?",
+  "updated": "2005-03-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nilcdon4u44wubl",
+      "agents": "pbt3h5zr358vg6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.436Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.436Z"
+    }
+  ]
+}

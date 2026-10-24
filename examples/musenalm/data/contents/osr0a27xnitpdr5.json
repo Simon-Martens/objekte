@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Genies würd' ich beym Schopfe fassen, / Und ... / in der Luft erhungern lassen?",
+  "language": [],
+  "musenalm_id": 35016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Tische",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haschka",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Tische",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "io5vsjghzwst1vi",
+      "agents": "j63e4oki0d4f74a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.966Z"
+    }
+  ]
+}

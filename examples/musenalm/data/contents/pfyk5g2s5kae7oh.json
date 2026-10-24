@@ -1,0 +1,45 @@
+{
+  "annotation": "aus: Musenalmanach (Hamburger) 1798, INr 6754",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Unschuld, wenn von keinem Flor gedunkelt, / Immer strahlender in jedem Nu,",
+  "language": [],
+  "musenalm_id": 47479,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Unschuld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Unschuld",
+  "updated": "2007-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cviiz8eygs0ht05",
+      "agents": "jq74p3fe1dijn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.589Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.589Z"
+    }
+  ]
+}

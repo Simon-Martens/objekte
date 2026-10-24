@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Sie finden sich hier nicht in mich hinein, lieber Wilke, und das ist Schade, denn ganz gute Menschen sind es.",
+  "language": [],
+  "musenalm_id": 32870,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwäger",
+  "updated": "2003-04-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "56936e8nqpujb99",
+      "agents": "0w2k67v3yzi61te",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.488Z"
+    }
+  ]
+}

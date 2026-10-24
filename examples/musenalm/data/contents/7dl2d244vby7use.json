@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "342",
+  "incipit_statement": "Tiefes Schweigen! Aus entwölkter Bläue / Streut der Mond sein mattes Silberlicht.",
+  "language": [],
+  "musenalm_id": 11258,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "106. / Sehnsucht und Hoffnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lebrecht Nöller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "106. / Sehnsucht und Hoffnung",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jufy79u5z7rgrxe",
+      "agents": "jwuw6kcpwyx8ojz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.468Z"
+    }
+  ]
+}

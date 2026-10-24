@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Es weicht der Tag - die Abendsonne mahlet / den blauen Vogesius mit sanfter Glut;",
+  "language": [],
+  "musenalm_id": 78758,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Empfindungen / eines jungen Kriegers bei der*** / Armee, in seiner Heimat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Empfindungen / eines jungen Kriegers bei der*** / Armee, in seiner Heimat",
+  "updated": "2009-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s4em32jf0phdwx7",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.843Z"
+    }
+  ]
+}

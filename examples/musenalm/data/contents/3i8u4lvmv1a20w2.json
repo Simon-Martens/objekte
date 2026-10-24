@@ -1,0 +1,45 @@
+{
+  "annotation": "2 Portraitmedaillons; Ilustrationen zu »Der Nordische Krieg vom Jahre 1700 bis 1721« INr 75769, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75768,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Peter I. / Carl XII",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Engraved by J. F. Bolt from a Bust by Beauchiardon berlin 1793",
+  "scans": [
+    "alm_2140_75768_6w3qx0fzwa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Peter I. / Carl XII",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i0c676do2jhtqgf",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.777Z"
+    }
+  ]
+}

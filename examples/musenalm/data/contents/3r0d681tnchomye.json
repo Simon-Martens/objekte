@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "In einer im Jahre 1809 (zu Tübingen bey Cotta) erschienenen Lebensbeschreibung des Herzogs Carl Wilhelm Ferdinand von Braunschweig wird erzählt, daß dieser Fürst, als Erbprinz, im Jahre 1766 zu Paris gewesen",
+  "language": [],
+  "musenalm_id": 109075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Jagdtrauer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Jagdtrauer",
+  "updated": "2015-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6wj6pgxnagln8ih",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.245Z"
+    }
+  ]
+}

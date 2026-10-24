@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung: Schubert del. am ersten Blatt; Bezeichnung: Riepenhausen sculps. am letzten Blatt der Suite. Folgen des Kriegs: Graphik im Kalendarium paginiert 6. s. Textbezug 7208, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7173,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bevölkerung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. # Riepenhausen sculps.",
+  "scans": [
+    "alm_145_7173_91unjns8tr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bevölkerung",
+  "updated": "2000-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c5rypmfqhiidt61",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.258Z"
+    },
+    {
+      "id": "4r9simdk7b3que0",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.258Z"
+    }
+  ]
+}

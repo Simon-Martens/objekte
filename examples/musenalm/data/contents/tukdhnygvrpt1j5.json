@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1. /) Graphik im Kalendarium Juli. /) Illustration zu »Einige Denkmahle des Edelmuths und der Tapferkeit aus dem jetzigen Kriege wider die Türken / 1. General Suwarow« INr 75606, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75586,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "General Souworoff",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Geyser sc.",
+  "scans": [
+    "alm_2141_75586_m6iesznb6f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "General Souworoff",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8374xm3nac9llca",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.746Z"
+    },
+    {
+      "id": "dzlrfzk7sphfdbh",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.746Z"
+    }
+  ]
+}

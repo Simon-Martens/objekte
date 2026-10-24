@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Der du mit mir zu den Sarmaten zögest. / Hin, wo der Scythe rast",
+  "language": [],
+  "musenalm_id": 10693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / An Klamer Schmidt / Nach Horaz II Buchs 6. Ode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / An Klamer Schmidt / Nach Horaz II Buchs 6. Ode",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5cuyafnj72c0ml9",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.431Z"
+    }
+  ]
+}

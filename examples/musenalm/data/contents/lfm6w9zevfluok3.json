@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Dein Hadik ist nicht mehr; das ware die / Trauerkunde, / Die Leopold, der sich auf Menschenwerth / So sehr versteht, aus einem treuen Munde",
+  "language": [],
+  "musenalm_id": 31146,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Hadiks Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alxinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Hadiks Tod",
+  "updated": "2003-01-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2s6lsxhoalczw71",
+      "agents": "3v0kb6a8a8y5rhb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.713Z"
+    }
+  ]
+}

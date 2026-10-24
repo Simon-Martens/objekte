@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93014,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihrer Excellenz / der / Hochwohlgeborenen Frau Frau / Magdalena / Freiin von Schmidburg, / gebornen Freiin von Born, / geheimen Rathsfrau und Gouverneurs-Gattin / etc / ehrfurchtsvoll gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "vom Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihrer Excellenz / der / Hochwohlgeborenen Frau Frau / Magdalena / Freiin von Schmidburg, / gebornen Freiin von Born, / geheimen Rathsfrau und Gouverneurs-Gattin / etc / ehrfurchtsvoll gewidmet",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9paktp6r9ltkepw",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.642Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Unendlicher, kein endlichs Wesen / Sieht jemals dich, nur deine Spur.",
+  "language": [],
+  "musenalm_id": 4677,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei dem Schlusse der Vorle- / sungen über die Naturlehre",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Christoph Beireis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei dem Schlusse der Vorle- / sungen über die Naturlehre",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d51xn3lzuk8fbjv",
+      "agents": "6nxjmhgni8lbkyk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.064Z"
+    }
+  ]
+}

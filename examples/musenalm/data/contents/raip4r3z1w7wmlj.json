@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) nummeriert 4. /) Illustration zu »Die Schnecken« von J. L. Stoll INr 107513, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.345Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107517,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (V. Grüner in. et sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "V. Grüner in. et sc.",
+  "scans": [
+    "alm_4226_107517_hmwrytl5p6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2015-10-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ftnaocvockpounh",
+      "agents": "mwvtf64bmzwstck",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.034Z"
+    }
+  ]
+}

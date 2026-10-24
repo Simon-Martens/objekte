@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.676Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Vor der Geburt des Apoll durchirrte die holde Latona / Manches ihr feindliche Land,",
+  "language": [],
+  "musenalm_id": 18275,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Apoll's Geburt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Apoll's Geburt",
+  "updated": "2001-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "khjm3xoiqs8ew3q",
+      "agents": "lw3uqo50dp1mpif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.901Z"
+    }
+  ]
+}

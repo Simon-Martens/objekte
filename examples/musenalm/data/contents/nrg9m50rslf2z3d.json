@@ -1,0 +1,45 @@
+{
+  "annotation": "Vesta (Sammlung INr 91579, Obj 103) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Vesta, Jupiters Vertraute / Sorgsame Beschützerin / Des heiligen Hauses zu Delphos,",
+  "language": [],
+  "musenalm_id": 91583,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymnus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz [übers.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymnus",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xjcmynlnhklf9d2",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.285Z"
+    }
+  ]
+}

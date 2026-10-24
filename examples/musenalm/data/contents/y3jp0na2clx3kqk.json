@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Erinnerungen (Sammlung INr 40749, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Salesius sitzt um Mitternacht / Auf's Wohl der Christenheit bedacht,",
+  "language": [],
+  "musenalm_id": 40758,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Franciscus von Sales",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Franciscus von Sales",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "278fqk2gc9a98pm",
+      "agents": "2wsoz27ytrsps8l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.123Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 32803, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.374Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32805,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (d'Argent sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc.",
+  "scans": [
+    "alm_455_32805_ojc20u2v9v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "snzx1gg9mzk204d",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.763Z"
+    }
+  ]
+}

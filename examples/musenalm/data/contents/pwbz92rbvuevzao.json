@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Schöpferin beseelter Töne! / Nachklang dem Olymp enthallt!",
+  "language": [],
+  "musenalm_id": 170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GESANG / AN DIE HARMONIE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. SALIS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "GESANG / AN DIE HARMONIE",
+  "updated": "2001-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1191zg68yt2lv5e",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.964Z"
+    }
+  ]
+}

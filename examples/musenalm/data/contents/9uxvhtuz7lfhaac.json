@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Landschaft« von F. W. A. Schmidt INr 52106, Obj 90",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52105,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "die Landschafft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lütke del. et sculp.",
+  "scans": [
+    "alm_15_52105_pteya2m6r1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "die Landschafft",
+  "updated": "2007-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8x57z14cq5qvpb8",
+      "agents": "1y6xbfxhnpqc2nc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.627Z"
+    }
+  ]
+}

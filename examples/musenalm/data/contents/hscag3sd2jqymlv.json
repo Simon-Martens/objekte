@@ -1,0 +1,45 @@
+{
+  "annotation": "Skizzen (Sammlung INr 43713, Obj 26) Dem Text vorangestellt: Die Liebe lacht im Jugendkleid, / Zur Maienzeit,der lust'gen Maienzeit, [...] / Shakspeare",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "Der erste Mai war seit undenklichenZeiten im ganzen westlichen Europa ein Tag der Freude.",
+  "language": [],
+  "musenalm_id": 43716,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der erste Mai.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der erste Mai.",
+  "updated": "2006-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mfreny7ylkp4npf",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.936Z"
+    }
+  ]
+}

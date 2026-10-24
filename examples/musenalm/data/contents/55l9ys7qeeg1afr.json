@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 98805, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Zerstückelt zuckst du, Blindeschleiche! / Der Mensch ist leider nicht der Weiche,",
+  "language": [],
+  "musenalm_id": 98847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blindschleiche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blindschleiche",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pe2m0c5fypmgz2a",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.504Z"
+    }
+  ]
+}

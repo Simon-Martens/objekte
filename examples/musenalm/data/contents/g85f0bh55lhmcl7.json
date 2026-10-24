@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Mai paginiert 5. s. Textbezug INr 66287, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66273,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Otto von Guericke beweist die Wirckung der Luft- / pumpe, 1654",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1797",
+  "scans": [
+    "alm_1123_66273_tig1swykg7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Otto von Guericke beweist die Wirckung der Luft- / pumpe, 1654",
+  "updated": "2009-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "walw7qq22cmc1rn",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.125Z"
+    }
+  ]
+}

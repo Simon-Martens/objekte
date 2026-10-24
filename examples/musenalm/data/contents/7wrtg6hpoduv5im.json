@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanztouren zu Beckers Taschenbuch 1817 (Sammlung INr 19690,Obj 111)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19695,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Douze I. I te u. II te Tour Rond",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [
+    "alm_265_19695_ekn69dkvb0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Douze I. I te u. II te Tour Rond",
+  "updated": "2001-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5awoc7jp3gj6o0b",
+      "agents": "5e64t7ca8x2wyim",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.809Z"
+    }
+  ]
+}

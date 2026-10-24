@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Der Tabak« von Röller (INr 130364, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Freude, schöner Götterfunken, / Tochter aus Elysium! / Wir betreten feuertrunken, / Himmlische, dein Heiligthum",
+  "language": [],
+  "musenalm_id": 130346,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Ode an die Freude, / von / Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Ode an die Freude, / von / Schiller",
+  "updated": "2009-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rgxbpup360nrvma",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.067Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Impromptüs, welche ich künftig in Stammbücher schreiben werde (Sammlung IN 33708, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Der Unterschied beider ist wie der, zwischem einen der das dreitägige Fieber und einem der das viertägige hat,",
+  "language": [],
+  "musenalm_id": 33730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22. / Der Unterschied zwischen einem Unglücklichen und einem Glücklichen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22. / Der Unterschied zwischen einem Unglücklichen und einem Glücklichen",
+  "updated": "2003-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fo9k02xvwq1gkvd",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.781Z"
+    }
+  ]
+}

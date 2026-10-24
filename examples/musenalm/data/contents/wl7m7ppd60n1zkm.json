@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 78479, Obj 134",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Dort auf dem hohen Felsen sang / Ein alter Bardengeist; / Es tönt wie Äolsharfenklang / Im bangen schweren Trauergesang,",
+  "language": [],
+  "musenalm_id": 78352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bardengeist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Rud. Hermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bardengeist",
+  "updated": "2011-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bi70miwaztrnkp0",
+      "agents": "kvqo68p64ik630m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.843Z"
+    }
+  ]
+}

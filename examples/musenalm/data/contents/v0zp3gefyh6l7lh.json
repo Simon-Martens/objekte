@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Keinem kann ich sagen, / Was mein leidend Herz bewegt,",
+  "language": [],
+  "musenalm_id": 45704,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stilles Leiden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Bornowski",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stilles Leiden",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ppp5ghhhi7f34ru",
+      "agents": "59l3z560kdcow7s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.198Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.198Z"
+    }
+  ]
+}

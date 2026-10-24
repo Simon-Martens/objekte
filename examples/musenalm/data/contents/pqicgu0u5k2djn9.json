@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 53455, Obj 85)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "380",
+  "incipit_statement": "In stiller Majestät, wenn alles schweigt, / Mein Erstes aus dem Schooß der Nächte steigt.",
+  "language": [],
+  "musenalm_id": 53456,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2007-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e10jors9vmbn951",
+      "agents": "nj18pm3lt87v37m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.706Z"
+    }
+  ]
+}

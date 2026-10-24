@@ -1,0 +1,45 @@
+{
+  "annotation": "Legenden, Balladen, Mährchen (Sammlung INr 71073, Obj 146)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.064Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "In alter Burg auf wolk'ger Höh / Der fromme Kaiser Ludwig saß,",
+  "language": [],
+  "musenalm_id": 71076,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sankt Walderichs Capelle zu Murrhardt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sankt Walderichs Capelle zu Murrhardt",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nyfonmdpq2hr6n8",
+      "agents": "92oewhsfc44pa2v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.351Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.351Z"
+    }
+  ]
+}

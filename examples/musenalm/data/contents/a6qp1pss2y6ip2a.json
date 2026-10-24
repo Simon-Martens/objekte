@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 47269, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47268,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schenau gez. C. F. Stoelzel gest.1794)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schenau gez. C. F. Stoelzel gest.1794",
+  "scans": [
+    "alm_640_47268_q19cf98k6u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4bo2v8c070u6rpb",
+      "agents": "0hfa1bhqyn0q95c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.497Z"
+    },
+    {
+      "id": "3kvhf8ynhashlt3",
+      "agents": "e5dzzklohvjx1fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.497Z"
+    }
+  ]
+}

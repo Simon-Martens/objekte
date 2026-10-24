@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Im Hause Mohammeds saß dessen Gattin Chadidscha noch in später Nacht im Kreise der Ihrigen und horchte auf die Erzählung des Sklaven Seid,",
+  "language": [],
+  "musenalm_id": 104089,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Opfer des Islams. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Duller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Opfer des Islams. / Novelle",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s25o62ckxz399t3",
+      "agents": "7bekt7k216mxue5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.142Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.142Z"
+    }
+  ]
+}

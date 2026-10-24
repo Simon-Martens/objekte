@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette, Octaven (Sammlung INr 71005, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Erst hielt ich's für 'nes Glöckleins Klingen, / Das der Einsiedler läutet fern im Wald,",
+  "language": [],
+  "musenalm_id": 71028,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Sängerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Sängerin",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jbjmei0vo7p37l1",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.429Z"
+    }
+  ]
+}

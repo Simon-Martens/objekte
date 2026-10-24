@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 117136, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Ovid, der flüchtige Geselle, / War einst so kühn, zu lieben;",
+  "language": [],
+  "musenalm_id": 117138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tristia ex Ponto",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tristia ex Ponto",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ly29fvtkwgfdxip",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.598Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.598Z"
+    }
+  ]
+}

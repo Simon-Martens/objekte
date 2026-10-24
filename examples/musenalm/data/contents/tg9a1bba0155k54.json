@@ -1,0 +1,45 @@
+{
+  "annotation": "Italienische Volkslieder (Sammlung INr 81526, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.523Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Ich möchte sein ein junger Knabe, / Der mit dem Eimer geht verkaufen Wasser.",
+  "language": [],
+  "musenalm_id": 81528,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Neapel. / Wasser! Wasser!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Neapel. / Wasser! Wasser!",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "psbhk2lzksizqll",
+      "agents": "fjw259e60ifm3ie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.937Z"
+    }
+  ]
+}

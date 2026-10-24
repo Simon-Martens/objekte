@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Auf dem Vorhang dort am Fenster / Schwankt ein Schatten hin und her,",
+  "language": [],
+  "musenalm_id": 94695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schattenbild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tschabuschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schattenbild",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ng23d4132arocdq",
+      "agents": "snndqassjoh7vf0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.518Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.518Z"
+    }
+  ]
+}

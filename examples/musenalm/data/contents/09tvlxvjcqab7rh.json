@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Aus der Erebus Nacht stieg neu die Kraft des Alciden, / Und zu Euböens Strand wandte der Hohe / den Schritt.",
+  "language": [],
+  "musenalm_id": 31805,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tod des Alciden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Streckfus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tod des Alciden",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kq9xpu5mfdp6bo9",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.310Z"
+    }
+  ]
+}

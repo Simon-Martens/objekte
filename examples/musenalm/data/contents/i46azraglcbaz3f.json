@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Herr! mahlt mir meine Frau! doch sag' ich / euch, / Ich kann fürwahr, daß ihr sie trefft / nicht hoffen;",
+  "language": [],
+  "musenalm_id": 31197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bestellung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. J. Koller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bestellung",
+  "updated": "2003-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vuj5b9ucz04dhmz",
+      "agents": "klmzscnh01mej5u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.650Z"
+    }
+  ]
+}

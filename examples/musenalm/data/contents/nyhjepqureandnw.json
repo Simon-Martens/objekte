@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "499",
+  "incipit_statement": "An einem der letzten Februartage des Jahres 1815 kam uns von Wörlitz die Kunde nach Stuttgart, Vater Schoch liege schwer darnieder und werde nach jeder Wahrscheinlichkeit nicht wieder aufkommen.",
+  "language": [],
+  "musenalm_id": 40697,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Gegenwart und Vergangenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Gegenwart und Vergangenheit",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xw4gvnsk3laingf",
+      "agents": "z3510nlbg6hd1qt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.799Z"
+    }
+  ]
+}

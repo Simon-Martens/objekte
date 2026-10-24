@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 120913, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Auf dem Schiffe des Piraten, / Hoch im Schaum der Wogen fliegend, / Weint des Herzogs schöne Tochter,",
+  "language": [],
+  "musenalm_id": 120920,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Pirat. / In zwei Romanzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridolin Freiherr von Wend",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Pirat. / In zwei Romanzen",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rvqo0w54zws7pst",
+      "agents": "9hjrqh1l94hv21m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.752Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Der größte fast einzige furchtbare Aufstand des Volkes im türkischen Reiche fand 1420 statt.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.721Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Männer gibt es, welche die Menschheit heilig spricht, nicht eine auf Zeit privilegirte Rotte hie und da.",
+  "language": [],
+  "musenalm_id": 2036,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Der Gekreuzigte / oder / Nichts Altes unter der Sonne. / Novelle. / Die Welt ist schaffbar, ein Kind mit großen, / Anlagen, eine große Anlage in Kinderhänden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Der Gekreuzigte / oder / Nichts Altes unter der Sonne. / Novelle. / Die Welt ist schaffbar, ein Kind mit großen, / Anlagen, eine große Anlage in Kinderhänden",
+  "updated": "2000-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rz708fc1uhv4bmm",
+      "agents": "rlu2d4ml9zlhov2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.984Z"
+    }
+  ]
+}

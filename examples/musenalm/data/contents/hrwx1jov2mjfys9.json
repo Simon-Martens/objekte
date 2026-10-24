@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Die vesten Burgen der Jungfrauschaft / Hat Zeit und Sitte so weggerafft,",
+  "language": [],
+  "musenalm_id": 37379,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zeitglosse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. A. W. v. Kyaw",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zeitglosse",
+  "updated": "2001-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gl9a38r4at9a1u7",
+      "agents": "3euwjw9rlb5537y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.885Z"
+    }
+  ]
+}

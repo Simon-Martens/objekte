@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Lieder (INr 93545, Obj 54) Dem Gedicht vorangestellt: Hic mihi praeter omnes terrarum / Anguus ridet. / Horatius",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Wohl hat schöner Wälder Italien viel / Von blüthenvoll-durftenden Bäumen:",
+  "language": [],
+  "musenalm_id": 93559,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied vom Schlosse Treuenstein",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ermin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied vom Schlosse Treuenstein",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i4g8rqu30o5888x",
+      "agents": "789wjmtdto8ioae",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.037Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt zu Meister Heinrich: Heinrich Dannecker",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "In geist'ger Zeugungsqual, vertieft in Seelenfleiß, / Vom wallenden Geblüt' die Stirn, die Wangen heiß, / Lag Meister Heinrich spät",
+  "language": [],
+  "musenalm_id": 62675,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Meister und das Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Robert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Meister und das Kind",
+  "updated": "2009-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "okbaixgfo95343h",
+      "agents": "shwrrrsohbx2ih5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.859Z"
+    }
+  ]
+}

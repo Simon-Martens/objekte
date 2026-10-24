@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers: Geschrieben im September 1798",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Die Stürme des Krieges haben seit zwei Jahren die Fortsetzung dieses, sonst in Mannheim erschienenen, mit allgemeinem Beifalle aufgenommenen Taschenbuchs verhindert. Jetzt erscheint es in ruhigeren Gegenden.",
+  "language": [],
+  "musenalm_id": 101223,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2014-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g23ewdcdc5ig5cy",
+      "agents": "ii78f2x1yo6pd2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.981Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) mit einer Übersetzung s. Gedicht INr 96692, Obj 17 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96679, 96680; Obj 4, 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Un jour deux Pélerins sur le sable rencontrent / Une Huître que le flot y venoît / d'apporter;",
+  "language": [],
+  "musenalm_id": 96693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / L'huitre et les Plaideurs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / L'huitre et les Plaideurs",
+  "updated": "2014-05-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j97lypospgwt9x3",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.832Z"
+    }
+  ]
+}

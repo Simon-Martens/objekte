@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 30078, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Nic. de Largilliere pinx. Fr. Stöber sc. Viennae)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nic. de Largilliere pinx. Fr. Stöber sc. Viennae",
+  "scans": [
+    "alm_390_30079_s80xw0sk9b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u3aai6qmykr4872",
+      "agents": "32tsnaa8ukbne3a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.352Z"
+    },
+    {
+      "id": "omwgbys6uv42fvy",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.352Z"
+    }
+  ]
+}

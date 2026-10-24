@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35791,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nro. 3. Walzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Kunze",
+  "scans": [
+    "alm_489_35791_281ie7taxp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nro. 3. Walzer",
+  "updated": "2003-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vu0cr38foyk0zl8",
+      "agents": "fwuqoacyjd1urf1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.719Z"
+    }
+  ]
+}

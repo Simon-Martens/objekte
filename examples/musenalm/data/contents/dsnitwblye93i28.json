@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Graphik im Kalendarium März; über der Graphik: Lebensbilder 2. P. 13; Illustration zu »Lebensbilder« von C. Burger INr</div>",
+  "content_type": [],
+  "created": "2026-08-04T09:59:09.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140260,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alles begleitete jubelnd das Brautpaar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kotterba",
+  "scans": [
+    "alm_5001_140260_en37ecpr2a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Alles begleitete jubelnd das Brautpaar",
+  "updated": "2026-08-05T10:04:41.260Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "cq6qer885jq8647",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-04T10:00:43.796Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-05T10:04:41.259Z"
+    }
+  ]
+}

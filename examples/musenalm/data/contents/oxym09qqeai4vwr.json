@@ -1,0 +1,45 @@
+{
+  "annotation": "Glossen (Sammlung INr 14869, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Laßt den Glauben in Ruh, fest stehen Pilaster und Säulen, / Durch die Wölbung wirft huldreich der Himmel das Licht.",
+  "language": [],
+  "musenalm_id": 14873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Laßt den Glauben in Ruh, fest stehen Pilaster und Säulen, / Durch die Wölbung wirft huldreich der Himmel das Licht.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Baldamus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6h8dxme6s3wygry",
+      "agents": "gvrm573djft0g9v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.459Z"
+    }
+  ]
+}

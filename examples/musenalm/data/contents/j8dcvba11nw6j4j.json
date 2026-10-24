@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 10. /) Graphik im Kalendarium Juli /) Illustration zu »Herr Lorenz Stark. Ein Charaktergemälde« von J. J. Engel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70336,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der arme Schlicht!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Study del. D. Berger sc. 1808",
+  "scans": [
+    "alm_821_70336_56b9hiwsh4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der arme Schlicht!",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j6oqjtlos2gdgpm",
+      "agents": "rcmptupq08d0ih1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.501Z"
+    },
+    {
+      "id": "9vunqg4ke4afgvn",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.501Z"
+    }
+  ]
+}

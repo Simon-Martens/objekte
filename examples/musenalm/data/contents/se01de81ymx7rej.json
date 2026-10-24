@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wie ich's aushakte auf meinem einsamen Berge: ob und wie ich der langen Weile entgehe; hier, wo so viel Zerstreuungen des geselligen Lebens umsonst gesucht werden;",
+  "language": [],
+  "musenalm_id": 52976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Wanderung / auf die Höhen am Thunersee in der / Gemeinde Sigriswyl. / Aus einem Tagebuch des Verfassers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Wanderung / auf die Höhen am Thunersee in der / Gemeinde Sigriswyl. / Aus einem Tagebuch des Verfassers",
+  "updated": "2007-11-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ygvfy5o3v4kmxl",
+      "agents": "0v61flsplw084qp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.627Z"
+    }
+  ]
+}

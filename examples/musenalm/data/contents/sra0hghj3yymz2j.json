@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Zieh, holde Braut mit unserm Segen, / Zieh hin auf Hymens Blumenwegen!",
+  "language": [],
+  "musenalm_id": 33668,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Demoiselle Slevoigt / bey ihrer Verbindung / mit / Herrn D. Sturm / am10ten Oktober 1797. / von / einer mütterlichen und fünf schwesterlichen / Freundinnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Demoiselle Slevoigt / bey ihrer Verbindung / mit / Herrn D. Sturm / am10ten Oktober 1797. / von / einer mütterlichen und fünf schwesterlichen / Freundinnen",
+  "updated": "2003-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zh90msoz9echxnm",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.528Z"
+    }
+  ]
+}

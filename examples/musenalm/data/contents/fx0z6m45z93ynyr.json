@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.441Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17424,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MUSEN- / ALMANACH. / 1801. / Göttingen, / in der Dieterichischen Buchhandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fiorillo del. R. fec.",
+  "scans": [
+    "alm_106_17424_2wzwelrdlh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MUSEN- / ALMANACH. / 1801. / Göttingen, / in der Dieterichischen Buchhandlung",
+  "updated": "2001-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "56q4cqv4chmfvqf",
+      "agents": "82hnuogab8tns1x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.751Z"
+    },
+    {
+      "id": "l7605a03lbu5zh3",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.751Z"
+    }
+  ]
+}

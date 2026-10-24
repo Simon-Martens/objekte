@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63497, Obj 32) mit Hinweis am Objekt auf Graphik in Cornelia 1832: INr 63411",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "316",
+  "incipit_statement": "Sie sitzen an der Quelle, / Im trauten, stillen Thal;",
+  "language": [],
+  "musenalm_id": 63499,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Seejungfrau. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Seejungfrau. / Ballade",
+  "updated": "2009-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hb0bojl3ygckcjh",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.046Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 99069, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Hinunter warf er in den Schacht / Ein brennend Bündel Stroh;",
+  "language": [],
+  "musenalm_id": 99071,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Strohbündel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. X. Schurz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Strohbündel",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6ztyffx8kqrwfv3",
+      "agents": "m6v439nrgynzyi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.933Z"
+    }
+  ]
+}

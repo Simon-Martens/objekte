@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.527Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Es hatt' auf einem hohen Baum / Der Vögel Königin den Obersitz genommen.",
+  "language": [],
+  "musenalm_id": 92353,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Adler, die Sau und die Katze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hagedorn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Adler, die Sau und die Katze",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "es7y40yu3wvocpu",
+      "agents": "b9k8fa9bjxcqs84",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.403Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.403Z"
+    }
+  ]
+}

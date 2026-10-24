@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anmerkung des Hrsg am Objekt mit Hinweis auf O. H. v. Löbens Tod am 4. 4. 1825",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.430Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "419",
+  "incipit_statement": "Du, gern dich spiegelnd in dem bunten Glanze / Der Dichtergärten, wo Sonett, Canzone,",
+  "language": [],
+  "musenalm_id": 20757,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Otto Heinrich Graf von Löben #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Otto Heinrich Graf von Löben #",
+  "updated": "2002-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nrwshji7m31cx89",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.979Z"
+    }
+  ]
+}

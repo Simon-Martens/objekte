@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Mechtilde von Rapperswyl. Eine Geschichte aus dem dreyzehnten Jahrhundert« von J. C. Appenzeller INr 53295, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53296,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (L. Vogel del. M. Esslinger sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Vogel del. M. Esslinger sc.",
+  "scans": [
+    "alm_730_53296_hgwdql53y9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-12-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pb5ily3u6t78cxj",
+      "agents": "rulw2hr8i9rnw0n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.768Z"
+    },
+    {
+      "id": "gvme50mptogyf8m",
+      "agents": "zfprrqdgr3ky9ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.768Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Wo aber werd' ich sein im künft'gen Lenze? / So frug ich sonst wohl, wennn beim Hüte schwingen / In's Thal wir ließen unser Lied erklingen,",
+  "language": [],
+  "musenalm_id": 111632,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der verspätete Wanderer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Karl Benedict Freiherr von Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der verspätete Wanderer",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ealkq3w6yvaibej",
+      "agents": "h99uxdryiugeh6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.430Z"
+    }
+  ]
+}

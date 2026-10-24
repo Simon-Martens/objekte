@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Sorrento« von Georg Arnold Jakobi INr 62028, Obj 120",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.191Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Heß)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heß",
+  "scans": [
+    "alm_1016_62029_yvn16xy0p2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ejk7m492h8kzwy7",
+      "agents": "dvhp1mfxgvurunq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.983Z"
+    }
+  ]
+}

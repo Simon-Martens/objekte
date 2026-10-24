@@ -1,0 +1,45 @@
+{
+  "annotation": "Krieg der fränkischen Nation gegen die coalirten Mächte Europens. Jahrgang 1799 (Sammlung INr 9171, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Am 1. März gieng der General Jourdan, an der Spitze der Mainzer Armee, die izt den Namen Donau Armee erhielt, von Strasburg aus über die Brücke von Kehl",
+  "language": [],
+  "musenalm_id": 9173,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Abschnitt. / Jourdan geht bei Kehl über den Rhein, / und rükt schnell an die Quellen des Neckars und der Donau vor. Bernadotte besezt Mannheim und fordert Philippsburg auf. [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Abschnitt. / Jourdan geht bei Kehl über den Rhein, / und rükt schnell an die Quellen des Neckars und der Donau vor. Bernadotte besezt Mannheim und fordert Philippsburg auf. [...]",
+  "updated": "2001-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kcxsnnx1ssp12ai",
+      "agents": "b68wiq4xeilaqf3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.391Z"
+    }
+  ]
+}

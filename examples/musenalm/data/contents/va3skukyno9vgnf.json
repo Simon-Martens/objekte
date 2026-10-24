@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Das freundliche Haus des Oberbergraths Eichen lag auf der Höhe eines mit dem sanftesten Rasenteppich bedeckten, an der Gebirgswand hervorspringenden Hügels,",
+  "language": [],
+  "musenalm_id": 72217,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Steinkohlengruben. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Rellstab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Steinkohlengruben. / Eine Erzählung",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hhf05tfnrsja3se",
+      "agents": "zi8zh5xhvi7k26j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.658Z"
+    }
+  ]
+}

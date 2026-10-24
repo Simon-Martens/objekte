@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Wunsch, daß dem Inhalte dieses so beliebt gewordenen und gebliebenen Taschenbuches zuweilen auch ein Aufsatz ernsthafter, vielleicht belehrender Art, beigegeben werden möge,",
+  "language": [],
+  "musenalm_id": 20999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Krieg Friedrichs des Zweiten / gegen seine Feinde in den Jahren / 1756-1763",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Heinr. Gottlieb Heusinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Krieg Friedrichs des Zweiten / gegen seine Feinde in den Jahren / 1756-1763",
+  "updated": "2002-01-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nxoqkte67f4zs6z",
+      "agents": "bnhkyng1ef2zior",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.862Z"
+    }
+  ]
+}

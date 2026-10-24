@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März s. Textbezug INr 58882, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58855,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mexico",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mauch del. nach Ward. J. G. Martini sc. Rudolstadt 1829",
+  "scans": [
+    "alm_865_58855_8s16ab4k45.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mexico",
+  "updated": "2008-07-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tdv6luh0bz72vwq",
+      "agents": "4qmuru1kuzg7ngl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.961Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.961Z"
+    },
+    {
+      "id": "kejdbsppny7hsss",
+      "agents": "bix4netz2kpq0qd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.962Z"
+    }
+  ]
+}

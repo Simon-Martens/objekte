@@ -1,0 +1,45 @@
+{
+  "annotation": "Auflösung der vorstehenden 7 Rätsel INr 78469-78475, Obj 124-130",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auflösung der Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stoll",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auflösung der Räthsel",
+  "updated": "2011-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g7ph171cwprwtx7",
+      "agents": "3csio4i9ab77igj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.951Z"
+    }
+  ]
+}

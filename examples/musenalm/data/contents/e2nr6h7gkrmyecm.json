@@ -1,0 +1,45 @@
+{
+  "annotation": "An J. G. Jacobi, nach dem Verluste seines einzigen Sohns (Sammlung INr 16620, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Mein Vater schlägt die Leyer, / Sein höchstes Ehrengut,",
+  "language": [],
+  "musenalm_id": 16623,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Fritz Jacobi an Vater Jacobi / 3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Fritz Jacobi an Vater Jacobi / 3.",
+  "updated": "2001-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "53g7t0lu0teq52f",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.723Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Gedicht INr 116503, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116504,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MUTTERLIEBE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franceschini pinx. Kovatsch sculps.",
+  "scans": [
+    "alm_2720_116504_mjbq1gsgyx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MUTTERLIEBE",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hwr6e02mwtwlz0g",
+      "agents": "lszhmg1bcftf05a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.578Z"
+    },
+    {
+      "id": "zbocuamimrovq5y",
+      "agents": "7b9443ro2tn4o8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.578Z"
+    }
+  ]
+}

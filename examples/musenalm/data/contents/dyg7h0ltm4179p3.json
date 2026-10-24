@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Italiänischen des Michel Angelo. In seinem hohen Alter. (Sammlung INr 51420, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.206Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Schwache Seele, da der Jahre Feile / Deinen Körper stündlich abnagt:",
+  "language": [],
+  "musenalm_id": 51422,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwache Seele, da der Jahre Feile / Deinen Körper stündlich abnagt:…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herder 1779",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qrxqn7pv4o0v3vd",
+      "agents": "stasese2l43xq94",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.487Z"
+    }
+  ]
+}

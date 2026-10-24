@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Auf einem Schlosse der Vogesen, / Das Blizburg heist, / Spukt, wie wir in der Chronik lesen, / Ein Poltergeist",
+  "language": [],
+  "musenalm_id": 2780,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pipin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L-p.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pipin",
+  "updated": "2000-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "76u0kkfy6hbc4c8",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.716Z"
+    }
+  ]
+}

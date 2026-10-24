@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 46379-46381, Obj 223-225",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46378,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 222,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gelegentliches",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Bodenstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gelegentliches",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uzw79s9vkqp1xlh",
+      "agents": "3bb8mhymqsjn5dk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.329Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.329Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Das artige Mädchen beym Spinnrad« INr 58601, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.457Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58600,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (J. G. Schicht)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Schicht",
+  "scans": [
+    "alm_624_58600_lt9ww21tvd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uthn1fhv3wieu5j",
+      "agents": "f1y05etpbhr9y4h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.740Z"
+    }
+  ]
+}

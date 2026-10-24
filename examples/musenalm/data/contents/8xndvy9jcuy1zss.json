@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Brüder, schenket ein! / Trinket deutschen Wein, / Trinket freies Blut!",
+  "language": [],
+  "musenalm_id": 21363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Armbruster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ys7ddqyso10x6y8",
+      "agents": "at81kdy5mbfogcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.849Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.849Z"
+    }
+  ]
+}

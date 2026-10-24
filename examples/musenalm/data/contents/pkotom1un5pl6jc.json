@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Karl Wenzeslaus von Rottek »Die Eroberung Konstantinopels durch die Türken« in »Iris. Ein Taschenbuch für 1810. Herausgegeben von J. G. Jacobi. Zürich, bey Orell, Füßli und Compagnie« Alm-258, S. 73, Obj 16389",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Auf dem ehrwürdigen, jedoch morschen Throne Constantinus des Großen saß, nach langer Folge und oftmals blutigem Wechsel von Kaisern und Kaisergeschlechtern, Contantinus der eilfte, Paläologus.",
+  "language": [],
+  "musenalm_id": 131871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Die Eroberung / Constantinoples durch die Türken. / (Abgedruckt aus der Iris 1810)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl von Rottek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Die Eroberung / Constantinoples durch die Türken. / (Abgedruckt aus der Iris 1810)",
+  "updated": "2013-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hnpp7edqr5nr4ex",
+      "agents": "x7zrd53b03vqn3u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.041Z"
+    }
+  ]
+}

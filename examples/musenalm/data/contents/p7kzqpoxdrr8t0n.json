@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.215Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Das gemeine Volk ist im Ganzen gesittet. Gewerbe und Verkehr, den eine neue Stadtpost befördert, sind fortwährend im Steigen.",
+  "language": [],
+  "musenalm_id": 44979,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Deutschland] [Eigenthümliches einzelner Länder und Städte.] Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Deutschland] [Eigenthümliches einzelner Länder und Städte.] Berlin",
+  "updated": "2006-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g7x6zj76c9apshr",
+      "agents": "b96jiypecb45ptj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.384Z"
+    }
+  ]
+}

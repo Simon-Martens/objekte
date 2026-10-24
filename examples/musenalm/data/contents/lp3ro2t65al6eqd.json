@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 120351, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.446Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Der Tag ist hingegangen, / Der Abend stellt sich ein; / Schon glüht auf allen Wangen / Sein holder Widerschein",
+  "language": [],
+  "musenalm_id": 120352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Im Dorfe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Im Dorfe",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bwtkc2z10x26en3",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.716Z"
+    }
+  ]
+}

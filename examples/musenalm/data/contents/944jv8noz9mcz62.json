@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.457Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Den kleinen guten Mädchen bin / Ich immer gut gewesen,",
+  "language": [],
+  "musenalm_id": 3456,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Knabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Giseke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Knabe",
+  "updated": "2000-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mqn8ritrvffx5by",
+      "agents": "41u796off43ym0d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.101Z"
+    }
+  ]
+}

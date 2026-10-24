@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Ein Kaufmann sitzt beim Kontobuch, / Und sucht nach Ziffern; doch ein Fluch / Verwandelt ihm Alles in Augen,",
+  "language": [],
+  "musenalm_id": 95347,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwei Augen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fernand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwei Augen",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vodep9fyefhvnsm",
+      "agents": "big4tm69ocucym5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.295Z"
+    }
+  ]
+}

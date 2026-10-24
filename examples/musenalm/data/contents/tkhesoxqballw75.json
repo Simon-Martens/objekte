@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Düstrer Jüngling, und Du, des Düstern lieblicher / Bruder / Sanft an einander geschmiegt ruht ihr im / Schleyer der Nacht.",
+  "language": [],
+  "musenalm_id": 88659,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Söhne der Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fernow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Söhne der Nacht",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xbe9sn02m0a5l4u",
+      "agents": "29znr1cu0wo4ctf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.927Z"
+    }
+  ]
+}

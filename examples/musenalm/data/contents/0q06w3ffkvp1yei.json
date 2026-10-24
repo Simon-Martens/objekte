@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 27923, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27924,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JOEL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. R.",
+  "scans": [
+    "alm_358_27924_rl89tg80u6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "JOEL",
+  "updated": "2002-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hvktwdvhkw42z7b",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.296Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Wie? Du spottest der Frühlingsblumen auf / greisendem Haupte?",
+  "language": [],
+  "musenalm_id": 17457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Toskar: / Als er über die sechzigjährige, ju- / gendlich geschmückte Corinna / spottete",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. W. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Toskar: / Als er über die sechzigjährige, ju- / gendlich geschmückte Corinna / spottete",
+  "updated": "2001-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tnpc6ojh3euqpfu",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.823Z"
+    }
+  ]
+}

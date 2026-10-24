@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 105096, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Verwundete von Amors Pfeilen, / Ihr deren krankes Herz zu heilen, / Gott Hymen lachend heut erscheint:",
+  "language": [],
+  "musenalm_id": 105109,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Herrn Bek zu Mannheim / und an / Demoiselle Ziegler, / an / ihrem Brauttage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gotter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Herrn Bek zu Mannheim / und an / Demoiselle Ziegler, / an / ihrem Brauttage",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "79r1xlfqiio9q6g",
+      "agents": "hu6ba8zv7wtaxe9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.205Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.205Z"
+    }
+  ]
+}

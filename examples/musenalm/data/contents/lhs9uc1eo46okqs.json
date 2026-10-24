@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 27401, Obj 128)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Die Lichter brennen nieder, / Der Liebste kehrt nicht wieder,",
+  "language": [],
+  "musenalm_id": 27403,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Einsamen Liebchens Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. H. Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Einsamen Liebchens Lied",
+  "updated": "2002-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "on2kolp9z9zlpdp",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.444Z"
+    }
+  ]
+}

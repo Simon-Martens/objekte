@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Laut schallen die entflammten Chorgesänge, / In Lieb' und Andacht still Gebete glühen,",
+  "language": [],
+  "musenalm_id": 19643,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kirche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Messerschmid",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Kirche",
+  "updated": "2001-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "818b8t82ctrbwcv",
+      "agents": "08be5slqlt4odk1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.990Z"
+    }
+  ]
+}

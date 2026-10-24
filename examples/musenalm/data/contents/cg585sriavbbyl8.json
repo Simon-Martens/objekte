@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30620, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Fort eilt die schöne blasse Maid, / Will über Thal und Berge.",
+  "language": [],
+  "musenalm_id": 30622,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Ferge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ph. H. Welcker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Ferge",
+  "updated": "2002-11-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "caklvwg5a2x62t3",
+      "agents": "c2o5asnj6lueudj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.495Z"
+    }
+  ]
+}

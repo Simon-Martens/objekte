@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Blatt, Widmungsgedicht",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wenn im Kampf mit Lieb’ und Leben / Sich das Aug’ erhebet kühn / Wagt die Hand den Ring zu geben",
+  "language": [],
+  "musenalm_id": 120328,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WIDMUNG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl",
+  "scans": [
+    "alm_1789_120328_y2npycuojj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WIDMUNG",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f8q8acr6xvfi0lm",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.743Z"
+    }
+  ]
+}

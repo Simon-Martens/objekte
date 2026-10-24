@@ -1,0 +1,45 @@
+{
+  "annotation": "Auszüge aus Briefen (Sammlung INr 56231, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.072Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Meine Kirchenmusik auf das drey Königsfest ist zur Zufriedenheit ausgefallen.",
+  "language": [],
+  "musenalm_id": 56234,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Cöln den 11. April 1776",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmittbaur",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Cöln den 11. April 1776",
+  "updated": "2008-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g5atuzehvvb5jb1",
+      "agents": "b46jfbgxw32mfow",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.833Z"
+    }
+  ]
+}

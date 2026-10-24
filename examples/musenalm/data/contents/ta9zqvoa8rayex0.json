@@ -1,0 +1,45 @@
+{
+  "annotation": "Erinnerungen aus Italien (Sammlung INr 14508, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Also heute soll ich dich erblicken, / Herrlichstes der Wunder dieser Erde,",
+  "language": [],
+  "musenalm_id": 14512,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Vor Rom. / Canzone. / (Den 9. Dezember 1809, als am Morgen desselben Tages / gedichtet, an dem ich zu Rom anlangte.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Z. Werner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Vor Rom. / Canzone. / (Den 9. Dezember 1809, als am Morgen desselben Tages / gedichtet, an dem ich zu Rom anlangte.)",
+  "updated": "2001-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sxcqbeiy31ygr2e",
+      "agents": "g7f1xv6d8kkyhx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.744Z"
+    }
+  ]
+}

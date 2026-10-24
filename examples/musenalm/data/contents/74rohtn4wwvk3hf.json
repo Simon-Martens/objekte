@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Die beyden ersten Jahre dieses neuen Jahrhunderts waren dem Forstwesen leider! nicht günstiger, als das traurige Schlußjahr des vorigen,",
+  "language": [],
+  "musenalm_id": 66605,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Beitrag zur Hessischen Forst- und Jagdchronik der Jahre 1801. 1802 und 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Beitrag zur Hessischen Forst- und Jagdchronik der Jahre 1801. 1802 und 1803",
+  "updated": "2009-09-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0tr0x5nvgvaovwt",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.183Z"
+    }
+  ]
+}

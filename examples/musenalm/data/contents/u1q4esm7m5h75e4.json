@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 63768, Obj 8 /)  Illustration zu »Eine einfache Geschichte« von Curio INr 63781, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63774,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Laura #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Wright pinx. J. Fleischmann sculps.",
+  "scans": [
+    "alm_1047_63774_uat9je1d7o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Laura #",
+  "updated": "2009-04-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q7ybgo49gulvexa",
+      "agents": "9lorjkhsnx1rkjc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.054Z"
+    }
+  ]
+}

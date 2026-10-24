@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Umgebungen von Carlsbad. Fünfter Spaziergang. Vier-Uhr-Promnenade, Theresien-Plätzchen, Dichterbank. Stahlsbuche, Hammerfahrt-Straße, Sitz der Freunde, Narischkin-Platz, Hammer« von Fr. Sartori; INr 92175, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Mit der Freude lichten Träumen / Saßen wir im muntern Kranz,",
+  "language": [],
+  "musenalm_id": 92177,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Tepl-Thal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Tepl-Thal",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2315odhljco4u74",
+      "agents": "epma680nee4q5et",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.372Z"
+    }
+  ]
+}

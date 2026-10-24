@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Mein Auge kennt, bei Gott! kein schön'res Bild, / Als wenn die Mähn' das Roß umflattert wild,",
+  "language": [],
+  "musenalm_id": 104291,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Pferd. / (Nach einem französichen Vorbilde.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Wihl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Pferd. / (Nach einem französichen Vorbilde.)",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kz78doixptgv49p",
+      "agents": "z9zzha2tz10lf47",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.914Z"
+    }
+  ]
+}

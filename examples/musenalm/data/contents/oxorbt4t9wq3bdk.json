@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Finster und in sich gekehrt, von der seltsamen Laune seiner Geliebten, des schönen Fräuleins Rosaura von Haldenbach, stand der junge Garderittmeister, Graf Julius Wildeck, in ein Fenster gelehnt,",
+  "language": [],
+  "musenalm_id": 39736,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Rosaura und ihre Verwandten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedich Baron de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Rosaura und ihre Verwandten",
+  "updated": "2005-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5mcxuehuf5374mu",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.181Z"
+    }
+  ]
+}

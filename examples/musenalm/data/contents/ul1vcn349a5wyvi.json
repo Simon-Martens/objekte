@@ -1,0 +1,58 @@
+{
+  "annotation": "beschriftet: Jahrg.1808. Tab. IV /) kol. Illustration zu »Der Rohrdommel« von v. Wildungen INr 102392, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ardea stellaris. Der grosse Rohrdommel. / Männchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Susemihl del. G. Boettger senior sc. 1807",
+  "scans": [
+    "alm_1141_102391_72iev07efl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ardea stellaris. Der grosse Rohrdommel. / Männchen",
+  "updated": "2009-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zejg7rg2jxlcvs8",
+      "agents": "0krc3qfy4wkj0vx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.990Z"
+    },
+    {
+      "id": "v3qyw9d45bhgozd",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.990Z"
+    }
+  ]
+}

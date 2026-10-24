@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 8. Graphik im Kalendarium Juni /) Illustration zu »Die beiden Hauptleute« von Fouqué s. Textbezug INr 69003, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68984,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zauberjungfrau!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. Meno Haas",
+  "scans": [
+    "alm_851_68984_7uo9i0wu7a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Zauberjungfrau!",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5s9fppikxj63rpx",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.964Z"
+    },
+    {
+      "id": "pehvn6yobfpzhgw",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.964Z"
+    }
+  ]
+}

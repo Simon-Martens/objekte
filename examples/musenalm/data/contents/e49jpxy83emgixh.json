@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Gedichte (Sammlung INr 67500, Obj 55) mit einer Illustration s. Graphik INr 67508, Obj 63",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Jüngst hielt mich ein bösliches Fieber / Ans Krankenbett schmerzlich gebannt,",
+  "language": [],
+  "musenalm_id": 67509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Der Tod und der kranke Jäger. / (Mit einer Abbildung.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Der Tod und der kranke Jäger. / (Mit einer Abbildung.)",
+  "updated": "2009-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jnliue642lkw7wj",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.094Z"
+    }
+  ]
+}

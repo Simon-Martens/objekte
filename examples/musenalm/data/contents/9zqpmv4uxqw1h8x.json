@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers; s. vorangestelltes Gedicht INr 108933, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Dies alles, liebe Mitbrüder in Dianen, ist wahr und schön. Da wir aber doch hoffentlich alle eben so wenig an den ewigen wilden Jäger, als an den ewigen Juden glauben, da, seitdem die Jagd - in der Vorzeit nur Handwerk ! - zu einer Wissenschaft",
+  "language": [],
+  "musenalm_id": 108934,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dies alles, liebe Mitbrüder in Dianen, ist wahr und schön.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dies alles, liebe Mitbrüder in Dianen, ist wahr und schön.",
+  "updated": "2015-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ndwao2c3i9u9voq",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.628Z"
+    }
+  ]
+}

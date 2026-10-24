@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Warum wirkt die Natur mit so stiller Gewalt / und so vielfach?",
+  "language": [],
+  "musenalm_id": 17445,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Achtung fremder Geisteskräfte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Achtung fremder Geisteskräfte",
+  "updated": "2001-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ald28vttzitrsgc",
+      "agents": "lw3uqo50dp1mpif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.754Z"
+    }
+  ]
+}

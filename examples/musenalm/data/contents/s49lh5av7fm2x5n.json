@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik im Kalendarium INr 59468, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Ein holdes Kind lehnt strickend / In ihres Hauses Thür;",
+  "language": [],
+  "musenalm_id": 59476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Hessisches Landmädchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Hessisches Landmädchen",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ew1w8k2tci7tsgu",
+      "agents": "ozyc7qe9178qexh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.891Z"
+    }
+  ]
+}

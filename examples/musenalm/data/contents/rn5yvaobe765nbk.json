@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 106 /) Illustration zu »Die Familie de Villenes, oder der Patriotismus« INr 46930, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Mechau del. D. Berger fecit 1787)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mechau del. D. Berger fecit 1787",
+  "scans": [
+    "alm_633_46932_7yy3znhndn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ylv5warwh1ojzx1",
+      "agents": "37z1qs9sbpbcupa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.321Z"
+    },
+    {
+      "id": "4qyn97c2pr1dto4",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.321Z"
+    }
+  ]
+}

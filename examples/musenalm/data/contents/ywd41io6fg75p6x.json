@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 123436, Obj 4; # Bezeichnung aus den Vorworten bis Jg. 1806",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Ach ich Unglückliche! Drei Freier belagern mich",
+  "language": [],
+  "musenalm_id": 123437,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Seeschlacht und die Meerkatze. / Posse in einem Act",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Seeschlacht und die Meerkatze. / Posse in einem Act",
+  "updated": "2018-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "86d2cbvqlrgmypq",
+      "agents": "sse24vstbh0jbtd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.754Z"
+    }
+  ]
+}

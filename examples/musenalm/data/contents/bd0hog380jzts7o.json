@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Unsterblichkeit, süß, süß bist du dem Herzen, / Wenn dich die schauernde Seele denkt;",
+  "language": [],
+  "musenalm_id": 53821,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In meiner bittersten Stunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Henne",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In meiner bittersten Stunde",
+  "updated": "2008-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4iufrz4j2zbfxdo",
+      "agents": "3t53mmczik0g6qz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.538Z"
+    }
+  ]
+}

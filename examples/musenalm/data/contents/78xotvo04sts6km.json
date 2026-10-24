@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Frühling« von H. Stieglitz INr 42704, Obj 237",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 236,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Frühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bernhard Klein",
+  "scans": [
+    "alm_560_42703_0ytp0n66hx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Frühling",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "anr2t314nd0d6eq",
+      "agents": "xrgqje7nclydrb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.188Z"
+    }
+  ]
+}

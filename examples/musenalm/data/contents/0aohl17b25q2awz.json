@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Durch die hohen Himmelsträume / treibt der jähe Sturm die Wolken, / und der Mond, die dunklen säumend / Mit dem flücht'gen Sibersaume",
+  "language": [],
+  "musenalm_id": 75086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Der Renegat. / Erzählung. / Begonnen auf den Ruinen von Pästum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Ernst Raupach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Der Renegat. / Erzählung. / Begonnen auf den Ruinen von Pästum",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z97thzav4izheyz",
+      "agents": "uxyu52yd3v030gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.726Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung: Schubert del. am ersten Blatt; Bezeichnung: Riepenhausen sculps. am letzten Blatt der Suite. Folgen des Kriegs: Graphik im Kalendarium paginiert 3. s. Textbezug 7208, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7170,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ackerbau",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. # Riepenhausen sculps.",
+  "scans": [
+    "alm_145_7170_om5ngadhrh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ackerbau",
+  "updated": "2000-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zoot6qg1ddzkhke",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.258Z"
+    },
+    {
+      "id": "hn3xl41l0atbr7y",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.258Z"
+    }
+  ]
+}

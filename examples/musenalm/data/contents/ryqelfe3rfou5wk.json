@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ida von Ramschwag« von A. Schreiber INr 62429, Obj 98",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Arnulf / und Ida von Ramschwag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz del. C. F. sc. Darmstadt",
+  "scans": [
+    "alm_1024_62430_qzsfvdy7d5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Arnulf / und Ida von Ramschwag",
+  "updated": "2009-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "elc1k9nlbyy7kln",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.009Z"
+    },
+    {
+      "id": "ysazx5e6hy6r2hy",
+      "agents": "kacgedziyeqhpsh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.009Z"
+    }
+  ]
+}

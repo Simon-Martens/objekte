@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24823, Obj 104)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Wie dein Blick so lieblich schaute, / Weib, als eben du erwachtest!",
+  "language": [],
+  "musenalm_id": 24824,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Traum der Mutter. / (Traumbuch: A. 1542., den Tag vorher, ehe D. Martini / Tochter zu Wittenberg gestorben, hatte die Mutter diesen / Traum. v. Manlii L. C. ex Philippi lib. medico",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Kugler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Traum der Mutter. / (Traumbuch: A. 1542., den Tag vorher, ehe D. Martini / Tochter zu Wittenberg gestorben, hatte die Mutter diesen / Traum. v. Manlii L. C. ex Philippi lib. medico",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "whd23mioag5iro9",
+      "agents": "dlauvagqjefeu2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.343Z"
+    }
+  ]
+}

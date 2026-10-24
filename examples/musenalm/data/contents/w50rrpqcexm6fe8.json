@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen. Zum Theil nach Plutarch (Sammlung INr 65624, Obj 192) Versuche in gebundener Rede (Sammlung INr 65623, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Was voll und schwunghaft tönt, als wie gedankenschwer,",
+  "language": [],
+  "musenalm_id": 65625,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 193,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was voll und schwunghaft tönt, als wie gedankenschwer,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Adam Seuffert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8b45aqm2hm2r9ke",
+      "agents": "b6lr2rx1hatxube",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.932Z"
+    }
+  ]
+}

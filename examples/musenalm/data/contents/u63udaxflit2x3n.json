@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Ueber Alles die Liebe« von Karl Reinhard INr 4237, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4238,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Alles die Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Forkel",
+  "scans": [
+    "alm_94_4238_1gybtk94jf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Alles die Liebe",
+  "updated": "2000-09-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bf1sy5h84dbrffb",
+      "agents": "xzypb9tyvvvrc9s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.058Z"
+    }
+  ]
+}

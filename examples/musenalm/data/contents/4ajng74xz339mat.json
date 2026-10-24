@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Wer auf die Aeußerungen achten will, die gegenwärtig von verschiedenen Seiten her über die deutsche Bühne laut werden, der kann erfahren, daß durch die jetzigen Leistungen derselben eigentlich Niemand zufriedengestellt ist.",
+  "language": [],
+  "musenalm_id": 59156,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Zukunft der deutschen Bühne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Melchior Meyr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Zukunft der deutschen Bühne",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p7marb4kx5itdg9",
+      "agents": "3xjuaca9goettib",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.763Z"
+    }
+  ]
+}

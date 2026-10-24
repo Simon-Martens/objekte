@@ -1,0 +1,45 @@
+{
+  "annotation": "Allemannische Lieder (Sammlung INr 14296, Obj 13) /) Übertragung des Gedichts »Der Winter« von J. P. Hebel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Ist leicht die Baumwoll' oben feil? / Da streun sie uns ein ehrlich Theil",
+  "language": [],
+  "musenalm_id": 14299,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Winter. / ( S. J. P. Hebels Allem. Gedichte. S. 134.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Winter. / ( S. J. P. Hebels Allem. Gedichte. S. 134.)",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lfc1xwl8ns8ppi5",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.639Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. vom Titel /) Graphik im Kalendarium September /) Illustration zu »Der Schiffer und sein Mädchen« INr 114360, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114346,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Troubadour",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Blaschke",
+  "scans": [
+    "alm_4341_114346_bgvkgxxbja.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Troubadour",
+  "updated": "2016-10-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hy0xb04xy6k5q6w",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.280Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. Am 1. Blatt der Suite /) Graphik im Kalendarium paginiert 2. /) Illustration zu »Graf Eberhard« von Fr. Schiller s. Textbezug INr 72479, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72462,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Allein in seinem Zelte sitzt / Der Graf, und eine Thräne blitzt / Im Aug' auf seinen Sohn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. F. W. Bollinger sc.",
+  "scans": [
+    "alm_846_72462_ig5arfe5wq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Allein in seinem Zelte sitzt / Der Graf, und eine Thräne blitzt / Im Aug' auf seinen Sohn",
+  "updated": "2008-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l3d88ptk57agbdp",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.670Z"
+    },
+    {
+      "id": "79vlsuq11njj8lk",
+      "agents": "xudps8vzrobe0d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.670Z"
+    }
+  ]
+}

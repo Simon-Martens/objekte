@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 69017, Obj 6) s. Graphik INr 69024, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Nun wollen wir uns aber recht breit mit beiden Ellenbogen auf den Schreibtisch legen, und mit wahrem Behagen, mit wahrer Herzenslust das allerliebste einzige Bildchen beschreiben.",
+  "language": [],
+  "musenalm_id": 69023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lf4jg7oiol31rm0",
+      "agents": "6li7ibbf1vr3nv9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.462Z"
+    }
+  ]
+}

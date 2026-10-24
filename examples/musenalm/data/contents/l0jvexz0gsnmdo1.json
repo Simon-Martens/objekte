@@ -1,0 +1,56 @@
+{
+  "annotation": "PETRARCA (s. graph. Zwischentitel INr 71222, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Nicht Sterne, die sich reg' am Himmel schwingen, / Noch Schiffe, gleitend auf den stillen Wellen,",
+  "language": [],
+  "musenalm_id": 71266,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SONETT. / XXXV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SONETT. / XXXV.",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fs4jkyrgjirvvm0",
+      "agents": "jjhjybjbxkieqjg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.420Z"
+    },
+    {
+      "id": "kimhm0uti0224w4",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.420Z"
+    }
+  ]
+}

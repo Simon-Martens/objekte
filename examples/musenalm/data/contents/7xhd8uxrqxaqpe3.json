@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Schwaben (Sammlung INr 99100, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Nur Athmen rings und Träumen, / Ein jedes Auge zu, / Nur ich und du, wir säumen, / Die ewige Liebe, du.",
+  "language": [],
+  "musenalm_id": 99150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachts",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2489ejks9pr3sv3",
+      "agents": "wuncq1n9k4kudbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.902Z"
+    }
+  ]
+}

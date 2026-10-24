@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 12527, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Lebt denn wohl, ihr dumpfen Narren! / Endlich lächelt mir das Glück.",
+  "language": [],
+  "musenalm_id": 12528,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reiselied. / Mit Musik von H. Bergt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gries",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reiselied. / Mit Musik von H. Bergt",
+  "updated": "2001-03-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7bae05g6m2nru7m",
+      "agents": "29ohnryhyvah0tt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.486Z"
+    }
+  ]
+}

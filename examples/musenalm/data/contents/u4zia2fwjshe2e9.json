@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 34294, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34295,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tasso",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ducis pinx. Forssell sculp.",
+  "scans": [
+    "alm_477_34295_266ts9luzw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tasso",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zi3ld0rb1zsw65q",
+      "agents": "vdqu0xk2lucbt9z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.671Z"
+    },
+    {
+      "id": "2l47qq4rk0mv2yf",
+      "agents": "vn5l930p5j41o40",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.671Z"
+    }
+  ]
+}

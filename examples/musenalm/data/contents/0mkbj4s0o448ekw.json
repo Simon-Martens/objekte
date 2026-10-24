@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Sonnett von Treitschke INr 68615, Obj 0,4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68613,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 0.2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "St. MARGARETHA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rapahael d'Urbino pt. F. John sc.",
+  "scans": [
+    "alm_228_68613_92x7i1np7t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "St. MARGARETHA",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ewi6jcjrabvpzcl",
+      "agents": "ztgmm4mptvjp8o3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.472Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.472Z"
+    },
+    {
+      "id": "u0zgu1vd582x8vj",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.472Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.472Z"
+    }
+  ]
+}

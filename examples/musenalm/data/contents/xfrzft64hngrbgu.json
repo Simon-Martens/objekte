@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. u. 2. Blatt der Suite. /) Graphik im Kalendarium März paginiert 3. s. Textbezug im Kalendarium »Loudons Skizze« INr 62284, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62286,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Loudon schlägt den Preussischen / Transport nach Ollmiz und zwiengt / den König die Belagerung aufzuheben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Seb. Mansfeld inv. et fec.",
+  "scans": [
+    "alm_1021_62286_3jvtiahm2o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Loudon schlägt den Preussischen / Transport nach Ollmiz und zwiengt / den König die Belagerung aufzuheben",
+  "updated": "2009-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jgjbqch8awfuxzi",
+      "agents": "ze1m2gdl2g6avu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.129Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Hoch in die Lüfte steigt der Thurm zu Babel, / Als sei ein Schiff das Thal von Schinear,",
+  "language": [],
+  "musenalm_id": 56507,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jubal. / Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Ritter von Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jubal. / Gedicht",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c6vynmtcxtsn6k6",
+      "agents": "e22fzyl0voj5sux",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.883Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Bemerkungen, Anekdoten und Einfälle (Sammlung INr 10664, Obj 19) Prosaische Aufsätze (Sammlung INr 10660, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "In Leipzig erschien eine periodische Schrift über die neuesten Staatsbegebenheiten;",
+  "language": [],
+  "musenalm_id": 10673,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Man könnte noch jetzt manchmal so denken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Man könnte noch jetzt manchmal so denken",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "guddahzhag3nem3",
+      "agents": "6cp00jd21onlhwl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.414Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.414Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Noch so freundlich blickest du / Liebes Thal mir heute zu?",
+  "language": [],
+  "musenalm_id": 3761,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einem / schönen Herbsttage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emilie von Berlepsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einem / schönen Herbsttage",
+  "updated": "2000-09-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "11qxg6mw6aevn29",
+      "agents": "8qf8v6035kmy0ob",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.917Z"
+    }
+  ]
+}

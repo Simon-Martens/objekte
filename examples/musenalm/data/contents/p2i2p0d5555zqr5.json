@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 12. s. Textbezug INr 7038, Obj 56",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.577Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7007,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verzweiflung / Desespoir",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Codowiecki inv. et sc.",
+  "scans": [
+    "alm_141_7007_n0izfax2ak.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Verzweiflung / Desespoir",
+  "updated": "2000-11-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xe0bas4fzlufb3w",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.357Z"
+    }
+  ]
+}

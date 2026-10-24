@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht INr 16374, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Den Schmuck der vollen Wiese mähte / Zum zweyten Mahl des Fleisses rasche Hand;",
+  "language": [],
+  "musenalm_id": 16373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Dame, / die mir im Herbste eine weisse Rose brachte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Dame, / die mir im Herbste eine weisse Rose brachte",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v3fc32mr62g054i",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.785Z"
+    }
+  ]
+}

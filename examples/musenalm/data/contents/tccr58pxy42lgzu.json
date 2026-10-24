@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.118Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Seufze Mitleid, mein Gesang / In Selindens bittre Klage,",
+  "language": [],
+  "musenalm_id": 88355,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf den Tod einer Nachtigall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. L. Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf den Tod einer Nachtigall",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tlx3uc7sjs84lkh",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.036Z"
+    }
+  ]
+}

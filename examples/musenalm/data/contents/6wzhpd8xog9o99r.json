@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder der Trauer (Sammlung INr 45645, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Laß still die Thräne rinnen / Auf deinem Heimatheerd!",
+  "language": [],
+  "musenalm_id": 45652,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Friedrich von Schack",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mmv10waa92c5lj7",
+      "agents": "4irsdlf9sfhpmc0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.452Z"
+    }
+  ]
+}

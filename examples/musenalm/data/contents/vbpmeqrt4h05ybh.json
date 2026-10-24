@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Es war im Frühjahr 1835, als ich die jungen Fürsten von S- auf ihrer Reise durch die Schweiz und das südliche Deutschland begleitete.",
+  "language": [],
+  "musenalm_id": 95134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hundert Gulden! / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. J. Nem mitgetheilt von Franz Stelzhammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hundert Gulden! / Novelle",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4kxuijcyyphsx03",
+      "agents": "a014bqncl68cjih",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.713Z"
+    }
+  ]
+}

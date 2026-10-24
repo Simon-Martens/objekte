@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 8. /) Graphik im Kalendarium August /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 78263, Obj 23 s.a. Textbezug INr 78282, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78252,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wundergleiche Erhaltung des Königs in der / Schlacht bey Cunersdorf am 12. August 1759",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. J. Penzel sc.",
+  "scans": [
+    "alm_928_78252_13bui2n6kk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wundergleiche Erhaltung des Königs in der / Schlacht bey Cunersdorf am 12. August 1759",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vdn553f0me0xn4n",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.921Z"
+    },
+    {
+      "id": "kf27upo53297rqw",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.921Z"
+    }
+  ]
+}

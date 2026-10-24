@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114623,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JULIANNE LÖWE / k.k. Hofschauspielerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mahnke pinx. Da. Weiss sc.",
+  "scans": [
+    "alm_1856_114623_uoikoihllt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "JULIANNE LÖWE / k.k. Hofschauspielerin",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pkwix9o72z81btx",
+      "agents": "3qbv1l8lr4alybw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.538Z"
+    },
+    {
+      "id": "527uqc2zvy5hprb",
+      "agents": "yf7uqcfkp0nwlnb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.538Z"
+    }
+  ]
+}

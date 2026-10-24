@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "In deinem Garten streute, / So sprach die Blumengöttin, / Ich Rosen und Levkojen, / Aurikeln, Primeln, Veilchen,",
+  "language": [],
+  "musenalm_id": 53297,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Göttinn der Blumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Göttinn der Blumen",
+  "updated": "2007-12-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6exg5my7ko2v8na",
+      "agents": "kq69ntdbn8wcwoq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.768Z"
+    }
+  ]
+}

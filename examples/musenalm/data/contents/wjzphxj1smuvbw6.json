@@ -1,0 +1,47 @@
+{
+  "annotation": "Paginiert S. 27. /) Vertonung des Gedichts »Das zärtlich sich liebende Ehepaar« INr 46847, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (G. C. Claudius)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. C. Claudius",
+  "scans": [
+    "alm_632_46848_aavj2y5ivm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-11-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ylsyqzz9ae4ho83",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.986Z"
+    }
+  ]
+}

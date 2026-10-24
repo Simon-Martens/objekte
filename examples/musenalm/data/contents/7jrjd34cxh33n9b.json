@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 120351, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.447Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Horch! Milde Waldhornklänge weh’n / Das Hochgehölz entlang; / Und dennoch läßt kein Wild sich seh’n",
+  "language": [],
+  "musenalm_id": 120354,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Im Walde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Im Walde",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1vfdh08z2xvdz8n",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.716Z"
+    }
+  ]
+}

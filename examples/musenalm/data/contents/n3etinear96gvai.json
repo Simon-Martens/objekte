@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.676Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Laß die Finger leise schweben, / Tausend hohe Farben wehn,",
+  "language": [],
+  "musenalm_id": 12088,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Stickerin und Er",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Stickerin und Er",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kxctoz5qqebdagq",
+      "agents": "ijn3e3gugtz46hh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.285Z"
+    }
+  ]
+}

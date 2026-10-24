@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 36964, Obj 89) s. folgendes Gedicht INr 36970, Obj 95",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Warum soll ich denn nicht schauen / Deiner Augen hellen Schein?",
+  "language": [],
+  "musenalm_id": 36969,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Klage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. Reinick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Klage",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jutpmyglz48wskb",
+      "agents": "d5l254jtrkm9aci",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.721Z"
+    }
+  ]
+}

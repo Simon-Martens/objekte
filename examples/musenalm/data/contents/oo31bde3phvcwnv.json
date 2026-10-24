@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik zum Kalendarium; nummeriert 3. /) # Bezeichnung am ersten Blatt der Suite; s. Anmerkung dort",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.689Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108548,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie Antoinettens letzte Trennung / von ihrer Tochter und der Prinzessin / Elisabeth, in dem Tempel-Thurm",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc.",
+  "scans": [
+    "alm_2173_108548_7gl5md1pu1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marie Antoinettens letzte Trennung / von ihrer Tochter und der Prinzessin / Elisabeth, in dem Tempel-Thurm",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n0acf7isqic42fd",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.392Z"
+    }
+  ]
+}

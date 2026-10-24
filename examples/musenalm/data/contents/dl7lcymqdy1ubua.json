@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.154Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Auf seidnen Wellen schwimmt sie rauschend / her; / Trägt hoch des Busens Reiz zur Schau;",
+  "language": [],
+  "musenalm_id": 88849,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fania",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fania",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kz6rlj4b7jsyujo",
+      "agents": "t3zz4r3fvdi80ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.106Z"
+    }
+  ]
+}

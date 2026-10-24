@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Graf Elmoldt kam von seinen Reisen zurück, der zärtlichen Mutter lebhafte Freude empfing ihn,",
+  "language": [],
+  "musenalm_id": 15096,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wahrheit und Täuschung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie v. Richthofen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wahrheit und Täuschung",
+  "updated": "2001-05-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lzkxulhuuwkh9ma",
+      "agents": "qleot3zmc5qaaxs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.715Z"
+    }
+  ]
+}

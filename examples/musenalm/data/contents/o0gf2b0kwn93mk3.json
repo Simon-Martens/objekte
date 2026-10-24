@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.907Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Was rauschet wie Geistertöne so schaurig durch die Nacht, / Als wären Längstbegrab'ne aus ihrer Gruft erwacht.",
+  "language": [],
+  "musenalm_id": 80618,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Letzte ihres Stammes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Waldow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Letzte ihres Stammes",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j2wwyadykwor209",
+      "agents": "nicecucaceak00n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.965Z"
+    }
+  ]
+}

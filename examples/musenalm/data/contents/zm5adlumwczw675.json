@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "353",
+  "incipit_statement": "Fragen Sie mich nicht, wie eine Blume es angefangen hat, ihre eigne Geschichte zu beschreiben. Wie ich in dem kurzen Laufe meines Lebens von einer Woche, fünf Tagen, neun Stunden und drey und zwanzig Minuten bis zu diesem Augenblick",
+  "language": [],
+  "musenalm_id": 77050,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leben eine Veilchens. / Von ihm selbst in zwey Briefen an eine Dame beschrieben, / und dem Englischen nacherzählt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leben eine Veilchens. / Von ihm selbst in zwey Briefen an eine Dame beschrieben, / und dem Englischen nacherzählt",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j8c92i3vxn1ogsk",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.685Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 71273-71276, Obj 60-63 /) BOCCACCIO (s. Zwischentitel INr 71271, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71272,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BALLATEN / AUS DEM DECAMERON",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Boccaccio; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "BALLATEN / AUS DEM DECAMERON",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tmps1pleuxbspid",
+      "agents": "6fk9lntrk75vzyf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.555Z"
+    },
+    {
+      "id": "k8f1bzy4qhgfabv",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.556Z"
+    }
+  ]
+}

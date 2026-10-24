@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73770,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm Müller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krüger del. H. Meyer sc.",
+  "scans": [
+    "alm_136_73770_x4xpdr0jyw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm Müller",
+  "updated": "2000-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r0lxrd50v7j3jtu",
+      "agents": "f5agim78k7u8l7v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.809Z"
+    }
+  ]
+}

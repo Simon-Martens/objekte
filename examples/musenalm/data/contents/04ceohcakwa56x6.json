@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug INr 86852, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86848,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emilia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer pinx. Stich u. Druk d. Kunst Anst. d. Oestr. Lloyd in Triest. J. L. Raab sc.",
+  "scans": [
+    "alm_1607_86848_sr8vxm4vac.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Emilia",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "11mgvoxzsjnxuid",
+      "agents": "512hnx3l2hp6y3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.282Z"
+    },
+    {
+      "id": "avi978l7zggtk3y",
+      "agents": "qj9lyly28p7qgq7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.282Z"
+    }
+  ]
+}

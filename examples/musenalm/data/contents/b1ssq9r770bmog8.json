@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Umschlaggraphik r. /) # Zuschreibung: Fischer S. 309, zus. bez. dort: Bezeichnung: Gg. Gropius",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74353,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3112_74353_s4sgmvdmkb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2xrlfvl8j125xl9",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.614Z"
+    }
+  ]
+}

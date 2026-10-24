@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 10. /) Illustration zu »Der Polyp im Herzen« von A. G. Eberhard in: Taschenbuch zum geselligen Vergnügen 1803 INr 11907",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12064,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ei wohl gar ohnmächtig. / Ebendaselbst S. 173",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Demiani del. Meno Haas sc. Berlin 1803",
+  "scans": [
+    "alm_211_12064_uh2dw78x6h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ei wohl gar ohnmächtig. / Ebendaselbst S. 173",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3sx1m4yp2f9a8rv",
+      "agents": "jpz79i243clmofg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.361Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.361Z"
+    },
+    {
+      "id": "dfjvnr0x9nk8yuv",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.362Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.362Z"
+    }
+  ]
+}

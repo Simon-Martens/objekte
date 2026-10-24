@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 133124,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spes et horror mortalium",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. inv. Meno Haas sculp. Berlin 1796",
+  "scans": [
+    "alm_3082_133124_ukcqlz069a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Spes et horror mortalium",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8tl4qr7tzatkk0x",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.102Z"
+    },
+    {
+      "id": "zhvyzn9k6t0wmgz",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.102Z"
+    }
+  ]
+}

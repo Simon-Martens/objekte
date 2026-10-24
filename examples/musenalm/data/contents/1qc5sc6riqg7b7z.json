@@ -1,0 +1,45 @@
+{
+  "annotation": "Italienische Volkslieder (Sammlung INr 95478, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "Durch die Zweige der Cypressen / An des Bospors blüh'ndem Strand / Sieht man ein Gebäude schimmern",
+  "language": [],
+  "musenalm_id": 95484,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwei Nächte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Marsano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwei Nächte",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "agrnvfvqflu66zi",
+      "agents": "rpi79icfm69ol8h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.473Z"
+    }
+  ]
+}

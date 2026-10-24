@@ -1,0 +1,56 @@
+{
+  "annotation": "Allemannische Lieder (Sammlung INr 14296, Obj 13) /) Übertragung des Gedichts »Das Hexlein« von J. P. Hebel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Sobald ich auf dem Schneidstuhl sitz', / Und Lichtspän' euch aus Kurzweil schnitz',",
+  "language": [],
+  "musenalm_id": 14298,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der verliebte Bauer. / (S. J. P. Hebels Allem. Gedichte. S. 69.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel [übers.:] Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der verliebte Bauer. / (S. J. P. Hebels Allem. Gedichte. S. 69.)",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "an0d7qx385x51fw",
+      "agents": "u04oy46tu9dlk6x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.639Z"
+    },
+    {
+      "id": "bcgddbg92dfjfc3",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.639Z"
+    }
+  ]
+}

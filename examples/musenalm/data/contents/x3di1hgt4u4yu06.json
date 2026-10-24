@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Ich hab' ein lieb Mädel, das hab' ich / zu lieb, / Ja leider! Was kann ich dafür?",
+  "language": [],
+  "musenalm_id": 2823,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied",
+  "updated": "2000-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8bdhby5q77h7ddq",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.998Z"
+    }
+  ]
+}

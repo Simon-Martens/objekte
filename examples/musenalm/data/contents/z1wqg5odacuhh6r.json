@@ -1,0 +1,67 @@
+{
+  "annotation": "unter der Graphik: Leipzig bei F. A. Leo",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102991,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HOFFNUNG UND ZUVERSICHT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. C. Geissler gez. n. P. Stahlstich v. Carl Mayer's Kunstanstalt in Nürnberg",
+  "scans": [
+    "alm_2486_102991_9iplwwao7r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HOFFNUNG UND ZUVERSICHT",
+  "updated": "2010-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dsgi9i1nkfwlxmu",
+      "agents": "9gep2y6vxxwiktu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.151Z"
+    },
+    {
+      "id": "l07365idmfbm31f",
+      "agents": "1v07c6j6mxrdvwn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.151Z"
+    },
+    {
+      "id": "ai0vua6hp67k3yd",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.151Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 29 Gedichten und einer Sammlung mit 4 Gedichten INr 64907- 64940, Obj 83-116 /) XI. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1828-1829 (Sammlung INr 64851, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64906,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nüsse vom Kriegsschauplatze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nüsse vom Kriegsschauplatze",
+  "updated": "2009-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5n5ks5w4rf2dt84",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.963Z"
+    }
+  ]
+}

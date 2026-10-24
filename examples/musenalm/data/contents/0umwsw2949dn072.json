@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Es war Christabend, und die Bäume blüthen blinkend und blendend im geronnenen Duft, und weit umher war die Erde von den herabgefallenen Blüthenflocken bedeckt,",
+  "language": [],
+  "musenalm_id": 28500,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Kindermythen / Christkindchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Görres",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Kindermythen / Christkindchen",
+  "updated": "2002-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vvslhoxqgjua234",
+      "agents": "iq2t04j5hk3kohk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.418Z"
+    }
+  ]
+}

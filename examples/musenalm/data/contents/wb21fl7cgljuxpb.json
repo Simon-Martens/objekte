@@ -1,0 +1,45 @@
+{
+  "annotation": "lt. G-Verz: aus Barrows Voyage to Cochinchina  London 1806, d.i.: Barrow, John: A Voyage to Cochinchina, in the Years 1792 and 1793 [...] London, T. Cadell, 1806",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.429Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41609,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cochinchinesischer Soldat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_548_41609_47c6xjzn6m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cochinchinesischer Soldat",
+  "updated": "2005-12-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w44evl10mpk48bd",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.206Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.206Z"
+    }
+  ]
+}

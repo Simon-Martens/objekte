@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 57861, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Es kann sich nimmer länger halten, / Der Angriff ist zu allgemein;",
+  "language": [],
+  "musenalm_id": 57867,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Winters Abzug",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joahnn Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Winters Abzug",
+  "updated": "2008-06-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4byqoozbsnpagm2",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.736Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Die süße Hoffnung hat uns nicht getäuscht! Ruft mir der Jubelschall des Volks entgegen, / Das heut' ein Lied voll hoher Wonne heischt,",
+  "language": [],
+  "musenalm_id": 135604,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als am 17ten May / der Friede durch einen Herold verkündigt wurde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. P. Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als am 17ten May / der Friede durch einen Herold verkündigt wurde",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9kl6f5szqdgkueh",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.153Z"
+    }
+  ]
+}

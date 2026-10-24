@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Mai; paginiert 5. Illustration zu »Donna Diana« Schauspiel nach »El derdén con el desdén« von Agustin Moreto übers. u. bearb. von Carl August West d.i. Joseph Schreyvogel; Wien 1819 /) s. Textbezug  59209, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59197,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Er geht! O Himmel! / Donna Diana. Abthl. 2. Sc. 12",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. M.",
+  "scans": [
+    "alm_890_59197_oiwmpep9lq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Er geht! O Himmel! / Donna Diana. Abthl. 2. Sc. 12",
+  "updated": "2008-08-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "winv2qtok56ghmb",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.715Z"
+    },
+    {
+      "id": "3n5lzp53haj02ck",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.715Z"
+    }
+  ]
+}

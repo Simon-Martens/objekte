@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Rheinland (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Zieht nicht zum Waidwerk, Graf Johann, / Denn heilig ist der Tag des Herrn!",
+  "language": [],
+  "musenalm_id": 99496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf Johann von Wertheim",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Kaufmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Graf Johann von Wertheim",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fy35oj9bzdhe9pb",
+      "agents": "ujjt9xntbdmu6em",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.952Z"
+    }
+  ]
+}

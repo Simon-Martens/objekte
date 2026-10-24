@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Entweder hast du Witz, oder du hast keinen.",
+  "language": [],
+  "musenalm_id": 73456,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "32. / Suche nie durch Witz zu glänzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Hezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "32. / Suche nie durch Witz zu glänzen",
+  "updated": "2011-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z90a9afh0zlqn6v",
+      "agents": "c8k6z31g33p9467",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.530Z"
+    }
+  ]
+}

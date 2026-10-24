@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 69515, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Ich wollte, ich könnte dichten, / Ein Liedchen, so schön und so neu,",
+  "language": [],
+  "musenalm_id": 69518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Mailiedchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alex. Jul. Schindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Mailiedchen",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o4c0lbkd0pgnjt5",
+      "agents": "c5g4qkh29vufd7a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.155Z"
+    }
+  ]
+}

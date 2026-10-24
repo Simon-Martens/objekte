@@ -1,0 +1,45 @@
+{
+  "annotation": "Wehmut und Liebe (Sammlung INr 49043, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Tief in mich, du enges Leben, / Hast du meinen Sinn gepreßt;",
+  "language": [],
+  "musenalm_id": 49050,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Innerstes. / An L. U.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Innerstes. / An L. U.",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f0svayervz5mpx9",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.482Z"
+    }
+  ]
+}

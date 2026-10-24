@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 10. /) s. Textbezug INr 26493, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.577Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26494,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Städtchen und Schloß Dürnstein an der Donau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Klein del. Fr. Geißler sc.",
+  "scans": [
+    "alm_347_26494_rbd6hbjrxe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Städtchen und Schloß Dürnstein an der Donau",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2zkedumr58as2vo",
+      "agents": "0ub57ews0fgevuy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.397Z"
+    },
+    {
+      "id": "bebj0fe3cc1nbou",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.397Z"
+    }
+  ]
+}

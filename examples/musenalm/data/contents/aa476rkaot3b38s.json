@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44376, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Zum Wald zieht eine ernste Heeresschaar / Mit dumpfem Klang der Pauken und der Pfeifen.",
+  "language": [],
+  "musenalm_id": 44410,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Kurz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gericht",
+  "updated": "2006-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fzbaielb43zlc24",
+      "agents": "nqtxuhztjt7w83e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.386Z"
+    }
+  ]
+}

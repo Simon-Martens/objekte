@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Eine häufig sich wiederholende Klage unsrer Tage besteht darin, daß man behauptet, es gäbe gar keine originelle Menschen mehr.",
+  "language": [],
+  "musenalm_id": 64387,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vor vierzig Jahren. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Willkomm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vor vierzig Jahren. / Erzählung",
+  "updated": "2009-05-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ky94jr3ll0t2zl5",
+      "agents": "b3aavcm0crynmuo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.181Z"
+    }
+  ]
+}

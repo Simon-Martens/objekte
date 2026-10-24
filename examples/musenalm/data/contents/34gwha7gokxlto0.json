@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64651, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64657,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unschuld #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Litg. door A. C. Krusemann. D. J. Sluyter sculp.",
+  "scans": [
+    "alm_1079_64657_7i0q2yym22.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Unschuld #",
+  "updated": "2009-06-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1870,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jga9whjg2d9eb8l",
+      "agents": "lxkw0pi082wa1ak",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.305Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.305Z"
+    }
+  ]
+}

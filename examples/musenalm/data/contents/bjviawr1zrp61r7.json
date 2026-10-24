@@ -1,0 +1,45 @@
+{
+  "annotation": "Geistliche Lieder (Sammlung INr 15292, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Was wär ich ohne dich gewesen? / Was würd' ich ohne dich nicht seyn?",
+  "language": [],
+  "musenalm_id": 15293,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "NOVALIS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2001-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xmqubvefksdvyy6",
+      "agents": "k7dxkcfehvip7xf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.272Z"
+    }
+  ]
+}

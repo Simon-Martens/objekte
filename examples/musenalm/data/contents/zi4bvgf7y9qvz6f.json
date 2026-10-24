@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Jungfrau« von Hill INr 62491, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62490,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Jungfrau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. sc. Darmstadt",
+  "scans": [
+    "alm_1025_62490_mfpwo4u1sb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Jungfrau",
+  "updated": "2009-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j25hoaf58xumrj4",
+      "agents": "kacgedziyeqhpsh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.118Z"
+    }
+  ]
+}

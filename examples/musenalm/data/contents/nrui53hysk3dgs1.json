@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 11510, Obj 193)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "390",
+  "incipit_statement": "Ach! nur zwei Laute sprich zu mir! / Doch einzeln nicht, so schreit ein Thier,",
+  "language": [],
+  "musenalm_id": 11516,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 199,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ggbri5rtorfm9ph",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.570Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.570Z"
+    }
+  ]
+}

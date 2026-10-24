@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz /) Titelgraphik s. Textbezug INr 63514, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63511,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Frau Herzogin von Berry #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Gérard pinx. F. Fleischmann sc.",
+  "scans": [
+    "alm_1043_63511_6g7klslv45.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Frau Herzogin von Berry #",
+  "updated": "2009-04-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ou3vs2i3kwyne7b",
+      "agents": "bngwvjxc7lwq3li",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.047Z"
+    },
+    {
+      "id": "vny4lw18iu3fmkl",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.047Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Lieblichste der Rosen! Schon am Morgen / Deines May's vom starren Nord geraubt,",
+  "language": [],
+  "musenalm_id": 31123,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf eine entblätterte Rose / am Grabe der Durchlauchtigsten / Erzh. / Elisabeth. / Nach dem Engl. des Hrn. Jac. Kemper",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf eine entblätterte Rose / am Grabe der Durchlauchtigsten / Erzh. / Elisabeth. / Nach dem Engl. des Hrn. Jac. Kemper",
+  "updated": "2003-01-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gcl5i64xye8h2v9",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.420Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Der erste Jahrgang dieses Taschenbuchs ist von der Jugend und den Recensenten mit einer Güte und Schonung aufgenommen worden, die mir Freude gemacht, und mich zur Fortsetzung ermuntert hat.",
+  "language": [],
+  "musenalm_id": 84672,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2pfc4wn1h9kvt1n",
+      "agents": "qxcj6iktsu2xp76",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.198Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.198Z"
+    }
+  ]
+}

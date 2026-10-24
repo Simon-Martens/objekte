@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge vermischten Inhalts 1792 (Sammlung INr 9918, Obj 224,01) Anm. am Objekt: Die erste Strophe ist aus der Weißischen komischen Oper: die Jubelhochzeit, entlehnt, und das Lied wird nach der beliebten Hillerschen Musik dieser Oper gesungen.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Es leb ein Greis, der nie vergißt, / Daß er einst jung gewesen ist;",
+  "language": [],
+  "musenalm_id": 9821,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 228,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Allgemeine Gesundheiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zschiedrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Allgemeine Gesundheiten",
+  "updated": "2001-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6gzmuk3jjvz4ka9",
+      "agents": "sg73x8kcyc2ixxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.478Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.478Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No.12. s. Textbezug INr 59992, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.202Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "380",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59993,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marat stirbt des Tod's , den er für ande- / re gepredigt hatte.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen",
+  "scans": [
+    "alm_935_59993_0zatvpyyfs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marat stirbt des Tod's , den er für ande- / re gepredigt hatte.",
+  "updated": "2008-09-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ld1vxdlf25ygi7c",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.918Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.918Z"
+    },
+    {
+      "id": "vuck0kriy2l9iac",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.918Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.918Z"
+    }
+  ]
+}

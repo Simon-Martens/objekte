@@ -1,0 +1,45 @@
+{
+  "annotation": "Der szen. Darstellung »Der kleine Liebesbothe. Ein Spiel in Alexandrinern und Einem Aufzge« INr 85443, Obj 28 vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Wie kann ich deine Liebe auch verdienen, / D'rauf sann ich seit den wonnevollen Stunden,",
+  "language": [],
+  "musenalm_id": 85444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Deinhardstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Freyherr von Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Deinhardstein",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5j7iwnnwxezsjmn",
+      "agents": "ox2w0lw2pa3no6e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.173Z"
+    }
+  ]
+}

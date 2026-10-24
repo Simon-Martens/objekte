@@ -1,0 +1,56 @@
+{
+  "annotation": "Kupfer zu Romeo und Julia, erläutert durch Beifügung der dargestellten Scenen nach der Uebersetzung von J. H. Voß (Sammlung INr 19321, Obj 11) s. Graphik INr 34800, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Willst du schon gehn? Noch dämmert nicht der Tag / Die Nachtigall, und nicht die Lerche wars,",
+  "language": [],
+  "musenalm_id": 19324,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dritter Aufzug, fünfte Scene. / (Julia's Kammer.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakespeare; [übers.] J. H. Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dritter Aufzug, fünfte Scene. / (Julia's Kammer.)",
+  "updated": "2000-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5lwmuw4xo9ex64w",
+      "agents": "confomdodiakpla",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.912Z"
+    },
+    {
+      "id": "0rtf6nj2fhgdmpq",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.912Z"
+    }
+  ]
+}

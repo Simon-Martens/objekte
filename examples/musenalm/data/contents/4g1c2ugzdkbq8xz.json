@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Ja! gerecht ist dein Schmerz - ihn soll nur lindern die / Zähre, / Welche das Mitgefühl dir und dem Himmlischen weint.",
+  "language": [],
+  "musenalm_id": 1404,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nänie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Gerning",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nänie",
+  "updated": "2000-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "92838d1ow7uecox",
+      "agents": "ka1wm9mc4kl7y0b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.005Z"
+    }
+  ]
+}

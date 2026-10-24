@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Der Weltgeist saß auf dem demantnen Throne, hinter ihm glänzte das Rosenlicht des Paradieses.",
+  "language": [],
+  "musenalm_id": 70716,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Phönix. / Fünftes Kapitel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Phönix. / Fünftes Kapitel",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x01yfjcrx63jyns",
+      "agents": "16uxlf73ehnhqr1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.608Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Mährchen von Thule« INr 71207, Obj 105",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Frisch Gesellen, wach und munter! / Auf das Ruder nun ergreifet!",
+  "language": [],
+  "musenalm_id": 71208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frisch Gesellen, wach und munter! / Auf das Ruder nun ergreifet!…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sylvester",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rlm76p2o768eu59",
+      "agents": "ift6i2oy1gozbs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.482Z"
+    }
+  ]
+}

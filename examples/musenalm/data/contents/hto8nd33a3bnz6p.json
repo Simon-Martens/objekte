@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Außer einer Menge Städte, Dörfer, Weiler - Namens Washington, Franklin u.s.w. giebt es in den vereinigten Staaten eine Stadt Athen, eine andere Marathon, eine Chartago, Memphis, Sparta, Florenz und Versailles;",
+  "language": [],
+  "musenalm_id": 45020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Vereinigte Staaten von Nordamerika] Einzelnes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Vereinigte Staaten von Nordamerika] Einzelnes",
+  "updated": "2006-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pzbpjolbpqlrta0",
+      "agents": "b96jiypecb45ptj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.365Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.365Z"
+    }
+  ]
+}

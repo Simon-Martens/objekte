@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Größtentheils neu umgearbeitet",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.172Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Meine Louise, wenn je am Grabe die Thränen / gerecht sind, / Je ein schuldiger Zoll, weine! so sind sie / es hier.",
+  "language": [],
+  "musenalm_id": 84153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie an Louise K. 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie an Louise K. 1789",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0bnuk6lkwe6q4h7",
+      "agents": "2hig42wpgako8md",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.041Z"
+    }
+  ]
+}

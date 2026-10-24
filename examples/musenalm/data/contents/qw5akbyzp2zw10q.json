@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die Geschichte des deutschen Volkes ist reich an würdigen Frauen; und nicht nur im Mittelstande haben Viele, deren Namen nicht zur öffentlichen Kunde gekommen sind, Segen und Anmuth über ihren stillen häuslichen Kreis verbreitet,",
+  "language": [],
+  "musenalm_id": 98029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sophie, / erstgeborne Tochter der heiligen Eilsabeth, / Herzogin von Brabant und Landgräfin von Hessen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sophie, / erstgeborne Tochter der heiligen Eilsabeth, / Herzogin von Brabant und Landgräfin von Hessen",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iskpib61oo9n418",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.821Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 23734, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23731,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Friedensgöttin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weinrauch f.",
+  "scans": [
+    "alm_321_23731_2c4612xh98.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Friedensgöttin",
+  "updated": "2002-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "54neuzyjjkkb6gd",
+      "agents": "nhcnwrqiq042uja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.039Z"
+    }
+  ]
+}

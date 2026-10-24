@@ -1,0 +1,49 @@
+{
+  "annotation": "mit Angaben zur Pagina; Anzahl der Gedichte: 91; der Graphiken: 17; zur Autorschaft F. W. A. Schmidts etc. Das Vorwort ist als Vollbild dargestellt s. Photos Nr. 48655,01-48655,05",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wenn, wie man zu sagen pflegt, ein gutes Buch ein guter Gefährte ist; so wird nahmentlich ein Kalender ein vorzüglich guter Gefährte seyn müssen, weil wir ihn täglich um uns haben,",
+  "language": [],
+  "musenalm_id": 48655,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Spener",
+  "scans": [
+    "alm_665_48655_01_7c9p0odue7.jpg",
+    "alm_665_48655_02_joimong45r.jpg",
+    "alm_665_48655_03_sfyxg3pa70.jpg",
+    "alm_665_48655_04_g8jnl0bn4o.jpg",
+    "alm_665_48655_05_rsd9kqj9pc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8nuwtdln9cc1i8b",
+      "agents": "bw72wlunqvkv8tg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.600Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.600Z"
+    }
+  ]
+}

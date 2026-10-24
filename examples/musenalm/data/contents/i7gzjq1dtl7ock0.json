@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 5. /) Graphik im Kalendarium Mai /) Illustration zu »Albert und Albertine« von Friedrike Unger /) s. Textbezug INr 85856, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85817,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Und du Albertine meine Gute, wirst / du den armen Onkel nun verlassen / wollen?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury sc.",
+  "scans": [
+    "alm_445_85817_dsslynlmvv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Und du Albertine meine Gute, wirst / du den armen Onkel nun verlassen / wollen?",
+  "updated": "2003-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hsf3ypk4lh7uccf",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.172Z"
+    }
+  ]
+}

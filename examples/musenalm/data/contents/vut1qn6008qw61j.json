@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "In Venedig lebte gegen das Ende des fünfzehnten Jarhunderts ein junger Edlemann, Namens Sydonio Lama, dessen Familie weder zu den bemittelsten, noch zu den vornehmsten dieses reichen Freistaates gehörte.",
+  "language": [],
+  "musenalm_id": 95299,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sydonio Lama",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sydonio Lama",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4vlgln4917pc6r8",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.635Z"
+    }
+  ]
+}

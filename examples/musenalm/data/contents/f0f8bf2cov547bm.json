@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Ach! wie wahnsinnig ob des Schicksals Walten / Und der verlornen Herrschermajestät [...] K. G. Ritter von Leitner /) mit einer Illustration s. Graphik INr 110300, Obj 3,06",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Wahrlich! es ist eine paradiesische Flur, welche den, vom Norden kommenden und bei Hochenegg das Sannthal betretenden Wanderer mit ihren Kränzen von Bergeshalden, mit ihren Festons duftender Hügel umschlingt,",
+  "language": [],
+  "musenalm_id": 86137,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Burg Ober-Cilli / in Untersteier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Rud. Gustav Puff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Burg Ober-Cilli / in Untersteier",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i67tzarrnnltuph",
+      "agents": "z276kpo6m8d5nvd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.097Z"
+    }
+  ]
+}

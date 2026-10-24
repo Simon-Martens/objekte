@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88250,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. & 2. Chapeau a Trappe. 3. Coëffure Flamande. / 4. Rustique 5. Devôte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki",
+  "scans": [
+    "alm_154_88250_qnfnv7m8dl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1. & 2. Chapeau a Trappe. 3. Coëffure Flamande. / 4. Rustique 5. Devôte",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nvcdbbabpohtjdk",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.237Z"
+    }
+  ]
+}

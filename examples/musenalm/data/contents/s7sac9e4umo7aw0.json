@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Lyde an Theon« von B. INr 782, Obj 60 (Photos 4814,01; 4814,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (Benda)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Benda",
+  "scans": [
+    "alm_60_4814_01_pgzavzrm2z.jpg",
+    "alm_60_4814_02_gdoc096s4m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p2qrt2vqcwghqwb",
+      "agents": "sn75dvdam4298qi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.704Z"
+    }
+  ]
+}

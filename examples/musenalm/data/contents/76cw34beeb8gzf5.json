@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken INr 85682, 85683; Obj 6, 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Des Morgens Purpur flimmerte durch den Buchendom des Bachengebirges. Millionen Perlen blitzten wie feurige Lustersteine an den Zweigen,",
+  "language": [],
+  "musenalm_id": 85690,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agnes. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Professor Rud. Gust. Puff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Agnes. / Erzählung",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m84jsd0rxg9sfbb",
+      "agents": "z276kpo6m8d5nvd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.217Z"
+    }
+  ]
+}

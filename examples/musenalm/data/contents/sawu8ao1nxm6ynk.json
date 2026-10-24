@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Schweizermädchen in Paris« von K. Stein INr 32159, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.120Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie gelobten sich der Liebe und der Tugend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. Meno Haas sc. Berlin 1811",
+  "scans": [
+    "alm_434_36121_uxcu08n0ou.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie gelobten sich der Liebe und der Tugend",
+  "updated": "2003-02-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d6uas4pxg5ibwu5",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.859Z"
+    },
+    {
+      "id": "2gvykzrebweztg0",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.859Z"
+    }
+  ]
+}

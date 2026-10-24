@@ -1,0 +1,45 @@
+{
+  "annotation": "Homöopatho-Mastix geflochten von ungrischen Ärzten 1831 (Sammlung INr 64949, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Dem zum Motto dieses Pamphlets gewählten Spruche des weisen Salomo zufolge ist solches freilich ein eitles Unternehmen, insofern man etwas zur Cur Derjenigen beitragen wollte, welche von der Homöopathie schon völlig besessen sind;",
+  "language": [],
+  "musenalm_id": 64951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anselmus Eberhardus junior",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2009-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v3pbl0t57d2zgbb",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.988Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text INr 50281, Obj 13 vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Bei der Ausarbeitung der folgenden Geschichte, sind von ältern, und größtentheils gleichzeitigen Schriftstellern, Buchanan, Lesley, der Verfasser der Crawfurdschen Memoiren, Melvil, Brantome, Camden und Thuan, von neuern vorzüglich Rapin,",
+  "language": [],
+  "musenalm_id": 50280,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria / Königinn von Schottland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Gentz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria / Königinn von Schottland",
+  "updated": "2007-06-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3grd1yznx2w6rpy",
+      "agents": "2jbww1jkrhcnbfa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.715Z"
+    }
+  ]
+}

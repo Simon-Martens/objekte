@@ -1,0 +1,45 @@
+{
+  "annotation": "Versuche in gebundener Rede (Sammlung INr 65623, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Was frischer Wind dem Schiff, das ist die Leidenschaft / Dem Leben,",
+  "language": [],
+  "musenalm_id": 65677,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 245,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nutzen der Leidenschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Adam Seuffert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nutzen der Leidenschaft",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "468o9mxj64un6rx",
+      "agents": "b6lr2rx1hatxube",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.316Z"
+    }
+  ]
+}

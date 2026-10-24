@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Man saget, Jungfer Rübezahl / Soll bloß von ihren Reizen leben.",
+  "language": [],
+  "musenalm_id": 12859,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jungfer Rübezahl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Einem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jungfer Rübezahl",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "93ulkxj8swps62j",
+      "agents": "cnpmi5umijfxrao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.319Z"
+    }
+  ]
+}

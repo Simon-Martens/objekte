@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 110 /) # Bezeichnung am 1. Blatt der Suite /) s. Textbezug INr 16763, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.114Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9097,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Luxemburg capitulirt. / (1. Jun.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_194_9097_sscdhrlxlq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Luxemburg capitulirt. / (1. Jun.)",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1z61066b1sep3by",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.393Z"
+    }
+  ]
+}

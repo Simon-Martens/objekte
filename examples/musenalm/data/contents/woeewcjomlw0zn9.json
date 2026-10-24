@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Warum sucht Knaut der Weise nicht / Auch einen weisen Freund?",
+  "language": [],
+  "musenalm_id": 3308,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 157,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Knaut",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T-ge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Knaut",
+  "updated": "2000-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wwy1q3ggj3pfrk4",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.034Z"
+    }
+  ]
+}

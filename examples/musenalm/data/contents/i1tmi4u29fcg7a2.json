@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Unter diesen lieblichen lenz- / Aufgehauchten Rosen schlummert, / Die wie Rosen blühte,- welkte.",
+  "language": [],
+  "musenalm_id": 135346,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die todte Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. X. Schurz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die todte Rose",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xnr6pbfluliq6l6",
+      "agents": "m6v439nrgynzyi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.145Z"
+    }
+  ]
+}

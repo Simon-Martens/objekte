@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VIII, 47 /) I. Räthsel (Sammlung INr 22610, Obj 123) Charaden und Räthsel (Sammlung INr 22609, Obj 122)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "426",
+  "incipit_statement": "Ein Wort! ihr rathet's allermeist; / Der Autor und Verleger weiß davon zu singen;",
+  "language": [],
+  "musenalm_id": 22615,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Duo cum faciunt idem etc",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Duo cum faciunt idem etc",
+  "updated": "2002-03-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6l76wfxafx6dzlx",
+      "agents": "67zaqw1ahn1z54k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.985Z"
+    }
+  ]
+}

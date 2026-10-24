@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Stolz schauete das eben vollendete herzogliche Schloß über die Stadt Glatz und das weite Thal der Grafschaft,",
+  "language": [],
+  "musenalm_id": 34692,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sage vom Hummelfürsten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Studnitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sage vom Hummelfürsten",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y43txh342j449vs",
+      "agents": "li9wd1vvzigu4ia",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.592Z"
+    }
+  ]
+}

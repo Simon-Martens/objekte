@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5.; Graphik im Kalendarium Mai /) Illustration zu »König Ludwig der Heilige, auf dem Kreuzzuge nach Ägypten« INr 68974, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68964,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der König befreit sich von sechs ihn umrin- / genden Feinden. S. 121",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf d. F. Bolt sc.",
+  "scans": [
+    "alm_845_68964_5snhqe85nw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der König befreit sich von sechs ihn umrin- / genden Feinden. S. 121",
+  "updated": "2008-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dusrtoqxy1fp4v9",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.235Z"
+    },
+    {
+      "id": "5gla20haxc6n8qa",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.235Z"
+    }
+  ]
+}

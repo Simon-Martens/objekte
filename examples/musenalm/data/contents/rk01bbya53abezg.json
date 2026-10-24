@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Wie auf dem kalten Grabesstein, / Den Wandrer Namen an sich ziehen,",
+  "language": [],
+  "musenalm_id": 94103,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach dem Englischen Lord Byron's",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. von Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach dem Englischen Lord Byron's",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iyzmnitg167e4qu",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.470Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.470Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Herzog Albrecht stand schon tief im Abend seines Lebens, im einundsiebenzigsten Jahre seines Alters, körperlich schwach und geistig müde,",
+  "language": [],
+  "musenalm_id": 59178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Paul Scalich, / der falsche Markgraf von Verona",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johannes Voigt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Paul Scalich, / der falsche Markgraf von Verona",
+  "updated": "2008-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ob1wu3lqnst6i5f",
+      "agents": "067lqedc3hrt30h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.908Z"
+    }
+  ]
+}

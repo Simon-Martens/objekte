@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Mahlerische Reisen durch Salzburg und Berchtesgaden. Von Wilhelm Friedrich Schlotterbeck, Landschaftszeichner und Kupferstecher« von F. Sartori INr 92047, Obj 19; # vollst. Bez. s. Anm. dort: Das nebenstehende Kupfer ist eine verkleinerte Abbildung der Stadt Salzburg, wie sie Schlotterbeck in seiner Voyage pittoresque im Großen gegeben hat.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht von Salzburg",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schlotterbeck. J. Blaschke sc.",
+  "scans": [
+    "alm_3056_92048_lgrsnuarz2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht von Salzburg",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "is6m5guxedg6zfj",
+      "agents": "oh3rpixmjhpgm1x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.477Z"
+    },
+    {
+      "id": "hxtih84j50omq9k",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.477Z"
+    }
+  ]
+}

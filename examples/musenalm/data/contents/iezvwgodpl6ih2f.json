@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Hinaus, daß ich die volle Brust befreie / Von dem Entzükken, daß sie hehr erfüllt!",
+  "language": [],
+  "musenalm_id": 70640,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / die Monarchen der verbündeten Völker. / Nach den Siegen bei Bar sur Aube, Challons, / Soissons und Laon. / (Im März 1814.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / die Monarchen der verbündeten Völker. / Nach den Siegen bei Bar sur Aube, Challons, / Soissons und Laon. / (Im März 1814.)",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rt4g5iywx2em58b",
+      "agents": "scmt2snhwdglbs9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.498Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.498Z"
+    }
+  ]
+}

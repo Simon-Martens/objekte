@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52349,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cant. Zürich. / Bauer aus der Gegend am Zürichsee",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_714_52349_rzr99moyrb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cant. Zürich. / Bauer aus der Gegend am Zürichsee",
+  "updated": "2007-11-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "csxdkfyjtdovc11",
+      "agents": "grbttvgkqnprgwf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.548Z"
+    }
+  ]
+}

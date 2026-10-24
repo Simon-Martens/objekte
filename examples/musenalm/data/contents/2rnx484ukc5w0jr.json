@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Leichter Sinn « von Deinhardstein INr 22332, Obj 76 /) Musik zu dem Taschenbuch zum geselligen Vergnügen auf das Jahr 1821 (Sammlung INr 22732, Obj 116) (Photos 22374,01-22374,03)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22374,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leichter Sinn. / (S. 266)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schneider",
+  "scans": [
+    "alm_299_22374_01_d1c4nj9yx6.jpg",
+    "alm_299_22374_02_x1vkxg9b4g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Leichter Sinn. / (S. 266)",
+  "updated": "2002-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4alswsmflc69uld",
+      "agents": "659wajziz7tp24k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.910Z"
+    }
+  ]
+}

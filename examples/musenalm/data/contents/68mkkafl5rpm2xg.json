@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Geographische und statistische Nachrichten (Sammlung INr 119679, Obj 13,1)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Die Villa Meinigen war in den älteren Zeiten nebst den dazu gehörigen Dörfern und Ortschaften eine Domäne der deutschen Könige.",
+  "language": [],
+  "musenalm_id": 119681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Historische, statistisch-topographische / Nachrichten vom Amte Meiningen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Emmrich.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Historische, statistisch-topographische / Nachrichten vom Amte Meiningen",
+  "updated": "2012-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gr7txkaj0zfbwbj",
+      "agents": "4u0gkkgpmhgb9aq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.621Z"
+    }
+  ]
+}

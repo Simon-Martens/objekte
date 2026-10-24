@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Von ernster Arbeit, fröhlicher Zerstreuung, / In die sich ein bewegtes Leben theilt, / Folge mir zur stillen, freundlichen Betrachtung.",
+  "language": [],
+  "musenalm_id": 116106,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog. / (Verfaßt für eine Vorstellung zu Gunsten einer Klein- / Kinder-Bewahr-Anstalt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog. / (Verfaßt für eine Vorstellung zu Gunsten einer Klein- / Kinder-Bewahr-Anstalt",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0a2wyb0o5prls60",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.283Z"
+    }
+  ]
+}

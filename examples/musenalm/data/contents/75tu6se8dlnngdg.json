@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 81511, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "So soll, was meine Brust so lang getragen, / Heraus jetzt kommen in die kalte Welt,",
+  "language": [],
+  "musenalm_id": 81512,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Vor den Dichten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. L. Deinhardstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Vor den Dichten",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "snhx634cfuqw3ma",
+      "agents": "y1ldqx10hdpig92",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.082Z"
+    }
+  ]
+}

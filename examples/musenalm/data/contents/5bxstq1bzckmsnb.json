@@ -1,0 +1,45 @@
+{
+  "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) s. Graphik INr 85470, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.179Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Flieh', entflieh'! Noch ist es Zeit: / Bertha, hierher meine Bertha!",
+  "language": [],
+  "musenalm_id": 85471,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ahnfrau. / (Fünfter Aufzug. Seite 151.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ahnfrau. / (Fünfter Aufzug. Seite 151.)",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wa1tkftzbbuyw1x",
+      "agents": "jf5q6ykf9ux52yq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.979Z"
+    }
+  ]
+}

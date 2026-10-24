@@ -1,0 +1,45 @@
+{
+  "annotation": "; vollst. Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Ein Bauer hatte seine Pferde in den Wald auf die Weide getrieben. Als er sie am Abend wieder heim holen wollte, fehlte ihm eins.",
+  "language": [],
+  "musenalm_id": 111975,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie man suchen muß",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wie man suchen muß",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a11dlhj3ud6b20d",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.286Z"
+    }
+  ]
+}

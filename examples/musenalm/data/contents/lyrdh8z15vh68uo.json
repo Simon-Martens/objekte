@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Schottische Sage vom Second Sight",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Hoch oben in Schottland, im Nebelreich, / Wo die Sonne ist wie der Mond, so bleich,",
+  "language": [],
+  "musenalm_id": 93662,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kromla",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann v. Hermannsthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kromla",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2b7y53li1y68cad",
+      "agents": "rxn9x0k5ac10jd7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.719Z"
+    }
+  ]
+}

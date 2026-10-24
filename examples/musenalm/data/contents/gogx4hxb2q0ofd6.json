@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 36",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Juchheißa! welch ein Herrenleben, / Wer Arbeit hat und Brot!",
+  "language": [],
+  "musenalm_id": 6200,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Herren vom Lande. / Lied eines Freibauren",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Herren vom Lande. / Lied eines Freibauren",
+  "updated": "2000-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2srkx48twdpwz4r",
+      "agents": "ewuwl9lvke5jtiz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.312Z"
+    }
+  ]
+}

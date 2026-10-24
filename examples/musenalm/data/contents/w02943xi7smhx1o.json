@@ -1,0 +1,58 @@
+{
+  "annotation": "[Unter der Graphik: Verlag von I. D. Sauerländer; Atelier v. Grünewald u. Cooke] s. Textbezüge INr 44114, 44115; Obj 19, 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44113,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE LORE LEY",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem v. Begas Gest. v. T. S. Engleheart",
+  "scans": [
+    "alm_598_44113_3kvcdcuh00.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE LORE LEY",
+  "updated": "2006-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "asayazz2rpnqryw",
+      "agents": "p2wbs7ivhx2i5bf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.231Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.231Z"
+    },
+    {
+      "id": "rpoxcoi60czzosb",
+      "agents": "8w6n9g0x6dcpwhp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.231Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.231Z"
+    }
+  ]
+}

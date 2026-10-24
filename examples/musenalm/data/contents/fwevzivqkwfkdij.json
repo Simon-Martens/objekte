@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Bei Husum war's zur Winterzeit, / Da hält man voller Fröhlichkeit / Ein lust'ges Fest nicht fern vom Land",
+  "language": [],
+  "musenalm_id": 99684,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Winterfest in Husum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Sturm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Winterfest in Husum",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ozvqa3qah5l5mqi",
+      "agents": "thvjtwgntimiqn7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.961Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.961Z"
+    }
+  ]
+}

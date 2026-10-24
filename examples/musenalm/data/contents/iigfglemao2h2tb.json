@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "In die Heimath möcht' ich ziehen, die so fern mir scheint und nah' / In die Heimath möcht' ich ziehen, die ich oft in Träumen sah.",
+  "language": [],
+  "musenalm_id": 28022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heimweh",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heimweh",
+  "updated": "2002-08-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mfyus27ndlwt83z",
+      "agents": "tcaorsyhw9evcti",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.374Z"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Weinlied, im Herbste zu singen« von Tiedge INr 10770, Obj 125 (Photos 10876,01; 10876,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10876,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 125.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weinlied, im Herbste zu singen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seydelmann",
+  "scans": [
+    "alm_203_10876_01_nv4hryyltv.jpg",
+    "alm_203_10876_02_uyu04zj3qw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Weinlied, im Herbste zu singen",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "srao974ejor7ayk",
+      "agents": "u644r69fyeumay0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.358Z"
+    }
+  ]
+}

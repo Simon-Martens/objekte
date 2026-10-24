@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Illustrationen s. Graphik INr 124282, Obj 14 u. 124283, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Des Herzogs Leiblakai! / Potz Velten! Des Herzogs Lakai zum Schwiegersohn! / Da werden wir doch für vornehm gelten;",
+  "language": [],
+  "musenalm_id": 124281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Stündchen Incognito. / Vres-Spiel in zwei Aufzügen / (nach einer wahren Begebenheit) / von / Dr. C. Töpfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr C. Töpfer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Stündchen Incognito. / Vres-Spiel in zwei Aufzügen / (nach einer wahren Begebenheit) / von / Dr. C. Töpfer",
+  "updated": "2010-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a7mdoclq28phzlb",
+      "agents": "yt7b0tvwouu9qxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.859Z"
+    }
+  ]
+}

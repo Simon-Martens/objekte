@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 20229, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Dein Tag erfüllt mit einem Himmelstrahle / Das Mutterherz, das ihm entgegen schlug:",
+  "language": [],
+  "musenalm_id": 20248,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutterempfindung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mutterempfindung",
+  "updated": "2001-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yk9rx83qdh6c3gr",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.021Z"
+    }
+  ]
+}

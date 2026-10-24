@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 5 /) Graphik im Kalendarium Mai /) Illustration zu »Die neue Heloise« von J. J. Rousseau",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.462Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70248,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "--- vielleicht, Ach! wenn es nur auf mich ankäme - / 3. Th. 4. B.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculpsit",
+  "scans": [
+    "alm_801_70248_oub55qhzon.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "--- vielleicht, Ach! wenn es nur auf mich ankäme - / 3. Th. 4. B.",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vh8zugcyglhkl7d",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.302Z"
+    },
+    {
+      "id": "z0o8pl9hnyx1bmt",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.302Z"
+    }
+  ]
+}

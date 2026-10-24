@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Das Schicksal schlug noch keinen Mann in Fesseln, der / Nicht feigen Sinnes selbst die Hand der Fessel bot.",
+  "language": [],
+  "musenalm_id": 57877,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schicksal schlug noch keinen Mann in Fesseln, der / Nicht feigen Sinnes selbst die Hand der Fessel bot.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-06-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g1ber783sqzq74c",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.737Z"
+    }
+  ]
+}

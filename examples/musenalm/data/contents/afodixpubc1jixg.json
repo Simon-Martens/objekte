@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 30092, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30093,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Breenberg pinx. Ludw. Meÿer jun. sc. Berlin)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Breenberg pinx. Ludw. Meÿer jun. sc. Berlin",
+  "scans": [
+    "alm_390_30093_7rz0wust90.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x0zec9szf94t3o0",
+      "agents": "a351numgokkpd33",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.643Z"
+    },
+    {
+      "id": "vgogyajljiuj44u",
+      "agents": "l5ef0nkmotzvzwh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.643Z"
+    }
+  ]
+}

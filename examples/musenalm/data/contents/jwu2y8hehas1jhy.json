@@ -1,0 +1,45 @@
+{
+  "annotation": "Homonymen (Sammlung INr 132859, Obj 40) Agrionien (Sammlung INr 132851, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Auf Erden erglänzt es im köstlichen Licht, / Am Himmel wohl schimmert's doch glänzet es nicht.",
+  "language": [],
+  "musenalm_id": 132860,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2023-12-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3jq3p6j77t6wqln",
+      "agents": "g7ovzuyzi8c0g2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.006Z"
+    }
+  ]
+}

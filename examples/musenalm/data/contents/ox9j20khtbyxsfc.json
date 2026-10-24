@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. IV. nach Ramberg (Titel aus dem I-Verz) s. Textbezug (Gedicht) INr 79062, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79063,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Saemann von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. F. Eißner sc. Wien",
+  "scans": [
+    "alm_2395_79063_yo88vy7zvu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Saemann von Schiller",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4dcscd2jqyo8noa",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.875Z"
+    },
+    {
+      "id": "htda1f720ghdv26",
+      "agents": "z64ev7tzpav4ds5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.875Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August; Illustration zu »Der Bauchredner« von L. Schefer INr 58749, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58741,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seite 301",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Schrötter del. W. Jury sc.",
+  "scans": [
+    "alm_864_58741_t3lwe1s1ep.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seite 301",
+  "updated": "2008-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o5g13qrgljp1uch",
+      "agents": "25ta425ah7d6eta",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.659Z"
+    },
+    {
+      "id": "vk7omp548xq98yu",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.659Z"
+    }
+  ]
+}

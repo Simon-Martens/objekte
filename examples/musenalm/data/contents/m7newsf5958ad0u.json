@@ -1,0 +1,45 @@
+{
+  "annotation": "Donnergerolle und Blitze aus der Ferne (Sammlung INr 46166, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Schalk und Schelm? so nennst du die dich umflat- / ternden Geister,",
+  "language": [],
+  "musenalm_id": 46170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Moritz Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m17sf0b81er8b2m",
+      "agents": "qab571spaxuq9fk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.226Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.226Z"
+    }
+  ]
+}

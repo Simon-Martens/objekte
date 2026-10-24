@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte und prosaische Aufsätze (Sammlung INr 10094, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Liebe muß wohl ein Geschenk des Himmels seyn, da ihr gemeiniglich Hofnung, Geduld, und der Menschenfreund zur Seite stehn.",
+  "language": [],
+  "musenalm_id": 10164,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe muß wohl ein Geschenk des Himmels seyn, da ihr gemeiniglich Hofnung, Geduld, und der Menschenfreund zur Seite stehn.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. v. Wallenrodt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kawq1z80qa62dqb",
+      "agents": "hcd8t0hxbx8bldt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.571Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Januar; paginiert 2. /) Illustration zu »König Heinrich IV.« von W. Shakespeare s. Textbezug INr 73343, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73332,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Euer Geld! / II. Aufz. 2r. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del.",
+  "scans": [
+    "alm_159_73332_wwvq6b5mv7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Euer Geld! / II. Aufz. 2r. Auftr.",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dngar50vtjeiy6d",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.731Z"
+    }
+  ]
+}

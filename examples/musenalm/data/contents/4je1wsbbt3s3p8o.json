@@ -1,0 +1,45 @@
+{
+  "annotation": "Auszüge aus Briefen (Sammlung INr 56231, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.072Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Vor Ostern kann ich ohnmöglich Ihren Wunsch erfüllen, denn schon seit 4 Wochen sitze ich zwischen lauter Notenpapier.",
+  "language": [],
+  "musenalm_id": 56235,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Carlsruhe den 6. März 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmittbaur",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Carlsruhe den 6. März 1782",
+  "updated": "2008-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oe6c2b1bbzy7zjb",
+      "agents": "b46jfbgxw32mfow",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.833Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Elegien (Sammlung INr 39197, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Staunend lauscht' ich noch hin - mir war's, ein himm- / lisches Glanzmeer / Strömete über die Flur blendend den irdischen Blick,",
+  "language": [],
+  "musenalm_id": 39205,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2005-07-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sl1t35xdtvp4nt2",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.898Z"
+    }
+  ]
+}

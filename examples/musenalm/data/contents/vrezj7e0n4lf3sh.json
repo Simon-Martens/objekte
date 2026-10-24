@@ -1,0 +1,45 @@
+{
+  "annotation": "Bemerkungen (Sammlung INr 56024, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.749Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Das Seltene ist in seinem Erscheinen an sich erfreulich oder unerfreulich;",
+  "language": [],
+  "musenalm_id": 56007,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Seltene ist in seinem Erscheinen an sich erfreulich oder unerfreulich;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "azajst6qov4c79g",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.952Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen und Devisen (Sammlung INr 63418, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Traulich sitzt man hier beysammen, / Drischt leeres Stroh und gute Namen,",
+  "language": [],
+  "musenalm_id": 63423,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Traulich sitzt man hier beysammen, / Drischt leeres Stroh und gute Namen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-04-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q3721zxxcaatwf1",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.272Z"
+    }
+  ]
+}

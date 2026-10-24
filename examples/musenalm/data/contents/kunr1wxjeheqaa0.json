@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "255",
+  "incipit_statement": "Die Nacht ist kalt. Die Sterne scheint zu frieren, / So frostig zitternd fällt ihr Licht in's Thal;",
+  "language": [],
+  "musenalm_id": 104270,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Winternacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Winternacht",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5k9foi2vlfsfpfx",
+      "agents": "e22fzyl0voj5sux",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.092Z"
+    }
+  ]
+}

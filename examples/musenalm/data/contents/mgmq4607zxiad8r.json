@@ -1,0 +1,45 @@
+{
+  "annotation": "Schifferlieder (Sammlung INr 37063, Obj 188)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "Da unten bei Cuxhafen / Da woget das offene Meer,",
+  "language": [],
+  "musenalm_id": 37066,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 191,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Schiffes Ankunft",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rosa Maria",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Schiffes Ankunft",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "894103h9qqya9yw",
+      "agents": "7qd9korfk9bcwc9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.658Z"
+    }
+  ]
+}

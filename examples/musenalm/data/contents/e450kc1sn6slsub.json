@@ -1,0 +1,45 @@
+{
+  "annotation": "Schlaf' wohl! Liederkranz (Sammlung INr 113731, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Schlaf' wohl, schlaf' wohl! Herzliebste mein, / Und schließ' in deinen Traum mich ein!",
+  "language": [],
+  "musenalm_id": 113732,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Adami",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Liebe",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ywsfl9r7q83emn6",
+      "agents": "h1jhs52naysyy4l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.279Z"
+    }
+  ]
+}

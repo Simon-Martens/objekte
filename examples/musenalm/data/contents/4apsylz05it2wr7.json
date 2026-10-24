@@ -1,0 +1,48 @@
+{
+  "annotation": "sep. Beilage: paginiert 1-4; Vertonung des Gedichts »Blondels Lied« von J. G. Seidl /) am Objekt: Beitrag für den Orpheus 1842; Gedr. b. M. R. Toma in Wien /) Photos 56484,01-56484,04",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.783Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Spähend nach dem Eisengitter bei des Mondes hellem Schein, steht ein Minstrel mit der Zither vor dem Schlosse Dürenstein,",
+  "language": [],
+  "musenalm_id": 56484,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blondels Lied / von J. G. Seidl. / Musik von Robert Schumann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Schumann",
+  "scans": [
+    "alm_759_56484_01_w48a6zxuwg.jpg",
+    "alm_759_56484_02_m9qq7uxbo0.jpg",
+    "alm_759_56484_03_9kxgftowtr.jpg",
+    "alm_759_56484_04_2ojq3fti5m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Blondels Lied / von J. G. Seidl. / Musik von Robert Schumann",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tp71cg9fd2ichbr",
+      "agents": "p1nj3wqrop1ks7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.898Z"
+    }
+  ]
+}

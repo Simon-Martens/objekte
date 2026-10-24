@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Thut euch auf, ihr geheimnißvollen Pforten der Vergangenheit! Schauervolles Thor von schwarzem Ebenholze, Eingang in die traurigen Thäler des Todes und der Schatten, öffne dich.",
+  "language": [],
+  "musenalm_id": 76974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sebatsian König von Portugal. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Weisflog",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sebatsian König von Portugal. / Erzählung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sp21gao1bha7xhv",
+      "agents": "iv41ps6uccpba1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.506Z"
+    }
+  ]
+}

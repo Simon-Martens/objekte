@@ -1,0 +1,45 @@
+{
+  "annotation": "Aussprüche, Bemerkungen, wizige Einfälle und Anekdoten (Sammlung INr 130884, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Jedem Verdienst ist eine Bahn zu Unsterblichkeit aufgethan, zu der wahren Unsterblichkeit, meyne ich,",
+  "language": [],
+  "musenalm_id": 130901,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jedem Verdienst ist eine Bahn zu Unsterblichkeit aufgethan, zu der wahren Unsterblichkeit, meyne ich,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ae521546c7bozrx",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.078Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 13010, Obj 112)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "341",
+  "incipit_statement": "Der Seele, wie dem Leib ertheil' ich höhern Werth, / Weshalb mich auch beinah noch alle Menschen schätzen;",
+  "language": [],
+  "musenalm_id": 13018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dambeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2001-03-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4vhlrjp13oar1pr",
+      "agents": "ipn2nvswkmowzx4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.505Z"
+    }
+  ]
+}

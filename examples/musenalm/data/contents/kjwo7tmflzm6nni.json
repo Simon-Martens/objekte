@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Wie mein Busen glühet, wie die Pulse / klopfen! / Wie der Kelter wollustreiche Tropfen",
+  "language": [],
+  "musenalm_id": 4245,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied. / Nach dem Schwedischen des Källgren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Lappe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied. / Nach dem Schwedischen des Källgren",
+  "updated": "2000-09-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lxy4545l52asvxk",
+      "agents": "h8h7559ermyma3h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.905Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Perle im Schutt (Sammlung INr 86881, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Auf Sant' Andrea, nah' am Meeresstrande, / Stand eines Abends, stumm und wie vernichtet, / Ein schönes Weib, in ärmlichem Gewande,",
+  "language": [],
+  "musenalm_id": 86882,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Begegnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cajetan Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Begegnung",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ac98f3whx8pb3md",
+      "agents": "ett5544anganpff",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.197Z"
+    }
+  ]
+}

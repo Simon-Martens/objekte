@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 109859-109601, Obj 25-27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109858,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Burleske Sonette. / Frei nach dem Spanischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Burleske Sonette. / Frei nach dem Spanischen",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hzn7qy2mflphkl2",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.380Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Frauenblätter (Sammlung INr 95156, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Schon wieder betrunken? Mann! glaube mir, / Du wirst mich zwingen von dir zu gehen.",
+  "language": [],
+  "musenalm_id": 95176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "21. Der galante Trunkenbold",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "21. Der galante Trunkenbold",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6ylephnccwx1aru",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.550Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.550Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Wer unter Euch ohne Sünde ist, der werfe den ersten Stein auf sie! [...] / Evang. Joh. Cap. 8, V. 7 und 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.511Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Im Jahre 1678, als noch innere Kriege das Königreich Ungarn zerrissen, verheirathete sich zu Preßburg ein reicher Edelmann, Namens Andreas Opray, nachdem er bereits sein fünf und sechzigstes Lebensjahr zurückgelegt,",
+  "language": [],
+  "musenalm_id": 61143,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Menschliche Schwäche",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Talvi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Menschliche Schwäche",
+  "updated": "2008-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o1ucid5vu7sc2yl",
+      "agents": "7h2sz4yxt1ki0lh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.938Z"
+    }
+  ]
+}

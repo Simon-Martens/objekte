@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "Es wehen draußen milde Sommerlüfte, / Und die lustwandeln in des Bades Thal,",
+  "language": [],
+  "musenalm_id": 45587,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 296,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Faro",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Friedrich Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Faro",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ver410ozjnrh9q0",
+      "agents": "9kqncyvdpl96r3o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.389Z"
+    }
+  ]
+}

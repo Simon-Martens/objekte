@@ -1,0 +1,45 @@
+{
+  "annotation": "Poesien [geordnet von Fr. Rückert] (Sammlung INr 42043, Obj 243",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "363",
+  "incipit_statement": "War's möglich, daß, erzürnt von einem Worte, / Sich höhnend konnte jener Mund verziehen,",
+  "language": [],
+  "musenalm_id": 42050,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 250,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / An Magdalene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Barth; Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / An Magdalene",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h5ryp5kh2oivq76",
+      "agents": "fudlqmk45pdt6si",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.981Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "Ist Kaiser Franz ein Menschenfreund, / Ist er die Sonne, die dem Weisen",
+  "language": [],
+  "musenalm_id": 4049,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 145,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Gleim. / Auf seine Aufforderung, den Kaiser / Franz, den Helden der Menschenliebe, zu / besingen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Gleim. / Auf seine Aufforderung, den Kaiser / Franz, den Helden der Menschenliebe, zu / besingen",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "olyq4u8u4jqsl0v",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.023Z"
+    }
+  ]
+}

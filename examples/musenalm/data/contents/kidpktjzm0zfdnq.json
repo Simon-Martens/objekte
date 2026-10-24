@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Beglückt, wer an der Hand der Liebe / Des Lebens Thal durchwallt;",
+  "language": [],
+  "musenalm_id": 87194,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebesglück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gittermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebesglück",
+  "updated": "2013-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ga0kjnpxu0e9zy",
+      "agents": "csr350ne0svibrz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.276Z"
+    }
+  ]
+}

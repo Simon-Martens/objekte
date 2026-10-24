@@ -1,0 +1,58 @@
+{
+  "annotation": "Détail aus »Southwark-Fair. Der Jahrmarkt von Southwark.« paginiert L. s. Textbezug INr 7481, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7482,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Hogarth inv. Riep. f. sculps.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth inv. Riep. f. sculps.",
+  "scans": [
+    "alm_151_7482_xosxiccfch.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a003blhuaebebaz",
+      "agents": "yylanvnf5ct4jbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.276Z"
+    },
+    {
+      "id": "p225384itvhlql9",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.276Z"
+    }
+  ]
+}

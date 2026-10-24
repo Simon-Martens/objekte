@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Das Geheimnis« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77166, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.428Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77167,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leis auf den Zehen kommt's geschlichen, / Die Stille liebt es und die Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. sc. v. H. Meyer v. Zürich",
+  "scans": [
+    "alm_2399_77167_4hf6yc2gft.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Leis auf den Zehen kommt's geschlichen, / Die Stille liebt es und die Nacht",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wpb70wdm5lhajej",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.673Z"
+    },
+    {
+      "id": "by1dbot62mwqxmd",
+      "agents": "pklgpi3o0ul4b99",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.673Z"
+    }
+  ]
+}

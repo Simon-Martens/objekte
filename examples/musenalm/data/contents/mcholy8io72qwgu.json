@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "So lebet wohl Ihr moosumwachsnen Hallen, / Der frohen Kindheit Zeugen, lebet wohl!",
+  "language": [],
+  "musenalm_id": 115432,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scenen / aus dem dramatischen Gedichte / Marie und Fernando",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Scenen / aus dem dramatischen Gedichte / Marie und Fernando",
+  "updated": "2016-11-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jziud1oy7edvkjq",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.561Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.561Z"
+    }
+  ]
+}

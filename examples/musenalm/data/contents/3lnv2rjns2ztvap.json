@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 52856, Obj 2 /) mit Anmerkungen INr 52908, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.543Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Kastlan von Erlach! fest beschlossen / Ist unerbittlich wilder Krieg,",
+  "language": [],
+  "musenalm_id": 52907,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rudolph von Erlach / und der / Graf von Nidau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rudolph von Erlach / und der / Graf von Nidau",
+  "updated": "2007-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z7xipuwk2tx5yal",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.792Z"
+    }
+  ]
+}

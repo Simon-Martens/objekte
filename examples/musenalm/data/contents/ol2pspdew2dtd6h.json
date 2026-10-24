@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.596Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70150,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Genealogischer / KALENDER / auf das Jahr / 1788. / mit Genehmhaltung der / Königl. Academie der / Wissenschaften / zu Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil del. E. S. Henne sc.",
+  "scans": [
+    "alm_799_70150_qxqpqaebq1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Genealogischer / KALENDER / auf das Jahr / 1788. / mit Genehmhaltung der / Königl. Academie der / Wissenschaften / zu Berlin",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jpjg2h4jv5i2n43",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.314Z"
+    },
+    {
+      "id": "jn5alwoy7fd2mkk",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.314Z"
+    }
+  ]
+}

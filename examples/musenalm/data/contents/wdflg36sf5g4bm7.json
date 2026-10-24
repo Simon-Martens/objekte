@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Unstät irren wir All' umher auf dem Meere des / Lebens, / Ohne zu wissen, wohin Nachen und Strömung / uns treibt.",
+  "language": [],
+  "musenalm_id": 11847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "66. / Bei dem Wechsel des Jahrhunderts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Manso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "66. / Bei dem Wechsel des Jahrhunderts",
+  "updated": "2001-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wrijs7109223f52",
+      "agents": "z30t9keae9ak7mu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.282Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Unser Sultan - gnad' ihm Gott! / Hatt' und macht' er doch viel Noth!",
+  "language": [],
+  "musenalm_id": 71353,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kurze Biographie des letztverstorbenen / Kaisers von Marokko",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sidi Ben Mahmud aus Tanger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kurze Biographie des letztverstorbenen / Kaisers von Marokko",
+  "updated": "2010-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a6dw33676mtyqyk",
+      "agents": "a1tvqjbk8115iq7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.439Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Ist es nur ein Traum? Ich sehe / Sie, die sich mein Herz erkohr.",
+  "language": [],
+  "musenalm_id": 3162,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bild der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Ae. Klöntrup",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Bild der Liebe",
+  "updated": "2000-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q1pqrer4wc4p6od",
+      "agents": "1dwn08ijjsd5m1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.633Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.633Z"
+    }
+  ]
+}

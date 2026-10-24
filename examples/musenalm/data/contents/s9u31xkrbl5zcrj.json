@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Nibelungen Lied. Sonettenkranz (Sammlung INr 123570, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Held wie der Sonne Morgengluth zu schauen - / Vor ihrem Glanz die Sterne schüchtern weichen,",
+  "language": [],
+  "musenalm_id": 123573,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Chriemhilde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Steinmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Chriemhilde",
+  "updated": "2009-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d6a9b16asmb9m91",
+      "agents": "jxsklfwb6yipx9m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.843Z"
+    }
+  ]
+}

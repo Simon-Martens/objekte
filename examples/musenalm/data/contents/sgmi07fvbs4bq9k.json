@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "An einem jener Abende, wo der Schein der Geselligkeit den sprechendsten Beweis für den menschlichen Egoismus liefert,",
+  "language": [],
+  "musenalm_id": 2061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wellenbraut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Gutzkow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wellenbraut",
+  "updated": "2000-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fq4dqemetlv8jlh",
+      "agents": "gppll7dy0seh698",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.637Z"
+    }
+  ]
+}

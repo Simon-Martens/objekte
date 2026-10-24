@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert V. /) Illustration zu »Die Wildschützen« aus: Bodmer (Übers.): »Altenglische Balladen« Th. II. S. 78-111. 8. Zürich 1781. # aus dem G-Verz S. 288 INr 16537, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "288",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jetzt legen sie, auf Verlangen des Königes die seltensten Proben ihrer Schießkünste [...] ab, #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hegi del. et sculp.",
+  "scans": [
+    "alm_259_16538_fx0nc1d1cd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jetzt legen sie, auf Verlangen des Königes die seltensten Proben ihrer Schießkünste [...] ab, #",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nu99szxg27etu06",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.545Z"
+    }
+  ]
+}

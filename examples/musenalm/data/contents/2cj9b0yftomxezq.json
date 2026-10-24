@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13373,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Engelhaus bei Carlsbad in Böhmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zingg del. Darnstedt sc.",
+  "scans": [
+    "alm_217_13373_xdz48ultt2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Engelhaus bei Carlsbad in Böhmen",
+  "updated": "2001-04-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h49x960139chcqz",
+      "agents": "tv0kfo1dowgyyed",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.641Z"
+    },
+    {
+      "id": "oo81x5km5cgvqkj",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.641Z"
+    }
+  ]
+}

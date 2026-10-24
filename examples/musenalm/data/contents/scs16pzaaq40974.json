@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 18591, Obj 7) s. Graphik INr 9017, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.541Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Bekanntlich begrüßte Dumouriez die Morgenröthe des Feldzuges von 1793 mit der Eroberung von Breda.",
+  "language": [],
+  "musenalm_id": 18592,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.) Dumouriez's Einzug in Breda / (25 Februar). / Siehe S. 124 des Taschenbuchs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.) Dumouriez's Einzug in Breda / (25 Februar). / Siehe S. 124 des Taschenbuchs",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c3cnkcqk72ju9ok",
+      "agents": "b68wiq4xeilaqf3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.996Z"
+    }
+  ]
+}

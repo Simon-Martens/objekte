@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Nicht weit am Jordan liegt ein wildes Thal, / Der Aufenthalt von Zachariens Sohn.",
+  "language": [],
+  "musenalm_id": 61978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus dem vierten Buche des lat. Gedichtes - / der Knabe Jesu - vom Pater Ceva",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus dem vierten Buche des lat. Gedichtes - / der Knabe Jesu - vom Pater Ceva",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k5wi7gy749km02i",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.061Z"
+    }
+  ]
+}

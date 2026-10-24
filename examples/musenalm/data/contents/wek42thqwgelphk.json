@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-08T10:31:05.081Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140517,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik] Unterzeichnet: Schnorr v. C. del. Leop. Beyer sc.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. C. del. Leop. Beyer sc.",
+  "scans": [
+    "alm_1861_140517_qxkgvzm8fm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-09-10T09:47:04.387Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "2mk79o2bdyovsko",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-08T10:31:48.379Z",
+      "edit_comment": "",
+      "type": "Zeichner:in",
+      "uncertain": false,
+      "updated": "2026-09-10T09:47:04.386Z"
+    },
+    {
+      "id": "8cgp70j0p1drwkm",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-08T10:31:59.786Z",
+      "edit_comment": "",
+      "type": "Kupferstecher:in",
+      "uncertain": false,
+      "updated": "2026-09-10T09:47:04.386Z"
+    }
+  ]
+}

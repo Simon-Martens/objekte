@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Das Gewölbe« von L. Beck INr 94624, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94591,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Erzählung: Das Gewölbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlesinger inv. I. Krepp sc.",
+  "scans": [
+    "alm_1872_94591_qxif7obbtl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Erzählung: Das Gewölbe",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c8v74g8q4p51znc",
+      "agents": "q0ll739boyttklq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.736Z"
+    },
+    {
+      "id": "3ww73w3un2p6882",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.736Z"
+    }
+  ]
+}

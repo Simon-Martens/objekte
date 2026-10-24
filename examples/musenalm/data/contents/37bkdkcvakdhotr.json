@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38969, Obj 157)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.471Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Klinget der Flöten süßer Klang / Hell durch die Abendkühle,",
+  "language": [],
+  "musenalm_id": 38972,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 160,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Tanzlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. E. Prutz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Tanzlied",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l0xndli6o51xx9y",
+      "agents": "fxxm37a191ki2vr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.903Z"
+    }
+  ]
+}

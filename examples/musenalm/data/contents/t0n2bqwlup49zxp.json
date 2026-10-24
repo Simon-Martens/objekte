@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Siehe, dort schwebt sie hernieder die Hora des / kommenden Jahres",
+  "language": [],
+  "musenalm_id": 4202,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 147,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Leonore / (Weimar, am Neujahrstage 1794)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Leonore / (Weimar, am Neujahrstage 1794)",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qu03o5s8oaq8xym",
+      "agents": "stasese2l43xq94",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.988Z"
+    }
+  ]
+}

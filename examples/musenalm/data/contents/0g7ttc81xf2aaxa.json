@@ -1,0 +1,45 @@
+{
+  "annotation": "An Wilhelm Müller (Sammlung INr 1919, Obj 29) VI. Vermischte Gedichte (Sammlung INr 37239, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "493",
+  "incipit_statement": "Soll ich Dich nun den Waldhornisten nennen, / Den Griechenfänger und den Weinumblühten,",
+  "language": [],
+  "musenalm_id": 1924,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schluß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Baron Simolin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schluß",
+  "updated": "2000-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hcpqgec5nr4vh32",
+      "agents": "15ilq8sfeqx1cly",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.755Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung an Blatt A der Suite. Détail aus »Das Thor von Calais oder der englische Rinderbraten.« paginiert C. s. Textbezug INr 7283, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.695Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Hogarth inv. Riepenhausen sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth inv. Riepenhausen sc.",
+  "scans": [
+    "alm_147_7284_id0u3xhj7q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mbjjrbv4qjvp20u",
+      "agents": "yylanvnf5ct4jbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.435Z"
+    },
+    {
+      "id": "1x3m48iypnipozx",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.435Z"
+    }
+  ]
+}

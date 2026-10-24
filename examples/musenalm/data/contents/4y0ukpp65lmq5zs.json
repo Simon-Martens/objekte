@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 77610, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Mit Tagesanbruch sterben, / Es ist ein sel'ger Tod.",
+  "language": [],
+  "musenalm_id": 77616,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seliger Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Seliger Tod",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ps80a4x26o5ym4w",
+      "agents": "tcaorsyhw9evcti",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.742Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.742Z"
+    }
+  ]
+}

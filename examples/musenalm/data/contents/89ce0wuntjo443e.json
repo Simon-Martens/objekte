@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober; Illustration zu »Quinti Aligheri del Ponte« von v. Sartorius INr 58871, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58862,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Quinti Aligheri / Seite 22.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schrödter del. Leybold sc.",
+  "scans": [
+    "alm_865_58862_kqosu09bk8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Quinti Aligheri / Seite 22.",
+  "updated": "2008-07-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ajefoty4kn1dab0",
+      "agents": "9u0zwdm3e3u85se",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.907Z"
+    }
+  ]
+}

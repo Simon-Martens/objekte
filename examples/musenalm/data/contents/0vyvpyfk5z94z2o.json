@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bezeichnung und Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22377,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz I. mit seiner Schwester Margarethe #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Richard; Desnoyers; Schwerdgeburth",
+  "scans": [
+    "alm_300_22377_86is8q55xv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Franz I. mit seiner Schwester Margarethe #",
+  "updated": "2002-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kpzvjv62geucvhu",
+      "agents": "ut5ixjfbgmyvne1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.978Z"
+    },
+    {
+      "id": "c0ofvvju9xy6fat",
+      "agents": "up45pyk8r3vkdn1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.978Z"
+    },
+    {
+      "id": "nivuhc2sphropwb",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.978Z"
+    }
+  ]
+}

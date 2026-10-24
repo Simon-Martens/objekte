@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Schwaben (Sammlung INr 99100, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "O Vater, o heiliger Vater mein, / Seit Veilchen ich suchte am Hagedornrain,",
+  "language": [],
+  "musenalm_id": 99157,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beichte",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ez9wsx1atltanur",
+      "agents": "wuncq1n9k4kudbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.950Z"
+    }
+  ]
+}

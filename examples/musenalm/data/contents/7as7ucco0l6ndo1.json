@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleinigkeiten (Sammlung INr 13970, Obj 81)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Was stiehlt sich leis und kaum bewußt / der schwere Seufzer aus der Brust?",
+  "language": [],
+  "musenalm_id": 13973,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lth339486mzmdi1",
+      "agents": "2wsoz27ytrsps8l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.519Z"
+    }
+  ]
+}

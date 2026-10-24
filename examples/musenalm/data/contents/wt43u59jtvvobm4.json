@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Gedicht INr 111444, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111437,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Muttersegen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. KRUSEMANN. D. J. Sluyter sc.",
+  "scans": [
+    "alm_3463_111437_2c8zfs8zox.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Muttersegen #",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oia41ovb4tnutj7",
+      "agents": "ducaeq2rch9xu7z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.299Z"
+    },
+    {
+      "id": "x53jgs3osdacf7r",
+      "agents": "lxkw0pi082wa1ak",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.299Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "# s. Anm. INr 32762. Fragmente eines Briefwechsels (Sammlung INr 32762, Obj 20) s. Graphik INr 32764, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "So zwischen Freude und Schmerz getheilt, wie bei'm Abschied von Ihnen, würdige, theure Frau,",
+  "language": [],
+  "musenalm_id": 32763,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Emiliens Mutter an Charlotten #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Emiliens Mutter an Charlotten #",
+  "updated": "2003-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h4zh329lfeeroys",
+      "agents": "6pw6iul8mmx44oj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.669Z"
+    }
+  ]
+}

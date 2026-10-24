@@ -1,0 +1,56 @@
+{
+  "annotation": "Übersetzung des hier nicht dargestellten griechischen Gedichts",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Frisch auf ihr, Griechen alle, / Ermannt Euch jetzt! Frisch auf!",
+  "language": [],
+  "musenalm_id": 131909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rigas [übers.:] Mebold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2013-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "foa0jh48zvp8njc",
+      "agents": "m46r0k8xyml7u8e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.044Z"
+    },
+    {
+      "id": "mlxi4s9jp5l6vgu",
+      "agents": "y3vcu2p4zhikm7w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.044Z"
+    }
+  ]
+}

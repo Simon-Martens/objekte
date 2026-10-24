@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Tänze (Sammlung INr 20070, Obj 152)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.455Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "415",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ecossaise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ecossaise",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c45y7b5e6qmi1n5",
+      "agents": "czigb25jnrfsy98",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.984Z"
+    }
+  ]
+}

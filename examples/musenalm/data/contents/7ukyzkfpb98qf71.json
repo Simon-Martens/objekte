@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 16 Beiträgen INr 84712-84727, Obj 45-60",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Es wird der Jugend vielleicht nicht unangenehm seyn, wenn sie hier eine kleine Sammlun von Kunststücken oder Versuchen findet, die in das Gebieth der Experimental-Chemie gehören,",
+  "language": [],
+  "musenalm_id": 84711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXII. / Chemische Kunststücke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blasche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXII. / Chemische Kunststücke",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oqetbe1fu9ttd0r",
+      "agents": "7h5ljocv7u3xkmf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.099Z"
+    }
+  ]
+}

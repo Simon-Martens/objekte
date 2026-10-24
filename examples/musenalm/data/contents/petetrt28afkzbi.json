@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung s. INr 101701, Obj 87 /) mit   Illustrationen s. Graphiken im Kalendarium INr 101624-101628, Obj",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Woher das Herzogthum Berg seinen Namen bekommen habe, darüber kann gar kein Zweifel statt finden.",
+  "language": [],
+  "musenalm_id": 101702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Kurze Darstellung der Bergische Landesgeschichte]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Kurze Darstellung der Bergische Landesgeschichte]",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1b4krrd9e0fekny",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.007Z"
+    }
+  ]
+}

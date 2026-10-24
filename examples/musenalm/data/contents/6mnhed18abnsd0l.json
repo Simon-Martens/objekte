@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder zu russischen Nationalmelodieen (Sammlung INr 25536, Obj 67)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.345Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Von dem Dach der Regen gießet, / Still die Thräne nieder fließet,",
+  "language": [],
+  "musenalm_id": 25540,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. A. Assing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "76l6x5odz002goa",
+      "agents": "gplimo7htici8gi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.089Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.089Z"
+    }
+  ]
+}

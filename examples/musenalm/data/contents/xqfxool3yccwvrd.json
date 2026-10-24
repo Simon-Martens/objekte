@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 87050, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.529Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87049,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Politiker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Laufberger del. Ig. Lichleitner",
+  "scans": [
+    "alm_1611_87049_qpz6jenkxo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Politiker",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ivscaffffj9js25",
+      "agents": "pp02s3wj2qujsyg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.296Z"
+    }
+  ]
+}

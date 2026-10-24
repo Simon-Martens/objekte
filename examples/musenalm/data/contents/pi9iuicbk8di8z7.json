@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Epigramme (Sammlung, INr 121721, Obj. 26); # Bezeichnung an der Sammlung",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Nur mein Bestes verlangst du? Das pflückt man / vom Baume zwar als Apfel, / Aber man schlägt es vom Rumpf nimmer he- / runter als Kopf!",
+  "language": [],
+  "musenalm_id": 121807,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Antwort",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Hebbel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Antwort",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "px5fcqluw1xu2y0",
+      "agents": "slo2tnoqzd1g9wn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.641Z"
+    }
+  ]
+}

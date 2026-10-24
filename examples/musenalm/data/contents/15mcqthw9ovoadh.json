@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Freunde, laßt uns fröhlich seyn / In vertrauten Kreisen;",
+  "language": [],
+  "musenalm_id": 88804,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bundeslied, / am Geburtstage einer Freundin von einem / Zirkel guter Freunde gesungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. C. Claudius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bundeslied, / am Geburtstage einer Freundin von einem / Zirkel guter Freunde gesungen",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rmnamb3xu212gfs",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.091Z"
+    }
+  ]
+}

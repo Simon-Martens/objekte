@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 10878, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Es war einer der schönsten Morgen, wie ihn jemals eine heitere und stille Sommernacht in ihrem Schoose getragen hatte,",
+  "language": [],
+  "musenalm_id": 10881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Die Angebinde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Die Angebinde",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kpksmjpmce73ur2",
+      "agents": "n7zgo9f1gh6x37x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.358Z"
+    }
+  ]
+}

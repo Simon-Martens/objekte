@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Klingenwald (Sammlung INr 111820, Obj 206)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "302",
+  "incipit_statement": "Nun geht das Wandern wieder an, / Was fang' ich armer Vogel an,",
+  "language": [],
+  "musenalm_id": 111832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 220,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. Vorrecht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Conrad Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. Vorrecht",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gb6o4pj9wnwutg4",
+      "agents": "ozbm86woe020u89",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.414Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.414Z"
+    }
+  ]
+}

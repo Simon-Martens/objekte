@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Hier strahlt im goldnen Ringe / Ihr kleines Ebenbild,",
+  "language": [],
+  "musenalm_id": 4537,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Laide",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Laide",
+  "updated": "2000-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8snkxgjnuuk4ymo",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.166Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert 1",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7837,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "La Poule",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. f.",
+  "scans": [
+    "alm_170_7837_u82vpjy9ls.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "La Poule",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t8uwoe4skyodevw",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.408Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April /) Illustration zu »Das Holzweiblein« von J. G. Seidl INr 95907, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95892,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Holzweiblein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clementine Ruß del. Jos. Jung sc.",
+  "scans": [
+    "alm_3350_95892_xw1uqs0sa2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Holzweiblein",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hlxx4fd73n49bim",
+      "agents": "iexyvzdzwrb4rqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.365Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.365Z"
+    }
+  ]
+}

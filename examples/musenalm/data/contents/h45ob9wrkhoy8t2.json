@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 48870, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Stufen des Menschenalters od. d. h. Hieronymus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Correggio pinx. Thelott Düsseldo. sc.",
+  "scans": [
+    "alm_668_48871_nfx7bz8v09.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Stufen des Menschenalters od. d. h. Hieronymus",
+  "updated": "2007-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4tx0dngg8nmkqma",
+      "agents": "irhvezh3jd0m3va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.518Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.518Z"
+    },
+    {
+      "id": "vlf588kttq1bijl",
+      "agents": "f8vs62ntusa9nl2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.519Z"
+    }
+  ]
+}

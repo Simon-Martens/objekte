@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen und Romanzen (Sammlung INr 86118, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Dort, wo kühn des Dholagiri Scheitel / Schneebedeckt bis in die Wolken ragen,",
+  "language": [],
+  "musenalm_id": 86121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Heiligthum. ( Indische Sage.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Liber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Heiligthum. ( Indische Sage.)",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cvima4fx61luos8",
+      "agents": "zfc98s6qn3u27oa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.189Z"
+    }
+  ]
+}

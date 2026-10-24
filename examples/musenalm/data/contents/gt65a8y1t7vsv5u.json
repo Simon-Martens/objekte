@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am 2. Blatt der Suite /) paginiert V. /) kol. Illustration zu »Die Meven von V. F. S. Fischer INr 67318, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67317,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Larus argentatus (Lin.) Die Silbermeve",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1150_67317_q4gl47hsfl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Larus argentatus (Lin.) Die Silbermeve",
+  "updated": "2009-10-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xjcwtzdhz1tw0ri",
+      "agents": "93i1cvgb16cjfey",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.184Z"
+    },
+    {
+      "id": "0efbi665ucnmnb6",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.184Z"
+    }
+  ]
+}

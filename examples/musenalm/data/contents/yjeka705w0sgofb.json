@@ -1,0 +1,45 @@
+{
+  "annotation": "graph.-typograph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8006,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musenalmanach / für / das Jahr 1770. / Göttingen / bey Johann Christian Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meil",
+  "scans": [
+    "alm_177_8006_t1px0htk0n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Musenalmanach / für / das Jahr 1770. / Göttingen / bey Johann Christian Dieterich",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ol3uz0dt17xy5r",
+      "agents": "tofq8m4srkv5wfy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.219Z"
+    }
+  ]
+}

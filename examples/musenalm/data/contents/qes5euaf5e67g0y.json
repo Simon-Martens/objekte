@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Die Biene schwebte einst im milden Strahle / Des schönsten Morgenroths, zu einemThale -,",
+  "language": [],
+  "musenalm_id": 112149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Maulwurf und die Biene. / Eine Fabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernestine von Krosigk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Maulwurf und die Biene. / Eine Fabel",
+  "updated": "2016-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3cu97l0biwegt9q",
+      "agents": "7l6lnr4uxnh3d2o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.354Z"
+    }
+  ]
+}

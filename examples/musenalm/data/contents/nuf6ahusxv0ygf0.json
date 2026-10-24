@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Der Mahler Weiss schläft, wenn man den / Combabus liest.",
+  "language": [],
+  "musenalm_id": 75223,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf den Mahler Weiss",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Rahmel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf den Mahler Weiss",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pd4yfizfq19axqz",
+      "agents": "apv8utbqro872oi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.670Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Agrionien für das Jahr 1828. gesammelt von Th. Hell (Sammlung INr 40837, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "438",
+  "incipit_statement": "Was wir nennen, seid Ihr einst gewesen, / Heil Euch, seid Ihr's noch, im geist'gen Sinn!",
+  "language": [],
+  "musenalm_id": 40844,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Sylbenräthsel. / Drei Sylben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Sylbenräthsel. / Drei Sylben",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kpxzjwcdz5kvxul",
+      "agents": "scmt2snhwdglbs9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.338Z"
+    }
+  ]
+}

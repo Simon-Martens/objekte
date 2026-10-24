@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Hebt mich leis' empor, ihr Lieder, / Aus des Lebens engen Kreisen",
+  "language": [],
+  "musenalm_id": 94812,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Welche Lust gewährt das Reisen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carlopago",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Welche Lust gewährt das Reisen",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ovbjcydauf6izjx",
+      "agents": "xaj6m1llkx5hiyx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.343Z"
+    }
+  ]
+}

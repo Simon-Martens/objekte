@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 22248, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.636Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "454",
+  "incipit_statement": "Die Glocken des nahen Doms verkündigten das Fest der Auferstehung. Graf und Gräfin von Kreuzburg erwachten beide von den feierlichen Thönen.",
+  "language": [],
+  "musenalm_id": 22205,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Todtenfrau",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Todtenfrau",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i53ijoj8haywawi",
+      "agents": "z3f86v065s6vcml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.117Z"
+    }
+  ]
+}

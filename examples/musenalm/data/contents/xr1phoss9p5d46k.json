@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.856Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Warum blickst du, Sonne, trübe, / wie beleuchtest du ein Grab?",
+  "language": [],
+  "musenalm_id": 87702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Spartanerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freih. v. d. Goltz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Spartanerin",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kesmf35xbhuemq5",
+      "agents": "wlbkks5lix9gijw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.441Z"
+    }
+  ]
+}

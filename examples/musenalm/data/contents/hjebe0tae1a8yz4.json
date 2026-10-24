@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Der Erdkräis lag in Nacht verhüllt, / Und jedes Laster sah Altäre / Erbaut zu seiner Ehre.",
+  "language": [],
+  "musenalm_id": 79131,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Kantate",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiebeler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Kantate",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lamdptix5gge37m",
+      "agents": "xnvl0kz2eadysbj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.895Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.895Z"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "Photos 54813,01; 54813,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.829Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54813,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Schnyder von Wartensee",
+  "scans": [
+    "alm_744_54813_01_cccwi7o8ej.jpg",
+    "alm_744_54813_02_d8yxbgwun5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Walzer",
+  "updated": "2008-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bamkdpzzhjk0erk",
+      "agents": "qn8g13ehspgkph8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.900Z"
+    }
+  ]
+}

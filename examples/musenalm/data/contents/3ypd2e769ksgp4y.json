@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Wie heult der Wind so hohl. so rauh! / Zum Reif gefriert der frühe Thau.",
+  "language": [],
+  "musenalm_id": 75833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergänglichkeit und Treue. / An einem Novembertage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. T. Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vergänglichkeit und Treue. / An einem Novembertage",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lizjrjhv216wv6z",
+      "agents": "nz3ytz19v6fnz1k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.465Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. aus dem G-Verz /) paginiert 3. Illustration zu »Kinder im Korn« INr 59572, Obj 90 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59573,
+  "musenalm_pagination": [
+    "5. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kinder im Korn #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Burggraf # Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59573_lr7cxwjhhf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kinder im Korn #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7nv0q06p53r2739",
+      "agents": "fghuc8s0qhfgnmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.020Z"
+    },
+    {
+      "id": "mo49kru2f65xeyh",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.021Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Biographie. Eleonire Christine, Gräfin von Ulfeld« INr 47660, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47661,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nun folge ich dir, und wenn du mich in den Tod führtest",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Meno Haas sc. Berlin 1803",
+  "scans": [
+    "alm_649_47661_l91kcf5t1k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nun folge ich dir, und wenn du mich in den Tod führtest",
+  "updated": "2007-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yknppaopdqt4ojb",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.353Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.353Z"
+    },
+    {
+      "id": "pdq3msjtty0uixb",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.353Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.353Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Ich spielte träumend in der Wiese Blumen. / Stumm war der Hain noch dem verschloßnen Sinn;",
+  "language": [],
+  "musenalm_id": 83883,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Erwachen. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Lautsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Erwachen. / Sonett",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ib0bszkcx09npn",
+      "agents": "lddxtb72o5kmwcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.680Z"
+    }
+  ]
+}

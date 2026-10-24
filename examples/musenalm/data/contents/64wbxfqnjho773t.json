@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 102309, Obj 116)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Horch! die Osternachtigall / Singt vom Maienbaum hernieder",
+  "language": [],
+  "musenalm_id": 102328,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "19. / Osterlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Drobisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "19. / Osterlied",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2n6i6zhrsw6sc14",
+      "agents": "qf0rumqvyhc5lnw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.920Z"
+    }
+  ]
+}

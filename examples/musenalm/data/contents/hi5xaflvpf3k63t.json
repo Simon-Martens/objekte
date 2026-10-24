@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44260, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Es lebt' ein Kauz, den's herb verdroß, / Daß er nicht würd' des Schattens los;",
+  "language": [],
+  "musenalm_id": 44275,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine merkwürdige Begebenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Kalisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine merkwürdige Begebenheit",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bkqi51z3eu4lec2",
+      "agents": "wdqlc0hdzxbw7pk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.245Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Werden denn wirklich, meine geliebte Freundin, in Ihrem jetzigen Wohnorte so viel Wunderdinge von mir und über mich erzählt?",
+  "language": [],
+  "musenalm_id": 37440,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Das Blumenpfand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich v. Oertel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Das Blumenpfand",
+  "updated": "2005-03-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dmdyiatps1xbdxh",
+      "agents": "u657j3m1foor2a9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.916Z"
+    }
+  ]
+}

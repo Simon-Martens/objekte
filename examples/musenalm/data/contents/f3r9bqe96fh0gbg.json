@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90208,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Giedeon Baron / von Laudon, / K.K. Feldmarschall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Adam fecit",
+  "scans": [
+    "alm_2209_90208_poannj9rs2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Giedeon Baron / von Laudon, / K.K. Feldmarschall",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wy6j2kyyuxkqpw5",
+      "agents": "v31c77tq4slj851",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.137Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Es folgen  5 Kapitel mit einer Einleitung INr 41477-41482, Obj 7-12; s. a. die Graphiken des Taschenbuchs INr 41471, Obj 1; 41486-41496, Obj 16-26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41476,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Florida, Mexiko und die wichtigsten / Theile von Süd-Amerika",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Florida, Mexiko und die wichtigsten / Theile von Süd-Amerika",
+  "updated": "2005-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nkxfgjw415ewr35",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.356Z"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Unsere Bedürfnisse aller Art, sowohl wahre als eingebildete scheinen in eben dem Verhältnisse zu wechseln, in welchem die Mittel sie zu befriedigen, abnehmen.",
+  "language": [],
+  "musenalm_id": 74678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorschlag, den Hopfenbau ohne Stangen zu betreiben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Plouquet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorschlag, den Hopfenbau ohne Stangen zu betreiben",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "durj5f0luqxyc6y",
+      "agents": "qeagi1x6xs8ly50",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.357Z"
+    }
+  ]
+}

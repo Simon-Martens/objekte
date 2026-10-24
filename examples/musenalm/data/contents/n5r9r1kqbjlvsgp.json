@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.365Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Das Ufer wogt' im wilden Nord, / Die Felsen hallten rings umher,",
+  "language": [],
+  "musenalm_id": 4354,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 143,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der kühne Schiffer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Ch. Pape",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der kühne Schiffer",
+  "updated": "2000-09-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eessq0wh7jkbzl2",
+      "agents": "2glx0j2o180tzfm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.257Z"
+    }
+  ]
+}

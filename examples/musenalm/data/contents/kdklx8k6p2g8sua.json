@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "So viele Töne, / So vieles Schöne! / Für jegliches Lied / Ein Herz, das für dich glüht;",
+  "language": [],
+  "musenalm_id": 94389,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In das Stammbuch einer Sängerinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Gerhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In das Stammbuch einer Sängerinn",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hzgqcfuhjms6qy2",
+      "agents": "c4v9nl7ztvkf3sf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.325Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.325Z"
+    }
+  ]
+}

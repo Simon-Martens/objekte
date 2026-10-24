@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 95107, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Von Smaragden grünt es auf dem Schooße, / Von Smaragden in der Hand / Dieser holden Morgenlandesrose",
+  "language": [],
+  "musenalm_id": 95108,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Fatime",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Fatime",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0mqkpwu8zpy1652",
+      "agents": "arq1wi6im7bawmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.488Z"
+    }
+  ]
+}

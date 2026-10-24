@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Vesta 1832, INr 25998",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "O Freund, Du schloßest wahrlich nicht vergebens, / Im ernsten Wendepunkte meines Lebens,",
+  "language": [],
+  "musenalm_id": 26077,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gegengruss / an / Carl Gottfried Ritter von Leitner / (als Erwiederung auf seinen Gruß.Siehe Vesta II. Jahrg. / Seite 205) #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gegengruss / an / Carl Gottfried Ritter von Leitner / (als Erwiederung auf seinen Gruß.Siehe Vesta II. Jahrg. / Seite 205) #",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "52hklt779uk4sj9",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.074Z"
+    }
+  ]
+}

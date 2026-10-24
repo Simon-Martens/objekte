@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert II. /) Illustration zu »Zerbino« von L. Tieck # Titel s. Textbezug INr 65394, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65400,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nestor hat Stallmeister den Strick abgenommen; dieser rennt den Berg hinunter #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Führich gez. gest. von A. Hüssener",
+  "scans": [
+    "alm_1102_65400_eaxhnwoi7d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nestor hat Stallmeister den Strick abgenommen; dieser rennt den Berg hinunter #",
+  "updated": "2009-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i5clmh44yrnkhki",
+      "agents": "m8y5g9ap5pw6fd8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.127Z"
+    },
+    {
+      "id": "14f3erqoklzy7rj",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.127Z"
+    }
+  ]
+}

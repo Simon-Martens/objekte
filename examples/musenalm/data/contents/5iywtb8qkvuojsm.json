@@ -1,0 +1,56 @@
+{
+  "annotation": "Sammlung von einem Beitrag und 2 Sammlungen mit 9 Beiträgen INr 76842-76853, Obj 26-37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kleine Erzählungen / aus Petrarcas lateinischen Schriften",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca [übers.] A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kleine Erzählungen / aus Petrarcas lateinischen Schriften",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4h4qc0opd6zvltd",
+      "agents": "jjhjybjbxkieqjg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.929Z"
+    },
+    {
+      "id": "al3bomhd99z55ux",
+      "agents": "67zaqw1ahn1z54k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.929Z"
+    }
+  ]
+}

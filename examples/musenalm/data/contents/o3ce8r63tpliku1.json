@@ -1,0 +1,45 @@
+{
+  "annotation": "Das höhere Leben. An die G. von B. Zwei Sonette (Sammlung INr 42839, Obj 101)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.537Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Mein Blick durchfliegt der Vorwelt Heroinen, / Und schaut entzückt die blühenden Gestalten,",
+  "language": [],
+  "musenalm_id": 42841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Messerschmid",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "97ihyr6ezq33a6k",
+      "agents": "08be5slqlt4odk1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.216Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.216Z"
+    }
+  ]
+}

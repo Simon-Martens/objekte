@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 87821, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Zur Gesundheit! / Was ist die Glocke? / So eben drei Uhr! / Ich hab Ihn aber nur / zweimal niesen hören",
+  "language": [],
+  "musenalm_id": 87820,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die alten Spielkameraden. / Lustspiel in zwei Aufzügen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst v. Houwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die alten Spielkameraden. / Lustspiel in zwei Aufzügen",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aavwxphua3wgkjr",
+      "agents": "yekzbr1mkxuaimv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.105Z"
+    }
+  ]
+}

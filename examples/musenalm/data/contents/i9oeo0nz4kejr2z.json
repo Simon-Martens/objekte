@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Textbezügen zu 8 Graphiken INr 43723-43738, Obj 7- 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43722,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gallerie / aus / Walter Scott's Werken. / Fünfte Lieferung. / Quentin Durward. - Waverley. - Nigel's / Schicksale. - Rokeby",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gallerie / aus / Walter Scott's Werken. / Fünfte Lieferung. / Quentin Durward. - Waverley. - Nigel's / Schicksale. - Rokeby",
+  "updated": "2006-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "giqxz8t8qsb2o65",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.281Z"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Des armen Hannchens Spinnlied« von A. v. Nostitz und Jänkendorf INr 12181, Obj 132 (Photos 12182,01; 12182,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des armen Hannchens Spinnlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Bergt",
+  "scans": [
+    "alm_211_12182_01_d1bxrfam6i.jpg",
+    "alm_211_12182_02_qsplmodjj7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des armen Hannchens Spinnlied",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zn354vilqokdudc",
+      "agents": "25ubfkw7g6ebn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.455Z"
+    }
+  ]
+}

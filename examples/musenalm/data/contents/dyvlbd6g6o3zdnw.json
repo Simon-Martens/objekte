@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Verfassers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Bey der Ausarbeitung dieses Taschenbuches habe ich nicht zu den ersten Quellen zurückgehen, sondern nur bewährten Führern folgen, und mir kein anderes Verdienst, als das der Auswahl und der Darstellung erwerben können.",
+  "language": [],
+  "musenalm_id": 87229,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2010-08-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f1u6ysua73oxp8o",
+      "agents": "16tb3i8mxvamyxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.047Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen (Worterklärungen)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "324",
+  "incipit_statement": "Si säge: d'Agertsche syn Hexe! / Das macht mier no nit sövel bang.",
+  "language": [],
+  "musenalm_id": 53533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gretchens Unglücks-Vogel. / Im Oberländer-Dialekt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gretchens Unglücks-Vogel. / Im Oberländer-Dialekt",
+  "updated": "2007-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n0y73icecm2o09b",
+      "agents": "0v61flsplw084qp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.414Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.414Z"
+    }
+  ]
+}

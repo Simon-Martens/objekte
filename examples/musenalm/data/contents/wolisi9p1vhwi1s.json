@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Noch einmal fuhr der Feuergeist der Väter / In die erwachte Nation. [...] J. G. Seume /) mit einer Illustration s. Graphik INr 117430, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Dichter Nebel lag über London, so daß ein fast nächtliches Dunkel herrschte und kaum Lichter sichtbar bleiben, welche Schiffe angesteckt hatten.",
+  "language": [],
+  "musenalm_id": 117433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Stunde der Vergeltung. / Historische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Steinebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Stunde der Vergeltung. / Historische Novelle",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1860,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "im1npy7jn670r5n",
+      "agents": "lzi1zyn6aqla0ny",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.504Z"
+    }
+  ]
+}

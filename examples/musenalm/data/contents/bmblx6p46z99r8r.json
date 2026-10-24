@@ -1,0 +1,43 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 37621, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Freude, schöner Götterfunken, / Tochter aus Elysium!",
+  "language": [],
+  "musenalm_id": 37622,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[November] / An die Freude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "SCHILLER",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[November] / An die Freude",
+  "updated": "2005-04-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7s9furv2hy90dry",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.036Z"
+    }
+  ]
+}

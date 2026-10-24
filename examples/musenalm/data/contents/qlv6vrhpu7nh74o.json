@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Die hier folgende Darstellung des gegen Marie Remy geführten Criminalprocesses gründet sich auf die beim kurfürstlichen Oberhofe zu Trier verhandelten Untersuchungsacten, [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Unfern der kleinen Stadt Clermont, in den Argonnen, lebte zu Anfang des Jahres 1789 der Notar Charles Lorent,",
+  "language": [],
+  "musenalm_id": 2087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie Remy. / Eine Criminalgeschichte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Martell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Marie Remy. / Eine Criminalgeschichte",
+  "updated": "2000-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "38hkrygkdnxoxkg",
+      "agents": "zrsi43h33yxojuh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.965Z"
+    }
+  ]
+}

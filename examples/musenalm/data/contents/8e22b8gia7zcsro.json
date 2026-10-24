@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Mama, ich möchte wohl den losen Amor kennen: / Sie lasen jüngst, er sei so artig, hübsch und klein.",
+  "language": [],
+  "musenalm_id": 10315,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "32. / Beitrag zur Mythologie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "32. / Beitrag zur Mythologie",
+  "updated": "2001-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dkrm4g3p1i8os6i",
+      "agents": "n7zgo9f1gh6x37x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.517Z"
+    }
+  ]
+}

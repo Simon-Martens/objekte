@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104447,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arie aus dem Dorf-Jahrmarkt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von H. G. Benda",
+  "scans": [
+    "alm_3247_104447_yx8bch2oda.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Arie aus dem Dorf-Jahrmarkt",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dbwplxci2jg9jd3",
+      "agents": "f30wplxvcma68l7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.877Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Ich flieh' dahin mit sanftem Tritte, / Ich fühle mich so jung und frei,",
+  "language": [],
+  "musenalm_id": 42701,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 234,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonnabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonnabend",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zgmn55wvbtex6nk",
+      "agents": "7ioe1hp46372lt8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.205Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.205Z"
+    }
+  ]
+}

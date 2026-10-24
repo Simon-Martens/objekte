@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Auflösung",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Vier Füße hab' ich zwar doch doppelt ist der eine / Drum werd' ich jedem auch fünffüßig nur genannt.",
+  "language": [],
+  "musenalm_id": 28351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Logogryph. / An Rosa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Logogryph. / An Rosa",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ijxylz3aaea8vwj",
+      "agents": "vd3inw12z8a6gd2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.422Z"
+    }
+  ]
+}

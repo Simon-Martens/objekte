@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 12. # Titel und Bez. aus dem G-Verz INr 15495 Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15425,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine in der Tiefe zwischen Gebüschen ruhende, und von hohen Bäumen überschattete Einsiedeley, #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Brandt",
+  "scans": [
+    "alm_245_15425_sdek5c1v4q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine in der Tiefe zwischen Gebüschen ruhende, und von hohen Bäumen überschattete Einsiedeley, #",
+  "updated": "2001-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "id6z4pvkskx4zb1",
+      "agents": "8rv1oo9bmtatyb4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.485Z"
+    }
+  ]
+}

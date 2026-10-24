@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Washington Irving's und Cooper's Werken. Erste Lieferung. Irving's Erzählungen eines Reisenden. - Skizzenbuch. - Eingemachtes. - Cooper's Spion. - Der Lootse. - Der Letzte Mohikaner (Sammlung INr 43787, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Indem wir mit diesem Jahrgange des Rheinischen Taschenbuchs eine Gallerie aus Washington Irving's und Cooper's Werken zu eröffnen beginnen, hegen wir die Ueberzeugung, unsern Lesern dadurch einen wesentlichen Dienst zu leisten.",
+  "language": [],
+  "musenalm_id": 43788,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Kupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Kupfer",
+  "updated": "2006-05-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hk182kzuf5thdo0",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.406Z"
+    }
+  ]
+}

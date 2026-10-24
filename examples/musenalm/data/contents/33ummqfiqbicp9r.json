@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollständige Bezeichnung aus dem G-Verz /) Illustration zu »Romeo und Julia« von W. Shakespeare; s. Textbezug INr 19325, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9273,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romeo und Julia. / 4. Aufzug 5. Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz # Cardon sculp. 1818",
+  "scans": [
+    "alm_42_9273_mx86r3103r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Romeo und Julia. / 4. Aufzug 5. Scene",
+  "updated": "2000-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9slu1ay5wqiq2ct",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.364Z"
+    }
+  ]
+}

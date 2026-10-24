@@ -1,0 +1,45 @@
+{
+  "annotation": "paginert 1. /) Graphik  im Kalendarium April",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79609,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Gest. von K. M. Ernst)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gest. von K. M. Ernst",
+  "scans": [
+    "alm_2874_79609_h8qb1gwv8m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2fkqyfh8b20gi20",
+      "agents": "pyz8ndoabmaj2z6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.949Z"
+    }
+  ]
+}

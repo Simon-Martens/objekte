@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Viele herrliche Gestalten / Aus Olympos hehren Hallen / In die trunknen Sinne fallen,",
+  "language": [],
+  "musenalm_id": 65945,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glosse. / Rein in angebornem Glanze / Wallt dahin des Lebens Quelle; / Klarer Spiegel jede Welle / In dem wunderbaren Tanze. / de la Motte Fouqué",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. R. Schneider",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glosse. / Rein in angebornem Glanze / Wallt dahin des Lebens Quelle; / Klarer Spiegel jede Welle / In dem wunderbaren Tanze. / de la Motte Fouqué",
+  "updated": "2009-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mv94796dfgm0gsw",
+      "agents": "i8izpiuwm5jw2yh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.249Z"
+    }
+  ]
+}

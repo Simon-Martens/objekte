@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert Tab. IV [(ür VI ) /) kol. Illustration zu »Das Schneehuhn« von L. C. E. H. F. von Wildungen INr 66453, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66452,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tetrao Lagopus. Das Schneehuhn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen pinxit",
+  "scans": [
+    "alm_1135_66452_wcrec2cven.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tetrao Lagopus. Das Schneehuhn",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wtam8b34tn7h2vy",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.250Z"
+    }
+  ]
+}

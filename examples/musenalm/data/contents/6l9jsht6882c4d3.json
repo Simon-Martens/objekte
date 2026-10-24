@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Herr Zinklar schiffte wohl über das Meer, / Ließ lustig die Wimpelein wedeln.",
+  "language": [],
+  "musenalm_id": 6026,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Lied von Zinklar. / Nach dem Dänischen des Dichters / Storm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Fr. Sander",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Lied von Zinklar. / Nach dem Dänischen des Dichters / Storm",
+  "updated": "2000-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tewr4r6ap3ld2ej",
+      "agents": "anq3gu79zmuyrfg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.113Z"
+    }
+  ]
+}

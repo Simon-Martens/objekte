@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbst 1833 in Neusel (Sammlung INr 98898, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "334",
+  "incipit_statement": "Wenn du zu Frühlingsappetit / Der Sonn' entgegen reitest,",
+  "language": [],
+  "musenalm_id": 98969,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 171,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "58.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "58.",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f32xucgpedbcc2p",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.820Z"
+    }
+  ]
+}

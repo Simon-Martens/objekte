@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 4. /) s. Textbezug INr 60041, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60040,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fluchwürdige Greuethadt zu Lion",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del.",
+  "scans": [
+    "alm_936_60040_mm0lzdotv1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fluchwürdige Greuethadt zu Lion",
+  "updated": "2008-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yrrltunubumjmbk",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.980Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.980Z"
+    }
+  ]
+}

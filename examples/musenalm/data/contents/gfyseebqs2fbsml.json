@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthselkranz (Sammlung INr 94570, Obj 139) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94569, Obj 138)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "357",
+  "incipit_statement": "Ein junges weinendes Weibchen, / Die sitzt alltäglich am Meer,",
+  "language": [],
+  "musenalm_id": 94574,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 143,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Logogryph. / 12345678-45678",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Adami",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Logogryph. / 12345678-45678",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "972h9k2bhs1lncv",
+      "agents": "h1jhs52naysyy4l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.479Z"
+    }
+  ]
+}

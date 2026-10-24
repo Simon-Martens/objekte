@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Lieder. Liebesfrühling (Sammlung INr 1718, Obj 86)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Wenn du auch nicht mehr mich liebtest, / Doch dich lieben wollt' ich noch.",
+  "language": [],
+  "musenalm_id": 1743,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXV.",
+  "updated": "2000-08-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "20y3gsvr648qcta",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.684Z"
+    }
+  ]
+}

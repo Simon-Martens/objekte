@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht in neun Teilen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.042Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Geliebte Arme, die mich voll Vertrauen / Umfassend in des Schönen Heimath führen,",
+  "language": [],
+  "musenalm_id": 126558,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schatten der Liebenden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schatten der Liebenden",
+  "updated": "2020-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qn99pc77xz2ib7k",
+      "agents": "z3f86v065s6vcml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.936Z"
+    }
+  ]
+}

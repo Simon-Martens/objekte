@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Landes- und Regentengeschichte (Sammlung INr 119621, Obj 8); Kupferstich der Ruinen des Frankenbergs für den „künftigen Jahrgange“ angekündigt.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Von den Ueberbleibseln dieser alten Burg und ihrer Geschichte ist wenig zu sagen. Ich würde die Leser mit diesem Aufsatze verschonen …",
+  "language": [],
+  "musenalm_id": 119622,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Frankenberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Frankenberg",
+  "updated": "2012-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p5w5r8qqrz6ly3f",
+      "agents": "kvqo68p64ik630m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.720Z"
+    }
+  ]
+}

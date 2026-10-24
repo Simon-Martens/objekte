@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Sonnenstrahl! / Kömmst du über Berg und Thal, / Ueber hoher Alpen Zinnen,",
+  "language": [],
+  "musenalm_id": 51567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der erste Sonnenstrahl nach langer Win- / ternacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Brun, geb. Münter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der erste Sonnenstrahl nach langer Win- / ternacht",
+  "updated": "2007-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7k8p3ogw2r39gl6",
+      "agents": "38esu046kftupf5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.719Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik; paginiert 1. Illustration zu »Egmont und Klärchen« von H. Smidt INr 59494, Obj 13; # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59483,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Egmont und Klärchen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. H.",
+  "scans": [
+    "alm_898_59483_diezi2r8do.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Egmont und Klärchen #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gbb45ue4ckxjkm2",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.892Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählende Gedichte (Sammlung INr 55301, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Sterne haben ihm gewunken: / Und in Andacht jetzt versunken,",
+  "language": [],
+  "musenalm_id": 55305,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Der Landschaftsmaler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abraham Emmanuel Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Der Landschaftsmaler",
+  "updated": "2008-02-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ferhsfhuntjx3ub",
+      "agents": "94rmjnpm6yfqwop",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.643Z"
+    }
+  ]
+}

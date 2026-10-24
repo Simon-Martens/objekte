@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.229Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Der Ritter Magnus sprengt / Mit flatterndem Gewand, / Die Zügel leicht verhäng, / Zum mondenhellen Strand.",
+  "language": [],
+  "musenalm_id": 81666,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ritter Magnus. / Norwegische Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Bube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ritter Magnus. / Norwegische Sage",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aewlkofmup5nze2",
+      "agents": "e0feijwjpugv8vg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.044Z"
+    }
+  ]
+}

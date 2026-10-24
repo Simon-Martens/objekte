@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Spion« von  J. F. Cooper ; am oberen rechten Rand: Cooper's Werke B. 5. S. 100 s. Textbezug INr 43800, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43801,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Spion",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. Leop. Beyer sc.",
+  "scans": [
+    "alm_585_43801_0dv9gw6vxq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Spion",
+  "updated": "2006-05-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fbr2kff436ixarg",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.946Z"
+    },
+    {
+      "id": "nxnjeeirezxyukl",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.946Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Herr Ritter ist Eure Lieb' so heiß, wie Ihr mir / schwört zu jeder Stund; / Ei so hebt mir den Handschuh auf.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die Königin Claudia, Franz des Ersten Gemahlin, litt bei einer kleinen Unpäßlichkeit besonders an Mangel des Schlafes,",
+  "language": [],
+  "musenalm_id": 77277,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mädchensinn und Schicksal. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederike Lohmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mädchensinn und Schicksal. / Erzählung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tmcpvhf8i8ixt5a",
+      "agents": "o98cykqmxxu1sx9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.718Z"
+    }
+  ]
+}

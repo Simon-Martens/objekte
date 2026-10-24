@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz. Illustration zu  »Parisina« von George Gordon Byron s. Textbezug INr 43896, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.864Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43897,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Parisina #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Drawn by H. Richter Engraved by W. Chevalier",
+  "scans": [
+    "alm_590_43897_bkjgbyzxk5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Parisina #",
+  "updated": "2006-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ozn2yj6hhndzzs5",
+      "agents": "2p87lmr62wiucvw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.259Z"
+    },
+    {
+      "id": "od8yo5xe846rr1j",
+      "agents": "zzvegzlq00oxpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.259Z"
+    }
+  ]
+}

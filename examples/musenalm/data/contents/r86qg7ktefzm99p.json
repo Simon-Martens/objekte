@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "Stumm anbetend sink' ich nieder / Vor dein heil'ges Angesicht",
+  "language": [],
+  "musenalm_id": 27934,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Madonna di Sisto",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Baron von Simolin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Madonna di Sisto",
+  "updated": "2002-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "inrfu0f79uuadn5",
+      "agents": "15ilq8sfeqx1cly",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.275Z"
+    }
+  ]
+}

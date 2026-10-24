@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36337,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Lyser del.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lyser del.",
+  "scans": [
+    "alm_492_36337_av1q9cnq7i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9m6uhe1f4rsupgj",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.619Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.619Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert I /) kol. Illustration zu »Der Hase« von v. Wildungen INr 69630, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69628,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seltne Hasen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pforr del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1133_69628_ei9vfsvdxg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seltne Hasen",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f2mm1xxxllra24g",
+      "agents": "ere2ck7piw4n43b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.241Z"
+    },
+    {
+      "id": "ptd71742jkqwk0g",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.241Z"
+    }
+  ]
+}

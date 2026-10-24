@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "An einem trübem Herbsttage des Jahres 1648 sah man früh Morgens in der Stadt Olmütz eine besondere Lebendigkeit,",
+  "language": [],
+  "musenalm_id": 43907,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wolfson. / Historische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Blumenhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wolfson. / Historische Novelle",
+  "updated": "2006-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "frewuypiplozt86",
+      "agents": "7qi9w7fd9odbdoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.116Z"
+    }
+  ]
+}

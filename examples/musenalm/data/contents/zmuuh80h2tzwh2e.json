@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar s. Gedicht INr 57160, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57145,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Perlenkranz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Kohl sc.",
+  "scans": [
+    "alm_761_57145_be2w42rzos.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Perlenkranz",
+  "updated": "2008-04-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ov7l2ve1gktw5od",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.950Z"
+    }
+  ]
+}

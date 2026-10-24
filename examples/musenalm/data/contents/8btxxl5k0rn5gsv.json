@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Da seht nur das erboste Vieh, / Wie die sich Stöße geben!",
+  "language": [],
+  "musenalm_id": 12830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Stiergefecht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Xy.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Stiergefecht",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u7x2mjmaen32441",
+      "agents": "h8teagsnwe3omy2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.386Z"
+    }
+  ]
+}

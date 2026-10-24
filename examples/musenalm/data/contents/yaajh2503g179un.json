@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "407",
+  "incipit_statement": "Leichtes Herz und freier Sinn, / Strömt in süße Laute hin,",
+  "language": [],
+  "musenalm_id": 27267,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sängerlied / beim Ritterzuge auf der Redoute vom / 18. Februar 1817. / Nach der Weise: Mag der Sultan Saladin. Aus Richard Löwenherz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ehrenfried Blochmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sängerlied / beim Ritterzuge auf der Redoute vom / 18. Februar 1817. / Nach der Weise: Mag der Sultan Saladin. Aus Richard Löwenherz",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "udt1vvzp9xphhef",
+      "agents": "hcyh4ugd7hepcl2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.390Z"
+    }
+  ]
+}

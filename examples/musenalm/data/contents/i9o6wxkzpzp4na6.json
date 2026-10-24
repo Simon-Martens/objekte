@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Flüsse (Sammlung INr 51327, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Nur der Mässige wird ihm erquickenden Nektar / entschöpfen;",
+  "language": [],
+  "musenalm_id": 51328,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freude",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "ROSA MARIA",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freude",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o0mzejeyt8mqnae",
+      "agents": "7qd9korfk9bcwc9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.688Z"
+    }
+  ]
+}

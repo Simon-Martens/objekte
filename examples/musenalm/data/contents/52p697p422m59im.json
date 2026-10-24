@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 11. (Apostelfigur vom Sebaldusgrab Nürnberg) s. Textbezug INr 26597, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26601,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S: Thomas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Erfunden und in Erz gegossen von Peter Fischer, gez. und gest. von Albt. Reindel",
+  "scans": [
+    "alm_348_26601_xev2aihegf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S: Thomas",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ua3yi6bhcrgvb5o",
+      "agents": "2j4fmhpjuaqhaao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.453Z"
+    },
+    {
+      "id": "317slqcvawetgra",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.453Z"
+    }
+  ]
+}

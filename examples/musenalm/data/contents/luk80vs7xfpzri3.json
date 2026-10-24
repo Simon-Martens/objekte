@@ -1,0 +1,45 @@
+{
+  "annotation": "Widmungedicht zur folgenden szen. Darstellung INr 27222, Obj 84",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Die Freundschaft und die Liebe / Du kennst dieß Doppelreis:",
+  "language": [],
+  "musenalm_id": 27221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Max auf der Martinswand. / Trauerspiel in einem Akte. / An Theodor Hell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Schlechta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Max auf der Martinswand. / Trauerspiel in einem Akte. / An Theodor Hell",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "041036383bd6jnm",
+      "agents": "x1uz1klk4dlr9er",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.973Z"
+    }
+  ]
+}

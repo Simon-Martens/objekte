@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Sinesische Volkslieder aus dem Schi-king des Confucius (Sammlung INr 99733, Obj 137)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Mein Oberkleid ist grün von Farb', / Doch gelb mein Unterkleid:",
+  "language": [],
+  "musenalm_id": 99748,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 152,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15. Klage einer ungeliebten Gattin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Minneburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15. Klage einer ungeliebten Gattin",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ufktjxzs9g50xl",
+      "agents": "ucy5ztqyrt5gvq8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.812Z"
+    }
+  ]
+}

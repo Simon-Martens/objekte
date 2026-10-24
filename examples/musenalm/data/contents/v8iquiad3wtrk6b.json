@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Das Herz, das du gegeben / Zum Liebespfande mir, / Schön Liebchen, holdes Leben, / Bewahrt' ich treulich dir.",
+  "language": [],
+  "musenalm_id": 65863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebesweben. / (Uebertragung eines alten Provenzalischen Volksliedes / vom Jahr 1402)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nikol. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebesweben. / (Uebertragung eines alten Provenzalischen Volksliedes / vom Jahr 1402)",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oyitxizevv8hxly",
+      "agents": "vd3inw12z8a6gd2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.027Z"
+    }
+  ]
+}

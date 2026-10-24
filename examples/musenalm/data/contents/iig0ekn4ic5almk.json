@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.470Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Es will der Bauer edel seyn / Und um ein schönes Fräulein frey'n",
+  "language": [],
+  "musenalm_id": 119559,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bauer und das Fräulein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bauer und das Fräulein",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u0n88qx8oz5yxqt",
+      "agents": "98q4i55rpu2zkyi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.585Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7794,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musen Almanach / in Sardonica / A MDCCLXXI / Göttingen, bey J. C. Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meil f.",
+  "scans": [
+    "alm_102_7794_sq33vcqu29.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Musen Almanach / in Sardonica / A MDCCLXXI / Göttingen, bey J. C. Dieterich",
+  "updated": "2000-10-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eqrs857ei9q15gp",
+      "agents": "tofq8m4srkv5wfy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.253Z"
+    }
+  ]
+}

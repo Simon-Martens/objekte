@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Im Traume wie im Wachen bleibt der Mensch gewöhnlich derselbe; [...] Dr. Falkner",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Erst vor einigen Jahren, mithin lange nach Rübezahls ergötzlichen, von unserem classischen Musäus so meisterhaft geschilderten Erlebnissen und Abenteuern,",
+  "language": [],
+  "musenalm_id": 86604,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Nacht im Riesengebirge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Falkner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Nacht im Riesengebirge",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6nwkz4rabh2sg95",
+      "agents": "oz4bgeac30exnw3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.318Z"
+    }
+  ]
+}

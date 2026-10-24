@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Wüßt' ich, wo die Gefionen, / Mit der Unschuld Sternen-Kronen, / Unter Deutschlands Töchtern wohnen;",
+  "language": [],
+  "musenalm_id": 25727,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Ideal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Ideal",
+  "updated": "2002-05-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hmzx5jyyz7x45m8",
+      "agents": "wfk4mi4tbts3zzx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.259Z"
+    }
+  ]
+}

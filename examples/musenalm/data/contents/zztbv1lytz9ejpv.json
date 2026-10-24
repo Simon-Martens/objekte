@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Fr. Schiller's Gedichten. II. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76928, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "In einem Thal bei armen Hirten / Erschien mit jedem jungen Jahr,",
+  "language": [],
+  "musenalm_id": 76927,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen aus der Fremde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen aus der Fremde",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gf32zf1opp4rvjb",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.753Z"
+    }
+  ]
+}

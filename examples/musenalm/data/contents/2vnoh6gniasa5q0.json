@@ -1,0 +1,43 @@
+{
+  "annotation": "Vowort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Bey der starken Bogenzahl des Kalenders, und, dem wenigen Werth, den die meisten Leser zeither auf die Monatskupfer gelegt haben, wird das Publikum hoffentlich sie nicht vermissen,",
+  "language": [],
+  "musenalm_id": 105848,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An das Publikum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reichard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An das Publikum",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pcc390wps8k1tm0",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.930Z"
+    }
+  ]
+}

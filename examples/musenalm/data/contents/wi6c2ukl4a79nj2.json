@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 130051, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.536Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Westphals Hügel ist hier, der Sitt' und Wei- / se der Menschen / Mit treuem Pinsel dargestellt.",
+  "language": [],
+  "musenalm_id": 130066,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift / auf Westphal, den Verfasser der Portraits",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift / auf Westphal, den Verfasser der Portraits",
+  "updated": "2009-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "27cgnbc662gi7de",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.002Z"
+    }
+  ]
+}

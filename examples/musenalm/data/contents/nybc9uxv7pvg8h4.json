@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 124136, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Der Mensch denkt, Gott lenkt. – Heute mir, morgen dir. – Sonst guckte ich aus der verteufelten Dachstube da drüben, jetzt ist das köstliche Haus so gut wie mein; sonst schrieb ich mir die Finger krumm, jetzt prügle ich meine Bauern lahm.",
+  "language": [],
+  "musenalm_id": 124135,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Verstorbenen. / Posse in einem Act / von / C. Lebrün / (Fortsetzung von No. 777)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Lebrün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Verstorbenen. / Posse in einem Act / von / C. Lebrün / (Fortsetzung von No. 777)",
+  "updated": "2010-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5i7tan2goz16v3x",
+      "agents": "dlpgk2os95jpmjk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.787Z"
+    }
+  ]
+}

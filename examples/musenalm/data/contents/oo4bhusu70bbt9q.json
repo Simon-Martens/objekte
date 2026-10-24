@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Die Monate. Poetischer Kranz (Sammlung INr 48541, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Längst schon streifte das Laub von den Bäumen der / spätere Hertbstwind, / Längst schon glänzte der Reif,",
+  "language": [],
+  "musenalm_id": 48543,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Starrmond. / (Januar.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Treumund Wellentreter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Starrmond. / (Januar.)",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pis17f45iqsp2su",
+      "agents": "0lth2adu21imy6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.196Z"
+    }
+  ]
+}

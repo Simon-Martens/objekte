@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Harre geduldig! sie naht. Entflieh' / und sie folget dem Flüchtling.",
+  "language": [],
+  "musenalm_id": 16274,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ebenderselbe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebe",
+  "updated": "2001-07-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wdbgnhsoah87dmc",
+      "agents": "q7zvyheam3iyblc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.585Z"
+    }
+  ]
+}

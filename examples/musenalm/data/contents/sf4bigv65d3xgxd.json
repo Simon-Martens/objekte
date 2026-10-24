@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 44 Gedichten INr 92740-92784, Obj 6-50",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92739,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stechpalmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Seeger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stechpalmen",
+  "updated": "2013-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2wp8kjo1pv792bg",
+      "agents": "nwzg4t9e6f4r4qh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.327Z"
+    }
+  ]
+}

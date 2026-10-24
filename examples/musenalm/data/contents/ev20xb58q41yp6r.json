@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt im Kalendarium /) Graphik im Kalendarium paginiert 1 /) Illustration zu Motiven aus »Mährchen, Erzählungen, kleine Romane« von Aug. Lafontaine (Berlin 1801)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.070Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56762,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lafontaine Mährchen 1r. und 2r. Band / Ich erstarre: es sind Sophiens Züge! / pag 185",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner de sct.1802",
+  "scans": [
+    "alm_47_56762_hpovqpzwqn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lafontaine Mährchen 1r. und 2r. Band / Ich erstarre: es sind Sophiens Züge! / pag 185",
+  "updated": "2008-04-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ch2hfloonidrldu",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.832Z"
+    }
+  ]
+}

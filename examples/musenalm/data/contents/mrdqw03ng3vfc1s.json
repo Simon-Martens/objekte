@@ -1,0 +1,43 @@
+{
+  "annotation": "Anmerkung des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die vielen und unerwarteten Beyträge die der Herausgeber dieser Sammlung zu erhalten das Glück gehabt hat, werden ihm die Fortsetzung derselben leichter machen,",
+  "language": [],
+  "musenalm_id": 17308,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachricht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachricht",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oyipaw3vqjl8tdt",
+      "agents": "n4kki21smc12tdq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.662Z"
+    }
+  ]
+}

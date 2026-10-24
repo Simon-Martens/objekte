@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Zur Zeit meiner schnellfüßigen Jugend, da mein Blut noch wie Champagner in den Adern perlte, erschien ich auf einem glänzenden Festballe,",
+  "language": [],
+  "musenalm_id": 57388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Achtzehnstündige Frackschmerzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Achtzehnstündige Frackschmerzen",
+  "updated": "2008-04-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6hw9tu81j48ii09",
+      "agents": "exegl4z6k8jnby0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.935Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.935Z"
+    }
+  ]
+}

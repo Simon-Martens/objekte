@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Ersteigen will der Mensch den Berg nicht, / ihn erfliegen,",
+  "language": [],
+  "musenalm_id": 2102,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweck ohne Mittel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Schmit",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweck ohne Mittel",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p55c4j0hlcno9en",
+      "agents": "57y4of9yk0759mz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.721Z"
+    }
+  ]
+}

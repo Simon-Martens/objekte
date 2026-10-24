@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Seyd doch einmal mein Gast, Herr Plitt! / Schon bitt' ich euch zu hundert malen.",
+  "language": [],
+  "musenalm_id": 3078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einladung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einladung",
+  "updated": "2000-09-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d1a5a4cqj9j1o2h",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.096Z"
+    }
+  ]
+}

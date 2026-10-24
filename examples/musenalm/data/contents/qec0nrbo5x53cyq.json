@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.465Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Von der Insel Ischia herüber, wo er einige Monate in stiller Verborgenheit gelebt hatte, landete eines schönen, herbstlichen Abends, kurz vor Niedergang der Sonne, Graf Lancilotto Montenegro mit seiner schönen Tochter Chiara",
+  "language": [],
+  "musenalm_id": 75128,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Die Scipionengruft. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Die Scipionengruft. / Eine Novelle",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o7c9vhvguvxqoq5",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.675Z"
+    }
+  ]
+}

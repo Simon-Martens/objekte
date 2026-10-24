@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Lieb' und Leben« von St. Schütze INr 12948, Obj 50 (Photos 12947,01; 12947,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12947,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieb und Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_214_12947_01_4mzx277q30.jpg",
+    "alm_214_12947_02_86j0sgsnvo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lieb und Leben",
+  "updated": "2001-03-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ppo0od6phsyra4f",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.743Z"
+    }
+  ]
+}

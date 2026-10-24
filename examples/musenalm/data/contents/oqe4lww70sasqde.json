@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.911Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "377",
+  "incipit_statement": "O hast du schon geseh'n, daß ein Pfeil / Zwei traf zu Tode auf einmal?",
+  "language": [],
+  "musenalm_id": 99818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 222,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweistimmig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chézy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweistimmig",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zfw8jge8v2gijsq",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.446Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.446Z"
+    }
+  ]
+}

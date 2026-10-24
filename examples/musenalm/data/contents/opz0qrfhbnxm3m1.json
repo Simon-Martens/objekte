@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit einem Vorwort des Verf.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.217Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Von des Domes eingestürzten Mauern / Glänzt des Mondes leichenblasser Strahl,",
+  "language": [],
+  "musenalm_id": 14939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phantasie. / 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Z. Werner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Phantasie. / 1798",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xkfh5qzemq54dk6",
+      "agents": "g7f1xv6d8kkyhx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.714Z"
+    }
+  ]
+}

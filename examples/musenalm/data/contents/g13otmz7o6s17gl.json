@@ -1,0 +1,45 @@
+{
+  "annotation": "2. Denker und Dichter INr 88227, Obj 15 /) Gedichte (Sammlung INr 88225, Obj 13) Anm. am Gedicht: Dieses und die folgenden Lieder des ausgezeichneten jungen Dichters sind entlehnt aus dem »deutschen Taschenbuch, Verlag des litt. Compt. in Zürich u. Winterthur /) s. Taschenbuch, Deutsches (G. Keller) 1845; 23577 ff",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Nein! zwischen uns soll Frieden sein, / Die weiße Fahne steck' ich auf:",
+  "language": [],
+  "musenalm_id": 88229,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2013-04-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o80l7v9gmtq8ttt",
+      "agents": "3pzkf5igvpvswjd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.223Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.223Z"
+    }
+  ]
+}

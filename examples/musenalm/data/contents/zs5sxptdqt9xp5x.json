@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Gewieget auf des Seraphs goldnem Flügel, / Steigt Phantasie mit uns vom öden Hügel / Der kalten Wirklichkeit zu Edens Son- / nenthor!",
+  "language": [],
+  "musenalm_id": 118503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mozarts Idomeneo. / Aufgeführt unter der Leitung des Herrn Musik- / direktors Schwenke, am 31. März 1804",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mozarts Idomeneo. / Aufgeführt unter der Leitung des Herrn Musik- / direktors Schwenke, am 31. März 1804",
+  "updated": "2017-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bqdce01ag1xu1li",
+      "agents": "jmyhk43hfbh7agh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.576Z"
+    }
+  ]
+}

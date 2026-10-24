@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Textbezügen INr 37511, 37513, 35715, 37519, 37520, 37522, Obj 12-17 zu 6 Graphiken. Fortsetzung der Graphiken und Textbezüge nach Motiven aus »Die Neue Heloise« von J. J. Rousseau: Aglaia (Frankfurt) 1802, INr 37482-37495",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37510,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Kupfer. / (Beschluß der Darstellungen aus der neuen Heloise im / vorigen Jahrgange.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stampeel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Kupfer. / (Beschluß der Darstellungen aus der neuen Heloise im / vorigen Jahrgange.)",
+  "updated": "2010-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0kubwp8xky6mn2d",
+      "agents": "s96imdco8knk8xx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.752Z"
+    }
+  ]
+}

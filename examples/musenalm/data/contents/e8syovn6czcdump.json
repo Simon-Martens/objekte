@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65752,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichte / des / siebenjährigen Krieges / in Deutschland / vom Jahr 1756 bis 1763",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. von Archenholtz, vormals Königl. Preuß. Hauptmann",
+  "scans": [
+    "alm_1105_65752_37me78m05j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Geschichte / des / siebenjährigen Krieges / in Deutschland / vom Jahr 1756 bis 1763",
+  "updated": "2009-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7zm6t7uugnytdcx",
+      "agents": "5t8j3g93hqkrq0k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.124Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.124Z"
+    }
+  ]
+}

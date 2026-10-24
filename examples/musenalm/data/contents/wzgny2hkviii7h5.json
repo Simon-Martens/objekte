@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Faust« von J. W. von Goethe s. Textbezug INr 40808, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40799,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faust. 1s. Blatt. / Geist. Du gleichst dem Geist den du begreifst, / Nicht mir!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. J. Axmann sc. 1826",
+  "scans": [
+    "alm_532_40799_00co0qxo6t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Faust. 1s. Blatt. / Geist. Du gleichst dem Geist den du begreifst, / Nicht mir!",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wkwpz19ccmwozfx",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.090Z"
+    },
+    {
+      "id": "e8rwquyhp2p8lv5",
+      "agents": "eb0uid8s7k1f7eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.090Z"
+    }
+  ]
+}

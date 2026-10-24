@@ -1,0 +1,45 @@
+{
+  "annotation": "Bemerkungen (Sammlung INr 56024, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Zeitungsleserei hat ihr Gutes und Schlimmes, wie so manches, was dem Zeitbedürfniß, den Neigungen und Begriffen der Menge wohldienend entgegen kommt.",
+  "language": [],
+  "musenalm_id": 56011,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zeitungsleserei hat ihr Gutes und Schlimmes, wie so manches, was dem Zeitbedürfniß, den Neigungen und Begriffen der Menge wohldienend entgegen kommt.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rm1c5pv9cidvanf",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.724Z"
+    }
+  ]
+}

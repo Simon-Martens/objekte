@@ -1,0 +1,45 @@
+{
+  "annotation": "Rosenlieder (Sammlung INr 69525, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Im Rosenbusch die Nachtigall, / Wie süß hat sie gesungen!",
+  "language": [],
+  "musenalm_id": 69529,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton X. Schurz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "acdta1gz5xdt13x",
+      "agents": "m6v439nrgynzyi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.393Z"
+    }
+  ]
+}

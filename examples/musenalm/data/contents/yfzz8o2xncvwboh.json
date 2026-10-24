@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Auf eines Berges stillem Nacken, / Umstarrt von hohen Felsenzacken,",
+  "language": [],
+  "musenalm_id": 34250,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schutzengel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. F. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schutzengel",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "17bhy1a3m129mt8",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.649Z"
+    }
+  ]
+}

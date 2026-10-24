@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "378",
+  "incipit_statement": "Sinnend hab' an meiner Welle / ich dich oftmals trauern sehn,",
+  "language": [],
+  "musenalm_id": 1360,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bach / an / das liebende Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hanns Karl Dippoldt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bach / an / das liebende Mädchen",
+  "updated": "2000-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o7d64eme53l7b0y",
+      "agents": "mat1v49kka3w3jc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.708Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.708Z"
+    }
+  ]
+}

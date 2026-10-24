@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21323,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (V. Heideloff del. N. Heideloff sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Heideloff del. N. Heideloff sc.",
+  "scans": [
+    "alm_283_21323_5ryn64gusf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gv0078jkbt2fx1k",
+      "agents": "4b4lhy0iqevooje",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.161Z"
+    },
+    {
+      "id": "bmpsx8da460b23m",
+      "agents": "s62mlgts7b1wcdl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.161Z"
+    }
+  ]
+}

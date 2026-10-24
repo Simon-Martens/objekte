@@ -1,0 +1,45 @@
+{
+  "annotation": "Minerva (Sammlung INr 91509, Obj 33) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5) s. folgende 3 Gedichte INr 91513-91515, Obj 37-39",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Der kalten jungfäulichen Minerva ist jedes Gefühl von Zärtlichkeit und schmachtender Sehnsucht femd;",
+  "language": [],
+  "musenalm_id": 91512,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Minerva die kriegerische",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Minerva die kriegerische",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4q7mombt8092nvu",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.602Z"
+    }
+  ]
+}

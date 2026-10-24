@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Der Bauer Velten sprach in seiner Sterbestunde, / Zu seinem Sohn, ich glaube Hans hieß er:",
+  "language": [],
+  "musenalm_id": 65262,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Macht der Habsucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elise Reindahl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Macht der Habsucht",
+  "updated": "2009-07-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hmjemd5dtxau5oc",
+      "agents": "14tfc18wyjfukeh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.107Z"
+    }
+  ]
+}

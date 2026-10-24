@@ -1,0 +1,46 @@
+{
+  "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Graphik INr 78170, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Namenlos war das Elend, fürchterlich der Jammer, mit welchem die unglücklichen Bewohner zu kämpfen hatten, nachdem sie von der Armee des französischen Generals Schauenburg unterjocht worden waren.",
+  "language": [],
+  "musenalm_id": 78169,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Neuhofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3iwnwpdfv9187sf",
+      "agents": "n8qx3uzpvdlhykc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.815Z"
+    }
+  ]
+}

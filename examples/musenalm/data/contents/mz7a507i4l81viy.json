@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehende Gedichtsammlung INr 91647-91650, Obj 42-45. Anm. am Objekt mit Hinweis auf Erstdruck in: Taschenbuch für Damen 1809; Alm-464, INr 33494",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Die alten Tage hast du mir gesungen, / Das Band der Herzen und den Bund der Lieder.",
+  "language": [],
+  "musenalm_id": 91651,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9javopdeb3lia59",
+      "agents": "wdbc0arxqqntge1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.277Z"
+    }
+  ]
+}

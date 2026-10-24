@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Als wäre nichts geschehen, wird es stille, / Die Glocken hallen aus, die Lieder enden.",
+  "language": [],
+  "musenalm_id": 33491,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Abend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. U.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Abend",
+  "updated": "2003-04-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hqcqilad5uidx1z",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.612Z"
+    }
+  ]
+}

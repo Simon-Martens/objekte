@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Die Sonette (Sammlung INr 25125, Obj 147) Sonette (Sammlung INr 25124, Obj 146)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.307Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "Schön sind und bunt-ergötzlich die Sonette, / In denen sich Gefühle und Gedanken,",
+  "language": [],
+  "musenalm_id": 25128,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freih. v. Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rlr5clyai5neogk",
+      "agents": "kul4vu28bmx1z4v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.083Z"
+    }
+  ]
+}

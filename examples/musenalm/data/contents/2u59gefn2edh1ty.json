@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Ehre dem Ehre gebühret« INr 108952, Obj 23 /) lt. Anm.: Auszug aus »Der Jäger« von Graf von Waldersee zu Dessau",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Wenn nun der Abendhauch, schon mehr erwärmt, / Des Waldes Stimmen weckt, so eilt er hin / Und horcht bei Hespers erstem sanften Schimmer / Ob nicht im Forst die Schnepfe quarrend streicht.",
+  "language": [],
+  "musenalm_id": 108954,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn nun der Abendhauch, schon mehr erwärmt, / Des Waldes Stimmen weckt, so eilt er hin / Und horcht bei Hespers erstem sanften Schimmer / Ob nicht im Forst die Schnepfe quarrend streicht.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Graf von Waldersee zu Dessau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2015-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cz0tqdi2o1fpwid",
+      "agents": "fjza16bavkpz62z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.896Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.896Z"
+    }
+  ]
+}

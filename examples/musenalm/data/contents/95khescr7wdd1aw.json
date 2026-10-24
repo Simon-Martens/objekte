@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Der Mann aus dem Mond« von St. Schütze INr 19658, Obj 80",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61767,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mann aus dem Monde, v. St. Schütze. 2s. Bl.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury sc.",
+  "scans": [
+    "alm_265_61767_laztzrha5q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Mann aus dem Monde, v. St. Schütze. 2s. Bl.",
+  "updated": "2001-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wzzmlzciqr86dp9",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.013Z"
+    }
+  ]
+}

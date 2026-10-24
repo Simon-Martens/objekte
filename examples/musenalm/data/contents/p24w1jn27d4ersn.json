@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Ein sonniger Frühlingsabend glänzte über dem weiten, blühenden Rheinthal. Von den Rebenhügeln am Strom wehte, wonniger Duft hernieder auf die grünen Fluthen,",
+  "language": [],
+  "musenalm_id": 64313,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gelübde. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Ziehen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gelübde. / Novelle",
+  "updated": "2009-05-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0yd89dg1uwvqesb",
+      "agents": "n93zvl8q72c04nh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.734Z"
+    }
+  ]
+}

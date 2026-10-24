@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.656Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "O, wünscht euch nimmermehr ein allzulanges Leben, / Wenn euch die Bilder stets des Jugendglücks umschweben,",
+  "language": [],
+  "musenalm_id": 64608,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie",
+  "updated": "2009-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ddsx9x3gbivov02",
+      "agents": "87b0ropx1b7ybuw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.163Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.163Z"
+    }
+  ]
+}

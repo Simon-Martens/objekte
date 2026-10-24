@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Sieh, große Fürstinn, hier eröffnen sich die / Schranken / Der weiten Ehrenbahn,",
+  "language": [],
+  "musenalm_id": 8386,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als die Frau / Marggräfinn von Bareuth Durchl. / die Buchdruckerey im Braunschweigischen / Waisenhause besahen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zachariä",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als die Frau / Marggräfinn von Bareuth Durchl. / die Buchdruckerey im Braunschweigischen / Waisenhause besahen",
+  "updated": "2000-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r7cltm6hbwcpccs",
+      "agents": "wj40krq87n1bwgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.239Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.239Z"
+    }
+  ]
+}

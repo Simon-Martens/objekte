@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Zerrißner Trumm von weiland großen Thaten, / Komm' ich ein Schatten durch die Zeiten flattern,",
+  "language": [],
+  "musenalm_id": 46174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Freund Br. mit einer pommer- / schen Gans. / Die Gans tritt zerstückelt ein und schnattert:",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Moritz Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Freund Br. mit einer pommer- / schen Gans. / Die Gans tritt zerstückelt ein und schnattert:",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ke8592ems4axuaf",
+      "agents": "qab571spaxuq9fk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.240Z"
+    }
+  ]
+}

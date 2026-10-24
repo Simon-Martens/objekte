@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählungen beim Licht. Siebenter bis zwölfter Abend (Sammlung INr 103475, Obj 19) mit einer Illustration s. Graphik INr 103479, Obj23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Am nächsten Tage sah es schon etwas munterer im Adler aus. Das erkrankte Kind war jetzt außer Gefahr und schlief",
+  "language": [],
+  "musenalm_id": 103478,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Achter Abend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Achter Abend",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x5yt0q9ev0xwb3i",
+      "agents": "jo3symqxy3hqpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.020Z"
+    }
+  ]
+}

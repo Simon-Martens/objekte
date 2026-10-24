@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Mein Geist erstaunet ob der fernen Höhe, / Zu welcher ich, dem Schrankenreich entschwe- / bend",
+  "language": [],
+  "musenalm_id": 51341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meinen Bruder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "ROSA MARIA",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meinen Bruder",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hb0uebqu4ibz16l",
+      "agents": "7qd9korfk9bcwc9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.644Z"
+    }
+  ]
+}

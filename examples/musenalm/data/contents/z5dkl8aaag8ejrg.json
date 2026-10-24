@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.156Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "265",
+  "incipit_statement": "Geadelt, kennt von X. sich selber kaum;",
+  "language": [],
+  "musenalm_id": 112182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen Neugeadelten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen Neugeadelten",
+  "updated": "2016-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vu1ktcs1xh9t7an",
+      "agents": "cqrs6fj7ecvzmh8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.146Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Lieder (INr 93545, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Wenn mich das goldne Glück umfächelt, / Und jeder Stern mir Wonne lächelt, / O Mädchen, dann gedenke mein.",
+  "language": [],
+  "musenalm_id": 93546,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Andenken und Vergessen. / An Selma.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Andenken und Vergessen. / An Selma.",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z1ej7l5idokyr01",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.301Z"
+    }
+  ]
+}

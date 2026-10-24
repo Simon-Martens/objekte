@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.915Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90961,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER / SCHIEFFELBEINISCHE / CREIS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "entworfen von D. F. Sotzmann J. W. Schleuen sc.",
+  "scans": [
+    "alm_825_90961_6v9jajl17t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER / SCHIEFFELBEINISCHE / CREIS",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r2ae433mym9i8b4",
+      "agents": "llfbsdoltk6o89d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.244Z"
+    },
+    {
+      "id": "w4f7afyknrw0zko",
+      "agents": "jm2wc766bm867cn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.244Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Nachtfeyer der Venus. / Ein Hymnus aus dem Lateinischen (Sammlung INr 2124, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "[Morgen liebe,...] / Morgen ist Dionens Feyer! / Stimmet an den Weihgesang!",
+  "language": [],
+  "musenalm_id": 39060,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Weihgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Weihgesang",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m863c50dtpaqu1n",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.062Z"
+    }
+  ]
+}

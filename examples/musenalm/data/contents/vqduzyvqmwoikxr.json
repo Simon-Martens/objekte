@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug »Des Schottländers Brautschau« von J. V. Adrian INr 43977, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43983,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS ABENDLIED",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Drawn by H. Richter Engraved by G. A. Periam",
+  "scans": [
+    "alm_593_43983_31utfip164.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS ABENDLIED",
+  "updated": "2006-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ctfojkmr5tqlqct",
+      "agents": "2p87lmr62wiucvw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.272Z"
+    },
+    {
+      "id": "aq4xtnbc8mncfxj",
+      "agents": "2b6gl8vhp91d2bf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.272Z"
+    }
+  ]
+}

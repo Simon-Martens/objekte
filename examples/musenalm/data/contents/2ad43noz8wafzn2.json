@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert I. /) Illustration zu »Elysium« von J. G. Jacobi # Titelzusatz aus dem G-Verz: Elisen's Mutter an dem Sterbebette ihrer Tochter",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16181,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich sehe sie noch, wie Sie vor meinem / Bette kniete. / Jacobi Schr. Th. I. S.216 #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri del. H. Lips sculp.",
+  "scans": [
+    "alm_255_16181_ugnub2ishi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich sehe sie noch, wie Sie vor meinem / Bette kniete. / Jacobi Schr. Th. I. S.216 #",
+  "updated": "2001-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zllqjpj01v9wojs",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.671Z"
+    },
+    {
+      "id": "dym4xely0ir73ir",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.671Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.751Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Wie? du bekümmerst dich um Weis- / heit / nicht? / Suchst nur die Ruhe? Armer Thor!",
+  "language": [],
+  "musenalm_id": 12897,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 167,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weisheit und Ruhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klöntrup",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Weisheit und Ruhe",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qvyip4gi7jl127l",
+      "agents": "1dwn08ijjsd5m1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.296Z"
+    }
+  ]
+}

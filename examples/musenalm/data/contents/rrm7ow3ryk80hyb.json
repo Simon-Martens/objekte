@@ -1,0 +1,56 @@
+{
+  "annotation": "PETRARCA (s. graph. Zwischentitel INr 71222, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Der grau' und weisse Alte läßt die Schranken / Des süssen Orts, der immer ihn umgeben,",
+  "language": [],
+  "musenalm_id": 71229,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SONETT. / VI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SONETT. / VI.",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8vmhiqi40v7vgl1",
+      "agents": "jjhjybjbxkieqjg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.447Z"
+    },
+    {
+      "id": "frrck0k18ek5x1c",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.447Z"
+    }
+  ]
+}

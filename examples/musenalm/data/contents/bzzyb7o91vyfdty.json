@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember; Illustration zu » Die Grabesblume« von X. F. Nowotny INr 134382, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 134372,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Else",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. Jung sc.",
+  "scans": [
+    "alm_1916_134372_qejxac364e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Else",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tu41ngqf613m8n0",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.124Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.124Z"
+    }
+  ]
+}

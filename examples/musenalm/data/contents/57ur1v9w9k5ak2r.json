@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.190Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Du, aus Meerschaum gezeugt, bräunlicher / Pfeifenkopf,",
+  "language": [],
+  "musenalm_id": 795,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Pfeifenkopf. / O fons Blandusiae. / Hor.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Vß.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Pfeifenkopf. / O fons Blandusiae. / Hor.",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "serk6rloqm2c8zr",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.922Z"
+    }
+  ]
+}

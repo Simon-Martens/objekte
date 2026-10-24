@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.120Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Seht, da kommt der Narr gegangen / Beug' dich, daß er uns nicht sieht,",
+  "language": [],
+  "musenalm_id": 67857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mädchen Urtheil über den Künstler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. S. Schier",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mädchen Urtheil über den Künstler",
+  "updated": "2009-08-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fc38bshegbfyxxb",
+      "agents": "rwmqwhk4w36lq6p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.428Z"
+    }
+  ]
+}

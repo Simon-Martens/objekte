@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Erwartung des Geliebten« /) Photos 76033,01-76033,03",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Schon färbt der Sonne lezter Strahl den Wald mit hoher Glut, Dunkel überzieht das Thal, wo bald die Arbeit ruht",
+  "language": [],
+  "musenalm_id": 76033,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erwartung des Geliebten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. L. Reinicke",
+  "scans": [
+    "alm_3280_76033_01_wq9tto3afa.jpg",
+    "alm_3280_76033_02_e9y2det0cy.jpg",
+    "alm_3280_76033_03_heh92j15sa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Erwartung des Geliebten",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3peat9ah0djj8r6",
+      "agents": "hmzypuwafp281gf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.549Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.549Z"
+    }
+  ]
+}

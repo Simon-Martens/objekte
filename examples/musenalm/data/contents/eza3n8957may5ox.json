@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm.am Objekt: Nach der ungarischen Aussprache für: Benedict",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "388",
+  "incipit_statement": "Bei Trentschin in einer Höhle / Lebte Benedeck, der Fromme,",
+  "language": [],
+  "musenalm_id": 77720,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sanckt Benedeck mit dem Säckel. / Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sanckt Benedeck mit dem Säckel. / Legende",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cbsyd9i5qd8vmva",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.729Z"
+    }
+  ]
+}

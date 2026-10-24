@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 4. s. Textbezug INr 7077, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7047,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mädgen. / Fille",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert, D. inv. del.",
+  "scans": [
+    "alm_142_7047_ni8ux0b33b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mädgen. / Fille",
+  "updated": "2000-11-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "83khd85pgf02x4y",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.110Z"
+    },
+    {
+      "id": "l3r3jvl1wrtxgsy",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.111Z"
+    }
+  ]
+}

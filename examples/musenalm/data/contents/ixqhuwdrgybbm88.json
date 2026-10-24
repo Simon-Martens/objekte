@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Mirtyll, der schönste Hirt im Hain, / Stets flink und wohlgemuth,",
+  "language": [],
+  "musenalm_id": 28398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Der Vogel. / Idylle nach Gesner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Arnoldine Wolf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Der Vogel. / Idylle nach Gesner",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xdsaytee2te5nnl",
+      "agents": "k4l0etwctfexyyx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.086Z"
+    }
+  ]
+}

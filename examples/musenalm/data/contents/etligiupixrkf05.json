@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Blumen willst Du, liebe Kleine? / Sieh, Dein Wunsch ist hier erfüllt.",
+  "language": [],
+  "musenalm_id": 42865,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Fanny. / Zu ihrem Geburtstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Fanny. / Zu ihrem Geburtstage",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "224anbxgow3h3sg",
+      "agents": "vd3inw12z8a6gd2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.254Z"
+    }
+  ]
+}

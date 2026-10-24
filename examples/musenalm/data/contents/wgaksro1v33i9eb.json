@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Treue und Dankbarkeit« von Aug. Lafontaien INr 112255, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112248,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bist du Eugenia / s. / Treue und Dankbarkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. W. Böhm sc.",
+  "scans": [
+    "alm_2469_112248_8uhvte8lzf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bist du Eugenia / s. / Treue und Dankbarkeit",
+  "updated": "2010-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x3d40slsa2sx3c3",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.314Z"
+    },
+    {
+      "id": "fyfbsjekxaz5dvb",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.314Z"
+    }
+  ]
+}

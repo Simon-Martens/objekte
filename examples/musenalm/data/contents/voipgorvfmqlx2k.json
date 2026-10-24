@@ -1,0 +1,45 @@
+{
+  "annotation": "s. INr 32124, Obj 3,07.# Zuschreibung unzutreffend",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32123,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.06,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "STUDIERENDE MÖNCHE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rembrandt pt. # F. John sc.",
+  "scans": [
+    "alm_231_32123_w4lgcsolp6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "STUDIERENDE MÖNCHE",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yrzv1rvxtk7upc4",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.424Z"
+    }
+  ]
+}

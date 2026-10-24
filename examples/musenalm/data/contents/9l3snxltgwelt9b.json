@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Orlando« von Johann Langer INr 94672, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94668,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Mahlknecht gestochen in Stahl in Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Mahlknecht gestochen in Stahl in Wien",
+  "scans": [
+    "alm_1873_94668_mv9gvht5kt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xiudukx1e4gvphd",
+      "agents": "z8rsr5de0jmn33o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.364Z"
+    }
+  ]
+}

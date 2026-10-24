@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Und rauscht' auch alles umgedreht / Dem Untergange zu;",
+  "language": [],
+  "musenalm_id": 6715,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE BEWEGUNG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "VOSS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DIE BEWEGUNG",
+  "updated": "2000-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uwpgt1zxo17fsj4",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.370Z"
+    }
+  ]
+}

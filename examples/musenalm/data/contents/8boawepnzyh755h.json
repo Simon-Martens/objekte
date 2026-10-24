@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Warum, Natur! / Stiefmütterliche! Gabst du nur / Der Jugend den Genuß der Liebe,",
+  "language": [],
+  "musenalm_id": 4762,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klagen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lep.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klagen",
+  "updated": "2000-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q9e9phyhaxpumm3",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.880Z"
+    }
+  ]
+}

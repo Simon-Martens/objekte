@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 32605, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.548Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32576,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seidelmann gez. Berger gest.",
+  "scans": [
+    "alm_452_32576_a2o579dtui.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hebe",
+  "updated": "2003-03-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "52n766lru0qf5xb",
+      "agents": "4cp31ll12m1vfk1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.393Z"
+    },
+    {
+      "id": "soet7n9yf00jwmx",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.393Z"
+    }
+  ]
+}

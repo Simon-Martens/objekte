@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zum Beitrag INr 53567, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Als Carl der Große im Jahre 777 zu Paderborn einen Landtag hielt, baten ihn die arabisch-spanischen Statthalter von Zaragossa und Huesca, Ibn al Arab und sein Sohn Yuzif, um Hülfe",
+  "language": [],
+  "musenalm_id": 43566,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Johannes Turpinus, Erzbischofs zu Rheims, Erzählung vom Leben Carls des Großen und Rolands, in einem Schreiben an den Decan Leoprand in Aachen / Vorerinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Hufnagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Johannes Turpinus, Erzbischofs zu Rheims, Erzählung vom Leben Carls des Großen und Rolands, in einem Schreiben an den Decan Leoprand in Aachen / Vorerinnerung",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6i61dfh4h0045c7",
+      "agents": "fsthx6rgk9lzsy9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.316Z"
+    }
+  ]
+}

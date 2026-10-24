@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64242, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64250,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergißmeinnicht #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlesinger delt. Gerhard sculpt.",
+  "scans": [
+    "alm_1064_64250_wcbarxumav.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vergißmeinnicht #",
+  "updated": "2009-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4coysaqbjbgpwlb",
+      "agents": "q0ll739boyttklq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.978Z"
+    }
+  ]
+}

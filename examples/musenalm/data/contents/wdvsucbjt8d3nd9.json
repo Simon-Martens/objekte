@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 68143, Obj 160)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.907Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Das ist ein Flöten und Geigen, / Trompeten schmettern drein:",
+  "language": [],
+  "musenalm_id": 68148,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 165,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Heine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V.",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4gbrq5sxzpubryb",
+      "agents": "1z1aqho0pmi2dwm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.261Z"
+    }
+  ]
+}

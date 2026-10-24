@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Auf des Aetna mildbesonnter Seite / Lebte ruhig ein verlaßnes Paar",
+  "language": [],
+  "musenalm_id": 65951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sohn. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nikol. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sohn. / Ballade",
+  "updated": "2009-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "12vh8po7y7emuhb",
+      "agents": "vd3inw12z8a6gd2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.273Z"
+    }
+  ]
+}

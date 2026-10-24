@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Dezember; paginiert 12. /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg.  Friedrich II. Erste Abtheilung. 1740 bis 1756« INr 58301, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58294,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich II besucht seinen sterbenden / Freund den General von Rothenburg",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki. J. D. Heidenreich sc. 1793",
+  "scans": [
+    "alm_829_58294_4nxtc0seas.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich II besucht seinen sterbenden / Freund den General von Rothenburg",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "teyyt9bv6rv5h35",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.753Z"
+    },
+    {
+      "id": "99e237pabtzzwvv",
+      "agents": "t7h2dhrrhx1xes3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.753Z"
+    }
+  ]
+}

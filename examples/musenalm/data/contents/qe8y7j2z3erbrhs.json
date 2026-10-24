@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3. /) Illustration zu »Der unbekannte Kranke« von Fouqué s. Textbezug INr 26383, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.980Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26382,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der unbekannte Kranke von de la Motte Fouqué. / S. 92",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. Fr. Geißler sc.",
+  "scans": [
+    "alm_340_26382_yq2vdjqpzz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der unbekannte Kranke von de la Motte Fouqué. / S. 92",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ruaughnrs5j1h73",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.199Z"
+    },
+    {
+      "id": "9kpr23lwywwrtpq",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.199Z"
+    }
+  ]
+}

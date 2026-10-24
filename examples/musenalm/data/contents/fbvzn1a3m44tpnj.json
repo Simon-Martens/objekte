@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 83982, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83989,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Badende #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "André pinxt. I. W. Baumann sculpt.",
+  "scans": [
+    "alm_1067_83989_1tovs61fn9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Badende #",
+  "updated": "2009-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rv4ukj63uj45e63",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.984Z"
+    }
+  ]
+}

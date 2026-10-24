@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebensbilder für die Jugend (Sammlung INr 131676, Obj 11) s. Graphik INr 131374, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Hurtig, ihr Kinder! und rasch, schon dämmert im / Osten der Morgen, / Und auf Wiesen und Feld wird es beweglich und laut,",
+  "language": [],
+  "musenalm_id": 131683,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Smidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII.",
+  "updated": "2022-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vh6x87alinfu4k3",
+      "agents": "p5nbyct99xa1658",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.037Z"
+    }
+  ]
+}

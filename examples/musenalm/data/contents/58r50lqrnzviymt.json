@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung aus: Gallerie zu La Motte Fouqué's »Held des Nordens« (Sammlung INr 20985, Obj 7)\ns. Textbezug INr 20992, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20991,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brynhildis zu Sigurd: / Trink aus Brynhildis Hand!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Wottawa # F. Wagner sc.Nbg",
+  "scans": [
+    "alm_278_20991_qbqe3d8drx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Brynhildis zu Sigurd: / Trink aus Brynhildis Hand!",
+  "updated": "2002-01-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iniakkt0xi42iya",
+      "agents": "sd23pd99eo8r456",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.861Z"
+    },
+    {
+      "id": "9tzt4vxsylhd49b",
+      "agents": "zcahh3ez21pnltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.861Z"
+    }
+  ]
+}

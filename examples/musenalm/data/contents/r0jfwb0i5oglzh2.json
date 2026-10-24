@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 67705, Obj 1,093",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67704,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1.092,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FORTUNA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Albani pt. F. John sc.",
+  "scans": [
+    "alm_233_67704_7ffi83jy1n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FORTUNA",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v292p36ti1pvh1g",
+      "agents": "73a941cxu2bon3w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.143Z"
+    },
+    {
+      "id": "fom40vexjvfppoe",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.143Z"
+    }
+  ]
+}

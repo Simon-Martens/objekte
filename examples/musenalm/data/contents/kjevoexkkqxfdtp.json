@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Mit Geschrei, verirrter Pilgrim, schweben / Wilde Gänse auf des Adlers Bahn,",
+  "language": [],
+  "musenalm_id": 2635,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als sie Amarant auf der Reise / vermuthete",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Nantchen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als sie Amarant auf der Reise / vermuthete",
+  "updated": "2000-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e6i60706eitpgeg",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.657Z"
+    }
+  ]
+}

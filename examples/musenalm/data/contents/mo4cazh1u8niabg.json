@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 94359, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94358,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die verweisende Schöne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Mezler del. I. Krepp sc. Viennae",
+  "scans": [
+    "alm_1869_94358_dp5t29jrx6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die verweisende Schöne",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jy72cp1g4nd1fv9",
+      "agents": "4ydtp3mjohkj17q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.246Z"
+    },
+    {
+      "id": "r5f9gyji47bktlb",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.246Z"
+    }
+  ]
+}

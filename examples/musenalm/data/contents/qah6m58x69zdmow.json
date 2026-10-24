@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Schwaben (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Der Wirth, der hat ein Fäßlein, / Das hat so rasches Blut,",
+  "language": [],
+  "musenalm_id": 99533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theobald Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "697sao34gx5uxzo",
+      "agents": "68fm6w3e6854yig",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.785Z"
+    }
+  ]
+}

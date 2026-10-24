@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.054Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "404",
+  "incipit_statement": "Und als das Kind geboren, / Der wunderbare Stern, / Da sah'n in Ostens Thoren / Die Weisen ihn von fern.",
+  "language": [],
+  "musenalm_id": 27129,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 159,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf ein Bild in Koppenhagen, die / Anbetung der Weisen aus Morgen- / land darstellend, angeblich von / Raphael",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf ein Bild in Koppenhagen, die / Anbetung der Weisen aus Morgen- / land darstellend, angeblich von / Raphael",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lon8hhlpxsihn79",
+      "agents": "s6vrgm9x7setd1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.211Z"
+    }
+  ]
+}

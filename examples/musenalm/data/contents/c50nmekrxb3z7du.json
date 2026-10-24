@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Noch in Dämmrung, still und todt, / Lag der Horizont verborgen;",
+  "language": [],
+  "musenalm_id": 5724,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Diebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fräulein vom Hagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Diebe",
+  "updated": "2000-10-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0dqnyp92ey8u86i",
+      "agents": "13xjh9gg49rip3p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.691Z"
+    }
+  ]
+}

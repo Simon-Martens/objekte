@@ -1,0 +1,69 @@
+{
+  "annotation": "s. Textbezug INr 69029, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69030,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (gem. v. Titian. gez. v. Erhard gest. v. Wachsmann)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gem. v. Titian. gez. v. Erhard gest. v. Wachsmann",
+  "scans": [
+    "alm_2654_69030_4zttyq2p9y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "scw0yr29dq4xdcr",
+      "agents": "vqhcqw2tvjlzto9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.463Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.463Z"
+    },
+    {
+      "id": "oacjzwj8921pp6a",
+      "agents": "w6yfntk8bepiira",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.463Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.463Z"
+    },
+    {
+      "id": "2jogscxu2g232kl",
+      "agents": "0erfxld46kry72g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.463Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.463Z"
+    }
+  ]
+}

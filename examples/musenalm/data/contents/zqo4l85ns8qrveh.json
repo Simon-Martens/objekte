@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Autors",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.711Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ich würde es nie gewagt haben, diese wenigen Bogen, von deren Inhalt manches schon in einigen periodischen Schriften gestanden hat, abdrucken zu laßen, wenn ich nicht darin etwas zu liefern glaubte, das wohl von billigen Leuten neu genannt zu werden",
+  "language": [],
+  "musenalm_id": 91600,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt. Feldprediger des Königl. Invalidenhauses bei Berlin, und berufener Preidger zu Werneuchen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ljchy4olq552dms",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.313Z"
+    }
+  ]
+}

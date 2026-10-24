@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.699Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Um 9 Uhr frühstückt er bei dem Rittmeister Steigbügel. Dafür muß er sich gefallen lassen, daß ihm der Rittmeister sein neuestes Trauerspiel vorlies't.",
+  "language": [],
+  "musenalm_id": 44890,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stundenplan eines Schmarotzers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stundenplan eines Schmarotzers",
+  "updated": "2006-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yohwyi14qfip8mp",
+      "agents": "wd7yy1894regb5j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.437Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.437Z"
+    }
+  ]
+}

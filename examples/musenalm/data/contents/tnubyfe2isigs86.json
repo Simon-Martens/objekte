@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 14 Gedichten INr 130122-130135, Obj 67-80",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2009-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tn6dsrvhwtgfgy0",
+      "agents": "4g2r3ta4uzw1gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.057Z"
+    }
+  ]
+}

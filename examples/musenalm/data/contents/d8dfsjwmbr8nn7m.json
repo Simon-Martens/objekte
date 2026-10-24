@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorbericht zum Schauspiel sowie Zueignung sind dem Stück vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Sei mir gegrüßt, du, mit den lichten Blicken, / O sanfter Mond, der mich in Thränen fand!",
+  "language": [],
+  "musenalm_id": 1481,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eginhard und Emma / Ein Spiel mit Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chezy, geb. von Klenck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eginhard und Emma / Ein Spiel mit Gesang",
+  "updated": "2000-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y8mz0s6wb7kefxn",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.932Z"
+    }
+  ]
+}

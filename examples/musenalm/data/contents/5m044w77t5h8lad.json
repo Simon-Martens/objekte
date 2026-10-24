@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64326, Obj 9 /) Stich nach Götzenbergers Fresko in der Trinkhalle Baden Baden",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64332,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nixe des Wildsee's #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt von J. Götzenberger Gestochen von E. Wagner",
+  "scans": [
+    "alm_1068_64332_jw7yg925fv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Nixe des Wildsee's #",
+  "updated": "2009-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1860,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4wuz6gos8sx5vy1",
+      "agents": "k52j0ci4hisa6dc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.323Z"
+    }
+  ]
+}

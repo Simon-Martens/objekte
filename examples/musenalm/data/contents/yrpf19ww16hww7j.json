@@ -1,0 +1,56 @@
+{
+  "annotation": "Motto der Xenien",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Triste supercilium, durique severa Catonis / Frons et aratoris Filia Fabricii / Et personati fastus et regula morum, / Quidquid et in tenebris non sumus, ite foras.",
+  "language": [],
+  "musenalm_id": 38180,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 249,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Triste supercilium, durique severa Catonis / Frons et aratoris Filia Fabricii / Et personati fastus et regula morum, / Quidquid et in tenebris non sumus, ite foras.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6dk44rmoq7thfyw",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.919Z"
+    },
+    {
+      "id": "47rtm5km8jxclby",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.919Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbst (Sammlung INr 23373, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Ein wohlgemästeter Entrich, welcher neben dem Schloß eines Landedelmanns, auf seinem Teiche,",
+  "language": [],
+  "musenalm_id": 23377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zugvögel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Zugvögel",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4subhtg7uult12c",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.047Z"
+    }
+  ]
+}

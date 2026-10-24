@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 4. /) Illustration zu »Griselde« von L. H. v. Nicolay",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.176Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10645,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Griselde / v. Nicolai, quart Ausgabe 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc. 1795",
+  "scans": [
+    "alm_202_10645_wtfiiz6fkq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Griselde / v. Nicolai, quart Ausgabe 1792",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mfo69uigzj6gvpc",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.578Z"
+    }
+  ]
+}

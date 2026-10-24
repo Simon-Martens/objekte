@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. 1. An Julie. (Nach Rousseau) 2. Jubellied zum Neuen Jahrhundert (Sammlung INr 32011, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Laß uns sterben, o du geliebte Freundin der Seele! / Fühlten wir nicht entzückt himmlischer Wonne Verein,",
+  "language": [],
+  "musenalm_id": 32013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / An Julie / (Nach Rousseau)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerning",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / An Julie / (Nach Rousseau)",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6g9m8vfc7wkaefg",
+      "agents": "ka1wm9mc4kl7y0b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.484Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.484Z"
+    }
+  ]
+}

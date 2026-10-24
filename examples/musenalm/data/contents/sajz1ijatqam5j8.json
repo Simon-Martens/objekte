@@ -1,0 +1,45 @@
+{
+  "annotation": "Pfiffologie (Sammlung INr 56036, Obj 89) Gaben der flüchtigen Muse (Sammlung INr 56025, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.473Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Wann der Erzpunkt nicht mehr schimmert, / Wann der edle Gang zertrümmert,",
+  "language": [],
+  "musenalm_id": 56059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Robert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23.",
+  "updated": "2008-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ntmdfg0gtcb4li",
+      "agents": "shwrrrsohbx2ih5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.002Z"
+    }
+  ]
+}

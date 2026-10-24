@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Schatzkammern zu Burghausen (Sammlung INr 104338, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Es wurde leise an der Thüre gekratzt. Hedwig erhob sich, und fragte, aus den Augen die feuchten Spuren wischend:",
+  "language": [],
+  "musenalm_id": 104347,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Der Hofstaat einer Gefangenen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Der Hofstaat einer Gefangenen",
+  "updated": "2010-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fcb9trykla49r1i",
+      "agents": "jo3symqxy3hqpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.227Z"
+    }
+  ]
+}

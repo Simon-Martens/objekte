@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bez. vom Titel der Sammlung /) Gallerie aus Schillers Gedichten. VIII. (Sammlung INr 77068, Obj 4) Illustration zu »Deutsche Treue« von Fr. Schiller INr 77224, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77225,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das verschleierte Bild zu Sais v. Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg Büscher sc.",
+  "scans": [
+    "alm_2400_77225_r8a3b0tfrv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das verschleierte Bild zu Sais v. Schiller",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ac5vlbaey09zqh3",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.871Z"
+    },
+    {
+      "id": "64y3zts59oqk7f2",
+      "agents": "rookj8hzrynkcws",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.871Z"
+    }
+  ]
+}

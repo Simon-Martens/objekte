@@ -1,0 +1,47 @@
+{
+  "annotation": "NEUE TAENZE (Sammlung INr 62184, Obj 138)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62187,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Minuetto I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pannenberg",
+  "scans": [
+    "alm_133_62187_edn0p011dh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Minuetto I.",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lewdic00axlq85n",
+      "agents": "xcvglhwosgzvu0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.229Z"
+    }
+  ]
+}

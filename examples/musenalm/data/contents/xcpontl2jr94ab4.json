@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 13 Gedichten INr 29829-29842, Obj 85-98",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.688Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29828,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie Schoppe, geb. Weisse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Gedichte",
+  "updated": "2002-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "26ip3vq3pdhnhtc",
+      "agents": "2nm1hcqes98n5i9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.533Z"
+    }
+  ]
+}

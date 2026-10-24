@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 75275, Obj 92",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Der Knospe kaum entfaltet, welkt die Blüte, / schliest schon der holden Blume Kelch sich zu,",
+  "language": [],
+  "musenalm_id": 75275,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Grab / eines guten, schönen Mädchens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmieder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Grab / eines guten, schönen Mädchens",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e6797vyk47piqkz",
+      "agents": "ii78f2x1yo6pd2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.400Z"
+    }
+  ]
+}

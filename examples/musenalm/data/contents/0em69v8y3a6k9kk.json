@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.429Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Freyheit! Der Höfling kennt den Gedanken / nicht! / Der Sklave! Ketten rasseln ihm Silberton!",
+  "language": [],
+  "musenalm_id": 2362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 145,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Freyheit. / An Hahn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. L. Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Freyheit. / An Hahn",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pnk5m9g2v73qvk6",
+      "agents": "7gwss5mvx858qah",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.095Z"
+    }
+  ]
+}

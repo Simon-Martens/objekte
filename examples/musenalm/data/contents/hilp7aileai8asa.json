@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 9203, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9194,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "URANIA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottschick sc.",
+  "scans": [
+    "alm_37_9194_7jln3wqo6o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "URANIA",
+  "updated": "2000-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ionyb2xh1dg6heu",
+      "agents": "anvuxewtojf01i3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.429Z"
+    }
+  ]
+}

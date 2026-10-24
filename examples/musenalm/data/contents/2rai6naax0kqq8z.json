@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 57894, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Gebietrisch theilt mein Stab die finstern Wetter / Und zeichnet Kreise in die schwüle Luft,",
+  "language": [],
+  "musenalm_id": 57896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Haruspex",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Edmund Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Haruspex",
+  "updated": "2008-06-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t835euieq2w7w2t",
+      "agents": "emg65x4ze46kant",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.625Z"
+    }
+  ]
+}

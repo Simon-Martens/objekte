@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Wohlauf, wem Herz im Busen schlägt, / Wer Feuerrohr und Säbel trägt / Fürs hohe Kaiserhaus!",
+  "language": [],
+  "musenalm_id": 135704,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als Laudon Feldmarschall ward, / sangen die Soldaten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sined",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als Laudon Feldmarschall ward, / sangen die Soldaten",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gnwa2h8d1su4tm1",
+      "agents": "fon9iiilzs9ke5a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.154Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Robert und Rosalie. Eine Heroide in zwölf Episteln (Sammlung INr 29653, Obj 5) s. Graphik INr 29665, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Kein Vorwurf stürmt auf meine Tage, / Doch leichter, was die Ruhe stöhrt,",
+  "language": [],
+  "musenalm_id": 29664,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Robert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Robert",
+  "updated": "2002-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4i463v4w1ruo571",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.349Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.349Z"
+    }
+  ]
+}

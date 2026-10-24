@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung mit einer Sammlung von 8 Gedichten und 1 Gedicht INr 38931-38940, Obj 119-128",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fm8eg8vwb1kl0bg",
+      "agents": "dii69uyjdj5ln7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.207Z"
+    }
+  ]
+}

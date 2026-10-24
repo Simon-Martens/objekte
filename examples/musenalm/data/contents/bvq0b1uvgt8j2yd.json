@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium November; paginiert 11. s. Textbezug INr 60949, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.915Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60883,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mayländer zerreißen die Befehle des Kay- / sers, und jagen die Voigte aus der Stadt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1794",
+  "scans": [
+    "alm_948_60883_k36mhyx6wv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Mayländer zerreißen die Befehle des Kay- / sers, und jagen die Voigte aus der Stadt",
+  "updated": "2008-11-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aaouwfmxqc4vus4",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.180Z"
+    }
+  ]
+}

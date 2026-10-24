@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 27",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Ich weiß, warum man nie von Strephons / Vater spricht.",
+  "language": [],
+  "musenalm_id": 2643,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Strephon",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ws.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Strephon",
+  "updated": "2000-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4niyb0p1iea9yh0",
+      "agents": "851irea8sb4kx1v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.127Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.127Z"
+    }
+  ]
+}

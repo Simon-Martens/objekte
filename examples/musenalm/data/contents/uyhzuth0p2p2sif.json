@@ -1,0 +1,45 @@
+{
+  "annotation": "Naturstimmen. Auf einer Reise von Salzburg in's Wildbad Gastein, 1815 (Sammlung INr 14255, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Brausend wirft sich das wüthende Heer meiner Wogen in's / Land hin, / Schlagend die Felsen entzwey, himmelan speyend den / Schaum.",
+  "language": [],
+  "musenalm_id": 14258,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Wasserfall in der Lend. / (Dicht an seinem furchtbaren Sturze muß er die Erzbetrieb- / werke treiben)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Aloys Weissenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Wasserfall in der Lend. / (Dicht an seinem furchtbaren Sturze muß er die Erzbetrieb- / werke treiben)",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j2oiej3vktnghif",
+      "agents": "dh3tm3lh6b5ehoz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.373Z"
+    }
+  ]
+}

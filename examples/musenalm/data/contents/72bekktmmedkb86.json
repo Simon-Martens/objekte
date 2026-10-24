@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen. Zum Theil nach Plutarch (Sammlung INr 65624, Obj 192) Versuche in gebundener Rede (Sammlung INr 65623, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Die Armuth kann dem Ruhm noch höhern Glanz verleihn;",
+  "language": [],
+  "musenalm_id": 65636,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 204,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Armuth kann dem Ruhm noch höhern Glanz verleihn;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Adam Seuffert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0z2fp0yq18pvdn9",
+      "agents": "b6lr2rx1hatxube",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.102Z"
+    }
+  ]
+}

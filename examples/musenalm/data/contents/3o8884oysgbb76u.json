@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 115882, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Blutig steh'n Sevilla's Häuser, / Überglänzt vom Morgenrothe, / Und der Sturm durchbraus't die Gassen / Wie ein angsterfüllter Bote.",
+  "language": [],
+  "musenalm_id": 115891,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Isabella Davalos. / Historische Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Isabella Davalos. / Historische Ballade",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "abcbvhulmmt76zs",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.508Z"
+    }
+  ]
+}

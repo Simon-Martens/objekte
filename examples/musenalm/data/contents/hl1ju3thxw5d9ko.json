@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ihre Rede klingt ungewöhnlich kühn; und wenn auch nicht ihre Vorschläge selbst, so bewundere ich doch den Muth, womit sie dieselben gerade mir zu machen sich veranlaßt sehen.",
+  "language": [],
+  "musenalm_id": 64204,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Günstling. / Eine Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hilaruis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Günstling. / Eine Novelle",
+  "updated": "2009-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w64sdsbyq2qhve0",
+      "agents": "euexsjcr9ar4su1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.248Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 85420, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Am Ende eines freundlichen Sächsischen Dörfchens lag an dem munteren Giesbache, der durch dasselbe hinrauschte, eine stattliche Mühle;",
+  "language": [],
+  "musenalm_id": 85427,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beyden Müllermeister. / Ländliches Gemählde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. Gerle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beyden Müllermeister. / Ländliches Gemählde",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kfe2pan0fwba8jt",
+      "agents": "1g5ju8pfs3rggmg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.104Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.104Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. aus dem G-Verz s. INr 51540, Obj 38 /) paginiert D s. Textbezug INr 51530, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51531,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Wenthal, Canton Zürich",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Heß",
+  "scans": [
+    "alm_699_51531_5ymsdsccvq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Im Wenthal, Canton Zürich",
+  "updated": "2007-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "thed7i2124deu6g",
+      "agents": "uc4ahm2w7hhtikb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.679Z"
+    }
+  ]
+}

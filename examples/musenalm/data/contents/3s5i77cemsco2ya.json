@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 124192, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Schön, daß ihr Wort haltet, das ist jetzt ein seltener Fall, vorzüglich in Hauptstädten.",
+  "language": [],
+  "musenalm_id": 124191,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Phlegmatiker / Posse in einem Aufzuge, / von / Wilhelm Marsano",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Marsano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Phlegmatiker / Posse in einem Aufzuge, / von / Wilhelm Marsano",
+  "updated": "2010-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dq7gne7dl5yyywq",
+      "agents": "rpi79icfm69ol8h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.779Z"
+    }
+  ]
+}

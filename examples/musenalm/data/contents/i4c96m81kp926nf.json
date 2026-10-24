@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 12 Gedichten INr 25537-25548, Obj 68-79",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25536,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder zu russischen Nationalmelodien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. A. Assing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder zu russischen Nationalmelodien",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8xg89f9br8q9d1o",
+      "agents": "gplimo7htici8gi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.300Z"
+    }
+  ]
+}

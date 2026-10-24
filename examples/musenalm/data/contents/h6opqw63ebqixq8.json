@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebesaphorismen (Sammlung INr 25931, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Willst du mein lieber Frühling seyn, / Gern ist mein Herz dein Garten,",
+  "language": [],
+  "musenalm_id": 25959,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "28.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Hermannsthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "28.",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "45duov7u8ecwyz0",
+      "agents": "rxn9x0k5ac10jd7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.898Z"
+    }
+  ]
+}

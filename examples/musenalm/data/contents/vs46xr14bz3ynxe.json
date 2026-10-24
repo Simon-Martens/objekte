@@ -1,0 +1,45 @@
+{
+  "annotation": "Portrait (Silhouette)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.980Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90305,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SCHISLING",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lackner fec.",
+  "scans": [
+    "alm_1636_90305_qw06180ct9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SCHISLING",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ce9wu7n9o5mp72v",
+      "agents": "2o8begoqx16dfrq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.343Z"
+    }
+  ]
+}

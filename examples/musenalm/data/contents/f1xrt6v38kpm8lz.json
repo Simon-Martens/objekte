@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.873Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Ich nehme sie als Freundschaftspfand, / Und trage sie zum Angedenken,",
+  "language": [],
+  "musenalm_id": 31239,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An **. / Bey Erhaltung eines Paares weißer / Handschuhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriela von Baumberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An **. / Bey Erhaltung eines Paares weißer / Handschuhe",
+  "updated": "2003-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l0vatdjtoksozw4",
+      "agents": "sjp9eapkpagxg0d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.429Z"
+    }
+  ]
+}

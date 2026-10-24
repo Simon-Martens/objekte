@@ -1,0 +1,48 @@
+{
+  "annotation": "Vier Lieder (Sammlung INr 41421, Obj 52) Musik-Beilage zu dem TASCHENBUCH zum geselligen Vergnügen 1828 (Sammlung INr 41420, Obj 51) (Photos 41423,01; 41423,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41423,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blangini",
+  "scans": [
+    "alm_483_41423_01_oe4jk3h1xh.jpg",
+    "alm_483_41423_02_60xqco4xs5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ne8yds3pisep3b5",
+      "agents": "xamymddiprbtm6z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.739Z"
+    }
+  ]
+}

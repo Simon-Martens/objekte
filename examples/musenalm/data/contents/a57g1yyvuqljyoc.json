@@ -1,0 +1,45 @@
+{
+  "annotation": "Polymeter (Sammlung INr 33078, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.751Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Am Tage sprach die volle Sonnenblume: Apollo strahlt und ich breite mich aus,",
+  "language": [],
+  "musenalm_id": 33087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sonnenblume und die Nachtviole",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sonnenblume und die Nachtviole",
+  "updated": "2003-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uu2ka90hpn7l7tm",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.689Z"
+    }
+  ]
+}

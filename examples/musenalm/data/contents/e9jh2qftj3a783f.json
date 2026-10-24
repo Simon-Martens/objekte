@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait. s. Textbezug INr 18936, Obj 7 (Carlsruhe durch Kunst Verlag)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2029,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "J. C. von Zedlitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. Theer pinx. Ch. Schuler sculp.",
+  "scans": [
+    "alm_64_2029_fo0253s5mg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "J. C. von Zedlitz",
+  "updated": "2000-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7u9dkk4ijju46gw",
+      "agents": "eenxx81f2mcsy2y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.699Z"
+    },
+    {
+      "id": "yv3lzvw4fovcias",
+      "agents": "r1mrgok6yls9s7m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.699Z"
+    }
+  ]
+}

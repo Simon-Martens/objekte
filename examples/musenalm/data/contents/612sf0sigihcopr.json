@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Ländliche Zufriedenheit« von K. Lang INr 35214, Obj 58",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35213,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ländliche Zufriedenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amon",
+  "scans": [
+    "alm_485_35213_fsflp25ohr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ländliche Zufriedenheit",
+  "updated": "2003-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lbjqvqkanjbymbx",
+      "agents": "qqt6rtvr4y2rv42",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.728Z"
+    }
+  ]
+}

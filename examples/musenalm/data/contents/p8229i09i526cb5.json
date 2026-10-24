@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel s. Textbezug INr 48862, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "St. Margarita, oder Der Triumph der christlichen Heldinn über die Hölle  #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ra. Meno Haas sc. Berlin 1801",
+  "scans": [
+    "alm_668_48863_lbal5puhsv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "St. Margarita, oder Der Triumph der christlichen Heldinn über die Hölle  #",
+  "updated": "2007-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "48hub58zvk1iczw",
+      "agents": "ztgmm4mptvjp8o3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.239Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.239Z"
+    },
+    {
+      "id": "liqu2ibywy3r4p3",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.239Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.239Z"
+    }
+  ]
+}

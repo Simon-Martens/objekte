@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22861,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Michel Angelo Buonarotti's Haus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dejuine del. F. Wagner sc.",
+  "scans": [
+    "alm_304_22861_jjz35oocp7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Michel Angelo Buonarotti's Haus",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a16nie1t0icp62g",
+      "agents": "8vbt9gw0odkrjiw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.005Z"
+    },
+    {
+      "id": "19v79bk3c7w4wjp",
+      "agents": "zcahh3ez21pnltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.005Z"
+    }
+  ]
+}

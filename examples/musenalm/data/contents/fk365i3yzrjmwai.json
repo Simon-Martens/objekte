@@ -1,0 +1,45 @@
+{
+  "annotation": "Oden (Sammlung INr 24479, Obj 57) Gedichte (Sammlung INr 24470, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Nie sehnt ein willkürübender Herrscher sich / Nach Dichterweihrauch, dessen er nicht bedarf:",
+  "language": [],
+  "musenalm_id": 24484,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Herrscher und Volk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Herrscher und Volk",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yc28lcgtk8rz4e1",
+      "agents": "on0a0wityl8730t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.273Z"
+    }
+  ]
+}

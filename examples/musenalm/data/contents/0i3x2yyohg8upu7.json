@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22859,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abbotsford. Wohnsitz des Sir Walter Scott. Erste Ansicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dewint del. Rosmäsler Dresd. 1823",
+  "scans": [
+    "alm_304_22859_huu3jy5bma.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abbotsford. Wohnsitz des Sir Walter Scott. Erste Ansicht",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xmsn8dgwenmwijt",
+      "agents": "t9j3zbindbudady",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.005Z"
+    },
+    {
+      "id": "8w64pxv0tnx0riu",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.005Z"
+    }
+  ]
+}

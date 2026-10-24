@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Sitz' in stillen Abendstunden / Bei der Kerze mattem Schein / Ernst und sinnend ich allein,",
+  "language": [],
+  "musenalm_id": 94000,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Barbarina",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y4f1xz2nwafmdms",
+      "agents": "kzden0pkha3xf40",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.454Z"
+    }
+  ]
+}

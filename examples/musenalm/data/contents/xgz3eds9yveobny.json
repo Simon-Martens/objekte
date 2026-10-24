@@ -1,0 +1,45 @@
+{
+  "annotation": "Die vier Jahreszeiten des Trinkers. Ein lyrischer Accord. Zweites Jahr. 1826 (Sammlung INr 41382, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "376",
+  "incipit_statement": "In den Reben lieg' ich hier, / Grün und gelb umrankt,",
+  "language": [],
+  "musenalm_id": 41389,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Müller, Wilhelm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herbst",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b9kllix7wjic41h",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.694Z"
+    }
+  ]
+}

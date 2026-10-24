@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug INr 54617, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54622,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Der galante Junggesell] #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. M. Usteri. Gest v. R. Rahn",
+  "scans": [
+    "alm_743_54622_f59178tpx1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Der galante Junggesell] #",
+  "updated": "2008-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "213wjkv6b7hwdcv",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.814Z"
+    },
+    {
+      "id": "n9mw8vr2g8wvisu",
+      "agents": "2qfnp8a93m1r2da",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.814Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); Bezeichnung aus dem Vrwrt (INr 124817, Obj 4); ## Bezeichnung aus dem Titel (INr 124816, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Endlich finde ich ihn allein, diesen glücklichen Zufall will ich nicht unbenutzt lassen.",
+  "language": [],
+  "musenalm_id": 124828,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zahlung in gleicher Münze. / Lustspiel in einem Aufzuge.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zahlung in gleicher Münze. / Lustspiel in einem Aufzuge.",
+  "updated": "2019-05-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cu312t99kri58vi",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.864Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.864Z"
+    }
+  ]
+}

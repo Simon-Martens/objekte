@@ -1,0 +1,69 @@
+{
+  "annotation": "s. Textbezug INr 34015, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MADONNA MIT DEM KINDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Raphael gez. von F. Barthel. gest. von C. W. Schenk in Braunschweig",
+  "scans": [
+    "alm_472_34014_wovrds2wy0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MADONNA MIT DEM KINDE",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "173pml0ev12ljpi",
+      "agents": "ztgmm4mptvjp8o3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.647Z"
+    },
+    {
+      "id": "zlc8x4hmmxplrav",
+      "agents": "qfeh99dap41ww11",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.647Z"
+    },
+    {
+      "id": "yny4xy2f9pj2e2s",
+      "agents": "voq5dlml9870uhq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.647Z"
+    }
+  ]
+}

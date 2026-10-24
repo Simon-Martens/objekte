@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Schlachtgesang« von Klopstock INr 2097, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schlachtgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter Gluck",
+  "scans": [
+    "alm_75_8719_01_ludkjt2534.jpg",
+    "alm_75_8719_02_v1crhau93y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schlachtgesang",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zeiudkarwaly6q1",
+      "agents": "bcx2c0r10adpoyu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.295Z"
+    }
+  ]
+}

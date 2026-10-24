@@ -1,0 +1,56 @@
+{
+  "annotation": "nummeriert No. VI. /) # Titel s. Textbezug INr 106002, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105977,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das gothische Gewölbe #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klinsky del. J. H. Darnstedt sc.",
+  "scans": [
+    "alm_2844_105977_yghtcvqdka.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das gothische Gewölbe #",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ilqz26qv4oo9h27",
+      "agents": "jluxmeayxx3ga35",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.298Z"
+    },
+    {
+      "id": "11dhie59duewnm7",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.298Z"
+    }
+  ]
+}

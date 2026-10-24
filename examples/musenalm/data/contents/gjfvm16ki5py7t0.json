@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r. # Bez. aus demG-Verz des Jg 1823; s. alm-301",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 122333,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Junge Frosch)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge Frosch",
+  "scans": [
+    "alm_4660_122333_fo3gs33b4o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2019-07-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yu3zrmynad6aasc",
+      "agents": "hwl1l57k0tbbc1r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.715Z"
+    },
+    {
+      "id": "b7bgvfugauco8mw",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.715Z"
+    }
+  ]
+}

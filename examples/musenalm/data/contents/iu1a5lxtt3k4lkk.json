@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.447Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Am Berge liegen zwei Hügel, / Zwei Hügel liegen Im Wald,",
+  "language": [],
+  "musenalm_id": 19633,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hühnen-Maal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. A. Freih. v. Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hühnen-Maal",
+  "updated": "2001-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yraza5mv76nkolc",
+      "agents": "wfk4mi4tbts3zzx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.982Z"
+    }
+  ]
+}

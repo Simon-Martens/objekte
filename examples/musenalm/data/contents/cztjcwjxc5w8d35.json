@@ -1,0 +1,47 @@
+{
+  "annotation": "I# Bez. aus dem Vorwort /) lllustration zu »Graf Wolf von Hohenkrähen. Ballade« von F. W. A. Schmidt INr 52151, Obj 135",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52154,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Er lacht' ihm in's sterbende, bleiche Gesicht / Fahr hin dann zur Hölle, du lüsterner Wicht / Beladen mit schreienden Sünden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki",
+  "scans": [
+    "alm_15_52154_nl9frsck0s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Er lacht' ihm in's sterbende, bleiche Gesicht / Fahr hin dann zur Hölle, du lüsterner Wicht / Beladen mit schreienden Sünden",
+  "updated": "2007-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xoj2khvl6d3wafb",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.856Z"
+    }
+  ]
+}

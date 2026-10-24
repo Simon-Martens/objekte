@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 54868, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Schwer ist's mit der Poesie / Ehelich zu leben, / So in Bande will sich die / Nimmermehr begeben.",
+  "language": [],
+  "musenalm_id": 54873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ewiger Brautstand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ewiger Brautstand",
+  "updated": "2008-02-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mj2hu6qq1kq6g7q",
+      "agents": "ana89fnya97gfjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.901Z"
+    }
+  ]
+}

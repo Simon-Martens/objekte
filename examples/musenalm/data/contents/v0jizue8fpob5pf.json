@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Räuber« von Fr. Schiller s. Textbezug INr 39605, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39606,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Räuber. 1r. Act. 2te. Scene / Alle Wir sinds zufrieden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Fr. Bolt sc.",
+  "scans": [
+    "alm_520_39606_arnom04qwe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Räuber. 1r. Act. 2te. Scene / Alle Wir sinds zufrieden",
+  "updated": "2005-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zgxa5v64fzug83y",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.971Z"
+    },
+    {
+      "id": "9sirzgvks6unmod",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.971Z"
+    }
+  ]
+}

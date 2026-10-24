@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Das Weib schuf Gott zum Zeitvertreibe, / Sprach Jobst der frohen Tage satt;",
+  "language": [],
+  "musenalm_id": 12733,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zeitvertreib",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zeitvertreib",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tt0eqhxo2ok0cpv",
+      "agents": "vn2a6zjk0dwki92",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.491Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Versuche in gebundener Rede (Sammlung INr 65623, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Ich leugne nicht, daß hier das Land der Freiheit sey; / Wer spricht ein freies Wort, gleich ist er vogelfrei.",
+  "language": [],
+  "musenalm_id": 65678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 246,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Land der Freiheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Adam Seuffert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Land der Freiheit",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zhcbsm292dsxza3",
+      "agents": "b6lr2rx1hatxube",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.249Z"
+    }
+  ]
+}

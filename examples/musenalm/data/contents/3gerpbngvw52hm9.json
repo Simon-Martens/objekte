@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung an Blatt A der Suite. Détail aus »Die Parlaments-Wahl. Dritte Scene. Die Stimmensammlung.« paginiert E. s. Textbezug INr 7291, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7292,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Hogarth inv. Riepenhausen sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth inv. Riepenhausen sc.",
+  "scans": [
+    "alm_147_7292_yfbcvqepi0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cualq8xq7e8mavq",
+      "agents": "yylanvnf5ct4jbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.435Z"
+    },
+    {
+      "id": "sq47oq7mkp7oegs",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.435Z"
+    }
+  ]
+}

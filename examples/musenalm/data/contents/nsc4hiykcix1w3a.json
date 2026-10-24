@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am Gedicht INr 122851 Obj 194",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Den Knaben seh’ ich täglich wieder, / Den Bettelknaben wunderhold. / Die Mutter setzt ihn sorglos nieder / Und hat sich eilig fortgetrollt",
+  "language": [],
+  "musenalm_id": 122855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 198,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bettelknabe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Max Ring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bettelknabe",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "izrhmqxb2dzpz7b",
+      "agents": "tg632xcb1qqevtg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.734Z"
+    }
+  ]
+}

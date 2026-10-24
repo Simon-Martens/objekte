@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.527Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Daß es mir eine unbeschreibliche Freude ist, von so vielen unter Euch mit einer gewissen Teilnahme gelesen worden zu seyn, die selbst zu eurem practischen Leben übergegangen ist,",
+  "language": [],
+  "musenalm_id": 130010,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oboy3lj306t00js",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.055Z"
+    }
+  ]
+}

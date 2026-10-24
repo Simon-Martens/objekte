@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 11. /) Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72251,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fridrich Heinrich Carl, / Prinz von Preussen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas sc.",
+  "scans": [
+    "alm_826_72251_5q4ge6xlgn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fridrich Heinrich Carl, / Prinz von Preussen",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yltpeb6391w6mop",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.589Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.589Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollständige Bez. am ersten Blatt der Suite /) paginiert 8. s. Textbezug INr 32543, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32544,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "B. / Römische Tracht. / No 8. / Herr Brissard als alter Horaz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kraus del. J. Penzel fec.",
+  "scans": [
+    "alm_451_32544_2127szzgbn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "B. / Römische Tracht. / No 8. / Herr Brissard als alter Horaz",
+  "updated": "2003-03-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kjdbhjlkqis34kn",
+      "agents": "vvn2bsy8p7l2qv3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.406Z"
+    },
+    {
+      "id": "3mv306ea2e5e2v0",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.406Z"
+    }
+  ]
+}

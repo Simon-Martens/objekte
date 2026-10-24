@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik v.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59186,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (HA.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "HA.",
+  "scans": [
+    "alm_883_59186_1bncn7bkh6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ap13ixn1r0hfbzj",
+      "agents": "wvzx8yp0t9tqzmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.988Z"
+    }
+  ]
+}

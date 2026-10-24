@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Die rauhe Distel sah den nahen Rosenstrauch / Mit seiner ersten schönen Blume prangen,",
+  "language": [],
+  "musenalm_id": 128873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vereinigung. / Aus dem Engl. des Rowe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rupprecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Vereinigung. / Aus dem Engl. des Rowe",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ha7lehefe1bafxc",
+      "agents": "47jltbo11xjvoib",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.989Z"
+    }
+  ]
+}

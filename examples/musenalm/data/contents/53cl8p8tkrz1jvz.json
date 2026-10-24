@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gedichte (Sammlung INr 21058, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "353",
+  "incipit_statement": "Ich kenn' ein schönes Schwesternpaar; / Welch Schwesterchen von Beiden",
+  "language": [],
+  "musenalm_id": 21059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schwesternpaar",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schwesternpaar",
+  "updated": "2002-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ur4wqj6tidao5qa",
+      "agents": "1tsjgk40ftnty4f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.962Z"
+    }
+  ]
+}

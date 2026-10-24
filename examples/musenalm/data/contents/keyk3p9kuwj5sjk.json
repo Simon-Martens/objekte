@@ -1,0 +1,56 @@
+{
+  "annotation": "kol. Illustration zu »Der Spritzfisch oder Schnabelfisch. Chaetodon rostratus. Linné« von Wolf; INr 110436, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.873Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Spritzfisch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Gabler del. J. C. Beck sc.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Spritzfisch",
+  "updated": "2016-03-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "onsy8lxz07394tp",
+      "agents": "ehydv2boln6e4pw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.345Z"
+    },
+    {
+      "id": "zrbex0c4kyhyrlp",
+      "agents": "ekn9rg5y5vkc116",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.345Z"
+    }
+  ]
+}

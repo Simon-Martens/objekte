@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 34123, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.443Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34125,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Weinlese",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Wächter inv. C. Rahl sc.",
+  "scans": [
+    "alm_473_34125_g391axo6iq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Weinlese",
+  "updated": "2003-05-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4h2csoxgkk0btvq",
+      "agents": "jgp8dgth3q9useg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.270Z"
+    },
+    {
+      "id": "7hbq1dgxzmumekk",
+      "agents": "d645btewd8dbrsc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.270Z"
+    }
+  ]
+}

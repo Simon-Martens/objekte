@@ -1,0 +1,56 @@
+{
+  "annotation": "Sechs Charakter-Bilder nach Zeichnungen von G. Opiz (Sammlung INr 9365, Obj 8) s. Textbezug INr 19041, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9362,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die glatten Zungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opitz del. J. Lips sc.",
+  "scans": [
+    "alm_51_9362_p8qxnd9me1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die glatten Zungen",
+  "updated": "2000-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0xmnrtje2sba06w",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.480Z"
+    },
+    {
+      "id": "fb8iorpb77iql7t",
+      "agents": "iwoqrcn7d9iuxfi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.480Z"
+    }
+  ]
+}

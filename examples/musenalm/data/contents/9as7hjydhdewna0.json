@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 68605, Obj 3,05",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68604,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.04,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MAGDALENAS VERHERRLICHUNG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Domenichino pt. F. John sc.",
+  "scans": [
+    "alm_232_68604_q7aeasxll5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MAGDALENAS VERHERRLICHUNG",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nl5a1uf2zqg3i9q",
+      "agents": "ke8b3zzq6e79hhk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.443Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.443Z"
+    },
+    {
+      "id": "2u83f9p0yhka8ej",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.444Z"
+    }
+  ]
+}

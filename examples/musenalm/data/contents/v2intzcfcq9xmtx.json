@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Sie war ein Kind aus Juda's Stamme, / Sie trug mit Stolz der Christen Groll;",
+  "language": [],
+  "musenalm_id": 100496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 160,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Jüdin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Strodtmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Jüdin",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q3at8w18ln8hpzc",
+      "agents": "jzx3kxdlw6ztoo5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.998Z"
+    }
+  ]
+}

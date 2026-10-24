@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwei Gedichte INr 4364, 4365; Obj 153, 155",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.100Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 152,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jägerlieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Falk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jägerlieder",
+  "updated": "2000-09-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8gt7cr23nkuar7i",
+      "agents": "bjik5dzyzk4cu0g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.315Z"
+    }
+  ]
+}

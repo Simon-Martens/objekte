@@ -1,0 +1,56 @@
+{
+  "annotation": "Vermischte Gegenstände (Sammlung INr 67078, Obj 27) mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Undankbar und pflichtvergessen wäre es, wenn wir unsere Leser und Freunde nicht an einen kürzlich verstorbenen, fürstlichen Liebling Dianens erinnern wollten,",
+  "language": [],
+  "musenalm_id": 67085,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Dem Andenken eines der edelsten Jäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Dem Andenken eines der edelsten Jäger",
+  "updated": "2009-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "igcy2ro5014vu3f",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.365Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.365Z"
+    },
+    {
+      "id": "txkvkcph5nzxtfl",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.365Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.365Z"
+    }
+  ]
+}

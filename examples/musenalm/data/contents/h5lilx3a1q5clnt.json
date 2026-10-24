@@ -1,0 +1,69 @@
+{
+  "annotation": "s. Textbezüge INr 33953, 33955; Obj 9, 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33954,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "RÜCKKEHR AUS EGYPTEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Raphael gez. von F. Barthel, gest. von C. W. Schenk in Braunschweig",
+  "scans": [
+    "alm_471_33954_jr7wpl7dwi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "RÜCKKEHR AUS EGYPTEN",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wwoat6oeype70e4",
+      "agents": "ztgmm4mptvjp8o3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.433Z"
+    },
+    {
+      "id": "4rej3wixzxeol52",
+      "agents": "qfeh99dap41ww11",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.433Z"
+    },
+    {
+      "id": "vuun7wq0cxu81k7",
+      "agents": "voq5dlml9870uhq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.433Z"
+    }
+  ]
+}

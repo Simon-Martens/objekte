@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwey Gedichte nach dem Englischen (Sammlung INr 63637, Obj 74) Gedichte von Carl Geib (Sammlung INr 63632, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "Ich muß - das Schicksal will - o Schmerz! / Von meiner Delia geh'n;",
+  "language": [],
+  "musenalm_id": 63638,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. An Delia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. An Delia",
+  "updated": "2009-04-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ffn34zvnhx6nhh2",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.988Z"
+    }
+  ]
+}

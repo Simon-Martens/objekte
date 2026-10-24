@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.741Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73975,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Son Altesse Serenissime Monseigneur le Prince / FERDINAND / Duc de Braunswig et Lunebourg / Generalissime de l'Armée Alliée etc etc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Wolffgang , Sc. A. v. 1760",
+  "scans": [
+    "alm_2517_73975_8n50dqdwt7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Son Altesse Serenissime Monseigneur le Prince / FERDINAND / Duc de Braunswig et Lunebourg / Generalissime de l'Armée Alliée etc etc",
+  "updated": "2010-02-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1761,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ciisjuttoichhct",
+      "agents": "t0skl0zuoovbyqo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.331Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.331Z"
+    }
+  ]
+}

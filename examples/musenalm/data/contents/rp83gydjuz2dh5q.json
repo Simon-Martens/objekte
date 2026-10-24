@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Ganz hat nie des Seins sich gefreut, mit glü- / henden Thränen / Nie dem Geber des Lebens gedankt,",
+  "language": [],
+  "musenalm_id": 34846,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragment / eines Gedichts: / Die Zukunft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. L. Gr. zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragment / eines Gedichts: / Die Zukunft",
+  "updated": "2001-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oty09jsknxhfuxe",
+      "agents": "7gwss5mvx858qah",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.890Z"
+    }
+  ]
+}

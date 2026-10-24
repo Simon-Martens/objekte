@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64325, Obj 8 /) Stich nach Götzenbergers Fresko in der Trinkhalle Baden Baden",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64331,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Keller's Bild #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt von J. Götzenberger Gestochen von E. Wagner",
+  "scans": [
+    "alm_1068_64331_0qw39qsdrd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Keller's Bild #",
+  "updated": "2009-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1860,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e5zlhokjkcquxks",
+      "agents": "k52j0ci4hisa6dc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.323Z"
+    }
+  ]
+}

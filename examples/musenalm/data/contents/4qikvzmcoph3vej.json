@@ -1,0 +1,45 @@
+{
+  "annotation": "2 Sammlungen mit 20 bzw. 8 Beiträgen INr 40885-40914, Obj 23-52",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40884,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Tafeln am Wege",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Tafeln am Wege",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y7r6ojah27r4504",
+      "agents": "z3510nlbg6hd1qt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.185Z"
+    }
+  ]
+}

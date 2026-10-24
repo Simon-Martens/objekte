@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zum Beitrag »Der Paria« von Michael Beer. Urania 1826 S. 140. INr 721",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9358,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Paria von Michael Beer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kolbe del. F. Rosmäsler sc.",
+  "scans": [
+    "alm_51_9358_sidj44a8r9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Paria von Michael Beer",
+  "updated": "2000-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yka3tv1chuqy2nv",
+      "agents": "n8dsvfjir5hw9xq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.479Z"
+    },
+    {
+      "id": "dtyt0qmqi5b57m3",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.480Z"
+    }
+  ]
+}

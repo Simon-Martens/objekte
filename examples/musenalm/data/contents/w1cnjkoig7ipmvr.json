@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37060, Obj 185)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Euch drückte schwer das heimathliche Land / Mit den von Menschen selbst erfundnen Lasten!",
+  "language": [],
+  "musenalm_id": 37061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 186,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Als Auswanderer, die im Sommer 1834 bei Bremen strandeten und ertranken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. A. Assing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Als Auswanderer, die im Sommer 1834 bei Bremen strandeten und ertranken",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e9736f206krw70j",
+      "agents": "gplimo7htici8gi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.792Z"
+    }
+  ]
+}

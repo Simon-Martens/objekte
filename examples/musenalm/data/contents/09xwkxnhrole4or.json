@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. S. III, INr 81078, Obj 5 /) Illustration zu »Ein Liebesbrief« von J. P. Lyser d. i. J. P. Th. Burmeister INr 81117, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81075,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eugenia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. C. Kotterba sc.",
+  "scans": [
+    "alm_1806_81075_myi00dtkmh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eugenia",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lq41jxp5buywecj",
+      "agents": "512hnx3l2hp6y3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.061Z"
+    },
+    {
+      "id": "4bcz0sq5ty9nz2l",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.061Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Agrionien für das Jahr 1816 (Sammlung INr 39691, Obj 93)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "477",
+  "incipit_statement": "Zwei rasche Mädchen nenn' ich Euch, / Das eine Feuerkind,",
+  "language": [],
+  "musenalm_id": 39692,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Doppel-Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Doppel-Räthsel",
+  "updated": "2005-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "60gp1t6lb88fvrd",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.954Z"
+    }
+  ]
+}

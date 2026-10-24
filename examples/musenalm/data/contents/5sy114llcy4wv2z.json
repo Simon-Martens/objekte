@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von Textbezügen zu den Graphiken des Almanachs INr 60033, 60035-60062; Obj 32, 34-62",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIX. / Erklärung der Kupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIX. / Erklärung der Kupfer",
+  "updated": "2008-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m116ebc0vt5xmbi",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.979Z"
+    }
+  ]
+}

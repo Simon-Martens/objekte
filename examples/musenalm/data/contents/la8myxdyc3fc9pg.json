@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zum vorstehenden Beitrag INr 64830, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Am leichtesten bewegt der Frauen Rede / Auf offnem Meere sich, wie an der Küste,",
+  "language": [],
+  "musenalm_id": 64831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Regina Spiridon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Regina Spiridon",
+  "updated": "2009-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "etd1gokk7q3qaw2",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.139Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Sonette (INr 93335, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "Überall, wohin mein Auge blicket, / Herrschet Liebe, find' ich ihre Spur;",
+  "language": [],
+  "musenalm_id": 93337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Macht der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann v. Kalchberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Macht der Liebe",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u936r2w6ux8xmq6",
+      "agents": "h496zc5w34vctbd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.299Z"
+    }
+  ]
+}

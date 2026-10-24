@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung und Titel der Sammlung von 12 Graphiken an der ersten Graphik, (Sammlung INr 21728-21739, Obj 10-21) Leben Gözens von Berlichingen Teil 2, Graphik im Kalendarium paginiert 1.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21728,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leben Gözens von Berlichingen / zweite hälfte. # / Herr Bischof ihr habt mir die Hand / geben, aber mich nit gekennt, habt euch / hiemit die Hand wieder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner del. & sc.",
+  "scans": [
+    "alm_293_21728_qzekc4buz7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Leben Gözens von Berlichingen / zweite hälfte. # / Herr Bischof ihr habt mir die Hand / geben, aber mich nit gekennt, habt euch / hiemit die Hand wieder",
+  "updated": "2002-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "octjc3ov568avnc",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.103Z"
+    }
+  ]
+}

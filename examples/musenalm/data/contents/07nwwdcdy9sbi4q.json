@@ -1,0 +1,56 @@
+{
+  "annotation": "Textbezug unklar",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94824,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Hasslwander gez. Stahlstich von C. Mahlknecht in Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hasslwander gez. Stahlstich von C. Mahlknecht in Wien",
+  "scans": [
+    "alm_1875_94824_tp8t9w8agx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "354j9dy5xty0r92",
+      "agents": "rb0is2za5c4lggc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.743Z"
+    },
+    {
+      "id": "llix2pdj0ayr2s5",
+      "agents": "z8rsr5de0jmn33o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.743Z"
+    }
+  ]
+}

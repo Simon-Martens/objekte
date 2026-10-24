@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gedichte (Sammlung INr 84766, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Sieben Gründe giebts zu trinken: / Freundesankunft, Nummer Eins, / Zwei, wenn schöne Mädchen winken,",
+  "language": [],
+  "musenalm_id": 84784,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Die sieben Gründe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Die sieben Gründe",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zatd6ubn9l204qs",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.155Z"
+    }
+  ]
+}

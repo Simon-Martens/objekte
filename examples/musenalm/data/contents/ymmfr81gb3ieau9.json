@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Da steh' ich nun, auf meiner Krücke / Gelehnt, an Vater Loudon's Grab,",
+  "language": [],
+  "musenalm_id": 31187,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Invalide an Loudon's Grabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. J. Koller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Invalide an Loudon's Grabe",
+  "updated": "2003-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sbb1g9nbd7k7ryw",
+      "agents": "klmzscnh01mej5u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.648Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.648Z"
+    }
+  ]
+}

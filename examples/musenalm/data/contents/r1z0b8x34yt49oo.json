@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Zwischen den bekannten drei Bergen, dem letzten wichtigern Gebirgs-Kleeblatt am Saume des flachern Haidelandes, nämlich dem Süntel, Deister und dem Bückeberge,",
+  "language": [],
+  "musenalm_id": 123158,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Ilsedina / oder / die Hexenschwemme zu Waschingshausen. / Eine uralte Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Ilsedina / oder / die Hexenschwemme zu Waschingshausen. / Eine uralte Sage",
+  "updated": "2019-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uxo8297e9gsujb3",
+      "agents": "wfk4mi4tbts3zzx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.627Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96966,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VENUS URANIA / von der Dichtkunst bekränzt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. J. T. de Goetz. Gest v. Ant. Karcher Mannh. 1804",
+  "scans": [
+    "alm_4110_96966_o9rc00qrrh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "VENUS URANIA / von der Dichtkunst bekränzt",
+  "updated": "2014-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "27xqqi1xqa7j016",
+      "agents": "jr33zvibuxpvxjy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.579Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.579Z"
+    },
+    {
+      "id": "mfj9l9xc7dta4f0",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.579Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.579Z"
+    }
+  ]
+}

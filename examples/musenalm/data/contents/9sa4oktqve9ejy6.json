@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 45791-45796, Obj 198-203",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 197,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Postillons-Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Merckel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Postillons-Nacht",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "66244pz1o8eecja",
+      "agents": "43zf9fb3jx70ouy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.420Z"
+    }
+  ]
+}

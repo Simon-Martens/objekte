@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "367",
+  "incipit_statement": "Der Mann, / Der die Kunst übt mit Meisterschaft / Und Kunstwerke wie ein Meister schafft; / Der das Wesen der Kunst hat erkannt,",
+  "language": [],
+  "musenalm_id": 100023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 187,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz Liszt. / Trinkspruch auf der Altenburg bei Weimar, am 24. Juni 1854",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Hoffmann von Falllersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Franz Liszt. / Trinkspruch auf der Altenburg bei Weimar, am 24. Juni 1854",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "020hbjxhmkp3i1v",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.895Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.895Z"
+    }
+  ]
+}

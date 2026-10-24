@@ -1355,14 +1355,179 @@ async fn field_removal_undo_redo_and_live_preview_preserve_raw_input() {
 }
 #[test]
 fn search_highlights_unicode_without_interpreting_markup() {
-    let html = views::list::highlighted("<script>İstanbul & HERDER</script>", "herder", true);
+    let html = views::list::highlighted(
+        "<script>İstanbul & HERDER</script>",
+        &structured_editor_core::SearchMatcher::new("herder", false).unwrap(),
+        true,
+    );
     assert!(html.contains("<mark>HERDER</mark>"));
     assert!(html.contains("&lt;script&gt;"));
     assert!(!html.contains("<script>"));
     assert_eq!(
-        views::list::highlighted("Über", "über", false),
+        views::list::highlighted(
+            "Über",
+            &structured_editor_core::SearchMatcher::new("über", false).unwrap(),
+            false
+        ),
         "<mark>Über</mark>"
     );
+    let pattern = structured_editor_core::SearchMatcher::new(r"über|<script>", true).unwrap();
+    assert_eq!(
+        views::list::highlighted("Über <script>", &pattern, false),
+        "<mark>Über</mark> <mark>&lt;script&gt;</mark>"
+    );
+    let long = format!("{}{}", "ü".repeat(300), "Berlin".repeat(100));
+    let html = views::list::highlighted(
+        &long,
+        &structured_editor_core::SearchMatcher::new("Berlin.*", true).unwrap(),
+        true,
+    );
+    assert!(html.starts_with('…') && html.ends_with("</mark>…"));
+    assert_eq!(
+        html.matches("<mark>").count(),
+        html.matches("</mark>").count()
+    );
+    assert_eq!(
+        views::list::highlighted(
+            "Über",
+            &structured_editor_core::SearchMatcher::new("^", true).unwrap(),
+            true
+        ),
+        "Über"
+    );
+}
+
+#[tokio::test]
+async fn literal_case_toggle_controls_results_highlighting_and_survives_regex_mode() {
+    let (_temp, state, _cookie, actor) = fixture().await;
+    let mut params = HashMap::from([("q".into(), "first".into())]);
+    let html = views::list::render(&state.editor, "notes", &params, &actor).unwrap();
+    assert!(html.contains("<mark>First</mark>"));
+    assert!(html.contains("aria-label=\"Match case\" aria-pressed=\"false\""));
+    params.insert("case_sensitive".into(), "1".into());
+    let html = views::list::render(&state.editor, "notes", &params, &actor).unwrap();
+    assert!(html.contains("No matching records"));
+    assert!(!html.contains("<mark>First</mark>"));
+    assert!(html.contains("aria-label=\"Match case\" aria-pressed=\"true\""));
+    assert_eq!(
+        html.split("class=\"search-form")
+            .nth(1)
+            .unwrap()
+            .split("</form>")
+            .next()
+            .unwrap()
+            .matches("name=\"case_sensitive\" value=\"1\"")
+            .count(),
+        1
+    );
+    assert!(html.contains("href=\"/collections/notes?case%5Fsensitive=1\">Show all</a>"));
+    params.insert("q".into(), "First".into());
+    let html = views::list::render(&state.editor, "notes", &params, &actor).unwrap();
+    assert!(html.contains("<mark>First</mark>"));
+    assert!(html.contains("case%5Fsensitive=1&amp;direction=asc&amp;q=First&amp;sort="));
+    params.insert("q".into(), "first".into());
+    params.insert("regex".into(), "1".into());
+    let html = views::list::render(&state.editor, "notes", &params, &actor).unwrap();
+    assert!(html.contains("<mark>First</mark>"));
+    assert!(html.contains(
+        "aria-label=\"Match case\" aria-pressed=\"true\" data-tooltip=\"Match case\" hidden"
+    ));
+    assert!(html.contains("name=\"case_sensitive\" value=\"1\""));
+    params.insert("q".into(), "(?-i)first".into());
+    assert!(
+        views::list::render(&state.editor, "notes", &params, &actor)
+            .unwrap()
+            .contains("No matching records")
+    );
+    assert_eq!(
+        views::list::highlighted(
+            "Über über",
+            &structured_editor_core::SearchMatcher::with_case_sensitivity("Über", false, true)
+                .unwrap(),
+            false,
+        ),
+        "<mark>Über</mark> über"
+    );
+}
+
+#[tokio::test]
+async fn collection_regex_mode_persists_and_invalid_patterns_remain_editable() {
+    let (_temp, state, cookie, actor) = fixture().await;
+    let params = HashMap::from([("q".into(), "^F.*t$".into()), ("regex".into(), "1".into())]);
+    let html = views::list::render(&state.editor, "notes", &params, &actor).unwrap();
+    assert!(html.contains("aria-label=\"Use regular expression\" aria-pressed=\"true\""));
+    assert!(html.contains("<mark>First</mark>"));
+    assert!(html.contains("regex=1&amp;sort="));
+    assert!(html.contains("name=\"regex\" value=\"1\""));
+    assert!(html.contains("data-search-validation=\"/collections/notes/search-validation\""));
+    assert!(html.contains("data-search-feedback role=\"status\" aria-live=\"polite\" hidden"));
+    let literal = views::list::render(
+        &state.editor,
+        "notes",
+        &HashMap::from([("q".into(), "^F.*t$".into())]),
+        &actor,
+    )
+    .unwrap();
+    assert!(!literal.contains("<mark>First</mark>"));
+    assert!(literal.contains("aria-pressed=\"false\""));
+    for partial in [false, true] {
+        let (status, html) = request(
+            state.clone(),
+            "GET",
+            "/collections/notes?q=%5B&regex=1",
+            &cookie,
+            &HashMap::new(),
+            partial,
+        )
+        .await;
+        assert_eq!(status, StatusCode::OK);
+        assert!(html.contains("id=\"search-error\""));
+        assert!(html.contains("Invalid search pattern"));
+        assert!(html.contains("aria-invalid=\"true\""));
+        assert!(html.contains("name=\"q\" value=\"[\""));
+        assert!(html.contains("data-search-regex"));
+    }
+}
+
+#[tokio::test]
+async fn live_regex_validation_uses_search_syntax_without_reading_records() {
+    let (_temp, state, cookie, _actor) = fixture().await;
+    // A broken data file must not affect a syntax-only request.
+    std::fs::write(
+        state.editor.config().root.join("data/notes/one.json"),
+        "invalid JSON",
+    )
+    .unwrap();
+    for (query, valid) in [
+        ("[", false),
+        ("(?=First)", false), // JavaScript accepts look-around; ripgrep's engine doesn't.
+        ("(?i)first", true),  // Rust inline flags must not be rejected by JS validation.
+        (r"\bÜber\b|Berlin", true),
+        ("", true),
+    ] {
+        let url = format!(
+            "/collections/notes/search-validation?q={}",
+            views::encode(query)
+        );
+        let (status, body) =
+            request(state.clone(), "GET", &url, &cookie, &HashMap::new(), false).await;
+        assert_eq!(status, StatusCode::OK);
+        let response: serde_json::Value = serde_json::from_str(&body).unwrap();
+        assert_eq!(response["error"].is_null(), valid, "{query}: {body}");
+        if !valid {
+            assert!(!response["error"].as_str().unwrap().is_empty());
+        }
+    }
+    let (status, _) = request(
+        state,
+        "GET",
+        "/collections/notes/search-validation?q=%5B",
+        "",
+        &HashMap::new(),
+        false,
+    )
+    .await;
+    assert_eq!(status, StatusCode::UNAUTHORIZED);
 }
 
 #[tokio::test]
@@ -3136,7 +3301,7 @@ async fn array_actions_distinguish_embedded_deletion_from_id_unlinking() {
     assert!(html.contains("Unlink item 1 from this list"));
     assert!(html.contains("href=\"/collections/notes/records/one/delete\""));
     assert!(html.contains("Delete Note…"));
-    assert!(html.contains("leaves it unset when saved, rather than empty"));
+    assert!(html.contains("data-tooltip=\"Remove field\""));
 }
 
 fn upgrade_action_fixture(root: &std::path::Path) {
@@ -3872,3 +4037,6 @@ async fn exit_uses_actual_changes_and_confirms_only_once() {
         assert_eq!(state.editor.get("notes", "one").unwrap().value["body"], r"A \[caption\]");
     }
 }
+
+#[path = "project_tests.rs"]
+mod project_tests;

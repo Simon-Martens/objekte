@@ -1,0 +1,45 @@
+{
+  "annotation": "Reseda. Sinnbild der Innigkeit und Häuslichkeit (Sammlung INr 84494, Obj 314)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Unscheinbar ist zwar diese Blum' allein / Ihr Balsamduft füllt schon die Luft von weitem,",
+  "language": [],
+  "musenalm_id": 84496,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 318,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unscheinbar ist zwar diese Blum' allein / Ihr Balsamduft füllt schon die Luft von weitem,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ilzckoek311vzyt",
+      "agents": "cqrs6fj7ecvzmh8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.270Z"
+    }
+  ]
+}

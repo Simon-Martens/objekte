@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Lied« von J. J. Eschenburg INr 4973, Obj 45; nach dem Reprint Hildesheim New York1979 autopsiert",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.635Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41203,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 23.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (F. G. Fleischer)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Fleischer",
+  "scans": [
+    "alm_103_41203_gigbpk0a68.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gnbwreko4a3zllh",
+      "agents": "hgga1nue1t5lk1v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.229Z"
+    }
+  ]
+}

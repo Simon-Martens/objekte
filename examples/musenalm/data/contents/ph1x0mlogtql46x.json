@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Es reißt der Strom der Zeiten / Auch Lieb' in seinen Lauf,",
+  "language": [],
+  "musenalm_id": 85829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Stosch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung",
+  "updated": "2003-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0wf9daqj841c6x9",
+      "agents": "1n4essahwibwnld",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.087Z"
+    }
+  ]
+}

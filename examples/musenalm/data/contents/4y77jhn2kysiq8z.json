@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4848,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MUSEN / ALMANACH / 1793 / Göttingen bei J. C. Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riep.",
+  "scans": [
+    "alm_90_4848_de84kpd24e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MUSEN / ALMANACH / 1793 / Göttingen bei J. C. Dieterich",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0359k8sgsdw5nio",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.275Z"
+    }
+  ]
+}

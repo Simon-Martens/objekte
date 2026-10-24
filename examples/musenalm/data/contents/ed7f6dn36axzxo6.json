@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebensbilder (Sammlung INr 58940, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.023Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Schmückst Dich, Kindlein, wie zum Feste / An der kranken Mutter Bett",
+  "language": [],
+  "musenalm_id": 58943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bekenntniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bekenntniß",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d3ga0amkpc2i93j",
+      "agents": "1obisuoppirekjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.040Z"
+    }
+  ]
+}

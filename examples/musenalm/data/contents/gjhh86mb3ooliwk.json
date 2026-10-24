@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 23738, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23737,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Minerva",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weinrauch f.",
+  "scans": [
+    "alm_321_23737_dfq2uc0n14.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Minerva",
+  "updated": "2002-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ktfu8afxhwra3c8",
+      "agents": "nhcnwrqiq042uja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.934Z"
+    }
+  ]
+}

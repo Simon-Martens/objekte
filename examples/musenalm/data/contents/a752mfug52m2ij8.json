@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "O Frühlingszeit! / Wie machst du das Herze so groß und weit!",
+  "language": [],
+  "musenalm_id": 70938,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingslied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rosa Maria",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingslied",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ys2jv0zwmf8s3b9",
+      "agents": "7qd9korfk9bcwc9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.542Z"
+    }
+  ]
+}

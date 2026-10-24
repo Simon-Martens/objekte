@@ -1,0 +1,58 @@
+{
+  "annotation": "2. Illustration zu »Der neue Amor« von J. W. von Goethe INr 60952, Obj 12,01",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40478,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der neue Amor 2. Bl.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_527_40478_90hrwuln0l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der neue Amor 2. Bl.",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "af09ndrqpmglp24",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.079Z"
+    },
+    {
+      "id": "brao9cihtc7cl2x",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.079Z"
+    }
+  ]
+}

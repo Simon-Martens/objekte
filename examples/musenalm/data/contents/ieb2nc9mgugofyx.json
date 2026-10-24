@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Es war in den ersten Frühlinhgstagen des Jahres 1525. In einem geräumigen Gemach der am Main gelegenen Burg Gaybach saßen der Besitzer derselben, der Ritter Conrad von Gaybach, und der Verlobte der einzigen Tochter des letzteren,",
+  "language": [],
+  "musenalm_id": 64364,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hauptmann. / Eine Novelle aus der Zeit des deutschen Bauernkrieges",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Ziehen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hauptmann. / Eine Novelle aus der Zeit des deutschen Bauernkrieges",
+  "updated": "2009-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iln7asis24ksowl",
+      "agents": "n93zvl8q72c04nh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.055Z"
+    }
+  ]
+}

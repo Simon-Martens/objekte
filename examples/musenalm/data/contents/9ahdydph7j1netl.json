@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 5 Textbezügen zu den Graphiken INr 18725-18729, Obj 6-10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9170,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Kupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Kupfer",
+  "updated": "2001-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d5oru1a86u31kam",
+      "agents": "b68wiq4xeilaqf3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.391Z"
+    }
+  ]
+}

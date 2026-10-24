@@ -1,0 +1,45 @@
+{
+  "annotation": "1815 (Sammlung INr 40885, Obj 23)  II. Tafeln am Wege (Sammlung INr 40884, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Auf eine Einladung des Erbprinzen von Homburg ging ich nach Kannstadt",
+  "language": [],
+  "musenalm_id": 40893,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cfw9ll8eh2s2tiy",
+      "agents": "z3510nlbg6hd1qt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.437Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.437Z"
+    }
+  ]
+}

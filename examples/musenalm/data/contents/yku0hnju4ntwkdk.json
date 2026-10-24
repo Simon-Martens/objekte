@@ -1,0 +1,45 @@
+{
+  "annotation": "Venezianische Epigramme (Sammlung INr 967, Obj 103) # s. Anmerkung dort",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Alles erkläret sich wohl, so sagt mir ein Schü- / ler,",
+  "language": [],
+  "musenalm_id": 18508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 181,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "79.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "79.",
+  "updated": "2000-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iff1o2112hcavst",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.791Z"
+    }
+  ]
+}

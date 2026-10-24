@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Lied« von M..k. INr 2791, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2792,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. C. Dreßler",
+  "scans": [
+    "alm_80_2792_ohj497t1es.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lied",
+  "updated": "2000-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qwz2h5yejlmz19i",
+      "agents": "1anhey70qa9n5qm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.001Z"
+    }
+  ]
+}

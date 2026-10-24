@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bez. aus dem G-Verz /) Illustration zu »Liebe und Pflicht. Eine Neu-Fränkische Geschichte« übersetzt von K. Reinhard INr 68709, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68710,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach! Gott! willst du mich zwei Mahl sterben / lassen?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen sculp.",
+  "scans": [
+    "alm_618_68710_tzhh0mmjgu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ach! Gott! willst du mich zwei Mahl sterben / lassen?",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9zkyq1uny0ohdqg",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.448Z"
+    },
+    {
+      "id": "r8b84y4rbn7e594",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.448Z"
+    }
+  ]
+}

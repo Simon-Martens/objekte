@@ -27,7 +27,7 @@ cargo run -p structured-editor-server -- admin-create
 EDITOR_INSECURE_COOKIE=1 cargo run -p structured-editor-server
 ```
 
-Open <http://127.0.0.1:4322>. The default project is `examples/lenz-archiv`; set `EDITOR_ROOT` and `EDITOR_DATA_DIR` to absolute paths to select another project and state directory. The initial administrator is stored in `.data/server.sqlite`, separately from Astro's accounts. See [server setup and architecture](crates/server/README.md) for development mode and extension points. The remaining application-specific development and deployment instructions below describe the existing Astro frontend.
+Open <http://127.0.0.1:4322>. The repository selector switches between Lenz-Archiv and [Musenalm](examples/musenalm/README.md), configured in `examples/projects.json`. Set `EDITOR_PROJECTS` to another catalog, or use `EDITOR_ROOT` for a single repository. Set `EDITOR_DATA_DIR` to choose the administrative state directory. The initial administrator is stored in `.data/server.sqlite`, separately from Astro's accounts. See [server setup and architecture](crates/server/README.md) for development mode and extension points. The remaining application-specific development and deployment instructions below describe the existing Astro frontend.
 
 To reset Rust server accounts and sessions, stop the server, run `cargo run -p structured-editor-server -- reset`, then run `cargo run -p structured-editor-server -- admin-create` to create a new administrator. Project content and the Astro account database are unaffected.
 
@@ -114,7 +114,7 @@ A collection UI file can contain:
 }
 ```
 
-Global UI supports `groups: [{"name":"Content","label":"Content","position":0}]`, `defaults: {...}` and `collections: {"people":{"position":1}}`. Collection UI overlays defaults, then global collection overrides apply. All sidebar configuration comes from these files. There are no browser-local navigation preferences.
+Global UI supports `groups: [{"name":"Content","label":"Content","position":0}]`, `defaults: {...}` and `collections: {"people":{"position":1}}`. Collection UI overlays defaults, then global collection overrides apply. All sidebar configuration comes from these files. `sidebarTree: false` keeps a collection as a flat sidebar link while preserving its object-view child tables. There are no browser-local navigation preferences.
 
 `sidebarAllLinks` controls the extra **All** links in a collection tree: `"none"` hides them (the default), `"root"` shows only the root link, and `"all"` shows the root and every nested link. The category and container labels remain clickable and open their own views. Parent-owned trees show containers only; individual child records stay in the main lists. `allCollection` can route the root **All** link to a different collection.
 

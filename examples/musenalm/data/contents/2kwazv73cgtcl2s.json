@@ -1,0 +1,45 @@
+{
+  "annotation": "Bonmots aus diplomatischen Zirkeln (Sammlung INr 64933, Obj 109) Nüsse vom Kriegsschauplatze (Sammlung INr 64906, Obj 82) XI. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1828-1829 (Sammlung INr 64851, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Sprecht nicht von Freiheit und Humanität! / Mehr gilt Büreaukratie und Legitimität.",
+  "language": [],
+  "musenalm_id": 64936,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2009-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7uo7vjwccsdn992",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.770Z"
+    }
+  ]
+}

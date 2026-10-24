@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Cid (Sammlung INr 127324, Obj 64) II. Spanier (Sammlung INr 127320, Obj 60) Stimmen der Völker (Sammlung INr 127316, Obj 56) im I-Verz.:Herder 8. Romances nuevamente sacados compuestos por Lorenço de Sepulveda, en Anvers 1551. 12. Fol. 116",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Laut auflermend sind gedrungen / Mohrenkön'ge in Kastilien, / Fünfe sind der Mohrenkön'ge, / Bringen mit zahllos Gesindel,",
+  "language": [],
+  "musenalm_id": 127327,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. Die fünf Mohrenkönige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. Die fünf Mohrenkönige",
+  "updated": "2020-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "spmjpsatwt6vt22",
+      "agents": "snjzg3ez48mced1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.832Z"
+    }
+  ]
+}

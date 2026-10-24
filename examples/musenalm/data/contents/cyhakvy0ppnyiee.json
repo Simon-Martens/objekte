@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert p. 157. /) Illustration zu »Liebschaft Gustav Adolphs, Königs von Schweden« INr 47363, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Guter Gott! gieb mir Krafft, mein Glück mit / Weisheit ertragen zu können",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc.1796",
+  "scans": [
+    "alm_642_47368_c19wi1hgkg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Guter Gott! gieb mir Krafft, mein Glück mit / Weisheit ertragen zu können",
+  "updated": "2006-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hb6v5gl8b9fv2lx",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.049Z"
+    },
+    {
+      "id": "ioyz1x7805ih5ls",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.049Z"
+    }
+  ]
+}

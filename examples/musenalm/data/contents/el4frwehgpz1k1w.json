@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Wonne der Wehmut« von J. W. v. Goethe /) Unter der Musikbeigabe: Göthe /) Lieder zum musikalischen Taschenbuche 1803 der Brüder Werden componirt von Wilhelm Schneider (Sammlung INr 56317, Obj 79) Photos 56329,01; 56329,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Troknet nicht, Troknet nicht, / Thränen der ewigen Liebe!",
+  "language": [],
+  "musenalm_id": 56329,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wonne der Wehmuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Schneider",
+  "scans": [
+    "alm_23_56329_01_d26y07omfm.jpg",
+    "alm_23_56329_02_wal35cj4hm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wonne der Wehmuth",
+  "updated": "2008-03-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ob42j4a0o5f8qcc",
+      "agents": "5j4ifce1qy52izk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.735Z"
+    }
+  ]
+}

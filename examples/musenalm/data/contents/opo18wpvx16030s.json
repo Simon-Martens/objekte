@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed V, 167",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Wenn's wahr ist, wie der Pastor schrie, / Und wahr ists ohne Zweifel,",
+  "language": [],
+  "musenalm_id": 41721,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Peter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "U.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Peter",
+  "updated": "2005-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qcd2jrjsf3csmpp",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.202Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Wallende Lüfte / Säuseln im Hain; / Blüthen und Düfte / Laden uns ein.",
+  "language": [],
+  "musenalm_id": 52914,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mayreligion",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hottinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mayreligion",
+  "updated": "2007-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eabzywloq0xvtla",
+      "agents": "9dyqyb46cpqyd97",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.718Z"
+    }
+  ]
+}

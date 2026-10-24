@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Oktober nummeriert 10. /) Illustration zu »Der Weise und der Narr« von J. La Fontaine INr 96700, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96688,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seite 28.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "1803 W. Jury fec.",
+  "scans": [
+    "alm_4101_96688_0v5w3iwplw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seite 28.",
+  "updated": "2014-05-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s317ewi53t78zi7",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.733Z"
+    }
+  ]
+}

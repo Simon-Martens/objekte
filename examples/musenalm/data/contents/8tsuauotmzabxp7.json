@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Auf des Kynast's Felsenspitze / Ragt die alte Schloßruin,",
+  "language": [],
+  "musenalm_id": 66369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz von Chila. / Sage vom Kynast",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cäcilie von Paschkowsky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Franz von Chila. / Sage vom Kynast",
+  "updated": "2009-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8x2lrkn5shsumr9",
+      "agents": "p3eq2gq3s8izarl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.384Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Abbild erster Dichterträume, / Urbild selbst aus gold'ner Zeit, / Blüte süßer Liederkeime,",
+  "language": [],
+  "musenalm_id": 95230,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heloise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Prechtler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heloise",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z46j9gbyrhcedej",
+      "agents": "cvs1lz6mp4pj8h4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.789Z"
+    }
+  ]
+}

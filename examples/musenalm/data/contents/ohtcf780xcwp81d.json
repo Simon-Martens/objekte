@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Tockne, Freund, die Thräne von den Wangen, / Die des lieben Kindes Asche floß",
+  "language": [],
+  "musenalm_id": 35216,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Z... / Bei dem Grabe seines lieben Knaben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Maisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Z... / Bei dem Grabe seines lieben Knaben",
+  "updated": "2003-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yl4qd8vfr9716xk",
+      "agents": "ibdeh1gpf166351",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.215Z"
+    }
+  ]
+}

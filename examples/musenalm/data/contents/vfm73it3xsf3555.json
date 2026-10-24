@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Zeitverse (Sammlung INr 64840, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Im Osten wird des Islams Nebel schwinden, / Wenn sich bewährt des Labarums Parole",
+  "language": [],
+  "musenalm_id": 64846,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost im Osten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Cebes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trost im Osten",
+  "updated": "2009-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l3wb60l3m592z7u",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.045Z"
+    }
+  ]
+}

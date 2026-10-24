@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "In des Lebens Irrgewühle / Drängen viele / Schmerzen sich und Sorgen ein;",
+  "language": [],
+  "musenalm_id": 101544,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Betrachtung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rousseau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Betrachtung",
+  "updated": "2013-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bsshf4vp7vsja9h",
+      "agents": "xojpiwzkdga93tk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.915Z"
+    }
+  ]
+}

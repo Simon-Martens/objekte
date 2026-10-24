@@ -1,0 +1,45 @@
+{
+  "annotation": "Fromme Lieder (Sammlung INr 100154, Obj 94)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Ein Tropfen Thau im Blüthenkelch der Rose, / So lag dein Kindlein schlummernd dir im Schooße.",
+  "language": [],
+  "musenalm_id": 100160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Einer trauernden Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Sturm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Einer trauernden Mutter",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ar7ulpyl3meunqt",
+      "agents": "thvjtwgntimiqn7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.971Z"
+    }
+  ]
+}

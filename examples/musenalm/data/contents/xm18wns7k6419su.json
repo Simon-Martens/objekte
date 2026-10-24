@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "255",
+  "incipit_statement": "Suchst du das Unermessliche hier? Du hast / dich geirret.",
+  "language": [],
+  "musenalm_id": 1248,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Peterskirche",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Peterskirche",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b8tm44u703cyxfr",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.729Z"
+    }
+  ]
+}

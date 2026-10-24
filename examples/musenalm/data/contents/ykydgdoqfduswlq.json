@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67973,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hoftrachten unter Friedrich I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Stilke del. Jügel sc.",
+  "scans": [
+    "alm_857_67973_fcbs719g1e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hoftrachten unter Friedrich I.",
+  "updated": "2008-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h17an41hzytxxtk",
+      "agents": "4ht5ezov61cxhie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.328Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.328Z"
+    },
+    {
+      "id": "r9qubcu87li5yjp",
+      "agents": "flivu8hnh9tq1va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.328Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.328Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Lieder (Sammlung INr 38931, Obj 119) Gedichte (Sammlung INr 38930, Obj 118)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.626Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Auf des Berges höchster Stelle / Stehet friedlich die Kapelle,",
+  "language": [],
+  "musenalm_id": 38934,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rehvukt3qe5y0de",
+      "agents": "dii69uyjdj5ln7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.227Z"
+    }
+  ]
+}

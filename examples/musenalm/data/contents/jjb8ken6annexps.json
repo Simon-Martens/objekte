@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82412,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ALEXANDER I. / Imperator Russorum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gesto. v. Boettger aus Dres.",
+  "scans": [
+    "alm_3856_82412_1tckrixnrk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ALEXANDER I. / Imperator Russorum",
+  "updated": "2012-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d49s4l96s184b8a",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.029Z"
+    }
+  ]
+}

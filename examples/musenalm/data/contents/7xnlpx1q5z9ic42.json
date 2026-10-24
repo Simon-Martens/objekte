@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Goetz von Berlichingen« von J. W. von Goethe s. Textbezug INr 40565, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.036Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40564,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Goetz von Berlichingen. IIr. Act. / Fräulein. Ich sah ihn wie er zum Schloss einreiten wollte, er sass auf einem / Schimmel. Das Pferd scheute wie's an die Brücke kam",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+  "scans": [
+    "alm_528_40564_4fj54lrkua.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Goetz von Berlichingen. IIr. Act. / Fräulein. Ich sah ihn wie er zum Schloss einreiten wollte, er sass auf einem / Schimmel. Das Pferd scheute wie's an die Brücke kam",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "am21jsnfhu8aa98",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.972Z"
+    },
+    {
+      "id": "8ij3mhmvtepcmip",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.972Z"
+    }
+  ]
+}

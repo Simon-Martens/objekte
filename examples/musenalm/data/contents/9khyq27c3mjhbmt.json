@@ -1,0 +1,45 @@
+{
+  "annotation": "Stammbuch-Blätter (Sammlung INr 34444, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Löst ihr Schiffer schnell von Strande / Mir den Kahn,",
+  "language": [],
+  "musenalm_id": 34445,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glückliche Fahrt. / In Josephinens Stammbuch, als sie übers Meer reiste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michael Beer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glückliche Fahrt. / In Josephinens Stammbuch, als sie übers Meer reiste",
+  "updated": "2003-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "om6318z8fryo030",
+      "agents": "xkku82ly65l51m3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.776Z"
+    }
+  ]
+}

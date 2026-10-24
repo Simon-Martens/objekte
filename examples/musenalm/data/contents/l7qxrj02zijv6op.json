@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 79038, 79039, Obj 27, 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fährlichkeiten in Fluthen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fährlichkeiten in Fluthen",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vhv5gwjxvnmw1u1",
+      "agents": "1tsjgk40ftnty4f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.480Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Der arme Heinrich (Sammlung INr 86632, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Sag' an, mein treur Diener, wo bleibt denn Adelgund? / Man sagt mir, daß sie lebe, man spricht, sie sei gesund.",
+  "language": [],
+  "musenalm_id": 86635,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Entblätterung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Ferdinand Stamm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Entblätterung",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zooxlpekmcn84xo",
+      "agents": "big4tm69ocucym5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.230Z"
+    }
+  ]
+}

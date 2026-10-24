@@ -1,0 +1,47 @@
+{
+  "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "La Poule",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [
+    "alm_270_20302_98eq1c4muj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "La Poule",
+  "updated": "2001-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ehqcvz0z2zyjpa",
+      "agents": "czigb25jnrfsy98",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.917Z"
+    }
+  ]
+}

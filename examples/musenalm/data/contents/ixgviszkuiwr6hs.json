@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Einsam saß ich, und las Elegien des zärtlichen / Göthe, / Die er im stolzen Rom, Deutschen zum Ruhme / gebar,",
+  "language": [],
+  "musenalm_id": 61388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Auguste. / Ein Traum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. K. Unger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Auguste. / Ein Traum",
+  "updated": "2009-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9psiqz1xeflg88x",
+      "agents": "14s4e7sp59idp02",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.167Z"
+    }
+  ]
+}

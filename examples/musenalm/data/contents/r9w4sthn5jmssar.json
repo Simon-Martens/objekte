@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.027Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Dein Geheimniss, so lange du schweigst, / ist Dir ein Gefangner;",
+  "language": [],
+  "musenalm_id": 412,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geheimnisse",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geheimnisse",
+  "updated": "2000-07-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kcgxkdubxcxf7g1",
+      "agents": "stasese2l43xq94",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.884Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.884Z"
+    }
+  ]
+}

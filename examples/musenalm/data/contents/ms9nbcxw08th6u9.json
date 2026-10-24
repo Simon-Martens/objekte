@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der fünf Landschaften (Sammlung INr 76761, Obj 29) s. Graphik INr 76745, Obj 13 /) mit einem beigegebenen Gedicht s. INr 76766, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "Eine solche ist der Singestein in der Nähe jenes Försterhauses, den man ohne große Beschwerde ersteigen, und von oben die herrliche Aussicht genießen kann.",
+  "language": [],
+  "musenalm_id": 76765,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Der Singestein bei Postelwitz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Der Singestein bei Postelwitz",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s3021zo36le3h9k",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.730Z"
+    }
+  ]
+}

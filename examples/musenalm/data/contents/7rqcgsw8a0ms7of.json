@@ -1,0 +1,45 @@
+{
+  "annotation": "Als Motto den Gedichten der »Ersten Abtheilung« vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.036Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Wo stiller Friede ist errungen, / Da waltet Herbstes goldner Flor, / Und uns bereiten tausend Zungen / Auf noch viel stillern Frieden vor.",
+  "language": [],
+  "musenalm_id": 126515,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sängerliebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sängerliebe",
+  "updated": "2020-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ksg5zj4uh0kbn0b",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.933Z"
+    }
+  ]
+}

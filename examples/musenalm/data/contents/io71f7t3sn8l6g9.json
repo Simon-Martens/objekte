@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Zagst du, wenn die Sonne sinkt / In das Meer hernieder?",
+  "language": [],
+  "musenalm_id": 112062,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auferstehung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Rud. Christ. Gittermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auferstehung",
+  "updated": "2016-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ezstd2vxn0dsmuu",
+      "agents": "2dxzck98nbl6wjg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.379Z"
+    }
+  ]
+}

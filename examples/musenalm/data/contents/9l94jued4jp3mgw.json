@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 77052-77056, Obj 24-28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "380",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freyherr von der Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4sgne0vtxaamnoh",
+      "agents": "7pclzh61bvgdvvq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.685Z"
+    }
+  ]
+}

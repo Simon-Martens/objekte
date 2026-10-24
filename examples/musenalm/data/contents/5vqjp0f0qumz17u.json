@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Ein allgemein Gesetz hat die Natur / bekommen: / Blüht, Kinder, blüht,",
+  "language": [],
+  "musenalm_id": 5044,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phyllis / und der Orangenbaum. / An eine Frau, die immer noch schön / geblieben, ob sie gleich Mutter / einiger Kinder gewesen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frh. v. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Phyllis / und der Orangenbaum. / An eine Frau, die immer noch schön / geblieben, ob sie gleich Mutter / einiger Kinder gewesen",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nmc8v57ajy5wpqe",
+      "agents": "6y2vclvz6pkp0l9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.159Z"
+    }
+  ]
+}

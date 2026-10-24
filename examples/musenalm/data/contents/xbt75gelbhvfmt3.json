@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Gedichte (Sammlung INr 29784, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Das Meer erbrauset, der Berg erbebt, / Und tief aus des Kraters donnerndem Rachen",
+  "language": [],
+  "musenalm_id": 29785,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Lorenzo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Lorenzo",
+  "updated": "2002-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bx23xskvae2gu7z",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.643Z"
+    }
+  ]
+}

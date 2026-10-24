@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Constantinopels Fall« von C. Spindler; s. Textbezug INr 103340, Obj 7 /) unter der Graphik: Carlsruhe d. Kunst-Verlag",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103235,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IRENE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Schwindt del. Jaquemot scp.",
+  "scans": [
+    "alm_3415_103235_kecv9p3rbt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "IRENE",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gft1hsloqd0nnyd",
+      "agents": "dz642gh37bafou9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.872Z"
+    },
+    {
+      "id": "d6yyp4oqkcfdezw",
+      "agents": "qxsajuoxwgz4r3s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.872Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 66873, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "So heiter, so wonnig und so frühzeitig erschien uns seit einem Greisenalter kein Lenz, so glühenheiß kein Sommer und so gemüthlich und langdauernd kein Herbst.",
+  "language": [],
+  "musenalm_id": 66874,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Jagd-Denkwürdigkeiten des verflossenen Jah- / res aus dem südlichen Deutschland, beson- / ders aus der Rheingegend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Jagd-Denkwürdigkeiten des verflossenen Jah- / res aus dem südlichen Deutschland, beson- / ders aus der Rheingegend",
+  "updated": "2009-09-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a7zcsbukc2sp437",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.047Z"
+    },
+    {
+      "id": "l217pnacggtifzg",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.047Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Elegien (Sammlung INr 39197, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Glänzt aus der lockigen Haare Nacht mir der schneeige / Nacken, / Oft wie im Traume erhebt dann der Lieben- / den Arm,",
+  "language": [],
+  "musenalm_id": 39202,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2005-07-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "30565fowxgdt2al",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.898Z"
+    }
+  ]
+}

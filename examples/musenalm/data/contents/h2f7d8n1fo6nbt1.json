@@ -1,0 +1,56 @@
+{
+  "annotation": "<div>Illustration zu »Der grosse Rittmeister und das kleine Mädchen« von I. F. Castelli INr 140519</div>",
+  "content_type": [],
+  "created": "2026-09-08T10:32:43.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140518,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Erzählung Der grosse Rittmeister / und das kleine Mädchen. / von I. F. Castelli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. Bollinger sc.",
+  "scans": [
+    "alm_1861_140518_6vnzd33mwv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Erzählung Der grosse Rittmeister / und das kleine Mädchen. / von I. F. Castelli",
+  "updated": "2026-09-10T09:48:40.994Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "icleibxeou1lh53",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-08T10:34:00.054Z",
+      "edit_comment": "",
+      "type": "Zeichner:in",
+      "uncertain": false,
+      "updated": "2026-09-10T09:48:40.993Z"
+    },
+    {
+      "id": "mockpzggy44y3ij",
+      "agents": "xudps8vzrobe0d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-08T10:37:29.623Z",
+      "edit_comment": "",
+      "type": "Kupferstecher:in",
+      "uncertain": false,
+      "updated": "2026-09-10T09:48:40.993Z"
+    }
+  ]
+}

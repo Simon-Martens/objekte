@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Die der Sicilianer Scrofani in seiner interessanten Reise durch Griechenland mit kaum zwei flüchtigen Strichen andeutet,",
+  "language": [],
+  "musenalm_id": 37527,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Helena Materanga. / Eine neugriechische Geschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Oertel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Helena Materanga. / Eine neugriechische Geschichte",
+  "updated": "2010-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fsd8blg83vncy5s",
+      "agents": "u657j3m1foor2a9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.823Z"
+    }
+  ]
+}

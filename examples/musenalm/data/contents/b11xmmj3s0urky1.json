@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Oktober nummeriert 11 /)  Illustration zu »Kleine moralische Erzählungen« von A. H. J. Lafontaine",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theodor von Lafontaine / Er blieb starr vor Schrecken / stehen, denn das zum Fenster / hereingereichte  Paquet enthielt / ein neugebohrnes Kind",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner sc. 1800",
+  "scans": [
+    "alm_4798_129182_zwb5s5eo8v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Theodor von Lafontaine / Er blieb starr vor Schrecken / stehen, denn das zum Fenster / hereingereichte  Paquet enthielt / ein neugebohrnes Kind",
+  "updated": "2021-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rqsoabi0boof39e",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.006Z"
+    }
+  ]
+}

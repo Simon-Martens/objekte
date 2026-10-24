@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Durch Nebel tönen Glocken, / Und an der Wälder Rand / Ziehn Menschen unerschrocken / Durch Sturmes Widerstand",
+  "language": [],
+  "musenalm_id": 42678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 211,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Durch Nebel tönen Glocken, / Und an der Wälder Rand / Ziehn Menschen unerschrocken / Durch Sturmes Widerstand…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Maltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s5x486k4jx5mteh",
+      "agents": "enmi0t9mog462m5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.114Z"
+    }
+  ]
+}

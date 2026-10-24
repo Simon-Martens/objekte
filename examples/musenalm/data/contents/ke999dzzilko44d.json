@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Von der Schwermuth schauerlichen Hainen, / Wo Zypressen an Zypressen weinen,",
+  "language": [],
+  "musenalm_id": 97155,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todtenopfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hagemeister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todtenopfer",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zbszlkt8h4wi9lq",
+      "agents": "g3bnn40mgi55i9a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.821Z"
+    }
+  ]
+}

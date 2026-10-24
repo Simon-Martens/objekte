@@ -1,0 +1,45 @@
+{
+  "annotation": "Allemannische Lieder (Sammlung INr 62987, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Uffem Berge möchti rueihe, / Imme Thale wandeln au,",
+  "language": [],
+  "musenalm_id": 62991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Sehnsucht nach der Heimath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hoffmann v. Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Sehnsucht nach der Heimath",
+  "updated": "2009-03-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5jxz81okit7dnl4",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.337Z"
+    }
+  ]
+}

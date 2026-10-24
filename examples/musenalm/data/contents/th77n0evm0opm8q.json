@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Als ich Abends auf der Gondel / Mein geliebtes Mädchen führte, / Rings um uns sich nichts mehr rührte,",
+  "language": [],
+  "musenalm_id": 61380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schifferliedchen, / Nach dem Italiänischen: / La biondina iu gondoletta &c. &c.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler, geborne v. Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schifferliedchen, / Nach dem Italiänischen: / La biondina iu gondoletta &c. &c.",
+  "updated": "2009-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t6voaky2ijbiylj",
+      "agents": "vxzn7evqhv18e38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.962Z"
+    }
+  ]
+}

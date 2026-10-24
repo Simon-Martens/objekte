@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gedichte (Sammlung INr 30586, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "O Ruhe meiner Seele / Ich bring dir dar, / Die Ruhe deiner Kehle / Zum neuen Jahr.",
+  "language": [],
+  "musenalm_id": 30588,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei der Uebersendung / türkischen Confekts / genannt / Rahatol-lokum d. i. Ruhe der Kehle, / als Neujahrsgeschenk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei der Uebersendung / türkischen Confekts / genannt / Rahatol-lokum d. i. Ruhe der Kehle, / als Neujahrsgeschenk",
+  "updated": "2002-11-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nkne2wun17cbyb7",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.710Z"
+    }
+  ]
+}

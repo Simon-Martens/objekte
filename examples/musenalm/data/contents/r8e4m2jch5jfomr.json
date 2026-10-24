@@ -1,0 +1,58 @@
+{
+  "annotation": "über der Graphik: Das Leben ein Traum II. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Zweite Lieferung (Sammlung INr 85530, Obj 6) Illustration zu »Das Leben ein Traum«  von C. A. West d.i. J. Schreyvogel /) s. Textbezug INr 85540, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85539,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sigism. Ich sagt' auch, dass für solch' Erdeisten / Ein Jeder sollt' aus jenem Fenster springen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+  "scans": [
+    "alm_1584_85539_j0q97myigm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sigism. Ich sagt' auch, dass für solch' Erdeisten / Ein Jeder sollt' aus jenem Fenster springen",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wjw4ho20wpwo9nr",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.138Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.138Z"
+    },
+    {
+      "id": "ap8zf2movbn0ewy",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.138Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.138Z"
+    }
+  ]
+}

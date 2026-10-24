@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 30360, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Halt an! den schnaubenden Rappen, / Verblendeter Rittersmann,",
+  "language": [],
+  "musenalm_id": 30359,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Burgfräulein von Windeck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Burgfräulein von Windeck",
+  "updated": "2002-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o6yv4nv6bxsls48",
+      "agents": "3emdj29jey7pglq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.003Z"
+    }
+  ]
+}

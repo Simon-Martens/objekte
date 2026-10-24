@@ -1,0 +1,45 @@
+{
+  "annotation": "Häusliche Farbenlehre (Sammlung INr 76070, Obj 82) mit zahlreichen Einträgen /) VI. Häusliche Oekonomie (Sammlung INr 76065, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Nichts ist angenehmer und erwünschter, als wenn man bei irgend einem vorkommenden Falle, wo man etwas Gefärbtes braucht, sich dieses gleich selbst ohne große Mühe und Kosten färben kann.",
+  "language": [],
+  "musenalm_id": 76071,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nichts ist angenehmer und erwünschter, als wenn man bei irgend einem vorkommenden Falle, wo man etwas Gefärbtes braucht, sich dieses gleich selbst ohne große Mühe und Kosten färben kann.…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Netto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n3a7na903e65nxf",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.773Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.773Z"
+    }
+  ]
+}

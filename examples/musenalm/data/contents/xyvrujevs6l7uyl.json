@@ -1,0 +1,58 @@
+{
+  "annotation": "(Published by R. Ackermann & co. London) # Titel aus dem G-Verz s. Textbezug INr INr 34629, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34628,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Benares #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Purser delt. Jas. Carter sculpt.",
+  "scans": [
+    "alm_481_34628_i8y4glzkcv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Benares #",
+  "updated": "2003-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "989y7d97m8mvtaf",
+      "agents": "bvose9r7b1raewb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.626Z"
+    },
+    {
+      "id": "w9rzw6f6f0xzjk3",
+      "agents": "rgmpf75z1skg01q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.626Z"
+    }
+  ]
+}

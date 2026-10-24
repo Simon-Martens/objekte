@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung s. INr 36030, Obj 101",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Diesem düstern Trauerorte / leisen Schrittes nahe du! / Oeffne leis des Tempels Pforte / schliesse leis sie wieder zu!",
+  "language": [],
+  "musenalm_id": 36031,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf den frühen Tod / Seiner Excellenz des Herrn Reichsgrafen / J. C. v. Zeppelin. / Divine amitié, félicité parfaite, / seul mouvement de l'ame ou l'excès soit permis! / Voltaire",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf den frühen Tod / Seiner Excellenz des Herrn Reichsgrafen / J. C. v. Zeppelin. / Divine amitié, félicité parfaite, / seul mouvement de l'ame ou l'excès soit permis! / Voltaire",
+  "updated": "2003-08-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ci3zc3cxc9le8vb",
+      "agents": "x9exqq2c4bm6xsq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.905Z"
+    }
+  ]
+}

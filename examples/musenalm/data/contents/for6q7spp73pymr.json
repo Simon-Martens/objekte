@@ -1,0 +1,45 @@
+{
+  "annotation": "Ala Antwort auf ein Gedicht des italienischen Dichters Prati, welches derselbe auf einen Damascener Dolch gemacht, den gewöhnlich eine Dame am Gürtel trägt.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "332",
+  "incipit_statement": "Den Dolch besingst Du, der, vielleicht geschmiedet / Im Orient, ruht in grünsammt'ner Scheide,",
+  "language": [],
+  "musenalm_id": 95381,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dolch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Marsano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dolch",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wko31nzzmqiep4n",
+      "agents": "rpi79icfm69ol8h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.328Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.328Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Blick' auf, blick' auf zur Sonne, / O Auge, durch den Thränenflor!",
+  "language": [],
+  "musenalm_id": 101514,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blick' auf!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blick' auf!",
+  "updated": "2013-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aqkah6s0pssvueg",
+      "agents": "nz3ytz19v6fnz1k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.916Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Denk- und Sittensprüche (Sammlung INr 102043, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Ist dir ein Geheimniß lieb, / So sey kein Thor,",
+  "language": [],
+  "musenalm_id": 102048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ist dir ein Geheimniß lieb, / So sey kein Thor,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2014-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3duldu2ddd8jcw6",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.979Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sommer (Sammlung INr 36764, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Zum Verdruß für deine siechen Schönen, / Deine kranken Stutzer, braun und blond,",
+  "language": [],
+  "musenalm_id": 36777,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Najade des Gesundbades / Zu Freienwalde. / (Als Herr O. C. R. Teller am 4. August / 1799, bei unfreundlichem Wetter, sich / auf dem halben Weg dorthin / befand.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Najade des Gesundbades / Zu Freienwalde. / (Als Herr O. C. R. Teller am 4. August / 1799, bei unfreundlichem Wetter, sich / auf dem halben Weg dorthin / befand.)",
+  "updated": "2004-03-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wl16olexp9vktz9",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.778Z"
+    }
+  ]
+}

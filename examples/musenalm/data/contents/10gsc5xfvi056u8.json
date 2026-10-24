@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) nummeriert VII. /) Illustration zu »Wegweiser durch das Riesengebirge « INr 128953, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 128968,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mühle bei Boberöhrsdorf",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. S. Lowe del et sc. 94",
+  "scans": [
+    "alm_1413_128968_6cwa2ipj8q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Mühle bei Boberöhrsdorf",
+  "updated": "2010-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ykntxi1lg6ytwyf",
+      "agents": "ta5s62tdmd0wwt7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.998Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "323",
+  "incipit_statement": "Gern trink' ich den Neckarwein, / Rheinwein trink' ich gerner,",
+  "language": [],
+  "musenalm_id": 42708,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 241,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied in Neapel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grüneisen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied in Neapel",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nutqdvvu4t1ickf",
+      "agents": "r322n7phj7sp0e1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.188Z"
+    }
+  ]
+}

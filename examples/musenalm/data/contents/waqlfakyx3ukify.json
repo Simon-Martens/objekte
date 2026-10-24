@@ -1,0 +1,45 @@
+{
+  "annotation": "Vrwrt zu »Zwey Tage auf dem Lande« von Kurländer (INr 124456, Obj 4); # Bezeichnung aus dem Titel (INr 124453, Obj 1)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Da das Original dieser dialogisirten Kleinigkeit [...] die witzige Erzählung des rühmlich bekannten Dichters, Freyherrn von Steigentesch ist, so hielt ich es für meine Pflicht, [...] den Nahmen seiner Erzählung beizubehalten.",
+  "language": [],
+  "musenalm_id": 124457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz August von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ai6rr9774rjjplc",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.802Z"
+    }
+  ]
+}

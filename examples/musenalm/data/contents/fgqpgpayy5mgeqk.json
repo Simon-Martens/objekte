@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht aus »Aus der Chronicka eines fahrenden Schülers« INr 55727, Obj 116 /) Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "Herr Jesu ich will schlafen gehen, / Laß vierzehn Engel bei mir stehn, / Zwei zu meiner Rechten, Zwei zu meiner Linken,",
+  "language": [],
+  "musenalm_id": 55747,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr Jesu ich will schlafen gehen, / Laß vierzehn Engel bei mir stehn, / Zwei zu meiner Rechten, Zwei zu meiner Linken,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Brentano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "46df8kpp7ts0llj",
+      "agents": "yp673px8ri3kgep",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.880Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug u. Anmerkung INr 34190, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34195,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Maedchens-Klage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Albrier. Gest. v. Bein in Paris",
+  "scans": [
+    "alm_474_34195_yvs7q1lbyv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des Maedchens-Klage",
+  "updated": "2003-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vgmepft29i7ge81",
+      "agents": "96z5widx3aa60z4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.765Z"
+    },
+    {
+      "id": "184fub6zaw8ecz9",
+      "agents": "zmvjdej6nue3uh9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.765Z"
+    }
+  ]
+}

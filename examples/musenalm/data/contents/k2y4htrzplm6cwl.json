@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Jenseit wohnet mein Blick und die Sehnsucht liebenden / Herzens, / Dorthin zu schauen, verwies früh mich ein strenges Geschick.",
+  "language": [],
+  "musenalm_id": 101384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hier und Jenseit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hier und Jenseit",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bcb6g7bdgq590i2",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.979Z"
+    }
+  ]
+}

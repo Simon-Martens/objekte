@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Als Kind sah ich dich oft, in süßem Ange- / denken / Schwebt es mir noch:",
+  "language": [],
+  "musenalm_id": 6109,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Finette. / An die Gräfin Choteck, geborne / Fürstin Clary",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. H. Nicolay",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Finette. / An die Gräfin Choteck, geborne / Fürstin Clary",
+  "updated": "2000-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gsmebqwnxbji3ix",
+      "agents": "km5yxdev9efbrvi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.048Z"
+    }
+  ]
+}

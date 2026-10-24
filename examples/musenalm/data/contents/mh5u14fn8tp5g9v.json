@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44179, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.834Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Bei Cairo, die durch Buonaparte war gefallen, / Hat gewohnt ein fränk'scher, thatenlust'ger Handelsherr,",
+  "language": [],
+  "musenalm_id": 44182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Negerknabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freih. von Auffenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Negerknabe",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "69ib3p2mxdxslzf",
+      "agents": "tv5yt8suduvw8lq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.458Z"
+    }
+  ]
+}

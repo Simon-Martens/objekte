@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Es war einer der ersten Tage des Augustmonats im Jahre 1533, als Junker Ludolf von Golturne seiner Vaterstadt entgegen zog.",
+  "language": [],
+  "musenalm_id": 40496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Mensch, Schicksal und Glaube",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Blumenhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Mensch, Schicksal und Glaube",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xuywylia5xevw1r",
+      "agents": "7qi9w7fd9odbdoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.947Z"
+    }
+  ]
+}

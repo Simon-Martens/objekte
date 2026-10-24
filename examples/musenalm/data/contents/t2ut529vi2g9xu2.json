@@ -1,0 +1,45 @@
+{
+  "annotation": "Reise-Bruchstücke (Sammlung INr 42052, Obj 252) Scherzhafte Gedichte (Sammlung INr 42051, Obj 251)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "378",
+  "incipit_statement": "Wo ist der Frühling? Wer hat ihn gesehn? / Ich habe gehört, es ist wol ein Scherz,",
+  "language": [],
+  "musenalm_id": 42064,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 264,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / In einer kalten Schlucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / In einer kalten Schlucht",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uv4fytwtquslks8",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.037Z"
+    }
+  ]
+}

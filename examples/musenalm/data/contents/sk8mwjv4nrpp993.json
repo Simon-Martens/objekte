@@ -1,0 +1,45 @@
+{
+  "annotation": "Sylbenräthsel. Ein dreysilbig Wort (Sammlung INr 53136, Obj 67)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "So prachtvoll und so schön ich glänze, / Sieht nie die Nacht mich, nie der Tag.",
+  "language": [],
+  "musenalm_id": 53139,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Das Ganze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Schellenberg, geb. Bidermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Das Ganze",
+  "updated": "2007-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yr8t8g5e362y7we",
+      "agents": "ggwis02ewpvjchs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.597Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.597Z"
+    }
+  ]
+}

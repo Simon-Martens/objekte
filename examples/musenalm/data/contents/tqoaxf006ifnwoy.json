@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht »Die drei weißen Rosen. Rittergedicht in drei Gesängen« vorangestellt /) Die drei weißen Rosen. Rittergedicht in drei Gesängen (Sammlung 19239, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Verklärter Freund, der du die Palm errungen, / Laß diese Rose blühn an Deiner Gruft,",
+  "language": [],
+  "musenalm_id": 707,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todtenopfer, / Eberhard von Kügelgen dargebracht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chezy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todtenopfer, / Eberhard von Kügelgen dargebracht",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v2ny3wrgf3ikpv5",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.002Z"
+    }
+  ]
+}

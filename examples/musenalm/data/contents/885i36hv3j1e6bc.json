@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Versuchung« von Voß INr 18142, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18141,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Versuchung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_99_18141_twccjve6sm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Versuchung",
+  "updated": "2001-10-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xpkscjbrgbbw4vh",
+      "agents": "oqecb466dne8cni",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.890Z"
+    }
+  ]
+}

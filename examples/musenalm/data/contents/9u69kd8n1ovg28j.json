@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Sie gleicht der Rose nicht, die purpurfarben / strahlet, / Denn ihr Gesicht ist fahl",
+  "language": [],
+  "musenalm_id": 13100,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Doris, eine Modeblume",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. A. W. v. Kyaw",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Doris, eine Modeblume",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yh9ryuny0e7f80j",
+      "agents": "3euwjw9rlb5537y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.091Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 27",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.442Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Berühmter Herr Pygmalion! / Ich künstle da so lange schon",
+  "language": [],
+  "musenalm_id": 2678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Künstler. / Dem Baron C.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ws.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Künstler. / Dem Baron C.",
+  "updated": "2000-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u9p7ar1ksagwn8o",
+      "agents": "851irea8sb4kx1v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.098Z"
+    }
+  ]
+}

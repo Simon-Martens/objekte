@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Leben italienischer Künstlerinnen (Sammlung INr 59179, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.368Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Ein Loos, nach den ersten noch unbewußten Jahren der Kindheit friedlich wie ihr Name, eine kurze aber glückliche Laufbahn war Irenen di Spilimbergo beschieden.",
+  "language": [],
+  "musenalm_id": 59181,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Irene di Spilimbergo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alfred v. Reumont",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Irene di Spilimbergo",
+  "updated": "2008-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eg2ohq3gjhxximj",
+      "agents": "q99l6w88p9m3j5v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.944Z"
+    }
+  ]
+}

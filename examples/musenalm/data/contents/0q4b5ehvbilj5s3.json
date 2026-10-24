@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Karte",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72375,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER / KÖNIGSBERGISCHE KREIS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. F. Sotzmann",
+  "scans": [
+    "alm_830_72375_5monlct77u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER / KÖNIGSBERGISCHE KREIS",
+  "updated": "2008-06-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9vc8o9f35g2l42o",
+      "agents": "llfbsdoltk6o89d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.515Z"
+    }
+  ]
+}

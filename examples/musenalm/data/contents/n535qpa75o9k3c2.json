@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104449,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arie einem Singspiel das redende Gemälde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Schweitzer",
+  "scans": [
+    "alm_3247_104449_tqtn317ygx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Arie einem Singspiel das redende Gemälde",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f06ha6wg0tymbq5",
+      "agents": "9m371bfehyu2lvy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.877Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 12. (Apostelfigur vom Sebaldusgrab Nürnberg) s. Textbezug INr 26773, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26776,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S: Mathias",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Erfunden und in Erz gegossen von Peter Fischer, gez. und gest. von Albt. Reindel",
+  "scans": [
+    "alm_349_26776_u2wkvfq8oc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S: Mathias",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sj2ef2ujmf891rt",
+      "agents": "2j4fmhpjuaqhaao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.283Z"
+    },
+    {
+      "id": "vt2qkee4vad2qwp",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.283Z"
+    }
+  ]
+}

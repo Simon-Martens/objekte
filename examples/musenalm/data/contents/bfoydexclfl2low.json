@@ -1,0 +1,45 @@
+{
+  "annotation": "Sinngedichte aus dem Martial (Sammlung INr 46498, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Wer einen teuflischen Menschen dich nennet, / Melampus, der lüget,",
+  "language": [],
+  "musenalm_id": 46508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Melampus. / 11. B. 93. Ep.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Melampus. / 11. B. 93. Ep.",
+  "updated": "2006-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cx96s3dcmcqlzgj",
+      "agents": "o2pvd0n9c0ulrf4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.418Z"
+    }
+  ]
+}

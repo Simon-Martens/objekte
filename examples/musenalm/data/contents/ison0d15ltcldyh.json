@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik nach den Monatskonten /) über der Graphik: d.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.237Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109502,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Königs-Nase",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günter del.",
+  "scans": [
+    "alm_2383_109502_mtokduu5ox.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Königs-Nase",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i8ytjdnu4bzvkas",
+      "agents": "k3qfb3024y59h2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.436Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.436Z"
+    }
+  ]
+}

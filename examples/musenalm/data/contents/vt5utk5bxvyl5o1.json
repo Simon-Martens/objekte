@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Gedichte (Sammlung INr 67578, Obj 58) Anm. am Objekt: Dieses Gedicht ist noch nicht ganz vollendet. Es soll die Befreiung der Prinzen von Sachsen, die der Raubritter Kunz von Kaufungen entführen wollte besingen. [...] Anm. unter dem Objekt: Die Fortsetzung folgt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Wenn in des Lebens buntgemischtem Spiele / Sich Manches zeigt, verächtlich und gemein,",
+  "language": [],
+  "musenalm_id": 67579,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Köhler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. d. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Köhler",
+  "updated": "2009-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jyca6jictbej7mr",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.038Z"
+    }
+  ]
+}

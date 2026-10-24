@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Im Jahre 1779, als Alviso Mocenigo Doge in Venedig war, begab es sich eines Abends, daß zwei junge Edelleute noch in später Stunde unter den Arkaden des Marcusplatzes auf und abgingen.",
+  "language": [],
+  "musenalm_id": 111331,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cosimo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cosimo",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qn0ure3vdx9qip5",
+      "agents": "kfaol2n4gz6m4dn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.145Z"
+    }
+  ]
+}

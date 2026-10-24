@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 9 Tanzanleitungen INr 20591-20599, Obj 130-138",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "393",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Tänze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Tänze",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "52v62i3hogdtiwu",
+      "agents": "czigb25jnrfsy98",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.839Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. paginiert Pl. 1.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79987,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach Jahrtausenden kömmt er / unsere rohen Gesetze zu beßern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Moreau del. d'Argent sc.",
+  "scans": [
+    "alm_3775_79987_dj2mq2ylog.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nach Jahrtausenden kömmt er / unsere rohen Gesetze zu beßern",
+  "updated": "2012-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xvpnzn3u1ru1c6s",
+      "agents": "6v2mea0laepybs2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.806Z"
+    },
+    {
+      "id": "95y3xflqej5sjn4",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.806Z"
+    }
+  ]
+}

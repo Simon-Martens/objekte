@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln (Sammlung INr 91618, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Zwei Freunde wanderten durch einen dichten Wald. / Der Eine sprach: Hier ist der Bären Aufenthalt.",
+  "language": [],
+  "musenalm_id": 91627,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Freunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Gellert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Freunde",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "by6qrurkxjv1mr7",
+      "agents": "ktano13bmefet8q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.251Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.251Z"
+    }
+  ]
+}

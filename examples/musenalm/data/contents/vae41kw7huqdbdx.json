@@ -1,0 +1,45 @@
+{
+  "annotation": "Fünf Sprüche eines Tages (Sammlung INr 19333, Obj 62) Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "410",
+  "incipit_statement": "Wenn wie nichts guts dich schilt ein Wicht, / Und es soll dich nicht beißen;",
+  "language": [],
+  "musenalm_id": 1579,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V.",
+  "updated": "2000-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "unzhny94rs7brzl",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.720Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 111253, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.834Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "O! Frühling bring' uns Sonnenschein, / Herbei ihr Kinder, groß und klein, -",
+  "language": [],
+  "musenalm_id": 111254,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Palmsonntag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Palmsonntag",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "70za1nhn6ttsaq1",
+      "agents": "kfaol2n4gz6m4dn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.407Z"
+    }
+  ]
+}

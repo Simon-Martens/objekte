@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Siehe dessen Idylles & Contes champêtres, Paris 1798. Tom. I. S. 77-81",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Chloe! Chloe! was erblick' ich hier unten mit- / ten im Bach?",
+  "language": [],
+  "musenalm_id": 61391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schmetterling. / Aus dem Französischen des J. B. le Clerc / Phyllis und Chloe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schmetterling. / Aus dem Französischen des J. B. le Clerc / Phyllis und Chloe",
+  "updated": "2009-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lqnjv4d9d4m2jr7",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.052Z"
+    }
+  ]
+}

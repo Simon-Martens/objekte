@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 95027, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.012Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95028,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Meyer pinx. C. Hoffmeister sculp. Viennae)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meyer pinx. C. Hoffmeister sculp. Viennae",
+  "scans": [
+    "alm_1878_95028_9zmy33pyao.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4p1bqe8mmsal3wn",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.345Z"
+    },
+    {
+      "id": "0w5o2asp47jdaay",
+      "agents": "zuqeig2avlr6rku",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.345Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik v.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.549Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32488,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frankfurt a./M. bey / Gebrüder Wilmans",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Westermayr fecit",
+  "scans": [
+    "alm_382_32488_f2fz9ekvsu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frankfurt a./M. bey / Gebrüder Wilmans",
+  "updated": "2002-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bye0mgh0k419d11",
+      "agents": "2d34emvmf13qf3h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.666Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.666Z"
+    }
+  ]
+}

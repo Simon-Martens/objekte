@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Eines Teiches klare Fläche zieht sich zwischen Bergen hin, / Himmel, Bäume, Schloß und Hügel spiegeln lieblich sich darin.",
+  "language": [],
+  "musenalm_id": 81398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der letzte Schwan",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clara von Massow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der letzte Schwan",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3sdisxnljtcaykg",
+      "agents": "gsh6emx95anxaro",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.085Z"
+    }
+  ]
+}

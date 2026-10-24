@@ -1,0 +1,58 @@
+{
+  "annotation": "7b /) paginiert VII. Illustration zu »Muttertreue. Ein häusliches Gemälde des XVI. Jahrhunderts« von J. E. F. W. Müller INr 50099, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61070,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auch auf den Enkel verpflanzt Muttertreue sich fort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Usteri del. H. Lips sculp.",
+  "scans": [
+    "alm_1_61070_vxe8knybre.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auch auf den Enkel verpflanzt Muttertreue sich fort",
+  "updated": "2007-06-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pq6rjukv89khu3u",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.948Z"
+    },
+    {
+      "id": "i619xa8bh9cahcq",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.948Z"
+    }
+  ]
+}

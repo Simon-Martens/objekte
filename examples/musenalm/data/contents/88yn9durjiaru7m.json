@@ -1,0 +1,45 @@
+{
+  "annotation": "Versuch über die Schriftstellerei: Fragmente aus diesem Gedichte (Sammlung INr 31657, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Soll der Enkel so, wie der Zeitgenoß, / dankend an deinem / Werke sich laben,",
+  "language": [],
+  "musenalm_id": 31662,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Soll der Enkel so, wie der Zeitgenoß, / dankend an deinem / Werke sich laben,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Gaheis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u34atpbwgiiftjd",
+      "agents": "h2r7vychlnktmwb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.680Z"
+    }
+  ]
+}

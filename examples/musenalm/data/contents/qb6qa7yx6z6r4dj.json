@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 28708, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28709,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (pinxit par F. Albani. Dessiné et gravé par F. Kaiser 1807)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "pinxit par F. Albani. Dessiné et gravé par F. Kaiser 1807",
+  "scans": [
+    "alm_372_28709_2dfwacbuuw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fsc955odbpc3ptw",
+      "agents": "73a941cxu2bon3w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.115Z"
+    },
+    {
+      "id": "581sy2a7xnrfn2o",
+      "agents": "temkw600l59vchm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.115Z"
+    }
+  ]
+}

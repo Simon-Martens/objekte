@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Beiträgen INr 96440, 96441; Obj 36, 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96439,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gemählde der Kindheit und des / häuslichen Lebens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schrbr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gemählde der Kindheit und des / häuslichen Lebens",
+  "updated": "2014-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pca78tp5oopbb2r",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.716Z"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "annotation": "Photos 123512,01-123512,04",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123512,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Inhalt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_1157_123512_01_uh6g06zyoq.jpg",
+    "alm_1157_123512_02_n4bnk1llmz.jpg",
+    "alm_1157_123512_03_mieg4vxn10.jpg",
+    "alm_1157_123512_04_72p7o5e7d6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Inhalt",
+  "updated": "2009-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": []
+}

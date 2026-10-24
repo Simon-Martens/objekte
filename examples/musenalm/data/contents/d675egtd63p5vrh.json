@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Von allen Farben in der Welt / Am meisten doch mir Blau gefällt,",
+  "language": [],
+  "musenalm_id": 83764,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lob der blauen Farbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lob der blauen Farbe",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lrnk7cs3ogs7x2s",
+      "agents": "cqrs6fj7ecvzmh8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.941Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.456Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Es läuten die Blumenglocken, / Sie läuten für und für.",
+  "language": [],
+  "musenalm_id": 67956,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "25.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Alphons Hamböck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "25.",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tatgm9hx4za5e9u",
+      "agents": "690p6l7d7zmbgvd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.227Z"
+    }
+  ]
+}

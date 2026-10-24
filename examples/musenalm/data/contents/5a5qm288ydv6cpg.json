@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "In einer Stadt der Atlantiden stand / Auf einem großen Platz sonst eine Pyramide.",
+  "language": [],
+  "musenalm_id": 6690,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE PYRAMIDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "PFEFFEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DIE PYRAMIDE",
+  "updated": "2000-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "434fcm3st34hemc",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.337Z"
+    }
+  ]
+}

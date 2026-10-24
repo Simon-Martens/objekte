@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.744Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In den sonst so klösterlich-stillen Sälen der Hofburg Herzogs Wilhelm V. in München, war an einem freundlichen Herbstmorgen des Jahres 1584 Alles in geschäftiger Bewegung.",
+  "language": [],
+  "musenalm_id": 57356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria Petenbek. / Ein vaterländisches Fürsten-Gemälde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria Petenbek. / Ein vaterländisches Fürsten-Gemälde",
+  "updated": "2008-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2ilfx1sytvg4vxy",
+      "agents": "exegl4z6k8jnby0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.897Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.897Z"
+    }
+  ]
+}

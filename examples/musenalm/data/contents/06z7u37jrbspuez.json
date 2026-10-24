@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "Wer Lilien und Rosen, gleich den Thoren, / Aus Nesselsaamen aufzuziehn denkt,",
+  "language": [],
+  "musenalm_id": 11261,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 151,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "109. / Dichterfluch. / Nach dem Ital. des Sanazzaro",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gries",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "109. / Dichterfluch. / Nach dem Ital. des Sanazzaro",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e804p4z5x20a8eh",
+      "agents": "29ohnryhyvah0tt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.468Z"
+    }
+  ]
+}

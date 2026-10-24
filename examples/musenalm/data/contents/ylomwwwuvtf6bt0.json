@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.190Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wenn rohe Kräfte feindlich sich entzweyen, / Und blinde Wuth die Kriegesflamme schürt,",
+  "language": [],
+  "musenalm_id": 33242,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm Tell. / Seiner Churfürstl. Gnaden, / dem hochwürdigsten Fürsten und Herrn, Karl, / des h. röm. Reichs Churfürsten und Erzkanzler, / unterthänigst gewidmet - vom Verfasser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm Tell. / Seiner Churfürstl. Gnaden, / dem hochwürdigsten Fürsten und Herrn, Karl, / des h. röm. Reichs Churfürsten und Erzkanzler, / unterthänigst gewidmet - vom Verfasser",
+  "updated": "2003-04-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lsszmqotje1j3ji",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.625Z"
+    }
+  ]
+}

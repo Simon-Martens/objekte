@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. s. Re 41 /) Die Schwestern von Lesbos (Sammlung INr 18553, Obj 5 )",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "In der Kammer, die nun des Mondes däm- / mernder Strahl nur / schwach erhellete,",
+  "language": [],
+  "musenalm_id": 8709,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vierter Gesang",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. I.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vierter Gesang",
+  "updated": "2000-07-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sr375oqran5lnnk",
+      "agents": "g022cx9ysck37av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.420Z"
+    }
+  ]
+}

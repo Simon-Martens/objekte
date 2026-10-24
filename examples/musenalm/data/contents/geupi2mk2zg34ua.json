@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21684,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Goezens eiserne Hand.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lang del. B. sc.",
+  "scans": [
+    "alm_292_21684_a4rb9op7ut.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Goezens eiserne Hand.",
+  "updated": "2002-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g3bl29q90ctq2ba",
+      "agents": "0vejvx9ns82bwxr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.094Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Auszüge aus dem Tagebuch Charlotte Benndorf's geb. Ehrenberg« INr 73682, Obj 59",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73683,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O, es ist ein seliges Gefühl Mutter zu seyn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp. 1787",
+  "scans": [
+    "alm_633_73683_pcag4t1cuu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O, es ist ein seliges Gefühl Mutter zu seyn",
+  "updated": "2006-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0197vlogkcay4mr",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.751Z"
+    },
+    {
+      "id": "5pvuqeur9nif5r8",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.752Z"
+    }
+  ]
+}

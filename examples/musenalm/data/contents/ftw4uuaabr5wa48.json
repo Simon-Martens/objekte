@@ -1,0 +1,45 @@
+{
+  "annotation": "Dornenkranz für Benöthigte (Sammlung INr 53173, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Ich bin ein Mann von Wort! rühmt Thrax sich / aller Orten.",
+  "language": [],
+  "musenalm_id": 53177,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Der Mann von Wort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Schnyder v. Wartensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Der Mann von Wort",
+  "updated": "2007-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wowsvvwhmjpx6xd",
+      "agents": "qn8g13ehspgkph8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.508Z"
+    }
+  ]
+}

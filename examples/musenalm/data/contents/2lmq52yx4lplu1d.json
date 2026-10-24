@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4689,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MUSEN / ALMANACH. / 1799. / Göttingen, bei J. Ch. Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. fec.",
+  "scans": [
+    "alm_97_4689_wh2sj72vkr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MUSEN / ALMANACH. / 1799. / Göttingen, bei J. Ch. Dieterich",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dflfrqugoiyt2d7",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.048Z"
+    }
+  ]
+}

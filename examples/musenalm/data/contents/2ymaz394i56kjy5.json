@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober; paginiert 7. Illustration zu »Anna« von H. Kletke INr 59500, Obj 19; # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59491,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anna #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener",
+  "scans": [
+    "alm_898_59491_x3eo8au56c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Anna #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7jzp8h1potd8gm6",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.975Z"
+    }
+  ]
+}

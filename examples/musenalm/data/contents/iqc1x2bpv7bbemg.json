@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80794, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Wie soll ich nennen, wie bezeugen / Des zarten Weibes heil'ge Kraft,",
+  "language": [],
+  "musenalm_id": 80795,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Weiblichkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Weiblichkeit",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bp6ai8vlf4a0bg1",
+      "agents": "mkd957rgkmp3pvz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.883Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Schweizer-Psalmen (Sammlung INr 55017, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.694Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Der ob Alpenauen / Unser Hirte treu, / Läßt den Schnee zerthauen",
+  "language": [],
+  "musenalm_id": 55021,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Der Hirten Hirt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abr. Em. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Der Hirten Hirt",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h355fbiefk5fpeg",
+      "agents": "94rmjnpm6yfqwop",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.653Z"
+    }
+  ]
+}

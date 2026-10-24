@@ -1,0 +1,45 @@
+{
+  "annotation": "Reise-Bruchstücke (Sammlung INr 42052, Obj 252) Scherzhafte Gedichte (Sammlung INr 42051, Obj 251)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "368",
+  "incipit_statement": "Ich saß am Regentage / Auf meinem Wirthsaltan, / Und sah mit Unbehage / Die trübe Gegend an",
+  "language": [],
+  "musenalm_id": 42055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 255,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7vp5358ti79vfof",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.982Z"
+    }
+  ]
+}

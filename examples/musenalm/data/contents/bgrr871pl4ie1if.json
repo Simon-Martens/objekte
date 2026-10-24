@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 62350, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63657,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Susanna und die Aeltesten. #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carracci pinx. Schuler sclp.",
+  "scans": [
+    "alm_1045_63657_d42fhwbb79.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Susanna und die Aeltesten. #",
+  "updated": "2009-04-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zlltxzlt3r8qa5u",
+      "agents": "bqfhzpplxu9hy7t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.217Z"
+    },
+    {
+      "id": "aqp6z1ojn31zifu",
+      "agents": "hk6k9w6jym7fe8o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.217Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Dank dir, Edler, für die Stunde / Hoher Ahndung, die dein Sang",
+  "language": [],
+  "musenalm_id": 2972,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Herrn Friedrich in Wien, Ver- / fasser der philosophischen Gedichte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Filidor",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Herrn Friedrich in Wien, Ver- / fasser der philosophischen Gedichte",
+  "updated": "2000-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "umlw07fvwx7twq7",
+      "agents": "jw839qn8xbse64z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.062Z"
+    }
+  ]
+}

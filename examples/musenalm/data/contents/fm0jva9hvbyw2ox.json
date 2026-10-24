@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Ich weiß nicht, ob der Zufall, der sogar in dem Leben der weisesten Männer ein größere Rolle spielt, als sie wohl denken,",
+  "language": [],
+  "musenalm_id": 39666,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Der Rheinfall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Der Rheinfall",
+  "updated": "2005-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cw9gtse4yz4anpr",
+      "agents": "0w2k67v3yzi61te",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.929Z"
+    }
+  ]
+}

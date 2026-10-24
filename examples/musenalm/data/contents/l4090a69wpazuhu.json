@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "401",
+  "incipit_statement": "Er stand auf hohem Brückenbogen / Inmitten der bewegten Fluth; / Der Himmel war so schwarz umzogen, / Die Sonne schien wie Todesgluth.",
+  "language": [],
+  "musenalm_id": 77284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Geigenspieler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Graf Blankensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Geigenspieler",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a7s8op88egtcl3y",
+      "agents": "l8ofx6a8nd7fpu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.771Z"
+    }
+  ]
+}

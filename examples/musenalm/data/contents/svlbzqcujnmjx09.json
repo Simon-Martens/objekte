@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert I. /) Graphik im Kalendarium. /) Illustration zu »Salier et Julie, ou le Triomphe de l'Amour et de la Reconnoissance« von A. Lafontaine INr 82423, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82415,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Il faut bien que vous la / preniez! / Salier et Julie pag. 16.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Mettenleiter inv. et fec. 1801",
+  "scans": [
+    "alm_3856_82415_zdv8fxfsyg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Il faut bien que vous la / preniez! / Salier et Julie pag. 16.",
+  "updated": "2012-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a80wwthcdh0zpej",
+      "agents": "47esr93u2wyl7ta",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.029Z"
+    }
+  ]
+}

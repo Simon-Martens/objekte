@@ -1,0 +1,45 @@
+{
+  "annotation": "Mewlana Dschelaleddin Rumi (Sammlung INr 43100, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Glücklich preis' ich euch, ihr Brüder, die ihr un- / vertrieben / In des ew'gen Vaters Hause seyd daheim ge- / blieben.",
+  "language": [],
+  "musenalm_id": 43131,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXXI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXXI.",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s7nv2p2sef1n4gj",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.262Z"
+    }
+  ]
+}

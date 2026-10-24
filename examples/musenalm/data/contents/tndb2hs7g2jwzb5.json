@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "An ländlich schönem Reiz gleichst du dem Sitz / der Götter; / Dein Jupiter ist mild und guter Menschen Retter.",
+  "language": [],
+  "musenalm_id": 11232,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "79. / Zscheplin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph von Retzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "79. / Zscheplin",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hi2yb8xw1tp4zfm",
+      "agents": "rszt46vfvzbfush",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.395Z"
+    }
+  ]
+}

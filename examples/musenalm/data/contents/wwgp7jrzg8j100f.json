@@ -1,0 +1,56 @@
+{
+  "annotation": "s.Textbezug INr 20936, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20935,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Karl VII im Zorn gegen den französischen / Marschall von Broglio und den Prinzen Conti",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Jos. Kovatsch sc. Vienna",
+  "scans": [
+    "alm_277_20935_xj1ldy9eot.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Karl VII im Zorn gegen den französischen / Marschall von Broglio und den Prinzen Conti",
+  "updated": "2002-01-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ayakh9z6zcbmdh9",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.657Z"
+    },
+    {
+      "id": "w0ov17xg1wbvv3z",
+      "agents": "7b9443ro2tn4o8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.657Z"
+    }
+  ]
+}

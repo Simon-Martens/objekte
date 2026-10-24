@@ -1,0 +1,45 @@
+{
+  "annotation": "Marie. Ein Fragment aus früher Zeit. Zweiter Theil (Sammlung INr 99639, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.121Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "So steh' ich scheidend denn an deinem Grabe / Und breite meine Hände aus zum Segen.",
+  "language": [],
+  "musenalm_id": 99654,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22. / An ihrem Grabe. / (1853.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius von Rodenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22. / An ihrem Grabe. / (1853.)",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "184g9iz3j2qp1j2",
+      "agents": "mx1vnd1yqx32ae7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.851Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.851Z"
+    }
+  ]
+}

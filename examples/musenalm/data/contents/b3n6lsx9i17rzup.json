@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Bräutigam von Haiti« von Franck (INr 125859, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "444",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125860,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie mag sich solch ein Kerl in Ihre Nähe wagen!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Mayer del. M. Hofmann sc.",
+  "scans": [
+    "alm_2733_125860_lhixacpld2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wie mag sich solch ein Kerl in Ihre Nähe wagen!",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "loytdeies5jp75e",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.767Z"
+    },
+    {
+      "id": "peki39lygbv5oxd",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.767Z"
+    }
+  ]
+}

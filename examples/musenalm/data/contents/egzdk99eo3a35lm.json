@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Stimme der Vorzeit, du gleitest leise über meine sinkende Seele. Du bist gefällig, wie der sanfte Hauch des Frühlings, wenn er, nach dem Aufgang der Sonne, die Haine von Selma durchweht,",
+  "language": [],
+  "musenalm_id": 62032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musana",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frhr. von Harold Generalmajor",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Musana",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hi9h664t64u1sn8",
+      "agents": "s9ulum0iegzdir4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.983Z"
+    }
+  ]
+}

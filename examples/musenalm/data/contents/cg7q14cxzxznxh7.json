@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Frankreich (Sammlung INr 43840, Obj 25) dem Text vorangestellt: Hat dieser Gesell kein Gefühl von seinem / Geschäft? er gräbt ein Grab und singt dazu. / Shakspeare's Hamlet",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Wir hatten Morgens bei guter Zeit Paris verlassen, und nach 12 Uhr rollte unser Cabriolet schon die sanfte Anhöhe,",
+  "language": [],
+  "musenalm_id": 43845,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Ermenonville und das schwarze Buch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Ermenonville und das schwarze Buch",
+  "updated": "2006-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vajj073gabmk4la",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.936Z"
+    }
+  ]
+}

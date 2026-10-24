@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite /) Graphik in den Monatstabellen September, nummeriert 9. /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg. Friedrich II. Dritte Abtheilung oder Geschichte des siebenjährigen Krieges. Zweite Hälfte. 1759-1763« INr 125466, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125460,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zusammenkunft Friedrich des Einzigen / mit Joseph II in Neisse. S. 144",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_1914_125460_8al6rcvjck.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zusammenkunft Friedrich des Einzigen / mit Joseph II in Neisse. S. 144",
+  "updated": "2020-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s00332wl4klsw6w",
+      "agents": "vchcd29ycfa3hgi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.892Z"
+    },
+    {
+      "id": "jr0cwyy9o32o80w",
+      "agents": "72r3qe0psneye9d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.892Z"
+    }
+  ]
+}

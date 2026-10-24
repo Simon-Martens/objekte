@@ -1,0 +1,56 @@
+{
+  "annotation": "2. Von Träumen (Sammlung INr 76843, Obj 27) Kleine Erzählungen aus Petrarcas lateinischen Schriften (Sammlung INr 76841, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Ich erzähle Dir den Traum der gestrigen Nacht. Ich gaubte - (woher ich dazu gekommen, weiß ich nicht, denn ich bin nicht gewohnt, so etwas zu denken noch zu sprechen) - ich glaubte mich also auf meinem Gütchen, an der Quelle der Sorgue zu befinden",
+  "language": [],
+  "musenalm_id": 76845,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "(Der acht und neunzigste Brief des 7ten Buchs der vertrauten Briefe.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca [übers.] A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "(Der acht und neunzigste Brief des 7ten Buchs der vertrauten Briefe.)",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "332hzihfipwoqjb",
+      "agents": "jjhjybjbxkieqjg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.930Z"
+    },
+    {
+      "id": "cfdh9u5182icq27",
+      "agents": "67zaqw1ahn1z54k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.930Z"
+    }
+  ]
+}

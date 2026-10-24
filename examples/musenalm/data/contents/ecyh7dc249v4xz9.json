@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Guten Abend, guten Abend, / Holdes, süßes Liebchen mein! / Komm' ans Fenster, blicke labend",
+  "language": [],
+  "musenalm_id": 14505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ständchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Al. Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ständchen",
+  "updated": "2001-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i4wja004quss22o",
+      "agents": "xk1o4h9hiuycys6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.744Z"
+    }
+  ]
+}

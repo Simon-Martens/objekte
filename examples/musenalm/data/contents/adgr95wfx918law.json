@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Chorgesang an der Quelle« von J. H. Voß INr 17173, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chorgesang an der Quelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Reichardt",
+  "scans": [
+    "alm_128_17172_41f4vw2zzp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Chorgesang an der Quelle",
+  "updated": "2001-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ct23leewlzqbs5e",
+      "agents": "it8ptc76fbrkd73",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.781Z"
+    }
+  ]
+}

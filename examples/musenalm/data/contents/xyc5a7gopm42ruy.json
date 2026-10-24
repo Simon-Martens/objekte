@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Komm, laß uns zusammen den Kahn besteigen, / Er schaukelt und wiegt sich am goldnen Strand;",
+  "language": [],
+  "musenalm_id": 46584,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Barcarole",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Schanz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Barcarole",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9vq767orfimlqmn",
+      "agents": "tpwve3h1enyv5eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.307Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.307Z"
+    }
+  ]
+}

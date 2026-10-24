@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "407",
+  "incipit_statement": "Wenn Farb' und Glanz in Blüthen uns / umgeben, / Dünkt uns alsbald, sie seyn aus fernen / Landen,",
+  "language": [],
+  "musenalm_id": 91344,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Novalis",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sylvester",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Novalis",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cdu6m0advwuf3x8",
+      "agents": "ift6i2oy1gozbs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.306Z"
+    }
+  ]
+}

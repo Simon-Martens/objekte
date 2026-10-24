@@ -1,0 +1,45 @@
+{
+  "annotation": "Zeitgedichte. (Aus dem Stehgreife.) (Sammlung INr 70653, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Wo ist ein Volk, das je so hoch es trieb? / Welch glorreich Ende das Gefechte nahm!",
+  "language": [],
+  "musenalm_id": 70659,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Generals Pecheux Sieg bei der Ghörde und Dannenberg. Nach des Ci-devant Prinzen Ekmühls Berichten .] / 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Generals Pecheux Sieg bei der Ghörde und Dannenberg. Nach des Ci-devant Prinzen Ekmühls Berichten .] / 2.",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jx6k7dl1tlkfhdl",
+      "agents": "scmt2snhwdglbs9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.489Z"
+    }
+  ]
+}

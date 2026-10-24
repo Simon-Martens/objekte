@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 38",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "So gern er auch verborgen bliebe, / Entzückt dein Reiz doch jedermann.",
+  "language": [],
+  "musenalm_id": 5674,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als sie Blindekuh spielte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als sie Blindekuh spielte",
+  "updated": "2000-10-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "42t5zracmcm1ts1",
+      "agents": "n4kki21smc12tdq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.028Z"
+    }
+  ]
+}

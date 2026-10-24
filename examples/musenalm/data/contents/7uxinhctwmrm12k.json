@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Feldblumen (Sammlung INr 44382, Obj 30) Rheinischer Dichter-Salon (Sammlung INr 44376, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "In der heitern Blumenhalde / Wohnt ein Völkchen, froh und frisch;",
+  "language": [],
+  "musenalm_id": 44399,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17. Gottergebenheit. / (Aarau. 1840)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17. Gottergebenheit. / (Aarau. 1840)",
+  "updated": "2006-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nsmg6pwjkwqacbg",
+      "agents": "2zqoqv8fdrs839t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.194Z"
+    }
+  ]
+}

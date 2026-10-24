@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "In Gottes Tempel gieng ich früh, / Kaum fieng es an zu tagen",
+  "language": [],
+  "musenalm_id": 30926,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ballade",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2p9ss3sc9aendku",
+      "agents": "jmf15612dotlswf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.233Z"
+    }
+  ]
+}

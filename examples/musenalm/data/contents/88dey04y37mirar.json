@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37828, Obj 120)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Es soll ein Knäul um dieses Blatt sich schlingen: / Zwei Zeilen höchstens! so hast du gewollt;",
+  "language": [],
+  "musenalm_id": 37832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Knäulzettel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. E. Prutz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Knäulzettel",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1kxj105k7g9rnjv",
+      "agents": "fxxm37a191ki2vr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.034Z"
+    }
+  ]
+}

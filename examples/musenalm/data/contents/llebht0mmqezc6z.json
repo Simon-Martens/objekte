@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 34597, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Namen der Eroberer verhallen, / Ewig werden Jener ihre schallen, / Welche kühn das Vaterland befreyt,",
+  "language": [],
+  "musenalm_id": 34598,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Teutschlands Heerführer / im / Befreiungskriege",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "König Ludwig von Bayern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Teutschlands Heerführer / im / Befreiungskriege",
+  "updated": "2003-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "djj94apqapq71cm",
+      "agents": "0lj8fztokin6ffi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.384Z"
+    }
+  ]
+}

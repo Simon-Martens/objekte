@@ -1,0 +1,45 @@
+{
+  "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Zweite Lieferung (Sammlung INr 85530, Obj 6) s. Graphik INr 85537, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Weh mir! wie bin ich zu beklagen! / O Himmel! deine Hand liegt schwer auf mir!",
+  "language": [],
+  "musenalm_id": 85538,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Leben ein Traum. / (Erster Aufzug. Zweite Scene.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. West",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Leben ein Traum. / (Erster Aufzug. Zweite Scene.)",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xt7z959bo8yu0id",
+      "agents": "ks6j3ite531t4h3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.137Z"
+    }
+  ]
+}

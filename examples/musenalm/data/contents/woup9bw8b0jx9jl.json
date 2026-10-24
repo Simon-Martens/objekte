@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 62731, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62727,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Catharina / Königin von Würtemberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dieterich pinx. Ant. Krüger sc.",
+  "scans": [
+    "alm_1028_62727_3j7wh27daw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Catharina / Königin von Würtemberg",
+  "updated": "2009-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lagerynq50g3n8d",
+      "agents": "cw6ckpi7trlsfoy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.989Z"
+    },
+    {
+      "id": "k9gkqyklng4hb80",
+      "agents": "f5agim78k7u8l7v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.989Z"
+    }
+  ]
+}

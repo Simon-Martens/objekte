@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 27672, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Athm' ich Rose, deinen Duft, / Warum dich brechen?",
+  "language": [],
+  "musenalm_id": 27676,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Heinrich Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2002-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yhic4bqu5b0vwj5",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.206Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.206Z"
+    }
+  ]
+}

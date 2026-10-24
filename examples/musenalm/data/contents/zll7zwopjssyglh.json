@@ -1,0 +1,45 @@
+{
+  "annotation": "# lt. Re 23 fast ganz von Bürger",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Der Grieche lud zum Schmause / Den Gast, wie wir den Leser, ein.",
+  "language": [],
+  "musenalm_id": 2815,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hä piti, Hä apiti",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rf.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hä piti, Hä apiti",
+  "updated": "2000-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ixsnncfqnrslmjo",
+      "agents": "noa9jfrtzw7c8o4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.077Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.077Z"
+    }
+  ]
+}

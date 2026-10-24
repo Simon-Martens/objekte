@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Stecken wir Poeten / Oft in großen Nöthen: / Habt mit uns Geduld.",
+  "language": [],
+  "musenalm_id": 6019,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Poetenschicksal. (Nach Logau.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Poetenschicksal. (Nach Logau.)",
+  "updated": "2000-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "or62sv75354rh8e",
+      "agents": "uxrssb0qlf0ghgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.954Z"
+    }
+  ]
+}

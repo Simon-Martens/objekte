@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Freundlich rinnet der Tropfen aus / Deiner Werkstatt, Natur! die das Gebirge dicht / Jedem Auge verdeckt - rinnet / Hin zur Urne",
+  "language": [],
+  "musenalm_id": 97149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Cramer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bach",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vl1vl6a3ezare2p",
+      "agents": "mwq7kafmbvbiqjp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.805Z"
+    }
+  ]
+}

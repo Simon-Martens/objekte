@@ -1,0 +1,45 @@
+{
+  "annotation": "Aphorismen (Sammlung INr 57991, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.190Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Ein teues Herz wünschen sie Alle zu gewinnen, die da lieben und geliebt sein wollen.",
+  "language": [],
+  "musenalm_id": 57994,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geistestreue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geistestreue",
+  "updated": "2008-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yotac9q1m5kww8k",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.761Z"
+    }
+  ]
+}

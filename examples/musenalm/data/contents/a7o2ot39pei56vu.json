@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) nummeriert 10. /) Graphik im Kalendarium September /) Illustration zu »Der Herr im Hause« von Anton Wall d.i. Chr. L. Heyne /) s. Textbezug im Kalendarium INr 114790, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114889,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O! Emilie, dein Prell kommt!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. Sambach del. Cl. Kohl sc. V.",
+  "scans": [
+    "alm_4354_114889_kjhplga1km.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O! Emilie, dein Prell kommt!",
+  "updated": "2016-11-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "til7fm98zwmpp7d",
+      "agents": "nroqcxxwwrnp5ol",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.605Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.605Z"
+    },
+    {
+      "id": "trwcw4li9sjcgp1",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.605Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.605Z"
+    }
+  ]
+}

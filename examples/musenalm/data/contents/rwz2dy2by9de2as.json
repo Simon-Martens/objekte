@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 95029, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95030,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Carl Mayer gez. Stahlst. v. I. Krepp)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Mayer gez. Stahlst. v. I. Krepp",
+  "scans": [
+    "alm_1878_95030_wqp190b1hd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cqbguothau5tln0",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.345Z"
+    },
+    {
+      "id": "jms199qshh48gja",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.345Z"
+    }
+  ]
+}

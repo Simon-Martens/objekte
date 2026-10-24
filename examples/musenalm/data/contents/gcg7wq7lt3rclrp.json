@@ -1,0 +1,58 @@
+{
+  "annotation": "Titel aus dem G-Verz s. Textbezug INr 34010, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34011,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Barro, der menschenrettende Hund aus dem Kloster des St. Bernhardsberges in der Schweiz #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vafflard pinxt. Forssell sculpt.",
+  "scans": [
+    "alm_472_34011_69qsdkdw4h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Barro, der menschenrettende Hund aus dem Kloster des St. Bernhardsberges in der Schweiz #",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pixzdne0jibejgv",
+      "agents": "vhlzuk5oev7gaen",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.776Z"
+    },
+    {
+      "id": "5zs0i1hybdbo39r",
+      "agents": "vn5l930p5j41o40",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.776Z"
+    }
+  ]
+}

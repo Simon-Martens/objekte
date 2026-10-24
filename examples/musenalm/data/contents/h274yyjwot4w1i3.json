@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik paginiert Pag. 293: Illustration zu »Thomann Zur Linden's Abentheuer auf dem großen Schießen zu Straßburg 1576« von J. M. Usteri INr 53422, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53372,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thomann zur Linden's Abentheuer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Usteri del F. Hegi sc.",
+  "scans": [
+    "alm_731_53372_s6jqokmi9c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Thomann zur Linden's Abentheuer",
+  "updated": "2007-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hiq6wzg0r2r6kdw",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.757Z"
+    },
+    {
+      "id": "vxptrsmtlm5z7a1",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.757Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80428, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Jetzt trink' ich noch / Aus dir voll Freude / Auf meiner Freude Wohl und Lust,",
+  "language": [],
+  "musenalm_id": 80431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / An mein Glas / bei einem Festgelage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / An mein Glas / bei einem Festgelage",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8mkxun40370kuy5",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.869Z"
+    }
+  ]
+}

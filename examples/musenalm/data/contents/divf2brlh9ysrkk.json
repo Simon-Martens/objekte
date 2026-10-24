@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "Mich traf, ich weiß nicht wie, ein süß Verlangen / Sogleich mit dir zu sterben.",
+  "language": [],
+  "musenalm_id": 33498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Geliebte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Geliebte",
+  "updated": "2003-04-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5qwq7g0l2ifjncb",
+      "agents": "dz9l16q76ffup70",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.613Z"
+    }
+  ]
+}

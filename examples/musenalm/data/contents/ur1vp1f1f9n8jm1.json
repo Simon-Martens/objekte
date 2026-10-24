@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 90400, Obj 97",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Höre mich, alternde Linde! / Hört mich, bethauete Gründe!",
+  "language": [],
+  "musenalm_id": 90326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alpins Klage um Minona die Treulose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Winkler von Mohrenfels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alpins Klage um Minona die Treulose",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pclfbecryhdm25f",
+      "agents": "z7sxko2rf1mce5f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.196Z"
+    }
+  ]
+}

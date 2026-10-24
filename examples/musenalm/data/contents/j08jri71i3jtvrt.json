@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der Graphik im Kalendarium  Mai /) Graphik im Kalendarium Juli; paginiert 7. /) s. Textbezug INr 96033, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96020,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einzug der Princessin von Oranien im Haag / am 20. Sept. 1787",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fe.",
+  "scans": [
+    "alm_3961_96020_wyjuv24uo3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Einzug der Princessin von Oranien im Haag / am 20. Sept. 1787",
+  "updated": "2013-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8pw67hrr1k5s2cg",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.765Z"
+    }
+  ]
+}

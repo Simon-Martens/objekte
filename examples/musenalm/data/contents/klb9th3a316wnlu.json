@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Ein Landmädchen« von J. H. Voß",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.857Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "An meines Vaters Hügel, da steht ein schöner Baum, gern singt das Waldgeflügel an meines Vaters Hügel und singt mir manchen Traum.",
+  "language": [],
+  "musenalm_id": 76152,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Landmädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Harder",
+  "scans": [
+    "alm_3281_76152_yxq34wtra8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Landmädchen",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hgbqoodl0enddng",
+      "agents": "cx1t1g6vij8mhnm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.698Z"
+    }
+  ]
+}

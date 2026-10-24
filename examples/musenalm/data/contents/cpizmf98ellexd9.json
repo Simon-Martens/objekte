@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleinigkeiten (Sammlung INr 114150, Obj 74",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "s'ist sonderbar daß noch in späten Jahren / Das Fräulein X. so heiratslustig wird;",
+  "language": [],
+  "musenalm_id": 114151,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verschiedene Ansicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. F. Reiberstorffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verschiedene Ansicht",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gog2z2zvh0gdxpy",
+      "agents": "y79tyayxteqeav8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.387Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Der nannt ihn wohl den deutschen Martial, / Der noch nicht wußte, daß er ihn bestahl.",
+  "language": [],
+  "musenalm_id": 8984,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen Sinndichter / 1770",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Heinse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen Sinndichter / 1770",
+  "updated": "2001-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fy9guc1fi68duas",
+      "agents": "96yqxmr44n9ci0o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.490Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.490Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 51286-5128; Obj 34, 35 /) Variazionen (Sammlung INr 51284, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thema I.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "PELLEGRIN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Thema I.",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uqmiq3ugqxcpncd",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.587Z"
+    }
+  ]
+}

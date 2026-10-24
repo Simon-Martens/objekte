@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bez. aus dem I-Verz. Historische Aufsätze (Sammlung INr 43499, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Vor beinah' achtzehn Jahrhunderten schrieb Tacitus sein bekanntes Werk über deutsche Völker und Sitten,",
+  "language": [],
+  "musenalm_id": 43500,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Heinrich der Erste, König der Deutschen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Philipp Dieffenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Heinrich der Erste, König der Deutschen",
+  "updated": "2006-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5onx801e3f7y5t2",
+      "agents": "dyegqi52nirlz21",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.335Z"
+    }
+  ]
+}

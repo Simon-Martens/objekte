@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 30131, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30130,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Van der Neer pinx. F. Geissler sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Van der Neer pinx. F. Geissler sculp.",
+  "scans": [
+    "alm_391_30130_qtn4cjlcb4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hn8fae6vwtxfr3b",
+      "agents": "gbrvv86uf21m6le",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.629Z"
+    },
+    {
+      "id": "1ts6wsz1djfwvnk",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.629Z"
+    }
+  ]
+}

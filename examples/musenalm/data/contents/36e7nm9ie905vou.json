@@ -1,0 +1,43 @@
+{
+  "annotation": "Ueberraschung in vier Bildern (Sammlung INr 30536, Obj 4) s. Graphik INr 30539, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Maschinen gleich zu achten / Wär' unser ganzes Leben, / Sollt' alles sich begeben,",
+  "language": [],
+  "musenalm_id": 30540,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der scherzende Jäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sonderland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der scherzende Jäger",
+  "updated": "2002-11-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wx58g8us5b38psk",
+      "agents": "qy6yej73pl7anzc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.711Z"
+    }
+  ]
+}

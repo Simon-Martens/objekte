@@ -1,0 +1,45 @@
+{
+  "annotation": "Nro. 1. Bemerkungen über den Menschen (Sammlung INr 28525, Obj 15) /) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Doch oft scheinen sie sich uns vorher verstellt zu haben,",
+  "language": [],
+  "musenalm_id": 28533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Doch oft scheinen sie sich uns vorher verstellt zu haben,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6a61cnvlvm8t3k1",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.418Z"
+    }
+  ]
+}

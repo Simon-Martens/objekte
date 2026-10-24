@@ -1,0 +1,58 @@
+{
+  "annotation": "nummeriert V /) kol. Illustration zu »Der Trappe« von v. Wildungen INr 120239, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120238,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Trappe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. de. Wildungen ad viv. pinx. GB. sc.",
+  "scans": [
+    "alm_1130_120238_tbsktcm4wa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Trappe",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tup6j89su4i3nwr",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.722Z"
+    },
+    {
+      "id": "xn7hrt2pjxlz912",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.722Z"
+    }
+  ]
+}

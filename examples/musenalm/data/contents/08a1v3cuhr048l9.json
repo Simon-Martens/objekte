@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sieh! und alles dieses soll dir dienen! mehr als zehentausend Häuser! / Ach! und mehr als tausend Unglückliche!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "ERF. & GEZ. VON MART. USTERI GEST. VON SUTER IN ZOFINGEN",
+  "scans": [
+    "alm_746_55014_alvxu8znc5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sieh! und alles dieses soll dir dienen! mehr als zehentausend Häuser! / Ach! und mehr als tausend Unglückliche!",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "22tp3ztjh0900kc",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.879Z"
+    },
+    {
+      "id": "jso1chear2bklsg",
+      "agents": "s71huq0znurva76",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.879Z"
+    }
+  ]
+}

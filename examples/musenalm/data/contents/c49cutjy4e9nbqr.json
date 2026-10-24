@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zum Beitrag INr 69820, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Die Jugenderinnerungen des alten Piqueurs Christian Rauch gehören einer Zeit an, in welcher das Jagdwesen in Deutschland noch in hoher Blüthe stand.",
+  "language": [],
+  "musenalm_id": 69819,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Erinnerungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Erinnerungen",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y19sbok1kz0mwqj",
+      "agents": "cmylaolo9dbcgmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.378Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.378Z"
+    }
+  ]
+}

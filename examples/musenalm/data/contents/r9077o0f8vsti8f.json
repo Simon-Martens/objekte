@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11107,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Grotte des Neptuns mit den Tempeln der Vesta / und Sibylle in Tivoli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klinski del. Schumann sc.",
+  "scans": [
+    "alm_204_11107_wjcawjze36.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Grotte des Neptuns mit den Tempeln der Vesta / und Sibylle in Tivoli",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gi3dcm2abpf8ln7",
+      "agents": "jluxmeayxx3ga35",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.502Z"
+    },
+    {
+      "id": "7n8jds0lhn8n71m",
+      "agents": "j761ried9spu4il",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.502Z"
+    }
+  ]
+}

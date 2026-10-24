@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 78223, Obj 14 /) unter der Graphik: gedr. v. Altmayer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.961Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78222,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PALAIS I. D. DER FÜRSTIN VON LIEGNITZ BEI POTSDAM",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Biermann Gest v. Schulin",
+  "scans": [
+    "alm_882_78222_syq4dyjcfy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PALAIS I. D. DER FÜRSTIN VON LIEGNITZ BEI POTSDAM",
+  "updated": "2008-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5wvyha10sd5rj48",
+      "agents": "ulca7kvs9vkm8e6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.836Z"
+    },
+    {
+      "id": "9misptsxtc6ov9y",
+      "agents": "upsrb82zs34rpbh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.836Z"
+    }
+  ]
+}

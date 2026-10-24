@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Gilli's Mährchen von dem Mädchen mit den goldenen Augen« von J. v. Mailáth INr 57937, Obj 20 /) unter der Graphik: Leipzig, d. Engl. Kunst-Anstalt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.593Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57936,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die dreifach goldene Iser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Barabas del. A. H. Payne sculp.",
+  "scans": [
+    "alm_771_57936_yrtc7ktbsf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die dreifach goldene Iser",
+  "updated": "2008-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jpmezx90u8um5v4",
+      "agents": "jt9vrpcti67n6hx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.752Z"
+    },
+    {
+      "id": "9xf3x0pbim2ytr7",
+      "agents": "vns4sg0j1neru7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.752Z"
+    }
+  ]
+}

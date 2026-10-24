@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) paginiert 5. /) Graphik im Kalendarium Februar /) s. Textbezug INr 92553, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92531,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Matrone im Kreise der Enkel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Study del. D. Berger sc. 1808",
+  "scans": [
+    "alm_448_92531_5uzv5ty80a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Matrone im Kreise der Enkel",
+  "updated": "2003-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tjlyob88e8p2vc5",
+      "agents": "rcmptupq08d0ih1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.315Z"
+    },
+    {
+      "id": "pov6e0ybm50aksb",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.315Z"
+    }
+  ]
+}

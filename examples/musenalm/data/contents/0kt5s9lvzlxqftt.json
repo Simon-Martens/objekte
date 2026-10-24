@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64713, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64719,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Winterlandschaft #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schelfhout del. J. B. Tétarv. Elven sculps.",
+  "scans": [
+    "alm_1083_64719_yeolgx95v3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Winterlandschaft #",
+  "updated": "2009-06-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1872,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pqyoyyqo2f815cn",
+      "agents": "715ejev12w0hnth",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.928Z"
+    },
+    {
+      "id": "conh89jb40e21lq",
+      "agents": "7l66ckmup6wdhiw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.928Z"
+    }
+  ]
+}

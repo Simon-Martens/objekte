@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Poetische Kleinigkeiten (INr 93436, Obj 121)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Den Dummen begünstigt das blinde Glück, / Das Leben des Klugen ist immer voll Leiden!",
+  "language": [],
+  "musenalm_id": 93452,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Orphils Klage-Jubel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Orphils Klage-Jubel",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "biomujg5cwdsptg",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.308Z"
+    }
+  ]
+}

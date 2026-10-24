@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitendes Gedicht /) Der Appenzeller-Krieg, in neun Romanzen (Sammlung INr 54220, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Folget meines Liedes Stimme / Nach dem allerstillsten Thal,",
+  "language": [],
+  "musenalm_id": 54221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einladung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einladung",
+  "updated": "2008-01-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ugc7jr7q0qnauqm",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.682Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 67474, Obj 29) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Der liebliche Frauenzimmer-Planet, welcher dem Forst- und Waidmanne bald bei seinem Auszug am frühen Morgen, bald bei seinem Heimgang am späten Abend freundlich vorleuchtet,",
+  "language": [],
+  "musenalm_id": 67475,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Forst- und Jagdenmerkwürdigkeiten / des verflossenen Jahres / aus dem südlichen Deutschlande, / insbesondere / aus der Rheingegend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Forst- und Jagdenmerkwürdigkeiten / des verflossenen Jahres / aus dem südlichen Deutschlande, / insbesondere / aus der Rheingegend",
+  "updated": "2009-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wik66wriu9qi9os",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.054Z"
+    }
+  ]
+}

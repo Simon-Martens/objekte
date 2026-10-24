@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "388",
+  "incipit_statement": "Durch Memphis schallt es: der König ist todt! / Doch bleibt er auch todt uns verpflichtet;",
+  "language": [],
+  "musenalm_id": 41299,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Todtengericht. / Des Lebens Bild lebet fort. (Pindar.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Todtengericht. / Des Lebens Bild lebet fort. (Pindar.)",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eit995lupma2x3y",
+      "agents": "rlu2d4ml9zlhov2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.260Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Ich ward. Die Silberquelle / Des frohen Seyns begann.",
+  "language": [],
+  "musenalm_id": 4479,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Lied der Warnung. / Für meinen Bruder Ludolph Karl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Münchhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Lied der Warnung. / Für meinen Bruder Ludolph Karl",
+  "updated": "2000-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f7oc29leakfxhr3",
+      "agents": "wfk4mi4tbts3zzx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.178Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.178Z"
+    }
+  ]
+}

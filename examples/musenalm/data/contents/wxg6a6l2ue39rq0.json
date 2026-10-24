@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) paginiert 8. /) Graphik im Kalendarium Mai /) s. Textbezug INr 92557, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92534,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das leichtsinnige Mädchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Study del. D. Berger sc. 1808",
+  "scans": [
+    "alm_448_92534_okcihjuf9a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das leichtsinnige Mädchen",
+  "updated": "2003-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a0ntcqyqyyb0dy4",
+      "agents": "rcmptupq08d0ih1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.339Z"
+    },
+    {
+      "id": "xcmraws19evadji",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.339Z"
+    }
+  ]
+}

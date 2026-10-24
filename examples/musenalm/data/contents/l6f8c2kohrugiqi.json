@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählungen am Meer (Sammlung INr 127773, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Unsere Fregatte, der Halbmond, kreuzte in dem mittelländischen Meere. Unser Kapitain, Der liebenswürdigste, trefflichste Mann von der Welt, hatte nur einen Fehler",
+  "language": [],
+  "musenalm_id": 127775,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der sorglose Schiffskapitain",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der sorglose Schiffskapitain",
+  "updated": "2006-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1cstxscor8jxvgk",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.958Z"
+    }
+  ]
+}

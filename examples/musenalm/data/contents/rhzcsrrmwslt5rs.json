@@ -1,0 +1,45 @@
+{
+  "annotation": "Sinngedichte (Sammlung INr 31170, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Es lächelt hold mit dir; und weinst du, thauen / Thränen / Ihm auf die Rosen des Gesicht",
+  "language": [],
+  "musenalm_id": 31174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Das Bild im Spiegel. / Nach Owen. / An Aurelia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Das Bild im Spiegel. / Nach Owen. / An Aurelia",
+  "updated": "2003-01-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zglvp31j6lj17fc",
+      "agents": "t3zz4r3fvdi80ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.658Z"
+    }
+  ]
+}

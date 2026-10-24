@@ -1,0 +1,43 @@
+{
+  "annotation": "Anmerkung des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Umstände, deren Kenntniß dem Publikum nicht anders als sehr gleichgültig sein kann, verhinderten die Herausgabe des N[euen]. W[iener]. Musen-Almanachs für das Jahr 1799.",
+  "language": [],
+  "musenalm_id": 31733,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z4x5gvq1buw8hvz",
+      "agents": "h2r7vychlnktmwb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.191Z"
+    }
+  ]
+}

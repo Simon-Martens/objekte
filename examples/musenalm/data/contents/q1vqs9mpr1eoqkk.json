@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 57679, Obj 89)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.507Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Die gold'nen Saiten rühr' ich an mit Zittern, / Ein Lied, das längst in mir geruht, zu wagen;",
+  "language": [],
+  "musenalm_id": 57680,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der junge Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der junge Dichter",
+  "updated": "2008-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e0znuawd9a99oar",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.642Z"
+    }
+  ]
+}

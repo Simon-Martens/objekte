@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.541Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "An einem Morgen was wunderschön / musst ich hinaus ins Freye gehn,",
+  "language": [],
+  "musenalm_id": 71153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Offenbarung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rostorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Offenbarung",
+  "updated": "2010-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "21kx1po7vls9aux",
+      "agents": "nt4h9rywajl3p54",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.527Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.527Z"
+    }
+  ]
+}

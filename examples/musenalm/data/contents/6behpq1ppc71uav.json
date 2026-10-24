@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) s. Graphik INr 77076, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wem ist sie nicht auch einst erschienen, / Die Holde in der Jugend Strahl,",
+  "language": [],
+  "musenalm_id": 77075,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen aus der Fremde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen aus der Fremde",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nl02ku0mkl97iak",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.533Z"
+    }
+  ]
+}

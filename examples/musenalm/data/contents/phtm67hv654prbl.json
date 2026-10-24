@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Wo such' ich, wo find' ich zum würzigen Strauß / Ein Blümchen und eins noch? Ich kann nicht / hinaus;",
+  "language": [],
+  "musenalm_id": 16061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie an Ihn / Im Namen der Frau Gräfin Julia von Reventlow, / zu dem Geburtstage ihres Gemahls, des Herrn / Grafen von Reventlow, Curators der Universität zu Kiel. / Am 31. Januar 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Graf zu Stolberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sie an Ihn / Im Namen der Frau Gräfin Julia von Reventlow, / zu dem Geburtstage ihres Gemahls, des Herrn / Grafen von Reventlow, Curators der Universität zu Kiel. / Am 31. Januar 1805",
+  "updated": "2001-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xkgzieekym726lm",
+      "agents": "gtq8zou6jpsfpy4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.724Z"
+    }
+  ]
+}

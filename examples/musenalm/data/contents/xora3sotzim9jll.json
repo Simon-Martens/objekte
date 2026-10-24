@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Rauher Frost und Nebeltage / Wandeln sich in Frühlingslüfte,",
+  "language": [],
+  "musenalm_id": 46435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als ich zum ersten Mal dich sah",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jegór v. Sivers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als ich zum ersten Mal dich sah",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tntvxoue00t9hsb",
+      "agents": "gpow9s19ygz3th4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.602Z"
+    }
+  ]
+}

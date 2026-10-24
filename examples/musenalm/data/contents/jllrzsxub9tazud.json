@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte, Atlantica (Sammlung INr 25144, Obj 166)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Wie fern, wie fern, mein Vaterland, / Bist du mir nun zurück!",
+  "language": [],
+  "musenalm_id": 25147,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 169,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nicolaus Lenau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tei7f4wo07iybgy",
+      "agents": "96po1brlxwvvsud",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.385Z"
+    }
+  ]
+}

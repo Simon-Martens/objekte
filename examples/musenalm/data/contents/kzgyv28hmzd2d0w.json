@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Mütter, deutsche Mütter, an Euch wende ich mich, besonders in dieser verhängnisvollen schweren Zeit.",
+  "language": [],
+  "musenalm_id": 48041,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Franz Ehrenbergs Reden über die körperliche Erziehung. / Sieben und zwanzigste Rede",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Franz Ehrenbergs Reden über die körperliche Erziehung. / Sieben und zwanzigste Rede",
+  "updated": "2007-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xzk1ufhyc28abom",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.484Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.484Z"
+    }
+  ]
+}

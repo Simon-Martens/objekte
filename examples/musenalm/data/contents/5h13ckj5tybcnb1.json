@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Des heil'gen Herzens tiefstem Grund entschweben / Der Ideale göttliche Gestalten,",
+  "language": [],
+  "musenalm_id": 24015,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Friedrich Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. CHAMISSO",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Friedrich Schiller",
+  "updated": "2002-05-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j56clsusr7d74it",
+      "agents": "3emdj29jey7pglq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.122Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.122Z"
+    }
+  ]
+}

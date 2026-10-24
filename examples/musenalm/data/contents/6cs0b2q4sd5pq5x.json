@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 67205, Obj 79) fortgesetzt durch »Die Schnepfenjagd, zweiter Gesang« von v. d. Borch in: Sylvan 1819 INr 68677",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Euch grüßen wir mit herzlichem Willkommen / Ihr Pilger, die der jungen Lenz uns bringt,",
+  "language": [],
+  "musenalm_id": 67206,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Schnepfenjagd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freih. v. d. Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Schnepfenjagd",
+  "updated": "2009-10-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xxk8qxyjhge7pff",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.233Z"
+    }
+  ]
+}

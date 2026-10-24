@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Dem Veilchen an dem Bache gleich, / Geliebte, blühtest du;",
+  "language": [],
+  "musenalm_id": 30964,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die Genesung meiner Freundin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline v. Greiner, / ein zwölfjähriges Fräulein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die Genesung meiner Freundin",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2fe6f0lqq1wa7qt",
+      "agents": "vxzn7evqhv18e38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.513Z"
+    }
+  ]
+}

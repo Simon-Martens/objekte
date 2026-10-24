@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Herrlich kleidet sie euch, des Kreuzes fucht- / bare Rüstung",
+  "language": [],
+  "musenalm_id": 922,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ritter / des Spitals zu Jerusalem",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "SCHILLER",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ritter / des Spitals zu Jerusalem",
+  "updated": "2000-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "076krh30bnngvrz",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.894Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Freund Pilgram« von C. Spindler; s. Textbezug INr 103060, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103059,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freund Pilgram",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Schwind del. Leop. Beyer sc.",
+  "scans": [
+    "alm_3406_103059_0yc0zn00uw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Freund Pilgram",
+  "updated": "2010-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ji8eopf0i0dn081",
+      "agents": "dz642gh37bafou9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.015Z"
+    },
+    {
+      "id": "8q4ydbdqw1quvu6",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.015Z"
+    }
+  ]
+}

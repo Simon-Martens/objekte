@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Der Scepticismus in der Naturgeschichte ist dem Fortschreiten dieser Wissenschaft eben so hinderlich, als es die große Leichtgläubigkeit unserer naturhistorischen Ahnen war,",
+  "language": [],
+  "musenalm_id": 67266,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Hydrotechnische Ehrenrettung des Biebers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Hydrotechnische Ehrenrettung des Biebers",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fix64c5jj57rx7n",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.211Z"
+    }
+  ]
+}

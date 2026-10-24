@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik 54981, Obj 1,04",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Was blickest du zur Mutter, theurer Sohn? / Was ist's, wornach sich deine Lippen wenden?",
+  "language": [],
+  "musenalm_id": 54990,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 1.05,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Die Jungfrau mit dem Kinde. / Gemählde von Giulio Romano",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Die Jungfrau mit dem Kinde. / Gemählde von Giulio Romano",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pmjf8tw1j8yf89d",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.957Z"
+    }
+  ]
+}

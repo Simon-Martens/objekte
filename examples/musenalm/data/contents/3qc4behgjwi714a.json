@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Bei Geisenheim am Rheine / Da ist ein dunkler Wald, / D'rin früh in Morgenscheine / Ein rosig Mädchen wallt.",
+  "language": [],
+  "musenalm_id": 129425,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Gottes Noth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Freih. v. Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Gottes Noth",
+  "updated": "2011-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fgzziawxj3jjbsr",
+      "agents": "otquhrfmf15x6tw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.014Z"
+    }
+  ]
+}

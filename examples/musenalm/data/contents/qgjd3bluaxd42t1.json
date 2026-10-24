@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Was kündet aus Fernen der schaurige Laut? / Was klaget ins Rauschen der Welle?",
+  "language": [],
+  "musenalm_id": 65913,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Claudine. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Edler von Puttlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Claudine. / Romanze",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "psk4cpbefava5gy",
+      "agents": "598hg6jadj7imkx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.188Z"
+    }
+  ]
+}

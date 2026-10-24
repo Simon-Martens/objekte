@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 62355, Obj 11 /) Illustration zu »Die Belagerung von Hamburg« von E. Janinski INr 63666, Obj 22 /) unter der Graphik: gedr. v. Lange in Darmstadt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63662,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Julia #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Parris del. Stahlstich von Rosmäsler in Berlin",
+  "scans": [
+    "alm_1045_63662_khoms9ocqv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Julia #",
+  "updated": "2009-04-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jssig50whdwo9m3",
+      "agents": "9gep2y6vxxwiktu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.218Z"
+    },
+    {
+      "id": "qd5bcqbs5oeyno4",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.218Z"
+    }
+  ]
+}

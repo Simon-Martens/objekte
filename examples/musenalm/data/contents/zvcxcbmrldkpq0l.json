@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am letzten Blatt der Suite /) Titelgraphik; paginiert 1. s. Textbezug INr 73663, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.080Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73648,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Feier des schönen Sonnen-Aufgan- / ges Deutscher Poesie",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Wolf inv. del. Riephs. sc.",
+  "scans": [
+    "alm_915_73648_svm0fzukrc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Feier des schönen Sonnen-Aufgan- / ges Deutscher Poesie",
+  "updated": "2008-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xu90xvvw5ggsjbd",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.711Z"
+    },
+    {
+      "id": "so55fdli2qzigfd",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.711Z"
+    }
+  ]
+}

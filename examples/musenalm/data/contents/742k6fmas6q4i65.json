@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am Gedicht INr 122788, Obj 131",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Ein Tagelöhner, schaffend Tag und Nacht, / Ist eine Werkstatt ihm die schöne Welt, / Ein tiefverhüllter, dumpfer Bergwerksschacht, / Vom Strahl des Ewigschönen nie erhellt",
+  "language": [],
+  "musenalm_id": 122790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 133,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Helot",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Louis von Arentsschildt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Helot",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oa7o5riy7fq9p0o",
+      "agents": "te4r71ktst7ji2t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.697Z"
+    }
+  ]
+}

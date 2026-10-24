@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.443Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Als trüb' aus Eden's sel'gem Glücke / Die beiden ersten Menschen floh' n,",
+  "language": [],
+  "musenalm_id": 45748,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 155,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Thräne des Mitleids",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Firmenich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Thräne des Mitleids",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2vv2nf3zjz5nuos",
+      "agents": "fc09ekcgxjxmoow",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.304Z"
+    }
+  ]
+}

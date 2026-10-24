@@ -1,0 +1,45 @@
+{
+  "annotation": "Abhandlungen und vermischte Aufsätze (Sammlung INr 104756, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Prokris in einem weißen Gewande liegt getödtet vor der Höhle eines Felsen im Walde.",
+  "language": [],
+  "musenalm_id": 104766,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Skizzen von Ballets. / Prokris Leichenbestattung und Ce- / phalus zweyte Entführung. / ein pantomimisches Ballet, / nach dem Melodram Cephalus und / Prokris aufzuführen / von / Carl Wilhelm Ramler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Wlhelm Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Skizzen von Ballets. / Prokris Leichenbestattung und Ce- / phalus zweyte Entführung. / ein pantomimisches Ballet, / nach dem Melodram Cephalus und / Prokris aufzuführen / von / Carl Wilhelm Ramler",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9cdvkpo391tt9um",
+      "agents": "uxrssb0qlf0ghgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.220Z"
+    }
+  ]
+}

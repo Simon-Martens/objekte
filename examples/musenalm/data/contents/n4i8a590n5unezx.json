@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Détail aus »Die Folgen der Emsigkeit und des Müssiggangs.« paginiert B. s. Textbezug INr 122092, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 122091,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "B",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth del. Riep sc.",
+  "scans": [
+    "alm_160_122091_imrb7zuhrd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "B",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gaf03rhit8k2wlw",
+      "agents": "yylanvnf5ct4jbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.814Z"
+    },
+    {
+      "id": "eb0cp5bvj0tthls",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.814Z"
+    }
+  ]
+}

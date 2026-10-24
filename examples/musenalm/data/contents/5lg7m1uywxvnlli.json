@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wenn sonst der deutsche Schriftsteller auch mit Schüchternheit vor den Thron Preussens trat, so ist ihm doch jetzt durch Friedrich Wilhelm eine Sonne aufgegangen, die das deutsche Talent schützen wird. Heil dem Vater der Brennen!",
+  "language": [],
+  "musenalm_id": 46899,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn sonst der deutsche Schriftsteller auch mit Schüchternheit vor den Thron Preussens trat, so ist ihm doch jetzt durch Friedrich Wilhelm eine Sonne aufgegangen, die das deutsche Talent schützen wird. Heil dem Vater der Brennen!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5543qwcc9elgx9l",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.190Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.190Z"
+    }
+  ]
+}

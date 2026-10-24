@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 62430, Obj 99",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "In der Schweiz, wo die Sitter in die Thur fällt, stand das Stammschloß der Edlen von Ramschwag. Um das Jahr 850 wurde Salomo von Ramschwag geboren, und nachher in der Klosterschule zu St. Gallen erzogen.",
+  "language": [],
+  "musenalm_id": 62429,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ida von Ramschwag. / Eine historische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ida von Ramschwag. / Eine historische Novelle",
+  "updated": "2009-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wcqvpllg2frto24",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.871Z"
+    }
+  ]
+}

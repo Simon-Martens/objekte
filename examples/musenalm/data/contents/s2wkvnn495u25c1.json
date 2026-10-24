@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Abgesessen hielt er mit dem Rappen / In des Schlosses dicht bewachs'nem Parke;",
+  "language": [],
+  "musenalm_id": 31865,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Theremin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zdh83l1nk79fgqc",
+      "agents": "f09sfq2kh3bhwky",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.690Z"
+    }
+  ]
+}

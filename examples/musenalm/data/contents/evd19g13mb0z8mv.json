@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Wanderungen durch den Markt des Lebens. Viertes Buch. Markt des Ruhmes, Fortsetzung (Sammlung INr 40932, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "Gehen wir, sagt' ich, noch einmal / Zu den großen Meisterwerken,",
+  "language": [],
+  "musenalm_id": 40933,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a4pwkrpkcjdjjmr",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.187Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.187Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Wohl vergleichet mit Recht der Mensch dich, / flüchtiges Leben, / Einer Erscheinung,",
+  "language": [],
+  "musenalm_id": 11933,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22. / Selbstständigkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Manso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22. / Selbstständigkeit",
+  "updated": "2001-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wot4l6ois6zzw7k",
+      "agents": "z30t9keae9ak7mu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.343Z"
+    }
+  ]
+}

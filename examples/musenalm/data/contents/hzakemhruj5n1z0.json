@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Ich fühl' ihn ganz den Eifer, der Dir fluchte, / Ihm sag' ich nach, was er gesagt,",
+  "language": [],
+  "musenalm_id": 123009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Erfinder des Geschützes. 1760",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. L. Karschinn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Erfinder des Geschützes. 1760",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "arswc0pfi162xcs",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.812Z"
+    }
+  ]
+}

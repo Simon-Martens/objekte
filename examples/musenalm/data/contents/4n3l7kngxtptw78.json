@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.541Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Das Werkzeug ewiger Gerechtigkeit, / Der Held, der jüngst die unglückschwangre / Wolke, / Die Untergang gedroht dem deutschen Volke, / Mit Einem Schlag zerstreut,",
+  "language": [],
+  "musenalm_id": 56880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Empfindungen / bei der Durchreise des teutschen Helden / Hermann-Blücher, / (im Jänner 1815)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Empfindungen / bei der Durchreise des teutschen Helden / Hermann-Blücher, / (im Jänner 1815)",
+  "updated": "2008-04-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b6uj99a3ckh7y9d",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.791Z"
+    }
+  ]
+}

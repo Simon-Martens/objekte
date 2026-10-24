@@ -1,0 +1,67 @@
+{
+  "annotation": "Titelgraphik, paginiert 1. # Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11886,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Heilige Nacht #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Corregio pinx. Schubert del. Krüger sc.",
+  "scans": [
+    "alm_209_11886_w8xlkx2hc0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Heilige Nacht #",
+  "updated": "2001-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ynlm3ybxt5ta4gg",
+      "agents": "irhvezh3jd0m3va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.611Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.611Z"
+    },
+    {
+      "id": "4pyiwfe0tkdzk04",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.611Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.611Z"
+    },
+    {
+      "id": "90lrlhdzfxhdv2p",
+      "agents": "mi3sfg9f1oc68es",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.611Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.611Z"
+    }
+  ]
+}

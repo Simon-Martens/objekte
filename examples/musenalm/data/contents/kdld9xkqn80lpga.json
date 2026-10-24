@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 6 /) Graphik im Kalendarium November /) Illustration zum unbetitelten, unbezeichneten Beitrag von G. A. Neuhofer INr 81976, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95803,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tod des Gen. Desaix in der Schlacht / bey Marengo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Laminit fec.",
+  "scans": [
+    "alm_3829_95803_qq9u6ta40w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tod des Gen. Desaix in der Schlacht / bey Marengo",
+  "updated": "2012-06-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u0v73es0aeiomaz",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.649Z"
+    }
+  ]
+}

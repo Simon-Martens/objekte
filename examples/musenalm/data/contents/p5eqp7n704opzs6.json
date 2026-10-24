@@ -1,0 +1,45 @@
+{
+  "annotation": "Landschaftsskizzen (Sammlung INr 90564, Obj 160)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.974Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Bräutlich von dem Abendglanze / Ist das blüh'nde Thal umflossen.",
+  "language": [],
+  "musenalm_id": 90567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 163,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Feierabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Prechtler. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Feierabend",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iy1plqcq0i664lu",
+      "agents": "cvs1lz6mp4pj8h4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.253Z"
+    }
+  ]
+}

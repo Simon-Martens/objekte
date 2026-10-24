@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.972Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13083,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hartenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zingg del. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_215_13083_vj4t05h5o6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hartenstein",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "znxtx1s5lpbgoj3",
+      "agents": "tv0kfo1dowgyyed",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.555Z"
+    },
+    {
+      "id": "wagthbtwuno7167",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.555Z"
+    }
+  ]
+}

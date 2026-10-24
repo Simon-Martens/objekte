@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Beiträgen INr 131412-131414, Obj 20-22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.077Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131411,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus dem analogen Gemählde. Der Vater / ist wieder da, oder: Ehrlich währt / am längsten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bäuerle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus dem analogen Gemählde. Der Vater / ist wieder da, oder: Ehrlich währt / am längsten",
+  "updated": "2016-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fussf11mfe1kx16",
+      "agents": "1lkxjega66pfmft",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.034Z"
+    }
+  ]
+}

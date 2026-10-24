@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Ungedruckte Briefe großer und edler Männer. Erste Zusammenstellung (Sammlung INr 48531, Obj 14) s. Kommentar INr 48532, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Liebster Graf! Ich bin außer mir, und ich muß es Ihnen sagen, daß ich's bin, ob ich gleich erst gestern an Sie geschrieben habe. Gestern war ich noch nicht mit dem 5ten Theile des Grandison zu Ende.",
+  "language": [],
+  "musenalm_id": 48533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Grafen *** / Leipzig, den 5. April 1755",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gellert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Grafen *** / Leipzig, den 5. April 1755",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rmax92vpmk4tpaw",
+      "agents": "ktano13bmefet8q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.902Z"
+    }
+  ]
+}

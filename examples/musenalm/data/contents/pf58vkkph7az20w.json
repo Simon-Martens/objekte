@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72199,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARIE ELISABETH CAROLINE VICTORIE. / Prinzessin von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. von Krüger und gest. v. Auguste Hüssener in Berlin",
+  "scans": [
+    "alm_867_72199_vdw5s78v9p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARIE ELISABETH CAROLINE VICTORIE. / Prinzessin von Preussen",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ly3wbj0g7coptfe",
+      "agents": "dp1i9gllz2qxsbz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.656Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.656Z"
+    },
+    {
+      "id": "1k1jfqcg205tefl",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.657Z"
+    }
+  ]
+}

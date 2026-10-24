@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Wenn ein edler Freund in goldnen Stunden / Der Entzückung in die Arme sinkt,",
+  "language": [],
+  "musenalm_id": 4004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Menschenfreuden. / An Hrn. Regierungsrath v. Wildungen. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. W. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Menschenfreuden. / An Hrn. Regierungsrath v. Wildungen. / Sonett",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dxro0oy6asmqkh7",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.056Z"
+    }
+  ]
+}

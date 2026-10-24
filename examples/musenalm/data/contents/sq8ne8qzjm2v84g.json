@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "443",
+  "incipit_statement": "Wir waren bereits den ganzen Tag durch die Ruinenwelt Roms gepilgert; mein Freund und Cicerone, der siebenbärtige deutsche Maler Karl R*** war unermüdlcih, mir, dem bald Scheidenden, alle denkwürdigen Stätten und vorweltlichen Ruinen-Herrlichkeiten",
+  "language": [],
+  "musenalm_id": 57846,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Nacht im Ghetto zu Rom",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Prechtler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Nacht im Ghetto zu Rom",
+  "updated": "2008-06-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "573m93x7c66d1fx",
+      "agents": "cvs1lz6mp4pj8h4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.936Z"
+    }
+  ]
+}

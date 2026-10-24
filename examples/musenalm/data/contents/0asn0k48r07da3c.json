@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. / Fliegende Blätter (Sammlung INr 39746, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "So lange der Mensch langsamer vergißt als er lernt, macht er Fortschritt.",
+  "language": [],
+  "musenalm_id": 39811,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So lange der Mensch langsamer vergißt als er lernt, macht er Fortschritt.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l38lxae0rk0y1a3",
+      "agents": "02o1v7ogp6q644r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.847Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.847Z"
+    }
+  ]
+}

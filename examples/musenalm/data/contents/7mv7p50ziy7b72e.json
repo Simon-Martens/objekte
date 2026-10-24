@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette an Emilie (Sammlung INr 90616, Obj 212)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "345",
+  "incipit_statement": "Die Rose blüht nur einen Lenz, da schweben / Aus ihrem Kelch' die Düfte auf zum Blauen;",
+  "language": [],
+  "musenalm_id": 90623,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 219,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Constant Wurzbach. (Laibach.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII.",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dhx26tkpqmvp6p3",
+      "agents": "wm9mmfgzc6wy00i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.391Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 164. /) Illustration zu »Friedrich Gonzaga« INr 46990, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieber Herr, O weckt ihn nicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mechau del. D. Berger sculps. 1788",
+  "scans": [
+    "alm_634_46991_y1ikq1rf30.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lieber Herr, O weckt ihn nicht",
+  "updated": "2006-12-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yehtr2uhbz1xctr",
+      "agents": "37z1qs9sbpbcupa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.400Z"
+    },
+    {
+      "id": "s4b0qd05dnvop1z",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.400Z"
+    }
+  ]
+}

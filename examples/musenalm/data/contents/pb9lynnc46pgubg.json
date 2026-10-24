@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "Was treibst du, Baum, doch Ein Stamm, / So mannigfaches Grün? / Die Blätter hier sind trüb und bleich, / Die dort so hell erglüh'n?",
+  "language": [],
+  "musenalm_id": 95378,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Berg-Eiche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Ritter v. Perger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Berg-Eiche",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "usxmj4qpeta4dpc",
+      "agents": "k1vb2ltzit1pkxn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.328Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.328Z"
+    }
+  ]
+}

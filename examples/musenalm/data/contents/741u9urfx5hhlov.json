@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Jene Angaben und Bemerkungen über die Sprache, Reiligion und Sitten der Hindus deuteten zwar sehr entschieden auf das hohe Alter dieser Nation;",
+  "language": [],
+  "musenalm_id": 42254,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Versuch einer kurzen Uebersicht der Hauptepochen von Hindostans Geschichte, / und seiner Revolutionen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Versuch einer kurzen Uebersicht der Hauptepochen von Hindostans Geschichte, / und seiner Revolutionen",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9quud4aom9nsu74",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.936Z"
+    }
+  ]
+}

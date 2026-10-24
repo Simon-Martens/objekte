@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Erster mahlerischer Steifzug nach Laxenburg, Schönau und Böslau« von Widemann INr 92676, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92682,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wasserspiegel bey dem Tempel der Nacht in Schönau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Maillard, Ludwig u. Blaschke, János",
+  "scans": [
+    "alm_4021_92682_6epufl9klz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Wasserspiegel bey dem Tempel der Nacht in Schönau",
+  "updated": "2013-09-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jtp8kjqehfg9jh1",
+      "agents": "jqx789ngxccpl2l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.572Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.572Z"
+    },
+    {
+      "id": "bvr30rlapldljz1",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.572Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.572Z"
+    }
+  ]
+}

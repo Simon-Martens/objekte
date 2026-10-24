@@ -1,0 +1,45 @@
+{
+  "annotation": "Übersetzung des vorstehenden Gedichts INr 96519, Obj 70",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Durch die Wasserfluht des Angä'schen Meeres / Stürmte brausend Africus, schwang den Fittig,",
+  "language": [],
+  "musenalm_id": 96520,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode an die Freude, / als die Friedenspräliminarien zwischen Frankreich und / England den 1. Oktbr. 1801 unterzeichnet waren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heidekamp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode an die Freude, / als die Friedenspräliminarien zwischen Frankreich und / England den 1. Oktbr. 1801 unterzeichnet waren",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "93zvjkd3ymdhed3",
+      "agents": "86ep8hnzghm0jfa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.425Z"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Freude« von C. A. Tiedge INr 13647, Obj 81 /) Photos 79101,01; 79101,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79101,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 176,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Freude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schneider",
+  "scans": [
+    "alm_218_79101_01_nre0ddp3w0.jpg",
+    "alm_218_79101_02_qm1gzc9lch.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Freude",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ftjxivxtjc82fuy",
+      "agents": "659wajziz7tp24k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.997Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Knospen (Sammlung INr 80412, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Ein Glück, daß Niemand deinen süßen Lippen / Es ansieht, wen beglückt ihr heißer Kuß;",
+  "language": [],
+  "musenalm_id": 80423,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Glück, daß Niemand deinen süßen Lippen / Es ansieht, wen beglückt ihr heißer Kuß;…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lc3ww6u8lo1suqb",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.890Z"
+    }
+  ]
+}

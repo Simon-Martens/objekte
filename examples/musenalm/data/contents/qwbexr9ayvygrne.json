@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64451, Obj 4) s. Graphik INr 64462, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Spinn, Maidli, spinn! / Es guckt Frau Holle zum Fenster herein;",
+  "language": [],
+  "musenalm_id": 64457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. Schwarzwälder Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. Schwarzwälder Mädchen",
+  "updated": "2009-06-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ja4eazcdrqeki6s",
+      "agents": "euexsjcr9ar4su1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.150Z"
+    }
+  ]
+}

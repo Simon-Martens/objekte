@@ -1,0 +1,43 @@
+{
+  "annotation": "Graphik im Kalendarium April; nummeriert 4; unter der Graphik S. 8. /) # Bez. am ersten Blatt der Suite /) Illustration zu »Der auf seine Abkunft stolze Maulesel« von J. La Fontaine INr 131793, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131781,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Riepenhausen del. sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen del. sc.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2ofz8wy0r784ed8",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.040Z"
+    }
+  ]
+}

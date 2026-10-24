@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Ich bleibe treu der frommen alten Mode, / Und schreib' es, nach bewunderndem Genuß",
+  "language": [],
+  "musenalm_id": 20830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Soli Deo Gloria",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Soli Deo Gloria",
+  "updated": "2002-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4wglzlg4k2su4k6",
+      "agents": "jq74p3fe1dijn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.953Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Walter Scott's Werken. Fünfte Lieferung. Quentin Durward. - Waverley. - Nigel's Schicksale. - Rokeby (Sammlung INr 43722, Obj 6) s. Graphik INr 43728, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.083Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Die schöne Isabelle hatte ihre Heirath mit dem Herzog von Orleans zwar abgewendet, allein der Herzog bestimmte sie nun öffentlich dem als Gattin, der ihm das Haupt des wilden Ebers der Ardennen (Wilhelm von der Mark) brächte.",
+  "language": [],
+  "musenalm_id": 43727,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Quentin Durward] 3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Quentin Durward] 3.",
+  "updated": "2006-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u8xzqtmk5dunbom",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.981Z"
+    }
+  ]
+}

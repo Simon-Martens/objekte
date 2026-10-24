@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Ermüdet von den Festen und Turnieren, die ihm zu Ehren an den Höfen der Fürsten angestellt worden, hatte sich Prinz Florido von seinem Gefolge vereinsamt,",
+  "language": [],
+  "musenalm_id": 1563,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prinz Floridio. / Ein Mährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prinz Floridio. / Ein Mährchen",
+  "updated": "2000-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pl051oe3n7ndya4",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.014Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Wärmer blickt die Sonne nieder, / Schon gerinnen Schnee und Eis",
+  "language": [],
+  "musenalm_id": 61962,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im März",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dorothee Spangenberg. geb. Wehrs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im März",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j52wjmbusp5s0ny",
+      "agents": "u7poegszzbmufqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.086Z"
+    }
+  ]
+}

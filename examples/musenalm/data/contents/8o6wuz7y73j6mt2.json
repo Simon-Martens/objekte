@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. und Titel aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Die Einwohner scheinen mit den Bissaja's auf den Philippinen zu einem Stamme zu gehören,",
+  "language": [],
+  "musenalm_id": 42367,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Die Suluinseln] Einwohner #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Die Suluinseln] Einwohner #",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l9l49n9iy02xyee",
+      "agents": "q5rzjlx40lnqx6r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.287Z"
+    }
+  ]
+}

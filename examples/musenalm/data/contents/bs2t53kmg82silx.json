@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Liebe (Sammlung INr 31771, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Zu lieben leb' ich - liebe, um zu leben, / Denn Liebe nur ist Nahrung meinem Wesen.",
+  "language": [],
+  "musenalm_id": 31772,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonett 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonett 1.",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bcu5f9vjibzc32u",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.510Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.510Z"
+    }
+  ]
+}

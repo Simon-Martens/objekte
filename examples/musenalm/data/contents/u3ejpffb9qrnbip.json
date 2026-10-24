@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.080Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 24979,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich Rückert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Barth del. ad viv. et sculps 1833, H. Felsing impr.",
+  "scans": [
+    "alm_333_24979_2p6lp684xn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich Rückert",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ghs3ha2jd6i2rbs",
+      "agents": "ak2qa5c9tflxdbf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.053Z"
+    },
+    {
+      "id": "388aoipmt9d6zep",
+      "agents": "ne3jlvtqkn3q0lu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.053Z"
+    }
+  ]
+}

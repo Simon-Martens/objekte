@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 5.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50778,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nahe bey St. Johann im Medelser Thal in Bünten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Hess del.S. Geßner f.",
+  "scans": [
+    "alm_688_50778_7x12y4vxng.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nahe bey St. Johann im Medelser Thal in Bünten",
+  "updated": "2007-07-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eya5ps74x5oqj4r",
+      "agents": "uc4ahm2w7hhtikb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.662Z"
+    },
+    {
+      "id": "8lpb464r1f1b4qx",
+      "agents": "pua8u6y6ts6oo5o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.662Z"
+    }
+  ]
+}

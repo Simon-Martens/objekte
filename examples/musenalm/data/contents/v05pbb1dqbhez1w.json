@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium April paginiert 5. /) Illustration zu »König Heinrich IV.« von W. Shakespeare s. Textbezug INr 73337, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.400Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73338,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein hübscher, ehrenfester und un- / tersetziger Mann, von einnehmen- / dem Blick. / II. Aufz. 4r. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del.",
+  "scans": [
+    "alm_159_73338_5nmrp9bk3e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein hübscher, ehrenfester und un- / tersetziger Mann, von einnehmen- / dem Blick. / II. Aufz. 4r. Auftr.",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1g9yvhwqqu6wf29",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.799Z"
+    }
+  ]
+}

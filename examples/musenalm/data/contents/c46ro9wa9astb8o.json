@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. aus dem G-Verz /) paginiert 2. Illustration zu »Nonne und Novize« INr 59570, Obj 88 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59571,
+  "musenalm_pagination": [
+    "5. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nonne und Novize #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie Hüssener. # Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59571_53f01ws560.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nonne und Novize #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wvp2f7zxm27ps7r",
+      "agents": "72o4yxg38lxragr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.020Z"
+    },
+    {
+      "id": "dr9brg9ljo5wl2v",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.020Z"
+    }
+  ]
+}

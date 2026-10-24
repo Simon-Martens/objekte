@@ -1,0 +1,56 @@
+{
+  "annotation": "Neunzehn Serbische Lieder (Sammlung INr 55699, Obj 88) Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Mädchen, niedlich kleines Veilchen, / Lieben möchte ich dich, aber bist klein!",
+  "language": [],
+  "musenalm_id": 55709,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "[übers.] Brüder Grimm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10.",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "amm4x84s5zr231x",
+      "agents": "hzws8t1sn4cz0f6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.867Z"
+    },
+    {
+      "id": "d6oftdl7s5mad31",
+      "agents": "3grzeu7khs4sl5r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.867Z"
+    }
+  ]
+}

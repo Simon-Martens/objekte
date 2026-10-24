@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 103347, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103346,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lotte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Oeconomo pinx. Jg. Lechleitner sc.",
+  "scans": [
+    "alm_4089_103346_5wnwr0hdwl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lotte",
+  "updated": "2014-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "24m2d75skgnk8qu",
+      "agents": "g2qza1gvj3rffe8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.930Z"
+    }
+  ]
+}

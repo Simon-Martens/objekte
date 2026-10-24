@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Wir waren geraume Zeit auf der Hochebne hingefahren. Die Aussicht aus dem Fenster des Wagens bot nichts, was meine Aufmerksamkeit hätte fesseln können.",
+  "language": [],
+  "musenalm_id": 59681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wetzlar und Werther",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kugler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wetzlar und Werther",
+  "updated": "2008-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bafiag5mycysmn5",
+      "agents": "dlauvagqjefeu2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.834Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.834Z"
+    }
+  ]
+}

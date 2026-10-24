@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln und Naturbilder (Sammlung INr 37073, Obj 198)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "In Rüben- und Kartoffelfeld / Sieht man den Eber wühlen,",
+  "language": [],
+  "musenalm_id": 37075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 200,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Wühlendesten einer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abr. Em. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Wühlendesten einer",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ebl0xe6ejrswhw",
+      "agents": "94rmjnpm6yfqwop",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.766Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.766Z"
+    }
+  ]
+}

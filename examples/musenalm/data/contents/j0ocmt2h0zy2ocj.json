@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Der Winter bestürmt auf schlagenden Flügeln, / Mit reißender Wuth mein düsteres Thälchen,",
+  "language": [],
+  "musenalm_id": 8401,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn Göckingk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Unzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn Göckingk",
+  "updated": "2000-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mivl5lp2bhtumag",
+      "agents": "72ib6ghxkur1aqm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.257Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.257Z"
+    }
+  ]
+}

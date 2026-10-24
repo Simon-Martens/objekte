@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Die Blume welkt dahin und bald erblei- / chen, / Zu falbem Grau, der Rose schöne Far- / ben:",
+  "language": [],
+  "musenalm_id": 118438,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebenstrost. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebenstrost. / Sonett",
+  "updated": "2017-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2koan0gq1qz1wcf",
+      "agents": "jmyhk43hfbh7agh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.591Z"
+    }
+  ]
+}

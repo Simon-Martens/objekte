@@ -1,0 +1,45 @@
+{
+  "annotation": "6. Charaden (Sammlung INr 66837, Obj 55) XXII. Gedichte (Sammlung INr 66831, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.857Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Die ersten beiden Silben nennen / Ein Völkchen, das von Jugend auf / Die Jäger allzugut nur kennen,",
+  "language": [],
+  "musenalm_id": 66838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2009-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dzh95pl3i309bmy",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.259Z"
+    }
+  ]
+}

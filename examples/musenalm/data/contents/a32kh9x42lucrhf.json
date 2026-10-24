@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Margarethe von Anjou, Gemahlin Heinrich VI, Königs von England« 47865, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.520Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47818,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie, morden wollt ihr den Sohn eures Königs?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Meno Haas sc. Berlin 1806",
+  "scans": [
+    "alm_652_47818_50dqeuvy3c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wie, morden wollt ihr den Sohn eures Königs?",
+  "updated": "2007-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8l2ju3crg6d0vzo",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.408Z"
+    },
+    {
+      "id": "wnxilf9rqgv2dj7",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.408Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80556, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Erbleichen seh' ich alle Lebensfarben, / Und fallen seh' ich alle Lebensblüten;",
+  "language": [],
+  "musenalm_id": 80557,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Lebensgram",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Lebensgram",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2cghmc9sb1carvk",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.938Z"
+    }
+  ]
+}

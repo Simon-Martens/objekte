@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Willkommen, süße Kleine / In unsre Blüthenhaine!",
+  "language": [],
+  "musenalm_id": 63075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Nachtigall, / den 1. May 1779",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. C. C. L. R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Nachtigall, / den 1. May 1779",
+  "updated": "2000-10-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1hrxlrujqeafpyb",
+      "agents": "dxi2hql7exffxou",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.978Z"
+    }
+  ]
+}

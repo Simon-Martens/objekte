@@ -1,0 +1,45 @@
+{
+  "annotation": "Xenien (Sammlung INr 45812, Obj 219)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "307",
+  "incipit_statement": "Träf' ich mich wo am dritten Ort, / Gern setzt' ich die Bekanntschaft fort.",
+  "language": [],
+  "musenalm_id": 45819,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 226,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Träf' ich mich wo am dritten Ort, / Gern setzt' ich die Bekanntschaft fort.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uqd3coamad8181w",
+      "agents": "ijwiphnikfuhyxf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.346Z"
+    }
+  ]
+}

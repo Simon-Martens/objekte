@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Mag das vielbewegte Leben / Mich in wechselnder Gestalt, / Lockend, reizerfüllt umgeben,",
+  "language": [],
+  "musenalm_id": 80788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stegreif-Glosse. / Mondbeglänzte Zaubernacht, / Die den Sinn gefangen hält; / Wundervolle Märchenwelt, / Steig' herauf in alter Pracht! / Ludwig Tieck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Leonhardt-Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stegreif-Glosse. / Mondbeglänzte Zaubernacht, / Die den Sinn gefangen hält; / Wundervolle Märchenwelt, / Steig' herauf in alter Pracht! / Ludwig Tieck",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sx942us3qem3c9w",
+      "agents": "3tut4t2f7uno1ba",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.916Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "Sey mir gegrüßt, kleine liebliche Blüthe, / Frühlingsverkündigerin;",
+  "language": [],
+  "musenalm_id": 84529,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 351,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwarzdornen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Fried. v. Kamiensky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwarzdornen",
+  "updated": "2010-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wtdzbivmgxm789z",
+      "agents": "7jelrs51jpkif7t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.986Z"
+    }
+  ]
+}

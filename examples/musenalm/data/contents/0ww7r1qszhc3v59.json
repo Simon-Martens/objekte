@@ -1,0 +1,45 @@
+{
+  "annotation": "140c /) Sammlung von 4 Gedichten mit einem Vorwort INr 52142-52146, Obj 126-130 /) Scenen aus dem Landleben (Sammlung INr 52133, Obj 117)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.443Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52141,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder für Landmädchen, / Abends beim Melken der Kühe zu singen.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder für Landmädchen, / Abends beim Melken der Kühe zu singen.",
+  "updated": "2007-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jhiyty2mbuoa3gj",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.701Z"
+    }
+  ]
+}

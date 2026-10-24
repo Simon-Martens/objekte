@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.675Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "O Freundinn, mit dem Reiz Melpomenens ge- / schmückt! / Nie hörst du auf, das Herz zu rühren.",
+  "language": [],
+  "musenalm_id": 79140,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Madem. Schulz, / als sie Leipzig verließ",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clodius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Madem. Schulz, / als sie Leipzig verließ",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "34pn2injltdck02",
+      "agents": "7qisyncyozjhj09",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.815Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) Illustration zu »Wilhelm der Weise, Landgraf von Hessen-Kassel« von Justi INr 97831, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97825,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WILHELM IV. DER WEISE, / Langraf von Hessen-Cassel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gem. v. Weygandt gest. v. G. Boettger sen.",
+  "scans": [
+    "alm_3499_97825_7iimob64zj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WILHELM IV. DER WEISE, / Langraf von Hessen-Cassel",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2v017fossa9w63y",
+      "agents": "ch0qn5ha47y5yn9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.799Z"
+    },
+    {
+      "id": "jqy57zql4pz18p2",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.799Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.602Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "In Dresden. Auch ein Theolog und Bellettrist. Er ist der Verfasser des praktischen Ehestandskatechismus, der sich durch und durch mit gar nichts auszeichnet.",
+  "language": [],
+  "musenalm_id": 98763,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "M. Stemler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "M. Stemler",
+  "updated": "2009-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rp548ituz0argp6",
+      "agents": "wqzupcw1vi6tnne",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.699Z"
+    }
+  ]
+}

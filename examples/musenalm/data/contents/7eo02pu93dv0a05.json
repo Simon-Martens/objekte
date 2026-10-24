@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen (Wort-Erklärungen)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.527Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Mys Hüsi ist zwar nume chly, / U wenig Herd derzue. / Zwo Jucherte wird alles sy; / Chuum für 'ne halbi Chue.",
+  "language": [],
+  "musenalm_id": 53408,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Apfelbaum. / Berner-Mundart",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Apfelbaum. / Berner-Mundart",
+  "updated": "2007-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "adyofeiejp0azjq",
+      "agents": "0v61flsplw084qp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.790Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.790Z"
+    }
+  ]
+}

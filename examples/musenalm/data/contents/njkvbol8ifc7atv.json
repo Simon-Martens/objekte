@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 71812-71817, Obj 14-19 als Textbezüge zu den Graphiken des Almanachs",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71811,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blätter aus dem Leben eines Amors",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Christian Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blätter aus dem Leben eines Amors",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eys7nzoqwgyvp23",
+      "agents": "zx4hokgptxl8kwz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.370Z"
+    }
+  ]
+}

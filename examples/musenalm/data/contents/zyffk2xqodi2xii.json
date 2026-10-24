@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 81083, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.677Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "In dem fernen Blütenlande, / Am Tyrrhener Meerestrande, / Tritt mit mir in jene Grotte,",
+  "language": [],
+  "musenalm_id": 81107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Ein Januarlied. / (1848.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Ein Januarlied. / (1848.)",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0u29vpyql3yumyu",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.816Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.816Z"
+    }
+  ]
+}

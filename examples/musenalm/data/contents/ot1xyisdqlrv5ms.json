@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.076Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Die Römer sind es euch; die Griechen laßt / ihr liegen? / Ihr nehmt das Ey, und laßt die Henne flie- / gen.",
+  "language": [],
+  "musenalm_id": 36315,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sitt' und Weise der Neuern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sitt' und Weise der Neuern",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "46nbgmyjtettf68",
+      "agents": "ckd4l48jtgsgmor",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.979Z"
+    }
+  ]
+}

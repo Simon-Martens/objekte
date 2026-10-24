@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.600Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Hör' ich des Ruhmes so viel von deiner Stärke / der Knochen, / Doch von der Stärke des Geist's, keinen belo- / benden Laut;",
+  "language": [],
+  "musenalm_id": 91862,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Starke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. W. Schießler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Starke",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q4ugaetrkr4fzca",
+      "agents": "eips0ml7kk6xorw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.302Z"
+    }
+  ]
+}

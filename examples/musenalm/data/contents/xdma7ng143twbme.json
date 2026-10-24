@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Die Sonne sinkt ins kühle Grab der Fluthen, / Des Tages laute Jubeltöne schweigen;",
+  "language": [],
+  "musenalm_id": 62561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sterne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Schwartz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sterne",
+  "updated": "2009-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u2484duqmlv1ts3",
+      "agents": "9w8gqkxlg6tfam5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.088Z"
+    }
+  ]
+}

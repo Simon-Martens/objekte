@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Unheil'ger Pöbel, den ich haß', entweiche! / Sprich kein entweihend Wort und schweige!",
+  "language": [],
+  "musenalm_id": 8565,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach / der ersten Ode des 3ten Buchs vom Horaz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach / der ersten Ode des 3ten Buchs vom Horaz",
+  "updated": "2000-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wf8cp1ngr2jnnnk",
+      "agents": "57y4of9yk0759mz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.722Z"
+    }
+  ]
+}

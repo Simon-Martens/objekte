@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Laßt, Beste! euch das Ideal / von einem edlen Weibe schildern,",
+  "language": [],
+  "musenalm_id": 32759,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das weibliche Leben / An Elise von Türkheim / und / Maria von Montbrison",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Schweighäuser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das weibliche Leben / An Elise von Türkheim / und / Maria von Montbrison",
+  "updated": "2003-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gnunlwqa1y2b6ed",
+      "agents": "07qu7qawpxno6h3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.700Z"
+    }
+  ]
+}

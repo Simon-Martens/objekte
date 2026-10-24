@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Wohl mir, daß ich bei Zeiten, / Mein Hüttchen in ein Thal gebaut,",
+  "language": [],
+  "musenalm_id": 96399,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Genügsamkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Liebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Genügsamkeit",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c7mgptydoberq60",
+      "agents": "bhyvkh2a1vif6bg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.667Z"
+    }
+  ]
+}

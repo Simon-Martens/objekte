@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 67256, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Im Winter 1788 gieng ich eines Vormittags an dem Remsflusse unfern dem Dorfe Winterbach im Königreich Würtemberg gelegen-",
+  "language": [],
+  "musenalm_id": 67264,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Außerordentliche Dreistigkeit des gemeinen / Habichts, Falco palumbarius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Oberforstrath und Professor, Graf von Sponeck in Heidelberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Außerordentliche Dreistigkeit des gemeinen / Habichts, Falco palumbarius",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vcugvlbbmgyxarc",
+      "agents": "b96bpcyyap183qh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.211Z"
+    }
+  ]
+}

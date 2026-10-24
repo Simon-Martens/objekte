@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Beitrag vorangestellt: Tenacem propositi. Horat",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.520Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Gesellen, rasch an's Werk und ungesäumt, / Daß bald ein reines Bild dem Aug' sich zeige,",
+  "language": [],
+  "musenalm_id": 115367,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schillers Ehrenmahl, / ein / dramatisches Gedicht.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Treitschke [sic.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schillers Ehrenmahl, / ein / dramatisches Gedicht.",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jsv8gqvb0tjcfaq",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.383Z"
+    }
+  ]
+}

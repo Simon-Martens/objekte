@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Den ganzen Tag, hör' ich, sey unter / Euch die Frage:",
+  "language": [],
+  "musenalm_id": 12790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Seelenarzt zu N. / an seine Gemeinde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. C. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Seelenarzt zu N. / an seine Gemeinde",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xrmvrceglyfolya",
+      "agents": "b349lt9abynr81b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.590Z"
+    }
+  ]
+}

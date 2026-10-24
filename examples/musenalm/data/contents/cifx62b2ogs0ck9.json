@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der blonde Eckbert« von L. Tieck INr 65358, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65355,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der blonde Eckbert #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hensel gez. Stahlstich v. Ernst Rauch Darmstadt",
+  "scans": [
+    "alm_1101_65355_guatdujey1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der blonde Eckbert #",
+  "updated": "2009-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xjj5e9q0v2uw0kn",
+      "agents": "902nw56856wz9rx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.008Z"
+    },
+    {
+      "id": "7wmdmhm4c81pmjl",
+      "agents": "k7ib4tmw0w1jiao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.008Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Scenen aus der Familie Ehrenberg« II INr 47732, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.951Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47692,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deinen Segen dem zarten Sproessling!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Rosmaesler sc.",
+  "scans": [
+    "alm_650_47692_diyvjamr1k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Deinen Segen dem zarten Sproessling!",
+  "updated": "2007-01-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6n5rey01arsrlfs",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.674Z"
+    }
+  ]
+}

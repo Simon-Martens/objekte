@@ -1,0 +1,45 @@
+{
+  "annotation": "Hoz a mai, domaun a tai. Heute mir, morgen dir. (Sammlung INr 103560, Obj 22) mit einer Illustration s. Graphik INr 103571, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "In den letzten Tagen der Messe des Heiligen begab es sich, daß Achilles Cornär auf seine Freund Volpone stieß, der eben wieder von Arqua, wohin ihn des Pflegers Tonio strenger Befehl berufen, heimkam.",
+  "language": [],
+  "musenalm_id": 103570,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Bündnerfahrt und Wiedersehen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Bündnerfahrt und Wiedersehen",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8idfivknbd7jgwy",
+      "agents": "jo3symqxy3hqpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.163Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.163Z"
+    }
+  ]
+}

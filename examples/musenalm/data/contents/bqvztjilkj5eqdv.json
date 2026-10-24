@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Wiedersehn« von Schink INr 11705, Obj 141 (Photos 11706,01; 11706,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11706,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 140,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiedersehn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Methfessel",
+  "scans": [
+    "alm_205_11706_s2lw0d9mkd.jpg",
+    "alm_205_11706_01_ds1b6cpz06.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wiedersehn",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uhn0zhzz830qapk",
+      "agents": "t6tmc9piui1sdr1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.542Z"
+    }
+  ]
+}

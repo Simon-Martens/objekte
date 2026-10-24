@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Die Dichterseele gleichet einem Kinde, / Deß Mutter starb, da es zur Welt gekommen,",
+  "language": [],
+  "musenalm_id": 111686,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dichterseele",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Pfau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dichterseele",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dulxy0hu76f6jjp",
+      "agents": "faiv8kpnorpjyle",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.369Z"
+    }
+  ]
+}

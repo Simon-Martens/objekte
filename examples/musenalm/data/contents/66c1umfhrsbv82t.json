@@ -1,0 +1,67 @@
+{
+  "annotation": "# vollst. Bez. s. Textbezug INr 86336, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86337,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sylvesternacht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kleine. C. Preissel & C. Geyer gest.",
+  "scans": [
+    "alm_1599_86337_jeb0opifo2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Sylvesternacht",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "67pxrieeacr018k",
+      "agents": "munofog7wm9vdao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.076Z"
+    },
+    {
+      "id": "h6xj0inaakk7o54",
+      "agents": "9s6c9wuymvvgbhx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.076Z"
+    },
+    {
+      "id": "pfm8veb46h95gbe",
+      "agents": "k9ac0a5lkd5h6nx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.076Z"
+    }
+  ]
+}

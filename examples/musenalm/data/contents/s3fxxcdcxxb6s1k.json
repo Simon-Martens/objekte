@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Wenn im Arm der Natur sinnend der Sterb- / liche / Sich im stillen Erguss heiliger Regung wiegt,",
+  "language": [],
+  "musenalm_id": 42771,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Natur und Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. G. H. Burdach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Natur und Liebe",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "um2yx8m77rv8419",
+      "agents": "dn5dhh6simigjuj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.808Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Nach der Melodie eines alten Liedes, welches anfängt: Ihr mißvergnügten Stunden /) mit einer Musikbeigabe s. INr 63087, Obj 73",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Ihr bangen schwarzen Stunden, / Wann endet eure Qual? / Nach tausend blutgen Wunden / Zerreiß o Herz, einmal!",
+  "language": [],
+  "musenalm_id": 63086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jakobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied",
+  "updated": "2000-10-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7o5ewo4bx126ufa",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.282Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 34190, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34187,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (gez. v. Albrier. Gest. v. Bain in Paris)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Albrier. Gest. v. Bain in Paris",
+  "scans": [
+    "alm_474_34187_yk3g1zn4e3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4odbm8wp9qqqpnv",
+      "agents": "96z5widx3aa60z4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.738Z"
+    },
+    {
+      "id": "gjz5qqmuj8jlxgh",
+      "agents": "zmvjdej6nue3uh9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.738Z"
+    }
+  ]
+}

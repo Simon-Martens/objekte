@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Willkommen, edler Graf, als Siegesboth / und Sieger!",
+  "language": [],
+  "musenalm_id": 31377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den / Oberstlieutenant / Grafen von Dietrichstein / als Kourir von Valenciennes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alxinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den / Oberstlieutenant / Grafen von Dietrichstein / als Kourir von Valenciennes",
+  "updated": "2003-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "781auurcfllros0",
+      "agents": "3v0kb6a8a8y5rhb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.518Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.518Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug (Gedicht) INr 95806, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95795,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Thom. Weber de. P. J. Laminit sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thom. Weber de. P. J. Laminit sc.",
+  "scans": [
+    "alm_3829_95795_n8pdxz338f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-06-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y540ki5ltmr4bi0",
+      "agents": "h38sezk5a79h4rw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.704Z"
+    },
+    {
+      "id": "66yzfweg938edqy",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.704Z"
+    }
+  ]
+}

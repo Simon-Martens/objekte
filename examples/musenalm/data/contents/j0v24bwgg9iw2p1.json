@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Bruchstücke aus einem ungedruckten Drama, genannt: Heliodor, oder der anvertraute Schatz« INr 78404, Obj 59",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78405,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Perger del. V. R. Grüner sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del. V. R. Grüner sc.",
+  "scans": [
+    "alm_3732_78405_ewr8nh7rzb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3vxnqfxrmk8j42v",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.757Z"
+    },
+    {
+      "id": "5xvp5colv99fmek",
+      "agents": "mwvtf64bmzwstck",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.757Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 28278, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Nun wohl, morgen fahren wir ab! So sprach der alte Wilmsen, mit gerunzelter Stirn zu seiner sechszehnjährigen Tochter,",
+  "language": [],
+  "musenalm_id": 28285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Die treue Margarethe. / Eine Geschichte aus dem Saterlande",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Die treue Margarethe. / Eine Geschichte aus dem Saterlande",
+  "updated": "2002-10-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8c4iy7fsf3n99yj",
+      "agents": "7hrixw0ala3em4o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.423Z"
+    }
+  ]
+}

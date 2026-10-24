@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Marie-Antoinette, Königin von Frankreich. Biographische Skizze« INr 89800, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89802,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie Antonie im Kreise / einer armen Familie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc.",
+  "scans": [
+    "alm_3985_89802_753whm8d15.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marie Antonie im Kreise / einer armen Familie",
+  "updated": "2013-06-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0kckm94b0ftqjmm",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.412Z"
+    }
+  ]
+}

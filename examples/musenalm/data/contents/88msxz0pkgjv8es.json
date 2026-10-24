@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 8694, Obj 100",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Wie klingt's so bänglich drüben! / Trieb Liebe ihn? Was trieb ihn hin,",
+  "language": [],
+  "musenalm_id": 1185,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sängers Einsamkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "SIEGFR. SCHMIDT",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sängers Einsamkeit",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mn0qdavywe12lek",
+      "agents": "sp8fzkkoycmk1ye",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.704Z"
+    }
+  ]
+}

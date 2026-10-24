@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium September /) Illustration zu »Schein und Wahrheit« von Georg Carril INr 120478, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120467,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schein und Wahrheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. Jung sc.",
+  "scans": [
+    "alm_1009_120467_uujxuthmh7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schein und Wahrheit",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ceyxncl1s68zvy",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.730Z"
+    }
+  ]
+}

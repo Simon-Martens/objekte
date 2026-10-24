@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Der Liebestrank« von Fouqué INr 19623, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61763,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebestrank, v. Fouqué s. 2s. Bl.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke del. H. C. Müller sc.",
+  "scans": [
+    "alm_265_61763_oxx7b37uki.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebestrank, v. Fouqué s. 2s. Bl.",
+  "updated": "2001-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "613mpmaoanmcvhk",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.953Z"
+    }
+  ]
+}

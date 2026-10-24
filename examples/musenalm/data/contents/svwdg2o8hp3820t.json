@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 5. /) Illustration zu »Die Prophezeiung« INr 92899, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92900,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deine Schönheit strahlt wie die Sonne, / und du wirst herrschen über die welche / ihrem Feuer huldigen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Matthaei J. Blaschke sc.",
+  "scans": [
+    "alm_4082_92900_v4swz251q5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Deine Schönheit strahlt wie die Sonne, / und du wirst herrschen über die welche / ihrem Feuer huldigen",
+  "updated": "2013-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aokzkoqzyx8oslf",
+      "agents": "k01z45djkjhmx1a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.248Z"
+    },
+    {
+      "id": "gbc2btwk3w1rq5u",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.248Z"
+    }
+  ]
+}

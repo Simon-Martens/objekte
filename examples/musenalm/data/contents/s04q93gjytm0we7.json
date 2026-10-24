@@ -1,0 +1,45 @@
+{
+  "annotation": "Garten und Park (Sammlung INr 52866, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Mich erzeugte der Süd und schuf aus heiterer Hoffnung / Ewig dauerndem Grün mir mein dauernd Gewand.",
+  "language": [],
+  "musenalm_id": 52872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. Die Myrthe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. Die Myrthe",
+  "updated": "2007-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1gx8ey5vtobx441",
+      "agents": "nj18pm3lt87v37m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.688Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Gedichte (Sammlung INr 29176, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.386Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Ist es Flattersinn? Mit tiefem Feuer / Nährte stets der Freundschaft Treu dein Herz!",
+  "language": [],
+  "musenalm_id": 36875,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einmal und Ewig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einmal und Ewig",
+  "updated": "2002-10-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t2gmalhi2ntfank",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.061Z"
+    }
+  ]
+}

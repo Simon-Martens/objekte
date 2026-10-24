@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Ergeuß, ergeuß, o du mein Auge / Freudenthränen! / Du, meine Harfe, / Preise den Herrn!",
+  "language": [],
+  "musenalm_id": 92439,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Frühlingsfeyer. / Fragment",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Frühlingsfeyer. / Fragment",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jfk3wti1dzws8me",
+      "agents": "ckd4l48jtgsgmor",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.372Z"
+    }
+  ]
+}

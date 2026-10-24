@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Gedichte (Sammlung INr 39943, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "464",
+  "incipit_statement": "Für einen Freund, den unsre Seele liebet, / Das Leben opfern - schöne Menschthat;",
+  "language": [],
+  "musenalm_id": 39948,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Märtyrer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Märtyrer",
+  "updated": "2005-08-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pspnxukoktr16q3",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.207Z"
+    }
+  ]
+}

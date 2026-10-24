@@ -1,0 +1,46 @@
+{
+  "annotation": "falsche Paginierung, richtig: 223",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Es war eine Zeit, wo die Welt und unsre Erde noch nicht waren, aber Gott wollte, und sie wurden. Er sprach, und sie waren geschaffen",
+  "language": [],
+  "musenalm_id": 75179,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Tabelle"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kurze Geschichte des menschlichen / Geschlechts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kurze Geschichte des menschlichen / Geschlechts",
+  "updated": "2011-05-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "21znqt30llz9ux3",
+      "agents": "58byfz890fzelu8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.842Z"
+    }
+  ]
+}

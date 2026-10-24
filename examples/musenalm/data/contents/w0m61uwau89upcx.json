@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung mit 4 Gedichten und Sammlung von 3 Gedichten INr 39033-39040, Obj 221-228",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.118Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 220,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Alwin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qt5lhgoof1tbl0q",
+      "agents": "f3osne4kqhtasqa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.166Z"
+    }
+  ]
+}

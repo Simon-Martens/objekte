@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Um die achte Abendstunde machte Frau Margarethe die Thür der kleinen Stube auf, in welche ihr Mann arbeitete, und erstaunt blieb sie an der Schwelle stehen,",
+  "language": [],
+  "musenalm_id": 77782,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe in alter Zeit. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Mügge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe in alter Zeit. / Eine Novelle",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0v7jvpk1hl29ede",
+      "agents": "kfaol2n4gz6m4dn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.696Z"
+    }
+  ]
+}

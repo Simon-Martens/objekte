@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Du mußt mir den Jungen auch nicht gar zu hart schelten, Väterchen, sagte gutmüthig Frau Walburga zu ihrem greisen Gatten,",
+  "language": [],
+  "musenalm_id": 94829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Großvaterstuhl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Straube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Großvaterstuhl",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "czz3a6cilm4rbvn",
+      "agents": "osmeoxw3ivqw3j5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.744Z"
+    }
+  ]
+}

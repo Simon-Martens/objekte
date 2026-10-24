@@ -1,0 +1,47 @@
+{
+  "annotation": "kol. Illustration zu »Haushaltung einer Dichterinn« von Kurländer (INr 125175, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haushaltung einer Dichterinn. 1 Act, 4 Scene. / Bohldorf. / »Wie ein Maulesel willst du sagen?«",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. C. Böhme sc.",
+  "scans": [
+    "alm_1263_125176_v6kg9z8ft1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Haushaltung einer Dichterinn. 1 Act, 4 Scene. / Bohldorf. / »Wie ein Maulesel willst du sagen?«",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lvtq156morjr7pg",
+      "agents": "oec592l87zwoa47",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.869Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 6 /) Graphik im Kalendarium Juni /) Illustration zu »Promenades de Mr. Le Noble. Tom. III. nouv. 6« s. G-Verz INr 69948, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69941,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blasius läst sich durch einen Trödler kleiden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. et del. D. Berger sculpsit Berolini",
+  "scans": [
+    "alm_787_69941_ye611aejpm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Blasius läst sich durch einen Trödler kleiden",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w20l9oi43m2kh4w",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.431Z"
+    },
+    {
+      "id": "kksal25w7m4gdw5",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.431Z"
+    }
+  ]
+}

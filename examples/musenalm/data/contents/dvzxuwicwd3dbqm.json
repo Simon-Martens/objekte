@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-08T10:23:33.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Was stürmt ihr so feindlich das menschliche Herz, / Ihr Wünsche, ihr Freuden und Sorgen?",
+  "language": [],
+  "musenalm_id": 140514,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kampf und Friede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederike Susan, geb. Sulzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kampf und Friede",
+  "updated": "2026-09-08T10:25:59.559Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "gwvgge6ahlmswmu",
+      "agents": "3f48m7dc4honoam",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-08T10:25:59.561Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-08T10:25:59.561Z"
+    }
+  ]
+}

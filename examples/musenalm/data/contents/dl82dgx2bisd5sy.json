@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Schon zu der langen Ruhe willst dich neigen, / Natur - der Jugend fröhliche Gewande / ablegend,",
+  "language": [],
+  "musenalm_id": 27692,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbstklagen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Graf Kalkreuth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herbstklagen",
+  "updated": "2002-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wmxvo4cobuv1ogi",
+      "agents": "7s14awjauhcdi1w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.210Z"
+    }
+  ]
+}

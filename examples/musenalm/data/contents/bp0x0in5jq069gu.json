@@ -1,0 +1,45 @@
+{
+  "annotation": "Liedchen (Sammlung INr 34674, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Die weite Gegend liegt so still, / Kein Blättchen selbst sich regen will,",
+  "language": [],
+  "musenalm_id": 34679,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Ständchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Kilzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Ständchen",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zl7du239hoc42tj",
+      "agents": "tcaorsyhw9evcti",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.962Z"
+    }
+  ]
+}

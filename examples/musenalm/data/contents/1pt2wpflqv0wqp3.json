@@ -1,0 +1,45 @@
+{
+  "annotation": "Musikalische Fragmente aus Ritter Franz von Walldorf, einem ungedruckten Schauspiele (Sammlung INr 30907, Obj 80)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "O könnt' ich zu ihren Füssen / Diese Last von meinem Schmerz, / All ausjammern, ganz ergiessen",
+  "language": [],
+  "musenalm_id": 30910,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Walldorf, Planfort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Walldorf, Planfort",
+  "updated": "2003-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hgssstpij43tjon",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.708Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.708Z"
+    }
+  ]
+}

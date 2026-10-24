@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Reise des Juweliers« von Arthur vom Nordstern d.i. Gottlob Adolf Ernst von Nostitz-Jänkendorf INr 20748, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67900,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Reise des Juweliers von Arth. v. Nordstern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Seb. Langer sc.",
+  "scans": [
+    "alm_274_67900_9ci6764yfa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Reise des Juweliers von Arth. v. Nordstern",
+  "updated": "2002-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j3h0k0bp2wwc9v8",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.422Z"
+    },
+    {
+      "id": "iz28fyr3ue0vxwy",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.422Z"
+    }
+  ]
+}

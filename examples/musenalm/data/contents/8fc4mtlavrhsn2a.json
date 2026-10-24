@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Prolog zum dritten Akt der Tragödie, König Yngurd /) ## Paginiert 84a-84g",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Wohl ist es Brauch, daß, wie der Vorhang steiget, / Der euren Blick vom Raum der Bühne schied,",
+  "language": [],
+  "musenalm_id": 19838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Scald' und der Held #, ##",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Müllner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Scald' und der Held #, ##",
+  "updated": "2001-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e6jisvimkd563mh",
+      "agents": "fy9yit4uuer2yhm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.903Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 8. /) Illustration zu »Das Theater zu Abdera« von J. Fr. Schink s. Textbezug INr 61220, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61221,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kniebeugend überreichte er ihm den Geldbeutel. / Schinks Abdera. 2. Th. p. 121",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Barbiez del. L. Buchhorn sc.",
+  "scans": [
+    "alm_956_61221_cninzjg2pg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kniebeugend überreichte er ihm den Geldbeutel. / Schinks Abdera. 2. Th. p. 121",
+  "updated": "2008-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lh6rkfunwv5tpmn",
+      "agents": "z3xj5kkwhch6rva",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.992Z"
+    }
+  ]
+}

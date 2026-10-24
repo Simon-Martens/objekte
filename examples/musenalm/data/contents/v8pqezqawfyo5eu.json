@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 116716, Obj 13 /) Illustration zu »Bertha von Emmernerg« von Max. Hardtmuth INr 116726, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116715,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bertha",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton Bogner del et sc.",
+  "scans": [
+    "alm_3216_116715_9y3dqtpdk2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bertha",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d96c2jva4mva1ti",
+      "agents": "p0di0vtr4p5pck5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.539Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Erbprinzen-Garten in Carlsruhe« INr 74873, Obj 12 /) # Titel s. Textbezug INr 74877, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grund und Aufriß des Vogelhauses #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haldenwang",
+  "scans": [
+    "alm_3119_74880_v6dapby3rj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Grund und Aufriß des Vogelhauses #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ashyu0uyvm7gnl",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.476Z"
+    }
+  ]
+}

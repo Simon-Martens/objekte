@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.192Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "369",
+  "incipit_statement": "Von da Mühl ihran G’spiel / Woaß i a wundalis G’soad; / ’S Mühlrad schnuart, ’s Radl suart / Und es aachzt im Load",
+  "language": [],
+  "musenalm_id": 122986,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 245,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Mühlrad sei Load",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Anselm Pangkofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Mühlrad sei Load",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "391idyfw9jnxrtc",
+      "agents": "e1ej71krebuh2ms",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.811Z"
+    }
+  ]
+}

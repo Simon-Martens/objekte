@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an den übrigen Blättern der Suite /) paginiert 12. s. Textbezug INr 60056, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60057,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gefangennehmung des Robespierre",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del.",
+  "scans": [
+    "alm_936_60057_mfx2krezpn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gefangennehmung des Robespierre",
+  "updated": "2008-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "grhzm4zkbe86nwd",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.061Z"
+    }
+  ]
+}

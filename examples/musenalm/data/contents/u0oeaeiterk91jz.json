@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 4. s. Textbezug INr 51188, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51174,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Diessbach, im großen Thal, Canton Glarus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Heinrich Meyer del. ad nat.",
+  "scans": [
+    "alm_697_51174_11wgt3sdff.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Diessbach, im großen Thal, Canton Glarus",
+  "updated": "2007-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "38bvo4bj7hs37mt",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.537Z"
+    }
+  ]
+}

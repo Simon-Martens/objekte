@@ -1,0 +1,58 @@
+{
+  "annotation": "9b /) paginiert IX. Illustration zu »Muttertreue. Ein häusliches Gemälde des XVI. Jahrhunderts« von J. E. F. W. Müller INr 50099, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.693Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61076,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selbst bey dem Tode des Kinds lebt ihre Treue noch fort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Usteri del. H. Lips sculp.",
+  "scans": [
+    "alm_1_61076_s3bs39qgns.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Selbst bey dem Tode des Kinds lebt ihre Treue noch fort",
+  "updated": "2007-06-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8kbbgxmgdd0ck54",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.949Z"
+    },
+    {
+      "id": "t9jk4ye2i3gxxsi",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.949Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Sachsen (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Sie sitzt am Fenster still, ihr Haupt / Das bleiche drückend in die Hand?",
+  "language": [],
+  "musenalm_id": 99530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die alte Jungfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Semmig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die alte Jungfer",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t9jczu0h5e1gqf0",
+      "agents": "e0mj2bip0zllpes",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.785Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.767Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Dehli hebt die ehr'ne Stirne, / Ein Jahrhundert schmuckberaubt, / Und der Moguln üpp'ge Dirne / Schlingt die Perlen neu um's Haupt.",
+  "language": [],
+  "musenalm_id": 111750,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Mirut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Kinkel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Mirut",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xwxby4rhes2bqz7",
+      "agents": "xohpn56jqt8nmfq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.396Z"
+    }
+  ]
+}

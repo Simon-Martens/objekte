@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Als nach jener erzwungenen zweyten Thronentsagung Karls des Vierten die französischen Heere in furchtbarer Zahl in Spanien einrückten,",
+  "language": [],
+  "musenalm_id": 34203,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Einsiedler auf dem Monserrat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler geb. von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Einsiedler auf dem Monserrat",
+  "updated": "2003-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3fgr4itwrv4neb4",
+      "agents": "vxzn7evqhv18e38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.772Z"
+    }
+  ]
+}

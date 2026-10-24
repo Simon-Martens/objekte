@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 37",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Ein träger Hügel, den kein Busch, kein / Blümchen schmückte,",
+  "language": [],
+  "musenalm_id": 5774,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der große und der kleine Hügel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der große und der kleine Hügel",
+  "updated": "2000-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y42nqwyqwmo1327",
+      "agents": "3m5nfg6fbusqjem",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.060Z"
+    }
+  ]
+}

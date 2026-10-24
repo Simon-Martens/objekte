@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Auch auf den Molucken sind ursprünglich mehrere Stämme ansässig gewesen, und noch gegenwärtig finden sich Überbleibsel von den Papua's;",
+  "language": [],
+  "musenalm_id": 42365,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Die Molucken] Einwohner, Verfassung, Regierung / der Holländer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Die Molucken] Einwohner, Verfassung, Regierung / der Holländer",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d9ptvohv3iv1ru4",
+      "agents": "q5rzjlx40lnqx6r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.287Z"
+    }
+  ]
+}

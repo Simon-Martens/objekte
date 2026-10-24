@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium. # Bezeichnung am letzten Blatt der Suite; s. Textbezug INr 34971, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34972,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Catherine v. Medici",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas",
+  "scans": [
+    "alm_443_34972_5vl6wnumfa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Catherine v. Medici",
+  "updated": "2003-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m4jg0tudcxfstar",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.991Z"
+    }
+  ]
+}

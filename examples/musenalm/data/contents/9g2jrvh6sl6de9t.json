@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Gehab dich wohl, du liebe kleine Hütte, / Gehab dich wohl mit deinem Dach von Stroh!",
+  "language": [],
+  "musenalm_id": 6032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied von der Hütte. / 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Rudolphi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied von der Hütte. / 1784",
+  "updated": "2000-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mja841p2i3gjzch",
+      "agents": "dxi2hql7exffxou",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.227Z"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "annotation": "paginiert 1-6; Vertonung des Gedichts »Die Nixen« von H. Heine /) am Objekt: Beitrag für den Orpheus 1842; Gedr. b. M. R. Toma in Wien /) Photos 56486,01-56486,06",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Am einsamen Strande plätschert die Fluth, der Mond ist aufgegangen,",
+  "language": [],
+  "musenalm_id": 56486,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE NIXEN. / Gedicht von H. Heine. / Musik v. C. G. Reissiger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. G. Reissiger",
+  "scans": [
+    "alm_759_56486_01_pg9xm2s67x.jpg",
+    "alm_759_56486_02_dgusrx5f5s.jpg",
+    "alm_759_56486_03_xgazbweeol.jpg",
+    "alm_759_56486_04_awsy9i8qxl.jpg",
+    "alm_759_56486_05_adrxzyz9ci.jpg",
+    "alm_759_56486_06_2cb619nf6y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE NIXEN. / Gedicht von H. Heine. / Musik v. C. G. Reissiger",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pvh3lf67ryvre4v",
+      "agents": "k0n1jmo4kd47515",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.803Z"
+    }
+  ]
+}

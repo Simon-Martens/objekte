@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Dir ist das Höchste die Kunst, dem heißet der / Gipfel die Liebe?",
+  "language": [],
+  "musenalm_id": 78750,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Höchste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schleiermacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Höchste",
+  "updated": "2009-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3odbvxx8h8a15ep",
+      "agents": "272r3k0zcaqt41m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.891Z"
+    }
+  ]
+}

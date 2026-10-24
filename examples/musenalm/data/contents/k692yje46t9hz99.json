@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Tritt doch Milon so leise, als schliefen / die Kinder im Hause,",
+  "language": [],
+  "musenalm_id": 118493,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das schlummerrde Gewissen / Ein Epigramm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das schlummerrde Gewissen / Ein Epigramm",
+  "updated": "2017-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "etlbvzp8ieynrsb",
+      "agents": "jmyhk43hfbh7agh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.545Z"
+    }
+  ]
+}

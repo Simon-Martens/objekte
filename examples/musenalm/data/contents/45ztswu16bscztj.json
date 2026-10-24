@@ -1,0 +1,43 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 75670, Obj 17) s. Graphiken im Kalendarium INr 75659, 75660; Obj 6, 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Schlacht bey Nördlingen ist eine der merkwürdigsten Begebenheiten des dreyßigjährigen Kriegs; wichtig in Rücksicht der Folgen; traurig in Rücksicht der Helden",
+  "language": [],
+  "musenalm_id": 75673,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 1. und 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göschen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "No. 1. und 2.",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qbrja93zrt4kjef",
+      "agents": "s7zezuvvsuyydzi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.667Z"
+    }
+  ]
+}

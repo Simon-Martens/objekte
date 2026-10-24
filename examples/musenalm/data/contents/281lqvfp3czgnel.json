@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Rache« von A. Schreiber INr 62832, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62825,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rache. / Von A. Schreiber / S. 21 u. 22",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. Fleischmann sc.",
+  "scans": [
+    "alm_1030_62825_lt68hiyj5j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Rache. / Von A. Schreiber / S. 21 u. 22",
+  "updated": "2009-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k8c55g6elw490ib",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.162Z"
+    },
+    {
+      "id": "qjjinwwk1xbpqvp",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.162Z"
+    }
+  ]
+}

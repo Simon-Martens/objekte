@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.525Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Ich weiß nicht ob dein Herz der Liebe Glut erfährt: / Das weiß ich wohl,",
+  "language": [],
+  "musenalm_id": 12782,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Phryne",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Phryne",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bpnzfjbr6x4az0t",
+      "agents": "ikmjp937a43bzor",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.503Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.503Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Holde Bürgerinnen Hymettens, / Die das Recht vom Himmel em- / pfangen,",
+  "language": [],
+  "musenalm_id": 4999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Bienen, / den Esel Silens zu bestrafen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Q.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Bienen, / den Esel Silens zu bestrafen",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ii8whrllmuoqyi",
+      "agents": "5zi0b6u2dct0970",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.292Z"
+    }
+  ]
+}

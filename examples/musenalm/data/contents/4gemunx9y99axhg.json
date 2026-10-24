@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15905,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Gemalt von Raphael Gestochen v. Anton Karcher Mannh.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt von Raphael Gestochen v. Anton Karcher Mannh.",
+  "scans": [
+    "alm_253_15905_tzr34gdyre.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3d36608ofchtkuo",
+      "agents": "ztgmm4mptvjp8o3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.511Z"
+    },
+    {
+      "id": "qculy1y1uott8h2",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.511Z"
+    }
+  ]
+}

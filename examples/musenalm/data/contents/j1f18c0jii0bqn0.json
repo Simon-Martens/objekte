@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. s. Titelblatt /) Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293 (Sammlung INr 60901, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Seit dem Vertrage zu Verdün war Deutschland keine Provinz der fränkischen Monarchie mehr, sondern wurde als ein unabhängiges, selbstständiges Reich betrachtet,",
+  "language": [],
+  "musenalm_id": 60903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Uebersicht / der Verfassung Deutschlands / in diesem Zeitraum",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Uebersicht / der Verfassung Deutschlands / in diesem Zeitraum",
+  "updated": "2008-11-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cdsa7xv3ujwkk9y",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.019Z"
+    }
+  ]
+}

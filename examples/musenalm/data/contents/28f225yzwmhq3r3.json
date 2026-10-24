@@ -1,0 +1,45 @@
+{
+  "annotation": "Nüsse vom Kriegsschauplatze (Sammlung INr 64906, Obj 82) XI. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1828-1829 (Sammlung INr 64851, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.673Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Nothelfer - vierzehn an der Zahl - / Hat der Papist; ihr Griechen! habt nur Einen!",
+  "language": [],
+  "musenalm_id": 64920,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Eine Nothhelfer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Eine Nothhelfer",
+  "updated": "2009-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i7c3pyhfqaxj84l",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.803Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "nummeriert 4. /) Illustration zu »Robert oder der Mann wie er seyn sollte.« Bd. 3 von C. F. T. Voigt /) s. Textbezug INr 132710, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132709,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Jury del. et fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. et fec.",
+  "scans": [
+    "alm_1953_132709_rnru6zm5n4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kapntljy65tx37a",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.093Z"
+    }
+  ]
+}

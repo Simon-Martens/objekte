@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September /) Illustration zu »Vineta« von Heinrich Stieglitz INr 81852, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81141,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vineta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Holbein. Rosmäsler in Berlin 1835",
+  "scans": [
+    "alm_872_81141_v2a6ehprc4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vineta",
+  "updated": "2008-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vw63hazilmsms63",
+      "agents": "szo3356ebdd17zv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.901Z"
+    },
+    {
+      "id": "glovihal74wucng",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.901Z"
+    }
+  ]
+}

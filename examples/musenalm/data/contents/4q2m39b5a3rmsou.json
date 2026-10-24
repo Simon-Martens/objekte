@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die gehorsame Tochter« von F. Kind INr 30049, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30050,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Die gehorsame Tochter von F. Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del.",
+  "scans": [
+    "alm_389_30050_x5k9sltnsm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Die gehorsame Tochter von F. Kind",
+  "updated": "2002-11-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z70qn056ubskyxa",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.678Z"
+    }
+  ]
+}

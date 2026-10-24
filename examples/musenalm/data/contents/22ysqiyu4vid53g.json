@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "390",
+  "incipit_statement": "Auf der Straße, die, von Pescara kommend, sich über die Vorberge des Apennienrückens nach Rom hinunterschlängelt,",
+  "language": [],
+  "musenalm_id": 27939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kindestreue. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Studnitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kindestreue. / Novelle",
+  "updated": "2002-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lgdrm0xv0qkb04x",
+      "agents": "li9wd1vvzigu4ia",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.224Z"
+    }
+  ]
+}

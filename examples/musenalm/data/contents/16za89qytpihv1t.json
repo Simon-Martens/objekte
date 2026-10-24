@@ -1,0 +1,60 @@
+{
+  "annotation": "Photos 102382,01-102382,03",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.008Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Warum unser Taschenbuch mit diesem Jahrgang aufgehöret hat - erschrecken Sie nicht, liebe Leser! der Periode ist noch nicht geendigt - aufgehört hat, einen Kalender vor sich her zu tragen, oder vielmehr nachzuschleppen,",
+  "language": [],
+  "musenalm_id": 102382,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [
+    "alm_1141_102382_01_dmfz3euw1h.jpg",
+    "alm_1141_102382_02_gtnpo5gog3.jpg",
+    "alm_1141_102382_03_12b89pgxuv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2009-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dabl1nris0tbydi",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.836Z"
+    },
+    {
+      "id": "4jx6ggalmtyg6xc",
+      "agents": "d1cx5vxdeeve5kc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.836Z"
+    }
+  ]
+}

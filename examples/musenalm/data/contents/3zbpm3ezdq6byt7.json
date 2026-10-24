@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Widmung INr 60770, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60766,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIEDRICH WILHELM / NICOLAUS KARL, / Prinz von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. F. Krüger Gest. v. A. Teichel",
+  "scans": [
+    "alm_885_60766_jiq1uda178.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIEDRICH WILHELM / NICOLAUS KARL, / Prinz von Preussen",
+  "updated": "2008-08-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o6x9bkxbyfondro",
+      "agents": "dp1i9gllz2qxsbz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.781Z"
+    },
+    {
+      "id": "il9iw4ixhu73xr3",
+      "agents": "filrbdi16sdmhwd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.781Z"
+    }
+  ]
+}

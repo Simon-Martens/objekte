@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. Textbezug INr 33957, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.933Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33958,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Gubitz)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gubitz",
+  "scans": [
+    "alm_471_33958_rl4m7nwd8b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jcgsu1bkukdrnqx",
+      "agents": "5riql8l2fq0wx5f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.434Z"
+    }
+  ]
+}

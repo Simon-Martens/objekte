@@ -1,0 +1,45 @@
+{
+  "annotation": "Krakau. Aus einem Cyclus (Sammlung INr 92837, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "335",
+  "incipit_statement": "Da kommen in der Nacht, der treuen, / Die Töchter Krakau's still heraus,",
+  "language": [],
+  "musenalm_id": 92844,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moritz Hartmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2013-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q2blvbkblce061m",
+      "agents": "k07t75rmsi2tkuk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.415Z"
+    }
+  ]
+}

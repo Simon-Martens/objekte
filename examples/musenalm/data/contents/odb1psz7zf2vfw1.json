@@ -1,0 +1,45 @@
+{
+  "annotation": "Wir danken Hern Dr. Peter Rastl (Wien) für die Auflösung des Pseudonyms A. A. Nomis = Anton Simon; 1760-1806 (geb. in Reichenberg) und weisen hin auf seine Recherche nach unbekannten Textdichtern von Schubertliedern in »Die Musikforschung«, 71. Jahrgang 2018, Heft 2, S. 166 ff.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Rede, Herz, und sage mir, / Sag' es laut, was ist's mit dir?",
+  "language": [],
+  "musenalm_id": 31351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was Ist's, 1783",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. A. Nomis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Was Ist's, 1783",
+  "updated": "2003-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hhitiv9hlkjxelm",
+      "agents": "bqsgwi9w7kt5uq1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.499Z"
+    }
+  ]
+}

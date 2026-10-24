@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Sittenbilder. Fortsetzung der Auszüge aus dem Achlack al-mohseni (Sammlung INr 128915, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Ein mächtiger Sultan gab jedes Mahl, ehe er in den Diwan ging, einem seiner Sklaven drei Blätter,",
+  "language": [],
+  "musenalm_id": 128923,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15. / Gelassenheit und Selbstbeherrschung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15. / Gelassenheit und Selbstbeherrschung",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qxq95m1rl1mo27v",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.997Z"
+    }
+  ]
+}

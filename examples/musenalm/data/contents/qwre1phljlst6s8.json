@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.429Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Ja, ich fühle mich gezwungen, / Endlich dir mein Leid zu klagen.",
+  "language": [],
+  "musenalm_id": 123436,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 152,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Monolog",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Monolog",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x72tfl5cyyyz8xy",
+      "agents": "dz9l16q76ffup70",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.770Z"
+    }
+  ]
+}

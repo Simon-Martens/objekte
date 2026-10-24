@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 77058-77064, Obj 30-36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "385",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77057,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Andenken eines holden entschlafenen Knaben. / (Reihenfolge kleiner Lieder.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Freiherr von Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Andenken eines holden entschlafenen Knaben. / (Reihenfolge kleiner Lieder.)",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ksh3yst2l5ps0v1",
+      "agents": "e47w01a11l8gujn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.668Z"
+    }
+  ]
+}

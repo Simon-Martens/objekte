@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.695Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50727,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Livener-Thal, bey Stalvedro",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hess del. S. G. f.",
+  "scans": [
+    "alm_686_50727_xt6926l7jl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Im Livener-Thal, bey Stalvedro",
+  "updated": "2007-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ktp6znoenyviu6p",
+      "agents": "uc4ahm2w7hhtikb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.979Z"
+    },
+    {
+      "id": "37l79edb3gjvkla",
+      "agents": "pua8u6y6ts6oo5o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.979Z"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Verwandlungen« von Rupert Becker INr 10324, Obj 89 (Photos 10325,01; 10325,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.577Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10325,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verwandlungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schuster",
+  "scans": [
+    "alm_134_10325_01_c1jehhoyax.jpg",
+    "alm_134_10325_02_o5ic34logi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Verwandlungen",
+  "updated": "2001-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e7opti0j9l1oqd3",
+      "agents": "jmqij5epj0ygg47",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.508Z"
+    }
+  ]
+}

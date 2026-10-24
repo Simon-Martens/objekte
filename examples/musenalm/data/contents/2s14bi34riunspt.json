@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44672,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Silber-Quelle in Adersbacher Felsen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Darnstedt sc.",
+  "scans": [
+    "alm_171_44672_vsh5r3mri0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Silber-Quelle in Adersbacher Felsen",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zq22a5j1zkjmxj4",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.335Z"
+    }
+  ]
+}

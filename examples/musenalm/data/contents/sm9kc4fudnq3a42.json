@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 9 Beiträgen INr 75145-75153, Obj 12-20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.023Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75144,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Von einem Gott wohlgefälli- / gem Betragen gegen unsre / Mitmenschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Von einem Gott wohlgefälli- / gem Betragen gegen unsre / Mitmenschen",
+  "updated": "2011-05-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dmjrl6ykwqd4u38",
+      "agents": "58byfz890fzelu8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.655Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.655Z"
+    }
+  ]
+}

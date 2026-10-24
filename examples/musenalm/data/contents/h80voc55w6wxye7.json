@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwey Gedichte nach dem Englischen (Sammlung INr 63554, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Weht, Lüfte, weht! Den starken Windhauch rührt, / Daß er uns fort mit raschem Segel führt!",
+  "language": [],
+  "musenalm_id": 63555,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Bey einer Windstille zur See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Bey einer Windstille zur See",
+  "updated": "2009-04-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k8tttohazc8ar77",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.905Z"
+    }
+  ]
+}

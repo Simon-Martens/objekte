@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Auch unter den Hottentotten gibts ganze Leute« INr 7101, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7102,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Narina eine junge Gonaqua Hottentottin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riep.",
+  "scans": [
+    "alm_143_7102_q4kn2mbafh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Narina eine junge Gonaqua Hottentottin",
+  "updated": "2000-11-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dy1qxlrlcalasj1",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.160Z"
+    }
+  ]
+}

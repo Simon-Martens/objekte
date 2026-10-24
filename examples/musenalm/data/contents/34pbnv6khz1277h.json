@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Doge und das Meer« von J. N. Vogl INr 80342, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.691Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80328,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Doge und das Meer. Ballade von F. N. Vogl. (Pag. 98.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl del. C. Kotterba sc.",
+  "scans": [
+    "alm_1791_80328_7sfpdevp8k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Doge und das Meer. Ballade von F. N. Vogl. (Pag. 98.)",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xi0i5kg5igzuheh",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.012Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.012Z"
+    },
+    {
+      "id": "faywmzuczmsmj2k",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.012Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.012Z"
+    }
+  ]
+}

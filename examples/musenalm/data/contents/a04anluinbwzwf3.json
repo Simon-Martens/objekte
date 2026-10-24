@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebensbilder für die Jugend (Sammlung INr 131676, Obj 11) s. Graphik INr 131372, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Von nah und fern erschallt die trübe Kunde, / Es naht der Feind mit zehnfach stärkrer Macht,",
+  "language": [],
+  "musenalm_id": 131681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Smidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V.",
+  "updated": "2022-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8hjcy6kjfsjv6zl",
+      "agents": "p5nbyct99xa1658",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.037Z"
+    }
+  ]
+}

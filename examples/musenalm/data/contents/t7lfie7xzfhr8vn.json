@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75121,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FIGARO'S HOCHZEIT. / II. Act. / Susanne. Nun wende doch auf mich den Blick, / Nicht auf die Dame dort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_2370_75121_0y5qko6hl1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FIGARO'S HOCHZEIT. / II. Act. / Susanne. Nun wende doch auf mich den Blick, / Nicht auf die Dame dort",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5j5r99e8lswpqsn",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.721Z"
+    },
+    {
+      "id": "cnlhjf7i7fwayt1",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.721Z"
+    }
+  ]
+}

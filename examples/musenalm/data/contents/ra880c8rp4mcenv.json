@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Was ist Lebensblüthe, Jugendstärke? / Ach, des kleinsten rauhen Lüftchens / Raub!",
+  "language": [],
+  "musenalm_id": 3538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In einer Krankheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Friedr. Nöldeke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In einer Krankheit",
+  "updated": "2000-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "me3tl6gsk7h8c27",
+      "agents": "hpbedqxtnbr9w3y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.088Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht in 3 Teilen /) mit Anmerkungen zum Titel: Die Gedichte dieses talentvollen jungen Mannes erschienen unter dem Titel: »Poesie di F. Dall'Ongaro« zu Triest bei H. F. Fervager. 1840 (1.) S. Vol. I. p. 121-183",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Welche Blässe deckt Dein Antlitz, / Welcher Kummer ficht Dich an,",
+  "language": [],
+  "musenalm_id": 57990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Uska. / (Nach dem Italienischen des F. Dall' Ongaro.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Uska. / (Nach dem Italienischen des F. Dall' Ongaro.)",
+  "updated": "2008-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2r60i5d7z0aytes",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.761Z"
+    }
+  ]
+}

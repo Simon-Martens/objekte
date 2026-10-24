@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 86267, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Wenn nur ein Augenblick das Leben, sag', was ist der Schmerz, / Der ganz es ausfüllt, mehr dann als ein Augenblick?",
+  "language": [],
+  "musenalm_id": 86283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn nur ein Augenblick das Leben, sag', was ist der Schmerz, / Der ganz es ausfüllt, mehr dann als ein Augenblick?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michael Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o6x1mkcpbcfqa90",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.231Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.231Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Le Vaillant und Mungo Park« von F. X. Schnetzler INr 159, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ingland. Aus Le Vaillant’s zweyter Reise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Lips del. et sculp.",
+  "scans": [
+    "alm_26_160_okxagn6zou.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ingland. Aus Le Vaillant’s zweyter Reise",
+  "updated": "2001-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oeyly4ay378nh8v",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.975Z"
+    }
+  ]
+}

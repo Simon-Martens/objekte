@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 14012, Obj 123)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "376",
+  "incipit_statement": "Die ersten beiden führen oft zumTode, / Besudle ja dich nicht damit;",
+  "language": [],
+  "musenalm_id": 14034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15. / Charade",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wykmqqmssrcyp49",
+      "agents": "n7zgo9f1gh6x37x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.528Z"
+    }
+  ]
+}

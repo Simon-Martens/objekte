@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.466Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Darf ich noch ein Wörtchen lallen? / Darf vor deinem Angesicht / Eine Thräne mir entfallen?",
+  "language": [],
+  "musenalm_id": 3285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie. / Aus Volkers geheimen Liebesarchiv / 1776",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie. / Aus Volkers geheimen Liebesarchiv / 1776",
+  "updated": "2000-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ckl4pbxdfg94be7",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.951Z"
+    }
+  ]
+}

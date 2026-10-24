@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Was du denkest, sei wahr; und wie du / denkest so rede!",
+  "language": [],
+  "musenalm_id": 4014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der beste Rath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Fernow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der beste Rath",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c4mp183enx6a189",
+      "agents": "29znr1cu0wo4ctf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.654Z"
+    }
+  ]
+}

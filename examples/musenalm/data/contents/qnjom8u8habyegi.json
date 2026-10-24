@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Vorschläge zu GartenGebäuden von Herrn Hofarchitect Thouret. 2. 3.) Gartenhäuser im Geschmak der italienischen  Vignen-Gebäude« INr 74536, Obj 21 /) # Titel vom Beitrag",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74535,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gartenhäuser im Geschmak der italienischen Vignen-Gebäude #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thouret inv. Seyffer sc.",
+  "scans": [
+    "alm_3115_74535_dul0n4ih86.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gartenhäuser im Geschmak der italienischen Vignen-Gebäude #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a06nmt5vuz5pylc",
+      "agents": "zrmsqolvt94ydaa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.510Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.510Z"
+    },
+    {
+      "id": "xrraszl1uvjss6m",
+      "agents": "lqzutyogj2g8lna",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.510Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.510Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Die gute Mutter hielt mich gleich den Herren Stabs-Officieren im Auge und sah es daher sehr ungern, daß mich der Feldmarschall zum Leib-Regimente in die Hauptstadt versetzte",
+  "language": [],
+  "musenalm_id": 112009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Brezel-Mährte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schilling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Brezel-Mährte",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "esv5npq0w1u7b49",
+      "agents": "tiijnij1nbeebby",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.420Z"
+    }
+  ]
+}

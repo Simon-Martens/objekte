@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort, darin:» ...Um diesen Zweck zu erreichen hat der Verleger sieben der vortrefflichsten, nun im Central-Museum in Paris sich befindenden Gemälde, von einem der geschicktesten Pariser Künstler in Kupfer stechen lassen,«",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die Römer unterjochten Griechenland und Ägypten und sie verfolgten ihre unwiederstehliche Siege so weit: daß sie nicht zufrieden mit der Beute der Nerve des Staats, auch die ewigen Monumente des Volks, seines Geistes und seiner Kunst nach Italien",
+  "language": [],
+  "musenalm_id": 48825,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Römer unterjochten Griechenland und Ägypten und sie verfolgten ihre unwiederstehliche Siege so weit: daß sie nicht zufrieden mit der Beute der Nerve des Staats, auch die ewigen Monumente des Volks, seines Geistes und seiner Kunst nach Italien…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Casparssohn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-03-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4uxlm8mader8zg2",
+      "agents": "ev2ai2de3c8aird",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.575Z"
+    }
+  ]
+}

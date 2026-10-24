@@ -1,0 +1,56 @@
+{
+  "annotation": "VIII. Exequien dreier Oberpriester Dianens (Sammlung INr 67400, Obj 37) mit einem beigegebenen Gedicht INr 67405, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Am 15ten Juli dieses Jahres starb endlich Dr. Ludwig Karl Eberhard Heinrich Friedrich von Wildungen, kurhessischer Oberforstmeister der Provinz Oberhessen in Marburg,",
+  "language": [],
+  "musenalm_id": 67404,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am 15ten Juli dieses Jahres starb endlich Dr. Ludwig Karl Eberhard Heinrich Friedrich von Wildungen, kurhessischer Oberforstmeister der Provinz Oberhessen in Marburg,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tj4kmgn64z1wy3v",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.336Z"
+    },
+    {
+      "id": "7w1ybxdhzu1cl4i",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.336Z"
+    }
+  ]
+}

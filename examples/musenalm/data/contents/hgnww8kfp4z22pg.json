@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: aus [Francois] Valentyns Werk",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42354,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht des Vulkans Gunong-Api und der Insel- Aeira / mit dem Kastel Nassau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. P. Veith sc.",
+  "scans": [
+    "alm_559_42354_jsl5pj9yva.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht des Vulkans Gunong-Api und der Insel- Aeira / mit dem Kastel Nassau",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xky2fhs1i1lsqdb",
+      "agents": "agad4ahnieynhoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.265Z"
+    }
+  ]
+}

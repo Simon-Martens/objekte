@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort d. Herausgebers /) s. INr 72942, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Auch in diesem Taschenbuche stößt der geneigte Leser von Neuem auf einige Personalitäten. Mein Glaubensbekenntniß über diesen Punkt liegt in den schönen Versen von Pope an Doctr. Arbuthnot. v. 283",
+  "language": [],
+  "musenalm_id": 72941,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Leser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Leser",
+  "updated": "2010-02-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bgd00dzpe4o7963",
+      "agents": "bjik5dzyzk4cu0g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.733Z"
+    }
+  ]
+}

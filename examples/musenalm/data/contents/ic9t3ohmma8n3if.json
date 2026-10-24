@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Zwar von Sanct Peters Geist / Ruht wenig oder nichts zu Rom",
+  "language": [],
+  "musenalm_id": 12799,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Handwerks-Vortheil",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anselm Elwert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Handwerks-Vortheil",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ymbdba152whlt5g",
+      "agents": "vn2a6zjk0dwki92",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.508Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Zeitverse (Sammlung INr 64840, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.081Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Es war ein Witz der alten Erdbeschreiber, / Europen die Gestalt der Jungfrau anzudichten;",
+  "language": [],
+  "musenalm_id": 64841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jungfrau Europa",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Cebes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jungfrau Europa",
+  "updated": "2009-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ipjxdqgmpup2p9e",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.044Z"
+    }
+  ]
+}

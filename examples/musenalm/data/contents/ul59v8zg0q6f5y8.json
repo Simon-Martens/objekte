@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 27",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.465Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Ein armer alter Mann kömmt vor des Rei- / chen Thür. / Was wollt ihr, spricht erzürnt der Reiche, / denn von mir?",
+  "language": [],
+  "musenalm_id": 2604,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Reiche, / der Arme und der Tagelöhner. / Eine Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ws.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Reiche, / der Arme und der Tagelöhner. / Eine Erzählung",
+  "updated": "2000-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d5jp7txmrsgohha",
+      "agents": "851irea8sb4kx1v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.634Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.634Z"
+    }
+  ]
+}

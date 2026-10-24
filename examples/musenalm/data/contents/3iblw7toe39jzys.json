@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "Als mich die dämmernden Thäler der hol- / den Kindheit umfingen / War mein Erwachen noch still,",
+  "language": [],
+  "musenalm_id": 1253,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kindheit und Jugend",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Louise ***",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kindheit und Jugend",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yur99ihdcg5xnrv",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.687Z"
+    }
+  ]
+}

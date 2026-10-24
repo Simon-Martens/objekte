@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 81281, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Junge! Wenn das Seine Kaiserliche Majestät erführe! / Flaming Th. I. S. 229",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Henne fec.",
+  "scans": [
+    "alm_3855_82182_l1a8nsza18.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Junge! Wenn das Seine Kaiserliche Majestät erführe! / Flaming Th. I. S. 229",
+  "updated": "2012-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1didezo9ulb418o",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.019Z"
+    }
+  ]
+}

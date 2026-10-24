@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 31935,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Hein. Ramberg del. Hanover Ridley sc. London)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hein. Ramberg del. Hanover Ridley sc. London",
+  "scans": [
+    "alm_364_31935_zjl98g2wdu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "443x5vly5bdl53o",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.456Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.456Z"
+    },
+    {
+      "id": "x9c8vw8s6b3p4u4",
+      "agents": "01vck2fus4d9d65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.456Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.456Z"
+    }
+  ]
+}

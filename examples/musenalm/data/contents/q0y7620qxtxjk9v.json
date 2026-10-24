@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44179, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "O stille, graue Frühe! / Die Blätter flüstern sacht; / Der Hirsch hat seine Kühe / Zum Waldrand schon gebracht.",
+  "language": [],
+  "musenalm_id": 44190,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vom Harze. / (Wahre Geschichte. 1843.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Freiligrath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vom Harze. / (Wahre Geschichte. 1843.)",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wi2b7jrxymm9tb0",
+      "agents": "vmnuom11udo0f3y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.458Z"
+    }
+  ]
+}

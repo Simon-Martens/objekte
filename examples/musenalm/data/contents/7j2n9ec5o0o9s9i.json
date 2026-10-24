@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63733, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "Noch sitzen wir traulich am Mahle, / In freundlich geschlungnem Verein,",
+  "language": [],
+  "musenalm_id": 63737,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschiedlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschiedlied",
+  "updated": "2009-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ny1bvb715232js9",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.214Z"
+    }
+  ]
+}

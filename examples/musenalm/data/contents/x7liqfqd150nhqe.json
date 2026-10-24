@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezüge INr 125480, 124581; Obj 33,34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125489,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. W. A. D. Reichsfürst von Kaunitz-Ritberg. / 2. H. Gr. von Brühl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas sc. Berlin 1795",
+  "scans": [
+    "alm_1914_125489_stmcg9tqie.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1. W. A. D. Reichsfürst von Kaunitz-Ritberg. / 2. H. Gr. von Brühl",
+  "updated": "2020-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vn2vww87kf6vehi",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.893Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Nimm dieß Vergißmeinnicht als meiner / Freundschaft Zeichen.",
+  "language": [],
+  "musenalm_id": 30965,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kloe an Damon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph von Retzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kloe an Damon",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kugqxkji3f38ttb",
+      "agents": "rszt46vfvzbfush",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.513Z"
+    }
+  ]
+}

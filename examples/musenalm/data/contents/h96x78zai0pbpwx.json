@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-08T10:11:08.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Sanft umweht von Zephyrs Flügel, / Ruht, die Lyra in der Hand, / Anahid am Blumenhügel,",
+  "language": [],
+  "musenalm_id": 140511,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anahid. / Der persische Mythus des Morgensterns",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weidmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anahid. / Der persische Mythus des Morgensterns",
+  "updated": "2026-09-08T10:18:33.290Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "q46zr2036z6r9uz",
+      "agents": "e499h9zfmuf983p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-08T10:14:59.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-08T10:18:33.291Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite s. Anm. dort /) paginiert 9 /) Graphik im Kalendarium September /) Illustration zu einem Gedicht aus »Vermischte Gedichte« von F. M. A. de Voltaire",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70003,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Und ich zur ewigen Glückseligkeit bestimmt / werde herzlich lachen wenn Ihr verdammt / werdet. / Volt. vermischte Gedichte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. F. Berger sc.",
+  "scans": [
+    "alm_793_70003_vcs7neqy9t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Und ich zur ewigen Glückseligkeit bestimmt / werde herzlich lachen wenn Ihr verdammt / werdet. / Volt. vermischte Gedichte",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b4g64msb414hbas",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.521Z"
+    }
+  ]
+}

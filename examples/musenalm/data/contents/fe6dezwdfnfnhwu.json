@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 7. Blatt der Suite /) Graphik im Kalendarium August; paginiert 9. /) s. Textbezug INr 96799 Obj 18 /) Illustration zu »Der Feldzug der Deutschen, gegen die / Neufranken vom Jahr 1793« INr 96918, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96912,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich habe Sachsen und Preußen / dieß ist genug",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Küffner inv. de. & sc. 1794",
+  "scans": [
+    "alm_1967_96912_e6ehlqm7wg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich habe Sachsen und Preußen / dieß ist genug",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v86cl8ag7o7f0tq",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.741Z"
+    }
+  ]
+}

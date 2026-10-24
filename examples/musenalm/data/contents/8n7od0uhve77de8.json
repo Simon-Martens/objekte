@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Vom Ufer der Nachen / Glitt leise dahin; / Es saß mit dem Knaben / Die Mutter darin;",
+  "language": [],
+  "musenalm_id": 100165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Wellendrang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfarrius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Wellendrang",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bv5dbraiflxt6ex",
+      "agents": "gnvpzonh9gm3x0g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.972Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 11. Blatt der Suite /) Graphik im Kalendarium Mai, nummeriert 5; s. Textbezug INr 128482, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 128483,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gott! - mein Vatter!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Maillard del. J. Blaschke",
+  "scans": [
+    "alm_1721_128483_q637vlkhpy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gott! - mein Vatter!",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tjvhgef2njmks2x",
+      "agents": "jqx789ngxccpl2l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.955Z"
+    },
+    {
+      "id": "lo0agx3or8gmc8b",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.955Z"
+    }
+  ]
+}

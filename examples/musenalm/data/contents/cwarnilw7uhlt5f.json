@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38969, Obj 157)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "251",
+  "incipit_statement": "Das ist das Meer, schau hin! Senkt schon im / Schauen / Sich rasch ermüdet Deines Auges Flug?",
+  "language": [],
+  "musenalm_id": 38977,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 165,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Meeresfahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. E. Prutz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Meeresfahrt",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hs9lir6alaoqqq2",
+      "agents": "fxxm37a191ki2vr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.803Z"
+    }
+  ]
+}

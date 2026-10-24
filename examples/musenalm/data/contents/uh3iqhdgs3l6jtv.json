@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Trachtenkupfer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72270,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Churfürst in seinem Chur Kleide",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. M. sc",
+  "scans": [
+    "alm_826_72270_39278wx6x9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Churfürst in seinem Chur Kleide",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8qiy8xcj70l9k2c",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.637Z"
+    }
+  ]
+}

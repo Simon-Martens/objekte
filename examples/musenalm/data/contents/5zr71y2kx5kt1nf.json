@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz /) Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50312,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der heilige Hyronimus #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Dominichino, von Catel gez. und Hess gest.",
+  "scans": [
+    "alm_8_50312_g75qw7nl1y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der heilige Hyronimus #",
+  "updated": "2007-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q7ima42f3gphuxt",
+      "agents": "ke8b3zzq6e79hhk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.301Z"
+    },
+    {
+      "id": "bsn0o5csxgxyb4h",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.301Z"
+    }
+  ]
+}

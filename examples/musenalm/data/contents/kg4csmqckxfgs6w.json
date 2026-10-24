@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Vierzeilen (Sammlung INr 1628, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Mein Herz! o trinke nur immer Wein! / Für arme, wie du auf Erden,",
+  "language": [],
+  "musenalm_id": 19118,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Herz! o trinke nur immer Wein! / Für arme, wie du auf Erden,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m7rwybrdufndr5e",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.966Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.897Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "Der Lenz begann. Im Schilf des Moores / Das Froschen-Völklein quackte Lust.",
+  "language": [],
+  "musenalm_id": 34256,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der wahre Meister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der wahre Meister",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qbqp3fixhlk80is",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.709Z"
+    }
+  ]
+}

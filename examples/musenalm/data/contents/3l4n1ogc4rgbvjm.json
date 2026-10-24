@@ -1,0 +1,46 @@
+{
+  "annotation": "Vertonung des Gedichts  »In Wolken möcht' ich steh'n« von Chr. Schadt INr 126379, Obj 347 /) (Photos 126377,01; 126377,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.689Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "In Wolken möcht' ich steh'n und satt mich niederweinen, / wo Blumen ungeseh'n in dunklen Hainen scheinen,",
+  "language": [],
+  "musenalm_id": 126377,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 346,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In Wolken möcht' ich steh'n / Und satt mich niederweinen / Text von Chistian Schad. / Musik von Ferdinand Hiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdiand Hiller",
+  "scans": [
+    "alm_2300_126377_01_t2yq5g8p2c.jpg",
+    "alm_2300_126377_02_ud3e0l1jz9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "In Wolken möcht' ich steh'n / Und satt mich niederweinen / Text von Chistian Schad. / Musik von Ferdinand Hiller",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tf5m5ikvhtk34cw",
+      "agents": "bcju82jt1m85nmy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.784Z"
+    }
+  ]
+}

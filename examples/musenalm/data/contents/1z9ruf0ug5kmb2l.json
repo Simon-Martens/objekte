@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Was machst du hier, lieb Mägdelein, / Am Wasser tief und schnelle",
+  "language": [],
+  "musenalm_id": 2697,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Geschichte auf der Aar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lenz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Geschichte auf der Aar",
+  "updated": "2000-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l2teu7ul35ij13a",
+      "agents": "xjsto93uz3ejsp3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.879Z"
+    }
+  ]
+}

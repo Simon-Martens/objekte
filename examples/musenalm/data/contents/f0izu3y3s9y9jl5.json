@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Fahrt ins Heu« von Langbein INr 13101, Obj 36 /) Anhang zu Beckers Taschenbuch 1808 (Sammlung INr 61535, Obj 146) (Photos 61540,01-61540,03)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61540,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 151,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fahrt ins Heu",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_215_61540_01_f65jxu1g5v.jpg",
+    "alm_215_61540_02_jnolwdjidv.jpg",
+    "alm_215_61540_03_cd59gdllyj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Fahrt ins Heu",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tbd7ei5qvdxefbb",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.920Z"
+    }
+  ]
+}

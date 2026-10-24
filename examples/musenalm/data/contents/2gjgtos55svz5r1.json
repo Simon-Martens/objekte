@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "417",
+  "incipit_statement": "Ich hab für jede Kränkung, / Die du mir angethan, / Für dich ein Gebet entsendet / Zum Herrn der Welt hinan.",
+  "language": [],
+  "musenalm_id": 57794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vermuthung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vermuthung",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "extul0tzk9dzbwm",
+      "agents": "rpx0m3s76l0s5s5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.736Z"
+    }
+  ]
+}

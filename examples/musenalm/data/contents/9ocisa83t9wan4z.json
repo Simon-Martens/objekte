@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik paginiert I. Illustration zu »Der neue Pygmalion« von J. G. Jacobi # Titelzusatz aus dem G-Verz: Abschied des Cynthio von Rosette.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16256,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das treue Mädchen weinte Blut; / Und dennoch wandelte voll Muth / Der Heilige von dannen. #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmaesler del. C. Schule sc. 1808",
+  "scans": [
+    "alm_256_16256_480bf6xyin.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das treue Mädchen weinte Blut; / Und dennoch wandelte voll Muth / Der Heilige von dannen. #",
+  "updated": "2001-07-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "imdz6l5xcb53rje",
+      "agents": "c0fepqesuedn747",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.818Z"
+    }
+  ]
+}

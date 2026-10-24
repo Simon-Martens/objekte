@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung und Nachweisung der Kupfer (Sammlung INr 59313, Obj 50) s. Graphik Im Kalendarium INr 59267, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Haß und Liebe! Scheidungskluft / ew'gem Abgrunds trennt Euch Beide!",
+  "language": [],
+  "musenalm_id": 59314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romeo und Juliette. Erster Abschnitt. / Abth. 3. Auftr. 4",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Herklots",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Romeo und Juliette. Erster Abschnitt. / Abth. 3. Auftr. 4",
+  "updated": "2008-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gvolpqexnaoomip",
+      "agents": "j34hzsrw81cdjdh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.796Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.796Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 70518, Obj 10) es folgen: 2 Kapitel INr 70530-70532; Obj 22-24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Diese Benennung wird manchen Lesern des Sylvans paradox klingen und anstößig seyn, weil man wohl Vieles von den manichfaltigen Nachteulen spricht,",
+  "language": [],
+  "musenalm_id": 70529,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Die Tageulen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Die Tageulen",
+  "updated": "2009-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "10dm5r987spnmzw",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.501Z"
+    }
+  ]
+}

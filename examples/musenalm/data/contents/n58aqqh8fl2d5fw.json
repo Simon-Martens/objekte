@@ -1,0 +1,45 @@
+{
+  "annotation": "Festgedichte (Sammlung INr 122236, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Die Quelle rauscht, die Götterstunde / Tritt freundlich her im Jahreslauf, / Und küßt uns mit dem Purpurmunde / Des Himmels Wonne wieder auf.",
+  "language": [],
+  "musenalm_id": 122239,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zu Göthens 76stem Geburtstage / den 28. August 1824. / (Componirt von Herrn Chordirector Häser.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zu Göthens 76stem Geburtstage / den 28. August 1824. / (Componirt von Herrn Chordirector Häser.)",
+  "updated": "2011-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ivxghqeeckrwqzj",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.673Z"
+    }
+  ]
+}

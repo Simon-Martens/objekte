@@ -1,0 +1,56 @@
+{
+  "annotation": "<div># Pseud. /) Gallerie aus Oberon&nbsp; s. Titelgraphik INr 140329</div>",
+  "content_type": [],
+  "created": "2026-08-11T09:59:45.187Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Puck. / Es ist geschehen, mein König, hier  / Den Ritter und den treuen Knappen Du.",
+  "language": [],
+  "musenalm_id": 140334,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / (Das Titelkupfer)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Planché [übers.]: Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / (Das Titelkupfer)",
+  "updated": "2026-08-13T09:01:00.732Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "dusklfw8zvmewx2",
+      "agents": "e5me99lnv5l0sbd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-11T10:17:14.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-13T09:01:00.732Z"
+    },
+    {
+      "id": "3d5iqgbxmf0at2a",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-11T10:17:56.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-13T09:01:00.732Z"
+    }
+  ]
+}

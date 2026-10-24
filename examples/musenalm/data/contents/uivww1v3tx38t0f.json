@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131922,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JAHRBUCH / zur / belehrenden Unterhaltung / für junge / DAMEN / von / J. J. Ebert / Profeßor zu Wittenberg. / Erstes Jahr / 1795. / Leipzig / in Commiss. bei den Gebr. Graff",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmaesler. del. Mangot sculps",
+  "scans": [
+    "alm_1946_131922_of2v3sh83k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "JAHRBUCH / zur / belehrenden Unterhaltung / für junge / DAMEN / von / J. J. Ebert / Profeßor zu Wittenberg. / Erstes Jahr / 1795. / Leipzig / in Commiss. bei den Gebr. Graff",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i3h2o3b6hxk48ai",
+      "agents": "ekudcyaed9w0y2y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.080Z"
+    }
+  ]
+}

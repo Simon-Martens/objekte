@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Vermischte Gedichte (Sammlung INr 29117, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Magdala, unter den Blumen ist eine vor allen Dir theuer, / Eine vor allen, ich weiß, hat sich gewonnen Dein Herz.",
+  "language": [],
+  "musenalm_id": 29118,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Drei Lilien für Magdala",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schubart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Drei Lilien für Magdala",
+  "updated": "2002-10-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "stdo5geeg2r5jz8",
+      "agents": "e0jidz7fwbzecy6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.382Z"
+    }
+  ]
+}

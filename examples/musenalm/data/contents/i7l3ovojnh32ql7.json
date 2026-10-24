@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwey Epilogen gesprochen von Madame Hensel während des Aufenthalts der Hannöverschen Gesellschaft zu Wetzlar (Sammlung 8211, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Die Musen giengen jüngst aus des Parnaßes Schatten / Zur Lust ins freye Feld, und hatten,",
+  "language": [],
+  "musenalm_id": 8213,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Als sie am 18ten Sept. mit Sidnei geschloßen wurde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gotter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Als sie am 18ten Sept. mit Sidnei geschloßen wurde",
+  "updated": "2000-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a59kvb6krrtqlxc",
+      "agents": "hu6ba8zv7wtaxe9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.914Z"
+    }
+  ]
+}

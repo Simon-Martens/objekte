@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. paginiert 1. Illustration zu »Die Vaterschaft« von Fr. Kind INr 14073, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14055,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Vaterschaft. von Fr. Kind. 1s. Blatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. W. Böhm sc.",
+  "scans": [
+    "alm_221_14055_59cgy5pcrd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Vaterschaft. von Fr. Kind. 1s. Blatt",
+  "updated": "2001-04-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kc1zhdv0w728dfl",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.511Z"
+    },
+    {
+      "id": "zc9yfd08n0wta9m",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.511Z"
+    }
+  ]
+}

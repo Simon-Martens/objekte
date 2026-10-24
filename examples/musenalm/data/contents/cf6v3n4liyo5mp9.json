@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Fromm war des Wackern Sitte, / Sein ganzes Leben lang; / So ging mit festem Schritte / Er seinen Todesgang.",
+  "language": [],
+  "musenalm_id": 45930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Tode. / (20. Februar 1810.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schneller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Tode. / (20. Februar 1810.)",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "djgy7g9hbc7qluc",
+      "agents": "8riqsaw5cr1uasn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.237Z"
+    }
+  ]
+}

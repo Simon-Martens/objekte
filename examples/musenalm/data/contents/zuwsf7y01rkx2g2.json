@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Die Malayen scheinene früh mit Java in Verbindung gestanden zu haben und es ist höchst wahrscheinlich, daß die ganze höhere Cultur, die sie besitzen, von dem Umgange mit den Javanern stammt.",
+  "language": [],
+  "musenalm_id": 42299,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Bevölkerung.] B. Ankömmlinge. Malayen. Sklaven / verschiedener Art. Sinesen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Bevölkerung.] B. Ankömmlinge. Malayen. Sklaven / verschiedener Art. Sinesen",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e31gtoaeklvf6pe",
+      "agents": "q5rzjlx40lnqx6r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.988Z"
+    }
+  ]
+}

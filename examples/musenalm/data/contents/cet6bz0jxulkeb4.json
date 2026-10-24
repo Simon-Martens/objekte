@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 81048, Obj 12 /) Illustration zu »Rosabella« von Martha von der Höhe d.i. Clara von Massow INr 81063, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81047,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosabella",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Court pint. C. Kotterba sc.",
+  "scans": [
+    "alm_1805_81047_9w7omg3ctu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rosabella",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fawbye9whtpki35",
+      "agents": "17xk90e0xgar3dn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.003Z"
+    },
+    {
+      "id": "uigvlq4nw8lp903",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.003Z"
+    }
+  ]
+}

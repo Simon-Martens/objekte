@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium Oktober, paginiert 10. /) s. Textbezug INr 96037, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.154Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96023,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ERNST LUDWIG / von PFUHL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. H. sc.",
+  "scans": [
+    "alm_3961_96023_nqwjt0o4nu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ERNST LUDWIG / von PFUHL",
+  "updated": "2013-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4sdsc3tzxpoj1s6",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.751Z"
+    }
+  ]
+}

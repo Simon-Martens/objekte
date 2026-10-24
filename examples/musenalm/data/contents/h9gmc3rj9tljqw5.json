@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 11. /) Graphik im Kalendarium November /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 78263, Obj 23 s.a. Textbezug INr 78285, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78255,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Russen brandschat- / zen in Berlin im October 1760",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. J. Penzel sc.",
+  "scans": [
+    "alm_928_78255_46x0h3u5g3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Russen brandschat- / zen in Berlin im October 1760",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "84om68hyixht85t",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.922Z"
+    },
+    {
+      "id": "iot2vswcxv53nau",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.922Z"
+    }
+  ]
+}

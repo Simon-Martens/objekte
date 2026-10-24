@@ -1,0 +1,45 @@
+{
+  "annotation": "6. Erzählung aus »Das Wirthshaus im Spessart«",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Als Peter am Montag Morgen in seine Glashütte gieng, da waren nicht nur seine Arbeiter da, sondern auch andere Leute, die man nicht gerne sieht, nämlich der Amtmann und drei Gerichtsdiener.",
+  "language": [],
+  "musenalm_id": 41624,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das kalte Herz. / Zweite Abtheilung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das kalte Herz. / Zweite Abtheilung",
+  "updated": "2005-12-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qmavwdrl2c27p1c",
+      "agents": "ntl4yryhhmz1v3s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.132Z"
+    }
+  ]
+}

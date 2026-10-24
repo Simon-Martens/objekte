@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Du, der erhaben über dem Weltall thront, / Mit Einem Blick umfassend der Himmel Heer,",
+  "language": [],
+  "musenalm_id": 87111,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Neujahrsmorgen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A.C. Lindenhahn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Neujahrsmorgen",
+  "updated": "2013-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "66rvy4rbzi6coo7",
+      "agents": "6k94lc2qpvywb69",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.978Z"
+    }
+  ]
+}

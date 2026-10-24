@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Wohl ist es schön, nach Liebe zu ringen: / Doch all dein Schaffen, Dichten und Singen / Ist nur ein eiteles Plagen,",
+  "language": [],
+  "musenalm_id": 99708,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinkspruch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinkspruch",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yavts0g3wno68b8",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.834Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.834Z"
+    }
+  ]
+}

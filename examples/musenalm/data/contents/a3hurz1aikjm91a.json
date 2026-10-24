@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 13 Gedichten INr 24891-24903, Obj 176-188",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 24890,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 175,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Albert Graf von Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cxstdiy6gowajhr",
+      "agents": "23ylvw2tykdsah6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.000Z"
+    }
+  ]
+}

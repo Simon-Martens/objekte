@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 7. /) Graphik im Kalendarium Juli. /) Illustration zu »Abriß der Begebenheiten des allgemeinen Krieges der spanischen Erbfolge« INr 75770, Obj 32; s.a. Textbezug INr 75757, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75749,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eugen nimt Cremona vor Tagesanbruch ein, / und Villeroi gefangen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel fec. 1793. D. Chod. del.",
+  "scans": [
+    "alm_2140_75749_7bx5v7b1wx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eugen nimt Cremona vor Tagesanbruch ein, / und Villeroi gefangen",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2d9ykyjs07kqmac",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.781Z"
+    },
+    {
+      "id": "ljupwhg13hfesiw",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.781Z"
+    }
+  ]
+}

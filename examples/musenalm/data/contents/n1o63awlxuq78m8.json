@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37242,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coeffures Berlinoises / 1.2. petite Palisade, 3. Chapeau flammand. / 4. double Palisade 5. Noble Simplicité",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki",
+  "scans": [
+    "alm_155_37242_9f7hlh07a6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coeffures Berlinoises / 1.2. petite Palisade, 3. Chapeau flammand. / 4. double Palisade 5. Noble Simplicité",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pv2bu5l4s4ie926",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.353Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.353Z"
+    }
+  ]
+}

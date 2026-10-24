@@ -1,0 +1,58 @@
+{
+  "annotation": "Bilderchronik der theatralischen Zeiterscheinungen (Sammlung INr 77292, Obj 7) Illustration zu »Die Schleichhändler« von E. B. S. Raupach s. Textbezug INr 77297, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77298,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schleichhändler von E. Raupach. / Act II. Scene 7",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. Bl. Höfel sc. Wiener Neustadt",
+  "scans": [
+    "alm_2402_77298_y5l9istt3e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Schleichhändler von E. Raupach. / Act II. Scene 7",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3snon4pwaxjknbi",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.539Z"
+    },
+    {
+      "id": "l3stf9icf0chdvj",
+      "agents": "y1qct7tl0hidcy2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.539Z"
+    }
+  ]
+}

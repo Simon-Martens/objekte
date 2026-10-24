@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait # Bezeichnung vom Titel s. Textbezug INr 9143, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.008Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9140,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carl Erzherzog von Oestreich / Facta ducis vivent operosaque / gloria rerum",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_198_9140_k5021i95fg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Carl Erzherzog von Oestreich / Facta ducis vivent operosaque / gloria rerum",
+  "updated": "2001-01-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "idbgrvp970t124z",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.024Z"
+    }
+  ]
+}

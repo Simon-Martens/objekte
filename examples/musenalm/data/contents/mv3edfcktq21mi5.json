@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "In Zürich. Einer der ersten, von denen, die die Schäfergedichte bei uns in Schwung brachten. Jetzt sind sie aus der Mode gekommen;",
+  "language": [],
+  "musenalm_id": 98681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Salomon Gesner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Salomon Gesner",
+  "updated": "2009-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m9fi804348g5mcn",
+      "agents": "wqzupcw1vi6tnne",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.661Z"
+    }
+  ]
+}

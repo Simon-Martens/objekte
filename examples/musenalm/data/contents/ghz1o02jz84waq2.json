@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Hedwig oder: Pflicht und Liebe. Nach einer wahren schwedischen Geschichte unter König Gustavs III. Regierung« INr 47716, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47721,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O Gott! erhöhre das Gebet einer sterbenden / Mutter!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Rosmäsler sculp.",
+  "scans": [
+    "alm_650_47721_aft61790n7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O Gott! erhöhre das Gebet einer sterbenden / Mutter!",
+  "updated": "2007-01-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5wpjdkglxwclztm",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.637Z"
+    }
+  ]
+}

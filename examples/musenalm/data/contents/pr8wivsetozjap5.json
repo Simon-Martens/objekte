@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen nach dem Spanischen (Sammlung INr 20495, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Frisch hinauf, hinauf, ihr Hunde! / Möge euch die Wuth ertödten!",
+  "language": [],
+  "musenalm_id": 20501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romanze von der Infantin Julianessa. / Nach dem Alt-Spanischen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Beauregard Pandin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Romanze von der Infantin Julianessa. / Nach dem Alt-Spanischen",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6uv7f6al2yv9qgr",
+      "agents": "9mav4omm7dqt3ib",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.091Z"
+    }
+  ]
+}

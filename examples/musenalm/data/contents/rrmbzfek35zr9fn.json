@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachwort zum vorstehenden Beitrag INr 60129, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.980Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Glückliche Americaner! und doch, wenn man dem Briefe eines zurückgekommenen Deutschen in der Minerva vom vorigen Jahr, und andern Nachrichten trauen darf,",
+  "language": [],
+  "musenalm_id": 60130,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachschrift des Herausgebers, sein politi- / sches Glaubensbekenntniß enthaltend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachschrift des Herausgebers, sein politi- / sches Glaubensbekenntniß enthaltend",
+  "updated": "2008-09-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0kehozfge7mr7ci",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.607Z"
+    }
+  ]
+}

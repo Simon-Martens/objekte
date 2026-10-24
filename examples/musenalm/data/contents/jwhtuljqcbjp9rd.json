@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Der lebe froh, / Der lebe froh, / Der sich ein Gut erworben,",
+  "language": [],
+  "musenalm_id": 62488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jubellied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Gr. v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jubellied",
+  "updated": "2009-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nshlcccuvcj09un",
+      "agents": "bt92eejgtvavmav",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.118Z"
+    }
+  ]
+}

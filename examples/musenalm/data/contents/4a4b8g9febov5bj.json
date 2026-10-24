@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu den Opern. Fünfte Lieferung. Preciosa (Sammlung INr 75318, Obj 6) s. Graphik INr 75321, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Chor (mit Echo) / Im Wald, im Wald, / Im frischen grünen Wald, / Wo's Echo schallt",
+  "language": [],
+  "musenalm_id": 75320,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pius Alexander Wolff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p4grv0nssyh88eo",
+      "agents": "txnoxc1duud05n7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.787Z"
+    }
+  ]
+}

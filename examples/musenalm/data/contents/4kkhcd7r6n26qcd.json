@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. # Titel s. Textbezug INr 54693, Obj 6; lt. Textbezug: nach Holbein d. J.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54688,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Margarita Roger] #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Hirnschrot del. H. Meyer sc. Zürich",
+  "scans": [
+    "alm_744_54688_rtqxb04eyo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Margarita Roger] #",
+  "updated": "2008-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5glw7epth5b4pww",
+      "agents": "zr6onfx3w86r42o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.607Z"
+    },
+    {
+      "id": "qbx0vooxdt6owbv",
+      "agents": "pklgpi3o0ul4b99",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.607Z"
+    }
+  ]
+}

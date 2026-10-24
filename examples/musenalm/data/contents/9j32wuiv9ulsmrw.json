@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 9. /) # Bezeichnung aus dem G-Verz s. Textbezug INr 18713, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9153,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "General Championet bei der Procession / des heil. Januarius d. 25 Jan. 1799",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_198_9153_wk6vvjhof3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "General Championet bei der Procession / des heil. Januarius d. 25 Jan. 1799",
+  "updated": "2001-01-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ikve03ete5sfwei",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.050Z"
+    }
+  ]
+}

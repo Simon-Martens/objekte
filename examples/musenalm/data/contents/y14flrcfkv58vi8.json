@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) Graphik im Kalendarium Januar /) Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75687, Obj 34 /) s.a. Textbezüge INr 75673, 75674; Obj 20, 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.673Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75659,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vor der Schlacht bey Nördlingen. / H. Bernhard zu Horn und Kratz: / Die Bedraengten verlangen Hülfe, wir müssen schlagen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec.",
+  "scans": [
+    "alm_2143_75659_ty459wxr0x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vor der Schlacht bey Nördlingen. / H. Bernhard zu Horn und Kratz: / Die Bedraengten verlangen Hülfe, wir müssen schlagen",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tbvj7u7ypb9jyt2",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.544Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.544Z"
+    }
+  ]
+}

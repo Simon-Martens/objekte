@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Widmungsgedicht s. INr 39932, Obj 47. Dem Gedicht vorangestellt: Die Elemente hassen / Das Gebild der Menschenhand. / Schiller",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Schweigend ruhte die Mitternacht auf den einsamen / Bergen, / Schweigend lagen entfernt der Menschen Wohnungen,",
+  "language": [],
+  "musenalm_id": 39931,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Die Bergeister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler, geborne von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Die Bergeister",
+  "updated": "2005-08-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "44a0dm23rbyyvxj",
+      "agents": "vxzn7evqhv18e38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.050Z"
+    }
+  ]
+}

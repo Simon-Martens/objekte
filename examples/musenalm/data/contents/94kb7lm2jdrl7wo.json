@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Vor mir ging der Vater, der Freund; / mir folgt mit raschen / Schritten der Sohn: Apoll hat uns auf / ewig vereint.",
+  "language": [],
+  "musenalm_id": 78803,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Gramberg, Vater und Sohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Gramberg, Vater und Sohn",
+  "updated": "2009-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g67di5mr3pdpvg0",
+      "agents": "v5ht3d6rw3do6ml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.791Z"
+    }
+  ]
+}

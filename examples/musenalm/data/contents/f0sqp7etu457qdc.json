@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: Was geschieht, ist hier nur klar, / Das Warum wird offenbar, [...] Müllner's Schuld /) mit einer Illustration s. Graphik INr 117180, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Stolz und kühn erhebt die Eiche / In der Lüfte weite reiche / Ihres Wipfels frische Pracht;",
+  "language": [],
+  "musenalm_id": 117221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedicht / Eins und jetzt.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Graf Jelacic de Busim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedicht / Eins und jetzt.",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "58llmi9mpjwizy9",
+      "agents": "iat62ex02v3zvak",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.480Z"
+    }
+  ]
+}

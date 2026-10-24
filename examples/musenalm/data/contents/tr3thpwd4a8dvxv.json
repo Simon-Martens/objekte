@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.515Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Tritt heran, du heitre Liebessonne, / Tritt heran nun in des Morgens Pracht,",
+  "language": [],
+  "musenalm_id": 31825,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erwartung und Erfüllung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erwartung und Erfüllung",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b5yczw1yqsrnb2p",
+      "agents": "ijn3e3gugtz46hh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.661Z"
+    }
+  ]
+}

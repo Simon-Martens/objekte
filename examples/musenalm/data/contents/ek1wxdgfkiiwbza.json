@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 71361, Obj 18 /) mit Zitat aus: »Pucelle d'Orleans« von Voltaire",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Schön ist der Vorsatz, Menschenelend zu mindern, und Menschenfreuden zu mehren.",
+  "language": [],
+  "musenalm_id": 71360,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der 5ten Kupfertafel. / Der Magnetiseur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der 5ten Kupfertafel. / Der Magnetiseur",
+  "updated": "2010-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e4cjer3e8u9zehb",
+      "agents": "a1tvqjbk8115iq7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.587Z"
+    }
+  ]
+}

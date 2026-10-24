@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Sonderbar! / Vierundvierzig Jahr, / Und noch immer lustig!",
+  "language": [],
+  "musenalm_id": 6653,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER / FROHE GEBURTSTAG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "VOSS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DER / FROHE GEBURTSTAG",
+  "updated": "2000-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yax5ox31k4z2ach",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.236Z"
+    }
+  ]
+}

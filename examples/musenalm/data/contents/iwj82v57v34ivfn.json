@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 5. s. Textbezug INr 7122, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.656Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7088,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Menschen Tugend ist nicht glau- / ben, sondern thun. / III. Aufz. 1. Auft.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki f.",
+  "scans": [
+    "alm_143_7088_1v6ma4pvxn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des Menschen Tugend ist nicht glau- / ben, sondern thun. / III. Aufz. 1. Auft.",
+  "updated": "2000-11-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wlf85vs8fwoqu0a",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.434Z"
+    }
+  ]
+}

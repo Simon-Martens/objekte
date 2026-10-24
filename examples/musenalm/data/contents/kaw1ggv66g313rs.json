@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Heil den Helden! Heil euch allen, / Die im Todeskampf gefallen,",
+  "language": [],
+  "musenalm_id": 91653,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todesfeier / der im Kampfe fürs Vaterland / gefallenen freiwilligen Krieger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Fr. Stäudlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todesfeier / der im Kampfe fürs Vaterland / gefallenen freiwilligen Krieger",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m91v6noyen1oir5",
+      "agents": "2f965te58psi6tx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.277Z"
+    }
+  ]
+}

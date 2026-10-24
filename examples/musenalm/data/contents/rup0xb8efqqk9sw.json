@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung u. Titel aus dem G-Verz ; s. Textbezug 37225, Obj 16; s. Gedicht INr 1410, Obj 76",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9217,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Pantomimische Attitüden der Madame Hendel-Schütz] Agrippina mit dem Aschenkruge des Britannicus #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. Bollinger sc.",
+  "scans": [
+    "alm_38_9217_uddbeyke23.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Pantomimische Attitüden der Madame Hendel-Schütz] Agrippina mit dem Aschenkruge des Britannicus #",
+  "updated": "2000-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "920ptn64zat4lfu",
+      "agents": "hwl1l57k0tbbc1r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.309Z"
+    },
+    {
+      "id": "z8dsgt8sjfvemwv",
+      "agents": "xudps8vzrobe0d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.309Z"
+    }
+  ]
+}

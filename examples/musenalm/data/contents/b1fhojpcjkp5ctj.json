@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1. s. Textbezug INr 72418, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.596Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72406,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kayserin auf ihrem Zug nach / Peterhoff. / L'Imperatrice allant a Peterhoff",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fec. 1797",
+  "scans": [
+    "alm_833_72406_2keitdqstg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Kayserin auf ihrem Zug nach / Peterhoff. / L'Imperatrice allant a Peterhoff",
+  "updated": "2008-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "107q1x9byrny431",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.613Z"
+    }
+  ]
+}

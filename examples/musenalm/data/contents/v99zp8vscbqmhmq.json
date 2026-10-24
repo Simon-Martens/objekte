@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkung zur Autorschaft am Gedicht. # lt. Goed V, 167: Chr. Fr. Daniel Schubart",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Woher das Jauchzen dort auf jenen Trauben- / hügeln / Woher das Evan Evoe?",
+  "language": [],
+  "musenalm_id": 41720,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gefühl am ersten Oktober / 1781",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gefühl am ersten Oktober / 1781",
+  "updated": "2005-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j79saphkr6cstk0",
+      "agents": "e0jidz7fwbzecy6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.202Z"
+    }
+  ]
+}

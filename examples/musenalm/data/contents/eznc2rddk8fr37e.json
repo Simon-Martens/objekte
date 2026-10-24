@@ -1,0 +1,45 @@
+{
+  "annotation": "Stechpalmen (Sammlung INr 92739, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.449Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Verstoßt uns nur, verhöhnt uns nur, / Das muß ja bald verwehen.",
+  "language": [],
+  "musenalm_id": 92745,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verkennung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Seeger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verkennung",
+  "updated": "2013-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gf6b13mv4n5nkwb",
+      "agents": "nwzg4t9e6f4r4qh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.128Z"
+    }
+  ]
+}

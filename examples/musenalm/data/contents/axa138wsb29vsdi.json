@@ -1,0 +1,45 @@
+{
+  "annotation": "Abgerissene Gedanken vor dem Frühstücke und dem Nachtstücke in Löbichau (Sammlung INr 43146, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Je zarter und wärmer man liebt, desto mehr entdeckt man an sich statt der Reize nur Mängel,",
+  "language": [],
+  "musenalm_id": 43148,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Liebe und Religion in ihrer Höhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Liebe und Religion in ihrer Höhe",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5dx0ufjvn27cbm0",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.393Z"
+    }
+  ]
+}

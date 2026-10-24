@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Abendwehmuth« von Fr. Kind INr 19537, Obj 66 /) Anhang zu Becker's Taschenbuch 1816 enthaltend: Compositionen und Tänze, von Bergt, Dotzauer, Marschner, Methfessel, Pohlenz und Minna Schütz (Sammlung INr 61749, Obj 112) /) (Photos 61753,01; 61753,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.440Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61753,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendwehmuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dotzauer",
+  "scans": [
+    "alm_264_61753_01_nsi8urv1ci.jpg",
+    "alm_264_61753_02_p6nutypg80.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abendwehmuth",
+  "updated": "2001-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tjhs4nd1e5gu3cm",
+      "agents": "ij45jg2izry2pga",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.073Z"
+    }
+  ]
+}

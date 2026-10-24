@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert H.I.. /) »Oestreichs Gelehrten« (Sammlung INr 48092, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.541Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48108,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich Hegrad",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48108_riq56jlqgv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich Hegrad",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tiwjvaz7e1k5dwx",
+      "agents": "theiyy8sya8no7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.646Z"
+    }
+  ]
+}

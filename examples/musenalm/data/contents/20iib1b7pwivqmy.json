@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25470,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ludwig Uhland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Morff pinx. 1822. E. Mandel sculp.",
+  "scans": [
+    "alm_337_25470_rdriic6axw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ludwig Uhland",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9wywojrz12hc15i",
+      "agents": "a3tmqioddxgsyo7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.901Z"
+    },
+    {
+      "id": "x47eiduo1m3c6i6",
+      "agents": "ecoa6g9h9p5tcuv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.901Z"
+    }
+  ]
+}

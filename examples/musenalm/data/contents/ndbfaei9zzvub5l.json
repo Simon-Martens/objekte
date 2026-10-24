@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: aus Thorne's Werk",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42296,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht des Stadthauses in Batavia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frenzel sc. Dresdae",
+  "scans": [
+    "alm_558_42296_n49152h24q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht des Stadthauses in Batavia",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yy7r91qvudf7i13",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.988Z"
+    }
+  ]
+}

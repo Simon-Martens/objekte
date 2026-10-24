@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen und Romanzen (Sammlung INr 80494, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Tasillo jagt im Haine, / Des Baierlandes Herr, / Zur Seit' im Morgenscheine / Herr Günther zieht daher.",
+  "language": [],
+  "musenalm_id": 80497,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Die Gründung von Kremsmünster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Die Gründung von Kremsmünster",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5yxvbpettg1is3e",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.849Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.849Z"
+    }
+  ]
+}

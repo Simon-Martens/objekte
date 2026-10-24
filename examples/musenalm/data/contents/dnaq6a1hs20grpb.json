@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 40596, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "413",
+  "incipit_statement": "Vor allem präge dir ein: / Du sollst mit nichten ein Klügeler seyn:",
+  "language": [],
+  "musenalm_id": 40599,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meister und Lehrling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meister und Lehrling",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3c3w75sclf7szvb",
+      "agents": "2i4oqqhryhrdin4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.947Z"
+    }
+  ]
+}

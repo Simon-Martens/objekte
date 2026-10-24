@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 53864, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Hoch am Felsenhange / Sitzt, des Jagens satt, / Nach so heißem Gange, / Jäger müd' und matt.",
+  "language": [],
+  "musenalm_id": 53874,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gemsenjäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jakob Schnerr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gemsenjäger",
+  "updated": "2008-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6mrp7yaf3z2rh4c",
+      "agents": "cec33a809o0wki1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.658Z"
+    }
+  ]
+}

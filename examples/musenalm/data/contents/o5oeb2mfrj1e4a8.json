@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. / Fliegende Blätter (Sammlung INr 39746, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Ich will lieber auf meinen eigenen Füßen auf dem platten Boden, und selbst auf einem niedrigeren Wege gehen,",
+  "language": [],
+  "musenalm_id": 39819,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich will lieber auf meinen eigenen Füßen auf dem platten Boden, und selbst auf einem niedrigeren Wege gehen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k76oq9zp66g11rn",
+      "agents": "02o1v7ogp6q644r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.182Z"
+    }
+  ]
+}

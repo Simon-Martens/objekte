@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Wo an Freundes Hand wir ziehen / Durch des Lebens Dornenpfad, / Duften Veilchen, Rosen blühen",
+  "language": [],
+  "musenalm_id": 72037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freundschaft und Liebe. / Ein Wechselgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Reinbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freundschaft und Liebe. / Ein Wechselgesang",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tvd74v8cpxdreaj",
+      "agents": "j6u4xe56jqv8urn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.546Z"
+    }
+  ]
+}

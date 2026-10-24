@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert: pag. 208;  V /) lllustration zu »Johann Fridrichs des Großmüthigen, des letzten Churfürsten zu Sachsen, Ernestische Linie, Niederlage und Gefangenschaft bei Mühlberg« von K. G. Cramer INr 79280, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Daß es keiner wagt sich an diesem / Grabe zu vergreifen bey meiner / höchsten Ungnade!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dornheim inv. et sculps. Leipz.",
+  "scans": [
+    "alm_3767_79285_yhofw13v3i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Daß es keiner wagt sich an diesem / Grabe zu vergreifen bey meiner / höchsten Ungnade!",
+  "updated": "2012-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ja37rh62f97y6a3",
+      "agents": "praird5i9f22ccy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.972Z"
+    }
+  ]
+}

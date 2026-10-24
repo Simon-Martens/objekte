@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 53085, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Die Sonne sank auf ihres Laufes Bogen, / Und Lüfte hauchten in des Mittags Schwühle;",
+  "language": [],
+  "musenalm_id": 53086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gesicht im Grütli. / Nach einer neuern Volkssage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gesicht im Grütli. / Nach einer neuern Volkssage",
+  "updated": "2007-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lnd34becbhq2c92",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.574Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.574Z"
+    }
+  ]
+}

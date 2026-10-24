@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus den geistlichen Gedichten (Sammlung INr 54712, Obj 25) Aus Benedikts poetischem Nachlasse (Sammlung INr 54711, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Herr, zu dir auf seh'n wir Schwachen, / staunen dein Ruhe an,",
+  "language": [],
+  "musenalm_id": 54714,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jesu Ruhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jesu Ruhe",
+  "updated": "2008-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e1h8uwxzjjgkgaj",
+      "agents": "94rmjnpm6yfqwop",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.903Z"
+    }
+  ]
+}

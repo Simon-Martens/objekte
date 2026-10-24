@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.741Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Acht Uhr! - beinahe schon zehn Minuten darüber! - Der Thee wird sein Aroma verlieren; es wäre besser gewesen, wenn ich mit dem Aufgießen noch gewartet hätte,",
+  "language": [],
+  "musenalm_id": 116207,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alte Gewohnheiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fried. Wilh. Arming (Fitzberth.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alte Gewohnheiten",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s695eik658bitac",
+      "agents": "cml7459qmsayuse",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.283Z"
+    }
+  ]
+}

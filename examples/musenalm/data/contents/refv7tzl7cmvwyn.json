@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Gedicht INr 111399, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.392Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111398,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonst und Jetzt #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. POSTMA. J. W. Kaiser sculps.",
+  "scans": [
+    "alm_3461_111398_c3a9i9e4ni.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sonst und Jetzt #",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "88plw2y345v2pdq",
+      "agents": "19qhbbmdlb3ytgz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.376Z"
+    },
+    {
+      "id": "oy0wf34eakxv04h",
+      "agents": "p3hijooo9pslzw2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.376Z"
+    }
+  ]
+}

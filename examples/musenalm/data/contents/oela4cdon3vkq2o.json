@@ -1,0 +1,43 @@
+{
+  "annotation": "# Verlagsmitteilung: Als Probe aus dem Augustheft der Flora 1796",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Zwo Waisen, Eucharis und Psyche war ihr / Name / Ihr Schicksal gut und arm zu seyn,",
+  "language": [],
+  "musenalm_id": 32785,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die zwo Waisen. / An meine Töchter #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die zwo Waisen. / An meine Töchter #",
+  "updated": "2003-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qqpzva66pjib11f",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.609Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.609Z"
+    }
+  ]
+}

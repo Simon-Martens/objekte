@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 10 Beiträgen INr 19228-19237, Obj 37-46",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.983Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1609,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerungen / an / Rafael Sanzio von Urbino. / Dreihundert Jahre nach seinem Tode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerungen / an / Rafael Sanzio von Urbino. / Dreihundert Jahre nach seinem Tode",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gn3wlpw72zo9686",
+      "agents": "5dfik7lfhc9fltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.018Z"
+    }
+  ]
+}

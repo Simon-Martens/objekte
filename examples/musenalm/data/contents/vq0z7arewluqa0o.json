@@ -1,0 +1,35 @@
+{
+  "annotation": "Photos 104446,01-104446,03",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104446,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3247_104446_01_015461aa8g.jpg",
+    "alm_3247_104446_02_0h4gr9zpcq.jpg",
+    "alm_3247_104446_03_h8lo28z36n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": []
+}

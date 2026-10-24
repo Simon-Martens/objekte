@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 66282, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66266,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutsche, seht auf eure Freunde, und seyd stolz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1797",
+  "scans": [
+    "alm_1123_66266_k7pncqw63s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Deutsche, seht auf eure Freunde, und seyd stolz",
+  "updated": "2009-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m7y6kh49q6i8hip",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.989Z"
+    }
+  ]
+}

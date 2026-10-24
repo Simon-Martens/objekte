@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait / Illustration zu »Kleo an Lucien. Geständnisse eines verirrten Mädchens« von C. L. INr 21869, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21837,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kleo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leybold del. D'Argent sc.",
+  "scans": [
+    "alm_296_21837_t0dtys991o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kleo",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t8uyy42ym11cdy3",
+      "agents": "6w8qpfg1b4btdfg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.057Z"
+    },
+    {
+      "id": "bfimt1vxm75zoqy",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.057Z"
+    }
+  ]
+}

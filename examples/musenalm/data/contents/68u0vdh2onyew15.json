@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 24365, Obj 145) Kleine Gedichte (Sammlung INr 24364, Obj 144)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Dich beneid' ich dem Spiegel, so oft du in ihm dich / beschauest,",
+  "language": [],
+  "musenalm_id": 24366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 146,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dich beneid' ich dem Spiegel, so oft du in ihm dich / beschauest,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Riemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qtmtkupp3mjrp6s",
+      "agents": "rw4d1lc8bcz0sk7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.937Z"
+    }
+  ]
+}

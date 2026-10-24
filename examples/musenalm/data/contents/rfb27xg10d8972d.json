@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Zwischentitel. Es folgt: Sammlung von 20 Graphiken mit 20 Textbezügen INr 87831-87870, Obj 6-45",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.442Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87830,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HISTORISCH- / mahlerische Reise / durch / SYRIEN, PHÖNICIEN, / UND NIEDER-AEGYPTEN. / WIEN, / MDCCCIV. / Bey J. B. Degen / Buchdrucker und Buchhändler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerstner sc.",
+  "scans": [
+    "alm_3100_87830_4ws4pmpels.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HISTORISCH- / mahlerische Reise / durch / SYRIEN, PHÖNICIEN, / UND NIEDER-AEGYPTEN. / WIEN, / MDCCCIV. / Bey J. B. Degen / Buchdrucker und Buchhändler",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3kzzrc1nwv0ftlr",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.289Z"
+    }
+  ]
+}

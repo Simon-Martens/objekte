@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Pfand. Nomannische Sage in Balladen (Sammlung INr 26970, Obj 228)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "449",
+  "incipit_statement": "Die Hauptschlacht ward geschlagen, ersiegt das blut'ge Feld. / Da trug nun Englands Krone Wilhelm der starke Held,",
+  "language": [],
+  "musenalm_id": 36464,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 236,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII.",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hoiuwyqb9xaz7n9",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.884Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.884Z"
+    }
+  ]
+}

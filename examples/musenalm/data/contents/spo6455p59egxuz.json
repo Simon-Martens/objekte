@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Gräfin von Rudolstadt« von K. Geib INr 62910, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62895,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gräfin von Rudolstadt. / Romanze von K. Geib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. Jos. Stöber sc. Viennae",
+  "scans": [
+    "alm_1031_62895_dcb5zvnnrk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Gräfin von Rudolstadt. / Romanze von K. Geib",
+  "updated": "2009-03-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oev1895wak6w81i",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.123Z"
+    },
+    {
+      "id": "ki2b08ilm0r2xjh",
+      "agents": "yk9ibu96ud1308d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.123Z"
+    }
+  ]
+}

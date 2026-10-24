@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Romanze« von W.G. Becker INr 13250, Obj 41 /) Anhang zu Beckers Taschenbuch 1809. enthaltend: Compositionen und Tänze, von Harder, Reichardt, Himmel  und Bergt (Anhang INr 61598, Obj 163) (Photos 61600,01; 61600,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61600,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 165,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_216_61600_01_dwsq776yt5.jpg",
+    "alm_216_61600_02_eac4qkuh2q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Romanze",
+  "updated": "2001-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ybdrpeq4vw66zs2",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.942Z"
+    }
+  ]
+}

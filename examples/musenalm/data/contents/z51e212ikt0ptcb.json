@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. und Titel aus dem G-Verz und den Beiträgen INr 82913, 82926; Obj 4, 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82928,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Knabe Jesus im Tempel #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian van der Werff. Prof. Heß",
+  "scans": [
+    "alm_3072_82928_zaq9l9f2uj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Knabe Jesus im Tempel #",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ju3xkjru4o4iv6t",
+      "agents": "hox4bdppkgycitp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.955Z"
+    },
+    {
+      "id": "dpnw39p3g5d50pe",
+      "agents": "dvhp1mfxgvurunq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.955Z"
+    }
+  ]
+}

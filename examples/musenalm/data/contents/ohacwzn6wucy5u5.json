@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Titelgraphik</div>",
+  "content_type": [],
+  "created": "2026-07-14T10:12:37.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140185,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pauline",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. C. Kotterba sc.",
+  "scans": [
+    "alm_1905_140185_nbyptehk7w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pauline",
+  "updated": "2026-07-15T11:00:50.410Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "2h31fyyxa4xor82",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-07-14T10:16:49.693Z",
+      "edit_comment": "",
+      "type": "Kupferstecher:in",
+      "uncertain": false,
+      "updated": "2026-07-15T10:45:44.621Z"
+    }
+  ]
+}

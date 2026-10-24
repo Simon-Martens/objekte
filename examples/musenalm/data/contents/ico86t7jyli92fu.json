@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Kunst mit  Männern glücklich zu seyn; ein Seitenstück zur Kunst mit Weibern glücklich zu seyn.« von Chr. G. Flittner INr",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124624,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Triumpf der Simplicität über die / Affectation",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Dähling del. E. Henne sc.",
+  "scans": [
+    "alm_4698_124624_ej4wuhezwz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Triumpf der Simplicität über die / Affectation",
+  "updated": "2020-02-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w13mhppy03y65qy",
+      "agents": "fu5wv6odvdsjkbe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.737Z"
+    },
+    {
+      "id": "zdsl6sg906vdh74",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.737Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 64399, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Da schwing' ich mich behend vom Roß, / Schnell ist des Schwertes Schneide bloß",
+  "language": [],
+  "musenalm_id": 64393,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kampf mit dem Drachen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kampf mit dem Drachen",
+  "updated": "2009-05-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7yh88f7ym7tsozg",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.050Z"
+    }
+  ]
+}

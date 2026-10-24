@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Epigrammatische und andere Gedichte (Sammlung INr 39673, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "471",
+  "incipit_statement": "Du, Jüngling, hast mir Thränen ausgepreßt. / Wer konnt' auch ahnen, daß man dich begrübe",
+  "language": [],
+  "musenalm_id": 39683,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Als Theon begraben wurde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Als Theon begraben wurde",
+  "updated": "2005-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4pyshnirgn54ows",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.110Z"
+    }
+  ]
+}

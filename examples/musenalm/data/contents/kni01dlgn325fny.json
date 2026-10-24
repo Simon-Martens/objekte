@@ -1,0 +1,45 @@
+{
+  "annotation": "Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Auf den ersten Blick scheint es allerdings einen hohen Grad von Selbstigkeit zu verrathen, wenn man in der Natur stets die Absicht ansucht,",
+  "language": [],
+  "musenalm_id": 41430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die wichtigsten Handelsproducte der west- / lichen arcitschen Erde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die wichtigsten Handelsproducte der west- / lichen arcitschen Erde",
+  "updated": "2005-11-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yv6mghf2rbcohvd",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.973Z"
+    }
+  ]
+}

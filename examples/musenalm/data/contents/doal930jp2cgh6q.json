@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.767Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Der Schmeichler und der Hund, wer kann sich / gleicher seyn? / Beim Ohre packen sie den Großen und das Schwein.",
+  "language": [],
+  "musenalm_id": 10459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "38. / Der Schmeichler und der Hund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Nicolai",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "38. / Der Schmeichler und der Hund",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q65hr86umwmlqu1",
+      "agents": "km5yxdev9efbrvi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.298Z"
+    }
+  ]
+}

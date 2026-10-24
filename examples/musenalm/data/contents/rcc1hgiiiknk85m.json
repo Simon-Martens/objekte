@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert VI. /) s. Textbezug INr 21035, Obj 16; Illustration zu »Das Käthchen von Heilbronn« von H. v. Kleist",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21036,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kätchen von Heilbronn / von Heinrich v. Kleist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Buser sc. Arau",
+  "scans": [
+    "alm_280_21036_fk900105v7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kätchen von Heilbronn / von Heinrich v. Kleist",
+  "updated": "2002-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cqf59ygpx34t431",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.964Z"
+    },
+    {
+      "id": "vds71uhjyvfiwnq",
+      "agents": "gpua5gdwasv89sy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.964Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung der Herausgeber INr 53591, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Ich hörte die Sennen den Kureihen singen zum Schellengeläute der Heerden; ich sah sie die Alpen verlassen und nach den Niederungen ziehen.",
+  "language": [],
+  "musenalm_id": 53592,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Fremde und Heimath] / Ihr Matten lebt wohl, / Ihr sonnigen Weiden! / Der Senne muß scheiden, / Der Sommer ist hin.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Ruckstuhl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Fremde und Heimath] / Ihr Matten lebt wohl, / Ihr sonnigen Weiden! / Der Senne muß scheiden, / Der Sommer ist hin.",
+  "updated": "2007-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ym5gies7h8ha46r",
+      "agents": "h4swuxy317mc6f5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.837Z"
+    }
+  ]
+}

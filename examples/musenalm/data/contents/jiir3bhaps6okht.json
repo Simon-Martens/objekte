@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.478Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Närrchen, sey nicht spröde, / Komm, und küsse mich,",
+  "language": [],
+  "musenalm_id": 30945,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stuzerlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Blumauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stuzerlied",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8p6bgsejvmdyez7",
+      "agents": "p56m9esfl91y36d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.388Z"
+    }
+  ]
+}

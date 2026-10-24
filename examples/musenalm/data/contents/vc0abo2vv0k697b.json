@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Bergeri Responsa P. II. resp. 31 /) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Ein Förster schoß im Felde einen Hasen. Die Pferde eines in jener Gegend ackernden Landmannes wurden vom Schusse scheu,",
+  "language": [],
+  "musenalm_id": 109033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXI. / Weidmännischer Rechtsfall. / Dupo cum faciunt idem, non est idem",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXI. / Weidmännischer Rechtsfall. / Dupo cum faciunt idem, non est idem",
+  "updated": "2015-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "05gthyyub4ehxk5",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.300Z"
+    }
+  ]
+}

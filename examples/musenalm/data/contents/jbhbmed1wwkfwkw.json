@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Es raucht der Schlott, die Funken sprüh'n! / Dort, wo die Eisenstufen glüh'n, / Ist unser Ziel, Mathilde",
+  "language": [],
+  "musenalm_id": 94788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebesprobe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebesprobe",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "089n7reuidjwq72",
+      "agents": "arq1wi6im7bawmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.494Z"
+    }
+  ]
+}

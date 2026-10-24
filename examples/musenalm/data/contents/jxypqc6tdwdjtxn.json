@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Die Schauspielkunst [...] giebt gegenwärtig den eigentlichen Mittelpunct unserer Kunstbildung ab, insofern [...] nämlich auch alle besonderen Künste [...] in ihr tätig erscheinen und ihre zweite Heimath finden.",
+  "language": [],
+  "musenalm_id": 128611,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einleitung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. Klingemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einleitung",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mmv4p1j06c6xn8a",
+      "agents": "4s7269wm8jxsp50",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.993Z"
+    }
+  ]
+}

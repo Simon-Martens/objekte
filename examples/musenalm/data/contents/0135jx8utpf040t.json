@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96701, Obj 25 /) mit 3 Illustrationen s. Graphiken im Kalendarium INr 96688-96690, Obj 13-15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Aesop bewies zu seiner Zeit / Die schwerste Kunst in unsern / Tagen / Die Kunst, die Narren zu er- / tragen,",
+  "language": [],
+  "musenalm_id": 96700,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Der Weise und der Narr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Der Weise und der Narr",
+  "updated": "2014-05-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "goqqj6tbsiq8w3p",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.839Z"
+    }
+  ]
+}

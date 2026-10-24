@@ -1,0 +1,45 @@
+{
+  "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.936Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Durch mehrere Zimmer führte ihn die Benzon, endlich gelangten sie in das Gemach der Sterbenden.",
+  "language": [],
+  "musenalm_id": 36363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Wirst Du auf meinem Grabe / Mir eine Thräne weihen, / Dann flüstr' es aus der Weide / Dir leise klagend zu, / Wie ich Dir bis zum Tode treu. / (Desdemona in Rossini's Othello. / Act 3. Sc. 2.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Luca fa presto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Wirst Du auf meinem Grabe / Mir eine Thräne weihen, / Dann flüstr' es aus der Weide / Dir leise klagend zu, / Wie ich Dir bis zum Tode treu. / (Desdemona in Rossini's Othello. / Act 3. Sc. 2.)",
+  "updated": "2003-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jztlmqqw0a8jexi",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.813Z"
+    }
+  ]
+}

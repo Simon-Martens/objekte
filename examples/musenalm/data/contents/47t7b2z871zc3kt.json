@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht in 10 Teilen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Zu Rouen in der Normandie / Der Herzog Hubert saß, / Die Herzogstochter von Burgund / Er sich zum Weib erlas.",
+  "language": [],
+  "musenalm_id": 43144,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Romanzen von Robert dem Teufel. / Nach der alt-fränkischen Sage]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Romanzen von Robert dem Teufel. / Nach der alt-fränkischen Sage]",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9qd97892n742qpz",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.263Z"
+    }
+  ]
+}

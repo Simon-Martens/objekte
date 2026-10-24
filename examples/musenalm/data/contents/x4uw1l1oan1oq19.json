@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An die Gespielinn« von Karl Reinhard INr 17872, Obj 64",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Gespielinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ch. Queck",
+  "scans": [
+    "alm_91_17871_tg8v930lbk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An die Gespielinn",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "spnnjya0it7oy60",
+      "agents": "9ayonyltogbumpo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.802Z"
+    }
+  ]
+}

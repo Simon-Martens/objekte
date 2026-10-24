@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 34231, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34232,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die heilige Familie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raphael Pinx. Fortier sculp.",
+  "scans": [
+    "alm_475_34232_4k6jtmkpkd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die heilige Familie",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2lzmkdu7u7k7drf",
+      "agents": "ztgmm4mptvjp8o3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.786Z"
+    },
+    {
+      "id": "m7d2td9uku4vprt",
+      "agents": "vuxl65pc90019o7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.786Z"
+    }
+  ]
+}

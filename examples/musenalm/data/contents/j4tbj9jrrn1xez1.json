@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium; nummeriert I. /) Illustration zu »Die Erbschleicher«",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105505,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Da Papachen! / die Erbschleicher I. Aufz. XII. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Liebe sc.",
+  "scans": [
+    "alm_3263_105505_mksif0lnc5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Da Papachen! / die Erbschleicher I. Aufz. XII. Auftr.",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gnldgsqt14p8hso",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.152Z"
+    },
+    {
+      "id": "634uiai0qmcrk7u",
+      "agents": "v0k80momy67j3zt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.152Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "266",
+  "incipit_statement": "Auf des Athos blauen Felsenspitzen / Möcht' ich sitzen, / Näher Himmel deinens Zornes Blitzen,",
+  "language": [],
+  "musenalm_id": 133601,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Titan",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz v. Schober",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Titan",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4w59wd3nc1bj1z6",
+      "agents": "demesi9ujep1ia6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.112Z"
+    }
+  ]
+}

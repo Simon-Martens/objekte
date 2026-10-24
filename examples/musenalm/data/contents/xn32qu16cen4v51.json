@@ -1,0 +1,67 @@
+{
+  "annotation": "Graphik im Kalendarium Juli /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67971,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die feierliche Ertheilung des schwarzen Adlerordens / am 19. Januar 1703",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach Leygebe gez. von Stürmer G. Bretzing sc. 1821",
+  "scans": [
+    "alm_857_67971_0zhowhz6h6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die feierliche Ertheilung des schwarzen Adlerordens / am 19. Januar 1703",
+  "updated": "2008-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zxv37guyf5htzdv",
+      "agents": "mtsa21z6u49e7nn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.327Z"
+    },
+    {
+      "id": "yjlru0s3jhayn06",
+      "agents": "xsc8m0e0lt02y28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.327Z"
+    },
+    {
+      "id": "gwp8c7hpqo78sqy",
+      "agents": "mpznkfyt4qhxfg1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.327Z"
+    }
+  ]
+}

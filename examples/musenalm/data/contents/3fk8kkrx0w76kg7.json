@@ -1,0 +1,45 @@
+{
+  "annotation": "3. Die Spinnerin (INr 88230, Obj 18) Gedichte (Sammlung INr 88225, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Rinne sanft, du weiche Welle, / Schöner Flachs, durch meine Hände,",
+  "language": [],
+  "musenalm_id": 88231,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2013-04-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f03litsyjpdp3ra",
+      "agents": "3pzkf5igvpvswjd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.211Z"
+    }
+  ]
+}

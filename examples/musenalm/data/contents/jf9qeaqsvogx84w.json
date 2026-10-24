@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kabale und Liebe« von Fr. Schiller s. Textbezug INr 39996, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.933Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39995,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kabale und Liebe Vr. Act, letzte Scene. / Ferdinand. Laßt mich an diesem Altar verscheiden.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_523_39995_tkis46a3a3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kabale und Liebe Vr. Act, letzte Scene. / Ferdinand. Laßt mich an diesem Altar verscheiden.",
+  "updated": "2005-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sgx11e03mhd812w",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.813Z"
+    },
+    {
+      "id": "z0rq4bq6c8wqg0u",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.813Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "graph. Zwischentitel. Es folgt: Sammlung von 3 Scenen aus »Pastor Fido« von G. B. Guarini INr 71299-71302, Obj 86-89",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71298,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PASTOR FIDO",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiek i. Fr. Bolt sc. 1803",
+  "scans": [
+    "alm_3600_71298_tn9j8r0b8e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PASTOR FIDO",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v6n87ew7btq2fcs",
+      "agents": "jo4gipjsowa4j99",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.499Z"
+    },
+    {
+      "id": "nxqa3c836ud46bs",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.499Z"
+    }
+  ]
+}

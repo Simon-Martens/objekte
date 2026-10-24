@@ -1,0 +1,45 @@
+{
+  "annotation": "Vier Sonette des Petrarca (Sammlung INr 41294, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "388",
+  "incipit_statement": "Hier, wo der Sorga goldne Wogen flüstern, / Und wilde Blumen ihr Gestade säumen,",
+  "language": [],
+  "musenalm_id": 41298,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Lautsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0tn8q1ocfk50r71",
+      "agents": "lddxtb72o5kmwcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.260Z"
+    }
+  ]
+}

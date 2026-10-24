@@ -1,0 +1,43 @@
+{
+  "annotation": "Zwischentitel. Es folgt: Sammlung von 6 Gedichten als Textbezüge zu den Graphiken des Taschenbuchs INr 94995-94905, Obj 6-16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94894,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauenleben. / Sonetten-Cyklus / von Johann N. Vogl / als / Erklärung der Kupferstiche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frauenleben. / Sonetten-Cyklus / von Johann N. Vogl / als / Erklärung der Kupferstiche",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wbft7yjlp90528t",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.670Z"
+    }
+  ]
+}

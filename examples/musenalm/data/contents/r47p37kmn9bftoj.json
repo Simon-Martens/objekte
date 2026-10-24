@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 5322, Obj 98",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Was schaust du so hell und klar / Durch diese Apfelbäume,",
+  "language": [],
+  "musenalm_id": 5284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Mond",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölty",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Mond",
+  "updated": "2000-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ru7ayksw0678w65",
+      "agents": "zddol7mg2ooigi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.003Z"
+    }
+  ]
+}

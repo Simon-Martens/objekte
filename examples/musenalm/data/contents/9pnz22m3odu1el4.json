@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik v.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78235,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BERLIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. A.",
+  "scans": [
+    "alm_882_78235_n4tsfvemzu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BERLIN",
+  "updated": "2008-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kwjd3j7z5bs2m4v",
+      "agents": "wvzx8yp0t9tqzmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.920Z"
+    }
+  ]
+}

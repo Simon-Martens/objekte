@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. vom Titelblatt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Laßt uns das schöne herrliche Land, in welches der Genius der Geschichte uns izt führt, mit inniger Ehrfurcht begrüßen - es ist der erhabene Schauplatz der Freiheit und der Heldentugend",
+  "language": [],
+  "musenalm_id": 61023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Dritte Periode] Fünfter Abschnitt. / Geschichte der Griechen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Dritte Periode] Fünfter Abschnitt. / Geschichte der Griechen",
+  "updated": "2008-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eky8n9xt6to4pzm",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.108Z"
+    }
+  ]
+}

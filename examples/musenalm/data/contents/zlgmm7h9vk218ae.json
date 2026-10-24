@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50810,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der See im Thal Pusclav",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Heß pinx. I. H. Meyer sc.",
+  "scans": [
+    "alm_689_50810_5fjwsfxxp9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der See im Thal Pusclav",
+  "updated": "2007-07-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w5bgciydfpmpjn4",
+      "agents": "uc4ahm2w7hhtikb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.718Z"
+    },
+    {
+      "id": "p1q2w3dcdtw81j6",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.718Z"
+    }
+  ]
+}

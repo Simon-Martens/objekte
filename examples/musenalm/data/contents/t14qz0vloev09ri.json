@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.639Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "499",
+  "incipit_statement": "Als der Herausgeber [...] das [...] »Repertorium der Königl. deutschen und französischen Schauspiele zu Berlin« in einen Almanach [...] umwandelte, stellte er sic hvon vornherein die Aufgabe, etwas in seiner Art Vollkommenes zu liefern.",
+  "language": [],
+  "musenalm_id": 126150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachwort",
+  "updated": "2010-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "83ikgiejyc05yfh",
+      "agents": "nm5lk02wastwpnb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.899Z"
+    }
+  ]
+}

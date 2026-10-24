@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Was thut man jetzt? Die Träumlichkeit ist fort? / Die ganze Mondscheintrunkenheit ist fort!",
+  "language": [],
+  "musenalm_id": 45591,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 172.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was thut man jetzt? / 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Schimper",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Was thut man jetzt? / 1848",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cljchub1mlg36l3",
+      "agents": "u5s6hi2kvh4f7vh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.351Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.351Z"
+    }
+  ]
+}

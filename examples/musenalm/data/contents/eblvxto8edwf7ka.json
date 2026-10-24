@@ -1,0 +1,45 @@
+{
+  "annotation": "Ehrentafel der Humanität im Verhalten von Christen gegen Juden (Sammlung INr 119042, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Der Bürger Vincenz Fentler betheilt seit mehreren Jahren in der Mitte des Winters alle ansässigen jüdischen Armen in gleicher Weise  wie die christlichen mit Geld, Holz und andern Naturalien.",
+  "language": [],
+  "musenalm_id": 119057,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Proßnitz in Mähren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wertheimer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Proßnitz in Mähren",
+  "updated": "2017-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ds3gi1306f0wyaj",
+      "agents": "t40io73vfefta51",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.588Z"
+    }
+  ]
+}

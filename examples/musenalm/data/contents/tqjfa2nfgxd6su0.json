@@ -1,0 +1,45 @@
+{
+  "annotation": "Insgesamt 20 Auszüge",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Durch das Zureden verschiedener deutschen Geschichtsschreiber und eigenen Trieb bewogen, habe ich mich entschlossen, den Theil der englischen Welthistorie auszuarbeiten, der die Helvetische Geschichte enthält.",
+  "language": [],
+  "musenalm_id": 57530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Auszüge / aus den frühesten Briefen / Johanns von Müller / an seinen ältesten Freund / in der / Schweitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann von Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Auszüge / aus den frühesten Briefen / Johanns von Müller / an seinen ältesten Freund / in der / Schweitz",
+  "updated": "2007-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mr0uko6dvscs49f",
+      "agents": "e0m51eftg1dzkew",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.633Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.633Z"
+    }
+  ]
+}

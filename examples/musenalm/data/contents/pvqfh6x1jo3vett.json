@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. aus Anm. d. Hrsg /) Zwischentitel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130320,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichte Finlands",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H. D. und Pof. Friedrich Rühs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichte Finlands",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "usnlblsqu9plccd",
+      "agents": "q5rzjlx40lnqx6r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.064Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26096,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER EDELHIRSCH",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemahlt v. F. Gauermann Stahlstich v. J. Passini i. Wien",
+  "scans": [
+    "alm_341_26096_wyqdwae0st.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER EDELHIRSCH",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7mgeq5nfos3p4vx",
+      "agents": "39mc6151u0cpcgt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.169Z"
+    },
+    {
+      "id": "dbr8mg4gfnei687",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.169Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Mährchen von Thule« INr 71207, Obj 105",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "340",
+  "incipit_statement": "Ich sang allein in Odin's Hallen / und sprach in Tönen dort mich aus.",
+  "language": [],
+  "musenalm_id": 71209,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich sang allein in Odin's Hallen / und sprach in Tönen dort mich aus.…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sylvester",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h40fuez2y1gyxvn",
+      "agents": "ift6i2oy1gozbs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.482Z"
+    }
+  ]
+}

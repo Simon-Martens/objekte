@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge vermischten Inhalts (Sammlung INr 83606, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Der Mond ist aufgegangen, / Die goldnen Sternlein prangen / Am Himmel hell und klar;",
+  "language": [],
+  "musenalm_id": 83618,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Abendlied. / (Mel. Nun ruhen alle Wälder.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Claudius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Abendlied. / (Mel. Nun ruhen alle Wälder.)",
+  "updated": "2012-09-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nbe1ru0z8q1713p",
+      "agents": "bm6n1x459jfghwe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.071Z"
+    }
+  ]
+}

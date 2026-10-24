@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 65161, Obj 10,01",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Der prächtige Hof Ludwigs des XIV. beging die Fastnachtslustbarkeiten in St. Deny.",
+  "language": [],
+  "musenalm_id": 20825,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf Lauzun",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederieke Lohmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Graf Lauzun",
+  "updated": "2002-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qhkuerlkyktbh69",
+      "agents": "o98cykqmxxu1sx9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.879Z"
+    }
+  ]
+}

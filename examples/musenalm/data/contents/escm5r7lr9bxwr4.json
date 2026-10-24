@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Am 21sten p. Trinitatis saß Nachmittags Jakob, der Sohn des reichen Brauers von Modelsdorf, bey dem noch reichern Müller Reinhold zu Adelsdorf.",
+  "language": [],
+  "musenalm_id": 77148,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Christnacht. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Raupach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Christnacht. / Eine Erzählung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wqn0l1h4zbzevb9",
+      "agents": "uxyu52yd3v030gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.625Z"
+    }
+  ]
+}

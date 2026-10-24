@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Ein großer Monarch und Feldherr unsrer Tage, soll soll einem berühmten Schriftsteller die Frage vorgelegt haben: ob den Feldherrn der alten oder der neuen Zeit der Vorrang gebühre.",
+  "language": [],
+  "musenalm_id": 130431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Die Feldherrn / alter und neuer Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heeren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Die Feldherrn / alter und neuer Zeit",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l4ea55p0l9ui5g4",
+      "agents": "3xjka4czdksw7yb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.070Z"
+    }
+  ]
+}

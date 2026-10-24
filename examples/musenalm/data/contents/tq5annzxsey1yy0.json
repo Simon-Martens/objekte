@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgende 6 Graphiken mit 6 Textbezügen INr 85466-85477, Obj 9-20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Abgehend von der Gewohnheit, die Szenen für die Kupfer aus dem erzählenden Theile des Taschenbuches zu wählen, wollt' ich eine kleine szenische Gallerie zu den besten Dramen unserer vaterländischen Dichter gründen,",
+  "language": [],
+  "musenalm_id": 85465,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anmerkung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anmerkung",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vlbd9zns0xpwu6o",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.969Z"
+    }
+  ]
+}

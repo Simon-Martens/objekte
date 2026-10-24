@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik auf dem hinteren Deckel s. Textbezug INr 30648, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30654,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Hamb. priv. Steindruck v. Speckter & co. J. P. T. Lyser dell)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hamb. priv. Steindruck v. Speckter & co. J. P. T. Lyser dell",
+  "scans": [
+    "alm_405_30654_cnup9j12ae.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z3gpamxu3ubqro0",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.445Z"
+    },
+    {
+      "id": "z9t7zs9gvjn6cqk",
+      "agents": "13grl7yw1lbe5kk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.446Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.446Z"
+    }
+  ]
+}

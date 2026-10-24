@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 69515, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Du hast einst viel gesprochen / Von deinem liebenden Sinn,",
+  "language": [],
+  "musenalm_id": 69520,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Erinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alex. Jul. Schindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Erinnerung",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ets977wexeqchst",
+      "agents": "c5g4qkh29vufd7a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.043Z"
+    }
+  ]
+}

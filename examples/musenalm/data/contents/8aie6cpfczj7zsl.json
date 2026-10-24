@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 9. /) Graphik im Kalendarium September /) Illustration zu »Mode Thorheiten«, hier zu »Der Planetenleser« aus: Berlinische Monathsschrift 1784 Dezember, S. 555 /) s. Textbezug INr 70221, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70207,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "L'Astrologue de Berlin. / Der Berlinische Planetenleser / ibid. 1784 Dec. 555",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Clar et Henne sc.",
+  "scans": [
+    "alm_800_70207_16l6ya014u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "L'Astrologue de Berlin. / Der Berlinische Planetenleser / ibid. 1784 Dec. 555",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rjz15vt0meeyvrt",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.629Z"
+    },
+    {
+      "id": "f0qg3r3abefcran",
+      "agents": "cj6pzq84zp925pc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.629Z"
+    },
+    {
+      "id": "69z0j0vhwvjhobx",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.629Z"
+    }
+  ]
+}

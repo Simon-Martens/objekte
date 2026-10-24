@@ -1,0 +1,45 @@
+{
+  "annotation": "Stickerei (Sammlung INr 76164, Obj 62) mit einer graph. Stickanleitung s. INr 76171, Obj 69",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Zu Marly- oder Gaze-Stickerey, welches einerley ist, ist unstreitig der Englische Musselin dem Indischen vorzuziehen.",
+  "language": [],
+  "musenalm_id": 76169,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3) Das Marly- oder Gaze-Sticken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3) Das Marly- oder Gaze-Sticken",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2gvr2fjkytxjbg2",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.920Z"
+    }
+  ]
+}

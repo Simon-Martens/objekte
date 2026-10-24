@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. # Titelzusatz aus dem G-Verz: Elisa an dem Grabstein ihres Geliebten (Lindors). Illustration zu »Elysium« von J. G. Jacobi",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.986Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16164,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich werde ihn wieder finden. / Jacobi Schr. Th. I. S. 217 #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri del. H. Lips sculp.",
+  "scans": [
+    "alm_255_16164_xrmbmjcwb1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich werde ihn wieder finden. / Jacobi Schr. Th. I. S. 217 #",
+  "updated": "2001-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uuct339mkyw4mg1",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.684Z"
+    },
+    {
+      "id": "w5tlts47rril15d",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.684Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": ",",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.709Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wie schreckt mich jeder Tritt - und wahrlich so / Gezittert wie das Laub des Herbstes hab' ich / Seit meiner Kindheit nicht.",
+  "language": [],
+  "musenalm_id": 98507,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Mädchen von Saragossa. / Trauerspiel in vier Akten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. O. Sternau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Mädchen von Saragossa. / Trauerspiel in vier Akten",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cy94ziezlh6se6p",
+      "agents": "phkzsbojlf7jna1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.805Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.806Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "In jener Zeit, an Schmerzen reich und Fehlen, / Als ringend noch des Glaubens neuer Tag / Mit Finsterniß, den Wahrheit durstgen Seelen / Des ewgen Lichtes Quelle mild versprach;",
+  "language": [],
+  "musenalm_id": 72911,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die sieben Schläfer. / Legende",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die sieben Schläfer. / Legende",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lzzbdlijjwqqk3v",
+      "agents": "g022cx9ysck37av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.414Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.414Z"
+    }
+  ]
+}

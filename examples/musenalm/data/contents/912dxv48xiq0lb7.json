@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanztouren zu Beckers Taschenbuch 1817 (Sammlung INr 19690,Obj 111) (3 graph. Tanzanleitungen)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19691,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angloise I. Ang II. Ang. III. / Vte und VIte Tour od. Walzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [
+    "alm_265_19691_1ezuy12ohp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Angloise I. Ang II. Ang. III. / Vte und VIte Tour od. Walzer",
+  "updated": "2001-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qkg2336cx1lb834",
+      "agents": "5e64t7ca8x2wyim",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.720Z"
+    }
+  ]
+}

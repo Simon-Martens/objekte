@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.042Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "267",
+  "incipit_statement": "O stirb noch nicht! verlasse nicht die Mutter, / Die mit so banger Angst Dein Leiden sieht,",
+  "language": [],
+  "musenalm_id": 58022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meiner kleinen Tochter Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie Gräfin Oldofredi-Hager",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meiner kleinen Tochter Tod",
+  "updated": "2008-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w5ueqzkirkmfb31",
+      "agents": "wf0qhnhksai5a2o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.744Z"
+    }
+  ]
+}

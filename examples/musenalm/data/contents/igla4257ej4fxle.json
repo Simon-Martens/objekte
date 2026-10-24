@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Nachtigallenlied. In vier Romanzen (Sammlung INr 88649, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Die Sonne sank, der Schatten stieg, / Verkündend weit des Todes Sieg;",
+  "language": [],
+  "musenalm_id": 88653,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nachtigall. / Vierte Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nachtigall. / Vierte Romanze",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qiatfk951pdyrgd",
+      "agents": "jq74p3fe1dijn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.078Z"
+    }
+  ]
+}

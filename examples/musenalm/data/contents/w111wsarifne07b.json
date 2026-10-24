@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 87253, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87252,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Hampe del. C. Schule sc. 1799)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hampe del. C. Schule sc. 1799",
+  "scans": [
+    "alm_3804_87252_4e9sk0syfm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-05-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5z3030jcue3o8di",
+      "agents": "y511o9lstnz12un",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.271Z"
+    },
+    {
+      "id": "2aq8d5leay95fgt",
+      "agents": "c0fepqesuedn747",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.271Z"
+    }
+  ]
+}

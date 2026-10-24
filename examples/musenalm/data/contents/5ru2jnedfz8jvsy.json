@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Wer gern treu eigen sein Liebchen hat, / Den necken Stadt / Und Hof mit gar mancherley Sorgen.",
+  "language": [],
+  "musenalm_id": 3439,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Lied von Treue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Lied von Treue",
+  "updated": "2000-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wxgf9ppf946d6c6",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.087Z"
+    }
+  ]
+}

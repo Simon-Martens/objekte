@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Er folgt uns immer noch? / Wie unser Schatten! / Jetzt steht er still; doch bleibt er selbst zurücke,",
+  "language": [],
+  "musenalm_id": 109855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fragment / des dramatischen Märchen: / Schwert, Hammer, Buch. / Dritte Abtheilung. Erste Szene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Halm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fragment / des dramatischen Märchen: / Schwert, Hammer, Buch. / Dritte Abtheilung. Erste Szene",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v2iisvkkju7i2xa",
+      "agents": "g5bo98tjkpy8a15",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.380Z"
+    }
+  ]
+}

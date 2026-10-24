@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. vom Titel der Sammlung /) Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) 2. Illustration zu »Der Kampf mit dem Drachen« von Fr. Schiller INr 77170, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77171,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kampf mit dem Drachen v. Schiller 2.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg Krukenberg",
+  "scans": [
+    "alm_2399_77171_hbe3zu6f6a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kampf mit dem Drachen v. Schiller 2.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "on9p1tr1abiind3",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.519Z"
+    },
+    {
+      "id": "j58hpq8edwel2tf",
+      "agents": "bn7xdscl94iiupe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.519Z"
+    }
+  ]
+}

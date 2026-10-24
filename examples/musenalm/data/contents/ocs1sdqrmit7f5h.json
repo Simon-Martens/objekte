@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 10660, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.729Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Der liebe gute Ohle-Madsen! Verloren habe ich ihn für diese Welt, und er sieht mich hier",
+  "language": [],
+  "musenalm_id": 10662,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Unterricht für Reuterinnen / von / Frauen Petronillen, verwitwete / Ohle Madsen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Unterricht für Reuterinnen / von / Frauen Petronillen, verwitwete / Ohle Madsen",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zmhcxiqfa1z9005",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.523Z"
+    }
+  ]
+}

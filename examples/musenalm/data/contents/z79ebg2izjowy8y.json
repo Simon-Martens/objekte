@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium Juni",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135808,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WILHELM / Prinz von Baden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Mayer Nbg",
+  "scans": [
+    "alm_2116_135808_upggz82zcx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WILHELM / Prinz von Baden",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mmtpdz6pt4c6fac",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.155Z"
+    }
+  ]
+}

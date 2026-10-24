@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollständige Bezeichnung aus dem G-Verz /) Illustration zu »Der Kaufmann von Venedig« von W. Shakespeare; s. Textbezug INr 19108, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9324,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kaufmann von Venedig. / 3. Aufz. 2. Scene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz; Bein",
+  "scans": [
+    "alm_45_9324_6899kml48b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kaufmann von Venedig. / 3. Aufz. 2. Scene",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fingqqv9tn0uiz1",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.369Z"
+    },
+    {
+      "id": "ybjo772bkzuqpho",
+      "agents": "zmvjdej6nue3uh9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.369Z"
+    }
+  ]
+}

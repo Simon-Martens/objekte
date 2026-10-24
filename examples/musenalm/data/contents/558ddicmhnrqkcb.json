@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Zogest du hin durch ferne Meere / Unerforschtes zu ergründen,",
+  "language": [],
+  "musenalm_id": 24094,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Martius in München",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Martius in München",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "69ic6o3erkfc5mb",
+      "agents": "26mg8s2ch4m8csz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.031Z"
+    }
+  ]
+}

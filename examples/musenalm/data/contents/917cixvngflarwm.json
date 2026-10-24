@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Tragödie (Sammlung INr 34496, Obj 28) Gedichte (Sammlung INr 34495, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.956Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Auf ihrem Grab, da steht eine Linde, / Drin pfeifen die Vögel und Abendwinde.",
+  "language": [],
+  "musenalm_id": 34499,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Heine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2003-06-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9t90hakz9ed2qbi",
+      "agents": "1z1aqho0pmi2dwm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.817Z"
+    }
+  ]
+}

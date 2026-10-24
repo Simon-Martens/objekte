@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Tab III. /) kol.  Illustration zu »Der Percnopterus-Geyer« von L. C. E. H. F. von Wildungen INr 66745, Obj 12 s. a. »Beitrag zur Bestimmung der europäischen Geyerarten« INr 66746, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66744,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vultur Percnopterus f. leucocephalos. Der Percnopterus-Geyer, / weißköpfiger Geyer. Weibchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Susemihl del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1140_66744_u9b8d2oaj3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vultur Percnopterus f. leucocephalos. Der Percnopterus-Geyer, / weißköpfiger Geyer. Weibchen",
+  "updated": "2009-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m6l1zsps2dmgz4a",
+      "agents": "0krc3qfy4wkj0vx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.173Z"
+    },
+    {
+      "id": "kr3s3ydp4oltxx6",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.173Z"
+    }
+  ]
+}

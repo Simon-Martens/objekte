@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Auf Flügeln, wie der Bogen / Der Göttin Iris, kam / Ein Vögelchen geflogen",
+  "language": [],
+  "musenalm_id": 17025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen und der Vogel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blumauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen und der Vogel",
+  "updated": "2001-08-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ojegop5b8e7kpp9",
+      "agents": "p56m9esfl91y36d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.871Z"
+    }
+  ]
+}

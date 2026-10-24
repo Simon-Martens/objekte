@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 104528, Obj 74",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104450,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "F. S. SEYERLINN. / als Merope",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Graff pinx. Geyser sc.",
+  "scans": [
+    "alm_3248_104450_clz43ijea2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "F. S. SEYERLINN. / als Merope",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mkh9uddpopz2ffb",
+      "agents": "5sntayo8ftw7b4o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.877Z"
+    },
+    {
+      "id": "7rxy52kl867itzw",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.878Z"
+    }
+  ]
+}

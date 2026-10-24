@@ -1,0 +1,45 @@
+{
+  "annotation": "Reineckes neuere Gaunerstreiche (Sammlung INr 67553, Obj 33) VI. Anekdoten (Sammlung INr 67552, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Im September 1821 gieng der fürstlich Löwensteinische Forstrath Hofmann Abends auf einen Pürschgang.",
+  "language": [],
+  "musenalm_id": 67558,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2009-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sny5mb9qt5cjjh6",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.310Z"
+    }
+  ]
+}

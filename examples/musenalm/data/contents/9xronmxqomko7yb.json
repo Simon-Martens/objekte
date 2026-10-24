@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Neun Jahre soll am Díchtungswerk man feilen? / Auch die Kritik muß sich nicht übereilen;",
+  "language": [],
+  "musenalm_id": 84069,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verspätete Kritik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Ries",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verspätete Kritik",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m0ye10oraah91a7",
+      "agents": "qto9t6cuwltpfja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.971Z"
+    }
+  ]
+}

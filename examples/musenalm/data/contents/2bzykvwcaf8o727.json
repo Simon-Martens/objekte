@@ -1,0 +1,45 @@
+{
+  "annotation": "fünffarbig kolorierte Karte s. Textbezüge INr 52483, 32594, 32596; Obj 30, 49, 51",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32595,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Allgemeine Kleidungs-Charte der Weltbewohner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Entworfen von F. L. Güssfeld gest. von Frentzel",
+  "scans": [
+    "alm_450_32595_0wyl1vwbs5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Allgemeine Kleidungs-Charte der Weltbewohner",
+  "updated": "2003-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3mubs851vix5e42",
+      "agents": "xw49a3odxesumyw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.393Z"
+    }
+  ]
+}

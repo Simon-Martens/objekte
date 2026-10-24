@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Russalki (Sammlung INr 44014, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Es war unter der Regierung des strengen Kaisers, oder vielleicht schon früher, als über die beeis'te Schneedecke in ein kleines Stranddorf am Ufer der Lena zwei Kibitken auf Schlitten einfuhren.",
+  "language": [],
+  "musenalm_id": 44016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweites Mährlein. / Der Sohn der Todten. / Sibirisch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweites Mährlein. / Der Sohn der Todten. / Sibirisch",
+  "updated": "2006-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mkimpc0ah0jug8u",
+      "agents": "c1znfhi5uhuknon",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.385Z"
+    }
+  ]
+}

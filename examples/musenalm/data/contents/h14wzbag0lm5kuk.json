@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.917Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Du kleiner Nero, Kompagnon der Läuse, / Blutgieriger Tyrann!",
+  "language": [],
+  "musenalm_id": 31029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lob des Flohs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blumauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lob des Flohs",
+  "updated": "2003-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kqxvp1onazmy1v6",
+      "agents": "p56m9esfl91y36d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.574Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.574Z"
+    }
+  ]
+}

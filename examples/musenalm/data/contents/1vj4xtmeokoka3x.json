@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den landschaftlichen Kupfern (Sammlung INr 20809, Obj 11) s. Graphik INr 65172, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Johann Christian Klengel, geb. zu Kesselsdorf bei Dresden 1751.",
+  "language": [],
+  "musenalm_id": 20812,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 4. / Klengels Geburtshaus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frenzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "No. 4. / Klengels Geburtshaus",
+  "updated": "2002-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6ceo3mu8eymzjse",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.878Z"
+    }
+  ]
+}

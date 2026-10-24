@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Seite III; INr 80855, Obj 6 /) lllustration zu »Der Spion« von A. von Schaden INr 80880, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Isabella",
+  "language": [],
+  "musenalm_id": 80851,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Isabella…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lepaulle pt. C. Kotterba sc.",
+  "scans": [
+    "alm_1801_80851_s11vifn7yl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "108ceu8lo334h35",
+      "agents": "vvd7qr6vqvto2s7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.661Z"
+    },
+    {
+      "id": "rilfd6yf80639su",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.662Z"
+    }
+  ]
+}

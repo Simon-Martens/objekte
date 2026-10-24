@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 131945, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "Auf! fesselt zum Genusse / Des Lebens flücht'gen Traum! / Beym schwesterlichen Kusse / Gebt keiner Grille Raum!",
+  "language": [],
+  "musenalm_id": 131950,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesellschaftliches Lied / für / junge Frauenzimmer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Voigt, d. f. K. M. i. Leipzig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesellschaftliches Lied / für / junge Frauenzimmer",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hvx1g0ptduvv8lt",
+      "agents": "ist0hhj6cs5q2wv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.084Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert No. 3. /) # vollst. Bezeichnung und Titel s. Textbezug INr 65245, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.834Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65232,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tracht der Bremischen Rathsherren aus alter Zeit #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Stöver gez. Jöntzen gedr.",
+  "scans": [
+    "alm_1091_65232_zhy0jbfyy2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tracht der Bremischen Rathsherren aus alter Zeit #",
+  "updated": "2009-07-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "quvz5mbtl8a79dw",
+      "agents": "wgx9xguy2prwz1c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.258Z"
+    },
+    {
+      "id": "5yqfmh2er703k0d",
+      "agents": "h46qu65kp4gpmhg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.258Z"
+    }
+  ]
+}

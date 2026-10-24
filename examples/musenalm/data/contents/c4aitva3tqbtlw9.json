@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) mit einer Übersetzung s. Gedicht INr 131767, Obj 23 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131754, 131755; Obj 10, 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "O Jupiter, qui sus de ton cer- / veau, / Par un secret d'accouchement nou- / veau.",
+  "language": [],
+  "musenalm_id": 131768,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / L'Araignée et l'Hirondelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / L'Araignée et l'Hirondelle",
+  "updated": "2018-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "acgpxsruhltfcfb",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.039Z"
+    }
+  ]
+}

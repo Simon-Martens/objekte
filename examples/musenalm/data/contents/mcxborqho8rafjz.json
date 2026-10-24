@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 61542, Obj 153",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Ich komme vom Gebirge her, / Es ruft dasThal, es rauscht das Meer;",
+  "language": [],
+  "musenalm_id": 13128,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Fremdlings Abendlied. / Mit Musik von Herrn Zelter §4§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. P. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Fremdlings Abendlied. / Mit Musik von Herrn Zelter §4§",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fwqcj8xaui6ba2s",
+      "agents": "zcowt1c8qli1wm3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.349Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.349Z"
+    }
+  ]
+}

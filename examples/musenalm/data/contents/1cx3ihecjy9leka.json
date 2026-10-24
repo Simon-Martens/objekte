@@ -1,0 +1,45 @@
+{
+  "annotation": "Französische Volkslieder (Sammlung INr 117071, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Ich ging von einer Hochzeit / Ganz müd und matt nach Haus,",
+  "language": [],
+  "musenalm_id": 117075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Am klaren Quell. / (Aus der Franche-Comté.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Am klaren Quell. / (Aus der Franche-Comté.)",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "shf9u6b6pe5z9mb",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.574Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.574Z"
+    }
+  ]
+}

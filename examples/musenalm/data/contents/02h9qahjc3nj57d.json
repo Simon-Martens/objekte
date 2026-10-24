@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64381, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.216Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64369,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lose Flechten - lose Gedanken #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "André pinxt. W. Baumann scpt.",
+  "scans": [
+    "alm_1070_64369_83fg356czz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lose Flechten - lose Gedanken #",
+  "updated": "2009-05-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tf0k8v502jawcvr",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.055Z"
+    }
+  ]
+}

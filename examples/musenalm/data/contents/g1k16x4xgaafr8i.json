@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 41956, Obj 157)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "Zu Füßen kühler Grotte / Vorüber rauscht ein Fluß,",
+  "language": [],
+  "musenalm_id": 41959,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 160,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Das bleiche Antlitz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Diotima",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Das bleiche Antlitz",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r8ly0l4e4qeg6l1",
+      "agents": "52k4ehvv6ogs74t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.191Z"
+    }
+  ]
+}

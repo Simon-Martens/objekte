@@ -1,0 +1,45 @@
+{
+  "annotation": "Garten und Park (Sammlung INr 52866, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Zartes, schwebendes Kind, in grünender Blätter Um- / armung, / Sage, wer schuf dir den Reiz, wer die beseelte / Gestalt?",
+  "language": [],
+  "musenalm_id": 52870,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Die Rose",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Die Rose",
+  "updated": "2007-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4y8995bkuf2kqpb",
+      "agents": "nj18pm3lt87v37m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.825Z"
+    }
+  ]
+}

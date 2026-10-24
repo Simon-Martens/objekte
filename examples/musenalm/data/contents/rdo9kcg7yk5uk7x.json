@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.206Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Im Coliseo zu Paris / Ließ man zwey Hähn' auf Hieb und Biß",
+  "language": [],
+  "musenalm_id": 2426,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beitrag / zur Characteristik der Nationen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler d. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beitrag / zur Characteristik der Nationen",
+  "updated": "2000-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t67ws3zyob3hf4c",
+      "agents": "60dpq63kk6xup5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.927Z"
+    }
+  ]
+}

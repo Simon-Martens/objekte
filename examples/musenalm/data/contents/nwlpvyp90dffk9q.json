@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 2. /) Graphik im Kalendarium Februar /) Illustration zu »Camille, oder Briefe zweier Mädchen aus unserm Zeitalter« übers.: J. F. Jünger, Leipzig (Dyk) 1786; s. Textbezug INr 70167, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70154,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich gab allen Armen Almosen, und das / Aufsehen das ich gemacht hatte verdoppelte / sich / B. I. S. 135",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del et sc.",
+  "scans": [
+    "alm_799_70154_00rtbdtnp6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich gab allen Armen Almosen, und das / Aufsehen das ich gemacht hatte verdoppelte / sich / B. I. S. 135",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jb9vxyaw7j9yl9z",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.314Z"
+    }
+  ]
+}

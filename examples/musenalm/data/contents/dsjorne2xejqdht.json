@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 30125, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30124,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Ad. van der Velde pinx. F. Geissler sculp. 1825)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ad. van der Velde pinx. F. Geissler sculp. 1825",
+  "scans": [
+    "alm_391_30124_aw9epkbdm1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "re8xhjxp0jhtquo",
+      "agents": "vlum8p11xuadcno",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.629Z"
+    },
+    {
+      "id": "farrkp9golb219l",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.629Z"
+    }
+  ]
+}

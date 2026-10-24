@@ -1,0 +1,45 @@
+{
+  "annotation": "Venezianische Epigramme (Sammlung INr 967, Obj 103) # s. Anmerkung dort",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "251",
+  "incipit_statement": "Ha! ich kenne dich Amor, so gut als einer! / Da bringst du / Deine Fackel,",
+  "language": [],
+  "musenalm_id": 18515,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 188,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "86.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "86.",
+  "updated": "2000-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g8duwn09au1fs34",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.792Z"
+    }
+  ]
+}

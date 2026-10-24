@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Egmont« von J. W. von Goethe s. Textbezug INr 40642, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40641,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Egmont. Ir. Aufz Ie. Scene / Alle Sicherheit und Ruhe! Ordnung und Freiheit!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+  "scans": [
+    "alm_529_40641_4hswy7bi48.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Egmont. Ir. Aufz Ie. Scene / Alle Sicherheit und Ruhe! Ordnung und Freiheit!",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "103t9vjrr0fhoc1",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.337Z"
+    },
+    {
+      "id": "hd0hef54ncsne8a",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.337Z"
+    }
+  ]
+}

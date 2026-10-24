@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wenn ich des heiligen römischen Reichs Erz-Oberjägermeister geworden wäre, könnte mich das nicht stolzer machen, als daß Euch, meine biedern Forst- und Jagdgenossen, mein Erstes kleines Neujahrsgeschenk",
+  "language": [],
+  "musenalm_id": 120510,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn ich des heiligen römischen Reichs Erz-Oberjägermeister geworden wäre, könnte mich das nicht stolzer machen, als daß Euch, meine biedern Forst- und Jagdgenossen, mein Erstes kleines Neujahrsgeschenk…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "81387tefyoparzo",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.672Z"
+    }
+  ]
+}

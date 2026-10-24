@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 95102, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95101,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Chr. Hoffmeister sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Hoffmeister sculp.",
+  "scans": [
+    "alm_1879_95101_zu6nl66fnq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o6e3qryktxze8vs",
+      "agents": "zuqeig2avlr6rku",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.393Z"
+    }
+  ]
+}

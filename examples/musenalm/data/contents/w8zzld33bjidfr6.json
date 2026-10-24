@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung Inr 38857, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Die Fluten wehn mein brennendes Gesicht / Abkühlend an; die Rosenkelche blinken",
+  "language": [],
+  "musenalm_id": 38864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Der Rosenflor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. von Stägemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Der Rosenflor",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wpxbnzyj8b3up7y",
+      "agents": "3otd6uv72ls66y4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.052Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Nicht niedre Lust, auch nicht Eroberer, / Noch Gold und Schätze will ich singen.",
+  "language": [],
+  "musenalm_id": 101340,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kleist",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymne",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ze4cp3qfflqtjso",
+      "agents": "8pyn3ffhglggkdl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.913Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Neapel, diesseits des Faro, hatte im Anfang des Jahres 1827, 5,626,946 Einwohner und im Anfange des folgenden Jahres war ihre Zahl um 50,510 gestiegen.",
+  "language": [],
+  "musenalm_id": 44998,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Italien]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Italien]",
+  "updated": "2006-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uwd2rx7hvqn1es9",
+      "agents": "b96jiypecb45ptj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.132Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 80894, Obj 6 /) Illustration zu »Ein Ehrloser« von W. Tesche INr 80903, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.216Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80893,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Violanta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Grevedon del. C. Kotterba sc.",
+  "scans": [
+    "alm_1802_80893_28cp5lmda9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Violanta",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gxn9urxlj497lwv",
+      "agents": "fnowuly66bkynwc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.508Z"
+    },
+    {
+      "id": "qpz5iz2bjf8rd4k",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.508Z"
+    }
+  ]
+}

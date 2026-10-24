@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 14349, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Güte Gottes spricht kein Buchstab aus. / Sie muß man sehn, sie kann man nicht beschreiben.",
+  "language": [],
+  "musenalm_id": 14350,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Charitas. / Gemählde von Carlo Cignani",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Charitas. / Gemählde von Carlo Cignani",
+  "updated": "2001-04-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "umaimewrv0f6oe5",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.617Z"
+    }
+  ]
+}

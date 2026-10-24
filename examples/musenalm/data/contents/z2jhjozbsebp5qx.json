@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Henriette Dumont war die jüngste Tochter eines mehr glänzenden als reichen Hauses.",
+  "language": [],
+  "musenalm_id": 33418,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das vergebliche Opfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carolina Pichler geb. von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das vergebliche Opfer",
+  "updated": "2003-04-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "09qogqsy8aksens",
+      "agents": "vxzn7evqhv18e38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.488Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 101172, Obj 111",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Bunt sind schon die Wälder, / Gelb die Stoppelfelder; / Und der Herbst beginnt!",
+  "language": [],
+  "musenalm_id": 101112,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "46.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "46.",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4fbdpc906hrbafq",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.067Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "<div>&nbsp; Gallerie aus Oberon&nbsp; s. Graphik INr&nbsp; 1403347</div>",
+  "content_type": [],
+  "created": "2026-08-12T09:41:23.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Oberon. / Heil treues Paar! Vorüber Leiden! / Es danket Euer Freund Euch Beiden",
+  "language": [],
+  "musenalm_id": 140346,
+  "musenalm_pagination": [
+    "2. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Planché [übers.]: Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2026-08-13T09:07:09.484Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "5zhhlje9d776qrl",
+      "agents": "e5me99lnv5l0sbd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-12T09:44:19.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-13T09:07:09.485Z"
+    },
+    {
+      "id": "umouktu2nti5v1q",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-12T09:44:29.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-13T09:07:09.485Z"
+    }
+  ]
+}

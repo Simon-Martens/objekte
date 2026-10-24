@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait. Illustration zu »Schweizerisch-Burgundischer Krieg« INr 72510, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72496,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Karl der Kühne / Herzog von Burgund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas",
+  "scans": [
+    "alm_849_72496_bih3plytxv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Karl der Kühne / Herzog von Burgund",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sq4fal0n37ez4hv",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.622Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Rey-Duffeuil vernahm diese Sage bei einem Araber-Stamme am Golf von Suez [s. Anm. zum ersten Ges. des Napoléon en Égypte par Barthelémy et Mércy.]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Vor dem luft'gen Zelte lodert spärlich nur genährte / Flamme / An dem welken Blatt, entrissen dem gekrümmten Pal- / men-Stamme,",
+  "language": [],
+  "musenalm_id": 41857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Buonaberdi / Vous dont le jeune Arabe, avide de merveilles, / Mèle souvent l'histoire aux fable des es veilles. / Napléon en Égypte #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr von Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Buonaberdi / Vous dont le jeune Arabe, avide de merveilles, / Mèle souvent l'histoire aux fable des es veilles. / Napléon en Égypte #",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qc1cthnghdjpv0v",
+      "agents": "snnpz92vgxnioxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.281Z"
+    }
+  ]
+}

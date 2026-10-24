@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder von Korai (Sammlung INr 131910, Obj 51) Übersetzung des nicht dargestellten griechischen Gedichts /) dem Gedicht vorangestellt: Büßen wirst du dem Griechenvolk, und nimmer entrinnen! /) mit einer Musikbeigabe § Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Auf! wie lange sollen Bande / Uns umfangen, und die Schande / Unterm Joche der Tyrannen / Blutbefleckter Muselmannen?",
+  "language": [],
+  "musenalm_id": 131911,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Hellenen Freiheits-Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Korai [übers.:] Wurm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Hellenen Freiheits-Lied",
+  "updated": "2013-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gjw7w3ni8wk3hmc",
+      "agents": "0uhp7mhuqbxz74j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.044Z"
+    }
+  ]
+}

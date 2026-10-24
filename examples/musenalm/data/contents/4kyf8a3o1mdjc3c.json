@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 30080, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30081,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (G. Keller pinx. Fr. Stöber sc. Viennae)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Keller pinx. Fr. Stöber sc. Viennae",
+  "scans": [
+    "alm_390_30081_mv07ldod7l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ygaepl0axb9ro5n",
+      "agents": "nn6rgpxcdiwqwar",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.352Z"
+    },
+    {
+      "id": "ry9lcs78zt8ycl4",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.352Z"
+    }
+  ]
+}

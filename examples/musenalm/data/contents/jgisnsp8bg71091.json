@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.678Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Geliebter, schick' mich fort, / Es brennt mein Herz wie rothe Kohlen",
+  "language": [],
+  "musenalm_id": 86877,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus ihrem Briefe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Aug. Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus ihrem Briefe",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jt4iskypp2sft6k",
+      "agents": "fjw259e60ifm3ie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.144Z"
+    }
+  ]
+}

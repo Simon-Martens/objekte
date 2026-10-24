@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Ein edler Graf aus Frankenland, / Lauzun war er genannt,",
+  "language": [],
+  "musenalm_id": 5734,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf Lauzun",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blumauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Graf Lauzun",
+  "updated": "2000-10-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mrl7075l9w2lafk",
+      "agents": "p56m9esfl91y36d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.692Z"
+    }
+  ]
+}

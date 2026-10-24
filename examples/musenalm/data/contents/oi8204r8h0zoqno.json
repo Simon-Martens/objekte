@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 30029, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30028,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Uchterfeld pinx. C. Rist sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Uchterfeld pinx. C. Rist sc.",
+  "scans": [
+    "alm_389_30028_ubx2zxyvum.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zysnwsynorw5lwa",
+      "agents": "vd87au6ygcs9r1z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.352Z"
+    },
+    {
+      "id": "7kqtm6ebhw2ziuh",
+      "agents": "0m3r585b0p98uxw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.352Z"
+    }
+  ]
+}

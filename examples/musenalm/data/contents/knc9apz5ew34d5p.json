@@ -1,0 +1,58 @@
+{
+  "annotation": "Dritte Aufstellung von Volksscenen (Titel aus dem I-Verz) s. Textbezug (Gedicht) INr 77576, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77575,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PFIFFERARI IN ROM",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Toermer inv. Stahlstich von Fr. Xav. Eisner in Wien",
+  "scans": [
+    "alm_2408_77575_osnsv1nngp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PFIFFERARI IN ROM",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8n5vd20an0eqv6j",
+      "agents": "j8muurnc8i80bf2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.668Z"
+    },
+    {
+      "id": "6r0tu6yc3515qma",
+      "agents": "z64ev7tzpav4ds5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.668Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.549Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die Fama stieß ins Horn: Adrianopel / Errettete Constantinopel / Und manches andre türk'sche -opel / Durch einen jähen Friedensschluß!",
+  "language": [],
+  "musenalm_id": 64946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Epistel / über den / Frieden zu Adrianopel. / Von / Frater Simplicius / an / Udalricus Germanus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Simplicius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Epistel / über den / Frieden zu Adrianopel. / Von / Frater Simplicius / an / Udalricus Germanus",
+  "updated": "2009-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f3tyjjobc8lvcdi",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.708Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.708Z"
+    }
+  ]
+}

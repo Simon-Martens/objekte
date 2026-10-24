@@ -1,0 +1,45 @@
+{
+  "annotation": "Bemerkungen (Sammlung INr 56024, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.749Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Der vernünftige Mann muß als Narr erscheinen, wenn man seine Eigenheiten in ein grelles Licht stellt,",
+  "language": [],
+  "musenalm_id": 56006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der vernünftige Mann muß als Narr erscheinen, wenn man seine Eigenheiten in ein grelles Licht stellt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "syfu90c1anyqihc",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.952Z"
+    }
+  ]
+}

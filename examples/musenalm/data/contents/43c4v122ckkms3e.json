@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 86181, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Es gibt nur Trost - daß jeder Schmerz / In uns'rer Seele eine Knospe stets / Der besseren Erkenntniß reift.",
+  "language": [],
+  "musenalm_id": 86199,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es gibt nur Trost - daß jeder Schmerz / In uns'rer Seele eine Knospe stets / Der besseren Erkenntniß reift.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rq9uqt5m0g4agqn",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.157Z"
+    }
+  ]
+}

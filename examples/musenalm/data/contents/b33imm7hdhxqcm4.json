@@ -1,0 +1,47 @@
+{
+  "annotation": "s. vorstehende Seite INr 80777, Obj 7 /)  Illustration zu »Fortiletta« von W. Tesche INr 80793, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80778,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Idola",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. Kunst-Anstalt, G. Serz, Nürnbg.",
+  "scans": [
+    "alm_1799_80778_umz8vpn60n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Idola",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eu1tgabevgxpdgr",
+      "agents": "fmgi30c4k9z8twt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.915Z"
+    }
+  ]
+}

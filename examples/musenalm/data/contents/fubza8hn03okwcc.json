@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 3397, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Gern lieg' ich fühllos, nach der Todten Weise, / Weil Schimpf und Schmach",
+  "language": [],
+  "musenalm_id": 3398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Michel Angelo's Antwort / im Namen der Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Michel Angelo's Antwort / im Namen der Nacht",
+  "updated": "2000-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n9tfx93ttawj7db",
+      "agents": "byuhkknqr79s51g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.087Z"
+    }
+  ]
+}

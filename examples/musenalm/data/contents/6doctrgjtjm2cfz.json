@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Wem?« von J. I. v. Gerning INr 47477, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47478,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wem?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. G. Tag",
+  "scans": [
+    "alm_644_47478_1pjv6urcdv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wem?",
+  "updated": "2007-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2okmkkxb7ug6uky",
+      "agents": "mxi7h5rzgqwc6st",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.319Z"
+    }
+  ]
+}

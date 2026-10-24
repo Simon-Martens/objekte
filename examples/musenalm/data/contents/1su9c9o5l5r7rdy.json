@@ -1,0 +1,45 @@
+{
+  "annotation": "Verflogene Schwalben (Sammlung INr 86932, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.464Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Sag' dem Strom, er soll nicht fliehen, / Und die Blume soll nicht blühen;",
+  "language": [],
+  "musenalm_id": 86933,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Prechtler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xr1htaoz3jn5zhz",
+      "agents": "cvs1lz6mp4pj8h4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.996Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Priameln. Im Jahre 1826 (Sammlung INr 94496, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Gebt euch mit Versen keine Müh'! / Hübsch platt und breit ist uns viel lieber,",
+  "language": [],
+  "musenalm_id": 94510,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gebt euch mit Versen keine Müh'! / Hübsch platt und breit ist uns viel lieber,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uh2erx534e9eil6",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.722Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit dem Dictum Schlegels »die Schweiz ist ein stehengebliebenes Bruchstück des alten Deutschlandes, ein Spiegel dessen, was wir waren und seyn sollten.« mit einer Einleitung des Herausgebers INr 52752, Obj 80",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Die Schweiz verdient allerdings vor vielen Ländern bereiset zu werden: wegen der großen und wunderreichen Natur; wegen des sorgfältigen Anbaues; wegen mannigfaltiger Eigenthümlichkeit der Bewohner in Sitten, in Trachten,",
+  "language": [],
+  "musenalm_id": 52753,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Umrisse, entworfen auf einer Reise durch die Schweiz]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Umrisse, entworfen auf einer Reise durch die Schweiz]",
+  "updated": "2007-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3bz5j74praeovs9",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.805Z"
+    }
+  ]
+}

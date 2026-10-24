@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Das thüringische Hochgebirg lag in dichte Nebel eingeschleiert. Es war Frühherbstzeit, Jagdzeit,",
+  "language": [],
+  "musenalm_id": 44450,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Heerwurm und die Wildschützen. / Thüringerwaldgeschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Heerwurm und die Wildschützen. / Thüringerwaldgeschichte",
+  "updated": "2006-07-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cbc05qgqznps8wo",
+      "agents": "6qn9afrpxniwvx7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.241Z"
+    }
+  ]
+}

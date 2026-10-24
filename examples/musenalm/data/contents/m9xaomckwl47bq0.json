@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Februar. Illustration zu »Geschichte der Königin Elisabeth von England« INr 75600, Obj 25; s.a. Textbezug INr 75594, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75581,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Königin besucht Franz Drake am Bord / des Schiffs womit er die Welt umsegelt hat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. J. Penzel fec.",
+  "scans": [
+    "alm_2141_75581_z3avnkyc11.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Königin besucht Franz Drake am Bord / des Schiffs womit er die Welt umsegelt hat",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l800f802v2jj4r9",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.737Z"
+    },
+    {
+      "id": "w9bud9bhieylsjk",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.737Z"
+    }
+  ]
+}

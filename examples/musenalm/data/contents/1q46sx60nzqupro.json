@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung an Graphik paginiert VI /) paginiert V /) kol. Illustration zu »Die Brentgans« von v. Wildungen INr 69684, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69685,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anas Brenta. Die Brentgans",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen del.",
+  "scans": [
+    "alm_1134_69685_50yttup5l6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Anas Brenta. Die Brentgans",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v8btzp174xluq9k",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.400Z"
+    },
+    {
+      "id": "wv4niqtw6hybd8b",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.400Z"
+    }
+  ]
+}

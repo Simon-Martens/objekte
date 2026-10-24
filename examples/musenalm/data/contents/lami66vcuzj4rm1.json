@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 9. # Titel aus dem G-Verz INr 15411, Obj 86",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15337,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein gebauter Gartensitz, auf einer kleinen Anhöhe, #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schuricht inv. Thoenert sc.",
+  "scans": [
+    "alm_244_15337_aqbqvbc6c0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein gebauter Gartensitz, auf einer kleinen Anhöhe, #",
+  "updated": "2001-05-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1w8sz5nt08ql5no",
+      "agents": "k2g14ngroxfee4c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.709Z"
+    },
+    {
+      "id": "wkcqs549mem1w7u",
+      "agents": "knrhgn52aqjwh89",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.709Z"
+    }
+  ]
+}

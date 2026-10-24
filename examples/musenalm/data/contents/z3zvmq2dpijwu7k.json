@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Es ist mein Herz ein Felsen - klopft und schlaget, / Ihr werdet nirgends einen Eingang finden:",
+  "language": [],
+  "musenalm_id": 94619,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Herz und die Liebe. / (Sonett.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Laube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Herz und die Liebe. / (Sonett.)",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tgvhg9jizajsvo2",
+      "agents": "vdvhd92g7pfd9hy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.389Z"
+    }
+  ]
+}

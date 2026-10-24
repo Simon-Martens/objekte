@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Die du, in Scenen voll Verderben, / Mit Blitzen deinen Tod in unsre Seelen gräbst;",
+  "language": [],
+  "musenalm_id": 8194,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Madam Hensel / als Kleopatra in der Rodogüne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michaelis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Madam Hensel / als Kleopatra in der Rodogüne",
+  "updated": "2000-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oqwpgmsizqwxr3j",
+      "agents": "s34fjwkh4uvwpky",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.261Z"
+    }
+  ]
+}

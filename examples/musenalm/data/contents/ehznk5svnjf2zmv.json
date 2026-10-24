@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63375, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.938Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Blümlein von der Gottesaue / Ist so fröhlich aufgeblüht",
+  "language": [],
+  "musenalm_id": 63383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur / Vermählung des Amtmanns Kinzinger zu Carlsruhe / mit Auguste Hoier zu Gottesaue, / am 29. August 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max von Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zur / Vermählung des Amtmanns Kinzinger zu Carlsruhe / mit Auguste Hoier zu Gottesaue, / am 29. August 1816",
+  "updated": "2009-04-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n0ul3zxv2i1jjib",
+      "agents": "591e69im25wvavb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.965Z"
+    }
+  ]
+}

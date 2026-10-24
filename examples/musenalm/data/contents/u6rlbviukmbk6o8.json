@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Schon lächelt auf grünenden Gipfeln, / Schon schwimmet auf blühenden Wipfeln / Der Sonne vergüldendes Roth,",
+  "language": [],
+  "musenalm_id": 75540,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines Mädchens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Berger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines Mädchens",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yn7gi53kkap1lip",
+      "agents": "lmhkzj71seuklka",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.835Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.835Z"
+    }
+  ]
+}

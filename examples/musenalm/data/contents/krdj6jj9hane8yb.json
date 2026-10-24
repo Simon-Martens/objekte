@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.915Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Im Jahr des Heiles, ungefähr / Achthundert Einundneunzig, / Bot Arnulf auf ein zahlreich Heer,",
+  "language": [],
+  "musenalm_id": 30888,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Arnulfs Hasenjagd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Arnulfs Hasenjagd",
+  "updated": "2003-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vt9no8bnkjzfw9x",
+      "agents": "y0pp926xdweonfb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.574Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.574Z"
+    }
+  ]
+}

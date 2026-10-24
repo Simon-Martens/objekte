@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht INr 111034, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111033,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herzensfrage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt v. Amerling Druck v. Zehl in Lpz. Stahlst. v. I. Krepp",
+  "scans": [
+    "alm_3478_111033_e8j0shvadc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herzensfrage",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "arfcfb3mptj9dfr",
+      "agents": "eano5qvjrpf1wwx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.236Z"
+    },
+    {
+      "id": "sd28an2a9xakfm3",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.236Z"
+    }
+  ]
+}

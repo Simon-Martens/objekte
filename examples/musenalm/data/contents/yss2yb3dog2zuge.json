@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Die letzten Sonnenstrahlen / Trinkt jener Fichtenwald, / Den sie in Purpur malen, / Schon wieder und so bald.",
+  "language": [],
+  "musenalm_id": 132842,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonnenuntergang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonnenuntergang",
+  "updated": "2023-12-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g81ntpbs215f8qn",
+      "agents": "g7ovzuyzi8c0g2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.094Z"
+    }
+  ]
+}

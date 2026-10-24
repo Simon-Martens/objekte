@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gedichte (Sammlung INr 30065, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Heiter, gleich dem schönen Tage, / Der Dich, heitres Kind, gegeben,",
+  "language": [],
+  "musenalm_id": 30067,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glückwunsch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Silvio Romano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glückwunsch",
+  "updated": "2002-11-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "axe74qbj78m6lde",
+      "agents": "rw4d1lc8bcz0sk7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.216Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.216Z"
+    }
+  ]
+}

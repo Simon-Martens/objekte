@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 2522, Obj 58; Entgegnung auf: M. Claudius »Phidile« in: Musenalmanach (Göttinger) 1772 INr 4988",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Ich war wohl recht ein Springinsfeld, / in meinen Jünglingstagen,",
+  "language": [],
+  "musenalm_id": 2433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Robert. / Ein Gegenstück zu Claudius Romanze: / Phidile",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Robert. / Ein Gegenstück zu Claudius Romanze: / Phidile",
+  "updated": "2000-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bfb1fkmtkntjgnd",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.014Z"
+    }
+  ]
+}

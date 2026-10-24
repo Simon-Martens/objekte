@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert IV. /) s. Textbezug INr 87782, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87774,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thonberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lehmann del. G. Boettger senior sc. 1811",
+  "scans": [
+    "alm_2384_87774_amy35jray8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Thonberg",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "66vpe9i0msjxrey",
+      "agents": "dsxgxd2rsqe5f4z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.042Z"
+    },
+    {
+      "id": "kv0xnqpzbruvzrw",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.042Z"
+    }
+  ]
+}

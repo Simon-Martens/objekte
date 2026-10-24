@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Lied von der Glocke« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77134, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.183Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77135,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mit züchtigen, verschämten Wangen / Sieht er die Jungfrau vor sich stehn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K del. Fr. Stöber sc. Vi.",
+  "scans": [
+    "alm_2398_77135_6ennqv9cb5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mit züchtigen, verschämten Wangen / Sieht er die Jungfrau vor sich stehn",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jamyc4sz9h6c8ta",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.584Z"
+    },
+    {
+      "id": "6m6vb20jdd5sh7v",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.584Z"
+    }
+  ]
+}

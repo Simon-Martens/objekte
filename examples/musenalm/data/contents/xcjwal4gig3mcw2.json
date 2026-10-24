@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 5. s. Textbezug INr 32077, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32070,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es tanzt fürs Brod es hüpft fürs Geld, / so geht es mit der Kunst.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinr. Ramberg del. G. G. Endner sc. 1796",
+  "scans": [
+    "alm_432_32070_fn9yo4nf99.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Es tanzt fürs Brod es hüpft fürs Geld, / so geht es mit der Kunst.",
+  "updated": "2003-02-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "psiglp0xu9epmev",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.646Z"
+    },
+    {
+      "id": "5cabl8ga15l4o7o",
+      "agents": "lyz2x127nyb2cxs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.646Z"
+    }
+  ]
+}

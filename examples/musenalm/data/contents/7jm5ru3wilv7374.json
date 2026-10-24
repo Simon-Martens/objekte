@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Mir trug der Ost den letzten, dumpfen Ton / Von deinen Küsten, Vaterland, herüber.",
+  "language": [],
+  "musenalm_id": 87171,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ryno's Abschied von Deutschland. / 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freudentheil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ryno's Abschied von Deutschland. / 1811",
+  "updated": "2013-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qgh6rtnwrdmfsuu",
+      "agents": "rzwbe60xaq9i40f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.186Z"
+    }
+  ]
+}

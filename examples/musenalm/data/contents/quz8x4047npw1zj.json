@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 53759, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Wenn der Morgen Schimmerfluthen / Giesset über See und Land,",
+  "language": [],
+  "musenalm_id": 53760,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweyte Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweyte Ballade",
+  "updated": "2008-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pl5eljtfpbket8v",
+      "agents": "5xr1i06rwmguu38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.786Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Kirche« von J. H. Voß INr 6720, Obj 99",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.475Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6721,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE KIRCHE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. G. Schwenke",
+  "scans": [
+    "alm_129_6721_a9onu97r02.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE KIRCHE",
+  "updated": "2000-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4qh529tfcal40b9",
+      "agents": "ril08zfv8fsz27l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.420Z"
+    }
+  ]
+}

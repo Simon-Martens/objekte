@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Maid von Athen« von George Gordon Byron s. Textbezug INr 127981, Obj 8,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127980,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Maid von Athen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Drawn by A. E. Chalon, R. A. Engraved by H. T. Ryall",
+  "scans": [
+    "alm_590_127980_n2c53ikn0n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Maid von Athen",
+  "updated": "2006-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ue5f01g8u6vbv5r",
+      "agents": "ofmlr5ax2rwl9dz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.975Z"
+    },
+    {
+      "id": "kqpzukfx3pmwszq",
+      "agents": "eywmxpqe6du7wyv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.975Z"
+    }
+  ]
+}

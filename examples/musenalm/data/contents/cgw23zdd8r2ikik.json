@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Gedichte (Sammlung INr 29004, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Graues Männlein, setz' dich hier / Zu den Rheinweinflaschen!",
+  "language": [],
+  "musenalm_id": 29008,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Der Trinker an den Veteran der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Der Trinker an den Veteran der Liebe",
+  "updated": "2002-10-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y3vr9kbi6fyu7ls",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.056Z"
+    }
+  ]
+}

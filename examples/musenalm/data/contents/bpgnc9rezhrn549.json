@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Oberon« von C. M. Wieland s. Textbezug INr 31989, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.938Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 31990,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hüon und Amanda 12 ter Gesang. / Der lüftige Faeton fliegt, leicht und ohne Schwanken / Sanft wie der Schlaf behender als Gedanken / mit ihnen über Land und Meer etc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Hannov. Weinrauch sc. Viennae",
+  "scans": [
+    "alm_366_31990_888wxoogci.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hüon und Amanda 12 ter Gesang. / Der lüftige Faeton fliegt, leicht und ohne Schwanken / Sanft wie der Schlaf behender als Gedanken / mit ihnen über Land und Meer etc",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k6w2l3s6ko59tuq",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.714Z"
+    },
+    {
+      "id": "bu0h8tyu0q7vbkp",
+      "agents": "nhcnwrqiq042uja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.714Z"
+    }
+  ]
+}

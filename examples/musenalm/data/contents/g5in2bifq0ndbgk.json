@@ -1,0 +1,45 @@
+{
+  "annotation": "Blätter aus dem Süden (Sammlung INr 86950, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Was malt ihr stets den Tod so schwarzbehangen, / So wild, so grau, so voll von Grabesfeier,",
+  "language": [],
+  "musenalm_id": 86952,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Tod. / (Nach Giovanni Prati.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Tod. / (Nach Giovanni Prati.)",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1tpidbqjmgucxzo",
+      "agents": "ett5544anganpff",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.222Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.222Z"
+    }
+  ]
+}

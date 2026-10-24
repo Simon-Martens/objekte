@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorbemerkung A. Wendts zur folgenden Übersetzung INr 76795, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Petrarcha schreibt über diese Geschichte in dem Briefe an den Boccaccio, mit welchem er diese lateinische Nachbildung übersendete, folgendes: An das Ende deines Buchs hast Du eine der vorhergehenden sehr unähnliche Geschichte gestellt,",
+  "language": [],
+  "musenalm_id": 76794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Griselda / oder / Frauentreue. / Eine Novelle von Fr. Petrarcha dem Boccaccio nacherzählt. / Aus dem Lateinischen von A. Wendt. / Voerinnerung des Uebersetzers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Griselda / oder / Frauentreue. / Eine Novelle von Fr. Petrarcha dem Boccaccio nacherzählt. / Aus dem Lateinischen von A. Wendt. / Voerinnerung des Uebersetzers",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e3dfq6h7c868h2b",
+      "agents": "67zaqw1ahn1z54k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.894Z"
+    }
+  ]
+}

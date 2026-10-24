@@ -1,0 +1,47 @@
+{
+  "annotation": "graph. Titel [unter der Graphik: J. D. Sauerländer's Verlag]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.143Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44513,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinisches / Taschenbuch / 1853",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Zwecker W. C. Wrankmoore",
+  "scans": [
+    "alm_607_44513_63qskv34tu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / 1853",
+  "updated": "2006-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "21uzdrhrff3nnoc",
+      "agents": "usgtr6dipvre26m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.376Z"
+    }
+  ]
+}

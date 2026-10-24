@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 35",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Ha, treflich Werk! Wie zart und schön! / Nur anzusehn!",
+  "language": [],
+  "musenalm_id": 5216,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meisterwerk",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "O.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meisterwerk",
+  "updated": "2000-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5jnhbcgk6kxg2u3",
+      "agents": "stasese2l43xq94",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.093Z"
+    }
+  ]
+}

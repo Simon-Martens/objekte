@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Hier seh ich dir entgegen, / Du lieber Frühling du!",
+  "language": [],
+  "musenalm_id": 93180,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey der Ankunft des Frühlings / im März 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. T. Dick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bey der Ankunft des Frühlings / im März 1782",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6ut7yr9owt0kj3a",
+      "agents": "7muxj8z983an85h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.250Z"
+    }
+  ]
+}

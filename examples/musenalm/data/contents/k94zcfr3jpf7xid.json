@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitender Beitrag zu »Erklärung der Kupfer« INr 37489-37495, Obj 11-17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Keiner hat gewiß das dunkle, romantische Labyrinth der Rousseau'schen Confessionen durchwandert, ohne von erhebenden Ansichten zu niederschlagenden,",
+  "language": [],
+  "musenalm_id": 37488,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Entstehung / der / Neuen Heloise / von Rousseau. / Eine / einleitende Skizze / zu den Kupfern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. P. Stampeel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Entstehung / der / Neuen Heloise / von Rousseau. / Eine / einleitende Skizze / zu den Kupfern",
+  "updated": "2005-03-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ue4gia6i14c4jv",
+      "agents": "s96imdco8knk8xx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.873Z"
+    }
+  ]
+}

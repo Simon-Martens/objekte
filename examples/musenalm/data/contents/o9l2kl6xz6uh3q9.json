@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 18 Gedichten INr 99734-99751, Obj 138-155",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 99733,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Sinesische Volkslieder aus dem Schi-king des / Confucius",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Minneburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Sinesische Volkslieder aus dem Schi-king des / Confucius",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4liyu00n5ycsupl",
+      "agents": "ucy5ztqyrt5gvq8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.990Z"
+    }
+  ]
+}

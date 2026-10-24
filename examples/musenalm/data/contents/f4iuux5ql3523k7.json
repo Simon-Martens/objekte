@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "In unsern Tagen, in welchen sich die Extreme so oft berühren, ist es eine, auch im Forstwesen, sehr häufige Erscheinung, daß die auffallendsten Widersprüche kurz nach einander entstehen",
+  "language": [],
+  "musenalm_id": 66695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Noch etwas über das Laubsammeln in den / Waldungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Oberjägermeister v. Witzleben zu Cassel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Noch etwas über das Laubsammeln in den / Waldungen",
+  "updated": "2009-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4clapqo9ivtmcxt",
+      "agents": "iiexbt3f7jmpzqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.184Z"
+    }
+  ]
+}

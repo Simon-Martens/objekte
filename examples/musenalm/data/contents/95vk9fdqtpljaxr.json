@@ -1,0 +1,43 @@
+{
+  "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29619, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Nun zog ein furchtbar schwarzes Wetter / An Ludwig's Horizont herauf;",
+  "language": [],
+  "musenalm_id": 29618,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwölfter Gesang. / Entscheidung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwölfter Gesang. / Entscheidung",
+  "updated": "2002-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bz3g6nsj7vaxrv9",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.467Z"
+    }
+  ]
+}

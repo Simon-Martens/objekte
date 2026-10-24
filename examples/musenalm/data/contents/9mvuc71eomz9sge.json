@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 13. /) Illustration zu »Das war ich« von A. F. E. Langbein INr 13479, Obj 116",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13380,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das war ich. v. Langbein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. W. Böhm sc.",
+  "scans": [
+    "alm_217_13380_9wri2zztgo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das war ich. v. Langbein",
+  "updated": "2001-04-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "imas5iflc13zosa",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.642Z"
+    },
+    {
+      "id": "8r3olcsbovpjxn2",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.642Z"
+    }
+  ]
+}

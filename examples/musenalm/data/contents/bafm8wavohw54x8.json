@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Erdstoss, blutiger Mond, Grabfackeln vorm / brennenden Hause,",
+  "language": [],
+  "musenalm_id": 42791,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Modeschönheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. von Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Modeschönheit",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wa5ocjba98bft6l",
+      "agents": "80b27bgjy2gbn1m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.694Z"
+    }
+  ]
+}

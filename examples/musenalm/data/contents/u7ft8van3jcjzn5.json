@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen INr 51694, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Dumpf rollt der See in hohlen Murmelwellen, / Das Hochgebirg steht Räthseln gleich verhüllt;",
+  "language": [],
+  "musenalm_id": 51693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Das Alpengewitter am Genfersee / 1802",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ebendieselbe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Das Alpengewitter am Genfersee / 1802",
+  "updated": "2007-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4gdzf19xo5gti70",
+      "agents": "38esu046kftupf5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.608Z"
+    }
+  ]
+}

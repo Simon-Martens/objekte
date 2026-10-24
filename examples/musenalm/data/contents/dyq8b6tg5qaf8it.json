@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die liebenden Geschwister« von St. Schütze INr 29627, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29628,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Die liebenden Geschwister von St. Schütze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury sculp.",
+  "scans": [
+    "alm_383_29628_pd953f9gaj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Die liebenden Geschwister von St. Schütze",
+  "updated": "2002-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "04kkro775tml5m4",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.502Z"
+    },
+    {
+      "id": "dqvv72vhckgzn34",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.502Z"
+    }
+  ]
+}

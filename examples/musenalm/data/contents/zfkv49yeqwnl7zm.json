@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "Wie die Berge hier so mächtig / Wie die Quellen hier so rein,",
+  "language": [],
+  "musenalm_id": 26685,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Bergthal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. v. Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Bergthal",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x48e5r4h768m4s8",
+      "agents": "j5e1jto7rj2ibw3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.171Z"
+    }
+  ]
+}

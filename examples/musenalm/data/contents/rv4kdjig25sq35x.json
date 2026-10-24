@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Moderne Liebe« von S. B. Lucka INr 80486, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80458,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amalie. / Zur Erzählung von S. B. Lucka",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. C. Kotterba sc.",
+  "scans": [
+    "alm_1793_80458_danhepxik5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amalie. / Zur Erzählung von S. B. Lucka",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3rssl27bv191msc",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.917Z"
+    },
+    {
+      "id": "n4n8uwncrfayjn9",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.917Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit mehreren Gedichten, mit einer Illustration s. Graphik INr 62788, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Am Spätabend eines schwülen Sommertages, von herumziehenden Gewittern räthselhaft und leise angedonnert, ritt durch den hohen, beynahe pfadlosen Eichenwald, hin und wieder vergeblich einen Ausweg suchend, der Prinz Philibert von Burgund.",
+  "language": [],
+  "musenalm_id": 62794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Abendlieder. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Abendlieder. / Eine Erzählung",
+  "updated": "2009-03-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x032xmf66ubccu8",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.068Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.068Z"
+    }
+  ]
+}

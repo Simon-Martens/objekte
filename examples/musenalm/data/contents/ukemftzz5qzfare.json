@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthsel (Sammlung INr 23921, Obj 85)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Rathet aus, rathet ein! / Wie heißt des Kaisers Töchterlein,",
+  "language": [],
+  "musenalm_id": 23922,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rathet aus, rathet ein! / Wie heißt des Kaisers Töchterlein,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vatr8r9r09gphnr",
+      "agents": "u04oy46tu9dlk6x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.196Z"
+    }
+  ]
+}

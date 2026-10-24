@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Arnolds Harfe! Arnolds Harfe! / Klang der Liebe! zart und innig,",
+  "language": [],
+  "musenalm_id": 65828,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Climene. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Edler von Puttlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Climene. / Romanze",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qu47sz7v22pmkuy",
+      "agents": "598hg6jadj7imkx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.186Z"
+    }
+  ]
+}

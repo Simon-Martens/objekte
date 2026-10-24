@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "In dem Salon der Gräfin Rheinsberg hatte sich heute ein kleiner gewählter Kreis um den Theetisch gereiht,",
+  "language": [],
+  "musenalm_id": 95432,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein einziges Geheimniß. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Leonhardt-Pierson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein einziges Geheimniß. / Novelle",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1lcew56pvc3bgko",
+      "agents": "3tut4t2f7uno1ba",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.553Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.553Z"
+    }
+  ]
+}

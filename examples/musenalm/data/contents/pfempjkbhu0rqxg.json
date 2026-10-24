@@ -1,0 +1,45 @@
+{
+  "annotation": "Fünf Briefe von Jean Paul Friederich Richter an einen Schweizer, nebst einem Stammbuchblatt und dem Bruchstück eines Briefes an J. P. Fr. R. (Sammlung INr 54246, Obj 68) mit Anmerkung",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Bayreuth, den 27. Aug. 1814. / Mein Dank, Guter! blieb lange aus, obgleich jeden Tag mein Gaumen mein Herz anpredigte, indeß sonst umgekehrt dieses jenen zur Rede setzt.",
+  "language": [],
+  "musenalm_id": 54252,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ihr alter J. P. F. R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2008-01-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rb41uvw2oh7bli7",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.741Z"
+    }
+  ]
+}

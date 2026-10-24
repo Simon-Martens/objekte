@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Ritornelle (Sammlung INr 1636, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "Ich ging mein Leid der Liebsten vorzutragen, / Anhörte sie's ein Stündchen mit Vergnügen,",
+  "language": [],
+  "musenalm_id": 19197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich ging mein Leid der Liebsten vorzutragen, / Anhörte sie's ein Stündchen mit Vergnügen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ks8qyxk08axlhp3",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.915Z"
+    }
+  ]
+}

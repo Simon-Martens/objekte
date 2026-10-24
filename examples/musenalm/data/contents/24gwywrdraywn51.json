@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Ein Ton, der Lüfte leichtes Spiel, / Ein Tropfen, der im Strome geht, / Ein Blättchen, das vom Baume fiel: – / Wer weiß, wohin ihr Sein verweht?",
+  "language": [],
+  "musenalm_id": 121861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wohin?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Scheurlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wohin?",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ya86qfs4f0nbm2c",
+      "agents": "kddiuy2wa4u1map",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.700Z"
+    }
+  ]
+}

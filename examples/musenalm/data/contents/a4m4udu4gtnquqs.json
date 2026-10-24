@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "372",
+  "incipit_statement": "Heilige Höhen, seyd uns gegrüßt! / Wiege des Sieges, sey uns gegrüßt!",
+  "language": [],
+  "musenalm_id": 54079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Feyergesang auf dem Bromberg, / am Schlachtfelde der Laupenschlacht von 1339. / (Gesungen bey der Feyer des Laupenfestes 1824, da Unter- / schriften zu einem Denkmahle gesammelt wurden.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Feyergesang auf dem Bromberg, / am Schlachtfelde der Laupenschlacht von 1339. / (Gesungen bey der Feyer des Laupenfestes 1824, da Unter- / schriften zu einem Denkmahle gesammelt wurden.)",
+  "updated": "2008-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qz80tapxcarmt1x",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.712Z"
+    }
+  ]
+}

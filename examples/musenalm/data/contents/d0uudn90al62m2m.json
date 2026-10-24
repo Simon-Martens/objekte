@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Liebliches Knäblein, o schlummere du sanft in den duftigen / Rosen! / Kräuselt mit schmeichelndem Hauch, freundliche Weste / sein Haar!",
+  "language": [],
+  "musenalm_id": 62560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beim Bild eines schlafenden Jesusknaben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Schwartz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beim Bild eines schlafenden Jesusknaben",
+  "updated": "2009-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "02snl1x7250ro1p",
+      "agents": "9w8gqkxlg6tfam5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.937Z"
+    }
+  ]
+}

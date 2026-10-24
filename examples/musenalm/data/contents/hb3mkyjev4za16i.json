@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "443",
+  "incipit_statement": "Seht, nichts fehlet dem Stein, der Stahl ist / leidlich geschliffen,",
+  "language": [],
+  "musenalm_id": 37361,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "75. / Die neue Pädagogik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Messerschmid",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "75. / Die neue Pädagogik",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lvy2z4p264hdip3",
+      "agents": "08be5slqlt4odk1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.148Z"
+    }
+  ]
+}

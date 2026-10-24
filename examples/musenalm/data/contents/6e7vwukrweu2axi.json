@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Annas Neujahr« von K. Förster INr 19960, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19934,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Annas Neujahr v. K. Förster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. F. E. Müller sc.",
+  "scans": [
+    "alm_268_19934_4sx6zx7wao.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Annas Neujahr v. K. Förster",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bwdfdrqa2nmupfg",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.094Z"
+    }
+  ]
+}

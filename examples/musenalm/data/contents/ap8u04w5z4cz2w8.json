@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Tändeleien (Sammlung INr 29047, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.741Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Einem blüh'nden Frühlingsgarten, / Schönste Nysa, gleicht dein Antlitz;",
+  "language": [],
+  "musenalm_id": 29048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Gärtner-Idylle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Luise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Gärtner-Idylle",
+  "updated": "2002-10-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "28fnt2rxi8ox1ef",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.016Z"
+    }
+  ]
+}

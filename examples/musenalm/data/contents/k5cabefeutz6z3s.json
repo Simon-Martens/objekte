@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: Nascuntur mediis gaudia iustibus. / Sarbiev. L. I. Ode 2.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Des Lebens Feind hat über die Kaiserburg / Des Jammers Fittig schaudervoll ausgestreckt,",
+  "language": [],
+  "musenalm_id": 90308,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zu Leopolds Thronbesteigung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schisling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zu Leopolds Thronbesteigung",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vbuykbxmjoqhjst",
+      "agents": "moul223tty3k549",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.398Z"
+    }
+  ]
+}

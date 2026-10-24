@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite (INr 123944, Obj 2); Illustration zu »Der Segen der Eifersucht« von Hell  (INr 123955, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123956,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Mariane. / Alle Welt behauptet, die Zeit habe Flügel, ich aber behaupte, daß / sie das Podagra hat. / Der Segen der Eifersucht. 1te Scene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1289_123956_8xsqq5e019.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "V. / Mariane. / Alle Welt behauptet, die Zeit habe Flügel, ich aber behaupte, daß / sie das Podagra hat. / Der Segen der Eifersucht. 1te Scene",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wiiox27gfic166y",
+      "agents": "hwl1l57k0tbbc1r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.856Z"
+    },
+    {
+      "id": "4qt8s8fjb7o3tvw",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.856Z"
+    }
+  ]
+}

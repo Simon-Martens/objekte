@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64245, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64253,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schaumburg #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Rohbock delt. G. M. Kurz sculpt.",
+  "scans": [
+    "alm_1064_64253_faofq3rf9w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Schaumburg #",
+  "updated": "2009-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sebn8jg54vol63l",
+      "agents": "s6x2mf7qulf094x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.978Z"
+    },
+    {
+      "id": "m9uk0zm9cvl9rh4",
+      "agents": "8s55wr0epunphdd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.978Z"
+    }
+  ]
+}

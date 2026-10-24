@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 96564, Obj 115",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Elmine! die Vergangenheit / Kehrt immer neu zurücke.",
+  "language": [],
+  "musenalm_id": 96563,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Elmine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Vagedes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Elmine",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kpaarkmdm7qnoid",
+      "agents": "vwjpew1dybbkwm8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.651Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.651Z"
+    }
+  ]
+}

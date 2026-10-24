@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 117740-117745, Obj 51-56",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117739,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonette",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4g8bacq8c46cgl0",
+      "agents": "roqd4m2swedwv3j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.657Z"
+    }
+  ]
+}

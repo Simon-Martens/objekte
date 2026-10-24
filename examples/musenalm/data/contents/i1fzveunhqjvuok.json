@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "361",
+  "incipit_statement": "Wo zwei Konsonen sich mit dem Vokal verbinden, / Wie hier, ist es nicht leicht, ein kürz'res Wort zu finden.",
+  "language": [],
+  "musenalm_id": 75410,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Worträthsel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Worträthsel",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a4cec1epenec0zb",
+      "agents": "1tsjgk40ftnty4f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.686Z"
+    }
+  ]
+}

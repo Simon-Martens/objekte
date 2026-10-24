@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122315, Obj 338)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "404",
+  "incipit_statement": "In des Baumes grünen Locken / Raschelt ein verjährtes Blatt, / Das die Zeit der Winterflocken / Einsam überdauert hat.",
+  "language": [],
+  "musenalm_id": 122316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 339,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das zurückgebliebene Blatt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Reithard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das zurückgebliebene Blatt",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t5gs6knx47o8zmm",
+      "agents": "biljcxuc46g2kmt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.714Z"
+    }
+  ]
+}

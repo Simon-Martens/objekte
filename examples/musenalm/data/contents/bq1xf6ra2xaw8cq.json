@@ -1,0 +1,45 @@
+{
+  "annotation": "Mancherlei für Manche (Sammlung INr 91749, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Die Anschauung des Elends der Menschen wärer zermalmend, wenn der ihr Nachhängende nicht endlich sein Auge wegwendete, oder darüber dächte.",
+  "language": [],
+  "musenalm_id": 91762,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Anschauung des Elends der Menschen wärer zermalmend, wenn der ihr Nachhängende nicht endlich sein Auge wegwendete, oder darüber dächte.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rx3n46tfv2zf05y",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.600Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.600Z"
+    }
+  ]
+}

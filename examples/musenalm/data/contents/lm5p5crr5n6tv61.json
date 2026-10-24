@@ -1,0 +1,45 @@
+{
+  "annotation": "Vom Kölner Dom. Sonettenkranz (Sammlung INr 65979, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "O, wenn ich so in deinem Dunkel weile, / Du starker Hain, du Gotteshaus der Frommen,",
+  "language": [],
+  "musenalm_id": 65981,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Weihe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Weihe",
+  "updated": "2009-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qgha1mwqv9wrcgn",
+      "agents": "whg5xn8e9tsvu69",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.357Z"
+    }
+  ]
+}

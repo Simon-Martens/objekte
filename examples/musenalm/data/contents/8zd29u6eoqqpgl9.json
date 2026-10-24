@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48437,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sommer #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach Raphael gest. v. Schwerdgeburth",
+  "scans": [
+    "alm_662_48437_niaqo9wvzz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sommer #",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ajozsk9ts8oy74z",
+      "agents": "ztgmm4mptvjp8o3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.610Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.610Z"
+    },
+    {
+      "id": "uf0p8ziweomb090",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.610Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.610Z"
+    }
+  ]
+}

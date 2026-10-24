@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 43555, Obj 15  [nicht bei Keith Andrews : Adam Elsheimer Werkverzeichnis. München, 1985] über der Graphik: Deutsche Schule",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43554,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Flucht nach Egypten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adam Elzheimer Esslinger sc.",
+  "scans": [
+    "alm_577_43554_5z8d0tskpt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Flucht nach Egypten",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "go0x3q8zgnq3s5u",
+      "agents": "mozmrzb06oqaln6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.297Z"
+    },
+    {
+      "id": "2nhghy2x54x7azl",
+      "agents": "zfprrqdgr3ky9ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.297Z"
+    }
+  ]
+}

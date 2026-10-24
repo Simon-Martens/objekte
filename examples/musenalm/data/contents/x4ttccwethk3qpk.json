@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Februar /) Illustration zu »Geschichte des französischen Krieges in Schwaben« INr 121341, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121329,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Ein Kaiserliches Husarencommando / überfällt die Franzosen zu Nieder- / stotzingen während des Mittagessens",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Thom. Weber del. P. J. Laminit sculps. Au.",
+  "scans": [
+    "alm_2009_121329_9av3hl8pey.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "2. Ein Kaiserliches Husarencommando / überfällt die Franzosen zu Nieder- / stotzingen während des Mittagessens",
+  "updated": "2010-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lcb3hciq9y9sr7h",
+      "agents": "h38sezk5a79h4rw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.703Z"
+    },
+    {
+      "id": "e7kldypib0hnji9",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.703Z"
+    }
+  ]
+}

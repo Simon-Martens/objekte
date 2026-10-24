@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 21083, Obj 6 # am Objekt: Carlsruhe im Kunst-Verlag von W. Creuzbauer",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21082,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE UNGLÜCKLICHE FAMILIE #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "[unleserlich] C. Frommel direxit",
+  "scans": [
+    "alm_279_21082_qi0svrp486.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE UNGLÜCKLICHE FAMILIE #",
+  "updated": "2002-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gdu7j9ey18hu9ua",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.829Z"
+    }
+  ]
+}

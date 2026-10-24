@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.797Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Der Erdball war gehüllt in düst're Schelier, / Noch lebten Sonne, Mond und Sterne nicht.",
+  "language": [],
+  "musenalm_id": 81116,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Licht, Liebe, Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pierson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Licht, Liebe, Leben",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gckcq163dyzage4",
+      "agents": "3tut4t2f7uno1ba",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.881Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.881Z"
+    }
+  ]
+}

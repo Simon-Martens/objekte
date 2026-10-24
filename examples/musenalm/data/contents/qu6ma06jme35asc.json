@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen und Romanzen (Sammlung INr 22810, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Es war ein Mädel, keck und wild, / Das ging in Wald und sang,",
+  "language": [],
+  "musenalm_id": 22812,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Sturmesbraut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Sturmesbraut",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y0r6dwqnhellxny",
+      "agents": "98q4i55rpu2zkyi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.928Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.928Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Philidor und Nanny (Sammlung INr 12143, Obj 93)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.172Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Daß ein Mann von Stand und Rang / Auf die Garten-Mauer",
+  "language": [],
+  "musenalm_id": 12150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philidor an Nanny. / Antwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. P. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Philidor an Nanny. / Antwort",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zdpeabafl2uv2b3",
+      "agents": "zcowt1c8qli1wm3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.396Z"
+    }
+  ]
+}

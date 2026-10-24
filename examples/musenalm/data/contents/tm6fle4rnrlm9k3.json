@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43539, Obj 32) mit einer Illustration s. Graphik INr 43523, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Wenn du mich noch einmal bei der Arbeit neckst, rief der sechzehnjährige Anton, indem er von einem Erdenkloße getroffen, sich zornig umwandte,",
+  "language": [],
+  "musenalm_id": 43542,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tannenwäldchen und Schilderhaus. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tannenwäldchen und Schilderhaus. / Erzählung",
+  "updated": "2006-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xlfpouolhyp905d",
+      "agents": "ufh0csiazwb0bf6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.939Z"
+    }
+  ]
+}

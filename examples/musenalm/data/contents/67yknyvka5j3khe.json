@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Bleydecker« von Ahorn, d. i. J. H. Voß INr 16800, Obj 17 (Photos 16799,01-16799,03)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16799,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bleydecker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Reichard",
+  "scans": [
+    "alm_110_16799_01_evyxg7pdyo.jpg",
+    "alm_110_16799_02_0lep1oqrp8.jpg",
+    "alm_110_16799_03_ad72t6gacr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Bleydecker",
+  "updated": "2001-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8lnza1vd3oli4ep",
+      "agents": "it8ptc76fbrkd73",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.833Z"
+    }
+  ]
+}

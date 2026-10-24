@@ -1,0 +1,45 @@
+{
+  "annotation": "Grabschriften (Sammlung INr 90492, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Ein Engel Gottes ist fürwahr der Ruhm zu preisen, / Der nicht von Menschenschmerz, von Blut und Thränen lebt,",
+  "language": [],
+  "musenalm_id": 90496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Sophokles",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Hermannsthal. (Laibach)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Sophokles",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g27xrmr51z28rjv",
+      "agents": "rxn9x0k5ac10jd7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.180Z"
+    }
+  ]
+}

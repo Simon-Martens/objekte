@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite bzw. aus dem G-Verz /) kol. Graphik im Kalendarium Mai; paginiert 5. /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Anfange des siebzehnten Jahrhunderts« von Fr. Wilken INr 58497, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83198,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Linden-Allee im J. 1690",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Stridbeck # L. Wolf del. Jügel sc.",
+  "scans": [
+    "alm_855_83198_jyn8eu231i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Linden-Allee im J. 1690",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vlog1dwvwsskudb",
+      "agents": "hme5av0o5bms2s7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.804Z"
+    },
+    {
+      "id": "kbnk8z912od3u6s",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.804Z"
+    },
+    {
+      "id": "s8r6dc2zf7xgrh7",
+      "agents": "flivu8hnh9tq1va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.804Z"
+    }
+  ]
+}

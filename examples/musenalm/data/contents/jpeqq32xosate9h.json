@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97860, Obj 5) s. graph. Titel INr 97858, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Das Titelblatt stellt die Ruinen der, in dem Kirchspiele Wittelsberg einsam gelegenen alten Kapelle dar, wovon die Sage geht, daß die h. Elisabeth hier öfter ihre Andacht verrichtet habe,",
+  "language": [],
+  "musenalm_id": 97862,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2)",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "624t9m2tm4f833q",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.776Z"
+    }
+  ]
+}

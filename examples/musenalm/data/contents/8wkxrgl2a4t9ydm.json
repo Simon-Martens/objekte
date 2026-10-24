@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe INr 5128, Obj 61",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Ich denk' an dich, Geliebte! / Im Traume sah' ich dich;",
+  "language": [],
+  "musenalm_id": 5127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Doris. / Neuhaus, im May, 1773",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thomsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Doris. / Neuhaus, im May, 1773",
+  "updated": "2000-10-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b48gqvduaecyy6v",
+      "agents": "0bikdzvwxny59z6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.067Z"
+    }
+  ]
+}

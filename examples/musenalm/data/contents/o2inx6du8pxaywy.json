@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Der Morgen graut. Laut jubeln die Matrosen / Wie Schwalben, deren Fahrt nach Süden geht;",
+  "language": [],
+  "musenalm_id": 57729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nador. / Ein / Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter v. Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nador. / Ein / Gedicht",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2hrdu1kf26pu7na",
+      "agents": "e22fzyl0voj5sux",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.922Z"
+    }
+  ]
+}

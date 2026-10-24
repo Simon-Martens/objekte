@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: Begraben ist in ewige Nacht / Der Erfinder großer Nahme zu oft. / Was ihr Geist grübelnd entdeckt nützen wir; / Aber belohnt Ehre sie auch? / Klopstock",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "O Sohn Laronens, lasse mir / Ein unvergänglich Lied gelingen!",
+  "language": [],
+  "musenalm_id": 76320,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schreibkunst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schreibkunst",
+  "updated": "2002-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g39zomekkajbd4j",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.698Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 99294-99296, Obj 200-202 /) IV. Thüringen. Sachsen. Preußen (Sammlung INr 99291, Obj 197)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 99293,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 199,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wann will es Frühling werden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wann will es Frühling werden",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g764jwccd8t0r5z",
+      "agents": "6qn9afrpxniwvx7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.870Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.870Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.206Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Ja, in Pastell, und zwar recht fein, / Herr Klex, wollt' ich gemalet sein,",
+  "language": [],
+  "musenalm_id": 16831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wohlfeiles Gemälde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler d. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wohlfeiles Gemälde",
+  "updated": "2001-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4j3u77bcu07cdue",
+      "agents": "60dpq63kk6xup5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.847Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.847Z"
+    }
+  ]
+}

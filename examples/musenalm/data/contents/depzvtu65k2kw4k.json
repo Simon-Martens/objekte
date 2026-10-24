@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Bemerkungen, Anekdoten und Einfälle (Sammlung INr 10664, Obj 19) Prosaische Aufsätze (Sammlung INr 10660, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Als er Constantinopel erobert hatte, wollte ein Maler sich ihm durch ein Kunstwerk empfehlen,",
+  "language": [],
+  "musenalm_id": 10667,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Mahomet II. ein Kunstkenner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Mahomet II. ein Kunstkenner",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rgdi77gk1q4z57j",
+      "agents": "6cp00jd21onlhwl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.524Z"
+    }
+  ]
+}

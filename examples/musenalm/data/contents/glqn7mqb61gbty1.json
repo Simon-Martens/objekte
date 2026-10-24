@@ -1,0 +1,56 @@
+{
+  "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "323",
+  "incipit_statement": "Ja, deine Augen lieb' ich, welche klagen, / Wohl wissend, wie mit Hohn mich quält Dein Herz,",
+  "language": [],
+  "musenalm_id": 77099,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lob ihrer schwarzen Augen. Das 132ste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakspear [übers.] L. Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lob ihrer schwarzen Augen. Das 132ste",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ud3ilwba6c79qma",
+      "agents": "confomdodiakpla",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.760Z"
+    },
+    {
+      "id": "b0yh1ahxqsn4c59",
+      "agents": "ajsovud6xavcdfb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.760Z"
+    }
+  ]
+}

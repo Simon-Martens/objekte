@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Gedichte (Sammlung INr 28587, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Ueber den Gräbern nur, wo Edens Lüfte / Jedes schönern Gefühles zarte Knospen",
+  "language": [],
+  "musenalm_id": 28588,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / An Fernando",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. M. Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / An Fernando",
+  "updated": "2002-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c165leyyrtjze7m",
+      "agents": "9g2bjngyi7jp8ga",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.395Z"
+    }
+  ]
+}

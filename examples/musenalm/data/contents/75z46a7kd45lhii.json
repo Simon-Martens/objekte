@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.013Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Wenn der finstre Damon spricht / Amor sei ein Ungeheuer,",
+  "language": [],
+  "musenalm_id": 63120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phillis. / 1746",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leßing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Phillis. / 1746",
+  "updated": "2000-10-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mabwqdq4t610kli",
+      "agents": "69uz48pj64zapqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.112Z"
+    }
+  ]
+}

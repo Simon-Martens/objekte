@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 86622, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86621,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Clotilde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Decker del. Preissel & Geyer sc.",
+  "scans": [
+    "alm_1603_86621_soyxeoyg8h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Clotilde",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4fawyurdv608hoj",
+      "agents": "vfryk9lf23r0kke",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.229Z"
+    },
+    {
+      "id": "9p0jotw7u684y1r",
+      "agents": "9s6c9wuymvvgbhx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.229Z"
+    },
+    {
+      "id": "ns4pegb0s8e6t5k",
+      "agents": "k9ac0a5lkd5h6nx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.229Z"
+    }
+  ]
+}

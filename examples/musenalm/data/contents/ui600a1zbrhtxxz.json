@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Einsam saß ich jüngst in der Frühlingslaube. / Sieh! da fliegt ein Schmetterling her.",
+  "language": [],
+  "musenalm_id": 33681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Der Besuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Morgenstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Der Besuch",
+  "updated": "2003-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tj7ayuk25jby0wt",
+      "agents": "9hensmccxc9b4rz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.408Z"
+    }
+  ]
+}

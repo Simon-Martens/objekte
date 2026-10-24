@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Wohl denk' ich nach manchen, man- / chen Jahren / Wenn längst der Lenz mit seinen Blumen / schwand, / Noch an die Zeit, wo wir so glücklich waren,",
+  "language": [],
+  "musenalm_id": 135343,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erwiederung auf ein Erinne- / rungsblatt. / An Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Ritter von Tschabuschigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erwiederung auf ein Erinne- / rungsblatt. / An Sie",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t7520llga4fzp01",
+      "agents": "snndqassjoh7vf0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.144Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Wenn Einer von München gen Starnberg wandert, sich dort in einen Kahn setzt und auf den tiefen, klargrünen Wassern des Wümsees fort und fort fährt, kömmt er allerletzt auf Seeshaupt zu.",
+  "language": [],
+  "musenalm_id": 44588,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sanct Heinrich. / Eine Kunde aus alten Tagen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Trautmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sanct Heinrich. / Eine Kunde aus alten Tagen",
+  "updated": "2006-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s8mlkzmrrlabbwj",
+      "agents": "pcnwr8sg7czf9yv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.345Z"
+    }
+  ]
+}

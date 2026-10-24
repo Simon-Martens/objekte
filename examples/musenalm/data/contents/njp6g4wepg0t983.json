@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.447Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "In einem jener ungarischen Flecken am rechten oder linken Donau-Ufer, oder an der Theiß, oder in der Mitte des Landes, ich weiß es nicht genau, denn das Dorf wird erst in hundert Jahren entstehen,",
+  "language": [],
+  "musenalm_id": 94406,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Brief. / Ein Mährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Graf Mailáth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Brief. / Ein Mährchen",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fe4cgrmvlxr5ijr",
+      "agents": "ynz1wrh0mfk3t8y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.392Z"
+    }
+  ]
+}

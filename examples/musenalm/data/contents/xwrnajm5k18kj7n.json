@@ -1,0 +1,45 @@
+{
+  "annotation": "Bunte Steine (Sammlung INr 22931, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Feuer, Feu'r ruft auf der Gasse / Till, der Bettler, vor sich her",
+  "language": [],
+  "musenalm_id": 22943,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unnützer Lärm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Philippi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unnützer Lärm",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "asu8islq0r7gvgg",
+      "agents": "03ne3lu95zmw8rf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.847Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.847Z"
+    }
+  ]
+}

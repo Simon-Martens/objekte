@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.070Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Ich fürchte, lieber J., daß es mit diesem Aufsatze die Bewandtniß hat, wie mit gewissen Büchern, an welchen der Titel das Beßte ist,",
+  "language": [],
+  "musenalm_id": 16197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Aufenthalt / auf dem Kaukasus, und die Hand / der Prinzessin Agnes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Ittner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Aufenthalt / auf dem Kaukasus, und die Hand / der Prinzessin Agnes",
+  "updated": "2001-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e63y9uxnfutmt9n",
+      "agents": "imr7l7jckky4gjp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.697Z"
+    }
+  ]
+}

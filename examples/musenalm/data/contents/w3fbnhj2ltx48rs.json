@@ -1,0 +1,56 @@
+{
+  "annotation": "lt. G-Verz: Illustration zu »Die Thäler von Hohenbergen oder die Menschen wie sie sind, nach dem Leben gezeichnet« von Fr. Schlenkert; INr 61136, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61132,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schenau del. C. F. Stoelzel sc. 1800)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schenau del. C. F. Stoelzel sc. 1800",
+  "scans": [
+    "alm_953_61132_j22601hcuc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-11-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xij881rylsojvog",
+      "agents": "0hfa1bhqyn0q95c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.985Z"
+    },
+    {
+      "id": "qhp91e634boy2qf",
+      "agents": "e5dzzklohvjx1fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.985Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Reichsttagssonette (Sammlung INr 45305, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Von Alt und Jung ein wunderbar Gemeisch / Sitzt du im Rathe da, ein greiser Knabe;",
+  "language": [],
+  "musenalm_id": 45308,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / An Jahn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfizer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / An Jahn",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "52attznyeg6byu5",
+      "agents": "sv92qni765t0f64",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.249Z"
+    }
+  ]
+}

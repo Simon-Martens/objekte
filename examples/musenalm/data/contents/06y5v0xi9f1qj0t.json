@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 27862, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.428Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27864,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gerlach von Nassau. / Churfürst von Maintz. / im Jahre 1361",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schonhofer; A. R.",
+  "scans": [
+    "alm_357_27864_zs62chj0a7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gerlach von Nassau. / Churfürst von Maintz. / im Jahre 1361",
+  "updated": "2002-08-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "srbe3unu2t200eb",
+      "agents": "2cs55gmjk0f1klo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.268Z"
+    },
+    {
+      "id": "jbvhi87fwzyzyc5",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.268Z"
+    }
+  ]
+}

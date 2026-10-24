@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: nach Hafner",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42255,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Tchoultey (Herberge) neuerer Zeiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hüllmann sc.",
+  "scans": [
+    "alm_557_42255_ibd5q9qwto.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Tchoultey (Herberge) neuerer Zeiten",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kyngznlw29ji25f",
+      "agents": "wk80t3g5pe5ec3p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.937Z"
+    }
+  ]
+}

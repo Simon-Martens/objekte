@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Wir sahen frohe Feste sich bereiten, / Wir hörten Freudenlieder, Feierklänge,",
+  "language": [],
+  "musenalm_id": 45912,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Festgruß der Musen. / Zur Vermählung der Baronesse Henriette von der Malsburg-Escheberg mit dem Grafen Holnstein. / (3. Jul. 1852.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Bodenstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Festgruß der Musen. / Zur Vermählung der Baronesse Henriette von der Malsburg-Escheberg mit dem Grafen Holnstein. / (3. Jul. 1852.)",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1556ju8ctr7t8no",
+      "agents": "3bb8mhymqsjn5dk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.270Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zum folgenden Gedicht INr 50202, Obj 24 /) Altdeutsche Gedichte (Sammlung INr 50194, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Meister Hildebrandt, mit dem Beinamen der Alte, kommt sehr oft in den beiden letzten Abtheilungen des bekannten Heldenbuchs vor,",
+  "language": [],
+  "musenalm_id": 50201,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Vom alten Hildebrandt. / Ein schöner Meistergesang.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Vom alten Hildebrandt. / Ein schöner Meistergesang.",
+  "updated": "2007-06-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tm1450y46pik5s0",
+      "agents": "v1mpxx0n8e76xaz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.508Z"
+    }
+  ]
+}

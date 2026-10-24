@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz; mit einer Illustration s. Graphik INr 41651, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "O Herr! die Männer, die vor mir gesprochen haben, erzählten mancherley wunderbare Geschichten, die sie gehört hatten in fremden Ländern;",
+  "language": [],
+  "musenalm_id": 41652,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Geschichte Al-Mansors",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hauff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Geschichte Al-Mansors",
+  "updated": "2005-12-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ok2yix3e6tug8ul",
+      "agents": "ntl4yryhhmz1v3s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.184Z"
+    }
+  ]
+}

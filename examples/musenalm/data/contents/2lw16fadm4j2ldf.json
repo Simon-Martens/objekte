@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Gedicht INr 112540, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.986Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112538,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Joh. Ender gez. Fr. Stöber gestoch. in Stahl Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Fr. Stöber gestoch. in Stahl Wien",
+  "scans": [
+    "alm_2474_112538_cdsyrwjhhk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ep50n7d8v2nttqh",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.418Z"
+    },
+    {
+      "id": "rrb2ft3oypc39ou",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.418Z"
+    }
+  ]
+}

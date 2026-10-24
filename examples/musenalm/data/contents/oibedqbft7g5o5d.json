@@ -1,0 +1,45 @@
+{
+  "annotation": "Unvollständiger Abdruck des Gedichts. Die vollständige Fassung in: Taschenbuch von J. G. Jacobi und seinen Freunden 1798 INr 23388",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Nach seinem Tode kam ein deutscher Dorfsultan / Der sich zum Krösus stahl, im Reiche Satans an.",
+  "language": [],
+  "musenalm_id": 931,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die zwei Verdammten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "PFEFFEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die zwei Verdammten",
+  "updated": "2000-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c90dbc410ilhu3d",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.697Z"
+    }
+  ]
+}

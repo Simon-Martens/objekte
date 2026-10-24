@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.121Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Bezahlung willst du für dein Tuch? / Nimm Worte hin; Geld hab' ich keines.",
+  "language": [],
+  "musenalm_id": 10444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23. / Der Kaufmann und der Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Nicolai",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23. / Der Kaufmann und der Dichter",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ku1qhhsk8ppv8bw",
+      "agents": "km5yxdev9efbrvi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.232Z"
+    }
+  ]
+}

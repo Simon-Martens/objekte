@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.205Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Wie sich die Flut in's Thal ergießt! / Ach! daß du nicht unglücklich bist!",
+  "language": [],
+  "musenalm_id": 12867,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wirth und sein reisefer-tiger Gast",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wirth und sein reisefer-tiger Gast",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vga82ymt2333yb1",
+      "agents": "vn2a6zjk0dwki92",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.478Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.478Z"
+    }
+  ]
+}

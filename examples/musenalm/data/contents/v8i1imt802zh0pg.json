@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 44491, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44498,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SIEGFRIED UND CHRIMHILDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. J. von Schnorr Gest. von C. Gonzenbach",
+  "scans": [
+    "alm_606_44498_80zf1dyshw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SIEGFRIED UND CHRIMHILDE",
+  "updated": "2006-07-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3pcaeb1g8p0xldi",
+      "agents": "w78lomy5w24kuml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.460Z"
+    },
+    {
+      "id": "1if52oxs1xw7orh",
+      "agents": "5q6ebv8kym3mtpt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.460Z"
+    }
+  ]
+}

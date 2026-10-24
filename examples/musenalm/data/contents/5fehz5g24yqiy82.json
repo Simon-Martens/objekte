@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Gedichte (Sammlung INr 40686, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "496",
+  "incipit_statement": "Stadt der Seine! Und ihr, Hesperia's goldene Aepfel! / Und, von Menschen gewirkt, Wunder im brit- / tischen Land!",
+  "language": [],
+  "musenalm_id": 40695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Reisende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto, Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Reisende",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hnxe36gw2zqcdgf",
+      "agents": "2i4oqqhryhrdin4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.798Z"
+    }
+  ]
+}

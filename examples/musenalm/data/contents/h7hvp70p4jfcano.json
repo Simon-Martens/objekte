@@ -1,0 +1,45 @@
+{
+  "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "356",
+  "incipit_statement": "Noch im Tode zürnet der Leu, giebt Preis mich dem / Spotte; / Den unziemenden Scherz büß ich ja lang und tief.",
+  "language": [],
+  "musenalm_id": 76992,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bardowick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Baldamus D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bardowick",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "627f9i6ng12ybcj",
+      "agents": "gvrm573djft0g9v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.724Z"
+    }
+  ]
+}

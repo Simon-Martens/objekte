@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "In einem Dörfchen bei Linz saß einst der reiche Schellendorfer gerade zur Zeit des Aveläutens vor seinem stattlichen Hofe,",
+  "language": [],
+  "musenalm_id": 117892,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die schöne Evi. / Schwank, nach einer altenChronik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Filippine Hemerlein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die schöne Evi. / Schwank, nach einer altenChronik",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hc2ylo523piim3r",
+      "agents": "uhkusxxiyptfiir",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.450Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.450Z"
+    }
+  ]
+}

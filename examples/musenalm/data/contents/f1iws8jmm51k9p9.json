@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Der Uebel größtes ist die Schuld",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Um die Mitte des 14ten Jahrhunderts, zu der Zeit, wo Kaiser Karl der IV. Deutschland beherrschte, erschien an einem nebeligen Herbstabend ein alter Mönch, mit blassem gefurchten Gesicht,",
+  "language": [],
+  "musenalm_id": 40819,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Der Pilger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederike Lohmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Der Pilger",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jgb9y3iey8sdfb1",
+      "agents": "o98cykqmxxu1sx9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.938Z"
+    }
+  ]
+}

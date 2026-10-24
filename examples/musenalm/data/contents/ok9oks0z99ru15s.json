@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.447Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79469,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fr. August Kuhn. / Doctor der Philosophie geb. zu / Eckartsberga, d. 30ten Dec. 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Wolf del. Ludw. Meyer jun. sc. Berlin",
+  "scans": [
+    "alm_436_79469_urd5vecver.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fr. August Kuhn. / Doctor der Philosophie geb. zu / Eckartsberga, d. 30ten Dec. 1784",
+  "updated": "2003-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kuxcs0pkj94jlum",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.867Z"
+    },
+    {
+      "id": "sx7mi871ya2en5k",
+      "agents": "l5ef0nkmotzvzwh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.867Z"
+    }
+  ]
+}

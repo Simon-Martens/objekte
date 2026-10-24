@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.548Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "So hätten wir ja ein Jahr glüklich vorüber! Wol uns und Dank den Kunstrichtern so wie den Käufern, die uns Muth gemacht haben unsre neue Ernde zu Markte zu bringen.",
+  "language": [],
+  "musenalm_id": 93240,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So hätten wir ja ein Jahr glüklich vorüber! Wol uns und Dank den Kunstrichtern so wie den Käufern, die uns Muth gemacht haben unsre neue Ernde zu Markte zu bringen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1lb8a2h9vq1lo20",
+      "agents": "wyoix05eehnfe9p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.544Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.544Z"
+    }
+  ]
+}

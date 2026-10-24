@@ -1,0 +1,47 @@
+{
+  "annotation": "Tänze Contredanses Francaises und Ecossaise, welche bei Hofe getanzt werden herausgegeben von Herrn Lauchery Königl. Solo-Tänzer in Berlin (Sammlung INr 20294, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20305,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "La Finale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [
+    "alm_270_20305_fvwfr81a8j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "La Finale",
+  "updated": "2001-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bjlzmtujadoti1w",
+      "agents": "czigb25jnrfsy98",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.866Z"
+    }
+  ]
+}

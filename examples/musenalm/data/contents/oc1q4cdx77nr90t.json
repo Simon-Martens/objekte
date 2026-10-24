@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Nie weilt' ich noch in so geheimen Gründen! / Hier klag' ich unbelauscht den Felsenklüften,",
+  "language": [],
+  "musenalm_id": 3590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach dem Petrarca. / Th. 2. Sonn. 12",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach dem Petrarca. / Th. 2. Sonn. 12",
+  "updated": "2000-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "su0j1604zs5yrhi",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.131Z"
+    }
+  ]
+}

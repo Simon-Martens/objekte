@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Dritte Fortsetzung (Sammlung INr 74293, Obj 17) mit einer Illustration s. Graphik INr 74302, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Diese anspruchslose aber malerische Parthie führe ich unter dem Namen der Küche auf, wenn sie gleich in gestochenen Planen von Hohenheim und auch nach mündlichen Traditionen von Vielen, das Laboratorium genannt wird;",
+  "language": [],
+  "musenalm_id": 74301,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Küche",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Küche",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tyv5iomweuhc9l3",
+      "agents": "0qzneijgjsm86gl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.601Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.601Z"
+    }
+  ]
+}

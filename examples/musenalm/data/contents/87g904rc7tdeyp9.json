@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Zwei Balladen (Sammlung INr 75080, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Der Knabe verläßt der Mutter Haus, / und eilt in den schattigen Wald hinaus:",
+  "language": [],
+  "musenalm_id": 75082,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Das Ave Maria",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Ernst Raupach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Das Ave Maria",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jqisxrpclo32rg1",
+      "agents": "uxyu52yd3v030gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.726Z"
+    }
+  ]
+}

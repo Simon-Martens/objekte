@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.694Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "In Bergen, auf denen die Fichte und die Tanne zu Hause ist und die hellgrünen Nadeln  des Lehrbaumes das Auge erfreuen, liegt ein altes Schloß mit Wall und Graben.",
+  "language": [],
+  "musenalm_id": 116752,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fosthaus. / Skizze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Pfundheller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Fosthaus. / Skizze",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xfc4u7vm128zdid",
+      "agents": "t3dzgpy5a5tgvbo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.462Z"
+    }
+  ]
+}

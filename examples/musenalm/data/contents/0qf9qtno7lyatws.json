@@ -1,0 +1,45 @@
+{
+  "annotation": "## Anm. am Objekt: Res in Ecclesia et Politica christiana gestae ab anno 1500. ad ann. 1600. Aut T. Söffing 1676. angeführt in Schillers sämmtlichen Werke 7ter Band S. 415. flg.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Geschlagen mit Sieg war bei Mühlberg die Schlacht / Vom Kaiser; es stürmt seine zahlreiche Macht",
+  "language": [],
+  "musenalm_id": 19760,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Frühstück in Rudolfstadt ##",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Frühstück in Rudolfstadt ##",
+  "updated": "2001-11-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nbfsj3y6xaqseqp",
+      "agents": "1tsjgk40ftnty4f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.854Z"
+    }
+  ]
+}

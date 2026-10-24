@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "An diesem stillen Ort, wo den bemosten Stein / Verschränktes Immergrün mit heil'gem Dunkel / schwärzet.",
+  "language": [],
+  "musenalm_id": 93310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Andenken meiner jüngsten Schwester / gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Andenken meiner jüngsten Schwester / gewidmet",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uciulxbc7gtoi5u",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.187Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.187Z"
+    }
+  ]
+}

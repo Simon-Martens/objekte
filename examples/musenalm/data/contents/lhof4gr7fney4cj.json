@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24836, Obj 117)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Nach langem Leiden war gestorben / Die Himmelstochter Poesie,",
+  "language": [],
+  "musenalm_id": 24839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Tod der Poesie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Tod der Poesie",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qcjw4sku2o4ofse",
+      "agents": "dgebk50hujqbvc5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.897Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.897Z"
+    }
+  ]
+}

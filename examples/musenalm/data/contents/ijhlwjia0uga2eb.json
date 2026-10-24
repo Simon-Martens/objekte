@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1. s. Textbezug INr 6878, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6836,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "zufrieden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert inv. del. E. Riepenhausen sculps",
+  "scans": [
+    "alm_138_6836_xuujsb0t70.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "zufrieden",
+  "updated": "2000-11-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yzw648r4bye3rr1",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.263Z"
+    },
+    {
+      "id": "jv3oeu0c90r4ecy",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.263Z"
+    }
+  ]
+}

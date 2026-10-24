@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Mit Mirten in dem blonden Haar, / Ihr Angesicht voll heller Freude,",
+  "language": [],
+  "musenalm_id": 5612,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brautlied / der Emma gesungen, / den 24. November 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Rudolphi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Brautlied / der Emma gesungen, / den 24. November 1779",
+  "updated": "2000-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p785ddpkzg053o7",
+      "agents": "dxi2hql7exffxou",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.121Z"
+    }
+  ]
+}

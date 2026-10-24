@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juni; nummeriert IV. /) Illustration zu »Macbeth« von W. Shakespeare",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105161,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LADY MACBETH geht im Schlaf umher. / Lady Macbeth. Weg verdammter Flecken! Weg, / sag' ich! Eins! Zwei! Was! Wollen / denn diese Hände nimmer rein werden? / V. Aufz. 1r. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Smirke pinx. Liebe sc.",
+  "scans": [
+    "alm_3258_105161_ejm7fovjtb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LADY MACBETH geht im Schlaf umher. / Lady Macbeth. Weg verdammter Flecken! Weg, / sag' ich! Eins! Zwei! Was! Wollen / denn diese Hände nimmer rein werden? / V. Aufz. 1r. Auftr.",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mfsy0clpojfe4qa",
+      "agents": "4b9le30k3iqc8fh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.929Z"
+    },
+    {
+      "id": "btvap33lrwug7hj",
+      "agents": "v0k80momy67j3zt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.929Z"
+    }
+  ]
+}

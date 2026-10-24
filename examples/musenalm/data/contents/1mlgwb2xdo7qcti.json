@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Steh, Wandrer, und vernimm, wer hier / begraben sey. / Ein Welteroberer.",
+  "language": [],
+  "musenalm_id": 83167,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift auf Alexander den Großen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stiegler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift auf Alexander den Großen",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j77ftmyf6wvte1a",
+      "agents": "t6wjjpa90xmd7r2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.959Z"
+    }
+  ]
+}

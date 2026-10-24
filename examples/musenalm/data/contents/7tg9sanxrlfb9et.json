@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Tirol (Sammlung INr 45936, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Im dunkeln Tannenwalde / Ein Kreuzesstamm sich hebt,",
+  "language": [],
+  "musenalm_id": 45943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Kreuz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Pichler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Kreuz",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0sxhhiqvsy9szs3",
+      "agents": "xgh72r9y3fxa6u5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.490Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.490Z"
+    }
+  ]
+}

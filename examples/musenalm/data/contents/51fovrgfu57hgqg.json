@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44154,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinisches / Taschenbuch / 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Zwecker W. C. Wrankmore",
+  "scans": [
+    "alm_600_44154_pd6sgkf1ws.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / 1845",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6tns1ku9elgkwq0",
+      "agents": "usgtr6dipvre26m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.232Z"
+    }
+  ]
+}

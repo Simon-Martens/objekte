@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96745, Obj 16) mit einer Übersetzung s. Gedicht INr 96753, Obj 24/) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96739, 96740; Obj 10, 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "J'ai lu, chez un conteur de fables, / Q'un second Rodilard, l'Alexan- / dre des chats, / L'Attila, le fléau des rats, / Rendoit ces derniers misérables,",
+  "language": [],
+  "musenalm_id": 96752,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Le Chat et un vieux Rat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Le Chat et un vieux Rat",
+  "updated": "2014-05-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "egafcf4vthqgqzb",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.839Z"
+    }
+  ]
+}

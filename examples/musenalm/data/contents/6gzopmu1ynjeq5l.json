@@ -1,0 +1,58 @@
+{
+  "annotation": "Bilderchronik der theatralischen Zeiterscheinungen (Sammlung INr 77292, Obj 7) Illustration zu »Belisar« von E. v. Schenk s. Textbezug INr 77293, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.004Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77294,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Belisar, von E. v. Schenk./ Act IV. Scene 5",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "MR. S. Langer sc.",
+  "scans": [
+    "alm_2402_77294_o8x6q8qftc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Belisar, von E. v. Schenk./ Act IV. Scene 5",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b4coy3682m5n8dr",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.771Z"
+    },
+    {
+      "id": "4o68xquhpnyi2dl",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.771Z"
+    }
+  ]
+}

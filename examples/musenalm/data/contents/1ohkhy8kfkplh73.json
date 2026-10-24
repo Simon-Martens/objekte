@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 12 Gedichten INr 75003-75014, Obj 59-70 /) Motto: Wenn in der Jugend goldnen Tagen uns / Der Traum von einer schönern Welt umschwebt / Dann werden leicht Gefühle zu Gesängen. / Bouterwek",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75002,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV. / Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV. / Gedichte",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nttqrgpgkbsho9l",
+      "agents": "utgjxyadq6s0v86",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.586Z"
+    }
+  ]
+}

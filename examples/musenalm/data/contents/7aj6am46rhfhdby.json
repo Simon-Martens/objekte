@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 41973, Obj 174)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "266",
+  "incipit_statement": "O, Apfelbaum, was ist es wohl mit dir? / Wo willst du noch mit allen Blüthen hin?",
+  "language": [],
+  "musenalm_id": 41974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 175,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Im Frühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Mosen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Im Frühling",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6l7t8wwocehwyg8",
+      "agents": "ya686aytqngnsyo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.218Z"
+    }
+  ]
+}

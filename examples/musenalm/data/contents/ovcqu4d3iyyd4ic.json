@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte, viele hier zum erstenmal gegebene Anekdoten mit meinem eigenen Glossario (Sammlung INr 37300, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Ein gewisser Professor ordinarius erhielt jüngst einen Brief mit folgender Aufschrift: A Monsieur N N Professeur tres-ordinair.",
+  "language": [],
+  "musenalm_id": 37310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein gewisser Professor ordinarius erhielt jüngst einen Brief mit folgender Aufschrift: A Monsieur N N Professeur tres-ordinair.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2004-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0og3etm9b0le321",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.880Z"
+    }
+  ]
+}

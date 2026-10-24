@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "Manches hohe Weib ward schon besungen, / Das die Nachwelt ehrt als Siegerinn,",
+  "language": [],
+  "musenalm_id": 14358,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eugenia Bérenger. / Aus den Zeiten des Terrorismus in Frankreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marianne von Neumann-Meißenthal, geborene vonThiel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eugenia Bérenger. / Aus den Zeiten des Terrorismus in Frankreich",
+  "updated": "2001-04-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8vyyn0txr8gflsk",
+      "agents": "blexso3sv1n2ckh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.558Z"
+    }
+  ]
+}

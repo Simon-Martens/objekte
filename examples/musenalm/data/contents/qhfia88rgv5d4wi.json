@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von kleinen Gedichten und prosaischen Aufsätzen, in Stammbücher (Sammlung INr 10242, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.622Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Zypressen grünen länger als Rosen blühen. Die glühende Liebe bleicht im kalten Arm des Todes,",
+  "language": [],
+  "musenalm_id": 9534,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zypressen grünen länger als Rosen blühen. Die glühende Liebe bleicht im kalten Arm des Todes,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dieselbe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5ad3309kmgkjtxg",
+      "agents": "fby2gdha04397wg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.430Z"
+    }
+  ]
+}

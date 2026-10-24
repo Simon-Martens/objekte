@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.023Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "An einem selten nur betret'nen Wege / Steht eine Eiche kräftig, doch allein.",
+  "language": [],
+  "musenalm_id": 67294,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Die Eiche und das Epheu, / eine Parabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Die Eiche und das Epheu, / eine Parabel",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7gzon9mf7jjfif3",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.347Z"
+    }
+  ]
+}

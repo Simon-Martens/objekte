@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 133476,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LUDWIG / Grosherzog von Baden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton Karcher sc.",
+  "scans": [
+    "alm_1934_133476_cz1tuqomzh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LUDWIG / Grosherzog von Baden",
+  "updated": "2024-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xtfl3t5xlmg8ocq",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.107Z"
+    }
+  ]
+}

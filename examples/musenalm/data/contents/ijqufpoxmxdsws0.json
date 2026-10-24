@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.478Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50755,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kloster Pfefers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wüst del. S. G. f.",
+  "scans": [
+    "alm_687_50755_st6aqri6gm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kloster Pfefers",
+  "updated": "2007-07-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kljiatknrccqe4h",
+      "agents": "7thn4thoxcm3jik",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.740Z"
+    },
+    {
+      "id": "jy7wd6igkixqsyr",
+      "agents": "pua8u6y6ts6oo5o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.740Z"
+    }
+  ]
+}

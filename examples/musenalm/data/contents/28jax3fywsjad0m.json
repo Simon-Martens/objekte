@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 105850, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Mit Rührung und mit reiner Offenheit, / Ihr Edlen, tret ich jetzt in eure Mitte;",
+  "language": [],
+  "musenalm_id": 105854,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / gesprochen / im Societätstheater zu Dresden / den 12. März 1796. / Zum Besten der Armen,",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zschiedrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / gesprochen / im Societätstheater zu Dresden / den 12. März 1796. / Zum Besten der Armen,",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "46gb0jxtyfs5igu",
+      "agents": "sg73x8kcyc2ixxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.954Z"
+    }
+  ]
+}

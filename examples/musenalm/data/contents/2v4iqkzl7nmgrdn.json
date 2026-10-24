@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Auf die Frage eines Freundes: ob mein Mädchen schön sey?« von Frh. v. Spl. INr 2713, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2714,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die Frage eines Freundes: ob / mein Mädchen schön sey?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Ph. Schönfeld",
+  "scans": [
+    "alm_79_2714_vx3cf69qj7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auf die Frage eines Freundes: ob / mein Mädchen schön sey?",
+  "updated": "2000-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n0829ysongo4z2l",
+      "agents": "intx1623ah0wnv6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.947Z"
+    }
+  ]
+}

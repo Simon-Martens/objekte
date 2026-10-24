@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.208Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Wie kommt's, daß ich am Morgen, Am Mayenmorgen so klar und hell,",
+  "language": [],
+  "musenalm_id": 14719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jäger Herz und die Elemente. / Ein Mayenlied. Keine Tanz-Weise. / (Wien, im Augarten, am Tage von Kreuzeserfindung / den 3. May 1821.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Z. Werner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jäger Herz und die Elemente. / Ein Mayenlied. Keine Tanz-Weise. / (Wien, im Augarten, am Tage von Kreuzeserfindung / den 3. May 1821.)",
+  "updated": "2001-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2ycu928poerf2gw",
+      "agents": "g7f1xv6d8kkyhx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.582Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.582Z"
+    }
+  ]
+}

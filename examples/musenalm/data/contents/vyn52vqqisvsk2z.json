@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers des letzten Jahrgangs",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der zu frühe Heimgang des vom ganzen Vaterlande tief betrauerten, von alle den Seinigen, von einer großen Zahl Freunde und Zöglinge und allen seinen Untergebenen herzlich beweinten Verfassers, schließt die Weidmannsfeierabende mit dem 6ten Bändchen",
+  "language": [],
+  "musenalm_id": 109217,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der zu frühe Heimgang des vom ganzen Vaterlande tief betrauerten, von alle den Seinigen, von einer großen Zahl Freunde und Zöglinge und allen seinen Untergebenen herzlich beweinten Verfassers, schließt die Weidmannsfeierabende mit dem 6ten Bändchen…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Witzleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2015-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0r5idw5wbxvua0u",
+      "agents": "iiexbt3f7jmpzqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.185Z"
+    }
+  ]
+}

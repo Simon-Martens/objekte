@@ -1,0 +1,45 @@
+{
+  "annotation": "3. Bilder aus der Krimm (Sammlung INr 25078, Obj 100) Gedichte (Sammlung INr 25046, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Trauben aus der Liebe Weinberg wurden frühreif hier / gepflückt,",
+  "language": [],
+  "musenalm_id": 25087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Die Gräber des Harem. / Mirza zum Fremdling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Die Gräber des Harem. / Mirza zum Fremdling",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5diq378d1afuf7p",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.001Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Der Vogt von Hornberg Würtembergische Sage aus dem 16ten Jahrhundert (Sammlung INr 27370, Obj 97) /) Gedichte (Sammlung INr 27369, Obj 96)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Er predigt' immer länger, / Er predigt' immer strenger,",
+  "language": [],
+  "musenalm_id": 27372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2002-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n13qq1uou6rbp3i",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.217Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.217Z"
+    }
+  ]
+}

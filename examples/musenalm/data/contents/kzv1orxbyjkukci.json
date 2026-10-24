@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Götz von Berlichingen« von J. W. v. Goethe; s. a. Textbezug INr 16738, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9238,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Götz von Berlichingen IV. Aufzug. / Götz vor den Ratsherren zu Heilbronn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naeke del. Hess sc.",
+  "scans": [
+    "alm_40_9238_6gvlxdj7ic.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Götz von Berlichingen IV. Aufzug. / Götz vor den Ratsherren zu Heilbronn",
+  "updated": "2000-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k6it10jdiyi265i",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.392Z"
+    }
+  ]
+}

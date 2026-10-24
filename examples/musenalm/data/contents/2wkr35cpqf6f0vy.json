@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 8 Gedichten INr 98983-98991, Obj 9-17 /) Gedichte (Sammlung INr 98981, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.521Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Sage, wie dir's ist zu Muthe, / Und was dich umgibt, das male!",
+  "language": [],
+  "musenalm_id": 98982,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbst 1833 in Neuseß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herbst 1833 in Neuseß",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ofgeiqc5en6qzz",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.886Z"
+    }
+  ]
+}

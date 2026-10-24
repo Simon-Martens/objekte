@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40553,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MINERVA / Taschenbuch / für / das Jahr 1824. / Sechzehnter Jahrgang. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martin sc.",
+  "scans": [
+    "alm_528_40553_fsz57s3hm6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MINERVA / Taschenbuch / für / das Jahr 1824. / Sechzehnter Jahrgang. / Mit 9 Kupfern. / Leipzig, bei Gerhard Fleischer",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q6qfuzp6wvapbeo",
+      "agents": "u3ev7bjxvo21hzz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.900Z"
+    }
+  ]
+}

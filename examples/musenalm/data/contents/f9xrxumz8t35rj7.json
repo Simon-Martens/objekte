@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "O Theon, welche Wehmuth, welch Entzücken / Durchbebt mich seit den sel'gen Augenblicken,",
+  "language": [],
+  "musenalm_id": 47427,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Geständniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Geständniß",
+  "updated": "2007-01-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wqtgiz66x7m6zve",
+      "agents": "nz3ytz19v6fnz1k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.466Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.466Z"
+    }
+  ]
+}

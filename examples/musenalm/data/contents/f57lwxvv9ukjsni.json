@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Als sie mein war, heilige Zeit! Da lebt' ich! / Lebt' unsäglich",
+  "language": [],
+  "musenalm_id": 4705,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Todte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Maßlieben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Todte",
+  "updated": "2000-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fi1dxzwkp2c0gac",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.031Z"
+    }
+  ]
+}

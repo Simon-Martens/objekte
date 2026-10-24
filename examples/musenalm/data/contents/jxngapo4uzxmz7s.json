@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.518Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Voll Lieb' und Unschuld war sein Spiel, / Voll Lieb' und Unschuld sein Gefühl,",
+  "language": [],
+  "musenalm_id": 10769,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "72. / Grabschrift auf ein gutes Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. C. Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "72. / Grabschrift auf ein gutes Kind",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cjumbaej78um7j9",
+      "agents": "lw3uqo50dp1mpif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.425Z"
+    }
+  ]
+}

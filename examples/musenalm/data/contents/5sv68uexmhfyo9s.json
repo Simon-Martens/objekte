@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68545,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Historisch-Genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1798. / Leipzig zur Messe / bey Haude und Spener von Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Meil del. I. Nussbiegel sc.",
+  "scans": [
+    "alm_929_68545_0fuhpwpmus.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Historisch-Genealogischer / CALENDER / oder / Jahrbuch / der / merkwürdigsten neuen / Welt-Begebenheiten / für / 1798. / Leipzig zur Messe / bey Haude und Spener von Berlin",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "85h29b6dv7x4euz",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.477Z"
+    },
+    {
+      "id": "m90tf8awbne0f3q",
+      "agents": "1cxxm0968owp2z9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.477Z"
+    }
+  ]
+}

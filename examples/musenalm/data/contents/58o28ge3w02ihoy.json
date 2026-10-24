@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 48994, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Ein Bäuerlein in Schuldennoth / Hatt' kaum noch mehr das liebe Brod; / Die Gläubiger, die stürmten ein,",
+  "language": [],
+  "musenalm_id": 49000,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans Entendec. / Kindermährchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kurd",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans Entendec. / Kindermährchen",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fadwg7hjv08ibew",
+      "agents": "2hig42wpgako8md",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.621Z"
+    }
+  ]
+}

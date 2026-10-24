@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung an der 1. Graphik im Kalendarium. paginiert 9. Illustration zu »Aurora von Königsmark« von L. D. Gloxin s. Textbezug INr 32209, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32193,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aurora allein. / Seite 167",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. & sc.",
+  "scans": [
+    "alm_438_32193_i240y8z8bq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aurora allein. / Seite 167",
+  "updated": "2003-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f1yids3voxw01cc",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.710Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lied im Beitrag »Der freiwillige Jäger« von G. von Reinbeck INr 43432, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Fürs Vaterland / Das Schwert zur Hand! / Hört ihr der Ketten Geklirre?",
+  "language": [],
+  "musenalm_id": 43433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines Freiwilligen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines Freiwilligen",
+  "updated": "2006-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zzl3k37lrywks3k",
+      "agents": "j6u4xe56jqv8urn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.304Z"
+    }
+  ]
+}

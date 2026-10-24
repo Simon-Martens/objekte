@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Mai # Titel s. Textbezug INr 78793, Obj 124",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78681,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Löwenjagd #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. P. Rubens pinxit E. Thelott sculpt.",
+  "scans": [
+    "alm_1019_78681_ji82gke9hh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine Löwenjagd #",
+  "updated": "2009-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kzzrdgu747xjwzo",
+      "agents": "co7d0f8bep36m8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.794Z"
+    },
+    {
+      "id": "ym3sjoklyu6gwwv",
+      "agents": "f8vs62ntusa9nl2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.794Z"
+    }
+  ]
+}

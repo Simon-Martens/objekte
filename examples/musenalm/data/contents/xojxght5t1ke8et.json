@@ -1,0 +1,45 @@
+{
+  "annotation": "Siebentes Jahr (Sammlung INr 48772, Obj 83) mit einer Illustration s. Graphik INr 50084, Obj 90,01",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Freundlich taucht die Sonne kaum hinunter, / Drückt des Schlummers Hand zu süßer Ruh",
+  "language": [],
+  "musenalm_id": 48742,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsucht nach ländlichem Glück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsucht nach ländlichem Glück",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v18yxy4i3yp2jeh",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.801Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "s. folgendes Gedicht INr 80259, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80258,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Egley pin. C. Kotterba sc",
+  "scans": [
+    "alm_1698_80258_iou8jerqo4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Warnung",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m2293exxn4qeumh",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.888Z"
+    }
+  ]
+}

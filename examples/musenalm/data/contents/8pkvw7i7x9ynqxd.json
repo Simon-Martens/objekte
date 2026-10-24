@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Du kleines Thal, wo ich den Lenz genossen, / Du warst mir lieb, dir bleib ich ewig gut;",
+  "language": [],
+  "musenalm_id": 3825,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lauenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Albr. Ant. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lauenstein",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4mkftjrsynnct6m",
+      "agents": "ql9bbd2ltci2fxo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.057Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.477Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42328,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selbstaufopferung einer Witwe mit der Leiche des Mannes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hodges pinx. J. G. A. Frenzel sc. Dresd.",
+  "scans": [
+    "alm_556_42328_2m1a3koqe7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Selbstaufopferung einer Witwe mit der Leiche des Mannes",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "siyhfnrybbh4uni",
+      "agents": "xqoghpkng47rofa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.308Z"
+    },
+    {
+      "id": "xurv6sfxtewqqr0",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.308Z"
+    }
+  ]
+}

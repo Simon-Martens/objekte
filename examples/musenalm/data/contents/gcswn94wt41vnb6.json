@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Erinnerungen (Sammlung INr 40749, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Es geht der Geist zufried'ner Stille / Vom Schoß des ewg'gen Vaters aus,",
+  "language": [],
+  "musenalm_id": 40754,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Der gute Geist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Der gute Geist",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hgvrcevh1ink9w2",
+      "agents": "2wsoz27ytrsps8l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.123Z"
+    }
+  ]
+}

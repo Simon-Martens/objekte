@@ -1,0 +1,45 @@
+{
+  "annotation": "Thomas Moore (Sammlung INr 64597, Obj 52) Nachbildungen (Sammlung INr 64591, Obj 46) Gedichte (Sammlung INr 64578, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Strahlt unter Scherz und Luft / Mir Deines Lächelns Licht,",
+  "language": [],
+  "musenalm_id": 64598,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. When midst the gay",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Leuthold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. When midst the gay",
+  "updated": "2009-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "besiyn73309s1tk",
+      "agents": "87b0ropx1b7ybuw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.190Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.190Z"
+    }
+  ]
+}

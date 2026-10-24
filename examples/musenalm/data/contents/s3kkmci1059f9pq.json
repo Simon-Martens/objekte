@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien für das Jahr 1819. gesammelt von Theodor Hell (Sammlung INr 40033, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "488",
+  "incipit_statement": "Gabe, von der treusten Brust gegeben, / Die sie anzunehmen nicht verschmäht,",
+  "language": [],
+  "musenalm_id": 40052,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "19. / Charade. / Sonett. / Rüdiger an Hildegard mit Uebersendung / des Ganzen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "19. / Charade. / Sonett. / Rüdiger an Hildegard mit Uebersendung / des Ganzen",
+  "updated": "2005-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "86rmvkvkw2xlnk3",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.748Z"
+    }
+  ]
+}

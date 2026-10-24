@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Hinaus, Hinaus, in unser Thal! / Der Winter ist vergangen,",
+  "language": [],
+  "musenalm_id": 3574,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Selkenthal. / Meisdorf, im May 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw.Gieseke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Selkenthal. / Meisdorf, im May 1785",
+  "updated": "2000-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fxzr1rrrebqamwr",
+      "agents": "41u796off43ym0d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.149Z"
+    }
+  ]
+}

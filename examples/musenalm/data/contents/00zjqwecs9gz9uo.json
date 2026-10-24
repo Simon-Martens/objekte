@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt im Kalendarium /) Graphik im Kalendarium paginiert 3 /) Illustration zu Motiven aus »Das merkwürdigste Jahr meines Lebens» von A. v. Kotzebue (Berlin 1801)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56787,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich wünsche Ihnen Glück! Sie sind / frey!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner de sct.1802",
+  "scans": [
+    "alm_47_56787_iox7s6kl0a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich wünsche Ihnen Glück! Sie sind / frey!",
+  "updated": "2008-04-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mq7ed819gcg2whp",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.900Z"
+    }
+  ]
+}

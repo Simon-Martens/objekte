@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Wenn irgend ein Gelehrter es unternehmen wollte, eine Geschichte der Gerichtshöfe zu schreiben,",
+  "language": [],
+  "musenalm_id": 1493,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mode",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Vitalis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mode",
+  "updated": "2000-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4pxz1s999hkxfw3",
+      "agents": "9lqdw7znzcy5l7t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.849Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.849Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem G-Verz. Graphik im Kalendarium paginiert 5. s. Textbezug INr 7607, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7588,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Urtheil des Midas. / Jugement de Midas",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert inv. et sc.",
+  "scans": [
+    "alm_163_7588_o57gsohj19.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Urtheil des Midas. / Jugement de Midas",
+  "updated": "2000-12-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ba5o4gyfbzpkax9",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.302Z"
+    }
+  ]
+}

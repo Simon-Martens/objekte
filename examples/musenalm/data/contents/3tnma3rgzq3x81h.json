@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus Italien (Sammlung INr 99087, Obj 113)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "Am Kloster San Lorenzo / Ein Bauer leise schellt, / Der am verbrämten Zaume / Fest seinen Esel hält.",
+  "language": [],
+  "musenalm_id": 99090,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ritt zur Schule",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ritt zur Schule",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j7uost864j8hp0o",
+      "agents": "7s5akx33j2gpr6y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.922Z"
+    }
+  ]
+}

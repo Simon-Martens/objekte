@@ -1,0 +1,56 @@
+{
+  "annotation": "s. gest. Titel INr 67231, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Aus der reichhaltigen Sammlung monströser Geweihe, welche sich in dem markgräflich Badischen Lust- und Jagdschlosse Zwingenberg am Neckar befindet, sind diesmal hier drei Rehbocksgehörne abgebildet,",
+  "language": [],
+  "musenalm_id": 67233,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Titelvignette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Titelvignette",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "chyk483nxn1ru1r",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.286Z"
+    },
+    {
+      "id": "6ob48go7qnv5xcj",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.286Z"
+    }
+  ]
+}

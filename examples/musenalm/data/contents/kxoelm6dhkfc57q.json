@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. Graphik INr 72901, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.365Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Orshold, der junge, nachdenkliche Sachsenritter, saß am Heerde, und glättete den Stahlbeschlag seiner mächtigen Streitkolbe.",
+  "language": [],
+  "musenalm_id": 72900,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Götzeneiche. / Sage",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. v. F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Götzeneiche. / Sage",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0wyy4vq95vtvu6r",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.672Z"
+    }
+  ]
+}

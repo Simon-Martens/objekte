@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24769, Obj 276)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.478Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "366",
+  "incipit_statement": "Vier Räder knarren am Wagen, / Die möchten dich gerne tragen,",
+  "language": [],
+  "musenalm_id": 24702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 279,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Allerlei Begehren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Albert Graf von Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Allerlei Begehren",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9swr6zoop9pd61u",
+      "agents": "23ylvw2tykdsah6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.985Z"
+    }
+  ]
+}

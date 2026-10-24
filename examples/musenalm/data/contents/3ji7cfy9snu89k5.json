@@ -1,0 +1,56 @@
+{
+  "annotation": "AUS DER GALATEA (Sammlung INr 71326, Obj 113) /) CERVANTES (s. Zwischentitel INr 71319, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Wofern das Meer, mit grimm'ger Wucht bewehret, / In seinem Stürmen könnte lang' bestehen,",
+  "language": [],
+  "musenalm_id": 71328,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / DAMON",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cervantes; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / DAMON",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u4iyqaqjs6smdh8",
+      "agents": "weyfjsfook5ewzx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.559Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.559Z"
+    },
+    {
+      "id": "sk9d1p661vyv9gk",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.559Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.559Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 8. /) Graphik im Kalendarium August /) Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75652, Obj 37 /) s.a. Textbezug INr 75639, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75626,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gustav Adolph / nach der Schlacht bei Leipzig / Dancke Gott! dancke für deinen Sieg!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. J. Penzel fec.",
+  "scans": [
+    "alm_2142_75626_f6nr59jmoy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gustav Adolph / nach der Schlacht bei Leipzig / Dancke Gott! dancke für deinen Sieg!",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "17jmqd7kaziwavs",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.691Z"
+    },
+    {
+      "id": "u9m7ejv4ec5wec2",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.691Z"
+    }
+  ]
+}

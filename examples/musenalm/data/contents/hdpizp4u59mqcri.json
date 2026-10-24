@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert IV. /) # Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13805,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ARIADNE",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H. Gottschick",
+  "scans": [
+    "alm_219_13805_j0jdyzci75.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ARIADNE",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pybhnyp1j10l06c",
+      "agents": "anvuxewtojf01i3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.602Z"
+    }
+  ]
+}

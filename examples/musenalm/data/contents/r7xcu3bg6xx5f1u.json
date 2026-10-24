@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 7. /) Graphik im Kalendarium Juni /) s. Textbezug 90994, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90969,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fridrich Heinrich Carl, / Prinz von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer del. Meno Hass sc.",
+  "scans": [
+    "alm_825_90969_vizzsqcz2m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fridrich Heinrich Carl, / Prinz von Preussen",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3cow78ds2dcs9l8",
+      "agents": "p7iaugjwyuo2qga",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.321Z"
+    },
+    {
+      "id": "1efg4p48urf8hq4",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.321Z"
+    }
+  ]
+}

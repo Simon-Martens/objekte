@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 125569, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "In dem Eifer der Jagd hatte der Herzog sein Gefolge weit hinter sich gelassen und stand nun einem schäumenden Eber, den er verfolgte, allein gegenüber.",
+  "language": [],
+  "musenalm_id": 125581,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Fürstenbraut",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. Carril",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Fürstenbraut",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vzimn0cp2av6e5e",
+      "agents": "c4desl7afayuss3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.901Z"
+    }
+  ]
+}

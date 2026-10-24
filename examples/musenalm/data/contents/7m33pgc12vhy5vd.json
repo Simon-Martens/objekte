@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Die Prophetin zu Rottenbrunn« von C. Spindler INr 103142, Obj 16 /) s.a. Textbezug INr 103133, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103128,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE PROPHETIN VON ROTTENBRUNN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zeichnung von F. Fellner Stahlstich v. Jacquemot",
+  "scans": [
+    "alm_3410_103128_yorylv2gj0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE PROPHETIN VON ROTTENBRUNN",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "srx0gtsa4kmmjku",
+      "agents": "9z4h7ka6ovxy0ac",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.008Z"
+    },
+    {
+      "id": "hga3mrqyqjrxbx8",
+      "agents": "qxsajuoxwgz4r3s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.008Z"
+    }
+  ]
+}

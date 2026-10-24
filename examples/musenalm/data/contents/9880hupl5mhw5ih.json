@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Gil-Blas, einer meiner dienstbaren Geister, hatte mir die Kunde gebracht, in Liliput lebe eine berühmte Sängerin, die von Jedermann für einen Tugendspiegel gehalten werde,",
+  "language": [],
+  "musenalm_id": 44825,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gespenst verwandelt sich in einen Stu- / benaffen, hierauf in ein Billetdoux, so- / dann in einen Zobelpelz, zuletzt in ei- / nen Lord, und stellt eine Sängerin auf / die Probe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gespenst verwandelt sich in einen Stu- / benaffen, hierauf in ein Billetdoux, so- / dann in einen Zobelpelz, zuletzt in ei- / nen Lord, und stellt eine Sängerin auf / die Probe",
+  "updated": "2006-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cojvg1oedejlrel",
+      "agents": "wd7yy1894regb5j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.760Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Schönheit und Jugend und Unschuld, die / Himmlischen, einte der Mahler",
+  "language": [],
+  "musenalm_id": 3912,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter Laura's Bildniß",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-r-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unter Laura's Bildniß",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l1dm3af0oush4sw",
+      "agents": "3xjka4czdksw7yb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.016Z"
+    }
+  ]
+}

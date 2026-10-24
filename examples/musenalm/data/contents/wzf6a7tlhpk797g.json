@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Bastard« von C. Spindler; s. Textbezug INr 103177, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103175,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER BASTARD. / 3. Theil P. 43",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Faber du Faur del. d. G. G. Lange. Leop. Beyer sc.",
+  "scans": [
+    "alm_3412_103175_hmlji8aa51.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER BASTARD. / 3. Theil P. 43",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g2obeow0d67jltg",
+      "agents": "l35pyvjvc73os7p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.833Z"
+    },
+    {
+      "id": "j9acujwdt979519",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.833Z"
+    }
+  ]
+}

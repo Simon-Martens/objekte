@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "314",
+  "incipit_statement": "Der du Blumen die Füll' ausstreust, / Und Gras und Blätter in Ueberschwang:",
+  "language": [],
+  "musenalm_id": 53950,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode",
+  "updated": "2008-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "izs4ctkla0oz20k",
+      "agents": "ep2ivkqi4f7w9jh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.683Z"
+    }
+  ]
+}

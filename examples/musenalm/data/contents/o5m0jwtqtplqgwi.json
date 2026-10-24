@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Gedichte (Sammlung INr 24364, Obj 144)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Das Gemeine und das Ungemeine / Geben das Herrlichste, im Vereine:",
+  "language": [],
+  "musenalm_id": 24371,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 151,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fürst und Volk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Riemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fürst und Volk",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "07pm2ipmupz7hw9",
+      "agents": "rw4d1lc8bcz0sk7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.275Z"
+    }
+  ]
+}

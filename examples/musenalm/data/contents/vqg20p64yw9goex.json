@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30522, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Was ist mir? ich weine nicht? und etwas im / Walde seufzt, / Und ach, mich verlassen hat vom Wuchse die feine!",
+  "language": [],
+  "musenalm_id": 30523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Dschemil's Liebesklage um Botheina, / nach dem arabischen Versmaß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Dschemil's Liebesklage um Botheina, / nach dem arabischen Versmaß",
+  "updated": "2002-11-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9kt10i3axjbaf0z",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.677Z"
+    }
+  ]
+}

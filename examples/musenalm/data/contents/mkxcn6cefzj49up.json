@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Vermischte Gedichte (Sammlung INr 29844, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Herz, wohin geht dein Verlangen? / Röthet Freude deine Wangen,",
+  "language": [],
+  "musenalm_id": 29846,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hochzeitsgruß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hochzeitsgruß",
+  "updated": "2002-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jf9c0ci5u1l05wz",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.267Z"
+    }
+  ]
+}

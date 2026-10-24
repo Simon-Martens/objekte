@@ -1,0 +1,45 @@
+{
+  "annotation": "6 Illustrationen zur »Luise« von D. Chodowiecki del. und Cl. Kohl sc. finden sich im Taschenbuch zum geselligen Vergnügen 1798 INr 11096-11101",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Unter dem dunkeln Grüne der zwo breitblät- / trigen Linden, / Welche, die tägliche Stube beschirmend gegen den / Mittag, / Ueber das strohende Dach hinsäuselten,",
+  "language": [],
+  "musenalm_id": 5794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Luise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Luise",
+  "updated": "2000-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zqkgl9mn1isbhhg",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.100Z"
+    }
+  ]
+}

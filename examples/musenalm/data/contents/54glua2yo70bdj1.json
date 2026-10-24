@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert XXXXV /) »Welsche Oper« (Sammlung INr 48185, Obj 103)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48186,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franciscus Bernicci",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48186_8mj6qxgggw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Franciscus Bernicci",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e4rl7seb4wrfbk4",
+      "agents": "theiyy8sya8no7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.693Z"
+    }
+  ]
+}

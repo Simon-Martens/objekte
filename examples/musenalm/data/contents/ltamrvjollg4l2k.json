@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 8. /) Illustration zu »Der Gang zum Kranken« von H. Kletke INr 59533, Obj 52; # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59534,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang zum Kranken #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. H.",
+  "scans": [
+    "alm_898_59534_mqmd2tatg6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang zum Kranken #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g620hnybi9aye4x",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.766Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.766Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 12000, Obj 115) Auflösung der Rätsel in: Taschenbuch zum geselligen Vergnügen 1803 INr 12191-12215",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.415Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Die erste Silb ist eine Pflanze, / Zur Nahrung für das Schaaf, der Schäferin zum / Tanze.",
+  "language": [],
+  "musenalm_id": 12013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. A. W. v. Kyaw",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13.",
+  "updated": "2001-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3liz8xmd5hc4cry",
+      "agents": "3euwjw9rlb5537y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.414Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.414Z"
+    }
+  ]
+}

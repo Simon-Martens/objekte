@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Hier blühst du? hier, in dieser kalten / Zone? / Hier öffnest du die pupurrothe Brust?",
+  "language": [],
+  "musenalm_id": 92462,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Uraniens Lob Berlins. / Bey Gelegenheit eines Granatapfels, der daselbst / zur Reife gekommen war. / 1749",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Uraniens Lob Berlins. / Bey Gelegenheit eines Granatapfels, der daselbst / zur Reife gekommen war. / 1749",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6debwpuczzp4o7i",
+      "agents": "uxrssb0qlf0ghgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.438Z"
+    }
+  ]
+}

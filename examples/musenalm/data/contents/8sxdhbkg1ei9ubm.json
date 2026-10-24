@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6. Graphik im Kalendarium Dezember /) Illustration zu »Geschichte der Stadt Breslau« von Karl Adolf Menzel INr 72534, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72533,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dom u. die Kreutz Kirche von der Ziegel Bastion zu Breslau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. v. Grossmann del. J. B. Hössel sc.",
+  "scans": [
+    "alm_859_72533_bwburz9ysd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Dom u. die Kreutz Kirche von der Ziegel Bastion zu Breslau",
+  "updated": "2008-07-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "su925yeo68klq5k",
+      "agents": "vmadsuai90domb8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.736Z"
+    },
+    {
+      "id": "huobc9jk3dsfbe5",
+      "agents": "t4wlsbli26ob7y0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.736Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert IV. s. Textbezug INr 43447, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.186Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43457,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hohenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Meex gez. Hldw. sc.",
+  "scans": [
+    "alm_572_43457_85esumqwlz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hohenstein",
+  "updated": "2006-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ln6h5y3mqj6lacz",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.991Z"
+    }
+  ]
+}

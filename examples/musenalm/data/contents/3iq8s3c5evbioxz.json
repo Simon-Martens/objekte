@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der junge Mahler« von C. Pichler INr 43067, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schnorr v. K. del. J. Passini sc. in Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. J. Passini sc. in Wien",
+  "scans": [
+    "alm_476_43068_rm1of30in7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y48c4fr3li69uuz",
+      "agents": "7yfzgmx3iovs38k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.932Z"
+    },
+    {
+      "id": "k62ovuxy6h9gzyy",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.932Z"
+    }
+  ]
+}

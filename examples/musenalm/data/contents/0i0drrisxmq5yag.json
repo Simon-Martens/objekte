@@ -1,0 +1,56 @@
+{
+  "annotation": "Übersetzung von Rousseaus Gedicht INr 629863, Obj 55 /) mit Anmerkungen /) mit einer Musikbeigabe s. INr 61964, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.673Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Wie der Tag mir dauert, / Fanny, ohne dich! / Alles welkt und trauert, / Alles stirbt für mich.",
+  "language": [],
+  "musenalm_id": 61965,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rousseau's Trichordion. / (Wörtliche Übersetzung.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosseau; [übers.] W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rousseau's Trichordion. / (Wörtliche Übersetzung.)",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ah4bpf447ogdf11",
+      "agents": "l7uikiley0mm1nx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.086Z"
+    },
+    {
+      "id": "sz70dc8d5sfhtop",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.086Z"
+    }
+  ]
+}

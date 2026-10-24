@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Edgar! auf, ich hab' einThal gefunden, / Wie mein suchend Auge keins noch sah;",
+  "language": [],
+  "musenalm_id": 21822,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Edgar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Maisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Edgar",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qkqhvj1ehkysg47",
+      "agents": "ibdeh1gpf166351",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.844Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.844Z"
+    }
+  ]
+}

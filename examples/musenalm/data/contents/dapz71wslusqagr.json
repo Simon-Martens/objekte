@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 46577-46583, Obj 120-126",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46576,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der neuen Welt. / (Lieder eines Flüchtlings.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Foglar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus der neuen Welt. / (Lieder eines Flüchtlings.)",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zmb9cqttn20gqos",
+      "agents": "j7plmb89f8s4m2q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.263Z"
+    }
+  ]
+}

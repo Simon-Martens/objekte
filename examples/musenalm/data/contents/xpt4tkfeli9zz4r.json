@@ -1,0 +1,48 @@
+{
+  "annotation": "Gesangs-Musik (Sammlung INr 117610, Obj 43) Vertonung des Gedichts »Abschied von dem Geliebten« /) Photos 117614,01; 117614,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Vergiß mein nicht: du Jüngling den ich meine, zu welchem dieses Lied hier spricht,",
+  "language": [],
+  "musenalm_id": 117614,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied von dem Geliebten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Scheider",
+  "scans": [
+    "alm_3282_117614_01_1naw553djw.jpg",
+    "alm_3282_117614_02_vzegll41tb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abschied von dem Geliebten",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jpl7h1fe24v7uln",
+      "agents": "659wajziz7tp24k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.669Z"
+    }
+  ]
+}

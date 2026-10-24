@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Es ist eine entsetzliche Geschichte, die ich Euch erzähle und die ihren Anfang nimmt in der Villa Salviati, auf einem der freundlichsten Hügel gelegen, welche Florenz umringen.",
+  "language": [],
+  "musenalm_id": 96820,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Herzogin von San Giuliano",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alfr. Reumonmt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Herzogin von San Giuliano",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0gd9f74r8natqha",
+      "agents": "q99l6w88p9m3j5v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.374Z"
+    }
+  ]
+}

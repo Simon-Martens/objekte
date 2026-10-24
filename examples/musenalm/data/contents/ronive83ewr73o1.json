@@ -1,0 +1,45 @@
+{
+  "annotation": "Römische Terzinen (Sammlung INr 99811, Obj 215) Aus einem »Album aus Italien« (Sammlung INr 99805, Obj 209)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "368",
+  "incipit_statement": "Ich weilte abendlich auf Roms Terrassen / Beim Sonnenuntergang hab' ich gesehen / Die Weltstadt einen Cäsar im Erblassen!",
+  "language": [],
+  "musenalm_id": 99812,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 216,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Doerr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "heg3cm9kmbglrjr",
+      "agents": "rnjsm42qs5m6lrr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.473Z"
+    }
+  ]
+}

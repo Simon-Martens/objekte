@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Runenberg« von L. Tieck INr 65368, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.864Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65367,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Runenberg #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hensel gez. Stahlstich v. Ernst Rauch, Darmstadt",
+  "scans": [
+    "alm_1101_65367_40pfindrcl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Runenberg #",
+  "updated": "2009-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uuu2venrekmrlny",
+      "agents": "902nw56856wz9rx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.175Z"
+    },
+    {
+      "id": "65lzja26nuyw1cn",
+      "agents": "k7ib4tmw0w1jiao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.175Z"
+    }
+  ]
+}

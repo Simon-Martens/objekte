@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gedichte (Sammlung INr 29904, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Pamona hat den glühnden Kranz gewunden, / Und Bacchus hält die Trauben in den Händen;",
+  "language": [],
+  "musenalm_id": 29907,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbstvergnügung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Heinr. Graf v. Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herbstvergnügung",
+  "updated": "2002-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wp3uwpsny8sct9l",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.324Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.324Z"
+    }
+  ]
+}

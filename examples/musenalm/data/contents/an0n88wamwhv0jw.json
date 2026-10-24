@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. vom Titel /) mit einer Illustration s. Graphik INr 78144, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Gottlob! da sehn wir ja Hamburgs Palläste, / Und sitzen im Gasthof zum warmen Neste.",
+  "language": [],
+  "musenalm_id": 78143,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans Schnauz. / Ein Schwank in Einem Aufzuge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T. H. Friedrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans Schnauz. / Ein Schwank in Einem Aufzuge",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ejnjftu5wjk4sy8",
+      "agents": "ig1o98q79i5gv1i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.739Z"
+    }
+  ]
+}

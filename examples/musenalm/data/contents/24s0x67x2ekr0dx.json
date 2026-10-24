@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von einem Gedicht und einer Sammlung mit 4 Gedichten INr 114246-114251, Obj 28-33",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114245,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jul. Alex. Schindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8x0em5gkngec0z5",
+      "agents": "c5g4qkh29vufd7a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.422Z"
+    }
+  ]
+}

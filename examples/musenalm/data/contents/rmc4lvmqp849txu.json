@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.615Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Mit deinem Schwirrn! wie du die Zeit ver- / derbst! / Wenn wir nun auch, fürs Sammlen, müßig gien- / gen?",
+  "language": [],
+  "musenalm_id": 8058,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ameise und die Grille, / eine Fabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michaelis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ameise und die Grille, / eine Fabel",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lgsfgvd5fol2m34",
+      "agents": "s34fjwkh4uvwpky",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.117Z"
+    }
+  ]
+}

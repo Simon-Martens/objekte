@@ -1,0 +1,69 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44665,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutter Glück",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Kauffmann pinx. Bartolozzi. A. Fenzel sc. Dresd.",
+  "scans": [
+    "alm_171_44665_0tycvwvdav.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mutter Glück",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tezfjuzdw7mtajy",
+      "agents": "rvjtnjmzxqlhxml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.248Z"
+    },
+    {
+      "id": "y4gp0j7wx5xrp64",
+      "agents": "vc8twbfp7kmalkk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.248Z"
+    },
+    {
+      "id": "ebgeflx477vmda6",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.248Z"
+    }
+  ]
+}

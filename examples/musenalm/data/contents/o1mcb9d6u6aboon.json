@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.622Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Wie jedes Jahr der Schwalben Reise / Zu meinem Fenster mich erfreut!",
+  "language": [],
+  "musenalm_id": 917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Treue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "WOLTMANN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Treue",
+  "updated": "2000-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fjgbsmn7k1p8lm2",
+      "agents": "s1uxwuwtfdr9if2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.974Z"
+    }
+  ]
+}

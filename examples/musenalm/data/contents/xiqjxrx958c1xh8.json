@@ -1,0 +1,45 @@
+{
+  "annotation": "5. Meine Liebe (Sammlung INr 39037, Obj 225) Gedichte (Sammlung IN 39032, Obj 220)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "340",
+  "incipit_statement": "Wie die Sonne leuchtend, wärmend wacht, / Rings mit ihren Strahlen zu beglücken,",
+  "language": [],
+  "musenalm_id": 39039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 227,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Alwin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yzhpev5b4x5a621",
+      "agents": "f3osne4kqhtasqa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.062Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 57903, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Der Sohn der Haide, wie gefällt er euch? / Sein Antlitz ist dem klaren Himmel gleich",
+  "language": [],
+  "musenalm_id": 57902,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sohn der Haide. / Der Sohn der Haide. / (Mit einem Stahlstich.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Köffinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sohn der Haide. / Der Sohn der Haide. / (Mit einem Stahlstich.)",
+  "updated": "2008-06-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b95dq17prcirniw",
+      "agents": "6nwmu2j1m8xu6n4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.843Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43398, Obj 27) mit einer Illustration s. Graphik INr 43403, Obj 17,01",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Ein König besaß Land und Leute im Ueberfluß, unermeßliche Reichthümer, und einen Schatz, den er von Rechtswegen höher achtete, als Gold und Perlen - eine Gemahlinn.",
+  "language": [],
+  "musenalm_id": 43399,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Stiefschwestern. / Ein Mährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Stiefschwestern. / Ein Mährchen",
+  "updated": "2006-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ie3jxvif6u125k0",
+      "agents": "teyd4hg5cxxyi5t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.225Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Gedicht INr 95509, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95510,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Stahlstich von C. Mahlknecht in Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stahlstich von C. Mahlknecht in Wien",
+  "scans": [
+    "alm_1885_95510_rdihjg296j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ysb4jlctoa822vw",
+      "agents": "z8rsr5de0jmn33o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.770Z"
+    }
+  ]
+}

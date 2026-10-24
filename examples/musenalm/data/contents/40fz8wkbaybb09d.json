@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Wohin raßt ihr, Verräther / An dem verwaißten Heerd!",
+  "language": [],
+  "musenalm_id": 93134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode von Horaz. / Ad populum Romanum / in bellum civile gestum contra Brutum et Cassium. Frei übersetzt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horaz [übers.] Fr. B..d.r",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode von Horaz. / Ad populum Romanum / in bellum civile gestum contra Brutum et Cassium. Frei übersetzt",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r3xdeh2qn4k6mud",
+      "agents": "ogosxb6kwkoek7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.384Z"
+    }
+  ]
+}

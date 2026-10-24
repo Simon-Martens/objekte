@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Die Knospe grünt, die Knospe schwillt, / Und immer tief im Herzen quillt,",
+  "language": [],
+  "musenalm_id": 85594,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verfehlter Zweck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Renn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verfehlter Zweck",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gfa2lzs1ztcka2k",
+      "agents": "qnb96innln6psir",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.167Z"
+    }
+  ]
+}

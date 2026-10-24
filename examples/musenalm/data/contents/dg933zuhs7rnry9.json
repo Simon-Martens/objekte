@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. Zehnte und letzte Lieferung (Sammlung INr 77261, Obj 5) Illustration zu »Die schönste Erscheinung« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77263, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77264,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Joh. Ender gez. Fr. Stöber gest. in Stahl Wien 1829)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl Wien 1829",
+  "scans": [
+    "alm_2401_77264_2lw5baaeqh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wed0kkfb8fa9n2n",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.750Z"
+    },
+    {
+      "id": "ubxsa2thqpxoppv",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.750Z"
+    }
+  ]
+}

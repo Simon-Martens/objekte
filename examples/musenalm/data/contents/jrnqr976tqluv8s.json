@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Logogryphen, Charaden und Räthsel (Sammlung INr 12216, Obj 166)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "Meine beiden ersten Silben zeigen dir, / Leser, das Symbol der reinsten Unschuldstugend;",
+  "language": [],
+  "musenalm_id": 12243,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 193,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "27.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "27.",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3nebh774z2lpmw8",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.574Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.574Z"
+    }
+  ]
+}

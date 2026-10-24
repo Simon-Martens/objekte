@@ -1,0 +1,45 @@
+{
+  "annotation": "Sommerlieder (Sammlung INr 122146, Obj 221); # Bezeichnung an der Sammlung",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Die Wölkchen sind heut’ wie gehaucht, / Daß man nicht lang zu warten braucht, / Bis wieder nichts als Himmelblau / Herabglänzt auf die grüne Au.",
+  "language": [],
+  "musenalm_id": 122147,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 222,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hauch der Schönheit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hauch der Schönheit",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k4qrxq2k2xif426",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.758Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Die Sauerquelle zu Rohitsch ist weit weniger berühmt, als sie es verdient. Herr Dr. Grindl untersuchte sie zwar im Jahre 1687, und gab die Resultate seiner Untersuchungen unter den Titel: Roitschocrene heraus,",
+  "language": [],
+  "musenalm_id": 92071,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Nohitscher-Sauerbrunnen in Steyermark",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Doctor Franz Sartori",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Nohitscher-Sauerbrunnen in Steyermark",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c9mtsg2y93uuqeq",
+      "agents": "swlf1imgk3sevcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.419Z"
+    }
+  ]
+}

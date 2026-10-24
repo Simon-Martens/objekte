@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Denksprüche (Sammlung INr 10375, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Nach der goldenen Feier vereinigen sich alle übrigen Wünsche in Einem:",
+  "language": [],
+  "musenalm_id": 10398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Streithorst",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23.",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zadu5f2zb5xceuk",
+      "agents": "8ory2boej7zqotd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.412Z"
+    }
+  ]
+}

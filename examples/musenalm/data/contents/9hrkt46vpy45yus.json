@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Selten ist in Deutschland eine Schrift mit lebhafterem und allgemeinerem Beyfall gelesen worden, als die erste Hälfte der Geschichte des dreyßigjährigen Krieges, womit Herr Hofrath Schiller dem Historischen Kalender für Damen einen Werth gegeben hat,",
+  "language": [],
+  "musenalm_id": 75686,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wieland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "07qxfi9tqdsw1j9",
+      "agents": "dn0yjm1srfyi7cs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.309Z"
+    }
+  ]
+}

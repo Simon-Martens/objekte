@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "O du schöner Stern des Südens, den Gott aus seiner Bahn stieß, damit sein köstliches Licht im Norden Zeugniß gebe von ihm, und die armen Eismenschen erwärme und erquicke,",
+  "language": [],
+  "musenalm_id": 112545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer von Euch hat das gethan? / Macbeth. / Eine Criminalgeschichte / des siebenzehnten Jahrhunderts,",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Blumenhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wer von Euch hat das gethan? / Macbeth. / Eine Criminalgeschichte / des siebenzehnten Jahrhunderts,",
+  "updated": "2010-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "194s5alrsamp6a2",
+      "agents": "7qi9w7fd9odbdoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.290Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.290Z"
+    }
+  ]
+}

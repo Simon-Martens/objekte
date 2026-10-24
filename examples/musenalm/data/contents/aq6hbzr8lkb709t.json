@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Kein Stern erhellt' im Schoos der Nacht / Des breiten Waldstroms Wogen;",
+  "language": [],
+  "musenalm_id": 14388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ida von Falkenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. v. Hinsberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ida von Falkenstein",
+  "updated": "2001-04-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fr3l1rr3jjvbvw2",
+      "agents": "fd94g9jto2pspie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.528Z"
+    }
+  ]
+}

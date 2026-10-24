@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 7. s. Textbezug INr 6878, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.434Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6842,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lechus I. Herzog der Pohlen findet bei / Erbauung seines Hauses ein Adler Nest",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del",
+  "scans": [
+    "alm_138_6842_e3vga76yfx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lechus I. Herzog der Pohlen findet bei / Erbauung seines Hauses ein Adler Nest",
+  "updated": "2000-11-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c9cp6pqwbydygs3",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.264Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.264Z"
+    }
+  ]
+}

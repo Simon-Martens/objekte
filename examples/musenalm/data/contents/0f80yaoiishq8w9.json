@@ -1,0 +1,45 @@
+{
+  "annotation": "Junggesellenübermuth (Sammlung INr 22710, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "341",
+  "incipit_statement": "Wie viel haben die Weiber zu thun, / zu waschen, zu waschen,",
+  "language": [],
+  "musenalm_id": 22716,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Große Wäsche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. H. Graf von Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Große Wäsche",
+  "updated": "2002-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wd31q3pqq1avmh0",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.915Z"
+    }
+  ]
+}

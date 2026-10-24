@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug INr 86328, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86323,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theodora",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Theer del. Preissel sc.",
+  "scans": [
+    "alm_1599_86323_0zg6ruw8ul.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Theodora",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x9k69hgij0s7d2p",
+      "agents": "512hnx3l2hp6y3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.278Z"
+    },
+    {
+      "id": "4v75wwpzh55d54p",
+      "agents": "9s6c9wuymvvgbhx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.278Z"
+    }
+  ]
+}

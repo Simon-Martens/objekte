@@ -1,0 +1,45 @@
+{
+  "annotation": "Weltkräfte (Sammlung INr 2752, Obj 132)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "Wie die Berge hier so mächtig, / Wie die Quellen hier so rein,",
+  "language": [],
+  "musenalm_id": 27591,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mißklang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mißklang",
+  "updated": "2002-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lj7s9c2xtnu9qxh",
+      "agents": "j5e1jto7rj2ibw3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.410Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Das Wein- und Punschgelage im Posthause zu M. war beendet. Auf die Nachricht meines Dieners, daß der Eilwagen, mit welchem ich nach Pfützebach meinem simplen Geburtsstädtchen fahren wolte, bespannt sey,",
+  "language": [],
+  "musenalm_id": 90806,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wallensteiner vor Pützebach. / Humoreske",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. X. Told",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wallensteiner vor Pützebach. / Humoreske",
+  "updated": "2013-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p5ujhdwjt0grdbq",
+      "agents": "tglq0d4pyb420do",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.207Z"
+    }
+  ]
+}

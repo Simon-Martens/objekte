@@ -1,0 +1,45 @@
+{
+  "annotation": "Bonaccia (Sammlung INr 103115, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "Sind Sie auf Corfu bekannt, Herr Nicolo? Wenn Sie es sind, so wissen Sie, daß dort vor wenigen Jahren noch eine Loconda stand",
+  "language": [],
+  "musenalm_id": 103122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "La bella Venezia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "La bella Venezia",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7cdzcnl574i6z34",
+      "agents": "jo3symqxy3hqpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.071Z"
+    }
+  ]
+}

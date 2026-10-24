@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 82109, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Façade des von Schwartzischen Hauses",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff inv. C. V. Schellhorn sc.",
+  "scans": [
+    "alm_3070_82121_xm3vedyvb7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Façade des von Schwartzischen Hauses",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "02fmb1t8doqp4ha",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.942Z"
+    },
+    {
+      "id": "n78aehn3netd11v",
+      "agents": "iloztbvppyig5n1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.942Z"
+    }
+  ]
+}

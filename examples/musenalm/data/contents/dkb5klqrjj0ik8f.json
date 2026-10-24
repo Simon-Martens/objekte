@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Willst Du sorgsam diesem Kummer nähren, / Der an Deines Lebens Blüthe nagt?",
+  "language": [],
+  "musenalm_id": 42787,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Julie. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lebrecht Nöller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Julie. / Sonett",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "utzr3qshaba05m1",
+      "agents": "jwuw6kcpwyx8ojz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.694Z"
+    }
+  ]
+}

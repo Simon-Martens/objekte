@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25382, Obj 153)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Ist euch vom Christusbild zu Wien / Die Sage nicht bekannt,",
+  "language": [],
+  "musenalm_id": 25383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 154,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Das Christusbild zu Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Das Christusbild zu Wien",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k5kwruofjy8nkzm",
+      "agents": "dgebk50hujqbvc5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.956Z"
+    }
+  ]
+}

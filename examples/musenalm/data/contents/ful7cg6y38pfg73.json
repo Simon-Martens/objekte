@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthsel, Charaden und Logogryphen (Sammlung INr 20026, Obj 109)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "409",
+  "incipit_statement": "Ließ oder miß von vorn, miß oder ließ von hinten,",
+  "language": [],
+  "musenalm_id": 20035,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Palindrom",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seifried",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Palindrom",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9stbwmwgokhtg4n",
+      "agents": "htjq8uohs4h9hsk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.953Z"
+    }
+  ]
+}

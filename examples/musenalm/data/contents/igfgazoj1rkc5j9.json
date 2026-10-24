@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 20479, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.825Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20483,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Villa des Cicero",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. A. Frenzel sc.",
+  "scans": [
+    "alm_271_20483_tin30gdcl4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Villa des Cicero",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v2ba04y1ptetk7t",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.661Z"
+    }
+  ]
+}

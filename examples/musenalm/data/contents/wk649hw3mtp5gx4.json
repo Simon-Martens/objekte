@@ -1,0 +1,45 @@
+{
+  "annotation": "Parabeln (Sammlung INr 107452, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Die Planeten sind alle uneben und voll matter Flecken. Gott fand es so für gut.",
+  "language": [],
+  "musenalm_id": 107453,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sonne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Ferdinand Stamm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sonne",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "po0htin2u6sb8oz",
+      "agents": "big4tm69ocucym5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.997Z"
+    }
+  ]
+}

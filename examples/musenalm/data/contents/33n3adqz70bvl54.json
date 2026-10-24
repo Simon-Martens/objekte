@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigrammatische Spiele (Sammlung INr 65436, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Traurig macht dich dein Glück, das unerwartete seltne; / Aendre die Miene, mein Freund, rath' ich dir ernstlich,",
+  "language": [],
+  "musenalm_id": 65452,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Winterling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16.",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h8ec7tqbix0rm02",
+      "agents": "e0tovmmp7jpcteo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.140Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.140Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung 13683, Obj 117)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "364",
+  "incipit_statement": "Ein Name wird mit der ersten genannt, / Wohlthätig für jedes gebildete Land,",
+  "language": [],
+  "musenalm_id": 13697,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 133,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Dambeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16. / Charade",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "41v45ulunowqdom",
+      "agents": "ipn2nvswkmowzx4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.533Z"
+    }
+  ]
+}

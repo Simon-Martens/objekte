@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.477Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Zu des Lebens Freuden / schuf uns die Natur: / Aber Gram und Leiden / Schaffen wir uns nur.",
+  "language": [],
+  "musenalm_id": 3601,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beruf zur Freude",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. v. K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beruf zur Freude",
+  "updated": "2000-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8pklspc95uqa7u1",
+      "agents": "5z7qom88v60ghpp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.103Z"
+    }
+  ]
+}

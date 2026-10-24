@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 26 Beiträgen INr 34150-34175, Obj 38-63",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.374Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dießjähriger Nachwuchs des Philanthro-/ pistenwäldchens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dießjähriger Nachwuchs des Philanthro-/ pistenwäldchens",
+  "updated": "2003-05-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6f93t3iam3ugy0v",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.648Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.648Z"
+    }
+  ]
+}

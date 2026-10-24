@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Sie ist hinüber! ist, wo keine Schmähsucht / wüthet, / Kein Neider und kein Pöbelwahn,",
+  "language": [],
+  "musenalm_id": 62067,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosalia's Tod, / an Medor",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Maßlieben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rosalia's Tod, / an Medor",
+  "updated": "2009-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "12x4ffo1myhe3tf",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.970Z"
+    }
+  ]
+}

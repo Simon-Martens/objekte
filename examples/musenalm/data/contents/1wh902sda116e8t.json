@@ -1,0 +1,47 @@
+{
+  "annotation": "Neue Tanz-Touren sammt Musik für das Piano-Forte (Sammlung INr 106363, Obj 115)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.154Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106378,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nr. 10. / ECOSSAISE. / Im Jahre 1812 comp. / Ein Stammbuchblatt, bis jetzt noch Manuscr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Maria von Weber",
+  "scans": [
+    "alm_4208_106378_dije11y863.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nr. 10. / ECOSSAISE. / Im Jahre 1812 comp. / Ein Stammbuchblatt, bis jetzt noch Manuscr.",
+  "updated": "2015-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "72zao2y5v9oubqb",
+      "agents": "l82vh8em5pfss9x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.302Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Jüngst hört' ich , daß man von dir sprach, / Du liefest allen Mädchen nach.",
+  "language": [],
+  "musenalm_id": 2239,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Fehr",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. P.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Fehr",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8pjxp8rx8g32tke",
+      "agents": "jsx11n3en45yzmt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.885Z"
+    }
+  ]
+}

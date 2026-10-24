@@ -1,0 +1,58 @@
+{
+  "annotation": "<div># Zwei Darstellungen. s. Textbezug »Die guten Frauen, als Gegenbilder der bösen Weiber« von Goethe INr 32883, Obj 35</div>",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32887,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Andacht der Haushälterin / Das - Echo #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Catel (Zeichnung) und G. C. Gropius (Stich)",
+  "scans": [
+    "alm_456_32887_65oqio3i5e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Andacht der Haushälterin / Das - Echo #",
+  "updated": "2026-10-23T11:51:10.588Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "hbwf3kmsfyyeo1u",
+  "contributors": [
+    {
+      "id": "18b7m0t3ungo488",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-23T11:51:10.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-10-23T11:51:10.586Z"
+    },
+    {
+      "id": "jbf0rzah50kj47e",
+      "agents": "8mt05gws3vpx1mi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-23T11:51:10.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-10-23T11:51:10.586Z"
+    }
+  ]
+}

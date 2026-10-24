@@ -1,0 +1,58 @@
+{
+  "annotation": "über der Graphik: Hans Sachs III. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Dritte Lieferung (Sammlung INr 85571, Obj 5) Illustration zu »Hans Sachs« von Deinhardstein /) s. Textbezug INr 85577, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85576,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maximilian. Kleine Muse. / Bekränze deines würd'gen Dixchters Haupt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+  "scans": [
+    "alm_1585_85576_z5x4uxqkpa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maximilian. Kleine Muse. / Bekränze deines würd'gen Dixchters Haupt",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vrm46obbvohehv2",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.357Z"
+    },
+    {
+      "id": "bsomli0l7vs6b7x",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.357Z"
+    }
+  ]
+}

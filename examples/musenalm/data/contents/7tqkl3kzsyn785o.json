@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Laut jammerten am klaren Rudborn-Bach / Zwo Mägdlein. Thränen näßten ihre / Wangen.",
+  "language": [],
+  "musenalm_id": 4685,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eleonore und Jutta. / Eine alte englische Ekloge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Theoboul Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eleonore und Jutta. / Eine alte englische Ekloge",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7gfl43c6nff7msl",
+      "agents": "nz3ytz19v6fnz1k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.065Z"
+    }
+  ]
+}

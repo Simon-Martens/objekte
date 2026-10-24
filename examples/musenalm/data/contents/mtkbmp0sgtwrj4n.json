@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Lieblich und süß, wie Nachtigallenklänge, / Sanft, wie Abendgelispel in der Pappel, / Rauschte deine schmelzende Laut',",
+  "language": [],
+  "musenalm_id": 84018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung. / An Friederike Henriette Cranz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Pape",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung. / An Friederike Henriette Cranz",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hfqviwpthqcjgxz",
+      "agents": "8jkm2mpf22llpf2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.139Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug  INr 127844, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127814,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AUGUSTUS 31 Tage. / Schloß Stolpen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. W. sc.",
+  "scans": [
+    "alm_3652_127814_bso21ztiqi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AUGUSTUS 31 Tage. / Schloß Stolpen",
+  "updated": "2011-03-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dytb4s224ll55ln",
+      "agents": "o3ct6ijrde3gzy6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.959Z"
+    }
+  ]
+}

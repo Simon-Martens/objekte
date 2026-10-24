@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.734Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33036,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihrer hochfürstlichen Durchlaucht / Frau / Louise Henriette Wilhelmine, / Fürstin von Anhalt-Dessau, gebornen Markgräfin / von Brandenburg-Schwedt, / der / gefühlvollen Freundin alles Schönen und Guten, / widmet / dieses Produkt eines von ihr geliebten Landes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Verleger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihrer hochfürstlichen Durchlaucht / Frau / Louise Henriette Wilhelmine, / Fürstin von Anhalt-Dessau, gebornen Markgräfin / von Brandenburg-Schwedt, / der / gefühlvollen Freundin alles Schönen und Guten, / widmet / dieses Produkt eines von ihr geliebten Landes",
+  "updated": "2003-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "axfk34o0wy6ue85",
+      "agents": "0rnyqiybfu5n3e2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.538Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Richard und Blondel« von Fouqué INr 72896, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72897,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (P. Cornelius del. H. Ritter sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Cornelius del. H. Ritter sculp.",
+  "scans": [
+    "alm_2693_72897_vtipuovjmz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y20d009kc761ogq",
+      "agents": "ns8syak978vfvbp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.671Z"
+    },
+    {
+      "id": "fj6jc4h0koq6tkn",
+      "agents": "o5uxoh544mfxugq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.671Z"
+    }
+  ]
+}

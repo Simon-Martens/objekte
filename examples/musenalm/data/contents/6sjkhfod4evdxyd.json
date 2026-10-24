@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Die Idee zu diesem Liede ist aus dem original Kamtschadalischen Liede genommen, welche sProf. Stephan Krascheninnikoff in seiner Beschreibung von Kamtschatka 8 Thl. 14 Cap. mitgetheilt hat",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Wenn ich Krascheninnikoff wär, / Könnt lesen und schreiben wie er, / Wollt ich mir alle Mädchen aufschreiben,",
+  "language": [],
+  "musenalm_id": 88480,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kamtschadale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gottl. Willamow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kamtschadale",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8b5yr95oaxydirs",
+      "agents": "wvbgxqiz4g0b63p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.145Z"
+    }
+  ]
+}

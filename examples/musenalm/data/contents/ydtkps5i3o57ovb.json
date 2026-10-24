@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25186, Obj 208)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Zog der Serbe Lojowich, zu jagen, / Einst von seiner hohen Burg herunter.",
+  "language": [],
+  "musenalm_id": 25188,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 210,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das Kätzlein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederich Th. Vischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das Kätzlein",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "78entahiyh6lgd6",
+      "agents": "o79mhqhpi7ysu1w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.076Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gespräche mit Bäumen (Sammlung INr 90599, Obj 195)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "307",
+  "incipit_statement": "Von jener Trauerweide / Schnitt ich ein Zweiglein ab, / Und pflanzt' es in die Erde,",
+  "language": [],
+  "musenalm_id": 90600,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 196,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Die Weide",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Die Weide",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "acudnzjhsvxs59e",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.410Z"
+    }
+  ]
+}

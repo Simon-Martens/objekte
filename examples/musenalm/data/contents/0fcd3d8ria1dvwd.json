@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinische Sagen (Sammlung INr 63179, Obj 9) mit einer Illustration s. Graphik INr 63191, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Im alten Zaberngau, wo Stromergs Wald / Von hohen Eichen rauscht, erhebet sich / Auf Felsen eine Burg:",
+  "language": [],
+  "musenalm_id": 63185,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "21. Kloster Frauenalb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "21. Kloster Frauenalb",
+  "updated": "2009-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "arr86ah7ixt2xlt",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.092Z"
+    }
+  ]
+}

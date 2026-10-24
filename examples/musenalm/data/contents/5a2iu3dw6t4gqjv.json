@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 14758-14760, Obj 34-36",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14757,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerungen. / Sonettenfolge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerungen. / Sonettenfolge",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "95qp7onanikpgxg",
+      "agents": "ynj6s229zp88pv2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.739Z"
+    }
+  ]
+}

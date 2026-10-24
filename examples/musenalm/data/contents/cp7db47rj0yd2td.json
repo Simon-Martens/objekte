@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumenlese aus deutschen Dichtern des siebenzehnten Jahrhunderts (Sammlung INr 131276, Obj 195) # Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "465",
+  "incipit_statement": "Ihr irret Freunde! nennet ihr / Dies Brieflein eitel Wort und Grüße?",
+  "language": [],
+  "musenalm_id": 131302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 221,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey Erbrechung ihres Briefes",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Flemming",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bey Erbrechung ihres Briefes",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lkidc1l363leemd",
+      "agents": "pj1d26qokv70tf6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.029Z"
+    }
+  ]
+}

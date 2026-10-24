@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 80930, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es war ein schöner Sommerabend. In einem Garten am Flusse, vor den Thoren einer großen deutschen Stadt, saß eine Frau im modischen Hausanzuge und blickte einem jungen Paare nach,",
+  "language": [],
+  "musenalm_id": 80944,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein kurzes Glück. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Lewald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein kurzes Glück. / Novelle",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oolv061fv3dv7da",
+      "agents": "bv9so4m92p9fsk9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.045Z"
+    }
+  ]
+}

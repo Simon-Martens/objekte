@@ -1,0 +1,45 @@
+{
+  "annotation": "nummeriert VI. /) s. Textbezug INr 87572, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87563,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Insel im Löhrschen Garten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Darnstedt del et. sc.",
+  "scans": [
+    "alm_3053_87563_qyuhrdco31.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Insel im Löhrschen Garten",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xllswqqn1j84vp9",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.350Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.350Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: J. D. Sauerländer's Verlag] s. Textbezug INr 44521, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.958Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44522,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WETTERAUER BAUERNMÄDCHEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Dielmann",
+  "scans": [
+    "alm_607_44522_gxnvslo38j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WETTERAUER BAUERNMÄDCHEN",
+  "updated": "2006-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ztzpsvfxopv8fxp",
+      "agents": "b1o32smiijezsj6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.465Z"
+    }
+  ]
+}

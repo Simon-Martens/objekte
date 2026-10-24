@@ -1,0 +1,39 @@
+{
+  "annotation": "Photos INr 42270,01-42270,05",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42270,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_557_42270_01_0tgvjmpeci.jpg",
+    "alm_557_42270_02_acy50ca9dl.jpg",
+    "alm_557_42270_03_w2mfp57kki.jpg",
+    "alm_557_42270_04_fu5unyepgs.jpg",
+    "alm_557_42270_05_ttlzhoqxxa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": []
+}

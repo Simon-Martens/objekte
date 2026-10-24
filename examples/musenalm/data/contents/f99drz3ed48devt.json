@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86332, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.473Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86333,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tyrolerjäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Waechter pinx. Ig. Krepp sc.",
+  "scans": [
+    "alm_1599_86333_rsyi58sanp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Tyrolerjäger",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jtf98ahpcu2d1rc",
+      "agents": "avs0eq1ftmmmei8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.290Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.290Z"
+    },
+    {
+      "id": "op5g5ahqp41hpvd",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.290Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.290Z"
+    }
+  ]
+}

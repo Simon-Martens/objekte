@@ -1,0 +1,69 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.156Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44666,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die gekränkte Liebe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Kauffmann pinx. Bartolozzi. A. Fenzel sc. Dresd.",
+  "scans": [
+    "alm_171_44666_z0bpbkybsv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die gekränkte Liebe",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mrljbdaf77n21dc",
+      "agents": "rvjtnjmzxqlhxml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.377Z"
+    },
+    {
+      "id": "7oqy0s3sjo3ivaw",
+      "agents": "vc8twbfp7kmalkk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.377Z"
+    },
+    {
+      "id": "diqg6xwpj8ebdjf",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.377Z"
+    }
+  ]
+}

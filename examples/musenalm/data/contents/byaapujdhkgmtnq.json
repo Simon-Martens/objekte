@@ -1,0 +1,69 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44660,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Orpheus und Euridice",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Kauffmann pinx. Bartolozzi. A. Frenzel sc. Dresd.",
+  "scans": [
+    "alm_171_44660_qzbwbxlg3y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Orpheus und Euridice",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z09fj08s61k32si",
+      "agents": "rvjtnjmzxqlhxml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.424Z"
+    },
+    {
+      "id": "wsq72vjskjezx3k",
+      "agents": "vc8twbfp7kmalkk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.424Z"
+    },
+    {
+      "id": "70262bae4oahmec",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.425Z"
+    }
+  ]
+}

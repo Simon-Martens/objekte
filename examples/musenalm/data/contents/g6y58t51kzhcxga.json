@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Von wichtigen, von Wunderdingen / Will ich in neuen Tönen singen.",
+  "language": [],
+  "musenalm_id": 79145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Comet, / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Pastor Lange",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Comet, / Eine Erzählung",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "opvkw9kc8p273au",
+      "agents": "hg5vi9mp3v9d7lc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.823Z"
+    }
+  ]
+}

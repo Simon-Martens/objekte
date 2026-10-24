@@ -1,0 +1,45 @@
+{
+  "annotation": "Vrwrt. zu »D’ Schwoagerin« von Castelli (INr 125847, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Man gestatte mir nur eine Entschuldigung und einige Andeutungen für den Leser in dieser Kleinigkeit.",
+  "language": [],
+  "musenalm_id": 125851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort des Verfassers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort des Verfassers",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e7zvdw1ba2n1aoa",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.766Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.766Z"
+    }
+  ]
+}

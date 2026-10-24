@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 162 # Bezeichnung am 1. Blatt der Suite /) ## Graphik wird im G-Verz nicht aufgeführt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.183Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9100,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Übergang der Rhein- und Mosel Armee / über den Lech. / (24. August.) ##",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_194_9100_3f1lgq8bya.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Übergang der Rhein- und Mosel Armee / über den Lech. / (24. August.) ##",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tm4b0m9zh224vud",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.244Z"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "paginiert 4. /) s. Textbezug INr 88164, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88175,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Niederländ. Schule. / Ph. de Champaigne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ph. de Champaigne. F. H. Müller del. J. Lips sc. Zürich",
+  "scans": [
+    "alm_575_88175_gepr74jkou.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Niederländ. Schule. / Ph. de Champaigne",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p0zu1r47ujvpl8r",
+      "agents": "f10p4d6dab4zy5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.113Z"
+    },
+    {
+      "id": "5qzpoplv6hrq2l1",
+      "agents": "j12p4vv4qgvdxl0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.114Z"
+    },
+    {
+      "id": "o9leaz8mqhv5xv4",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.114Z"
+    }
+  ]
+}

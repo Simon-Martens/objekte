@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64091, Obj 11 /) Illustration zu »Torquato Tasso« von J. W. v. Goethe",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64099,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beiden Leonoren #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Sohn pinx. C. Hoffmeister scu.",
+  "scans": [
+    "alm_1058_64099_ju760ljqbn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die beiden Leonoren #",
+  "updated": "2009-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9nfxx3vehsvk926",
+      "agents": "kd2m6gqwwqw3i2v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.141Z"
+    },
+    {
+      "id": "fjhk6sfh9yv4nco",
+      "agents": "zuqeig2avlr6rku",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.141Z"
+    }
+  ]
+}

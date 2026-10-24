@@ -1,0 +1,45 @@
+{
+  "annotation": "Nüsse vom Kriegsschauplatze (Sammlung INr 64906, Obj 82) XI. Nüsse aus verschiedenen Weltgegenden. Gesammelt 1828-1829 (Sammlung INr 64851, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Die Schlacht von Navarin gibt diese gute Lehre: / Man frevle nicht mit dem Gewehre!",
+  "language": [],
+  "musenalm_id": 64931,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gute Lehre",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Timoleon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gute Lehre",
+  "updated": "2009-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a6lp43w09ehid2w",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.905Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "»als die Sonne nun versunken« (Sammlung INr 36719; Obj 49) 2. Teil von: Abendröthe (Sammlung INr 15252, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Du staunst, o Mensch, was heilig wir strahlen? / O folgest du nur den himmlischen Winken,",
+  "language": [],
+  "musenalm_id": 15270,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sterne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "FR. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sterne",
+  "updated": "2001-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3mqkz1d4ptzi1i4",
+      "agents": "dz9l16q76ffup70",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.706Z"
+    }
+  ]
+}

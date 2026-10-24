@@ -1,0 +1,45 @@
+{
+  "annotation": "Ischler Bilder (Sammlung INr 57781, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "403",
+  "incipit_statement": "Düstre Wolken schwarz umhangen / Dort die steile Bergeshöh;",
+  "language": [],
+  "musenalm_id": 57786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hallstädter See",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sephine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hallstädter See",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hyp5gaui9xitxz3",
+      "agents": "sztz4gyoqux83kc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.969Z"
+    }
+  ]
+}

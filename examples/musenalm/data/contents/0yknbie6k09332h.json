@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik zum Kalendarium; nummeriert 12.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108557,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kayserin, Maj. besucht das allgemei- / ne Krankenhaus in Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1794",
+  "scans": [
+    "alm_2173_108557_5j9yv0oxnt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Kayserin, Maj. besucht das allgemei- / ne Krankenhaus in Wien",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gko4xjc6r0tyetg",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.312Z"
+    },
+    {
+      "id": "97n5w1geosj2whj",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.312Z"
+    }
+  ]
+}

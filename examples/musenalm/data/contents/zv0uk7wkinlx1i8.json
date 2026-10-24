@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Helgolander-Lieder (Sammlung INr 38824, Obj 12) Gedichte (Sammlung INr 38823, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Hab' ich gekämpft in stürmischem Muth, / Endlich gewinn' ich Frieden doch wieder;",
+  "language": [],
+  "musenalm_id": 38830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sdm6h3lh5ikz41z",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.170Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.170Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Seebilder (Sammlung INr 90413, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "In das tiefe, kühle Wellengrab, / Mitternacht ist's, starre ich hinab.",
+  "language": [],
+  "musenalm_id": 90415,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. In der Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter Braun von Braunthal. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. In der Nacht",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "whwr8gdqwdz5ijz",
+      "agents": "7vcuasq6vh9n9b3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.505Z"
+    }
+  ]
+}

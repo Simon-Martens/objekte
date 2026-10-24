@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Zieh hin mit kühnem Heldenmuth / In's rauhe Kriegerfeld!",
+  "language": [],
+  "musenalm_id": 31537,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen jungen Kadeten, / als er zur Rheinarmee abgieng. / 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Maisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen jungen Kadeten, / als er zur Rheinarmee abgieng. / 1795",
+  "updated": "2003-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "19e4vlvh7g8t9pn",
+      "agents": "ibdeh1gpf166351",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.316Z"
+    }
+  ]
+}

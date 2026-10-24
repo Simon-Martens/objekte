@@ -1,0 +1,46 @@
+{
+  "annotation": "Erster Abschnitt. Regeln für Reisende (Sammlung INr 97392, Obj 6) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Wer zu Fuß reiset, hängt von nichts als von seinem Willen und seinen Vergnügungen ab.",
+  "language": [],
+  "musenalm_id": 97397,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Regeln für Reisende zu Fuß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. G. Christian Fick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Regeln für Reisende zu Fuß",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "okwo3thkjid5jf7",
+      "agents": "5ok91qz211t27y7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.632Z"
+    }
+  ]
+}

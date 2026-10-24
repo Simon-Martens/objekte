@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik # lt. G-Verz für die 1807 verstorbenen Elsässer Christian Friedrich Pfeffel, Théophile-Frédéric Winckler, Jérémie-Jacques Oberlin",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23840,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihr Edlen, ach es bewächst / Eure Maale bald ernstes Moos! / Klopstock #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dessiné par B. Zix. Gravé par F. Simon à Strasbourg",
+  "scans": [
+    "alm_324_23840_0nyq8u3e69.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ihr Edlen, ach es bewächst / Eure Maale bald ernstes Moos! / Klopstock #",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "68lbzw4mugh8s5x",
+      "agents": "yhhon0fp0lmn8cf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.950Z"
+    }
+  ]
+}

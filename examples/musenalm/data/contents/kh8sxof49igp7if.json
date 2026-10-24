@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. Zehnte und letzte Lieferung (Sammlung INr 77261, Obj 5) s. Graphik INr 72268, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ob Ihr auch wähnet, Ihr Männer voll Stärke, / Die Ihr wohl schaffet gar mächtige Werke, / Daß Ihr beherrschet der Erde Gebiet,",
+  "language": [],
+  "musenalm_id": 77267,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Macht der Frauen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Macht der Frauen",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a7x4twelpbovg7n",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.750Z"
+    }
+  ]
+}

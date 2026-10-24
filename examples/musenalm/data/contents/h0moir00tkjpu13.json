@@ -1,0 +1,45 @@
+{
+  "annotation": "Strophen nach dem Englischen des Lord Byron (Sammlung INr 27241, Obj 103)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "Die nach dem Schiffbruch nur am Holz / Sich halten, das noch bleibt;",
+  "language": [],
+  "musenalm_id": 27243,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Gr. v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a1ad1geditr9fx2",
+      "agents": "bt92eejgtvavmav",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.452Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Wenn ich Abends einsam geh / Durch das Dorf so thut mir's weh.",
+  "language": [],
+  "musenalm_id": 45692,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn ich Abends einsam geh",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Pröhle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wenn ich Abends einsam geh",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tw7f846bmno2w5t",
+      "agents": "qwtd1omxjc7b309",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.501Z"
+    }
+  ]
+}

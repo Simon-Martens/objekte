@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Zueignung an Ihro königliche Hoheit die Frau Großherzogin Luise von Hessen. / Die lieblichste der Blüthen, die auf Erden / Entsprießen fernen Auen, lichten Zonen [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Welch verwegner Überfall! / Herr, o Herr wir sind verloren!",
+  "language": [],
+  "musenalm_id": 1444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Silberlocke im Briefe, / ein Schauspiel in drey Acten / Frey / nach Calderon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chezy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Silberlocke im Briefe, / ein Schauspiel in drey Acten / Frey / nach Calderon",
+  "updated": "2000-08-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ivtljc7rt9habmy",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.732Z"
+    }
+  ]
+}

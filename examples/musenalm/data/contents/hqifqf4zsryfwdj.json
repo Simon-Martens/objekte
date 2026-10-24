@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Ich bin ein Mann, der sich umhergetrieben, So weit als irgend einer in der Welt,",
+  "language": [],
+  "musenalm_id": 4100,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied. / (Nach dem Dänischen)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Lappe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied. / (Nach dem Dänischen)",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8y9j8ww8ctbxho5",
+      "agents": "h8h7559ermyma3h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.251Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.251Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# in griech. Versalien /) Gedichte (Sammlung INr 25335, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.827Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Sei gegrüßt, o südlich Fahrzeug, sei gegrüßt mir hoch / im Norden!",
+  "language": [],
+  "musenalm_id": 25338,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / ODYSSEUS # / (März 1836.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Freiligrath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / ODYSSEUS # / (März 1836.)",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6no7vd7t6xdujji",
+      "agents": "vmnuom11udo0f3y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.308Z"
+    }
+  ]
+}

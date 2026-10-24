@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Daß sich bey wohl verwahrten Schäzzen / Cremesse wonniglich ergözzen, Und Schlaf und Lieb' bei Seite sezzen, / Das räum' ich ein:",
+  "language": [],
+  "musenalm_id": 131008,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Abwechslung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lorenz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Abwechslung",
+  "updated": "2003-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lpknnjzl0u81dl6",
+      "agents": "0b9nelfb23buwgh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.079Z"
+    }
+  ]
+}

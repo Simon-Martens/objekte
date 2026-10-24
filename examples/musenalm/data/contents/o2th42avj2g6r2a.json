@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März; paginiert 3. Illustration zu »Zur Geschichte von Berlin und Potsdam unter der Regierung des Königs Friedrich des Zweiten« von Fr. Buchholz INr 58560, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58550,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prinz Heinrich v. Preussen, / Bruder Friedrich des II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. Bollinger sc.",
+  "scans": [
+    "alm_860_58550_a8we2s9ue7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Prinz Heinrich v. Preussen, / Bruder Friedrich des II.",
+  "updated": "2008-07-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hl9ven0h3rz0yin",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.767Z"
+    },
+    {
+      "id": "gffrgzzwmgpfqkp",
+      "agents": "xudps8vzrobe0d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.767Z"
+    }
+  ]
+}

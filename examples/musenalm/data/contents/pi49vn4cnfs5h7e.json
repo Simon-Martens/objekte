@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44325, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Ach! von der Wiege, wo die Unschuld lacht / Und Blüthenträume noch den Sinn umweben,",
+  "language": [],
+  "musenalm_id": 44333,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glosse. / Nur du, du bleibest, wie du bist Natur! / Siehst wandellos der Menschen wandelnd Treiben; / Und Dauer giebt auch uns dies Eine nur, / Trotz jedem Wechsel dir getreu zu bleiben. Gries",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glosse. / Nur du, du bleibest, wie du bist Natur! / Siehst wandellos der Menschen wandelnd Treiben; / Und Dauer giebt auch uns dies Eine nur, / Trotz jedem Wechsel dir getreu zu bleiben. Gries",
+  "updated": "2006-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zoxefatwouk6kam",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.178Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.178Z"
+    }
+  ]
+}

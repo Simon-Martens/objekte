@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorbericht und Kupfererklärung (Sammlung INr 69210, Obj 10) s. Titelgraphik INr 28387, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Dem Auge, das sich gern an schönen Formen weidet, erscheine zuerst das versinnlichte Ideal des Schönen - Aphrodite, die reizende Göttin der Liebe! Aber Venus Urania sey es, die hier den Götterreigen führe.",
+  "language": [],
+  "musenalm_id": 69211,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Venus, Amor und die Grazien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Venus, Amor und die Grazien",
+  "updated": "2002-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ku84lh6faxb9s5z",
+      "agents": "ibdeh1gpf166351",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.630Z"
+    }
+  ]
+}

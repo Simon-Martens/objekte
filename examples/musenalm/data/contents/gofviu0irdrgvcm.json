@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Einsam in der Felsenhöle, / Tiefen Ernst in keuscher Seele, / Wohnte Phöbus Priesterinn.",
+  "language": [],
+  "musenalm_id": 3547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sibylle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sibylle",
+  "updated": "2000-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ht0eo53luqxs56",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.300Z"
+    }
+  ]
+}

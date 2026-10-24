@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25133, Obj 155)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Dein Lied erweckt mir langeverwehte Zeit, / Als Heidelbergs pfalzgräfliche Burg",
+  "language": [],
+  "musenalm_id": 25135,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 157,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / An Wilhelm Genth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / An Wilhelm Genth",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k9cb8apbyxwn9dn",
+      "agents": "on0a0wityl8730t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.380Z"
+    }
+  ]
+}

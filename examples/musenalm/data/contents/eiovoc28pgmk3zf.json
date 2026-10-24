@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Räuber« von Fr. Schiller s. Textbezug INr 39614, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.788Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39613,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Räuber. IVr. Act 5te Scene. / C. Moor. Rache, Rache, Rache dir! / grimmig beleidigter entheiligter Greis!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. F. A. Darnstedt sc.",
+  "scans": [
+    "alm_520_39613_0fkh8cyyld.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Räuber. IVr. Act 5te Scene. / C. Moor. Rache, Rache, Rache dir! / grimmig beleidigter entheiligter Greis!",
+  "updated": "2005-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tuwm0cf7rw1p1q6",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.126Z"
+    },
+    {
+      "id": "bh2a0x7zd7qpqqe",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.126Z"
+    }
+  ]
+}

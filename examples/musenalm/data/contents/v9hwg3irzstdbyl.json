@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Ihr fragt, welchem von beiden / Der Rang gebührt? - Dies zu entscheiden / Seht nur der Schöpfung Stuffen an.",
+  "language": [],
+  "musenalm_id": 36155,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mann und Weib",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mann und Weib",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6kalsrgunoh259o",
+      "agents": "cnpmi5umijfxrao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.611Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.611Z"
+    }
+  ]
+}

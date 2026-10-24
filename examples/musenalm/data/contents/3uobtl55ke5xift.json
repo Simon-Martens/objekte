@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Solch einen eitlen Greis sah ich noch / nie! / In wenig Tagen muß er fort aus diesem Leben,",
+  "language": [],
+  "musenalm_id": 12816,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen alten Bösewicht, der / sich Zähne gekauft hatte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen alten Bösewicht, der / sich Zähne gekauft hatte",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "29q4vqlrngtsvb1",
+      "agents": "tvrder99cpa3fos",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.516Z"
+    }
+  ]
+}

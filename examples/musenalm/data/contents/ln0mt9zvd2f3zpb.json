@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107013,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Königl. Grossbr. / u. Churf. Braunschw. Lüneb. / Genealogischer / KALENDER / auf / das 1778. Jahr / Lauenburg / bey Joh. Georg Berenberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et sc.",
+  "scans": [
+    "alm_2156_107013_4kduir82nh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Königl. Grossbr. / u. Churf. Braunschw. Lüneb. / Genealogischer / KALENDER / auf / das 1778. Jahr / Lauenburg / bey Joh. Georg Berenberg",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ktazv7mz9vif9z",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.829Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebe. Sonettenkranz (Sammlung INr 30341, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "O selig, Liebe, wen Dein Kranz umflicht, / Und ob er nackt und arm in Hütten wohne,",
+  "language": [],
+  "musenalm_id": 30349,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2002-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xx42z5nj6vhl0mg",
+      "agents": "6qn9afrpxniwvx7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.190Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.190Z"
+    }
+  ]
+}

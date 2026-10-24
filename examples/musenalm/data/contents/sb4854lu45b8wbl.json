@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Kennt ihr das Land, wo Fried’ und Eintracht walten, / Ein Hochgefühl das Herz im Busen schwellt? / Zum Dankgebet sich nur die Hände falten, / Ein lichter Stern des Wissens Pfad erhellt?",
+  "language": [],
+  "musenalm_id": 125946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rede / zur Feier des Allerhöchsten Geburtsfestes / Sr. Majestät des Königs. / Verfaßt von Heinrich Smidt / Im Königlichen Opernhause von Herrn Stawinsky, und im / Schloß-Theater zu Charlottenburg, von Herrn Grua gesprochen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Smidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rede / zur Feier des Allerhöchsten Geburtsfestes / Sr. Majestät des Königs. / Verfaßt von Heinrich Smidt / Im Königlichen Opernhause von Herrn Stawinsky, und im / Schloß-Theater zu Charlottenburg, von Herrn Grua gesprochen",
+  "updated": "2010-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kklpcs6nwjp2vsh",
+      "agents": "p5nbyct99xa1658",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.870Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.870Z"
+    }
+  ]
+}

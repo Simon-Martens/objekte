@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration, s. Graphik INr 123055, Obj 8; # Bezeichnung aus der Vorrede (INr 123049, Obj 2); mit Anmerkung (INr 123079, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Mein Cäsar ist nun todt! und mit ihm alle Freuden! Drum trink ich grünen Thee und lese Werthers Leiden.",
+  "language": [],
+  "musenalm_id": 123054,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cleopatra / Eine Tragödie",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cleopatra / Eine Tragödie",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a96u2ktudyz80v4",
+      "agents": "sse24vstbh0jbtd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.782Z"
+    }
+  ]
+}

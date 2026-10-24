@@ -1,0 +1,45 @@
+{
+  "annotation": "Aprilflocken (Sammlung INr 26711, Obj 135)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "460",
+  "incipit_statement": "Die Knospen an den Bäumen wollten zagen, / Als fürchteten von der Natur Gesetzen",
+  "language": [],
+  "musenalm_id": 26748,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 173,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXXVIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXXVIII.",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8o03qdz100bstgd",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.401Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Erklärung der Kupfer dieses Almanachs (Sammlung INr 85003, Obj 5) s. Graphik INr 102579, Obj 32 und Beitrag INr 85014, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.707Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Diese verjüngte Eselsschattenkopie (nach Lips) soll nur zeigen, was sich aus einem Esel alles machen lasse; wie der Text das Nähere besagt.",
+  "language": [],
+  "musenalm_id": 85007,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3)",
+  "updated": "2012-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ohzpo6c2ycgsrxc",
+      "agents": "i1m0o75lvyphony",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.228Z"
+    }
+  ]
+}

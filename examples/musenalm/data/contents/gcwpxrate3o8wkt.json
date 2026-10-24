@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 30548, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.433Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Auf hohem Kaliphenschlosse / Sitzt, fern im egyptischen Land, / Gefangen der Tempelmeister, / Der Odo von Saint Amand.",
+  "language": [],
+  "musenalm_id": 30547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gefangene Meister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. v. Wachsmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gefangene Meister",
+  "updated": "2002-11-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aw0na06srnn7do1",
+      "agents": "6kzqe6d8kkkucin",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.497Z"
+    }
+  ]
+}

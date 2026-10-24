@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) Graphik im Kalendarium Juli; nummeriert 7. /) Illustration zu »Coriolan« von Shakespeare",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108101,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gottheit ist mit uns - / -seyd einig / III. Aufz. 8. Auft.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et sc.",
+  "scans": [
+    "alm_2165_108101_cq9bmjcivp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Gottheit ist mit uns - / -seyd einig / III. Aufz. 8. Auft.",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fr4b4ipuhad8y7g",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.237Z"
+    }
+  ]
+}

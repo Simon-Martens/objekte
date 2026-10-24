@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Sieh! der Mond hat ausgegossen / Allen Reichthum seiner Strahlen!",
+  "language": [],
+  "musenalm_id": 78447,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meeresfahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthäus v. Collin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meeresfahrt",
+  "updated": "2011-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ws69wcx2lzz5nj5",
+      "agents": "fd00ei6z82qcoka",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.865Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.865Z"
+    }
+  ]
+}

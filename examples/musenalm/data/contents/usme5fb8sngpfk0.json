@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung aus »Franz Sternbalds Wanderungen« 3. Buch, 4. Kapitel  von L. Tieck /) Unter der Musikbeigabe: Tiek, im Sternbald /) Lieder zum musikalischen Taschenbuche 1803 der Brüder Werden componirt von Wilhelm Schneider (Sammlung INr 56317, Obj 79) Photos 56325,01; 56325,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Holdes, holdes Sehnsuchtrufen, / aus dem Wald, vom Thale her:",
+  "language": [],
+  "musenalm_id": 56325,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsuchtrufen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Schneider",
+  "scans": [
+    "alm_23_56325_01_brzbjwiybf.jpg",
+    "alm_23_56325_02_jx4ciczmt9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsuchtrufen",
+  "updated": "2008-03-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dot06zujsmwk431",
+      "agents": "5j4ifce1qy52izk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.833Z"
+    }
+  ]
+}

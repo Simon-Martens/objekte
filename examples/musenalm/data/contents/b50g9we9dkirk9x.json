@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 6. Illustration zu »Rosalinde von Ramsay, oder: Die gefährliche Verbindung« von G. v. Reinbeck INr 43471, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.177Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43453,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die gefährliche Verbindung / von Reinbeck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch gez. Schwerdgeburth gest.",
+  "scans": [
+    "alm_572_43453_2ghrpvqtf0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die gefährliche Verbindung / von Reinbeck",
+  "updated": "2006-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3f94pfna6b137w5",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.989Z"
+    },
+    {
+      "id": "lg30k7x6vd71ath",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.989Z"
+    }
+  ]
+}

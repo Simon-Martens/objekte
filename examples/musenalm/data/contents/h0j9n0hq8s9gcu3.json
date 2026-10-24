@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Durch thauige Wiesen, Gefild und Hain / Fuhr lustig ein Wandrer,schier ganz allein.",
+  "language": [],
+  "musenalm_id": 20273,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Geisterreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krug v. Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Geisterreich",
+  "updated": "2001-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "un1qro7c3go4a2p",
+      "agents": "ynj6s229zp88pv2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.104Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.104Z"
+    }
+  ]
+}

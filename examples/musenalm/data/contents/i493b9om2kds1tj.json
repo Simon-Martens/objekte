@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r. s. Textbezug INr 26995, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36111,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 167,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Heideloff inv. Weber, Ch. Geisler sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff inv. Weber, Ch. Geisler sc.",
+  "scans": [
+    "alm_350_36111_sy6irmmqm6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wmksbbcy8xksm4e",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.886Z"
+    },
+    {
+      "id": "p4kwjv1gr57sqf6",
+      "agents": "iojwntogak3m4db",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.886Z"
+    }
+  ]
+}

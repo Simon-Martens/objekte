@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Gedicht von Saphis (INr 125331, Obj 12); mit einer kol. Illustration (Titelkupfer, INr 125320, Obj 1)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Sehen Sie, lieber Pfauen, das ist das Portrait meiner unvergeßlich theuern Nichte. / Wenn das Gemälde nicht täuscht, so war sie sehr schön.",
+  "language": [],
+  "musenalm_id": 125330,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gesepenst. / Lustspiel in einem Acte, / nach einem alten Sujet / von / C. W. Koch. / Zum erstenmal aufgeführt auf dem k. k. Hofburgtheater / zu Wien am 22sten Februar 1836",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. Koch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gesepenst. / Lustspiel in einem Acte, / nach einem alten Sujet / von / C. W. Koch. / Zum erstenmal aufgeführt auf dem k. k. Hofburgtheater / zu Wien am 22sten Februar 1836",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jw97ee7ru52jrs6",
+      "agents": "snm7ivv5m1ogx5v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.880Z"
+    }
+  ]
+}

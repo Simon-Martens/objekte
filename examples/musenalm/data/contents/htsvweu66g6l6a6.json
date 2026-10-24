@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Verschwörung des Fiesco zu Genua« von Fr. Schiller s. Textbezug INr 39726, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39727,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fiesko. IIIr. Act. 2te Scene. / Fiasko. Diese majestätische Stadt! Mein!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Lips sculps.",
+  "scans": [
+    "alm_521_39727_wx60c2923x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fiesko. IIIr. Act. 2te Scene. / Fiasko. Diese majestätische Stadt! Mein!",
+  "updated": "2005-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0m6vzui1k7kgj4y",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.923Z"
+    },
+    {
+      "id": "vimvy82gngc8rxt",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.923Z"
+    }
+  ]
+}

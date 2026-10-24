@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Lustschloß der schönen Laura« INr 29568, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.432Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29569,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Das Lustschloß der schönen Laura. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury fecit",
+  "scans": [
+    "alm_382_29569_xzppevrwv2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Das Lustschloß der schönen Laura. / Eine Novelle",
+  "updated": "2002-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "54qkh2oa5sid48z",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.383Z"
+    },
+    {
+      "id": "x3lbl45xeef9595",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.383Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26278,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihrer Majestät / der / Königin von Baiern / Friedericke Wilhelmine Karoline [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "der Verleger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihrer Majestät / der / Königin von Baiern / Friedericke Wilhelmine Karoline [...]",
+  "updated": "2002-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ntimbk08h5x57un",
+      "agents": "3aswswg7umxipcn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.186Z"
+    }
+  ]
+}

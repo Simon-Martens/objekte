@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Churfürst Friedrich III. erster König von Preussen« INr 72344, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72345,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIEDRICH / Cron. Prinz von Preussen. / S. 79",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ant. Pesne gemalt Wilh. Arndt gestochen",
+  "scans": [
+    "alm_828_72345_aafllanwat.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIEDRICH / Cron. Prinz von Preussen. / S. 79",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gx5jk21e570udsu",
+      "agents": "sgs38l89ma3xwqh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.178Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.178Z"
+    },
+    {
+      "id": "adngj297eb590nj",
+      "agents": "72r3qe0psneye9d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.178Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.178Z"
+    }
+  ]
+}

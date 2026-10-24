@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 4. /) # Titel aus dem G-Verz INr 15495 Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15414,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Telemanns Denkmaal oder die Ehre der Tonkunst #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. N. Rolffsen sc.",
+  "scans": [
+    "alm_245_15414_9tt15yuwta.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Telemanns Denkmaal oder die Ehre der Tonkunst #",
+  "updated": "2001-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6j1omhdyvhvdmix",
+      "agents": "s0wdvbdvcujl5vs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.533Z"
+    }
+  ]
+}

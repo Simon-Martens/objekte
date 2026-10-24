@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 102449, Obj 15 und folgenden Beitrag INr 102451, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102450,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HOFFNUNG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl del. C. Kotterba sc.",
+  "scans": [
+    "alm_4080_102450_cahr9i3wjm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HOFFNUNG",
+  "updated": "2013-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rnrysjbud7uabib",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.751Z"
+    },
+    {
+      "id": "vxop6n949hf9hxv",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.751Z"
+    }
+  ]
+}

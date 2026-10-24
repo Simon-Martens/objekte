@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Heilige Flammen verklären den Geist; nicht in der Na- / tur nur / Waltet der sonnige Strahl, durch die Gefilde vesandt.",
+  "language": [],
+  "musenalm_id": 1384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Konstanzia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Messerschmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Konstanzia",
+  "updated": "2000-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2ckhdocucl791ot",
+      "agents": "08be5slqlt4odk1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.862Z"
+    }
+  ]
+}

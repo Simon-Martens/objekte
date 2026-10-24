@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.541Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Tag gieng schlafen und die feuchte / Nacht sank thauig auf das Land / Kindlein hüpfte mit der Leuchte / Heimwärts an der Mutter Hand:",
+  "language": [],
+  "musenalm_id": 61172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Licht des Himmels",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Septimia",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Licht des Himmels",
+  "updated": "2008-12-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eviajf0t0l7felt",
+      "agents": "j3qxc741zzed3s0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.879Z"
+    }
+  ]
+}

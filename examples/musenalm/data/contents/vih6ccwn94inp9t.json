@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35054, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Wir sind drei Schwestern mit dem Leid vertraut, / Vom Alter minder als vom Gram ergraut,",
+  "language": [],
+  "musenalm_id": 35057,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die drei Schwestern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die drei Schwestern",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uws9a4em4566h5d",
+      "agents": "3emdj29jey7pglq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.733Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Rosen« (INr 125773, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125774,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HELENE. / Es sind die Früchte meiner Ver- / schwendung, meiner Spielsucht.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Mayer del. M. Hofmann sc.",
+  "scans": [
+    "alm_2732_125774_v5abw47rta.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HELENE. / Es sind die Früchte meiner Ver- / schwendung, meiner Spielsucht.",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gd80kiq9rtlf00s",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.760Z"
+    },
+    {
+      "id": "73x3u062v8wl42q",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.760Z"
+    }
+  ]
+}

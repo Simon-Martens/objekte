@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Wandrer, geh' und melde zu Sparta daß / wir hier liegen,",
+  "language": [],
+  "musenalm_id": 4046,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift der Dreyhundert Spar- / taner bei Thermopylä. / (Nach dem Griechischen)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-r-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift der Dreyhundert Spar- / taner bei Thermopylä. / (Nach dem Griechischen)",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0pckmz34stqqk70",
+      "agents": "3xjka4czdksw7yb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.097Z"
+    }
+  ]
+}

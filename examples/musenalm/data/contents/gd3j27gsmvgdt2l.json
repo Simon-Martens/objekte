@@ -1,0 +1,67 @@
+{
+  "annotation": "# Titel aus dem G-Verz /) Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.754Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50309,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fortuna #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemahlt von Guido Reni, gestochen von Baquoi, gezeichnet von Franz Catel",
+  "scans": [
+    "alm_8_50309_3vv9ae84hx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fortuna #",
+  "updated": "2007-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "be611b9kfhaxznz",
+      "agents": "azlvdz0ge43hlgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.986Z"
+    },
+    {
+      "id": "1hpt8ieacqm6f4l",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.986Z"
+    },
+    {
+      "id": "4jx0irf25uvt1b6",
+      "agents": "5dgsrh51y09mcvg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.986Z"
+    }
+  ]
+}

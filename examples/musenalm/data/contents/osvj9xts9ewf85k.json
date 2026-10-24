@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. INr 18979, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1988,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ariosto unter den Räubern der Garfagnana #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mauzaise pinx. Ed. Schuler sculpt.",
+  "scans": [
+    "alm_58_1988_mor770l3bu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ariosto unter den Räubern der Garfagnana #",
+  "updated": "2000-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6vzm38f4xpboug1",
+      "agents": "yhlhwn61gtq3o1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.067Z"
+    },
+    {
+      "id": "5d5qmbgjpzqigqw",
+      "agents": "hk6k9w6jym7fe8o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.067Z"
+    }
+  ]
+}

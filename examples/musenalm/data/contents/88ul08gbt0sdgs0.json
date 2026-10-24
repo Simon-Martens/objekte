@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>mit 2 Illustrationen s. Graphiken INr 140517, 140518</div>",
+  "content_type": [],
+  "created": "2026-09-08T10:38:56.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Der alte Förster Heinrich zu Buchendorf saß am Abend in seinem Lehnstuhl, schnitt seinem Töchterchen Minchen ein grimmiges Gesicht,",
+  "language": [],
+  "musenalm_id": 140519,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der grosse Rittmeister / und das kleine Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der grosse Rittmeister / und das kleine Mädchen",
+  "updated": "2026-09-08T10:42:38.207Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "rkry9dnx5gvpgy8",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-08T10:42:37.611Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-08T10:42:38.208Z"
+    }
+  ]
+}

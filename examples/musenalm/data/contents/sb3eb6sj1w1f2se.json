@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zu »Donna Diana« von West (INr 125551, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Es erweckt ein gutes Vorurtheil für das gegenwärtige Lustspiel des Moreto, daß es von den zwei größten Komikern der Franzosen und Italiener bearbeitet worden ist.",
+  "language": [],
+  "musenalm_id": 125552,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort / des Bearbeiters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl August West [Pseud.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort / des Bearbeiters",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hoaivzeywvohq6n",
+      "agents": "ks6j3ite531t4h3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.881Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.881Z"
+    }
+  ]
+}

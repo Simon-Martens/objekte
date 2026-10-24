@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Als Kind blickte ich verehrungsvoll auf zum Vater mit den weißen Haaren, den ernsten leidenschaftslosen Zügen, der ehrfurchtgebietenden Haltung!",
+  "language": [],
+  "musenalm_id": 70689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die richterliche Gewalt, Schützerin der gesetz- / lichen Freiheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die richterliche Gewalt, Schützerin der gesetz- / lichen Freiheit",
+  "updated": "2010-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ghzh09hek2ljnjv",
+      "agents": "p9xocrmcb2o8pu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.387Z"
+    }
+  ]
+}

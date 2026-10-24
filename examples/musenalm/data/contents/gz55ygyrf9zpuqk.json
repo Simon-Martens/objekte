@@ -1,0 +1,48 @@
+{
+  "annotation": "1. Vertonung (Singstimme u. Klavier) des Gedichts »An Ida bei Uebersendung eines Haarrings« von E. A. W. v. Kyaw INr 19433, Obj 49 /) Anhang zu Beckers Taschenbuch 1815 enthaltend: Composition und Tänze, von Dotzauer, Marschner, und Methfessel (Sammlung INr 61731, Obj 83) /) (Photos 61739,01; 61739,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61739,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Ida, bei Uebersendung / eines Haarrings",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Marschner",
+  "scans": [
+    "alm_263_61739_01_44z87fev71.jpg",
+    "alm_263_61739_02_ayhoxa6eyj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An Ida, bei Uebersendung / eines Haarrings",
+  "updated": "2001-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qx4zk7jsmuprt9k",
+      "agents": "q5dzmcxy6uu4m53",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.080Z"
+    }
+  ]
+}

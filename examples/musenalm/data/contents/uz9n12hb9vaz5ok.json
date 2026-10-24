@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Es war ein schöner Abend im Beginne des Frühlings, als ein liebendes Paar, in der Umwölbung frischbegrünter Büsche, am Ufer des See's saß.",
+  "language": [],
+  "musenalm_id": 14671,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Walpurgisnacht. / Nach einer Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler, geb. v. Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Walpurgisnacht. / Nach einer Sage",
+  "updated": "2001-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m3dijtrzprqimyb",
+      "agents": "vxzn7evqhv18e38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.707Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 4 s. Textbezug INr 7267, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7218,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XLI. Anecdote / Peter der Große zu Wittenberg im / Hause wo Dr. Luther gelebt und gestorben / p. 121",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv.",
+  "scans": [
+    "alm_146_7218_kiq4ghgkd8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "XLI. Anecdote / Peter der Große zu Wittenberg im / Hause wo Dr. Luther gelebt und gestorben / p. 121",
+  "updated": "2000-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tvomek4dhwg8wen",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.148Z"
+    }
+  ]
+}

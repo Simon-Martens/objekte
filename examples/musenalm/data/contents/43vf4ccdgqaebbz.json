@@ -1,0 +1,56 @@
+{
+  "annotation": "nummeriert VII; lllustration zu »Die Familie von Halden« von A. H. J. Lafontaine; s. Textbezug INr 128001, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.072Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127999,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Maillard del. Jos. Stöber sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Maillard del. Jos. Stöber sc.",
+  "scans": [
+    "alm_4114_127999_ymdn2wa2s5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2014-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mnejyqojg78wrs2",
+      "agents": "jqx789ngxccpl2l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.976Z"
+    },
+    {
+      "id": "g9j68seacx8dknc",
+      "agents": "yk9ibu96ud1308d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.976Z"
+    }
+  ]
+}

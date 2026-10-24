@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 18969, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.596Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1998,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ITHAKA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Stanfield pinx Frommel direx.",
+  "scans": [
+    "alm_59_1998_o85lu1767r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ITHAKA",
+  "updated": "2000-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z1hvjfodaxk3dlz",
+      "agents": "3cqsgosvlzn7mua",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.967Z"
+    },
+    {
+      "id": "su0ahuwcr4dnlij",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.967Z"
+    }
+  ]
+}

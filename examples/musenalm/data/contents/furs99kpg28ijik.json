@@ -1,0 +1,58 @@
+{
+  "annotation": "Titel aus dem I-Verz s. Textbezug INr 33460, Obj 14; Illustration zu »Wilhelm Tell« von Fr. Schiller",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier Scenen aus Schillers Wilhelm Tell #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Waechter del. H. Lips sculp.",
+  "scans": [
+    "alm_464_33476_qc17ps0aol.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vier Scenen aus Schillers Wilhelm Tell #",
+  "updated": "2003-04-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xay2s43d8mmkv0k",
+      "agents": "jgp8dgth3q9useg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.681Z"
+    },
+    {
+      "id": "wvma24s6ld8rd2h",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.681Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Kobenzlberg nächst Wien« von J. r. s. INr 74639, Obj 24 /) # Zuschreibung: Fischer S. 449; zus. Bez.: gez. v. Joris",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74640,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Haldenwang sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Haldenwang sc.",
+  "scans": [
+    "alm_3116_74640_1eqke7mdqf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "70egf2b4t06r1ik",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.505Z"
+    }
+  ]
+}

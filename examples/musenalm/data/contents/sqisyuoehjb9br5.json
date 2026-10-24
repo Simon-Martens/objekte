@@ -1,0 +1,47 @@
+{
+  "annotation": "unter der Graphik: Carl Mayer’s Kunst-Anstalt in Nürnberg",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 119911,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gondelfahrt. / Catharina Cornaro",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T. Ender gez.",
+  "scans": [
+    "alm_2483_119911_5tjcjrvsgg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Gondelfahrt. / Catharina Cornaro",
+  "updated": "2010-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3azikfrok6y9jb0",
+      "agents": "x22uzijnhb4lbpp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.564Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.564Z"
+    }
+  ]
+}

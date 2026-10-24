@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung am 2. Blatt der Suite; s. Textbezug INr 7800, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7801,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cobeer Buri oder der große Banianbaum",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Forbes del. Ri. f.",
+  "scans": [
+    "alm_166_7801_tpcit4ipzf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cobeer Buri oder der große Banianbaum",
+  "updated": "2000-12-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "39l04q30uktg3rr",
+      "agents": "0cibtsg68db4ozs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.241Z"
+    },
+    {
+      "id": "5vaq05a68f1a3zw",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.241Z"
+    }
+  ]
+}

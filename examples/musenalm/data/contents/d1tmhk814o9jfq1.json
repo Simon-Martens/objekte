@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Tagesberichte an Haug von Matthisson. 1826 (Sammlung INr 40921, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.554Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Morgens um acht Uhr fuhr ich zum Eßlinger Thore hinaus, mit meinem neuen Diener,",
+  "language": [],
+  "musenalm_id": 40923,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwäbisch-Hall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwäbisch-Hall",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bhnrzru9c2tvr53",
+      "agents": "z3510nlbg6hd1qt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.780Z"
+    }
+  ]
+}

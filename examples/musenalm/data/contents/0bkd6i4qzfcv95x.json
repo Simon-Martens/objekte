@@ -1,0 +1,45 @@
+{
+  "annotation": "Skizzen aus England (Sammlung INr 43743, Obj 27) Dem Text vorangestellt: Was glänzt, ist für den Augenblick geboren, / Das Rechte bleibt der Nachwelt unverloren. / Goethe",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.600Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "So ist es recht! rief mein kleiner, hinkender Baronet Charles, als er mich in seine sogenannte Dichterhalle führte:",
+  "language": [],
+  "musenalm_id": 43746,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Dichterhalle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Dichterhalle",
+  "updated": "2006-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wsgdq7fi1nlcjkl",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.099Z"
+    }
+  ]
+}

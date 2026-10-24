@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.788Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Wo ist ein Weib in aller Welt, / Das mir so wohl, wie du gefällt?",
+  "language": [],
+  "musenalm_id": 4072,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Prinzessinn **. / (Nach dem Französischen)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Prinzessinn **. / (Nach dem Französischen)",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7kba7hhevhb11f7",
+      "agents": "6b95o6o4p7mql27",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.149Z"
+    }
+  ]
+}

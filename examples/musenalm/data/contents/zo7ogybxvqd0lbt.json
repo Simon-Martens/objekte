@@ -1,0 +1,45 @@
+{
+  "annotation": "Polychloros. Zwei Romanzen (Sammlung INr 22210, Obj 99)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "521",
+  "incipit_statement": "Heute wo der Spätherbst scheidet, / Spärlich nur die Sonne lacht,",
+  "language": [],
+  "musenalm_id": 22211,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2my8q4chshp5d8b",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.101Z"
+    }
+  ]
+}

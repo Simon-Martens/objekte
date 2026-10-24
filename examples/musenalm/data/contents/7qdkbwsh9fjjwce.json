@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19717,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cil. Hepste Wasserfall in Brecknockschire",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Darnstedt sc.",
+  "scans": [
+    "alm_266_19717_4co88axotz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cil. Hepste Wasserfall in Brecknockschire",
+  "updated": "2001-11-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5cefy4yam2tj0jl",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.053Z"
+    }
+  ]
+}

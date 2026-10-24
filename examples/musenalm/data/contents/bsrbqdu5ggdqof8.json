@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 104077, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104076,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BILDNISS VAN DYCK'S",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hannemann pinx. S. v. Perger del. J. Axmann sculp.",
+  "scans": [
+    "alm_1931_104076_ekm8pptvg5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BILDNISS VAN DYCK'S",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rz4fbe22zcue33o",
+      "agents": "vdm074kthu571fo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.156Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.156Z"
+    },
+    {
+      "id": "xcestmyfppep2b7",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.157Z"
+    },
+    {
+      "id": "yv0m1esdnom7zx5",
+      "agents": "eb0uid8s7k1f7eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.157Z"
+    }
+  ]
+}

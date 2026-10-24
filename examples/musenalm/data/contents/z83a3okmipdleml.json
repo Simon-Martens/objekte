@@ -1,0 +1,45 @@
+{
+  "annotation": "Berns Reformatoren. In vier Sonnetten (Sammlung INr 54459,Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Blüth' um Blüthe wird sich schön entfalten, / Wo des Schöpfers Frühlingssonne scheint,",
+  "language": [],
+  "musenalm_id": 54463,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Franciscus Kolb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Franciscus Kolb",
+  "updated": "2008-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dpo66cu94nlvu08",
+      "agents": "kq69ntdbn8wcwoq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.888Z"
+    }
+  ]
+}

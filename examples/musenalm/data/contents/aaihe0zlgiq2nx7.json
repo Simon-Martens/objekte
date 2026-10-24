@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Dritter mahlerischer Streifzug nach Kalksburg, Schönbrunn, Hütteldorf und Dornbach« INr 92704, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92706,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der schöne Brunnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Loder del. Blaschke sc.",
+  "scans": [
+    "alm_4023_92706_c3qtfk25l5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der schöne Brunnen",
+  "updated": "2013-09-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2x4e0pzzvhe4hpo",
+      "agents": "5m3k81xtringcag",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.379Z"
+    },
+    {
+      "id": "bipa4k2geog9osd",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.379Z"
+    }
+  ]
+}

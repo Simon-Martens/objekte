@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Minerva's Dienerin, Egeria! / Du, die einst angelockt vom hohen Wasserfalle, / Im Oleasterhain, in kühler Felsenhalle / Der edle Numa sah:",
+  "language": [],
+  "musenalm_id": 97065,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Egeria",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. v. Boguslavski",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Egeria",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1hcxhsibvhe7r3j",
+      "agents": "z002757pw448vsl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.578Z"
+    }
+  ]
+}

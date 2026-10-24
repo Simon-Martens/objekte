@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79056,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Penelope. / TASCHENBUCH / für das Jahr 1824. / Herausgegeben / von / Theodor Hell. / 13r. Jahrgang. / Mit Kupfern / Leipzig. / J. C. Hinrichssche Buchhandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martin sc.",
+  "scans": [
+    "alm_2395_79056_tjvnxgyuz9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Penelope. / TASCHENBUCH / für das Jahr 1824. / Herausgegeben / von / Theodor Hell. / 13r. Jahrgang. / Mit Kupfern / Leipzig. / J. C. Hinrichssche Buchhandlung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u4s6b28wgdhfk8g",
+      "agents": "u3ev7bjxvo21hzz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.855Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.855Z"
+    }
+  ]
+}

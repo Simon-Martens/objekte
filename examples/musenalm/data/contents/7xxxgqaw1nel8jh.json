@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Februar /) Illustration zu »Die zerrissene Familie« von J. A. Moshammer INr 89733, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89721,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fatimeh",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Hofmann sc.",
+  "scans": [
+    "alm_3362_89721_way3bckzpa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fatimeh",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rf5oxf07ur2gprj",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.466Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.466Z"
+    },
+    {
+      "id": "s0uuybenqh1ar47",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.466Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.466Z"
+    }
+  ]
+}

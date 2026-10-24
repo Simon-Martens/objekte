@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 63204-63210, Obj 34-40 /) Der Sammlung vorangestellt: Gib dem Gefühle Wort und Klang, / So theilt es Andern der Gesang",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63203,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonette",
+  "updated": "2009-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k252khvzz80cvxe",
+      "agents": "tetas6nm69fwpjp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.978Z"
+    }
+  ]
+}

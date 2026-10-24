@@ -1,0 +1,45 @@
+{
+  "annotation": "XIX. Der Abenaki. Eine Erzählung, nach dem Französischen. 2. Logogrif. 3. Sehnsucht nach den Gebürgen (Sammlung INr 32048, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Erwacht aus ängstlichem Schlummer / Wend' ich die Blicke voll Kummer / Hinauf ins Wolkenrevier;",
+  "language": [],
+  "musenalm_id": 32051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Sehsucht nach den Gebürgen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie v. Imhoff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Sehsucht nach den Gebürgen",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "acxxzmp2pjmjz4h",
+      "agents": "g022cx9ysck37av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.594Z"
+    }
+  ]
+}

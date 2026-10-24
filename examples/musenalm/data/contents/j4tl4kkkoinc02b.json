@@ -1,0 +1,45 @@
+{
+  "annotation": "Ischarioth Krall's Lehren und Thaten in 30 episch-didaktischen Lectionen (Sammlung INr 97309, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Aufs allergelindeste, mußt' ich den Grafen / am Gelde wenigstens etwas strafen,",
+  "language": [],
+  "musenalm_id": 97320,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zehnte Lection",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ischarioth Krall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zehnte Lection",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k3k0y41ugc146qt",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.618Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.462Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Das Ungeheuer, welches seit mehreren Jahren in einigen Hessen Casselischen, Hessen-Darmstädtischen und Mainzischen Forsten herumstreift, so manches fromme Lamm erwürgte,",
+  "language": [],
+  "musenalm_id": 130804,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Achttägige Wolfsjagd im Hessen-Darm- / städtischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Achttägige Wolfsjagd im Hessen-Darm- / städtischen",
+  "updated": "2022-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rarjd0aj3lnrw51",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.052Z"
+    }
+  ]
+}

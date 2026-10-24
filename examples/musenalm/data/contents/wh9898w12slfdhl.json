@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33598, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33626,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die sechs Stationen des Lebens. Der Bund am Altar #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Catel del. Lips sculp.",
+  "scans": [
+    "alm_466_33626_nkd1ba3dau.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die sechs Stationen des Lebens. Der Bund am Altar #",
+  "updated": "2003-05-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ezzmj9fh3exi7bv",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.723Z"
+    },
+    {
+      "id": "51g6jmzc0xdlhaa",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.723Z"
+    }
+  ]
+}

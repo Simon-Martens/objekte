@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Wie wer an Himmelshöhen / Aus Wolken schnell den Mond erblickt, / So hab' ich dich gesehen, / Und stand in deinem Licht entzückt.",
+  "language": [],
+  "musenalm_id": 70999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Amalie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Amalie",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "44uksmzvtsje0re",
+      "agents": "2pho2usjik623l5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.311Z"
+    }
+  ]
+}

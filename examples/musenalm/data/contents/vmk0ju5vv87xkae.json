@@ -1,0 +1,45 @@
+{
+  "annotation": "Thalia (Sammlung INr 76510, Obj 30) mit einer Illustration in: Tempel der Musen und Grazien 1797, alm-4605 INr 121455",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Ei, ei, mein Sohn, an die Arbeit! / Es ist noch früh , lieber Vater. / Die Arbeiter, die so auf den Glockenschlag passen - die sind mir die rechten!",
+  "language": [],
+  "musenalm_id": 76512,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Szenen aus Iffands Dienstpflicht. / Schauspiel in 5 Aufzügen. Mspt. [Erster Aufzug]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Iffland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Szenen aus Iffands Dienstpflicht. / Schauspiel in 5 Aufzügen. Mspt. [Erster Aufzug]",
+  "updated": "2011-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1g5uchbh2o25wsi",
+      "agents": "ygkra5epb9ywce3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.620Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.620Z"
+    }
+  ]
+}

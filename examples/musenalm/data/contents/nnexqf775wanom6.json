@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Tab V. /) kol. Illustration zu »Die Ledereiche« von Dr. Bechstein INr 67002, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.008Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Quercus coriacea. Die Leder-Eiche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Susemihl sc.",
+  "scans": [
+    "alm_1144_67001_1mzfw96s2j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Quercus coriacea. Die Leder-Eiche",
+  "updated": "2009-09-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "epi4k4hj3vx5w3b",
+      "agents": "0krc3qfy4wkj0vx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.112Z"
+    },
+    {
+      "id": "4gf7a0zp0nynqxp",
+      "agents": "kno3jlnpudqvc0i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.112Z"
+    }
+  ]
+}

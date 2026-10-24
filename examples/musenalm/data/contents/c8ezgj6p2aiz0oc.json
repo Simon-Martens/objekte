@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 84687, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In B. lebte vor geraumer Zeit ein reicher Mann, Nahmens Bienau. Die ganze Stadt ehrte ihn als einen ihrer rechtschaffensten Bürger",
+  "language": [],
+  "musenalm_id": 84689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Hannchen, / oder / die verkannte Unschuld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Glatz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Hannchen, / oder / die verkannte Unschuld",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2c0x353ck2342ld",
+      "agents": "qxcj6iktsu2xp76",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.270Z"
+    }
+  ]
+}

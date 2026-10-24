@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "306",
+  "incipit_statement": "Die Eintheilung der Reisenden in einsame, gesellige und patriarchalische scheint mir praktischer als jene bekannte in York's sentimental journey.",
+  "language": [],
+  "musenalm_id": 77856,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dissolving views / oder / Lichtbilder einer Sommerreise. / Aus Reiseberichten von E. Silesius, / an / Th. Hell",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dissolving views / oder / Lichtbilder einer Sommerreise. / Aus Reiseberichten von E. Silesius, / an / Th. Hell",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "05nu5vqf910mc0o",
+      "agents": "kjfa5zse6o9jzto",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.772Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.076Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Du willst im Sterben einsam seyn? / Willst ohne Lieb' und ohne Schmerz",
+  "language": [],
+  "musenalm_id": 14530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach Durchlesung des Gedichts: / Eutha-/ nasia von Lord Byron. / Vol. IV. Poem. XV",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach Durchlesung des Gedichts: / Eutha-/ nasia von Lord Byron. / Vol. IV. Poem. XV",
+  "updated": "2001-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cwjacvau0d0f124",
+      "agents": "ijn3e3gugtz46hh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.568Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.568Z"
+    }
+  ]
+}

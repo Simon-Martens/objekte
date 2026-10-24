@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An Rosetten« von B. INr 758, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4813,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (Hiller)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiller",
+  "scans": [
+    "alm_60_4813_kfmu5nhvxs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kld4xrhdstlnqqa",
+      "agents": "93qj54q4os5w6av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.704Z"
+    }
+  ]
+}

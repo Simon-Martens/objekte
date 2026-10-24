@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>mit einer Illustration s. Graphik INr 140312</div>",
+  "content_type": [],
+  "created": "2026-08-06T08:59:06.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Wenn wir in unserm lieben Deutschland einmal das Vergnügen haben wollen, eine Jagdpartie mit dem wilden Jäger, oder ein Tänzchen mit einer Herrengesellschaft zu machen,",
+  "language": [],
+  "musenalm_id": 140311,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Adair der Sackpfeifer. / Irische Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fürst Pückler #",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Adair der Sackpfeifer. / Irische Sage",
+  "updated": "2026-08-06T10:17:01.482Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "ky3dcxa4ic1oasc",
+      "agents": "6gobgsyozlf8m0u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-06T08:59:27.291Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-06T10:17:01.483Z"
+    }
+  ]
+}

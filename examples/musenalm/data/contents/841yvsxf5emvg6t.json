@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Zur Aufführung angenommen im k.k. Hofburg- Theater",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Geschwind! so rühre dich, bis Alles glänzt und / schimmert;",
+  "language": [],
+  "musenalm_id": 85546,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Monatszimmer. / Dramatisirte Anekdote in Einem Akt / und / Alexandrinern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Monatszimmer. / Dramatisirte Anekdote in Einem Akt / und / Alexandrinern",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1fza56wsqlib8b3",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.341Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.341Z"
+    }
+  ]
+}

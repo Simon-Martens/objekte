@@ -1,0 +1,45 @@
+{
+  "annotation": "Ständchen (Sammlung INr 132831, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Wohl glüht von dem Berge ein ewiges Licht, / Doch lieblicher strahlt's Dir im Auge;",
+  "language": [],
+  "musenalm_id": 132834,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Sicilianisches",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Sicilianisches",
+  "updated": "2023-12-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2v1f1ow7oygbe2x",
+      "agents": "g7ovzuyzi8c0g2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.094Z"
+    }
+  ]
+}

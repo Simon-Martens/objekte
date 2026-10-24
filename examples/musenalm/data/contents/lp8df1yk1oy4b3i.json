@@ -1,0 +1,45 @@
+{
+  "annotation": "Historische Anekdoten und Schilderungen (Sammlung INr 87235, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Nach der Schlacht bei Lützen zeigte der sonst so rasche und unternehmende Herzog von Friedland nicht mehr seine gewöhnliche Thätigkeit,",
+  "language": [],
+  "musenalm_id": 87238,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wallenstein's Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. P. Wilmsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wallenstein's Tod",
+  "updated": "2010-08-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "viemph7gyilyhwt",
+      "agents": "16tb3i8mxvamyxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.137Z"
+    }
+  ]
+}

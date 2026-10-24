@@ -1,0 +1,56 @@
+{
+  "annotation": "Teutsche Uebersetzung des Englischen (Sammlung INr 131897, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Ihr Griechensöhn', erstanden, / Der Ruhmestag brach an, / Und würdig solcher Banden, / Thut kund, wer euer Ahn.",
+  "language": [],
+  "musenalm_id": 131898,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rigas [übers.:] Byron [übers.] Wilhelm Reinhold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2013-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dh8c4cy617397al",
+      "agents": "m46r0k8xyml7u8e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.042Z"
+    },
+    {
+      "id": "1f3112tz7h62r83",
+      "agents": "z2vp1av7e4ucapr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.042Z"
+    }
+  ]
+}

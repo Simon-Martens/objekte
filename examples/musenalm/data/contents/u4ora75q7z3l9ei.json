@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "Messeniens und Sparta's Macht / Will neu die Schwerdter färben.",
+  "language": [],
+  "musenalm_id": 1455,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Panormus und Gonippus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Kannegießer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Panormus und Gonippus",
+  "updated": "2000-08-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j4o7wl0h64g4i6c",
+      "agents": "vmqur31l5jqxgmx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.006Z"
+    }
+  ]
+}

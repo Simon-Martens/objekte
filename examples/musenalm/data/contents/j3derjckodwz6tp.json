@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 69510, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Ich stand auf dem Verdecke / Bei Nacht in weiter See;",
+  "language": [],
+  "musenalm_id": 69513,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Schiffervision",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Prechtler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Schiffervision",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oblenr93fykuh3b",
+      "agents": "cvs1lz6mp4pj8h4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.154Z"
+    }
+  ]
+}

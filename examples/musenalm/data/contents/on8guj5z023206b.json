@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: F. A. Chateaubriand; er lebte lange als Emigrirter in der letzten Revolutionszeit in Nord-America",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Es ist ein den Unglücklichen eigenes Gefühl zu versuchen, ob sie die Täuschung des Glücks durch das Andenken an ihre vergangenen Freuden zurückzurufen vermögen.",
+  "language": [],
+  "musenalm_id": 60459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Die Nacht unter den Wilden / in / Nord-America's Wäldern. / (Vom Verfasser der Atala.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Chateaubriand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Die Nacht unter den Wilden / in / Nord-America's Wäldern. / (Vom Verfasser der Atala.)",
+  "updated": "2008-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4jrnqwmvfgs58k5",
+      "agents": "bjsbuc294wnuf3p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.890Z"
+    }
+  ]
+}

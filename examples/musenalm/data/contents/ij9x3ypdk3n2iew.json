@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Sie tritt hervor! Ihr Kirschblüthenreiser / Enthüllt ihr Angesicht!",
+  "language": [],
+  "musenalm_id": 6409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Berenice",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Berenice",
+  "updated": "2000-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r04j1bquhtzld4h",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.910Z"
+    }
+  ]
+}

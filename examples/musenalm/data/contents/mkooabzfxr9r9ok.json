@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer kol. Illustration (Titelkupfer; INr 125165, Obj 2); $ vermutlich Jacques-Arsène-François-Polycarpe Ancelot (vgl. NBG II, Sp. 498ff.); # Bezeichnung aus dem Titel (INr 12166, Obj 3); ## Titel des Originals aus dem Vrwrt (INr  125167, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Betracht’ ihn nur – so sitzt er den ganzen Vormittag, unbeweglich – Wie dumm er aussieht – / Dafür kann er ja nicht.",
+  "language": [],
+  "musenalm_id": 125169,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hanns als Schildwache. / Ländliche Szene in einem Aufzuge, / als Fortsetzung / von / Hanns am Scheidewege / und dem / Wiedersehen ##",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet $ [bearb.] F. A. von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hanns als Schildwache. / Ländliche Szene in einem Aufzuge, / als Fortsetzung / von / Hanns am Scheidewege / und dem / Wiedersehen ##",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "74jbjebbjtlz92d",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.869Z"
+    }
+  ]
+}

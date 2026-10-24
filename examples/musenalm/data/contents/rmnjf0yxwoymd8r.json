@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Sonnett von Al. Jeitteles INr 68623, Obj 1,2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68622,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1.1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HELENE FORMANN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. P. Rubens pt. F. John sc.",
+  "scans": [
+    "alm_228_68622_33rwm3ors4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HELENE FORMANN",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i6vddkfbyilt154",
+      "agents": "co7d0f8bep36m8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.473Z"
+    },
+    {
+      "id": "c0yrr7liscogfxs",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.473Z"
+    }
+  ]
+}

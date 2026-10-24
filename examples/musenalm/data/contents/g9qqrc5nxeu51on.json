@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "Still und mit thränendem Aug' ergibt die Geduld / sich dem Schicksal, / Hold sich zu senken bereit, edel zu steigen geschickt:",
+  "language": [],
+  "musenalm_id": 39232,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Geduld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. C. Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Geduld",
+  "updated": "2005-07-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4wkohpqtr21n07v",
+      "agents": "lw3uqo50dp1mpif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.051Z"
+    }
+  ]
+}

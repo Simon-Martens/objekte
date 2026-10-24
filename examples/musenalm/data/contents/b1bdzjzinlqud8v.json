@@ -1,0 +1,45 @@
+{
+  "annotation": "Xenien (Sammlung INr 45812, Obj 219)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "So mancher denkt seinen Schmerz zu ehren, / Und zähmt ihn, wie einen wilden Bären,",
+  "language": [],
+  "musenalm_id": 45814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 221,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So mancher denkt seinen Schmerz zu ehren, / Und zähmt ihn, wie einen wilden Bären,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6jtufymmjxap68p",
+      "agents": "ijwiphnikfuhyxf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.404Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.404Z"
+    }
+  ]
+}

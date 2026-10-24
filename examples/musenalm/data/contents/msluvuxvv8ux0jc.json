@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Julie war die Tochter des Kommerzienraths Grunnert, und vereinigte schon als Mädchen von zwölf Jahren, die weiblichen Reize und geistigen Vorzüge in sich,",
+  "language": [],
+  "musenalm_id": 132200,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiedersehn im Tode. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kerndörffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiedersehn im Tode. / Eine Erzählung",
+  "updated": "2013-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "75u62xqbfnuk6pt",
+      "agents": "jbbfx5lvloouivi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.088Z"
+    }
+  ]
+}

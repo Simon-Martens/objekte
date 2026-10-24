@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Drauf ging der Prior mit mir weiter, / Und blieb vor einem Schranke stehn,",
+  "language": [],
+  "musenalm_id": 2705,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reliquien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goeckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reliquien",
+  "updated": "2000-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "psey4a4snfcja7o",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.879Z"
+    }
+  ]
+}

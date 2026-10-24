@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25; mit einer Musikbeigabe s. INr 2946, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Schön Suschen lag im Frühlingsschatten, / Ein Aermchen hier, das andere dort,",
+  "language": [],
+  "musenalm_id": 2945,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schläferin / Nach dem französischen des Monvel / Eine Romanze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schläferin / Nach dem französischen des Monvel / Eine Romanze",
+  "updated": "2000-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dh53xv9soza6k8q",
+      "agents": "3m5nfg6fbusqjem",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.061Z"
+    }
+  ]
+}

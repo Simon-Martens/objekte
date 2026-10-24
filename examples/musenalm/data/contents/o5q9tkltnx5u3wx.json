@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 80701-80703, Obj 66-68",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80700,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Andr. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonette",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kzuz9j4aiwf1ys4",
+      "agents": "w54qzevkgviemdi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.911Z"
+    }
+  ]
+}

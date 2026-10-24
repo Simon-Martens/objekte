@@ -1,0 +1,43 @@
+{
+  "annotation": "# s. ADB XXVII, 292 /) Es folgen 7 Kapitel mit 6 Illustrationen, 74117-74129, Obj 10-22 dazu Titelgraphik INr 74108, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der Garten in Hohenheim behauptet schon lang einen beträchtlichen Plaz unter den merkwürdigsten Gartenanlagen im neueren Geschmak, und war bisher doch noch so wenig gesehen, und so wenig gekannt.",
+  "language": [],
+  "musenalm_id": 74116,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beschreibung / des / Gartens / in / Hohenheim",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beschreibung / des / Gartens / in / Hohenheim",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "stjl1540seitoq1",
+      "agents": "0qzneijgjsm86gl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.705Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.705Z"
+    }
+  ]
+}

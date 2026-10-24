@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Endlich gelangen wir zu jener merkwürdigen Region Asiens, welche, selbst abgesehen von ihrem trefflichen Himmel und von dem schwelgerischen Reichthum ihrer Erzeugnisse,",
+  "language": [],
+  "musenalm_id": 42228,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einleitung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einleitung",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iyjwawnuf43gs73",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.107Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Die Wünsche für dein Wohl, Freund! ha- / ben keine Schranken, / Kein Sinn bestimmt sie dir, noch Ausdruck / von Gedanken.",
+  "language": [],
+  "musenalm_id": 31486,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fromme Wünsche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriela von Baumberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fromme Wünsche",
+  "updated": "2003-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xukoydlc4s4k34b",
+      "agents": "sjp9eapkpagxg0d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.146Z"
+    }
+  ]
+}

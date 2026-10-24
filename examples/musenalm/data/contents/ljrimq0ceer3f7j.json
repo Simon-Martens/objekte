@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 4 /) $ vermutlich: Wüest",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50725,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein vom Wasser zu einer Brüke unterhölter Fels. Hüllen-Stein ohnweit Rüti Cant. Zürich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. G. f. [unleserlich] d. $",
+  "scans": [
+    "alm_686_50725_ji2jqpeawi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein vom Wasser zu einer Brüke unterhölter Fels. Hüllen-Stein ohnweit Rüti Cant. Zürich",
+  "updated": "2007-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "167wf6z3i78lt99",
+      "agents": "pua8u6y6ts6oo5o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.979Z"
+    }
+  ]
+}

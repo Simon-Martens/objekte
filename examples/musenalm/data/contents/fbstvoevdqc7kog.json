@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 2. s. Textbezug INr 50908, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50889,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rudera von Alt-Regensperg, im Canton Zürich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conrad Gessner del. J. H. Meyer sc.",
+  "scans": [
+    "alm_692_50889_vew40dactd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rudera von Alt-Regensperg, im Canton Zürich",
+  "updated": "2007-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n3nmp75fygv5cs3",
+      "agents": "k94qbf18ch2c8vt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.585Z"
+    },
+    {
+      "id": "v6feqs5x3joyikz",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.585Z"
+    }
+  ]
+}

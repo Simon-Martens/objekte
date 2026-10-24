@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Beilage INr 16110, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Unter allen Perioden der Geschichte hat keine ein allgemeineres Interesse und eine ungetheiltere Achtung erhalten, als - die griechische Heldenzeit.",
+  "language": [],
+  "musenalm_id": 16109,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Parallele zwischen den alten griechi- / schen Heroen und den Rittern des / Mittelalters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl von Rotteck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Parallele zwischen den alten griechi- / schen Heroen und den Rittern des / Mittelalters",
+  "updated": "2001-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j3hvsmow6vqjb2f",
+      "agents": "x7zrd53b03vqn3u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.529Z"
+    }
+  ]
+}

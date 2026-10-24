@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Ich kam nach **. Das Haus meines Freundes war bald gefunden. Eine Treppe hoch ward mir das Vorzimmer eröffnet,",
+  "language": [],
+  "musenalm_id": 122648,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Skizzen aus einem Reisejournal",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Skizzen aus einem Reisejournal",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b80g9wb28e3c44h",
+      "agents": "wzmgymh9fjau9gk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.791Z"
+    }
+  ]
+}

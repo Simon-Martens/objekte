@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder an Emilie (Sammlung INr 90610, Obj 206)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Es hat dein Herz für mich zwar ausgeschlagen, / Das meine pocht in treuer Liebe fort;",
+  "language": [],
+  "musenalm_id": 90615,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 211,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. Ihr Hals",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Constant Wurzbach. (Laibach.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. Ihr Hals",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2rqp81qudjfzizi",
+      "agents": "wm9mmfgzc6wy00i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.462Z"
+    }
+  ]
+}

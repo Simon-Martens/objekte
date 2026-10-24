@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel [varianter Titel]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86467,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TASCHENBUCH / und / Almanach / zum / geselligen Vergnügen. / von / W. G. Becker / für 1796. / mit Churfürstl. Saechs. Privilegio / Leipzig bei Voss und Compagnie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. scp.",
+  "scans": [
+    "alm_202_86467_e4luufpr3r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / und / Almanach / zum / geselligen Vergnügen. / von / W. G. Becker / für 1796. / mit Churfürstl. Saechs. Privilegio / Leipzig bei Voss und Compagnie",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mv2nlmsnhsttqpd",
+      "agents": "nmh87mne4tvopif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.224Z"
+    }
+  ]
+}

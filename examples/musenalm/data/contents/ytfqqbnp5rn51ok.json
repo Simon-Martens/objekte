@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert II /) # Titel aus dem G-Verz /) als Stecher ist der Berliner F. Ramberg anzunehmen (kurze Erwähnung bei L/R 159 und bei Rümann: Die iIllustrierten deutschen Bücher des 18. Jahrhunderts )",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23209,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nichts Geweihtes mehr #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. F. Ramberg sc.",
+  "scans": [
+    "alm_305_23209_d0kd8u3w5u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nichts Geweihtes mehr #",
+  "updated": "2002-03-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cywsqs3mz9e5kt1",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.060Z"
+    },
+    {
+      "id": "ewa5vbsiv7wqrpi",
+      "agents": "yn5dqo3oyes0o9i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.060Z"
+    }
+  ]
+}

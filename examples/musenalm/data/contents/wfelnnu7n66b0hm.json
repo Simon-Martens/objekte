@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "O Hügel! o Hügel! ich singe dich nicht / Im Morgenroth lachenden Zaubergesicht:",
+  "language": [],
+  "musenalm_id": 90345,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Hügel *** in der Schweiz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Wagenmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Hügel *** in der Schweiz",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "32yhboll892zhyy",
+      "agents": "8sb3uethzl0myha",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.109Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 8. Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60933, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.440Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60918,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So wurden ungehorsame Fürsten bestraft. 1160",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1795",
+  "scans": [
+    "alm_949_60918_wa1f8bsx35.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "So wurden ungehorsame Fürsten bestraft. 1160",
+  "updated": "2008-11-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d0egz5p556vcqfj",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.934Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Dritte Fortsetzung. / Die Küche« von G. H. Rapp INr 74301, Obj 25 /) # Zuschreibung: Fischer S. 280",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Küche bei dem Boudoir",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3111_74302_dk4tgj5fb6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Küche bei dem Boudoir",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xylq26y6mgmdxam",
+      "agents": "4b4lhy0iqevooje",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.601Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.601Z"
+    },
+    {
+      "id": "4vpc3p6d3wpn378",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.601Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.601Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Gedichte (Sammlung INr 140203)</div>",
+  "content_type": [],
+  "created": "2026-07-15T09:44:09.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Zur Rose sprach das Grab gewendet: / Sag’, was du mit den Thränen thust, / Die träglich dir der Morgen sendet,",
+  "language": [],
+  "musenalm_id": 140204,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Rose und Grab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. C. Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Rose und Grab",
+  "updated": "2026-07-15T11:00:50.420Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "z62o01al5mr3pj6",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-07-15T09:57:06.264Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-07-15T09:57:48.033Z"
+    }
+  ]
+}

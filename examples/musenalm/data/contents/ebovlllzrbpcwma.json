@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35054, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Zu Holten bei der Burg vor langen Jahren, / Erzählt uns Möser, gab es in der Schaar",
+  "language": [],
+  "musenalm_id": 35060,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Thue es lieber nicht! / (Justus Möser, patriotische Phantasien, II. Berlin 1776 / p. 492. 497.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Thue es lieber nicht! / (Justus Möser, patriotische Phantasien, II. Berlin 1776 / p. 492. 497.)",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dl2n7a8i0ax4ks7",
+      "agents": "3emdj29jey7pglq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.794Z"
+    }
+  ]
+}

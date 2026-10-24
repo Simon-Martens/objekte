@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Herbstblätter von Strichvogels October-Fluge« von A--n. INr 53951, Obj 89 /) s. Graphik »Die Feste Schlossberg bei Neuenstadt am Bieler-See« in Alpenrosen 1829, INr 54473 und Anm. dort",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "340",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53952,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neuenstadt am Bieler-See im Canton Bern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Lory père del. F. Hegi sc.",
+  "scans": [
+    "alm_736_53952_y57luhh780.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Neuenstadt am Bieler-See im Canton Bern",
+  "updated": "2008-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4a3emjo10kvgxc4",
+      "agents": "apfgolbsarcaim2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.683Z"
+    },
+    {
+      "id": "h9pwdzq9onh221q",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.683Z"
+    }
+  ]
+}

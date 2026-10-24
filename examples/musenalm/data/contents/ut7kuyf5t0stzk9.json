@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 123613-123615, Obj 92-94",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.473Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123612,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drei Romanzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Steinmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drei Romanzen",
+  "updated": "2009-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7nq6gmb8cjlq96b",
+      "agents": "jxsklfwb6yipx9m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.586Z"
+    }
+  ]
+}

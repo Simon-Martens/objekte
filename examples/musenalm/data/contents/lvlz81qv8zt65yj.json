@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "In früher Jugend bildet sich der Enthusiasm für das Land das uns geboren. Die Knaben lernen aus den Klassikern, daß den Alten das Vaterland das Höchste, und der Tod für dessen Wohl das schönste war.",
+  "language": [],
+  "musenalm_id": 43711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die stille Magd. / Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Gerstenbergk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die stille Magd. / Erzählung",
+  "updated": "2006-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9rus6sdwebg83m7",
+      "agents": "h167uzfduv8nbnr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.468Z"
+    }
+  ]
+}

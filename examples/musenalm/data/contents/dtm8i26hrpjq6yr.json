@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. mit Hinweis auf Gedicht in: Schlesisches Bardenopfer für 1786",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "So, wie unstät einst, noch im ewigen Chaos, / Eh des Allgewaltigen Stimme erscholl,",
+  "language": [],
+  "musenalm_id": 72579,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Joseph Zerboni in / Glogau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. J. Salis Contessa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Joseph Zerboni in / Glogau",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3hx49c9hpc5uk59",
+      "agents": "kpi9u93u4rl2rz9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.474Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.474Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Titelgraphik INr 22642, Obj 2; Graphik INr 22644, Obj, 4",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Wie viel Unselige hast du schon gemacht, o Liebe! in welche Thränen, welche Leiden sie gestürzt!",
+  "language": [],
+  "musenalm_id": 22667,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lenore di San-Sepolcro. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lenore di San-Sepolcro. / Novelle",
+  "updated": "2002-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gmxislm0e4abstz",
+      "agents": "rlu2d4ml9zlhov2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.943Z"
+    }
+  ]
+}

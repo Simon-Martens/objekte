@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Idylle (INr 93585, Obj 94)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.663Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "348",
+  "incipit_statement": "Bräutchen bin ich, mein Schatz! verstanden? ein freudiges / Bräutchen! / Alles jubelt und tanzt um her und duftet und leuchtet.",
+  "language": [],
+  "musenalm_id": 93586,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Entstehung der Thränenweide",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Entstehung der Thränenweide",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "99fmtf96fit4hvf",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.143Z"
+    }
+  ]
+}

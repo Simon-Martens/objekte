@@ -1,0 +1,43 @@
+{
+  "annotation": "Anmerkung des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Da ich die Herausgabe dieser jährl. Sammlung nicht ferner besorgen kann,",
+  "language": [],
+  "musenalm_id": 17329,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goeckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachbericht",
+  "updated": "2000-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "22p0tqwx689utom",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.734Z"
+    }
+  ]
+}

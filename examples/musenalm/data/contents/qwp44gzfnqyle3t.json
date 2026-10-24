@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Aus den Liedern eines Gefangenen (Sammlung INr 115778, Obj 24) Gedichte (Sammlung INr 115776, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Einst ward ich krank, ja ernstlich krank, / Man hat den Arzt gerufen;",
+  "language": [],
+  "musenalm_id": 115780,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Medizin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Medizin",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yt00thgxou76fo7",
+      "agents": "km9osfzve59w4c0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.319Z"
+    }
+  ]
+}

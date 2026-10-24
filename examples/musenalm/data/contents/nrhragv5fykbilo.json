@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Als mir versunken des Lebens Lust, / Da rang ich die Hände, zerschlug mir die Brust,",
+  "language": [],
+  "musenalm_id": 94375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Egon Ebert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g7f5noepjm9ideg",
+      "agents": "8gvoxfhtianvore",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.629Z"
+    }
+  ]
+}

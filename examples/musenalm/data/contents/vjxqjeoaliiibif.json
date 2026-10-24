@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.080Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Geröthet von der Sonne, hing / Einst eine Nuß im Baum,",
+  "language": [],
+  "musenalm_id": 8888,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nuß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goeckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nuß",
+  "updated": "2001-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wfkvilkvwoc7u3u",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.219Z"
+    }
+  ]
+}

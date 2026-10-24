@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Oft bat ich Amorn schon und wende heute mich / An seine Huld, daß er erbarmend dieß verhehle,",
+  "language": [],
+  "musenalm_id": 10801,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 156,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "103. / Vernunft und Leidenschaft. / Aus dem Petrarca",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Manso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "103. / Vernunft und Leidenschaft. / Aus dem Petrarca",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8olhesh19k8hnnl",
+      "agents": "z30t9keae9ak7mu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.445Z"
+    }
+  ]
+}

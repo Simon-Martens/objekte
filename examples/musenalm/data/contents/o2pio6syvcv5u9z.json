@@ -1,0 +1,56 @@
+{
+  "annotation": "MADRIGALE (s. graph. Zwischentitel INr 71303, Obj 90) GUARINI (s. Zwischentitel INr 71291, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "O welchen Kuss hatt' ich von meiner Lieben / Süss, aber unvollendet!",
+  "language": [],
+  "musenalm_id": 71306,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guarini; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "whw1olcsrkwrpka",
+      "agents": "sjkch1k7fhhouea",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.358Z"
+    },
+    {
+      "id": "gs08g9xo85cxvbc",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.358Z"
+    }
+  ]
+}

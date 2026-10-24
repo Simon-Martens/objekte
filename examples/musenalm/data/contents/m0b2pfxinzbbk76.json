@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "O du, dem ich zum Feldherrn mich geweiht, / Sieh meine Schaaren an mit gnäd'gen Blick!",
+  "language": [],
+  "musenalm_id": 79368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scene aus Shakespeare's Richard, / dem Dritten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakespeare [übers.] Heinrich Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Scene aus Shakespeare's Richard, / dem Dritten",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b38yi67ii4zmm3l",
+      "agents": "confomdodiakpla",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.919Z"
+    },
+    {
+      "id": "dlrt7994o733y90",
+      "agents": "kqtjs5z40p79gpq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.919Z"
+    }
+  ]
+}

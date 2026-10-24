@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 81204, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Der reiche Kaufherr, Paul Delormes, brachte den Winter in Toulon, den Sommer auf seinem anmuthigen Landsitze in dessen Nähe am Seegestade zu.",
+  "language": [],
+  "musenalm_id": 81220,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hermine",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Dornau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hermine",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xrinzuoup52gcvv",
+      "agents": "15ch4q36f8n1et3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.002Z"
+    }
+  ]
+}

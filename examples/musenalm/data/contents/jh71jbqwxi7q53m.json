@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung iNr 116050, Obj 55) mit einer Illustration s. Titelgraphik INr 115996, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Du blickst zum Himmel, Weib, mit starren Blicken, / als sollten sie als Garn sein Glück umstricken,",
+  "language": [],
+  "musenalm_id": 116052,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Die Klavierspielerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Ritter von Levithchnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Die Klavierspielerin",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "05m0l4i7pzav3n5",
+      "agents": "e22fzyl0voj5sux",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.411Z"
+    }
+  ]
+}

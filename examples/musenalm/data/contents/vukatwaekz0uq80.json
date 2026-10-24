@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Es gibt ein Land, in dem zugleich / Der Frühling starrt, der Winter blüht;",
+  "language": [],
+  "musenalm_id": 31608,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRÜHLING UND WINTER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kristof Kueffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "FRÜHLING UND WINTER",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3kwkgzzyec5rbti",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.289Z"
+    }
+  ]
+}

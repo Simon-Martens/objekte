@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Daß ich mit Epigrammen wieder spiele, / Ich armer Willebald,",
+  "language": [],
+  "musenalm_id": 5564,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leßing",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1779",
+  "updated": "2000-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nhtkqwni3pbpwoc",
+      "agents": "69uz48pj64zapqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.280Z"
+    }
+  ]
+}

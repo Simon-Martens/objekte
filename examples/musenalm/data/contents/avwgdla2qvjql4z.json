@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus Jens Immanuel Baggesens poetischem Nachlasse (Sammlung INr 54416, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "390",
+  "incipit_statement": "Dem Wand'rer schimmert's, blinkt's und glänzt's / von Ferne.",
+  "language": [],
+  "musenalm_id": 54417,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Die Alpenjungfrau, oder des alten / Sängers jüngste Braut. / (An die Dichterin Frederike Brun, geb. Münter, / den 3. Juny 1818.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jens Immanuel Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Die Alpenjungfrau, oder des alten / Sängers jüngste Braut. / (An die Dichterin Frederike Brun, geb. Münter, / den 3. Juny 1818.)",
+  "updated": "2008-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5jy4ogj165wznvv",
+      "agents": "jq74p3fe1dijn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.690Z"
+    }
+  ]
+}

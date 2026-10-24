@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Winterlied« von K. A. Herklots INr 37594, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37595,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Februar] / Winterlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Friedrich Reichardt",
+  "scans": [
+    "alm_507_37595_5me55wbgmh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Februar] / Winterlied",
+  "updated": "2005-04-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y0dgwisg6dv2jsg",
+      "agents": "it8ptc76fbrkd73",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.097Z"
+    }
+  ]
+}

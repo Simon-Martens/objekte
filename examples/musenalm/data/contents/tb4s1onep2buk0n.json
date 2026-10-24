@@ -1,0 +1,45 @@
+{
+  "annotation": "Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Dritte Lieferung (Sammlung INr 85571, Obj 5) s. Graphik INr 85572, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Glaubt Ihr, / Weil ich kein Prahler, kann man mir / Nach Willkür eine Nase dreh'n?",
+  "language": [],
+  "musenalm_id": 85573,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans Sachs. / (Erster Aufzug. Dreizehnte Szene.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Deinhardstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans Sachs. / (Erster Aufzug. Dreizehnte Szene.)",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xbv75i8d3htlsuh",
+      "agents": "y1ldqx10hdpig92",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.356Z"
+    }
+  ]
+}

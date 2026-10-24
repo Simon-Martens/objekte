@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Erstiegen hab' ich wieder deine Höhe, / Du stolzer Rebenzeuger! stehe,",
+  "language": [],
+  "musenalm_id": 21565,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tübingen auf dem Schloßberge. / Vor meiner Schweizerreise. / 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stäudlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tübingen auf dem Schloßberge. / Vor meiner Schweizerreise. / 1784",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6t6v2lj963fpf0f",
+      "agents": "2f965te58psi6tx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.746Z"
+    }
+  ]
+}

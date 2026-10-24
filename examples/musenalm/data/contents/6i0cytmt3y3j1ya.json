@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der blonde Eckbert« von L. Tieck INr 65359, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.212Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65360,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der blonde Eckbert #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. W. Hensel. Gest v. Ed. Eichens",
+  "scans": [
+    "alm_1101_65360_0kwsflwh4w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der blonde Eckbert #",
+  "updated": "2009-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zj5oiklevybnvkp",
+      "agents": "902nw56856wz9rx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.919Z"
+    },
+    {
+      "id": "sy72lcuyg2gf335",
+      "agents": "08mp0at2gr8kp3n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.919Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Vorwort INr 78807, Obj 4; mit 4 Illustrationen s. Titelgraphik INr 78805, Obj 1 und Graphiken INr 78810-78812, Obj 7-9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Als die bildende Natur ihr Werke vollbracht und alle Formen erschöpft hatte, die auf dieser Erde möglich waren, stand sie still und übersann ihre Schöpfung;",
+  "language": [],
+  "musenalm_id": 78809,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Anmuth und Schönheit aus den Misterien der Natur und Kunst für ledige und verheirathete Frauenzimmer]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Anmuth und Schönheit aus den Misterien der Natur und Kunst für ledige und verheirathete Frauenzimmer]",
+  "updated": "2026-10-15T09:07:21.337Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zy3tgqbld9p2uad",
+      "agents": "a0il1qgyia0yjs4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.823Z"
+    }
+  ]
+}

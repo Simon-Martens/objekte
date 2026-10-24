@@ -1,0 +1,50 @@
+{
+  "annotation": "Tänze mit Musik Contredanses, Quadrille, Cotillon und Ecossaise, welche bei Hofe getanzt werden nebst Musik zu einem neuen Walzer herausgegeben von Herrn Lauchery Königl. Balletmeister und Solo-Tänzer in Berlin (Sammlung INr 20421, Obj 88) (Photos 20437,01-20437,04)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20437,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cotillon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [
+    "alm_272_20437_01_ya00im7r9y.jpg",
+    "alm_272_20437_02_6990wu3vyd.jpg",
+    "alm_272_20437_03_b468a1m1oa.jpg",
+    "alm_272_20437_04_9y3upnd9ry.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cotillon",
+  "updated": "2001-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5xm05qvb4fpvlkj",
+      "agents": "czigb25jnrfsy98",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.006Z"
+    }
+  ]
+}

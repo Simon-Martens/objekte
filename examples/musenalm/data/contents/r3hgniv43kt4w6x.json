@@ -1,0 +1,45 @@
+{
+  "annotation": "Küchen- und Tafel-Kalender (Sammlung INr 50474, Obj 8) mit zahlreichen Rezepten",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Wir haben nun vollen Herbst und mit ihm einen Ueberfluß an den köstlichsten und kernhaftesten Nahrungsmitteln.",
+  "language": [],
+  "musenalm_id": 50484,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X. / Monat October",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grimod de la Reyniere; [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X. / Monat October",
+  "updated": "2007-07-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7nq5xnhdcnhiesm",
+      "agents": "ndyaxges5n0jd1z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.673Z"
+    }
+  ]
+}

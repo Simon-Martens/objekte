@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert p. 181 /) Illustration zu »Der Additionsfehler« INr 119764, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 119738,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Um Gotteswillen nein! Grosmuth ist mir / eine größere Marter, als seine Bosheit.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Boettger senior del. & sc. 1804",
+  "scans": [
+    "alm_3703_119738_2yq9w4lyt7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Um Gotteswillen nein! Grosmuth ist mir / eine größere Marter, als seine Bosheit.",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dvtl5yh7tubhqzv",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.622Z"
+    }
+  ]
+}

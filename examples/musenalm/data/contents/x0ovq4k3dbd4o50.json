@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung des Herausgebers zum folgenden Beitrag INr 61830, Obj 62",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Man darf nur Norrmanns geographisches und historisches Handbuch, ein einziges Werk in seiner Art, nachschlagen, um sich davon zu überzeugen, daß unser Bergisches eines der blühendsten Länder Deutschlands, ja Europens ist.",
+  "language": [],
+  "musenalm_id": 61829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Fabriken, Manufakturen / und Handlung im Herzogthum / Berg. / Vorerinnerung des Herausgebers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Fabriken, Manufakturen / und Handlung im Herzogthum / Berg. / Vorerinnerung des Herausgebers",
+  "updated": "2009-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "thc27re4rf4hsik",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.061Z"
+    }
+  ]
+}

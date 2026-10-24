@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: If thou hadst no name, by which to know / thee, we would call the - Devil. / SHAKESPEARE",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Herr Champagner ist mein Leben, / Herr Champagner ist mein Gut, / Matt sind alle - alle Reben / Gen Champagners Zauber-Gluth",
+  "language": [],
+  "musenalm_id": 44959,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Loblied an den Champagner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Loblied an den Champagner",
+  "updated": "2006-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "olb2dgzq4y8us2y",
+      "agents": "wd7yy1894regb5j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.426Z"
+    }
+  ]
+}

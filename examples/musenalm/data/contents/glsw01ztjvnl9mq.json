@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar; Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller s. Textbezug INr 61355, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.741Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61346,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein ist der Helm und mir gehört er zu",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weinrauch del. et sc. Wien",
+  "scans": [
+    "alm_966_61346_utc5x1qnod.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mein ist der Helm und mir gehört er zu",
+  "updated": "2009-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w8654ja8i1b7p2u",
+      "agents": "nhcnwrqiq042uja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.167Z"
+    }
+  ]
+}

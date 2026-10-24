@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "335",
+  "incipit_statement": "Fehlt seinem Tritt ein Pferd / Im Gang auf allen Vieren,",
+  "language": [],
+  "musenalm_id": 111848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 236,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Esthnische Sprüche.] 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jegór von Sives",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Esthnische Sprüche.] 2.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i508a1c9d5u0b7p",
+      "agents": "gpow9s19ygz3th4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.355Z"
+    }
+  ]
+}

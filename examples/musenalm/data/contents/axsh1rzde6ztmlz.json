@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Die glückliche Rettung« von W. G. Becker. # vollst. Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11109,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die glückliche Rettung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. # W. Böhm sc.",
+  "scans": [
+    "alm_206_11109_cth19yqge3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die glückliche Rettung",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g9fbg7onsdpxbax",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.502Z"
+    },
+    {
+      "id": "8gina1sx97tu2o3",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.502Z"
+    }
+  ]
+}

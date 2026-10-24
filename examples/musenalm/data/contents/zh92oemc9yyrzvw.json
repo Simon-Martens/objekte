@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102918,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gott sendet Dich als seine Botinn hin, / die Heiden zu bekehren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Passini sc. Viennae",
+  "scans": [
+    "alm_3378_102918_jbufnb1g3w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gott sendet Dich als seine Botinn hin, / die Heiden zu bekehren",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d0q0kfzuubnvddd",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.081Z"
+    }
+  ]
+}

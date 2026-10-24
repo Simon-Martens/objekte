@@ -1,0 +1,45 @@
+{
+  "annotation": "Abhandlungen und vermischte Aufsätze (Sammlung INr 105522, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Der Recensent der gothaischen gelehrten Zeitung wünscht, da er meinen Aufsatz über die Opern anzeigt, daß die Deutschen weniger an Operetten Geschmack finden möchten, und warum?",
+  "language": [],
+  "musenalm_id": 105531,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber das Aufführen der Opern auf / deutschen Theatern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. A. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber das Aufführen der Opern auf / deutschen Theatern",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a38v81en1b74cxs",
+      "agents": "ql9bbd2ltci2fxo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.059Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.059Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Lebenssinn« von Gutjahr INr 37460, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "346",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37461,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebenssinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Bergt",
+  "scans": [
+    "alm_503_37461_hod754hn50.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lebenssinn",
+  "updated": "2005-03-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5kz301162l2urvw",
+      "agents": "25ubfkw7g6ebn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.898Z"
+    }
+  ]
+}

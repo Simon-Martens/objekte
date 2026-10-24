@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30620, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Schön Aennchen, ohne die Mutter, / Wohin so still und allein?",
+  "language": [],
+  "musenalm_id": 30621,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Schön Aennchen im Walde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ph. H. Welcker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Schön Aennchen im Walde",
+  "updated": "2002-11-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "whnc0jk5sw0hipj",
+      "agents": "c2o5asnj6lueudj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.495Z"
+    }
+  ]
+}

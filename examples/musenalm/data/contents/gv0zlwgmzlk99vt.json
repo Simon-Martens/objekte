@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115704,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sr. Hochgeboren / dem / General-Intendanten der Königlichen / Schauspiele und Kammerherrn / Herrn Grafen von Redern, / Ritter des Rothen Adler-Ordens III. Klasse, / des St. Johanniter-Ordens, Großkreuz des / Stanislaus-Ordens, und Ritter des St. Wladimir- / Ordens IV. Klasse. / in tiefer Verehrung zugeeignet / von / dem Herausgeber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sr. Hochgeboren / dem / General-Intendanten der Königlichen / Schauspiele und Kammerherrn / Herrn Grafen von Redern, / Ritter des Rothen Adler-Ordens III. Klasse, / des St. Johanniter-Ordens, Großkreuz des / Stanislaus-Ordens, und Ritter des St. Wladimir- / Ordens IV. Klasse. / in tiefer Verehrung zugeeignet / von / dem Herausgeber",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wgap3gf00ys1dl3",
+      "agents": "2s3vhf9nlntlu1k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.500Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.500Z"
+    }
+  ]
+}

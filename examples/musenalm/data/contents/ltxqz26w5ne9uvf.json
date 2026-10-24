@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 2. /) ausfaltbare Illustration zu: »Ueber Ziergärten in den Städten, und über das Haus und Garten des B. Caron de Beaumarchais zu Paris« von David Vogel 74520, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht des Hauses vom Garten aus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haldenwang sulp.",
+  "scans": [
+    "alm_3115_74521_y26qiyhsc3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht des Hauses vom Garten aus",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lw3ng1p15ic5lif",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.667Z"
+    }
+  ]
+}

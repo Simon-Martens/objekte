@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Uns schwärmen weit und breit in Lust / Bacchanten und Mänaden?",
+  "language": [],
+  "musenalm_id": 126596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Herbst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Herbst",
+  "updated": "2020-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7j5v8rit4glc8my",
+      "agents": "s6vrgm9x7setd1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.795Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.958Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Einst wird fürwahr Zeus, hab' er noch so starren Sim, / Gebeugt in Demuth; denn zu knüpfen trachtet er / Solch Ehebündnis,",
+  "language": [],
+  "musenalm_id": 26249,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prometheus Trotz / aus dem gef. Prom. des Aeschylos 915-951",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aeschylos; [übers.] J. H. Voß S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prometheus Trotz / aus dem gef. Prom. des Aeschylos 915-951",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dl251uq95rof6nq",
+      "agents": "9q1rj1t9phz8fdv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.195Z"
+    },
+    {
+      "id": "xavwrqin18p4ybu",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.195Z"
+    }
+  ]
+}

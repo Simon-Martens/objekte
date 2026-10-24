@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.191Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26118,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE UNGEHORSAME",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Benedetti del. & sc. Viennae",
+  "scans": [
+    "alm_344_26118_wfm0urhjl4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE UNGEHORSAME",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v7j97a6h77c2wyz",
+      "agents": "c6rsfvf49nz2v5w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.235Z"
+    }
+  ]
+}

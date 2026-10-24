@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel s. Textbezug INr 27947, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.155Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27943,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauentaschenbuch / für das Jahr / 1829, / herausgegeben / von / Georg Döring. / Nürnberg / bei Joh. Leonh. Schrag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hess del. Dalbon sc. Huttula scrpt. sc.",
+  "scans": [
+    "alm_359_27943_chkyn41pz6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1829, / herausgegeben / von / Georg Döring. / Nürnberg / bei Joh. Leonh. Schrag",
+  "updated": "2002-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "in584r4cxntpga8",
+      "agents": "42w3wulg3fl03j4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.224Z"
+    }
+  ]
+}

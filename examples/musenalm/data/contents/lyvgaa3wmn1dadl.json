@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Verehrererin der Sterne, blick' Elise / Zum Himmel um Dein Brautgeschmeid' empor,",
+  "language": [],
+  "musenalm_id": 15134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Eilsen's Vermählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Eilsen's Vermählung",
+  "updated": "2001-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g992z3gi4koej0f",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.737Z"
+    }
+  ]
+}

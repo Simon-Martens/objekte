@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehende Seite INr 81505, Obj 9 /) Illustration zu »Walpi« von Fr. Steinebach INr 81539, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81506,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walpi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer del. Carl Mayer's K. A. in Nbg",
+  "scans": [
+    "alm_1812_81506_5hdqel7ovo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Walpi",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vnyovh72v1of86z",
+      "agents": "512hnx3l2hp6y3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.820Z"
+    },
+    {
+      "id": "z5e3miqsdv0d5w7",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.820Z"
+    }
+  ]
+}

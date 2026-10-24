@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Zur Zeit wie die fromme deutsche Kunst den Rhein entlang blühte, daß der süße Goldschein und Farbnduft …",
+  "language": [],
+  "musenalm_id": 119879,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebesdemuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. H. Graf von Löben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebesdemuth",
+  "updated": "2018-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c2mjhav1lu16vrs",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.555Z"
+    }
+  ]
+}

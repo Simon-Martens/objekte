@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130610,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Forst- und Jagd- / Kalender / Für das Jahr / 1795. / Mit Kupfern. / Leipzig / bei Gebr. Graff",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petermann scul.",
+  "scans": [
+    "alm_1109_130610_ze835ubp0a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Forst- und Jagd- / Kalender / Für das Jahr / 1795. / Mit Kupfern. / Leipzig / bei Gebr. Graff",
+  "updated": "2009-08-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bqrtmmksus8wztn",
+      "agents": "nmh87mne4tvopif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.074Z"
+    }
+  ]
+}

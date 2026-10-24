@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 24185, Obj 168)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.919Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Heulend kam die Erste nur heran, / Lächelnd weinen steht der Zweiten an;",
+  "language": [],
+  "musenalm_id": 24202,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 185,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schleiermacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17.",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6jli2ehtwb0jt5j",
+      "agents": "272r3k0zcaqt41m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.327Z"
+    }
+  ]
+}

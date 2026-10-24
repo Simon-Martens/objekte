@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Wahr ist es, das kleine idyllische Schlangenbad, welches sechs Jahre vorher dem Landgrafen Karl von Hessen-Cassel zu Ehren noch das Karlsbad genannt wurde,",
+  "language": [],
+  "musenalm_id": 64314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aloysia. / Historische Erzählung aus dem Badeleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Henninger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aloysia. / Historische Erzählung aus dem Badeleben",
+  "updated": "2009-05-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jcjrvvij8pthfgx",
+      "agents": "6fj9ilu2sqskj9p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.054Z"
+    }
+  ]
+}

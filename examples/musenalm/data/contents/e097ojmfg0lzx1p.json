@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 28329, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.442Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28330,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Jury f.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury f.",
+  "scans": [
+    "alm_367_28330_g88y45n78k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hfpodh0kt5rtdov",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.099Z"
+    }
+  ]
+}

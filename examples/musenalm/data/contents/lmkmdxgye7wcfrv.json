@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 27659, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.933Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27658,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Götzenberger del. W. Böhm sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Götzenberger del. W. Böhm sc.",
+  "scans": [
+    "alm_354_27658_py5s4ogpga.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k76um4ehaxl5e60",
+      "agents": "k52j0ci4hisa6dc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.332Z"
+    },
+    {
+      "id": "m1ibq8uqkod1zg8",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.332Z"
+    }
+  ]
+}

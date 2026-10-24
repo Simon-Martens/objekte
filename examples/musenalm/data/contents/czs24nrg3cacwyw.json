@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelportrait INr 77126, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Durch eine allereinzige Stelle eines griechischen Schriftstellers kennen wir den Namen einer deutschen Frau, der allen Jahrtausenden wohl klingen wird,",
+  "language": [],
+  "musenalm_id": 77146,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thusnelda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hase",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Thusnelda",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f6glchl4dvllgy4",
+      "agents": "lov7zjtttdvp66e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.625Z"
+    }
+  ]
+}

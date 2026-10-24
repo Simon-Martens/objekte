@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Preciosa« von K. M. v. Weber / P. A. Wolff; s. Textbezug INr 75330, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75331,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PRECIOSA. / IV. Aufz. 10. Sc. / Alonzo. Verzeihung, Vater! / Was ich that, geschah aus Liebe.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. J. Axmann sc.1826",
+  "scans": [
+    "alm_2371_75331_6loc1fekg6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PRECIOSA. / IV. Aufz. 10. Sc. / Alonzo. Verzeihung, Vater! / Was ich that, geschah aus Liebe.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j9pu0f36udymq51",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.789Z"
+    },
+    {
+      "id": "n5it6m7liu1r533",
+      "agents": "eb0uid8s7k1f7eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.789Z"
+    }
+  ]
+}

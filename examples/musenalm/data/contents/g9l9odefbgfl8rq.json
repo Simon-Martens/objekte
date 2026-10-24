@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Daß ich das, schon in dem zweyten Bändchen dieser Schrift angekündigte, Institut der Roßarzney- und Reitkunst nun wirklich hier in Leipzig errichtet habe,",
+  "language": [],
+  "musenalm_id": 85163,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anzeige / für Freunde der Roßarzney- und Reitkunst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. von Tennecker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anzeige / für Freunde der Roßarzney- und Reitkunst",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "535aybj1jbbabc5",
+      "agents": "ngfhgg967qz5l80",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.678Z"
+    }
+  ]
+}

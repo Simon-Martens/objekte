@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Wenn leichtes Gewölk den Himmel bedeckt, und dann plötzlich, jetzt durch weißlich schimmernde Dunststreifen, jetzt durch dunkle Wolkenballen, die Sonne flammt",
+  "language": [],
+  "musenalm_id": 44608,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf und unter der Düne. / Nordfriesische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Willkomm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf und unter der Düne. / Nordfriesische Erzählung",
+  "updated": "2006-08-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "18jedba40tj4rxu",
+      "agents": "b3aavcm0crynmuo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.471Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.471Z"
+    }
+  ]
+}

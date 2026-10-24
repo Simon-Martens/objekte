@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Von tausend Stimmen schon besungen, / In jeder Zone froh genannt,",
+  "language": [],
+  "musenalm_id": 37533,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Hymnus an die Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. W. Bommer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Hymnus an die Liebe",
+  "updated": "2010-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bff5y9wm1gxe384",
+      "agents": "s5myzcuzsygfm34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.734Z"
+    }
+  ]
+}

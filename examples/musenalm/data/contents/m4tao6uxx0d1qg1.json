@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24819, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Zu Mantua in Banden / Der treue Hofer war,",
+  "language": [],
+  "musenalm_id": 24822,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Sandwirth Hofer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Mosen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Sandwirth Hofer",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o8rf6xsxnh9tz57",
+      "agents": "ya686aytqngnsyo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.343Z"
+    }
+  ]
+}

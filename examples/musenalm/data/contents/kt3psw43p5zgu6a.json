@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Gedicht INr 111344, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.549Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111343,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ländliche Unschuld #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lafosse del. C. Preisel sculp.",
+  "scans": [
+    "alm_3459_111343_8z88v319af.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ländliche Unschuld #",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q8sp1tbxnicd2s1",
+      "agents": "jfx6mc31qu17k04",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.269Z"
+    },
+    {
+      "id": "mns5k2il6d92g5e",
+      "agents": "9s6c9wuymvvgbhx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.269Z"
+    }
+  ]
+}

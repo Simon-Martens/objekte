@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zum Beitrag »Der Schwur« von L. M. Büschenthal INr 19503, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19473,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schwur, v. Büschenthal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Schwerdgeburth sc.",
+  "scans": [
+    "alm_264_19473_cju3h0p0qt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Schwur, v. Büschenthal",
+  "updated": "2001-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mzz248d4m71ztzd",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.906Z"
+    },
+    {
+      "id": "suhj53vpdm3tor4",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.906Z"
+    }
+  ]
+}

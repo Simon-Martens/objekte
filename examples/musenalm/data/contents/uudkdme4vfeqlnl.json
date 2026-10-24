@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Tab. II. /) kol. Illustration zu »Der Leithund« von W. F. von der Borch INr 68642, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68641,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Canis venaticus. Der Leit-Hund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas del. G. Boettger sen. sc. 1818",
+  "scans": [
+    "alm_1148_68641_g6nn7x9b4n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Canis venaticus. Der Leit-Hund",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f0jbsau0jpkti3e",
+      "agents": "93i1cvgb16cjfey",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.378Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.378Z"
+    },
+    {
+      "id": "yby0tidv4537ev6",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.379Z"
+    }
+  ]
+}

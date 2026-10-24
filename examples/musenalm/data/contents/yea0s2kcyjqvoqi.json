@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Jüngst, zu nahe bei Naiden, / Sah ich Amorn sein Geschoß / In des Mädchens Augen schmieden:",
+  "language": [],
+  "musenalm_id": 63042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor ein Schmid",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Z.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amor ein Schmid",
+  "updated": "2000-10-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kgm6yti34cj3j3v",
+      "agents": "n4kki21smc12tdq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.153Z"
+    }
+  ]
+}

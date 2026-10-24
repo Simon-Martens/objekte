@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Bei der Annäherung des Frühlings ladet die Natur alle ihre Kinder in ihren großen, magischen Saal, den sie mit Wasserfällen und Blumen, purpurnen, schnell dahineilenden Wolken,",
+  "language": [],
+  "musenalm_id": 77600,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sultan Gherry. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Lüdemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sultan Gherry. / Erzählung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ltper060zg60dpi",
+      "agents": "jqanokpcqaenxu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.554Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.554Z"
+    }
+  ]
+}

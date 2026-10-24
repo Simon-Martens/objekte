@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Februar /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67966,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Königliche Schloss nach Schlüter's Plan",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Stilke del. Jügel sc.",
+  "scans": [
+    "alm_857_67966_410sqhdtjs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Königliche Schloss nach Schlüter's Plan",
+  "updated": "2008-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c66je1rpb2grygs",
+      "agents": "4ht5ezov61cxhie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.344Z"
+    },
+    {
+      "id": "j8torz962pbkf0b",
+      "agents": "flivu8hnh9tq1va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.344Z"
+    }
+  ]
+}

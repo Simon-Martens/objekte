@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechs Distichen über Raphaels, Christus und die Apostel (Sammlung INr 84052, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Nicht der Griffel der Zeit durchfurchte so tief / mir das Antlitz,",
+  "language": [],
+  "musenalm_id": 84054,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Petrus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Petrus",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k7s3kvo2oulgluo",
+      "agents": "lddxtb72o5kmwcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.044Z"
+    }
+  ]
+}

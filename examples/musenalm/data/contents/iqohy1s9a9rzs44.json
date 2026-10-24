@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen des Autors",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Freund der ernsten Vorzeit, walle / Hin mit mir zum engenThale,",
+  "language": [],
+  "musenalm_id": 14323,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Weyer-Schloß. / (Dem Freunde der Steiermark, Castelli, gewidmet.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. v. Kalchberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Weyer-Schloß. / (Dem Freunde der Steiermark, Castelli, gewidmet.)",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tvx4xi6xuninib2",
+      "agents": "h496zc5w34vctbd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.640Z"
+    }
+  ]
+}

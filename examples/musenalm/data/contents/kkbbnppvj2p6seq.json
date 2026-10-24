@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Mit seines Hofes glänzendem Geleite / Kam einst an einem Gallatag",
+  "language": [],
+  "musenalm_id": 3837,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Karl der Zweite und Milton",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Karl der Zweite und Milton",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gfju1288mxxir90",
+      "agents": "h8teagsnwe3omy2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.080Z"
+    }
+  ]
+}

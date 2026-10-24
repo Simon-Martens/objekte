@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Ste. 110. /) Illustration zu »Der Troubadour« von K. Geib INr 62757, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62758,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Troubadour",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff gez. Fleischm. gest.",
+  "scans": [
+    "alm_1028_62758_070zuklr35.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Troubadour",
+  "updated": "2009-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a8aiyatozpioeq7",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.946Z"
+    },
+    {
+      "id": "4gte1om8aosvu1e",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.946Z"
+    }
+  ]
+}

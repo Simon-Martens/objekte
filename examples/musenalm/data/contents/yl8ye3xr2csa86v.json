@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 27378-27383, Obj 105-110",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.205Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "255",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Trinius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blumen",
+  "updated": "2002-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nja1th9ojnseosf",
+      "agents": "r4o522ozdhhdj78",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.237Z"
+    }
+  ]
+}

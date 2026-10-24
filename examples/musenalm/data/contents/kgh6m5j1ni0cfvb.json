@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Titel (INr 124592, Obj 3): mit einer kol. Illustration (INr 124597, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Ach! sie ist schon auf; da wird sie wohl bald mit ihrm Kummer und Gram in freyer Luft erscheinen, vor Langeweile gähnen, und sich dabei einbilden, sie seufze über ihr trauriges Loos.",
+  "language": [],
+  "musenalm_id": 124596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haß für Haß. / Ein Lustspiel in einem Akt. / Nach dem Französischen frei bearbeitet",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz August von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Haß für Haß. / Ein Lustspiel in einem Akt. / Nach dem Französischen frei bearbeitet",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ff7nporbcikmww1",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.740Z"
+    }
+  ]
+}

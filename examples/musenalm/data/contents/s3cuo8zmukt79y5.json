@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung am letzten Blatt der Suite. Graphik im Kalendarium paginiert 3",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Umwunden mit Trauben schmückt der Herbst die fröhlige Stirn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R. f.",
+  "scans": [
+    "alm_165_7730_ixwkj3ie4m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Umwunden mit Trauben schmückt der Herbst die fröhlige Stirn",
+  "updated": "2000-12-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2k0hmm29qeqis9l",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.278Z"
+    }
+  ]
+}

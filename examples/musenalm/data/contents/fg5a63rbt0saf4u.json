@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) Graphik im Kalendarium August /) Illustration zu »Geschichte der Stadt Breslau« von Karl Adolf Menzel INr 72534, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72529,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Rathaus zu Breslau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. v. Grossmann del. J. B. Hössel sc.",
+  "scans": [
+    "alm_859_72529_x1affxp8bf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Rathaus zu Breslau",
+  "updated": "2008-07-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0vlvaweavw0w6rp",
+      "agents": "vmadsuai90domb8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.735Z"
+    },
+    {
+      "id": "wgai3pg5tpbs8uc",
+      "agents": "t4wlsbli26ob7y0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.735Z"
+    }
+  ]
+}

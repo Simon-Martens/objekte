@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Ich des Oceanus Sohn schlug diesen Felsen, / und schäumend / Braus'te mein Strom in das Thal.",
+  "language": [],
+  "musenalm_id": 92445,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Punsch. / Achelous, Bacchus und Vertumnus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Punsch. / Achelous, Bacchus und Vertumnus",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7j1q62xbyn2pjuu",
+      "agents": "uxrssb0qlf0ghgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.388Z"
+    }
+  ]
+}

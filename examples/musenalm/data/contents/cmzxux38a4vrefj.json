@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Ueberwunden hast du, kleiner Engel, / Schläfst so ruhig hier.",
+  "language": [],
+  "musenalm_id": 5979,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Andenken meiner Betty",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline von der Lühe, geb. v. Brandenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Andenken meiner Betty",
+  "updated": "2000-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ghsv2374e58jqzm",
+      "agents": "onngiedfb9nax3f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.145Z"
+    }
+  ]
+}

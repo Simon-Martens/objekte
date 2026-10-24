@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Halcyone« von G. A. E. von Nostiz-Jänkendorf INr 11783, Obj 32 (Photo 11784,01; 11784,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11784,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Halcyone",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_208_11784_01_9xb1jzpw1e.jpg",
+    "alm_208_11784_02_j489i9t6lb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Halcyone",
+  "updated": "2001-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rmi6c1io8nil7g8",
+      "agents": "ubitdekwc4vpg28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.439Z"
+    }
+  ]
+}

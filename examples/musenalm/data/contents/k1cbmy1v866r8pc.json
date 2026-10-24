@@ -1,0 +1,45 @@
+{
+  "annotation": "Übersetzung des Pseudo Turpin: Joh. Turpinus , Archiepiscopi Remensis, Historia de vita Caroli M. et Rolandi in: Johann Reubers Vett. Scrppt. cur G. C. Johannis, Franc. ad Moen. 1726",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Turpinus, durch die Huld des Herrn Erzbischof von Rheims, und ein treuer Gefährte des großen Kaisers Carl auf seinen Zügen in Hispanien, wünscht dem Decan Leoprandus in Aachen Gruß von Gott.",
+  "language": [],
+  "musenalm_id": 43567,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Des Johannes Turpinus, Erzbischofs zu Rheims, Erzählung vom Leben Carls des Großen und Rolands, in einem Schreiben an den Decan Leoprand in Aachen]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "[übers.] Eduard Hufnagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Des Johannes Turpinus, Erzbischofs zu Rheims, Erzählung vom Leben Carls des Großen und Rolands, in einem Schreiben an den Decan Leoprand in Aachen]",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ojtnarn6hm50dbi",
+      "agents": "fsthx6rgk9lzsy9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.316Z"
+    }
+  ]
+}

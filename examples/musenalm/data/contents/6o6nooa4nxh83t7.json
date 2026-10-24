@@ -1,0 +1,46 @@
+{
+  "annotation": "Vertonung des Gedichts »Sommerruh« von C. Schad in Musenalmanach, Deutscher (Schad) 1850, alm-2297; INr 99393 /) ein erster Druck der Schumannschen Vertonung ebenfalls in: Musenalmanach, Deutscher (Schad) 1850, alm-2297; INr 99419 /) Photos 100330,01; 100330,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100330,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 270,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sommerruh",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Schumann",
+  "scans": [
+    "alm_2304_100330_01_kg5ld01h0r.jpg",
+    "alm_2304_100330_02_o9cdslp0nq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sommerruh",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eor0garmzpcgd39",
+      "agents": "p1nj3wqrop1ks7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.861Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Erste Liebe (Sammlung INr 95932, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Es ist mit Stern und Orden / Die Lieb beschenket worden,",
+  "language": [],
+  "musenalm_id": 95939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. Orden der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. Orden der Liebe",
+  "updated": "2014-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ve9a72f7ifel64",
+      "agents": "98q4i55rpu2zkyi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.685Z"
+    }
+  ]
+}

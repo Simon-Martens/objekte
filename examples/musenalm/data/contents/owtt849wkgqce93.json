@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Der mächtige Hammer« von A. G. Eberhard INr 13626, Obj 60",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79099,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 174,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der mächtige Hammer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_218_79099_bnpzbn2xo2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der mächtige Hammer",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jhittaj3448o9i6",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.993Z"
+    }
+  ]
+}

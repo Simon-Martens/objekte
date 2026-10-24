@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Be thou as chaste as ice, as pure as snow, / thou shalt not escape calumny.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Karl's VII. Geburt fiel bekanntlich in jene wild verworrene, durch Unthaten, vor deren bloßen Namen die Enkel jetzt zurückschaudern, bezeichnete Zeit,",
+  "language": [],
+  "musenalm_id": 2001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Margaretha von Schottland. / Historische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johanna Schopenhauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Margaretha von Schottland. / Historische Novelle",
+  "updated": "2000-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aonp0owqw31gp97",
+      "agents": "ms9iodhebw7wz0l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.967Z"
+    }
+  ]
+}

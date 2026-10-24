@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar paginiert 1. s. Textbezug INr 66283, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66269,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich bin nicht, um müßig zu seyn, sondern / um zu arbeiten zum Kaiser erwählt. / Ferdinand I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1797",
+  "scans": [
+    "alm_1123_66269_dgmh1v365z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich bin nicht, um müßig zu seyn, sondern / um zu arbeiten zum Kaiser erwählt. / Ferdinand I.",
+  "updated": "2009-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b3sg4ds2nscuu0j",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.990Z"
+    }
+  ]
+}

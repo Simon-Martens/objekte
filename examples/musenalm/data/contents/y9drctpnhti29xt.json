@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember; Illustration zu »Alinen's Jugendjahre« INr 59106, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59102,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Novelle Seite 207",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Marohn gest. v. C. Funke",
+  "scans": [
+    "alm_876_59102_kp5736y9yj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Novelle Seite 207",
+  "updated": "2008-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3p0y1oagbrl4b9y",
+      "agents": "blk0bwibfqnyvz6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.774Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.774Z"
+    },
+    {
+      "id": "onv6sdbjfmkswfw",
+      "agents": "rmisreoufpo232j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.774Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.774Z"
+    }
+  ]
+}

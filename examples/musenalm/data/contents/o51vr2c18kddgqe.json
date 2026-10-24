@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Habe deine Lust, o Jugend, / Immer gern / An dem Herrn, / Und dem Reiz der Tugend!",
+  "language": [],
+  "musenalm_id": 8127,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pflicht der Jugend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Löwen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pflicht der Jugend",
+  "updated": "2000-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i84dz92pm3chsx7",
+      "agents": "d9adsrmbhk70tpd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.987Z"
+    }
+  ]
+}

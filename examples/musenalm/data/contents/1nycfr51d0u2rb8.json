@@ -1,0 +1,58 @@
+{
+  "annotation": "Bilderchronik der theatralischen Zeiterscheinungen (Sammlung INr 77292, Obj 7) Illustration zu »Hans Sachs« von J. L. F. Deinhardstein s. Textbezug INr 77295, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.635Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77296,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans Sachs von Deinhardstein. / Act I. Scene 13",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. J. Axmann sculp.",
+  "scans": [
+    "alm_2402_77296_t36clwvkh1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hans Sachs von Deinhardstein. / Act I. Scene 13",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vchkj1l43ljxde0",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.538Z"
+    },
+    {
+      "id": "ra6tk3yroumvubd",
+      "agents": "eb0uid8s7k1f7eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.538Z"
+    }
+  ]
+}

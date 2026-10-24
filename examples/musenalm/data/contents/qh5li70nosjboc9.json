@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Charaden und Logogryphen (Sammlung INr 22746, Obj 104)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "365",
+  "incipit_statement": "Du selbst Du wirst es seyn, / Ich wette das trifft ein,",
+  "language": [],
+  "musenalm_id": 22750,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4) Logogryph",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4) Logogryph",
+  "updated": "2002-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cko359vtaq1qlp3",
+      "agents": "utw4utrm977hsx5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.074Z"
+    }
+  ]
+}

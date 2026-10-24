@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Wie fern diß Schauspiel lehrreich ist, / Das könnt ihr Leutchen nicht begreifen?",
+  "language": [],
+  "musenalm_id": 21461,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / lehrreiche Schauspiel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weißer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / lehrreiche Schauspiel",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g55qimjelqndii2",
+      "agents": "teyd4hg5cxxyi5t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.161Z"
+    }
+  ]
+}

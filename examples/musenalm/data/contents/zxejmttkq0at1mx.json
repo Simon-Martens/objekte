@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Des Stifters Mild' ist lobenswerth, / Die hier ein Dutzend Narren nährt;",
+  "language": [],
+  "musenalm_id": 5430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueberschrift zu einem Narrenspital",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler d. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueberschrift zu einem Narrenspital",
+  "updated": "2000-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k4u8au6khco392v",
+      "agents": "60dpq63kk6xup5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.071Z"
+    }
+  ]
+}

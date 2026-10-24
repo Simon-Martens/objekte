@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Glücklich nenn' ich, Elisa, den der oftmals / Gegenüber dir sizt, und deine Stimme / hört",
+  "language": [],
+  "musenalm_id": 6178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Elisa. / 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Elisa. / 1785",
+  "updated": "2000-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "glhz3cz2jf0ft0m",
+      "agents": "4iaot4jwwlq6r5e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.109Z"
+    }
+  ]
+}

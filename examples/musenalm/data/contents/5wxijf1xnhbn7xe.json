@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Wie blickt so blaß, so freundlich / Die Sonne zu mir her!",
+  "language": [],
+  "musenalm_id": 75841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ahndung. / An Elisen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. T. Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ahndung. / An Elisen",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2k1mkffms9gdu79",
+      "agents": "nz3ytz19v6fnz1k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.466Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.466Z"
+    }
+  ]
+}

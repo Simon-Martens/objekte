@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite /) Graphik im Kalendarium Dezember /)  Illustration zu »Geschichte der Bartholomäusnacht oder der Bluthochzeit zu Paris« INr 68912, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68908,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heinrich der Dritte. / Henri trois",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et fec. 1797 # M. Haas",
+  "scans": [
+    "alm_834_68908_ihv89gkgfw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Heinrich der Dritte. / Henri trois",
+  "updated": "2008-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gfxabzq8pez53mk",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.342Z"
+    },
+    {
+      "id": "a2kns1j0ualdpsz",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.342Z"
+    }
+  ]
+}

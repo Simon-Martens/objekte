@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Rettung« von A. Schreiber INr 62671, Obj 27; s.a. Textbezug INr 62654, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62670,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rettung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Heideloff. Ant. Karcher sc.",
+  "scans": [
+    "alm_1027_62670_n8othggcy0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Rettung",
+  "updated": "2009-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j9zndjzan3zhr5x",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.909Z"
+    },
+    {
+      "id": "a5ziliam7xpvdac",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.909Z"
+    }
+  ]
+}

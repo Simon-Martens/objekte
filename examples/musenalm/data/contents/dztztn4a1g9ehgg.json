@@ -1,0 +1,47 @@
+{
+  "annotation": "s. vorstehenden Textbezug »Karoline Bauer« INr 102873, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "368",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102874,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Fr. Stöber gest. in Stahl Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Stöber gest. in Stahl Wien",
+  "scans": [
+    "alm_3375_102874_bijpv8yk5f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mnnrbp7qkw4jwo2",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.889Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.889Z"
+    }
+  ]
+}

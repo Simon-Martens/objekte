@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 103093, Obj 19 /) unter der Graphik: Stich u. Druck durch Kunst-Verlag Creuzbauer in Carlsruhe",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103092,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ALLAN Mc. AULAY",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horace Vernet pinx. Frommel direx.",
+  "scans": [
+    "alm_3407_103092_z9eg8ibr0r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ALLAN Mc. AULAY",
+  "updated": "2010-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9wvpe86bw9qa2eo",
+      "agents": "qsg6gjxqebsoibo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.014Z"
+    },
+    {
+      "id": "mtq95fmifs4y4co",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.014Z"
+    }
+  ]
+}

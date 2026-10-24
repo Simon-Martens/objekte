@@ -1,0 +1,43 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 37606, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Traulich kommt zu dem Freund' ihr Freunde, / Eine Freundinn gesellt am Arm.",
+  "language": [],
+  "musenalm_id": 37607,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Junius.] / Die Rosenfeier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "VOSS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Junius.] / Die Rosenfeier",
+  "updated": "2005-04-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jd37tr7hc3mnz3b",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.094Z"
+    }
+  ]
+}

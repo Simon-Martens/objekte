@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Freund, / in der Jahreszahl schreiben wir, / Statt einer drey nun eine vier.",
+  "language": [],
+  "musenalm_id": 8727,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn St** in O** / Zum neuen Jahre 1774",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sprickmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn St** in O** / Zum neuen Jahre 1774",
+  "updated": "2001-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xw84z7da7oxc7l1",
+      "agents": "9p4t51qtb5vwvkk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.296Z"
+    }
+  ]
+}

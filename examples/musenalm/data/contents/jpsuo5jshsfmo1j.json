@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Triumph, ihr Enkel Teuts! Der mächti- / gen Theresen, / (So sang der Barde Ryno) erster Sohn,",
+  "language": [],
+  "musenalm_id": 847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied des Barden Ryno, des / Sohns Toskar, vom Kaiser / Joseph",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dusch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied des Barden Ryno, des / Sohns Toskar, vom Kaiser / Joseph",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o6hzxuj0iwl33kx",
+      "agents": "sj3hkisi27fgej3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.789Z"
+    }
+  ]
+}

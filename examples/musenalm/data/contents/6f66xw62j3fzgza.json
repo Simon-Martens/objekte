@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Himmlische Träume müssen dich umschweben; / Engel die Stätte weihen, wo du schlum- / merst!",
+  "language": [],
+  "musenalm_id": 4468,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Selina",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Schmidt-Phiseldek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Selina",
+  "updated": "2000-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rkdnjr3jfzcyvfg",
+      "agents": "ex0h5d47i0ltdl2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.955Z"
+    }
+  ]
+}

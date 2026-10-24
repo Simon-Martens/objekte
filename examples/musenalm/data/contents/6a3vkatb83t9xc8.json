@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Walter Scott's Werken. Sechste Lieferung. Robin der Rothe. - Der Alterthümler. - Die Presbyterianer. - St. Ronansbrunnen. Das Herz von Midlothian (Sammlung INr 43754, Obj 5) s. Graphik INr 43766, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Wir sehen die Hauptpersonen eines mehr verletzenden als befriedigenden Romans in dem Bilde vor uns, welches der Künstler als das alleinige aus dem düstern und wilden Gedränge von Scenen auswählte.",
+  "language": [],
+  "musenalm_id": 43765,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der St . Ronans-Brunnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der St . Ronans-Brunnen",
+  "updated": "2006-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "20hjidlh31uil3z",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.131Z"
+    }
+  ]
+}

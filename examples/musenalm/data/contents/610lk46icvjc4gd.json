@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 34290, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34289,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwur der Horatier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "David pinx. Lambert sculp.",
+  "scans": [
+    "alm_477_34289_uuyj6xx595.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schwur der Horatier",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "81zz7jnx92zrzo5",
+      "agents": "0n71y8hs79tvb3k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.215Z"
+    }
+  ]
+}

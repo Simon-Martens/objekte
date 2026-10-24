@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Tändeleien (Sammlung INr 29047, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "O nur die erste Sylbe sprich, / So wird bei mir die viert' und dritte",
+  "language": [],
+  "musenalm_id": 29059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / An Wilhelmine. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / An Wilhelmine. / Charade",
+  "updated": "2002-10-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vxhkrc5qi3g3quo",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.298Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35086, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.938Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Wie prangt im Frühlingskleide / Die bunte grüne Welt!",
+  "language": [],
+  "musenalm_id": 35089,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Himmelfahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. M. Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Himmelfahrt",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "41xnotiw3o15up7",
+      "agents": "qab571spaxuq9fk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.434Z"
+    }
+  ]
+}

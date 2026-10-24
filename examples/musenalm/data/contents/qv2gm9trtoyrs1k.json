@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) Illustration zu »Apollo« von K. Ph. Moritz INr 91527, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Carstens del. D. Berger sc. 1791)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carstens del. D. Berger sc. 1791",
+  "scans": [
+    "alm_4074_91526_r3f0v697sg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "662ofsr94pfxfej",
+      "agents": "g3hedbg3ghoqo3o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.245Z"
+    },
+    {
+      "id": "s3e1u4918875zkq",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.245Z"
+    }
+  ]
+}

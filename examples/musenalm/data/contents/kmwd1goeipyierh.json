@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Daß deine Phyllis mit dir bricht; / Ihr Wort dir wieder nimmt,",
+  "language": [],
+  "musenalm_id": 13292,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost an Freund Leander",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. A. W. v. Kyaw",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trost an Freund Leander",
+  "updated": "2001-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a4p7z3nju2h16ex",
+      "agents": "3euwjw9rlb5537y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.552Z"
+    }
+  ]
+}

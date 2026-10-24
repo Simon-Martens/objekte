@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 19703, Obj 124",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "398",
+  "incipit_statement": "Der Wein, der wird gebohren / Auf Bergen hoch und schön;",
+  "language": [],
+  "musenalm_id": 19676,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied vom Weine. / Mit Musik von Methfessel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied vom Weine. / Mit Musik von Methfessel",
+  "updated": "2001-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xoyn8h4drk4y3xv",
+      "agents": "ijn3e3gugtz46hh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.984Z"
+    }
+  ]
+}

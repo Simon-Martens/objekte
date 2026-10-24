@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 102334, Obj 140)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Nicht still siehst du den Strom der Zeit / An dir vorüber schwimmen,",
+  "language": [],
+  "musenalm_id": 102340,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 146,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Die Stimmen der Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Waldow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Die Stimmen der Zeit",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0npp5k81pb4lqpe",
+      "agents": "nicecucaceak00n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.723Z"
+    }
+  ]
+}

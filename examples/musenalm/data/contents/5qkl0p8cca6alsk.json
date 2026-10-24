@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Kleines Diebchen meiner Nüsse, / Du bist glücklicher, als ich!",
+  "language": [],
+  "musenalm_id": 4412,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Nelly's Eichhörnchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Engelschall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Nelly's Eichhörnchen",
+  "updated": "2000-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0fvbxp524djfh6a",
+      "agents": "vurjmtt5tprr0cw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.182Z"
+    }
+  ]
+}

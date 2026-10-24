@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 37235-37237, Obj 197-181 /) X. Vermischte Gedichte (Sammlung INr 1871, Obj 153)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.495Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "426",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1659,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 178,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Weihnacht. / An Otto v. d. Malsburg. / Mit einem blühenden Orangenbaum",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Weihnacht. / An Otto v. d. Malsburg. / Mit einem blühenden Orangenbaum",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2p8cdqew64617ke",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.641Z"
+    }
+  ]
+}

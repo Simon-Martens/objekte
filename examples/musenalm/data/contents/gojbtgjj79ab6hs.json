@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44572,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinisches / Taschenbuch / 1856",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Zwecker gez. W. J. Cooke gest.",
+  "scans": [
+    "alm_609_44572_8j5zr1zeh8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / 1856",
+  "updated": "2006-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f60p30tvphkdw8k",
+      "agents": "usgtr6dipvre26m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.438Z"
+    },
+    {
+      "id": "z18ylelp28pzppi",
+      "agents": "uohs1l6y8ng1p96",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.438Z"
+    }
+  ]
+}

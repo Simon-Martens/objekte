@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "O unendliche Liebe! O Vater der Sterblichen! O Erbarmer Aller, die Dich anrufen! Endlich erheben wir unserer Herzen zu Dir,",
+  "language": [],
+  "musenalm_id": 60413,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV. / Gebeth der ausgewanderten Fran- / zosen. 1792. / (Aus des verstorbenen Lavaters Nachlaß, / und von ihm aus dem Französischen / übersetzt.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lavater",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV. / Gebeth der ausgewanderten Fran- / zosen. 1792. / (Aus des verstorbenen Lavaters Nachlaß, / und von ihm aus dem Französischen / übersetzt.)",
+  "updated": "2008-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k9d452z8b2he6x5",
+      "agents": "adxjhf2nm1jjsuh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.781Z"
+    }
+  ]
+}

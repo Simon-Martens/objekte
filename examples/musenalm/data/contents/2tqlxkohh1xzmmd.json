@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Amalgunde, Kaiser Adolphs von Nassau erste Geliebte« INr 48377, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.460Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48333,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AMALGUNDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. Schmidt sc.",
+  "scans": [
+    "alm_659_48333_blgkl6klql.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AMALGUNDE",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3yqlk1bknz1pzg4",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.504Z"
+    },
+    {
+      "id": "cxhctpe50mi21xs",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.504Z"
+    }
+  ]
+}

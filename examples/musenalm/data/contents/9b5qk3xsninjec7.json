@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Der Doktor Medendus kam, ungemein vergnügt, nach Hause. Zwei hoffnungslose Kranke hatten sich, zu seinem Erstaunen, während der Nacht plötzlich erholt und den Tod überwunden,",
+  "language": [],
+  "musenalm_id": 75077,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Der Puppensegen. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schilling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Der Puppensegen. / Erzählung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qaffggp9mqg91c0",
+      "agents": "tiijnij1nbeebby",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.726Z"
+    }
+  ]
+}

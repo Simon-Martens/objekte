@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Von Blumen zu Blumen der Schmetterling flog, / Viel würzige Düfte aus ihnen er sog, / Das naschende Vöglein sich nirgens betrog.",
+  "language": [],
+  "musenalm_id": 129426,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das Ephemerchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Freih. v. Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das Ephemerchen",
+  "updated": "2011-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k1lzjlqenbhqbt1",
+      "agents": "otquhrfmf15x6tw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.014Z"
+    }
+  ]
+}

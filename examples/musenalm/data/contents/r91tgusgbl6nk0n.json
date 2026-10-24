@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54835,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Storz sct. Genelli fet.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Storz sct. Genelli fet.",
+  "scans": [
+    "alm_18_54835_jo3bunu8zz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mbvvafheumn97ua",
+      "agents": "ghlfkh6fncgx0ug",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.692Z"
+    },
+    {
+      "id": "c2lcocs5svawept",
+      "agents": "lq4nkmh5p7o1pxv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.692Z"
+    }
+  ]
+}

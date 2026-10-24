@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 90502-90505, Obj 98-101",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mondlandschaft am Traunsee. / Sonette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Kaltenbrunner. (Linz.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mondlandschaft am Traunsee. / Sonette",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "emc380crbjp4i95",
+      "agents": "roqd4m2swedwv3j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.267Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Wie oft ein Nam' auf kaltem Leichensteine / Wohl auch den raschen Wandrer hält zurück",
+  "language": [],
+  "musenalm_id": 22896,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / In ein Stammbuch. / nach Byron",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Philippi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / In ein Stammbuch. / nach Byron",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1vk8plqfg2qpxfn",
+      "agents": "03ne3lu95zmw8rf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.095Z"
+    }
+  ]
+}

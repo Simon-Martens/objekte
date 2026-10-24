@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April; Illustration zu »Der Opfertod« von Friedrich Dornau INr 134379, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 134368,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eveline",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. Jung sc.",
+  "scans": [
+    "alm_1916_134368_ecs8owgxj0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eveline",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2l4tvioasjt32fg",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.124Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.124Z"
+    }
+  ]
+}

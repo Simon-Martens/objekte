@@ -1,0 +1,48 @@
+{
+  "annotation": "Tänze mit Musik herausgegeben von Herrn Lauchery Königl. Balletmeister und Solo-Tänzer (Sammlung INr 20571, Obj 110) (Photos 20583,01; 20583,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20583,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Les Pages de Vendomes, VI",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [
+    "alm_271_20583_01_0catgxkm6z.jpg",
+    "alm_271_20583_02_a3tml5to2h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Les Pages de Vendomes, VI",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pipbjrl7c0lpk9l",
+      "agents": "czigb25jnrfsy98",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.839Z"
+    }
+  ]
+}

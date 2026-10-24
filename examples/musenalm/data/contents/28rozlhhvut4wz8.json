@@ -1,0 +1,45 @@
+{
+  "annotation": "Heilige Gemälde (Sammlung INr 27592, Obj 143)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Wer rastet dort auf öder Sandesstelle / Am dürren Strauch, in heißer Mittagsschwüle?",
+  "language": [],
+  "musenalm_id": 27596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 146,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Ruhe auf der Flucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Ruhe auf der Flucht",
+  "updated": "2002-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h3tsrghl59op01n",
+      "agents": "2hig42wpgako8md",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.317Z"
+    }
+  ]
+}

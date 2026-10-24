@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert VI. Illustration zu »Scenen aus der Familie Ehrenberg.  2. Die Jubelhochzeit« INr 47806, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47749,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stehe, du Sinnbild deutscher Redlichkeit und sey / ein Denkmal für die Nachwelt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. W. Böhm sc.",
+  "scans": [
+    "alm_651_47749_6g0k9iia5f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Stehe, du Sinnbild deutscher Redlichkeit und sey / ein Denkmal für die Nachwelt",
+  "updated": "2007-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cea0mg9sv8t9z9g",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.571Z"
+    },
+    {
+      "id": "r744wuhdytiikaz",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.571Z"
+    }
+  ]
+}

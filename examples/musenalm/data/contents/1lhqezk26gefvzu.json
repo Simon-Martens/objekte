@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "O Freund, wie selig ist der Mann zu preisen, / Dem kein Getümmel, dem kein schwirrend / Eisen,",
+  "language": [],
+  "musenalm_id": 92463,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Landleben. / An Ramler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kleist",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Landleben. / An Ramler",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h9v5l8em3a8vuwj",
+      "agents": "8pyn3ffhglggkdl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.439Z"
+    }
+  ]
+}

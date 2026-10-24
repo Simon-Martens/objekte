@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96697, Obj 22 /) mit 4 Illustrationen s. Graphiken im Kalendarium INr 96683-96686; Obj 8-11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Ein achtzigjährige Greis pflanzt / einen Lindenbaum. / Der Mann ist kindisch; noch am / Rande des Grabes, pflanzen?",
+  "language": [],
+  "musenalm_id": 96696,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Greis und die drey / Jünglinge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Greis und die drey / Jünglinge",
+  "updated": "2014-05-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sbk8w000ibqq9mc",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.832Z"
+    }
+  ]
+}

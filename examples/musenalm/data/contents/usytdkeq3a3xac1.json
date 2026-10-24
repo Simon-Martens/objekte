@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Wer nicht einen weichen Busen / Ein verschwieg'nes Leiden trägt, / Wen der Klageton der Musen / Mit zur Traurigkeit bewegt;",
+  "language": [],
+  "musenalm_id": 83720,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Amanada",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Stägemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Amanada",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dod71a6a8xmhg8n",
+      "agents": "3otd6uv72ls66y4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.031Z"
+    }
+  ]
+}

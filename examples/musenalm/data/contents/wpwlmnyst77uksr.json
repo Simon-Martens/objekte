@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 109880, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Mädchen! soll ich Glück dir künden, / Sollst du meinen Worten trau'n, / Muß ich selbst mein Glück erst finden,",
+  "language": [],
+  "musenalm_id": 109881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Das Zigeunermädchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Roswitha",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Das Zigeunermädchen",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u75joqw4kmbex2h",
+      "agents": "3xtuaei5ajd8iii",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.090Z"
+    }
+  ]
+}

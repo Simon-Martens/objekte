@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung 23125, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Da die Königreiche noch klein waren, und nicht größer werden wollten, lebten die Könige recht freundschaftlich mit einander,",
+  "language": [],
+  "musenalm_id": 11766,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Der Prinz Bambu und die Prinzessin / Zoraide. / Ein Mährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Der Prinz Bambu und die Prinzessin / Zoraide. / Ein Mährchen",
+  "updated": "2001-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "scqhiyj75nk96v3",
+      "agents": "5uss88okhpw2gvm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.493Z"
+    }
+  ]
+}

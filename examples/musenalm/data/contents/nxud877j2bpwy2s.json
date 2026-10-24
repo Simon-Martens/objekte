@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik v.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34644,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Litho von L. Zertahelly, München)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Litho von L. Zertahelly, München",
+  "scans": [
+    "alm_481_34644_zd2fuzokpq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c82tr06oigmwjl3",
+      "agents": "4g015wc474jdxsd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.704Z"
+    }
+  ]
+}

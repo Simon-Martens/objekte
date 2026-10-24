@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 22905, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.639Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Mit meiner Mutter jung geworden, / werd' ich auch wieder mit ihr alt,",
+  "language": [],
+  "musenalm_id": 22921,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8snz2focdgsewlw",
+      "agents": "03ne3lu95zmw8rf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.794Z"
+    }
+  ]
+}

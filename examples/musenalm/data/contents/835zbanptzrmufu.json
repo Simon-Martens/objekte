@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Zwei Männer stiegen von der Wasserstadt langsam und sichtlich ermüdet durch den heißen Augustmorgen den Berg hinauf,",
+  "language": [],
+  "musenalm_id": 43942,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Siegsmunds Hof. / Historisches Gemälde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Blumenhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Siegsmunds Hof. / Historisches Gemälde",
+  "updated": "2006-06-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zwvt2zipufwiggy",
+      "agents": "7qi9w7fd9odbdoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.190Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.190Z"
+    }
+  ]
+}

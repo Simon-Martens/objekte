@@ -1,0 +1,45 @@
+{
+  "annotation": "XXII. Chemische Kunststücke (Sammlung INr 84711, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Eine geschwinde und schöne Vegetation gibt der Todtenkopf vom Scheidewasser.",
+  "language": [],
+  "musenalm_id": 84712,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blasche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yumt30itlxx4iy8",
+      "agents": "7h5ljocv7u3xkmf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.140Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.140Z"
+    }
+  ]
+}

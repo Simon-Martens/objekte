@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Februar paginiert 2. s. Textbezug INr 66284, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66270,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kurfürst Gebhard von Köln, wird wegen / seiner Religion und Heyrath vertrieben. 1583",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1797",
+  "scans": [
+    "alm_1123_66270_y7x67uqekp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kurfürst Gebhard von Köln, wird wegen / seiner Religion und Heyrath vertrieben. 1583",
+  "updated": "2009-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3seq85dexvr64y2",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.990Z"
+    }
+  ]
+}

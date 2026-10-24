@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 95857, Obj 11) s. Graphik im Kalendarium INr 95856, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Das Noth- und Hülfsbüchlein ist zu merkwürdig und zu wohlthätig, als daß man bey dem Rückblicke auf das verflossene Jahrhundert sie nicht bemerken, und in einem Taschenbuche zur Beförderung der Liebe zum Teutschen Vaterlande ihrer nicht Erwähnung",
+  "language": [],
+  "musenalm_id": 95863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Noth- und Hülsbüchlein / erscheint",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Noth- und Hülsbüchlein / erscheint",
+  "updated": "2014-04-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wktjt7dnmzfowi1",
+      "agents": "zta4jxuxzdm872n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.519Z"
+    }
+  ]
+}

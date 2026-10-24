@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63487, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Es geschah einst, daß sich allerley seltsame Erscheinungen zeigten, worüber die Menschen besorgt wurden,",
+  "language": [],
+  "musenalm_id": 63491,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Parabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Parabel",
+  "updated": "2009-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g9yhqjnbbt2c81l",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.076Z"
+    }
+  ]
+}

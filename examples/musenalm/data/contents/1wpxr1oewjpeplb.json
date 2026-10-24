@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. und Titel aus dem G-Verz und den Beiträgen INr 82913, 82922; Obj 4, 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82923,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Himmelfahrt Mariä #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Guido Reni, Prof. Heß",
+  "scans": [
+    "alm_3072_82923_yeuxcd34rs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Himmelfahrt Mariä #",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o1vz44ibk9is4xb",
+      "agents": "azlvdz0ge43hlgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.954Z"
+    },
+    {
+      "id": "iy2mytnruwivd01",
+      "agents": "dvhp1mfxgvurunq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.954Z"
+    }
+  ]
+}

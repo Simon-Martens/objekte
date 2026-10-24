@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Kannst du dir das Bild nicht deuten, / Wenn der See vor'm Auge ruht,",
+  "language": [],
+  "musenalm_id": 70993,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kölle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der See",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "57xkxd213zcyain",
+      "agents": "c98kgeq0jg98qoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.395Z"
+    }
+  ]
+}

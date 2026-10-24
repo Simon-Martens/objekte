@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Sanft glitt mein Schifflein auf dem See / Zum Eiland hin, zum grünen dunkeln,",
+  "language": [],
+  "musenalm_id": 100085,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Insel St.Pierre. / (Bielersee.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Balthasar Reber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Insel St.Pierre. / (Bielersee.)",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zzg5crsod577bbn",
+      "agents": "dzhprhqu0sih6o6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.881Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.881Z"
+    }
+  ]
+}

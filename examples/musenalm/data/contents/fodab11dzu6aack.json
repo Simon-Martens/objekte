@@ -1,0 +1,45 @@
+{
+  "annotation": "Winter (Sammlung INr 23293, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Da unsere neue Zaarin, liebe Mit-Unterthanen und Erdsassen, sich erst um 8 Uhr 15 Minuten 2 Sekunden zu uns erhebt: so kann ich vorher ein vernünftiges Wort mit euch reden.",
+  "language": [],
+  "musenalm_id": 23294,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Huldigungspredigt / vor und unter / dem Regierungsantritt der Sonne / gehalten / am Neujahrsmorgen 1800 / vom / Frühprediger dahier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Huldigungspredigt / vor und unter / dem Regierungsantritt der Sonne / gehalten / am Neujahrsmorgen 1800 / vom / Frühprediger dahier",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "huyh11y9g6j83v6",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.060Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Sagen (Sammlung INr 59666, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Auf des Patriarchen Schwelle setzte / Sich ein Greis, ermüdet, hüstelnd, keuchend,",
+  "language": [],
+  "musenalm_id": 59668,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abraham",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abraham",
+  "updated": "2008-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r44ht8lhwf7zssf",
+      "agents": "ozyc7qe9178qexh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.832Z"
+    }
+  ]
+}

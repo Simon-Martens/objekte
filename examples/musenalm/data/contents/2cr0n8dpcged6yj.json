@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert III. /) # Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13429,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THALIA",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottschick sc.",
+  "scans": [
+    "alm_217_13429_3m04i9fko0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THALIA",
+  "updated": "2001-04-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "22fkavz9saf2pkr",
+      "agents": "anvuxewtojf01i3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.663Z"
+    }
+  ]
+}

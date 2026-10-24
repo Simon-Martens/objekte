@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert VII. /) »National Schauspiel« (Sammlung INr 48135, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48142,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dominicus Jautz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48142_4czw9gquj7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dominicus Jautz",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6tkmbgi38us68iy",
+      "agents": "theiyy8sya8no7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.545Z"
+    }
+  ]
+}

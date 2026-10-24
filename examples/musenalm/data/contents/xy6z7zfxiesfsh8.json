@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert II",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79723,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coëffures de l'année 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Riepenhausen f.",
+  "scans": [
+    "alm_158_79723_36iuozdn1j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coëffures de l'année 1785",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2huufnqwuawtmhb",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.005Z"
+    }
+  ]
+}

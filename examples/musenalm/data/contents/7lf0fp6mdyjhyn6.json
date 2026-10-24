@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Gedichte (Sammlung INr 40686, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "493",
+  "incipit_statement": "Wo sich am höchsten / Wölbt der Bogen des Himmels / Dorthin steigst du mein Adler, empor:",
+  "language": [],
+  "musenalm_id": 40687,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aufmunterung. / An **",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto, Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aufmunterung. / An **",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9moj8t9xd8et6lg",
+      "agents": "2i4oqqhryhrdin4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.207Z"
+    }
+  ]
+}

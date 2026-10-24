@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Theaterreden (Sammlung INr 104467, Obj 18) Gedichte (Sammlung INr 104466, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.639Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Nun sag' mir einer noch, daß Deutschlands / Bühne / In Deutschland keinen Schutz erhält!",
+  "language": [],
+  "musenalm_id": 104474,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Minna Brandes / an das Publikum, im Namen der Mitglie- / der des errichteten Instituts zu einer / Pensionskasse. Leipzig 1775",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Minna Brandes / an das Publikum, im Namen der Mitglie- / der des errichteten Instituts zu einer / Pensionskasse. Leipzig 1775",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dw3bi0ml2zalm7v",
+      "agents": "b89te39r7s4p0vc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.106Z"
+    }
+  ]
+}

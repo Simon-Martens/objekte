@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder eines Autodidakten (Sammlung INr 23528, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Freiheit mit den schwarzen Augen, / Wachst du auf am Tiberstrande?",
+  "language": [],
+  "musenalm_id": 23561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueberall!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueberall!",
+  "updated": "2002-05-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3xcwba3umryt8e9",
+      "agents": "3pzkf5igvpvswjd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.222Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.222Z"
+    }
+  ]
+}

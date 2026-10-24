@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Dort oben stand einst ein Sänger / Im morschen Ritterhaus;",
+  "language": [],
+  "musenalm_id": 129570,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Nachtwandler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wenzig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Nachtwandler",
+  "updated": "2009-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kwih4btekn7jmql",
+      "agents": "vus37dvhecsoaq7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.017Z"
+    }
+  ]
+}

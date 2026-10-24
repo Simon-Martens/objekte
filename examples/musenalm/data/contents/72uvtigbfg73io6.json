@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September s. Textbezug INr 72227, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72209,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aussicht auf das Siebengebirge vom alten Zoll zu Bonn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Lasinsky C. Frommel direxit",
+  "scans": [
+    "alm_867_72209_88pvuxqbsx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aussicht auf das Siebengebirge vom alten Zoll zu Bonn",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uhn9yy8kbmxn7e3",
+      "agents": "rvw5lmkfyfm128i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.658Z"
+    },
+    {
+      "id": "t6yfms2mht6yh1r",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.658Z"
+    }
+  ]
+}

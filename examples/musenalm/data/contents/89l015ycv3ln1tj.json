@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Zwei Briefe (Sammlung INr 40487, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.143Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Ich müßte bei Ihnen seyn, mein lieber Kobell, um Ihnen vernehmlich zu machen, wie lieb Sie mir in Ihrem Briefe vom 26. Jänner sind.",
+  "language": [],
+  "musenalm_id": 40489,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Ferdinand Kobell zu Mannheim. / Düsseldorf, den 27. Febr. 1776",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Heinrich Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Ferdinand Kobell zu Mannheim. / Düsseldorf, den 27. Febr. 1776",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8cw1vp1a0z8gbjk",
+      "agents": "02o1v7ogp6q644r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.735Z"
+    }
+  ]
+}

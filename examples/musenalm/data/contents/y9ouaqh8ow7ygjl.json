@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 2222, Obj 78",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Im Frühlingsschatten fand ich Sie; / Da band ich Sie mit Rosenbändern:",
+  "language": [],
+  "musenalm_id": 2160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cidli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cidli",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0cgbk8qro0zvhuc",
+      "agents": "ckd4l48jtgsgmor",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.877Z"
+    }
+  ]
+}

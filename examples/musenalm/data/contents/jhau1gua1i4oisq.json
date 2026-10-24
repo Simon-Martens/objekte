@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der ersten Graphik der Suite /) Graphik im Kalendarium August; paginiert 8. /) Illustration zu »Adelheid von Veltheim« von G. F. W. Grossmann",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107827,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ah, Messieurs, Messieurs! si ce n'est pas par / Amour, enlevez-moi par charité. / III. Aufz. 11. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et sc.",
+  "scans": [
+    "alm_2162_107827_zfzfeiqfcr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ah, Messieurs, Messieurs! si ce n'est pas par / Amour, enlevez-moi par charité. / III. Aufz. 11. Auftr.",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ju7jdvojafbvc3",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.307Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.307Z"
+    }
+  ]
+}

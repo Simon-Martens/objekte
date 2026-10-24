@@ -1,0 +1,45 @@
+{
+  "annotation": "Beyträge zur Menschenkenntniß, Regeln der Lebensweisheit, und moralischen Wahrheiten (Sammlung INr 21909, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Jeder Mensch hat Gewissen, und findet sich durch einen inneren Richter beobachtet,",
+  "language": [],
+  "musenalm_id": 21941,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jeder Mensch hat Gewissen, und findet sich durch einen inneren Richter beobachtet,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kant; L. d. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i9wpqh60q9u0tks",
+      "agents": "wy2v3l6z3yxzbuk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.104Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.104Z"
+    }
+  ]
+}

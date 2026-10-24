@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "361",
+  "incipit_statement": "Ein Hahn sah einst sein Ebenbild / In einem Wetterhahn auf eines Tempels Spitze",
+  "language": [],
+  "musenalm_id": 11496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 176,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "111. / Der Haushahn und der Wetterhahn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "111. / Der Haushahn und der Wetterhahn",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ia1cqfvfupjy8cr",
+      "agents": "b4ycj3ue3as52r2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.569Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.569Z"
+    }
+  ]
+}

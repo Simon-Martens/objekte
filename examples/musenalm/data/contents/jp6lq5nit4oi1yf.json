@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Washington Irving's und Cooper's Werken. Erste Lieferung. Irving's Erzählungen eines Reisenden. - Skizzenbuch. - Eingemachtes. - Cooper's Spion. - Der Lootse. - Der Letzte Mohikaner (Sammlung INr 43787, Obj 5) s. Graphik INr 43809, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.600Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Der Huronenhäuptling Magua, in dessen Herzen die liebliche Alix sträfliche Wünsche erzeugt hatte, fand Mittel, dieselbe den Ihrigen zu rauben",
+  "language": [],
+  "musenalm_id": 43808,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Aus Cooper's Letztem Mohikaner] 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Aus Cooper's Letztem Mohikaner] 2.",
+  "updated": "2006-05-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "syqo8gk052pjr5w",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.099Z"
+    }
+  ]
+}

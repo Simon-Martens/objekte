@@ -1,0 +1,45 @@
+{
+  "annotation": "Beylagen (Sammlung INr 21671, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Vorsichtigen ersamen wysen gonstigen gutten freund vch syen myn guttwillig Dienst zuvor bereit.",
+  "language": [],
+  "musenalm_id": 21672,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Abschrift eines Briefs von Franz von Sickingen, an die Stadt Heibronn, / vom Jahr 1515",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frantziscus von Sickingen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Abschrift eines Briefs von Franz von Sickingen, an die Stadt Heibronn, / vom Jahr 1515",
+  "updated": "2002-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "boguzwg8tuwqztt",
+      "agents": "p9wnu0sevul9zqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.050Z"
+    }
+  ]
+}

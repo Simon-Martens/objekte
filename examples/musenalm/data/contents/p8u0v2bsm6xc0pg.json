@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.711Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Ich sah mit schwarzen Augen / 'ne Maid vorüberziehn,",
+  "language": [],
+  "musenalm_id": 65923,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine Liebe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Leofalus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meine Liebe",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "16c8744e4lz0d97",
+      "agents": "psuy4hua61ncqyq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.326Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Es theilten Matz und Adelheide / Stets unter sich Verdruß und / Freude;",
+  "language": [],
+  "musenalm_id": 4866,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das gleiche Glück / der Ehe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Thümmel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das gleiche Glück / der Ehe",
+  "updated": "2000-10-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4rtqcdcbt0mxay0",
+      "agents": "t5xduzz1g6d3iy5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.090Z"
+    }
+  ]
+}

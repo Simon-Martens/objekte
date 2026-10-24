@@ -1,0 +1,45 @@
+{
+  "annotation": "XIX. Der Abenaki. Eine Erzählung, nach dem Französischen. 2. Logogrif. 3. Sehnsucht nach den Gebürgen (Sammlung INr 32048, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Acht Füße tragen mich, doch bin ich ohne Leben, / Nicht fühlend zwar, doch hülfreich und voll Kraft;",
+  "language": [],
+  "musenalm_id": 32050,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Logogrif",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie v. Imhoff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Logogrif",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3o1earbmuwml80u",
+      "agents": "g022cx9ysck37av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.594Z"
+    }
+  ]
+}

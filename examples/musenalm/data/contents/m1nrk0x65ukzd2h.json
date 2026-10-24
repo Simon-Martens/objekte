@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Muscheln von der Insel Rügen. 1825 (Sammlung INr 1888, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Ich steh' am Ufer bei dem Binnensee, / Es thut das Herz mir nach der Lieben weh,",
+  "language": [],
+  "musenalm_id": 1892,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Steine und das Herz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Steine und das Herz",
+  "updated": "2000-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aeg4lu759h0tw4i",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.032Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.032Z"
+    }
+  ]
+}

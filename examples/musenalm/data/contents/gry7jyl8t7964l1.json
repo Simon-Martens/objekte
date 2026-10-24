@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Gewiß, z'Elisi, die kleine Aufwärterin in der Post zu Saanen, hatte ganz recht, das Wetter war nicht b'sonderlich schön zum Fußreisen,",
+  "language": [],
+  "musenalm_id": 44350,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber den Jaman. / Herbst 1845",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber den Jaman. / Herbst 1845",
+  "updated": "2006-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3e2lnej4h8aybab",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.200Z"
+    }
+  ]
+}

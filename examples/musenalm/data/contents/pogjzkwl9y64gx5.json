@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehende Graphik INr 80134, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.120Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Kaum daß ich mich losgerungen aus des Schlummers / süßer Ruh', / Ruft er schon den theuren Namen laut als Morgengruß / mir zu.",
+  "language": [],
+  "musenalm_id": 80135,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Papagei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Waldow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Papagei",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w5qo1oc8czsn59g",
+      "agents": "nicecucaceak00n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.907Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.907Z"
+    }
+  ]
+}

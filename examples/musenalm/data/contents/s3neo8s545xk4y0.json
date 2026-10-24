@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbstblätter (Sammlung INr 28038, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "433",
+  "incipit_statement": "Hast du keine Thränen mehr, / Keine mehr zu geben?",
+  "language": [],
+  "musenalm_id": 28045,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Die letzten Thränen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Baron Simolin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Die letzten Thränen",
+  "updated": "2002-08-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ah2r28wmkxan7ob",
+      "agents": "15ilq8sfeqx1cly",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.363Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 90476, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Deine lieblich bleichen Wangen, / Leicht von Rosen überhaucht, / Und dein Aug', in Gluth getaucht, / Haben freundlich mich gefangen.",
+  "language": [],
+  "musenalm_id": 90477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Warnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Frankl. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Warnung",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z9my7eu88co9v3c",
+      "agents": "fjw259e60ifm3ie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.160Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Wohl mir! nach eitel Glükesgaben / Gelüstet meiner Seele nicht:",
+  "language": [],
+  "musenalm_id": 30922,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die kleine Haushaltung. / Nach J. J. Rousseau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prandstetter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die kleine Haushaltung. / Nach J. J. Rousseau",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0hj1arz3kpjh1ob",
+      "agents": "v5wbuj6yomki99q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.992Z"
+    }
+  ]
+}

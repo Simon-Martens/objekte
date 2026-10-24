@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium. Illustration zu »Wie es euch gefällt« von W. Shakespeare",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10247,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich höre dich lieber wenn du schmählst, als diesen / Menschen wenn er mir schöne Sachen sagt. / Wie es euch gefällt. III. Aufz. XI. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. F. Stoelzel sc. 1793",
+  "scans": [
+    "alm_134_10247_45qv7alh7x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich höre dich lieber wenn du schmählst, als diesen / Menschen wenn er mir schöne Sachen sagt. / Wie es euch gefällt. III. Aufz. XI. Auftr.",
+  "updated": "2001-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8llsoopeerk97zu",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.444Z"
+    },
+    {
+      "id": "ffnx5z2jodor2qw",
+      "agents": "e5dzzklohvjx1fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.444Z"
+    }
+  ]
+}

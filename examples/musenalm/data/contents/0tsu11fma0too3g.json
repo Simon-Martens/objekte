@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Sie fliehen, fliehen, sie fliehn! Ihr furchtbar / strenges Gericht / Hält die Vergeltung. / Hält die Vergeltung.",
+  "language": [],
+  "musenalm_id": 70634,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Würgeengel. / (Nach den Kämpfen an der Saale und Unstrut, bei Erfurt, Vach und Hanau.) / In den ersten Tagen des Novembers1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Würgeengel. / (Nach den Kämpfen an der Saale und Unstrut, bei Erfurt, Vach und Hanau.) / In den ersten Tagen des Novembers1813",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9qm4ettphy1lria",
+      "agents": "scmt2snhwdglbs9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.498Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.498Z"
+    }
+  ]
+}

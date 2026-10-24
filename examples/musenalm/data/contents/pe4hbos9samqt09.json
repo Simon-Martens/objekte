@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 104007, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104006,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE WEIDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Berchem pinx. S. v. Perger del. Passini sculp.",
+  "scans": [
+    "alm_1930_104006_mskjpdws3y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE WEIDE",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "inf61jamz9wy6ic",
+      "agents": "9a313ypmn6fzfj6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.099Z"
+    },
+    {
+      "id": "p7un5lwm0b23xds",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.099Z"
+    },
+    {
+      "id": "r6e4buvva3xziyi",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.099Z"
+    }
+  ]
+}

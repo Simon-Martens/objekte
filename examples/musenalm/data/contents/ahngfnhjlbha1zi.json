@@ -1,0 +1,45 @@
+{
+  "annotation": "Blätter aus dem Süden (Sammlung INr 116989, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Warum, o Blume, folgst du wohl so treu / Der Sonne, fern und weit?",
+  "language": [],
+  "musenalm_id": 116991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Sonnenblume. / Nach Francesco Dall' Ongaro",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Sonnenblume. / Nach Francesco Dall' Ongaro",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mejka374rz0ws7n",
+      "agents": "ett5544anganpff",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.558Z"
+    }
+  ]
+}

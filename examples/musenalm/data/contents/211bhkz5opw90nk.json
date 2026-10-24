@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 67324, Obj 24) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.521Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Der Sylvan hat seine vorigen Jagdberichte bis zum Sylvesterabend des Wonnejahres 1819 fortgeführt, und der jetzige beginnt daher mit dem Kalenderjahr 1820.",
+  "language": [],
+  "musenalm_id": 67325,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Forst- und Jagddenkwürdigkeiten des ver- / flossenen Jahres aus dem südlichen / Deutschlande, insbesondere aus der / Rheingegend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Forst- und Jagddenkwürdigkeiten des ver- / flossenen Jahres aus dem südlichen / Deutschlande, insbesondere aus der / Rheingegend",
+  "updated": "2009-10-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "13r7szzkpgwdn8v",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.307Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.307Z"
+    }
+  ]
+}

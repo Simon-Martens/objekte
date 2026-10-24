@@ -1,0 +1,45 @@
+{
+  "annotation": "mit drei kol. Illustrationen (INr 124610–12, Obj 7–9); # Bezeichnung aus dem Titel (INr 124606, Obj 3); $ vermutlich George Louis Jacques Duval (vgl Nouvelle biographie générale XV, Sp. 524);",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Endlich wieder in Ihren Armen, mein theurer Vater, mein einziger Freund! / Nach Jahren der Trennung sehe ich Dich wieder, doch wie? Als Secretär Deines Oheims! Du dienen!",
+  "language": [],
+  "musenalm_id": 124609,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Familie Rosenstein. / Ein Schauspiel in drei Aufzügen / Nach Duvals Fille d’honneur für die deutsche / Bühne frei bearbeitet",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Duval $ [bearb.] Franz August von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Familie Rosenstein. / Ein Schauspiel in drei Aufzügen / Nach Duvals Fille d’honneur für die deutsche / Bühne frei bearbeitet",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u6ve7egppygflgj",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.837Z"
+    }
+  ]
+}

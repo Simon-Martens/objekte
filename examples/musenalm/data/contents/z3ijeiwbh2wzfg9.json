@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Entgegnung F. L. Stolbergs INr 27016, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Klänge der Harfe, / Wie ihr entgegen / Dem morgenden Festtage rauscht,",
+  "language": [],
+  "musenalm_id": 27015,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorfeier zum 7. November 1817. / An Friedrich Leopold, Grafen zu Stollberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorfeier zum 7. November 1817. / An Friedrich Leopold, Grafen zu Stollberg",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "odj10w3ui1evjea",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.397Z"
+    }
+  ]
+}

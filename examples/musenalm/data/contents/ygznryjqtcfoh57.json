@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Auszug aus dem Tagebuche Kilians des Seminaristen zu Schnabelschwatzhausen« INr 102693, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102694,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kilian, Kamerad, Herzensjunge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. meno Haas sc.",
+  "scans": [
+    "alm_3363_102694_2w5dud7hl2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kilian, Kamerad, Herzensjunge",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nrhlt54co3mcdfu",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.168Z"
+    },
+    {
+      "id": "3je95q7r2kctl1u",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.168Z"
+    }
+  ]
+}

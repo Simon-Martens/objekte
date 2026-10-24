@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122167, Obj 242)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Makarius, ein junger Abt, erkrankte, / Daß er nur schattengleich durchs Kloster wankte, / Da sandt’ ein ferner Freund, daß er sich labe, / Ihm eine Traube einst als Liebesgabe.",
+  "language": [],
+  "musenalm_id": 122170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 245,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Wandertraube",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Sturm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Wandertraube",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2xlt1js759ro6xs",
+      "agents": "thvjtwgntimiqn7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.760Z"
+    }
+  ]
+}

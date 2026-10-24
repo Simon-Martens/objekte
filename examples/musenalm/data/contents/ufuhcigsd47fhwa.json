@@ -1,0 +1,46 @@
+{
+  "annotation": "mit einem Motto INr 28071, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ein großartiger, gutmüthiger Ironist scheint dem Urverfasser der Weltgeschichte die seltsamsten Witzworte",
+  "language": [],
+  "musenalm_id": 28072,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sclavenhändler. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sclavenhändler. / Novelle",
+  "updated": "2002-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "944rebgsjpo57w8",
+      "agents": "rlu2d4ml9zlhov2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.430Z"
+    }
+  ]
+}

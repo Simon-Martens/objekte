@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Denn in der Einsamkeit, bei dem die Muse / sizt, / Die menschenfreundliche",
+  "language": [],
+  "musenalm_id": 6391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Göz. / In ein Exemplar seiner Gedichte für / Tiedge, als dieser an einer Epistel über / die Einsamkeit arbeitete",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Göz. / In ein Exemplar seiner Gedichte für / Tiedge, als dieser an einer Epistel über / die Einsamkeit arbeitete",
+  "updated": "2000-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fo7m1t1a0zv4qk1",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.159Z"
+    }
+  ]
+}

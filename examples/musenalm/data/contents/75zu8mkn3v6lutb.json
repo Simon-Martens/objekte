@@ -1,0 +1,56 @@
+{
+  "annotation": "Das Exemplar bringt (noch) das »verunglückte« Titelportrait: »LOUISE KÖNIGIN VON PREUSSEN«. (Dähling p. Ant. Karcher sc.) s. Photo. /) Dieses Titelportrait wurde mangels Qualität zurückgezogen; s. eingeklebte Vorbemerkung im Exemplar alm-1024: »Da das versprochene Bildniß der Höchstseligen Königin Luise von Preußen, unter den Händen des Kupferstechers verunglückt ist, so fand man für gut, es dem Taschenbuche nicht beizugeben.«... /) Im Jg 1817 erschien dann das Titelportrait »LOUISE Königin von Preussen« (L. Portmann sculps) alm-1025, INr 62439",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.441Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121686,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LOUISE / KÖNIGIN VON PREUSSEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dahling p. Ant. Karcher sc.",
+  "scans": [
+    "alm_4654_121686_b3mntt25fh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LOUISE / KÖNIGIN VON PREUSSEN",
+  "updated": "2019-06-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3hfivxlggnoceyd",
+      "agents": "fu5wv6odvdsjkbe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.771Z"
+    },
+    {
+      "id": "gqrn0pzd02gxq6x",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.771Z"
+    }
+  ]
+}

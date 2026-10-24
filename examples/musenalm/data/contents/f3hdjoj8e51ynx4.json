@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 101221,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Madame Eunicke / ehemalige Schwanhöfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Kininger del. Cl. Kohl sc. Viennae",
+  "scans": [
+    "alm_4160_101221_i5e69lrqb2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Madame Eunicke / ehemalige Schwanhöfer",
+  "updated": "2014-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m2f2y9gop3k266o",
+      "agents": "60p50kezhrh7h42",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.981Z"
+    },
+    {
+      "id": "l28kx0jhm7490xj",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.981Z"
+    }
+  ]
+}

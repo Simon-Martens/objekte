@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1. /) Graphik im Kalendarium Juli /) Illustration zu »Geschichte der Stadt Breslau« von Karl Adolf Menzel INr 72534, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72528,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Nicolai Thor zu Breslau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. v. Grossmann del. J. B. Hössel sc.",
+  "scans": [
+    "alm_859_72528_xcghpbhinq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Nicolai Thor zu Breslau",
+  "updated": "2008-07-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mj5bwwgv0giy70t",
+      "agents": "vmadsuai90domb8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.735Z"
+    },
+    {
+      "id": "ufazk7fl0fewnwb",
+      "agents": "t4wlsbli26ob7y0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.735Z"
+    }
+  ]
+}

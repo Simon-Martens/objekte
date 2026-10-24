@@ -1,0 +1,45 @@
+{
+  "annotation": "5 Gesänge mit Übersetzung des Mottos, Widmung, Einführung und Anmerkungen. INr 32282-32290, Obj 20-28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eleusina. / Ein Gedicht / in fünf Gesängen. / Prima Ceres unco glebam dimovit aratro, / Prima dedit fruges, alimentaque mitia terris, [...] / Ovid Metam. V. 341. sq.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerhard Anton von Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eleusina. / Ein Gedicht / in fünf Gesängen. / Prima Ceres unco glebam dimovit aratro, / Prima dedit fruges, alimentaque mitia terris, [...] / Ovid Metam. V. 341. sq.",
+  "updated": "2003-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "liw135o0ssv6ox8",
+      "agents": "v5ht3d6rw3do6ml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.411Z"
+    }
+  ]
+}

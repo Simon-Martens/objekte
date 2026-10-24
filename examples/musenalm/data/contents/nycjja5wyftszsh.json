@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Forst- und Jagd-Anekdoten (Sammlung INr 120252, Obj 27) Anm. am Objekt: Siehe Schloß Wartburg. Ein Beitrag zur Kunde der Vorzeit. Gotha 1792. S. 137, 138",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Doctor Luther schreib einst aus seiner Gefangenschaft auf dem Schloß Wartburg, das er sein Luftrevier und Vögelherberg zu nennen pflegte, an seinen Freund Spalatin: Ich bin zwei Tage auf Jagd gewesen",
+  "language": [],
+  "musenalm_id": 120254,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3txgj0i4yxytq9i",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.584Z"
+    }
+  ]
+}

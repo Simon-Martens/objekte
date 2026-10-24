@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Taschenbuch für Liebe und Freundschaft. Eine Historie in 8 Kapiteln, mit 8 Bildern (Sammlung INr 30155, Obj 5) s. Graphik INr 30159, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Monsieur Wallrich finden sich ja ganz charmant in Ihre Ungnade",
+  "language": [],
+  "musenalm_id": 30160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drittes Kapitel. / Falscher Verdacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Spindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drittes Kapitel. / Falscher Verdacht",
+  "updated": "2002-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lasfme2s0pc7xqd",
+      "agents": "jo3symqxy3hqpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.521Z"
+    }
+  ]
+}

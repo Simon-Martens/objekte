@@ -1,0 +1,45 @@
+{
+  "annotation": "Kaukasus (Sammlung INr 38906, Obj 94)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.804Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Wie Blitz aus den Wolken saust / Das Schwert in der Krieger Faust,",
+  "language": [],
+  "musenalm_id": 38909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Des Blinden Heilung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Braunfels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Des Blinden Heilung",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mzgva1pfvxiqc2i",
+      "agents": "13qcfjiisb1tzdx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.250Z"
+    }
+  ]
+}

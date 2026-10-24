@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. L/R 106",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Der Körper schwerster ist / Das Gold; die Schwere drückt;",
+  "language": [],
+  "musenalm_id": 61790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gold",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gold",
+  "updated": "2009-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bgyxqnwy98a57lv",
+      "agents": "a22nkw5sbrlw9i8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.107Z"
+    }
+  ]
+}

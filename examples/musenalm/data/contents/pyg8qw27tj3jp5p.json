@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Der Donner, der mit Rasen brüllte, / Und Wald und Flur mit Schreken füllte, / Rollt nicht mehr durch den Dunstkreis her;",
+  "language": [],
+  "musenalm_id": 63090,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode zum Lobe Gottes, / nach einem Donnerwetter 1777",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moses Mendelssohn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode zum Lobe Gottes, / nach einem Donnerwetter 1777",
+  "updated": "2000-10-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bgr1fhr6mly9oti",
+      "agents": "7flxiure8533yje",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.121Z"
+    }
+  ]
+}

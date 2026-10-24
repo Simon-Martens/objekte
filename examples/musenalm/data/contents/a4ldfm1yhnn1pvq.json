@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus neuern spanischen Dichtern (Sammlung INr 80592, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Wenn endlich gönnt des Himmels fromme Milde / Des Friedens Glück dir, theures Vaterland!",
+  "language": [],
+  "musenalm_id": 80595,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / An Spanien. / (Frei nach Melendez Valdes.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / An Spanien. / (Frei nach Melendez Valdes.)",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jzhnubkputujdzn",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.765Z"
+    }
+  ]
+}

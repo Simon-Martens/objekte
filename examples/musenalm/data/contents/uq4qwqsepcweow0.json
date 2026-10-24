@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Einst, als noch Blümchen auf den Beeten, / So gut wie Menschen, sprechen thäten,",
+  "language": [],
+  "musenalm_id": 36154,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Veilchen und die Tulpen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Veilchen und die Tulpen",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7t7s3jxlr497myt",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.611Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.611Z"
+    }
+  ]
+}

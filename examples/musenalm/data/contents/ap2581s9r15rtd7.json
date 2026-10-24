@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Statistischer Versuch über den Kanton Waat« INr 52370, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lac de Joux",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Rösel del. F. Hegi sc.",
+  "scans": [
+    "alm_715_52375_ni30nd6pod.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lac de Joux",
+  "updated": "2007-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "81v6iyvensv6fk8",
+      "agents": "fvvo7u8gqk8l3ze",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.489Z"
+    },
+    {
+      "id": "rr9xx2ocpom76r1",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.489Z"
+    }
+  ]
+}

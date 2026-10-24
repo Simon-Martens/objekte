@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Ostindien, welches bekanntlich in Hinter- und Vorder-Indien, oder in Hindostan und Dekan abgetheilt wird, und den südlichen Theil Asiens längs der Himalaja-Kette bis China hin begreift,",
+  "language": [],
+  "musenalm_id": 133908,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Moctader. / Ein indisches Mährchen frey nach dem Französischen des Florian",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Moshamer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Moctader. / Ein indisches Mährchen frey nach dem Französischen des Florian",
+  "updated": "2023-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "179gifnvf1ba1rz",
+      "agents": "hsujjp5smywjyiq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.121Z"
+    }
+  ]
+}

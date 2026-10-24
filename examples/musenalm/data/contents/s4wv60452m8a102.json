@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 29913, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Ist der Tag auch schön, mein Kind, / Schöner noch ist Dein Entzücken;",
+  "language": [],
+  "musenalm_id": 29916,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter",
+  "updated": "2002-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "faqbtj1xd021yx9",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.534Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.534Z"
+    }
+  ]
+}

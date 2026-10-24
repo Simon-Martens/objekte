@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 9. /) Illustration zu »Die Advokaten« von A. W. Iffland s. Textbezug INr 61897, Obj 129",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "314",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "meine Sophie unter dem Dache wo ich gebohren ward. / pag. 140",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Professor Heß in Düsseldorf",
+  "scans": [
+    "alm_1013_61896_z3udet6jfu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "meine Sophie unter dem Dache wo ich gebohren ward. / pag. 140",
+  "updated": "2009-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1724qvpiz1sx5j2",
+      "agents": "dvhp1mfxgvurunq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.758Z"
+    }
+  ]
+}

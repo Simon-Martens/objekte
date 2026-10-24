@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Schulmeisterlein, Schulmeisterlein, / Bewahre dich vor Schaden, / Schau nicht zu tief in's Glas hinein,",
+  "language": [],
+  "musenalm_id": 99678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schulmeistersfelsen bei Langenbrand. / Badische Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Brauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schulmeistersfelsen bei Langenbrand. / Badische Sage",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fcrf7g77f2j0feg",
+      "agents": "q3hkrc4mbx3ugx0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.874Z"
+    }
+  ]
+}

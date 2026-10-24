@@ -1,0 +1,45 @@
+{
+  "annotation": "West-Oestlicher Divan. Versammelt von Goethe. In den Jahren 1814-1815 ( Sammlung INr 34025, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Hör' und bewahre / Sechs Liebespaare. / Wortbild entzündet, Liebe schürt zu:",
+  "language": [],
+  "musenalm_id": 34033,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Liebesmuster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Liebesmuster",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x3y6ibhad8f4vqs",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.393Z"
+    }
+  ]
+}

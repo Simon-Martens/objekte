@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Verschwörung des Fiesko zu Genua« von Fr. Schiller. Die Graphik ist zusammen mit SS LV und LVI irrtümlich diesem Almanach beigegeben. Sie ist die achte der Suite von Illustrationen zum »Fiesko« in: Minerva 1817 alm-521- INr 39735 und ist dort ebenfalls photographisch dargestellt.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40091,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fiesko Vr. Act. 16te. Scene. / Fiesko. Hilf Genua! Hilf deinem Herzog.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_524_40091_22r30qgr4j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fiesko Vr. Act. 16te. Scene. / Fiesko. Hilf Genua! Hilf deinem Herzog.",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6luovnzkgv0f43n",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.020Z"
+    },
+    {
+      "id": "ycwood21bobl7nt",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.020Z"
+    }
+  ]
+}

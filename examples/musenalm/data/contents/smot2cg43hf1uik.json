@@ -1,0 +1,45 @@
+{
+  "annotation": "Eindrücke (Sammlung INr 104094, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Die Gegend ist in dichtem Nebel eingemauert, / Wie eine Wittwe, die in öden Wänden trauert.",
+  "language": [],
+  "musenalm_id": 104097,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Herbstlandschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Herbstlandschaft",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "09jbg3r3o7rwsvh",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.208Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.208Z"
+    }
+  ]
+}

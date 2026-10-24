@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) # Bezeichnung aus dem G-Verz u. Textbezug INr 83003, Obj 14 /) s.a. Gedicht in: Taschenbuch, Niederrheinisches für Liebhaber des Schönen und Guten 1801, INr 83144",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82991,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "REMBRANDT",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rembrandt",
+  "scans": [
+    "alm_3073_82991_7qakue2x7h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "REMBRANDT",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gbopkzv9od2n81t",
+      "agents": "f6e5t5hil0gzo1m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.078Z"
+    }
+  ]
+}

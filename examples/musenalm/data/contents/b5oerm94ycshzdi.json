@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Gründung von Gelnhausen in der Wetterau. Altdeutsche Sage. (Sammlung INr 19961, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.886Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Im fernen Glutenland, am wilden Meeresstand, / Im Schlachten-Blutgewühl, in weiter Wüsten Sand,",
+  "language": [],
+  "musenalm_id": 19969,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Sehsucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elise v. Hohenhausen, geb. v. Ochs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Sehsucht",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6ndcziex1b02wuk",
+      "agents": "egwykz1ou8cu8sz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.922Z"
+    }
+  ]
+}

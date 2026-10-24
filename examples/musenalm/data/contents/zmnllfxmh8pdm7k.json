@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "O zersprengt, ihr Barden! zersprengt das Silber, / Welches das Lob eurer Fürsten gebebt!",
+  "language": [],
+  "musenalm_id": 5990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zuruf an Deutschlands Dichter. / Joh. Friedr. Voß eingeschrieben, den 14. / Heumonds 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lor. Leop. Haschka",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zuruf an Deutschlands Dichter. / Joh. Friedr. Voß eingeschrieben, den 14. / Heumonds 1785",
+  "updated": "2000-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zrreebz4nb9khgl",
+      "agents": "j63e4oki0d4f74a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.191Z"
+    }
+  ]
+}

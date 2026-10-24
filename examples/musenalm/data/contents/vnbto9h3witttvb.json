@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Flitterwochen-Leben« von L. Scheyrer INr 121277, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121269,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Flitterwochen-Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. M. H. sc.",
+  "scans": [
+    "alm_1913_121269_46nu4a89n8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Flitterwochen-Leben",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1wamltchxbx1iwl",
+      "agents": "8exhybkwm7lsegf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.666Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.666Z"
+    },
+    {
+      "id": "5qlxg1pnwb8hjeh",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.666Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.666Z"
+    }
+  ]
+}

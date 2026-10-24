@@ -1,0 +1,56 @@
+{
+  "annotation": "paginíert 5 /) Graphik im Kalendarium August s. Textbezug INr 75888, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.549Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75895,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (A. W. Küffner del. Vogel sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner del. Vogel sculp.",
+  "scans": [
+    "alm_2694_75895_m4mjzpumek.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2fxl03tbgduixnp",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.392Z"
+    },
+    {
+      "id": "pmro8n2lyjvjw2w",
+      "agents": "k5mzhsnsldwkcu7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.392Z"
+    }
+  ]
+}

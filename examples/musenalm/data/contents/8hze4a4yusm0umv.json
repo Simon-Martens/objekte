@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Die schönste Erscheinung« von Fr. Schiller s. Textbezug (Gedicht) INr 77262, Obj 6 aus »Gallerie aus Schiller's Gedichten. Zehnte und letzte Lieferung« (Sammlung INr 77261, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.626Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77258,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Joh. Ender gez. Fr. Stöber gest. in Stahl Wien 1829)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl Wien 1829",
+  "scans": [
+    "alm_2401_77258_kws02yrew1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jqws3w6o7cv6eor",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.749Z"
+    },
+    {
+      "id": "p0ppomzzc38aiu3",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.750Z"
+    }
+  ]
+}

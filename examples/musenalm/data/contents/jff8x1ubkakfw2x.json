@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63733, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Wohin entflieh' ich welche verworfene / Gestalt verpestet so heit're Luft?",
+  "language": [],
+  "musenalm_id": 63736,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Schmähsucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Schmähsucht",
+  "updated": "2009-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wu4czim6xokmy39",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.214Z"
+    }
+  ]
+}

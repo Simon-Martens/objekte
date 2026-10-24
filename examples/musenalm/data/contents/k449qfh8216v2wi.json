@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Die Luft ist heiß und die Sonne glüht, / Vergoldet im Scheiden den See;",
+  "language": [],
+  "musenalm_id": 20006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romanze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Klotilde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Romanze",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rid833xfke78buo",
+      "agents": "j3qxc741zzed3s0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.548Z"
+    }
+  ]
+}

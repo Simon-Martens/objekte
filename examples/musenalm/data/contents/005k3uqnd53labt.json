@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. 1. Gesellschafts- Lied Von J. C. H. Gittermann. 2. Bitte beim Abschied und Antwort. Von N. Meyer. 3. Der Betrug. Von Victor (Sammlung INr 32031, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Herzliche Freude / sey unsers Lebens Ton, / Sey unsrer Arbeit / Lieblicher Lohn.",
+  "language": [],
+  "musenalm_id": 32032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Gesellschafts- / Lied / Mel. Freut euch des Lebens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. H. Gittermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Gesellschafts- / Lied / Mel. Freut euch des Lebens",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eah8zi8ekdr0kgs",
+      "agents": "csr350ne0svibrz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.441Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 105699, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Laut wiederhallt von ungezählten Chören / Der Gratulanten weit und breit die Luft.",
+  "language": [],
+  "musenalm_id": 105703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / zum Antritt des neuen Jahrs, gespro- / chen von Demois. Werthen, Schwe- / rin, den 2ten Jan. 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Ludwig Fernow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / zum Antritt des neuen Jahrs, gespro- / chen von Demois. Werthen, Schwe- / rin, den 2ten Jan. 1792",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4h0w3wxao1tz8tw",
+      "agents": "29znr1cu0wo4ctf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.195Z"
+    }
+  ]
+}

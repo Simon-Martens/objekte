@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.018Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Kunst! der heiligen Ahnung Kind, / Mutter des erneuten Lebens, / Winde junger Hoffnungen Kranz / Um der armen Sterblichen Haupt.",
+  "language": [],
+  "musenalm_id": 131174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Kunst. / Hymne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Kunst. / Hymne",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y2zg3g2v8pto1xh",
+      "agents": "wty417vt1e1tkcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.024Z"
+    }
+  ]
+}

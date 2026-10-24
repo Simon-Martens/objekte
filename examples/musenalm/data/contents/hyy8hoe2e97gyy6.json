@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) koloriertes Trachtenkupfer. Illustration zu »Topographisch-statistische Darstellung des Cantons Tessin« INr 52276, Obj 5 /) s.a. Textbezug INr 52291, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.944Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52277,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Canton Tessin / Säumers-Tracht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_712_52277_dkaiqr1osd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Canton Tessin / Säumers-Tracht",
+  "updated": "2007-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mi1oai938z8m2dh",
+      "agents": "grbttvgkqnprgwf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.605Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.605Z"
+    }
+  ]
+}

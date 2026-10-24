@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingslieder (Sammlung INr 122137, Obj 213); # Bezeichnung an der Sammlung Inr 122137, Obj 213",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Wie ruh’n euch wulst’ge Kranzgeflechte / Um’s frische Angesicht, ihr Kleinen! / Die Rollenblume ist die rechte, / Um sie zum Hauptschmuck zu vereinen.",
+  "language": [],
+  "musenalm_id": 122143,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 218,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die bekränzten Dorfkinder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die bekränzten Dorfkinder",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "evpveb002lew4vg",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.757Z"
+    }
+  ]
+}

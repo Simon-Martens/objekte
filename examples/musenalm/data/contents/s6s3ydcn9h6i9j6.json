@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) §2§ Textbezug fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.703Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75367,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OBERON. / III. Aufz. 6. Sc. / Chor. Horch ! Welch Wunderklingen! / Woher kommt der Ton?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. et del. W. Jury fec.",
+  "scans": [
+    "alm_2372_75367_1ssqi8m3w6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OBERON. / III. Aufz. 6. Sc. / Chor. Horch ! Welch Wunderklingen! / Woher kommt der Ton?",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wughvlu3a0h5hmt",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.688Z"
+    },
+    {
+      "id": "dg0alkdk2viiexq",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.688Z"
+    }
+  ]
+}

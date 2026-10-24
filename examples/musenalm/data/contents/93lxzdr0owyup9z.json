@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Vom winterlichen Hauch des Nords durchstürmt, / Erbraust der Hain, die Silberflocken wehen;",
+  "language": [],
+  "musenalm_id": 11663,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "33. / Wintererinnerungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Messerschmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "33. / Wintererinnerungen",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uu55cc4xxml8i8q",
+      "agents": "08be5slqlt4odk1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.601Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.601Z"
+    }
+  ]
+}

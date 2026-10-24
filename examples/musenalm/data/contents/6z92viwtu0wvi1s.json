@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 71370, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Apollonius von Thyana war der berüchtigte Gaukler des Alterthums, dessen angebliche Wunder ältere und neuere Feinde des Christenthums, den Wundern des Stifters unserer Religion entgegenzusetzen gewagt haben,",
+  "language": [],
+  "musenalm_id": 71369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der 9ten Kupfertafel. / Apollonius von Thyana / erweckt ein verstorbenes Mädchen / vom Tode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der 9ten Kupfertafel. / Apollonius von Thyana / erweckt ein verstorbenes Mädchen / vom Tode",
+  "updated": "2010-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nnc6w08qlmsir04",
+      "agents": "a1tvqjbk8115iq7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.396Z"
+    }
+  ]
+}

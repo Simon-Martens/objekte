@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Mir kostete die Lotterie / Sonst järlich leicht an funfzig Thaler;",
+  "language": [],
+  "musenalm_id": 17343,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Pfif",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hans Schlau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Pfif",
+  "updated": "2001-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gomcvq3vfq19dmj",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.734Z"
+    }
+  ]
+}

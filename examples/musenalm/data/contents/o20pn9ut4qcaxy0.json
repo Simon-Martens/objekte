@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Nicht weit von der Burg Windeck liegt eine Meierei, der Hennegraben genannt. Zwischen den fröhlich grünenden Weinreben und den hohen, dunkeln Kastanienbäumen sind noch die Spuren eines Grabens zu erkennen,",
+  "language": [],
+  "musenalm_id": 45245,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hennegraben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alois Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hennegraben",
+  "updated": "2006-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x9ie2ddltzvsvu8",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.392Z"
+    }
+  ]
+}

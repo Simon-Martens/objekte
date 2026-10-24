@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanztouren zu Beckers Taschenbuch 1810 (Sammlung INr 13547, Obj 181)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20726,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 186,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Douze I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [
+    "alm_217_20726_0sn1gt4kqg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Douze I.",
+  "updated": "2001-04-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "veqwhqbm8js74v3",
+      "agents": "5e64t7ca8x2wyim",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.840Z"
+    }
+  ]
+}

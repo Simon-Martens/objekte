@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Wohl werden die seligsten Güter hienieden / Den Menschen gegeben im segnenden Frieden;",
+  "language": [],
+  "musenalm_id": 14359,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf Rudolph von Habsburg, / als Schutzherr von Zürich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marianne von Neumann-Meißenthal, geborne von Tiell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Graf Rudolph von Habsburg, / als Schutzherr von Zürich",
+  "updated": "2001-04-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b0aro2q1hq78g35",
+      "agents": "blexso3sv1n2ckh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.558Z"
+    }
+  ]
+}

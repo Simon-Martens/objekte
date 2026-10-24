@@ -1,0 +1,45 @@
+{
+  "annotation": "Zum Titelkupfer, zur Umschlag- und Futteral-Vignette (Sammlung INr 63175, Obj 5) s. Umschlaggraphiken INr 63172, 63224; Obj 2, 64",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Mit der blinkenden Lanze, dem Helm und Schilde Minerva's / Wallt gewappnet einher die Tugend im sicheren Schritt:",
+  "language": [],
+  "musenalm_id": 63177,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2009-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ci1l7iq9v1ttptt",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.243Z"
+    }
+  ]
+}

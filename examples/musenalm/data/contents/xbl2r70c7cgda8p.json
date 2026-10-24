@@ -1,0 +1,45 @@
+{
+  "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 9; Alm-177, INr 38311",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Kein schönrer Frühlingsabend war / Vom Meere jemals aufgestiegen!",
+  "language": [],
+  "musenalm_id": 79123,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Frühlingsabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerstenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Frühlingsabend",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ejdw02f7ex3pxzy",
+      "agents": "ih3y4rkhx0a1glf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.881Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.881Z"
+    }
+  ]
+}

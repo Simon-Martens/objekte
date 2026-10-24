@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VIII. 68, 117",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Dreimal Selige, die willig duldet, / Einsam, in dem öden Felsenhaus!",
+  "language": [],
+  "musenalm_id": 51486,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Correggio's Magdalene in der Wüste",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Correggio's Magdalene in der Wüste",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aysfpbx3iudqyi8",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.641Z"
+    }
+  ]
+}

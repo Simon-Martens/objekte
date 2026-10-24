@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 8. /) # Titel s. Textbezug INr 61004, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61016,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philippus #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule fec.1795",
+  "scans": [
+    "alm_951_61016_o52orcdqoh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Philippus #",
+  "updated": "2008-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ungsoqnpe2omu5y",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.008Z"
+    },
+    {
+      "id": "jacsdalkhflmsfp",
+      "agents": "c0fepqesuedn747",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.008Z"
+    }
+  ]
+}

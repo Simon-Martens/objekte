@@ -1,0 +1,69 @@
+{
+  "annotation": "s. Textbezug INr 33160, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.449Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33192,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Tischbein pinx. Carol. Tischbein del. L. Buchhorn sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tischbein pinx. Carol. Tischbein del. L. Buchhorn sc.",
+  "scans": [
+    "alm_461_33192_j3ard0rwao.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m3h63e7zddw7f05",
+      "agents": "1r1bjnmct205k7o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.101Z"
+    },
+    {
+      "id": "2l69qfoqv8n3af3",
+      "agents": "75qmmh5zwaku9l0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.101Z"
+    },
+    {
+      "id": "mfck1dq6mukr0vn",
+      "agents": "z3xj5kkwhch6rva",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.101Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Menschenwerth und Menschenglück« von A. Lindemann d.i. Fr. K. Lang /) s. Textbezug INr 95769, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95760,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Menschenwerk u. Menschenglück v. Lindemann pag. 71",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fec. 1799",
+  "scans": [
+    "alm_3795_95760_62r39cd0g1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus Menschenwerk u. Menschenglück v. Lindemann pag. 71",
+  "updated": "2012-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dz5u33qv0nwfcfd",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.739Z"
+    }
+  ]
+}

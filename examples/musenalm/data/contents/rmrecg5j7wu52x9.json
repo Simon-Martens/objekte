@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.070Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Spinnet, Töchterli, spinnet, und Jergli / leng mer der Haspel! / D'Zit vergoth, der Obed chunnt und's streckt / si ins Früeijohr;",
+  "language": [],
+  "musenalm_id": 16196,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Riedlingers Tochter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Riedlingers Tochter",
+  "updated": "2001-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0i8ld4livxrswva",
+      "agents": "u04oy46tu9dlk6x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.697Z"
+    }
+  ]
+}

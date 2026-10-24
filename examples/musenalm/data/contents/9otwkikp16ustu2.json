@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Gedichte (Sammlung INr 39269, Obj 36) # Anm. am Objekt: Pastor ille Hesiodus, quem poetica lauru camoenalis familia coronavit. Symmach. L. I. epist. 53",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Böotiens Bewohner lebten blind / Und taub für schöne Kunst und Lieder.",
+  "language": [],
+  "musenalm_id": 39274,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die Krönung des Hesiodus #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die Krönung des Hesiodus #",
+  "updated": "2005-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7odpa4gfonp6unk",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.761Z"
+    }
+  ]
+}

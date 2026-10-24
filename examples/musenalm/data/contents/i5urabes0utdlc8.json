@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 22780, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Sie ging auf der Wiese, / Er ging auch da;",
+  "language": [],
+  "musenalm_id": 22781,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Er und Sie. / (Nach Guérin.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Er und Sie. / (Nach Guérin.)",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ub7iqtfzxyy0ldj",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.123Z"
+    }
+  ]
+}

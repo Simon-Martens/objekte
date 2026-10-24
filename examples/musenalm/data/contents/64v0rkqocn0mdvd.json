@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Schreiben Sie eine Vorrede! sagt der Herr Oberforstmeister von Wildungen: und gewohnt, alles zu thun, was Er haben will, schreib' ich eine Vorrede.",
+  "language": [],
+  "musenalm_id": 66738,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. L. Bunsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2009-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u7286cg6u9kxjer",
+      "agents": "d1cx5vxdeeve5kc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.172Z"
+    }
+  ]
+}

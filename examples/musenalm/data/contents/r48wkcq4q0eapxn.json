@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Dritte Fortsetzung. / Das Schulhaus« von G. H. Rapp INr 74295, Obj 19 /) # Zuschreibung: Fischer S. 280",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.386Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74296,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schulhaus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3111_74296_8q14o0d426.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schulhaus",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r4nutzybw5xn1in",
+      "agents": "4b4lhy0iqevooje",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.520Z"
+    },
+    {
+      "id": "8wcy8zkderb37qs",
+      "agents": "z5nktfhns99sqss",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.520Z"
+    }
+  ]
+}

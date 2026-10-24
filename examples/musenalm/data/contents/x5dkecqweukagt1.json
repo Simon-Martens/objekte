@@ -1,0 +1,56 @@
+{
+  "annotation": "2. Illustration zu »Das schwarze Kästchen« von L. Robert INr 41289, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41278,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das schwarze Kästchen. / Seite 44",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Tischbein. Rosmäsler Dresd. 1826",
+  "scans": [
+    "alm_482_41278_8w70tlgxir.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das schwarze Kästchen. / Seite 44",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "504xdkiropxnlf4",
+      "agents": "1r1bjnmct205k7o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.727Z"
+    },
+    {
+      "id": "zjoalhay3bdba0u",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.727Z"
+    }
+  ]
+}

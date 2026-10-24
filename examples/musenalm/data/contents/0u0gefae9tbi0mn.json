@@ -1,0 +1,45 @@
+{
+  "annotation": "Allemannische Gedichte (Sammlung INr 14454, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Ein Bauer kam vom Feld heran; / Ein Fremdling saß an seiner Thür:",
+  "language": [],
+  "musenalm_id": 14455,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der böse Wahrmund. / Eine Volkslegende. / (S. Ign. Felner's Neue Allem. Gedichte. S. 90.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der böse Wahrmund. / Eine Volkslegende. / (S. Ign. Felner's Neue Allem. Gedichte. S. 90.)",
+  "updated": "2001-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4qf7f9h3j65jt7a",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.661Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "6. Charaden (Sammlung INr 66764, Obj 31) X. Gedichte (Sammlung INr 66755, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Die erste zeigt bei Frau und Mann / Den schönen Theil des Körpers an.",
+  "language": [],
+  "musenalm_id": 66766,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Zwei Sylben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bunsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Zwei Sylben",
+  "updated": "2009-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kanzmd7khiihog9",
+      "agents": "d1cx5vxdeeve5kc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.932Z"
+    }
+  ]
+}

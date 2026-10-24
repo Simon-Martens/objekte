@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Don Juan« s. Textbezug INr 36343, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36338,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Lyser)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lyser",
+  "scans": [
+    "alm_492_36338_y089d4weg8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2o19xoa787yuwh9",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.619Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.619Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnette (Sammlung INr 90408, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.394Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "O eitles Leben, nichtig mir verloren, / Da ich gelebt, ach, ohne dich zu kennen!",
+  "language": [],
+  "musenalm_id": 90411,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Mein Tod und mein Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Bernard. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Mein Tod und mein Leben",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ikg7nrgwlc5dkbd",
+      "agents": "32czpb0kbok37kn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.505Z"
+    }
+  ]
+}

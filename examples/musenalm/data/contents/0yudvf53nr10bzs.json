@@ -1,0 +1,47 @@
+{
+  "annotation": "nummeriert 6 /) Illustration zu »Das rächende Gewissen« INr 126102, Obj 15 /) # Bez. an den übrigen Graphiken der Suite",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 126103,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutter, wird denn der Vatter nie wiederkehren?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weber sculp",
+  "scans": [
+    "alm_3180_126103_ufy3rk48ke.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mutter, wird denn der Vatter nie wiederkehren?",
+  "updated": "2010-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ugrtjcsdjjs8wp",
+      "agents": "nr66064hkr5h3qt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.762Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.762Z"
+    }
+  ]
+}

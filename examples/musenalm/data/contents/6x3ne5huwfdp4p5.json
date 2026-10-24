@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) mit einer Illustration s. Graphik INr 73782, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Graf Walter rief am Marstallsthor: / Knapp, schwemm' und kämm' mein Roß!",
+  "language": [],
+  "musenalm_id": 73781,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Graf Walter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Graf Walter",
+  "updated": "2000-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lnsyk7c6sj5usam",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.810Z"
+    }
+  ]
+}

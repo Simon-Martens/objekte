@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Aargau« INr 52390, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52395,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aarau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wetzel del. F. Hegi sc.",
+  "scans": [
+    "alm_716_52395_iwarbz79rc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aarau",
+  "updated": "2007-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nfkgbnvx88lp0ph",
+      "agents": "l2xzujzn2ajajwc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.537Z"
+    },
+    {
+      "id": "f59ycukd7d3l4x7",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.537Z"
+    }
+  ]
+}

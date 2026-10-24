@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 78155, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Ludwig von Tremouille, Vicomte von Thouars, Prinz von Talmont, Graf von Guines etc stammte aus einer der edelsten Familien Frankreichs,",
+  "language": [],
+  "musenalm_id": 78183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / geheilte Leidenschaft. / Eine / wahre Geschichte. / (Zur Erläuterung des Titelkupfers)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Neuhofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / geheilte Leidenschaft. / Eine / wahre Geschichte. / (Zur Erläuterung des Titelkupfers)",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "041wdfu70siar2c",
+      "agents": "n8qx3uzpvdlhykc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.689Z"
+    }
+  ]
+}

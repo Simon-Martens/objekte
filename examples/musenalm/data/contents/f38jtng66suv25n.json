@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 86357, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Sonst, wenn ich von ihr gegangen, / Und ihr warm die Hand gedrückt,",
+  "language": [],
+  "musenalm_id": 86375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Edmund Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frage",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f6xlk5p20q9tzat",
+      "agents": "emg65x4ze46kant",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.164Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.164Z"
+    }
+  ]
+}

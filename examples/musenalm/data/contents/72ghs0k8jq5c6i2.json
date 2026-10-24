@@ -1,0 +1,58 @@
+{
+  "annotation": "Über der Graphik: Sappho 2. Aufz. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter (Sammlung INr 85464, Ob 7) Illustration zu »Sappho« von Fr. Grillparzer s. Textbezug INr 85475, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85474,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sappho. Du läßt dich suchen, Freund? - doch ha! was seh' ich?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+  "scans": [
+    "alm_1583_85474_smkyh7pmtk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sappho. Du läßt dich suchen, Freund? - doch ha! was seh' ich?",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ei8bfrp6o4h3co",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.979Z"
+    },
+    {
+      "id": "lu5b7vhualz2n72",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.979Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Pferdezucht (Sammlung INr 85246, Obj 6) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Unter der Gestütswissenschaft, der der Wissenschaft der Pferdezucht versteht man eine nach der Naturlehre des Pferdes und den Vortheilen und dem Nutzen, welche uns diese Thiergattung leistet,",
+  "language": [],
+  "musenalm_id": 85247,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Probe / aus dem nächstens bei Brönner in Frankfurt / am Main erscheinenden Werke: / Lehrbuch / der / Gestütswissenschaft [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Tennecker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Probe / aus dem nächstens bei Brönner in Frankfurt / am Main erscheinenden Werke: / Lehrbuch / der / Gestütswissenschaft [...]",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mimx3kbhj49d9xf",
+      "agents": "ngfhgg967qz5l80",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.096Z"
+    }
+  ]
+}

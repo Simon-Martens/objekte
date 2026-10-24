@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "O wäre ich auf dieser Flur, / Was du, o Veilchen, bist!",
+  "language": [],
+  "musenalm_id": 84538,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 360,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Veilchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. v. Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Veilchen",
+  "updated": "2010-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kebhc706rcik3pv",
+      "agents": "e6o8ps5hsximh4k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.798Z"
+    }
+  ]
+}

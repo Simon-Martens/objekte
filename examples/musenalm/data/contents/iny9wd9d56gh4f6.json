@@ -1,0 +1,45 @@
+{
+  "annotation": "Waldbilder (Sammlung INr 37001, Obj 126)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Ich stand auf meinem Lieblingsstand / Im Wald von grünen Eichen,",
+  "language": [],
+  "musenalm_id": 37004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Namenszug",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Graf von Würtemberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Namenszug",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dflmbaxmcq6k167",
+      "agents": "c5uqr1fmm5o5hnx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.959Z"
+    }
+  ]
+}

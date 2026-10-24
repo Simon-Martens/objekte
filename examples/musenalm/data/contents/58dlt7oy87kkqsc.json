@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug »Des Schottländers Brautschau« von J. V. Adrian INr 43977, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43982,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mary",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Painted by H. Richter Engraved by H. Cook",
+  "scans": [
+    "alm_593_43982_vfhoy2oqz5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mary",
+  "updated": "2006-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "id7g6trtbqymjti",
+      "agents": "2p87lmr62wiucvw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.271Z"
+    },
+    {
+      "id": "mlgb3ntc38p4z55",
+      "agents": "li9bs4mqvtf7drh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.272Z"
+    }
+  ]
+}

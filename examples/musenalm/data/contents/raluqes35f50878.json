@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.797Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Wenn ihr einst den Jüngling wieder / sehet, / Oede Fluren, den mein Herz erkohr",
+  "language": [],
+  "musenalm_id": 47840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergebliche Sehnsucht. / Nach dem Französischen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vergebliche Sehnsucht. / Nach dem Französischen",
+  "updated": "2007-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "otfdmdbt1lehcc6",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.532Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4846,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MUSEN / ALMANACH / 1791 / Göttingen bei J. C. Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg inv. Riepenhausen sc.",
+  "scans": [
+    "alm_88_4846_krb9ukl6yw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MUSEN / ALMANACH / 1791 / Göttingen bei J. C. Dieterich",
+  "updated": "2000-09-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wf37tcerif02zbj",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.275Z"
+    },
+    {
+      "id": "rkvyd3mirumecuo",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.275Z"
+    }
+  ]
+}

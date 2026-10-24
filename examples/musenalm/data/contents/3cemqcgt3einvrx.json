@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 2. /) Modekupfer im Kalendarium April /) s. Textbezug INr 85925, Obj 60",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85870,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Damenkleidung so 1660 in Dresden / mode war",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoppe s. Schubert del.",
+  "scans": [
+    "alm_636_85870_mta8nj7ohs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Damenkleidung so 1660 in Dresden / mode war",
+  "updated": "2006-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s9onk4hk5cub2mg",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.151Z"
+    }
+  ]
+}

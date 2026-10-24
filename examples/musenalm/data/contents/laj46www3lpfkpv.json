@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 77760, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.543Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "380",
+  "incipit_statement": "Einst lag im hellen Morgenglanze / Die Welt vor meinen Blicken da;",
+  "language": [],
+  "musenalm_id": 77761,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dichten und Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dichten und Leben",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xxai0lcat3hzpvh",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.808Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel und vollst. Bez. aus dem G-Verz s. Textbezüge INr 63573, 63574;  Obj 10, 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63581,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Shylock und Jessica #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "in Stahl gest. von P. Walther Nbg. 1835",
+  "scans": [
+    "alm_1044_63581_x2q9ynam3t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Shylock und Jessica #",
+  "updated": "2009-04-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u6gg0ztl6drbkhc",
+      "agents": "at8sm22osm7l3bv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.288Z"
+    },
+    {
+      "id": "ig16k2cyvz0ew89",
+      "agents": "f52qfr3kaiovdte",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.288Z"
+    }
+  ]
+}

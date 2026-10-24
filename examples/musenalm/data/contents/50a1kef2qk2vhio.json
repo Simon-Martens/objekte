@@ -1,0 +1,45 @@
+{
+  "annotation": "Einfassung zu einer beliebigen Silhouette",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.917Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 3771,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Riepenh. Del)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenh. Del",
+  "scans": [
+    "alm_89_3771_rsl75ykztd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ndo83hn52xpl897",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.002Z"
+    }
+  ]
+}

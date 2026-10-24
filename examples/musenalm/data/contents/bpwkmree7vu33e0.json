@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Kluge Zurückhaltung dürfte wol gegen Manche nöthig seyn.",
+  "language": [],
+  "musenalm_id": 73448,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "24. / Vermeide ein finsteres und ge- / heimnißvolles Ansehen und eine be- / denkliche Mine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Hezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "24. / Vermeide ein finsteres und ge- / heimnißvolles Ansehen und eine be- / denkliche Mine",
+  "updated": "2011-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sxliy6unqsvjgnt",
+      "agents": "c8k6z31g33p9467",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.458Z"
+    }
+  ]
+}

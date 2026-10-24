@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 104209, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.286Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "Der Dichter wandelt durch die blüh'nden Thale, / Die Leier nicht im Arm, nein, in der Brust,",
+  "language": [],
+  "musenalm_id": 104210,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Dichter und Gelehrter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Dichter und Gelehrter",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1uv1vuivb6cnsq4",
+      "agents": "arq1wi6im7bawmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.204Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.204Z"
+    }
+  ]
+}

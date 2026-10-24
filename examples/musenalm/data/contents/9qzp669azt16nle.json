@@ -1,0 +1,43 @@
+{
+  "annotation": "Text zu den Kupfern (Sammlung INr 29130, Obj 5) s. Graphik INr 29142, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Verwegen und mit keckem Muth, / Den Boden stampfen, nicht entschweben",
+  "language": [],
+  "musenalm_id": 29141,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Juny",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Juny",
+  "updated": "2002-10-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7t3wivjzturrxph",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.439Z"
+    }
+  ]
+}

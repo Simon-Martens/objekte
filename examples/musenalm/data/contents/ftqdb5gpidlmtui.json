@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "O legte man den Titularrath Rut / Doch auf den Bauch,",
+  "language": [],
+  "musenalm_id": 2963,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kopfsteuer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. R. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Kopfsteuer",
+  "updated": "2000-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "apsoclelsqzmnf5",
+      "agents": "hwr5g4cryfwmbpv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.043Z"
+    }
+  ]
+}

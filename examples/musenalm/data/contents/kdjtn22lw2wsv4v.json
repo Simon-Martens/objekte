@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik paginiert VII. Illustration zu »Scenen aus der Familie Ehrenberg.  2. Die Jubelhochzeit« INr 47806, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47741,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach Herr Amtmann, wenn sie wüssten, wie / lieb wir uns haben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. W. Böhm sc.",
+  "scans": [
+    "alm_651_47741_7j9qpcpp1e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ach Herr Amtmann, wenn sie wüssten, wie / lieb wir uns haben",
+  "updated": "2007-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kxuztaby6ul2zcs",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.570Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.570Z"
+    },
+    {
+      "id": "xknw1lmu2zm4br7",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.570Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.570Z"
+    }
+  ]
+}

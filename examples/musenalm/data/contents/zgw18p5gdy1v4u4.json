@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54820,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seinem lieben Freunde / Dr. August Kahlert / aus / herzlicher Zuneigung / der Verfasser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Seinem lieben Freunde / Dr. August Kahlert / aus / herzlicher Zuneigung / der Verfasser",
+  "updated": "2008-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8bvcu0lcxu89nzm",
+      "agents": "cvj1hp70xlt5hpm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.498Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.498Z"
+    }
+  ]
+}

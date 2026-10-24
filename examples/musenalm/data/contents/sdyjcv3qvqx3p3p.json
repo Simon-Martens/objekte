@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.846Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Beim Waldkloster, um Mitternacht, / Ertönt ein lautes Horn,",
+  "language": [],
+  "musenalm_id": 78429,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nacht des Sohnes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthäus von Collin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nacht des Sohnes",
+  "updated": "2011-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "medlw2qv5tp79bq",
+      "agents": "fd00ei6z82qcoka",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.766Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.766Z"
+    }
+  ]
+}

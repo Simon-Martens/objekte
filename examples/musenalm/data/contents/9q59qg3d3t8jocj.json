@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58900,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesundbrunnen zu Freienwalde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach d. Natur gez. v. Blechen gest. von J. G. Martini Rudolstadt 1830",
+  "scans": [
+    "alm_866_58900_xbkqvvh0da.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gesundbrunnen zu Freienwalde",
+  "updated": "2008-07-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1l6u1a0h6hmo7v5",
+      "agents": "iyauzg61pbtokgc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.722Z"
+    },
+    {
+      "id": "u2lajd4o39qqg3g",
+      "agents": "bix4netz2kpq0qd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.722Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Einer (Sammlung INr 38158, Obj 227)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Grausam handelt Amor mit mir! o spielet, / ihr Musen,",
+  "language": [],
+  "musenalm_id": 38159,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 228,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grausam handelt Amor mit mir! o spielet, / ihr Musen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. und S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w6eomvnfor7vpmh",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.627Z"
+    },
+    {
+      "id": "rsd2sjfklh3xycu",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.627Z"
+    }
+  ]
+}

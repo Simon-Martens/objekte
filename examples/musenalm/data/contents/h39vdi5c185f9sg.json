@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.656Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Sie blühte einst an deinem lieben / Herzen  / So schön, und welkte schnell dahin.",
+  "language": [],
+  "musenalm_id": 129191,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rose / an der Brust des Geliebten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Susanne von Bandemer, geb. v. Franklin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rose / an der Brust des Geliebten",
+  "updated": "2021-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qwuiki1sn6x2smn",
+      "agents": "63e8s8hkpbnksyg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.007Z"
+    }
+  ]
+}

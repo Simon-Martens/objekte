@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 34021, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.965Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor von den Musen gefangen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wächter inv. Rahl sc.",
+  "scans": [
+    "alm_472_34022_fwjqvw0n9y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amor von den Musen gefangen",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "40iw838tqustiz1",
+      "agents": "jgp8dgth3q9useg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.437Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.437Z"
+    },
+    {
+      "id": "ejf5hnfbszeqqua",
+      "agents": "d645btewd8dbrsc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.437Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.437Z"
+    }
+  ]
+}

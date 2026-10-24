@@ -1,0 +1,45 @@
+{
+  "annotation": "1816. (Sammlung INr 40906, Obj 44)  II. Tafeln am Wege (Sammlung INr 40884, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Ein sonnenheller Aprilmorgen lud mich ein, den Dichter Neuffer in seinem Pfarrdorfe Zell unter Aichelberg zu begrüßen,",
+  "language": [],
+  "musenalm_id": 40907,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xn576v10rncsaym",
+      "agents": "z3510nlbg6hd1qt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.972Z"
+    }
+  ]
+}

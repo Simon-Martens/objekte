@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "O, wenn ich doch ein Vöglein wär; / So bliebst du nicht allein,",
+  "language": [],
+  "musenalm_id": 63344,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wunsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wunsch",
+  "updated": "2009-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "psfxhzrjus9ovnj",
+      "agents": "tetas6nm69fwpjp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.182Z"
+    }
+  ]
+}

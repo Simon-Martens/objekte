@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.980Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Mir hat in meines Schmerzens bittern Tagen / Des Fackeljünglings Mund das Wort gegeben:",
+  "language": [],
+  "musenalm_id": 14369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. Schneider",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Wort",
+  "updated": "2001-04-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tn8ihnsudp4hhst",
+      "agents": "p0usds5em1danm0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.558Z"
+    }
+  ]
+}

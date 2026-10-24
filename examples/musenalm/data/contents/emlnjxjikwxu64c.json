@@ -1,0 +1,45 @@
+{
+  "annotation": "# Aus dem G-Verz: Tab. III. liefert ebenfalls eine Bordüre zu Ofenschirmen, Reitdecken etc /) graph. Anleitung paginiert III.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48950,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Anleitung"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "#",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto. fec. 2ter. Jah. G.",
+  "scans": [
+    "alm_670_48950_4w1uzmex1m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "#",
+  "updated": "2007-04-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r5fq4ok4bqct1py",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.517Z"
+    }
+  ]
+}

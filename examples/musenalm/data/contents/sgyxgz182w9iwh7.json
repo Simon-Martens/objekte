@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Noch ruht die Erd', in todte Nacht versunken, / Kein Gott noch winket ihr zu Licht und Leben,",
+  "language": [],
+  "musenalm_id": 42831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgenopfer. / Erster Theil. / Dämmerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Morgenopfer. / Erster Theil. / Dämmerung",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cquedm41en8wou3",
+      "agents": "qqujkyt6v8xr4cn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.606Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.606Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 9. /) Illustration zu »Edelmuth« INr 92913, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.206Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92914,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du warst mein Feind - seye nun der / Schützer meines Weibes!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Matthaei J. Blaschke sc.",
+  "scans": [
+    "alm_4082_92914_lyqpd6t25h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Du warst mein Feind - seye nun der / Schützer meines Weibes!",
+  "updated": "2013-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "55nkidmx29xpohz",
+      "agents": "k01z45djkjhmx1a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.111Z"
+    },
+    {
+      "id": "aed9lpdje2odsmb",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.111Z"
+    }
+  ]
+}

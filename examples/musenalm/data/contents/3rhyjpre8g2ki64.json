@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik im Kalendarium April, nummeriert 4. /) s. Textbezug INr 130978, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.951Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carriere",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc",
+  "scans": [
+    "alm_3126_130930_xos9cudpbq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Carriere",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "txl9345vr25b85t",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.079Z"
+    }
+  ]
+}

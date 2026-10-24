@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Freund meiner Seele, lagre / Dich auf dieß weiche Moos,",
+  "language": [],
+  "musenalm_id": 83702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn *",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anne Louise Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn *",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dd7trkmqnruep3u",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.030Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.030Z"
+    }
+  ]
+}

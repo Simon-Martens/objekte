@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Pugatum est poc haec de summa rerum contra Zenobiam et / Zadam, ejus sororem - fugata est Zenobia cum Zaba, / et plenimisse parta victoria. / Vopiscus",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Das Schwesterpaar Zenobia und Zaba hat sich in den geschichtlichen Ruhm des Morgenlands und Abendlands getheilt; in der römischen Geschichte leuchtet Zenobia's Namen als ein Stern der ersten Größe,",
+  "language": [],
+  "musenalm_id": 57833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sebba",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sebba",
+  "updated": "2008-06-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f478f1zt8f44oey",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.842Z"
+    }
+  ]
+}

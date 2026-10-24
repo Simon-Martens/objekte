@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Sonnett von Treitschke INr 68584, Obj 3,11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.827Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68583,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WESS' IST DAS BILD?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Domenichino pt. F. John sc.",
+  "scans": [
+    "alm_227_68583_ao1x1hrc8l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WESS' IST DAS BILD?",
+  "updated": "2001-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rf2vux92t90g8yc",
+      "agents": "ke8b3zzq6e79hhk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.637Z"
+    },
+    {
+      "id": "zc7lkuobvydb253",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.637Z"
+    }
+  ]
+}

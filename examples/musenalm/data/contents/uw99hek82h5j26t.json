@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 10.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13903,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aar-Brücke auf dem Grimsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zingg del. Darnstedt sc.",
+  "scans": [
+    "alm_220_13903_ns1oxcv2ko.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aar-Brücke auf dem Grimsel",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "37rswk4i4ibermc",
+      "agents": "tv0kfo1dowgyyed",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.533Z"
+    },
+    {
+      "id": "0ujcq6ddd7et1b9",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.533Z"
+    }
+  ]
+}

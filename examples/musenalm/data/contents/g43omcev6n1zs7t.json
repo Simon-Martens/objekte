@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 69017, Obj 6) s. Graphik INr 69025, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.600Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Von dieser Scene der Freude und Geselligkeit führ' ich dich hinweg, und bringe dich in weite, öde Wildniß der römischen Campagna; mit einem Wort, du hast das heutige Ostia vor dir.",
+  "language": [],
+  "musenalm_id": 69026,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V.",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r1boxpb9o9dnivv",
+      "agents": "6li7ibbf1vr3nv9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.463Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.463Z"
+    }
+  ]
+}

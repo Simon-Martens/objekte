@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Wie oft noch umhüllest, / Du finsterer Mann / Die Schöpfung, und füllest / Mit Grausen sie an?",
+  "language": [],
+  "musenalm_id": 52488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Winter. / Im April 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thaddäus Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Winter. / Im April 1784",
+  "updated": "2007-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tw1deuqqga6jos5",
+      "agents": "1mr5htila6mqzxe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.694Z"
+    }
+  ]
+}

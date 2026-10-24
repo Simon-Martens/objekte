@@ -1,0 +1,45 @@
+{
+  "annotation": "Marie. Ein Fragment aus früher Zeit. Zweiter Theil (Sammlung INr 99639, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Nicht soll der Mann sich Freund des Weibes / nennen, / Und wenn er's thut, so ist's ein thöricht Meinen:",
+  "language": [],
+  "musenalm_id": 99643,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Freundin des Poeten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius von Rodenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Freundin des Poeten",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ixfkiiytdlbzr90",
+      "agents": "mx1vnd1yqx32ae7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.647Z"
+    }
+  ]
+}

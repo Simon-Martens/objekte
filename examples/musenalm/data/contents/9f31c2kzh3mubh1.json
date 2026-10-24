@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Liebe Lust und Qual. Zwölf Sonnette (Sammlung INr 14407, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Hell glüht ringsum ein blühend Liebesleben, / Es schwelgt der West mit lustentflammtem Kosen",
+  "language": [],
+  "musenalm_id": 14410,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Chr. Baron Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2001-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2ssrv8damamw6po",
+      "agents": "id1mj19iathigp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.529Z"
+    }
+  ]
+}

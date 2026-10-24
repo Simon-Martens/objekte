@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthselkranz (Sammlung INr 94570, Obj 139) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94569, Obj 138)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "361",
+  "incipit_statement": "Das zweite Paar kam in die Kirche, / Und hörte mit lauschendem Ohr",
+  "language": [],
+  "musenalm_id": 94579,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X. Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Adami",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X. Charade",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7iiumuggmy4jb5u",
+      "agents": "h1jhs52naysyy4l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.661Z"
+    }
+  ]
+}

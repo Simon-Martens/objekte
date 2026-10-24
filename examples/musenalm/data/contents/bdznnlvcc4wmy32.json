@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite s. Anm. dort /) paginiert 3 /) Graphik im Kalendarium März /) Illustration zu »Zayre« von F. M. A. de Voltaire",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69997,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich bin es, den du verräthst, Nieder mit dir Meineidige. / Zaire Aufz. 5. Auft. 9",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. F. Berger sc.",
+  "scans": [
+    "alm_793_69997_qcp2g485v0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich bin es, den du verräthst, Nieder mit dir Meineidige. / Zaire Aufz. 5. Auft. 9",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rjzg9ecukj7xw4u",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.521Z"
+    }
+  ]
+}

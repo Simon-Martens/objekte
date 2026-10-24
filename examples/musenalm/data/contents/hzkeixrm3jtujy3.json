@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert S. 175 /) Illustration zu »Der Kampf um die Braut « von J. G. Seidl INr 93042, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93011,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kampf um die Braut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rieder del. M. Hofmann sc.",
+  "scans": [
+    "alm_1588_93011_kkkdqaer6g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kampf um die Braut",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "inb97v946txe64u",
+      "agents": "djf4nkfvic4s191",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.641Z"
+    },
+    {
+      "id": "ucbcrc76q0k9l27",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.641Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25610, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.688Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Lieb' ich dich herzlich, sprich, was geht's dich an? / Wenn ich dir schweigend folg' und nur von Ferne,",
+  "language": [],
+  "musenalm_id": 25614,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 145,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Was geht's dich an? / Wenn ich dich lieb habe, was geht's dich an? / Wilhelm Meister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Was geht's dich an? / Wenn ich dich lieb habe, was geht's dich an? / Wilhelm Meister",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ubebz292ynlmoom",
+      "agents": "snnpz92vgxnioxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.141Z"
+    }
+  ]
+}

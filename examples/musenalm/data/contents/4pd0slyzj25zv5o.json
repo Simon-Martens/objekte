@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium August; paginiert 4. Illustration zu »Wilhelm Tell und Arnold Winkelried« INr 60816, Obj 15; s. a. Textbezug INr 60821, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60813,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Jury del et fec.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del et fec.",
+  "scans": [
+    "alm_841_60813_2hfv4v6f1m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-07-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yf8xp2vu5hksoer",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.921Z"
+    }
+  ]
+}

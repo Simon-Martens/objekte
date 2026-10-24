@@ -1,0 +1,45 @@
+{
+  "annotation": "Verwehte Stimmen (Sammlung INr 45616, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Mir war das Herz so wund und krank, / Ich fühlte mich weh und beklommen,",
+  "language": [],
+  "musenalm_id": 45621,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aac5p2p5n0udlb7",
+      "agents": "dii69uyjdj5ln7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.161Z"
+    }
+  ]
+}

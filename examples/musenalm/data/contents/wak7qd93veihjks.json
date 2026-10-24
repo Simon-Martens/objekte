@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Ei, guten Abend, schönen guten Abendtag, meine feinen Junggesellen! rief Vater Haidenwirth eines Abends mit süßmöglichster Stimme;",
+  "language": [],
+  "musenalm_id": 95406,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die fünf seltsamen Gesellen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Stelzhammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die fünf seltsamen Gesellen",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "odtv107m521wwpj",
+      "agents": "a014bqncl68cjih",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.586Z"
+    }
+  ]
+}

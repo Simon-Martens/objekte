@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 21830, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "Spricht man mein Erstes zu dir, du wirst es / schwerlich verweigern;",
+  "language": [],
+  "musenalm_id": 21834,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spricht man mein Erstes zu dir, du wirst es / schwerlich verweigern;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1w9u829omcrtomd",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.056Z"
+    }
+  ]
+}

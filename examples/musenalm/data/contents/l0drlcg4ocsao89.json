@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 65534, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.688Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Wenn ich doch nur den Kunstgriff fände, / Wodurch der Herr, wie's ihm gefällt,",
+  "language": [],
+  "musenalm_id": 65536,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Klage des Metaphysikers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Puchta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Klage des Metaphysikers",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "krewk83g9692gkg",
+      "agents": "yjnbioe01jyvf6s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.013Z"
+    }
+  ]
+}

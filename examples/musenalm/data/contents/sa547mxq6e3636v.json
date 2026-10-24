@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Der Kardinal Alberoni war einer von jenen seltenen Männern, den man mit Herrn Wall, einem in ganz Frankreich bekannten Spieler, vergleichen kann,",
+  "language": [],
+  "musenalm_id": 128712,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Julius Alberoni",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. D. Arnstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Julius Alberoni",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vn03jl6k5flf8hx",
+      "agents": "1ep11uxg6h0kbzz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.994Z"
+    }
+  ]
+}

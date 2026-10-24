@@ -1,0 +1,45 @@
+{
+  "annotation": "Der arme Heinrich (Sammlung INr 86632, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Den Rosenkranz am Arme, gehüllt in's Pilgerkleid, / Ist Vater schon und Tochter in aller Früh' bereit.",
+  "language": [],
+  "musenalm_id": 86641,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. Die Wallfahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Ferdinand Stamm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. Die Wallfahrt",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sak3m9u8fqh7ldj",
+      "agents": "big4tm69ocucym5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.166Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.166Z"
+    }
+  ]
+}

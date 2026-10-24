@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebensbilder (Sammlung INr 58940, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Ich kannt' ein Mägdlein. Maienrosenlicht / Umspielte leis' ihr blühend Angesicht;",
+  "language": [],
+  "musenalm_id": 58941,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Täuschungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Täuschungen",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l6sgnj6cnk6q30x",
+      "agents": "1obisuoppirekjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.176Z"
+    }
+  ]
+}

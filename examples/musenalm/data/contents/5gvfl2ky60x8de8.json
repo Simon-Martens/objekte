@@ -1,0 +1,45 @@
+{
+  "annotation": "Kindliches und Kindisches (Sammlung INr 121954, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Die Mutter lehrte ihrem kleinen Kinde / Das Vaterunser; dieß begriff geschwinde, / Und schon in nicht gar vielen Tagen / Wußt' es auswendig das Gebet zu sagen;",
+  "language": [],
+  "musenalm_id": 121955,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Das Vaterunser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Das Vaterunser",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7qye5votjvii5h9",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.660Z"
+    }
+  ]
+}

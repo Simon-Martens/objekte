@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gedichte (Sammlung INr 36820, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Was Gutes kaum der gute Mann / In Schul' und Kirche bauen kann",
+  "language": [],
+  "musenalm_id": 36824,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Harlekin auf dem Lande. / Aufforderung an Herrn Prediger / Dapp in Kleinschönebeck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Harlekin auf dem Lande. / Aufforderung an Herrn Prediger / Dapp in Kleinschönebeck",
+  "updated": "2004-03-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3n5d25tp5w40uve",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.739Z"
+    }
+  ]
+}

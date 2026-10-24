@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Nach alter Sage, zuletzt erzählt in Hormayers Archiv für Geschichte /) mit einer Illustration s. Graphik INr 65162, Obj 10,02",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.897Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Auf Karlstein, seiner Veste, / hält Kaiser Wenzel Haus,",
+  "language": [],
+  "musenalm_id": 20836,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der blinde Sänger und sein Hund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der blinde Sänger und sein Hund",
+  "updated": "2002-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "niaeaw6bqp277xm",
+      "agents": "xrm3e2g6mht03kn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.033Z"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 104181, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104180,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LUCRETIA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cantarini pinx. S. v. Perger del. Bl. Höfel sculp.",
+  "scans": [
+    "alm_1932_104180_q7he35b8ag.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LUCRETIA",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ulxllhjt11n5js9",
+      "agents": "f7ysze58w24sxp6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.185Z"
+    },
+    {
+      "id": "z7bdluc0doggqgp",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.185Z"
+    },
+    {
+      "id": "u6ymcxmeje600xa",
+      "agents": "y1qct7tl0hidcy2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.185Z"
+    }
+  ]
+}

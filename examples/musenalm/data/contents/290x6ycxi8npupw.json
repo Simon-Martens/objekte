@@ -1,0 +1,45 @@
+{
+  "annotation": "Aehrenlese. Aus dem Nachlaß von A. L. Karschin (Sammlung INr 61161, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Dein jüngster Sohn ist fortgeflogen / Und hat in jener welt das Kleid / Der schönen Engel angezogen,",
+  "language": [],
+  "musenalm_id": 61163,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbitte an eine Freundin. / D. 13. Mai 1766",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbitte an eine Freundin. / D. 13. Mai 1766",
+  "updated": "2008-12-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h235p1hmxbx8hur",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.922Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) zus. Bezeichnung: Dr. B. Susemihl",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112633,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Joh. Ender del. J. Serz sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. J. Serz sc.",
+  "scans": [
+    "alm_2477_112633_2bcr9uca4e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aevc4ji4j5py1ik",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.493Z"
+    },
+    {
+      "id": "bsurv8dj3669tx2",
+      "agents": "fmgi30c4k9z8twt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.493Z"
+    }
+  ]
+}

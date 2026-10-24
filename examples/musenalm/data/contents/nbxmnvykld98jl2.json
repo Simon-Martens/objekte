@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Warum bin ich allein und tränke mein ein- / sames Lager / Mit den Thränen, für die nirgends ein / Herz sich erweicht?",
+  "language": [],
+  "musenalm_id": 21261,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie auf den Tod meiner Mutter, / La Tour in der Watt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie auf den Tod meiner Mutter, / La Tour in der Watt",
+  "updated": "2002-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "egob7753xcf0d58",
+      "agents": "wdbc0arxqqntge1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.936Z"
+    }
+  ]
+}

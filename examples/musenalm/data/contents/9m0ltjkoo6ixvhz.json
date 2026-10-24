@@ -1,0 +1,45 @@
+{
+  "annotation": "Glaukopis (Sammlung INr 24916, Obj 197)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Schalkhaft hütest du dein Auge, mich nicht zu ver- / wunden,",
+  "language": [],
+  "musenalm_id": 24935,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 216,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schalkhaft hütest du dein Auge, mich nicht zu ver- / wunden,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Menzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rhpw7ct03tk2k2s",
+      "agents": "6z5qy0vfiswoqx8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.119Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.119Z"
+    }
+  ]
+}

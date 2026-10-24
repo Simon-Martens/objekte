@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 36739-36742, Obj 50-53",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.663Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36738,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Sammlung (O. F. Gruppe)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. F. Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h141flgpq6pnbf8",
+      "agents": "9kqncyvdpl96r3o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.790Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.790Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3. /) Illustration zu »Die Rheinfahrt« von Fouqué INr 26521, Obj 51; s. a.Textbezug INr 26479, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26480,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rheinfahrt von de la Motte Fouqué",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke de. A. W. Böhm sc.",
+  "scans": [
+    "alm_347_26480_bxg4ske9vo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Rheinfahrt von de la Motte Fouqué",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fpzuf5prua6kqlh",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.072Z"
+    },
+    {
+      "id": "iiyvr3hmmt90c66",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.072Z"
+    }
+  ]
+}

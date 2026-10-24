@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.919Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Sage nicht länger, das Glück verziehe mich.Es fängt noch gerade an, mich auf sehr fatale Proben zu stellen.",
+  "language": [],
+  "musenalm_id": 26642,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Scharffenstein. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline de la Motte Fouqué geborne Briest",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Scharffenstein. / Eine Erzählung",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5r3bc1n9oohav66",
+      "agents": "t59v9lajt8yljq5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.326Z"
+    }
+  ]
+}

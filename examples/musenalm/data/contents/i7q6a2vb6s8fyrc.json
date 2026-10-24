@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Bin nur von Dero Landmiliz, / Und trag' im Kopfe wenig Wiz;",
+  "language": [],
+  "musenalm_id": 5780,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Frau G. R. ***. / An ihrem Geburtstage. / Im Namen eines von denen Beiläufern, / welche ihr Gemahl die Landmiliz / nannte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Frau G. R. ***. / An ihrem Geburtstage. / Im Namen eines von denen Beiläufern, / welche ihr Gemahl die Landmiliz / nannte",
+  "updated": "2000-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dlnds2vgdt6pwns",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.100Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "TABELLEN zur Bemerkung der Festtage des häuslichen Glücks und des gesellschaftlichen Lebens (Sammlung INr 130265, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130269,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "APRIL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Catel del. F. Meyer fec.",
+  "scans": [
+    "alm_1227_130269_70u15ijc24.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "APRIL",
+  "updated": "2009-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rutn39kyryxhgud",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.062Z"
+    },
+    {
+      "id": "uigz965e6i1jjej",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.062Z"
+    }
+  ]
+}

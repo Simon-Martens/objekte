@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung: F. Berger sc. an der 1. Graphik der Suite von 12 Graphiken zu Werken von Voltaire wohl fälschlich für D. Berger /) paginiert 1 /) Graphik im Kalendarium Januar /) Illustration zu »Henriade« von F. M. A. de Voltaire",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.394Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69995,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Durch Tapferkeit schlug er sie zu Boden / Durch Tugend in Fesseln. / Volt Henr. Ges. 8",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. F. Berger sc.",
+  "scans": [
+    "alm_793_69995_m6dwz37npg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Durch Tapferkeit schlug er sie zu Boden / Durch Tugend in Fesseln. / Volt Henr. Ges. 8",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8if5kjo35majy1g",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.520Z"
+    }
+  ]
+}

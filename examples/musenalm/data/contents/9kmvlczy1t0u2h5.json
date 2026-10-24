@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70149,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIEDERICKE DROTHEE / LUISE PHILIPPINE / Prinzessin Tochter des Printz / FERDINAND v. Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Townley pinx. P. Haas sc.",
+  "scans": [
+    "alm_799_70149_kp6yanh7gb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIEDERICKE DROTHEE / LUISE PHILIPPINE / Prinzessin Tochter des Printz / FERDINAND v. Preussen",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i1i42h1ty7ovmhr",
+      "agents": "0huxr82q48zstl7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.314Z"
+    },
+    {
+      "id": "rbyrxky4mxkt0mz",
+      "agents": "3mymtnunkvww3p2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.314Z"
+    }
+  ]
+}

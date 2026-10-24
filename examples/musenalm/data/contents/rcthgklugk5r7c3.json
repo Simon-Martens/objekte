@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Briefe einer jungen Malerinn« von Minna S*** d. i. Joh. K. W. Spazier INr 28832, Obj 130",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "b) Sc. Aus den Briefen einer jungen Malerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Barthel del. C. W. Schenck sc. Braunschweig",
+  "scans": [
+    "alm_372_28833_ga5klr0egv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "b) Sc. Aus den Briefen einer jungen Malerin",
+  "updated": "2002-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hnyd272x90h30ku",
+      "agents": "qfeh99dap41ww11",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.489Z"
+    },
+    {
+      "id": "fq5oxp692e5a331",
+      "agents": "voq5dlml9870uhq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.489Z"
+    }
+  ]
+}

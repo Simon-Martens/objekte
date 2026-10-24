@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 129584, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Zemin und Gulindi waren die Hoffnung der zwo ansehnlichsten Familien Arabiens.",
+  "language": [],
+  "musenalm_id": 129591,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zemin und Gulindi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zemin und Gulindi",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ia8l7jxkm02rfeq",
+      "agents": "o1de384mohw3dnl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.018Z"
+    }
+  ]
+}

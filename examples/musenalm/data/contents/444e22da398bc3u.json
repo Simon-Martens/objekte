@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 24563, Obj 141) Kleine Gedichte (Sammlung INr 24562, Obj 140",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Jeglicher Mensch ist ein Janushaupt mit gedoppeltem / Antlitz",
+  "language": [],
+  "musenalm_id": 24564,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Terminus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Riemer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Terminus",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5cmymgetoxeiub2",
+      "agents": "rw4d1lc8bcz0sk7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.162Z"
+    }
+  ]
+}

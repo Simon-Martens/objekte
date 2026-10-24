@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 20088, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.237Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Der goldne Herbstmorgen lockte den Grafen Richmond und seine Gemalin bald nach Sonnenaufgange zur Jagd,",
+  "language": [],
+  "musenalm_id": 20101,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebe Wahn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebe Wahn",
+  "updated": "2001-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9fube5g57x4frcc",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.851Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.851Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Von jenem Recken schreiben Hochgelahrte / Dass nimmer ihm gegrauet vor Gefahren",
+  "language": [],
+  "musenalm_id": 51305,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vom wackern Reichart. / Ein altes Lied aus dem Französischen des / XVI. Jahrhunderts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. CHAMISSO",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vom wackern Reichart. / Ein altes Lied aus dem Französischen des / XVI. Jahrhunderts",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "365zog9w3nbrus0",
+      "agents": "3emdj29jey7pglq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.477Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Wilhelm Gottlieb Becker. Aus seinem Leben. Nach den Mittheilungen seiner nächsten Hinterbliebenen« INr 19389, Obj 22 /) # Bez. aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83177,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "W. G. BECKER",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Graff. Schmidt",
+  "scans": [
+    "alm_263_83177_39j0d2dlwl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "W. G. BECKER",
+  "updated": "2001-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u7rhb1rzaw4lzzg",
+      "agents": "5sntayo8ftw7b4o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.959Z"
+    },
+    {
+      "id": "1pqew9vegioz67n",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.959Z"
+    }
+  ]
+}

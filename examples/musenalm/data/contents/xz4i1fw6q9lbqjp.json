@@ -1,0 +1,46 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) mit Anm. /) mit Sorten- und Artenlisten",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Seit einiger Zeit hat man angefangen kurze Notizen von den Pflanzen, welche in dem ungemein reichen botanischen Garten von Paris zum erstenmal geblühet haben dem Publikum vorzulegen",
+  "language": [],
+  "musenalm_id": 74684,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pflanzen, die im Nazionalgarten zu / Paris geblühet haben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Römer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pflanzen, die im Nazionalgarten zu / Paris geblühet haben",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lf8sg8rpck773k7",
+      "agents": "isv9wrpng7dwls4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.553Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.553Z"
+    }
+  ]
+}

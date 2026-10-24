@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed V, 166. Auch im Schwäbischen Musenalmanach (Stäudlin) 1782",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Laura, über diese Welt zu flüchten / Wähn ich mich in Himmelmaienglanz zu / lichten",
+  "language": [],
+  "musenalm_id": 41671,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die seeligen Augenblicke",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Y.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die seeligen Augenblicke",
+  "updated": "2005-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xlxa68m7y9v2pae",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.201Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.201Z"
+    }
+  ]
+}

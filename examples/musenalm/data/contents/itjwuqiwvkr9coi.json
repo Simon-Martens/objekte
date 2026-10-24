@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110887,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIELLIEBCHEN. / 1834. / INDUSTRIE-COMPTOIR IN LEIPZIG. / (Baumgärtner.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinr. Meyer sc. Zürich",
+  "scans": [
+    "alm_3470_110887_6hlfje08x7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "VIELLIEBCHEN. / 1834. / INDUSTRIE-COMPTOIR IN LEIPZIG. / (Baumgärtner.)",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tbovlxj0w9kjjtc",
+      "agents": "pklgpi3o0ul4b99",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.344Z"
+    }
+  ]
+}

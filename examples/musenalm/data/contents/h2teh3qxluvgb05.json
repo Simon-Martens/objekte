@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Lieder (INr 93373, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.064Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Ja, ich weiß es, diese treue Liebe / Hegt umsonst mein wundes Herz;",
+  "language": [],
+  "musenalm_id": 93375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergebliche Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. K. Bernard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vergebliche Liebe",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2v1g9trz9tmzq6r",
+      "agents": "32czpb0kbok37kn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.464Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.464Z"
+    }
+  ]
+}

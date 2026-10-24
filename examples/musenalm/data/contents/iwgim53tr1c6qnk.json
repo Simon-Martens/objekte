@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zur folgenden Übersetzung INr 59342, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "So allgemein bekannt Ariosts rasender Roland in Deutschland ist, so wenig ist es das Bruchstück eines andern episch-romantischen Gedichts, welches, als ein selbstständiges Ganzes, dem Roland folgen sollte.",
+  "language": [],
+  "musenalm_id": 59341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Leben im Wallfischbauche. / Bruchstück aus Ariosts fünf Gesängen. / Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Leben im Wallfischbauche. / Bruchstück aus Ariosts fünf Gesängen. / Vorwort",
+  "updated": "2008-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4rkyze4p0emsmyo",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.775Z"
+    }
+  ]
+}

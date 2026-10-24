@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 12 /) Graphik im Kalendarium Dezember /) Illustration zu »Begebenheiten des Peregrine Pickles« von T. G. Smollet s. Textbezug INr 70077, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70065,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Potz Velten, was für eine prächtige Galeere! / IV. Th. 114. Cap.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fecit",
+  "scans": [
+    "alm_797_70065_pe1688619e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Potz Velten, was für eine prächtige Galeere! / IV. Th. 114. Cap.",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qnwdm8cvwrsm92r",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.335Z"
+    }
+  ]
+}

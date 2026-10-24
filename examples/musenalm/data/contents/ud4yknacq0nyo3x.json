@@ -1,0 +1,45 @@
+{
+  "annotation": "graph.-typograph. Titel mit Portrait W. Pitt s. Textbezug INr 60212, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60166,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Revolutions- / Almanach / von / 1798. / Göttingen, / bey Johann Christian Dieterich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. f.",
+  "scans": [
+    "alm_939_60166_y4i80q6qve.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Revolutions- / Almanach / von / 1798. / Göttingen, / bey Johann Christian Dieterich",
+  "updated": "2008-10-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ohiavf2ob96azvj",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.031Z"
+    }
+  ]
+}

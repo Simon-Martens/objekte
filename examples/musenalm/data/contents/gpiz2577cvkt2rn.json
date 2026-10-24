@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Verronnen sind die heitern Götterstunden, / Wo mich Dein Spiel mit Zaubermacht um- / fieng.",
+  "language": [],
+  "musenalm_id": 118499,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Madame Herzfeld in Hamburg. / Nach einer Vorstellung der Jungfrau / von Orleans",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Madame Herzfeld in Hamburg. / Nach einer Vorstellung der Jungfrau / von Orleans",
+  "updated": "2017-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2c2cw2ssk0yaxty",
+      "agents": "jmyhk43hfbh7agh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.545Z"
+    }
+  ]
+}

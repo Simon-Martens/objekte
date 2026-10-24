@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium. Illustration zu »Romeo und Julia« von W. Shakespeare",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10246,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O trostreicher Mönch! wo ist mein Gemahl? / Romeo und Julie. V. Aufz. III. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. F. Stoelzel sc. 1793",
+  "scans": [
+    "alm_134_10246_dghyogvkqk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O trostreicher Mönch! wo ist mein Gemahl? / Romeo und Julie. V. Aufz. III. Auftr.",
+  "updated": "2001-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3xn1iyi4t0vc0wo",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.444Z"
+    },
+    {
+      "id": "zjmrl5bpa825dd0",
+      "agents": "e5dzzklohvjx1fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.444Z"
+    }
+  ]
+}

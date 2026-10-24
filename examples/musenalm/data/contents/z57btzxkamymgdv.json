@@ -1,0 +1,56 @@
+{
+  "annotation": "3. Erzählungen nach dem Buche de rebus memorandis. (Sammlung INr 76846, Obj 30)  Kleine Erzählungen aus Petrarcas lateinischen Schriften (Sammlung INr 76841, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.477Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "In Sicilien befand sich, wie man erzählt, eine große Statue, welche an einem sehr bekannten Orte stand.",
+  "language": [],
+  "musenalm_id": 76853,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In Sicilien befand sich, wie man erzählt, eine große Statue, welche an einem sehr bekannten Orte stand.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Petrarca [übers.] A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "psnd85k5qpjel5u",
+      "agents": "jjhjybjbxkieqjg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.931Z"
+    },
+    {
+      "id": "7szoklxjfrbjkl3",
+      "agents": "67zaqw1ahn1z54k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.931Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik in: Taschenbuch zum geselligen Vergnügen 1808 INr 13081",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Der Zollrath von Malzheim war in seinem zweiundvierzigsten Jahre auf dem besten Wege, ein Hagestolz zu werden,",
+  "language": [],
+  "musenalm_id": 12991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ehe- und Wehestand des Herrn / Baron von Steppelburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ehe- und Wehestand des Herrn / Baron von Steppelburg",
+  "updated": "2001-03-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jjt6i97p0w43d23",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.596Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.596Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Fünf Epigramme Marots. Uebersetzt von Hammer-Purgstall (Sammlung INr 94793, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Oh, daß ich dich gekannt, ein Glück, ein Unglück sei, / Ist zweifelhaft in meinem Sinn,",
+  "language": [],
+  "musenalm_id": 94797,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / A Anne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marot [übers.] Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / A Anne",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9sy7hkcx2ekjatj",
+      "agents": "ydnw02njp3h9lk9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.368Z"
+    },
+    {
+      "id": "7fe9ob2w3m9jjd3",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.368Z"
+    }
+  ]
+}

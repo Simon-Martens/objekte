@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte, Charaden und Räthsel (Sammlung INr 20961, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.464Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "413",
+  "incipit_statement": "Auf! kündet mir die Lebend-Todten, / Von Zaub'rern, wie Prometheus kühn,",
+  "language": [],
+  "musenalm_id": 20970,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Räthsel",
+  "updated": "2002-01-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "508sav5fsqykbs1",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.875Z"
+    }
+  ]
+}

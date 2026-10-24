@@ -1,0 +1,45 @@
+{
+  "annotation": "Stimmungen (Sammlung 15030, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Stiller Engel, kehrst du lächelnd wieder, / Mit dem Silberstern im duft'gen Haar,",
+  "language": [],
+  "musenalm_id": 15033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Abends",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Abends",
+  "updated": "2001-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xkgvd7rza03o44w",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.459Z"
+    }
+  ]
+}

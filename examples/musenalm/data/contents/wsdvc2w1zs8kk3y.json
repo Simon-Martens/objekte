@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Vier Metzen auf den Stall, und gleich viel auf / das Haus: / So theilte Pallas Witz an die Böoter aus.",
+  "language": [],
+  "musenalm_id": 10528,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16. / Salztaxe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martyni-Laguna",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16. / Salztaxe",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0xkgc7a74sga8ba",
+      "agents": "l6hj99jvi2k960l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.577Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.577Z"
+    }
+  ]
+}

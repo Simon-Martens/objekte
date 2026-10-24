@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 2. Illustration zu »Züge aus dem Leben Eduards, Prinzen von Wales, genannt der schwarze Prinz.« von Cäcilie d.i. Amalie Henriette Caroline von Voigt INr 43427, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43415,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "König Eduard III. umarmt seinen Sohn nach der / Schlacht bey Crecy",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Näke del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_571_43415_z6l95cvymc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "König Eduard III. umarmt seinen Sohn nach der / Schlacht bey Crecy",
+  "updated": "2006-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qxqogwnw7orb3ke",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.083Z"
+    },
+    {
+      "id": "gq0ean2calboctk",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.083Z"
+    }
+  ]
+}

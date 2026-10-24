@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Der Dichter liebt den guten Wein; / Und singt er wirklich gut,",
+  "language": [],
+  "musenalm_id": 6651,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LIED. / Als ich auf den Alpen eine / Traube fand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "BAGGESEN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "LIED. / Als ich auf den Alpen eine / Traube fand",
+  "updated": "2000-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "42cyahb6a77p99t",
+      "agents": "jq74p3fe1dijn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.236Z"
+    }
+  ]
+}

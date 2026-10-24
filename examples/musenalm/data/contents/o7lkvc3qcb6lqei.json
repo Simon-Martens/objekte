@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25422, Obj 194)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Es beschaut in Wellenkläre / Sich der Fels, ein schöner Greis;",
+  "language": [],
+  "musenalm_id": 25427,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 198,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Der Sturm",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Der Sturm",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j82hqv30yqdl27j",
+      "agents": "7s5akx33j2gpr6y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.377Z"
+    }
+  ]
+}

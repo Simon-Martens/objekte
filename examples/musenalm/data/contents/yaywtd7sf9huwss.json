@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44785,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hohenstein",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Darnstedt",
+  "scans": [
+    "alm_172_44785_7ekc9w0efs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hohenstein",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xu6vxkzzee3fygq",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.330Z"
+    }
+  ]
+}

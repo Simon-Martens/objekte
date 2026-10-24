@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Gedicht INr 63242, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63239,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria mit den Engeln. / Gemalt von Ghirlandajo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ghirlandajo. Keller del. Fleischmann sc.",
+  "scans": [
+    "alm_1036_63239_b3lvcfg6km.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maria mit den Engeln. / Gemalt von Ghirlandajo",
+  "updated": "2009-04-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5vqr5khzy092u38",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.215Z"
+    }
+  ]
+}

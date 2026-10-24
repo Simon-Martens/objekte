@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Aus dem ungedruckten Nachlasse von M. L. Schleifer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Der Sterblichen Geschlechter gehn und gingen / Spurlos vorüber, gleich der Schrift im Sand;",
+  "language": [],
+  "musenalm_id": 121953,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zu Dr. Wirer's Gedächtniß. / Bei Einweihung seines Denkmals in Ischl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. L. Schleifer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zu Dr. Wirer's Gedächtniß. / Bei Einweihung seines Denkmals in Ischl",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gt397svpjg0swvl",
+      "agents": "90zse4ajt2jiztn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.660Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Die verheimlichte Schöne. Ein erzählendes Gedicht in zwölf Balladen (Sammlung INr 29749, Obj 5) s. Graphik INr 29751, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Drei Tage ging's in Saus und Braus, / Nun wird es still und stiller;",
+  "language": [],
+  "musenalm_id": 29750,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erste Ballade. / Die Nachfeier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erste Ballade. / Die Nachfeier",
+  "updated": "2002-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "msggj4r8zzq7jog",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.348Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.348Z"
+    }
+  ]
+}

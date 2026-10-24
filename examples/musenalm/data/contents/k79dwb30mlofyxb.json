@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Beiträgen mit 2 Illustrationen INr 89499-89504, Obj 17-22 /) Anm. an der Sammlung: Die früheren Jahrgänge dieses Taschenbüchleins enthalten eine reiche Auswahl unter diesem Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.208Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichten und Schwänke. / Alten Chroniken nacherzählt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichten und Schwänke. / Alten Chroniken nacherzählt",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cqqtggi1knbkhzq",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.180Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.180Z"
+    }
+  ]
+}

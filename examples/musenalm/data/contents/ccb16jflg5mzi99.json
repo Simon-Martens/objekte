@@ -1,0 +1,45 @@
+{
+  "annotation": "Vier Lieder (Sammlung INr 57776, Obj72)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "400",
+  "incipit_statement": "Tugend vergeht, Sturm verweht, / Schönheit verblüht, / Flamme verglüht, / Reichthum rollt, / Donner vergrollt,",
+  "language": [],
+  "musenalm_id": 57780,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Was besteht?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Graf von Mailath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Was besteht?",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6em7aoflg1gaj0x",
+      "agents": "ynz1wrh0mfk3t8y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.972Z"
+    }
+  ]
+}

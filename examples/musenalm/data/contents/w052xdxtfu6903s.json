@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Nicht weil Du Kronen trugst in gold'nen Haaren, / Weil sie in Spezerei'n und Balsam tunken, / Dein todtes Herz, um noch damit zu prunken,",
+  "language": [],
+  "musenalm_id": 118091,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Mathildens Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Aug. Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Mathildens Tod",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qv7mfmvqnikfhth",
+      "agents": "fjw259e60ifm3ie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.683Z"
+    }
+  ]
+}

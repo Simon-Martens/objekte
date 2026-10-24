@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.873Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Über des Bettes Haupt flog säuselnden Fluges ein Engel, / Und des Unsterblichen Blick fiel auf das schlafende Kind.",
+  "language": [],
+  "musenalm_id": 14435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Kindes Scheiden. (Als meine kleine Muhme starb.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Kindes Scheiden. (Als meine kleine Muhme starb.)",
+  "updated": "2001-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oiavd1x5vixy4qx",
+      "agents": "jf5q6ykf9ux52yq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.669Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Unter der großen Anzahl von Taschenkalendern, Allmanachen u.s.w. welche in diesem Jahrhundert zur Verbreitung nüzlicher Künste und Wissenschaften jährlich erschienen sind, fand sich noch keiner für die Pferdeliebhaber,",
+  "language": [],
+  "musenalm_id": 107154,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zuschrift / an das Publikum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zuschrift / an das Publikum",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d5y4okzk1fim56j",
+      "agents": "azadxb055n0u58d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.089Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.089Z"
+    }
+  ]
+}

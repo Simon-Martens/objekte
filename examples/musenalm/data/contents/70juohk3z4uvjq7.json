@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 98184, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.177Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Denkt und setzt Euch nur zu! Ihr bleibt am Ende doch sitzen,",
+  "language": [],
+  "musenalm_id": 98188,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedanken-Poesie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedanken-Poesie",
+  "updated": "2014-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l9j3820lue29mg1",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.754Z"
+    }
+  ]
+}

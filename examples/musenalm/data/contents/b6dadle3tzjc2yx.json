@@ -1,0 +1,45 @@
+{
+  "annotation": "Eine Frühlingsliebe. Lieder (Sammlung INr 64015, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Ist der Lenz, der liebliche / Allerwärts entglommen!",
+  "language": [],
+  "musenalm_id": 64016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hilarius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2009-05-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ut7iafiyyu1msc",
+      "agents": "euexsjcr9ar4su1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.175Z"
+    }
+  ]
+}

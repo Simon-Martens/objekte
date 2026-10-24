@@ -1,0 +1,45 @@
+{
+  "annotation": "XVI. Charaden, Logogryphen und Räthsel (Sammlung INr 93472, Obj 157)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Der schönsten Nahme liegt in ersten beyden, / Der Bürge für des Alters reine Freuden,",
+  "language": [],
+  "musenalm_id": 93479,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Fellinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fr50yxxykbf522v",
+      "agents": "1qmtp93bgh7ryk0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.584Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.584Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 18976, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1985,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE KOSAKEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Hess pinx",
+  "scans": [
+    "alm_58_1985_ppibn41sxp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE KOSAKEN",
+  "updated": "2000-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "okvgc1aaevpk8kh",
+      "agents": "4snauxg0721u4vq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.066Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Die Einsiedelei del Parral« von C. v. Wachsmann INr 110039, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110031,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jacinta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. Carl Mayer in Nürnberg",
+  "scans": [
+    "alm_2241_110031_uu4bimumvl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jacinta",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4y93c7x4jqlajas",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.343Z"
+    }
+  ]
+}

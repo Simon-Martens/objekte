@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 10975, Obj 118",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "Bilder schön entflohner Stunden / Wie umschwebt ihr mich so hold!",
+  "language": [],
+  "musenalm_id": 10974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "61. / Empfindungen am Freundschaftssitze / zu Carlsbad, / auf einen Felsen geschrieben. / Die Compos. ist vom Capellmstr. Naumann",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elisa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "61. / Empfindungen am Freundschaftssitze / zu Carlsbad, / auf einen Felsen geschrieben. / Die Compos. ist vom Capellmstr. Naumann",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c3fde1sp8zhyd2c",
+      "agents": "w70q3jb7y9a6a6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.533Z"
+    }
+  ]
+}

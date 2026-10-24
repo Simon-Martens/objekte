@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachtviolen (Sammlung INr 98172, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Aurora! süßes Götterwesen / Wer dich nur kennt, er muß genesen.",
+  "language": [],
+  "musenalm_id": 98180,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aus dem Nachlasse Joh. Mayrhofer's",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII.",
+  "updated": "2014-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xidqtv7dyu5obvg",
+      "agents": "z2a77hujndvxeug",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.831Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.831Z"
+    }
+  ]
+}

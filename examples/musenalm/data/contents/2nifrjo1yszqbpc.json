@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In Deutschland hat es zu verschiedenen Zeiten besondere Charaktertypen gegeben, die man vorzugsweise als Originale ansah, ihnen im Leben nachlief und sie in Romanen abzeichnete.",
+  "language": [],
+  "musenalm_id": 78071,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fürst Pückler. / Ein Lebensbild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Mundt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fürst Pückler. / Ein Lebensbild",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vxannmxk223e43n",
+      "agents": "0p6rs0a44i6giuz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.725Z"
+    }
+  ]
+}

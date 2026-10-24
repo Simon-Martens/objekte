@@ -1,0 +1,45 @@
+{
+  "annotation": "Epoden (Sammlung INr 41842, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Es mag die Welt mir alle Güter nehmen, / Die ich errang und fand in ihrem Schoos,",
+  "language": [],
+  "musenalm_id": 41851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Schenk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "18j7luiww87rgg6",
+      "agents": "v42buu0bbkquom4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.280Z"
+    }
+  ]
+}

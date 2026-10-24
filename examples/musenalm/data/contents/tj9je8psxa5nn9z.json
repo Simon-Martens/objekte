@@ -1,0 +1,45 @@
+{
+  "annotation": "Frische Liedlein in gutem Tone (Sammlung INr 680329, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.984Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Ich hatt' mal ein Gläschen Champagner getrunken, / Es war mir um's Herze so wohlig und leicht,",
+  "language": [],
+  "musenalm_id": 68035,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rousseau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI.",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "stex3bpkn1besmc",
+      "agents": "xojpiwzkdga93tk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.037Z"
+    }
+  ]
+}

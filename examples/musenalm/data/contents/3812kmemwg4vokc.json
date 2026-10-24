@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "428",
+  "incipit_statement": "Du wähnest, daß Dein schmerzlichstes Empfinden / Der Freund , der Dir am Busen ruht, versteht?",
+  "language": [],
+  "musenalm_id": 57799,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Einsame",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Frhr. v. Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Einsame",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "map8ccdemfnf0ur",
+      "agents": "kul4vu28bmx1z4v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.778Z"
+    }
+  ]
+}

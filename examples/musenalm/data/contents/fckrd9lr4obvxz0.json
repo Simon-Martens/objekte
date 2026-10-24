@@ -1,0 +1,45 @@
+{
+  "annotation": "Fragment einer Bearbeitung des Gessner'schen Schäfergedichts: Der erste Schiffer (Sammlung INr 34386, 109)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Während so in dunkeln Stunden / Sich die treue Mutter härmet,",
+  "language": [],
+  "musenalm_id": 34388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweytes Idyll. / Jugend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Robert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweytes Idyll. / Jugend",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uw223n0e6jenn8r",
+      "agents": "shwrrrsohbx2ih5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.672Z"
+    }
+  ]
+}

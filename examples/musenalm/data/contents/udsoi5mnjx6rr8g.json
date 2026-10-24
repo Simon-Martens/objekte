@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Die Thiere mit vier Füßen führten / Vor Zeiten mit den Vögeln Krieg:",
+  "language": [],
+  "musenalm_id": 11375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Die bestraften Fledermäuse. Aus dem Lateinischen des Phädrus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Die bestraften Fledermäuse. Aus dem Lateinischen des Phädrus",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3elxxwiyc8duhaw",
+      "agents": "y0pp926xdweonfb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.471Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.471Z"
+    }
+  ]
+}

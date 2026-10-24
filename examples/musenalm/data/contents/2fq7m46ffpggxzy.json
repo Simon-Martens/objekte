@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Die Aehrenleserin« von J. R. Wyß, d.Ä. INr 53073, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53071,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (G. Volmar del. Martin Esslinger sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Volmar del. Martin Esslinger sculp.",
+  "scans": [
+    "alm_728_53071_5zaoi0wktr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eciainl8yqz5622",
+      "agents": "5rfe1xu4i476kzq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.395Z"
+    },
+    {
+      "id": "jo7fpi4iv1c1ohs",
+      "agents": "zfprrqdgr3ky9ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.396Z"
+    }
+  ]
+}

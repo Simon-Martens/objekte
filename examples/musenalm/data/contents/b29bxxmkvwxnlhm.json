@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 4267, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Als Zusatz zu dem was von der Naturgeschichte Hindostans beigebracht ist, erwähne wir zuletzt eine Pflanze, welche unter die charakteristischen Auszeichnungen Hindostans gehört,",
+  "language": [],
+  "musenalm_id": 42266,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als Zusatz zu dem was von der Naturgeschichte Hindostans beigebracht ist, erwähne wir zuletzt eine Pflanze, welche unter die charakteristischen Auszeichnungen Hindostans gehört,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tsvew8k777b29ck",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.329Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.329Z"
+    }
+  ]
+}

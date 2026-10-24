@@ -1,0 +1,45 @@
+{
+  "annotation": "Des Trinkers Jahreszeiten. Ein lyrischer Akkord (Sammlung INr 41293, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.434Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "384",
+  "incipit_statement": "Ein grünes Glas im Grünen, / Gefüllt mit kühlem Wein, / Und grüner Muth im Herzen, / Bei warmem Sonnenschein.",
+  "language": [],
+  "musenalm_id": 41383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühling",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f9jr2o5b15ub9mf",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.738Z"
+    }
+  ]
+}

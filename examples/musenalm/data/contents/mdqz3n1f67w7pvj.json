@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Das alte Jahr hat's schlau gemacht, / Fort ist's bey Nebel und bey Nacht;",
+  "language": [],
+  "musenalm_id": 63496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Hebels Nachlass. / Anzeigeblatt-Träger zum neuen Jahre 1814",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Hebels Nachlass. / Anzeigeblatt-Träger zum neuen Jahre 1814",
+  "updated": "2009-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8nd0hsixvyivxng",
+      "agents": "u04oy46tu9dlk6x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.046Z"
+    }
+  ]
+}

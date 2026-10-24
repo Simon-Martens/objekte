@@ -1,0 +1,45 @@
+{
+  "annotation": "Magyarische Liebeslieder (Sammlung INr 14619, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Noch so jung, wie kannst du, Rose, / Denn von mir begehren,",
+  "language": [],
+  "musenalm_id": 14622,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / An Rose. / Von Verseghi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Graf Johann v. Mailàth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / An Rose. / Von Verseghi",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5qmxbzs8yiyqzrg",
+      "agents": "ynz1wrh0mfk3t8y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.782Z"
+    }
+  ]
+}

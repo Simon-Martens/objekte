@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "288",
+  "incipit_statement": "Du bist voll süßen Weins! / Noch sind die Lippen naß / Vom Becher, welche prahlend lügen.",
+  "language": [],
+  "musenalm_id": 10987,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "74. / Auf einen betrunkenen Prahler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martyni-Laguna",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "74. / Auf einen betrunkenen Prahler",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iq5vuuhgchuip0o",
+      "agents": "l6hj99jvi2k960l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.534Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.534Z"
+    }
+  ]
+}

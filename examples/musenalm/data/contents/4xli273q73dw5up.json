@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "332",
+  "incipit_statement": "Ein ungewöhnlicher Lärm bewegte das sonst über die Maßen friedliche und stille Städtchen, überall gab es Gruppen, die untereinander redeten und gestikulirten.",
+  "language": [],
+  "musenalm_id": 95246,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vetter Benjamin. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emanuel Straube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vetter Benjamin. / Erzählung",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zmxbkf0xi3oonoh",
+      "agents": "osmeoxw3ivqw3j5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.293Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.293Z"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "VIII. Fünf Briefe (Sammlung INr 40829, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "402",
+  "incipit_statement": "Eben erhalte ich deinen lieben Brief mit einer Art von Befremdung, weil ich glaubte, ich würde statt des todten Buchstaben den leibhaftigen Posselt bei mir sehen;",
+  "language": [],
+  "musenalm_id": 40833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Stuttgardt, den 20sten Mai 1790. / Alles Liebs und Guts zuvor. / Bruder Posselt,",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubart, der Vater",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Stuttgardt, den 20sten Mai 1790. / Alles Liebs und Guts zuvor. / Bruder Posselt,",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ihmyv7xg62nvkm7",
+      "agents": "e0jidz7fwbzecy6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.723Z"
+    }
+  ]
+}

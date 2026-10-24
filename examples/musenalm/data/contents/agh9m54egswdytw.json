@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Aufschloß magisch der Traum mein Inneres. Und / ich sah die Scheiben / Des Fensters rings Eistragend, Blumenstrotzend;",
+  "language": [],
+  "musenalm_id": 96555,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Traum. / An Herrmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Traum. / An Herrmann",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8gq5vt4xgzlei2d",
+      "agents": "4g2r3ta4uzw1gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.783Z"
+    }
+  ]
+}

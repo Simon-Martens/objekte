@@ -1,0 +1,56 @@
+{
+  "annotation": "Oden aus dem Horaz (Sammlung INr 91628, Obj 23) mit Erläuterungen s. INr  91640, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Grausendes Ungewitter umzog den Himmel, und Regen / Und Flocken zieh'n den Zeus herab.",
+  "language": [],
+  "musenalm_id": 91639,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aufheiterung. / An die Freunde. / Epod. 13.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horaz [übers.] Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aufheiterung. / An die Freunde. / Epod. 13.",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "93ah1pepclkh9xg",
+      "agents": "ogosxb6kwkoek7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.558Z"
+    },
+    {
+      "id": "xmw9zatw9rhky9q",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.559Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.559Z"
+    }
+  ]
+}

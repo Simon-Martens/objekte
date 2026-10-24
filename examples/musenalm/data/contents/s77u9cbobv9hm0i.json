@@ -1,0 +1,58 @@
+{
+  "annotation": "kol. Graphik paginiert V /) über der Graphik: Jahrg. 1794 /) Illustration zu »Der Auerhahn« von  L. C. E. H. F. von Wildungen INr 82146, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.209Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auerhuhn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pforr del. G. Boettger sc.",
+  "scans": [
+    "alm_1127_82145_9vgbsln9cf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auerhuhn",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vmed5u8nab2xrvo",
+      "agents": "ere2ck7piw4n43b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.914Z"
+    },
+    {
+      "id": "7mt13gyt7yhd86g",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.914Z"
+    }
+  ]
+}

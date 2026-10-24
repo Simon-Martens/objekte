@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik (Portrait) INr 77826, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "426",
+  "incipit_statement": "Es bedarf manchmal der Wiederauffrischung interessanter Namen im großen Publiko, welche, da sie nicht gerade weltgeschichtlich, im raschen Fortschreiten der Begebenheiten außerdem von diesem vielleicht ganz vergessen würden.",
+  "language": [],
+  "musenalm_id": 77836,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friederike Sophie Wilhelmine, / Markgräfin von Bayreuth",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friederike Sophie Wilhelmine, / Markgräfin von Bayreuth",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j8mhegprlau1fnt",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.587Z"
+    }
+  ]
+}

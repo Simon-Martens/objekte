@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphiken INr 32623-32627, 32671; Obj 23-27, 27,01",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Unter allen eleganten Frauenzimmer-Arbeiten - denn von wichtigern häuslichen Geschäften, die dem schönen Geschlechte als Pflichten der Frau und Hausmutter obliegen, ist hier die Rede nicht,",
+  "language": [],
+  "musenalm_id": 32670,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Ueber / elegante Frauenzimmer-Arbeit / und / insbesondere, über / das Sticken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Ueber / elegante Frauenzimmer-Arbeit / und / insbesondere, über / das Sticken",
+  "updated": "2003-03-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q9lqvyavw13poh8",
+      "agents": "1j2glyr4uzfohrn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.744Z"
+    }
+  ]
+}

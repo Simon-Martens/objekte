@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Buch, Schwert und Hammer« von Fr. Kind INr 19759,Obj 53",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19712,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Buch, Schwert und Hammer von Fr. Kind 2s. Bl.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg; H. C. Müller",
+  "scans": [
+    "alm_266_19712_vhmfrf68dk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Buch, Schwert und Hammer von Fr. Kind 2s. Bl.",
+  "updated": "2001-11-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9lyz7bnmvintcwj",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.053Z"
+    }
+  ]
+}

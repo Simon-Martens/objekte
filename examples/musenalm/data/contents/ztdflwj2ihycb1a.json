@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Gedicht INr 111415, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111414,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erster Frühling #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gest. v. August Weger in Leipzig",
+  "scans": [
+    "alm_3462_111414_4uayd3debz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erster Frühling #",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1860,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m1a6jdk1jdlvhhm",
+      "agents": "rikdy6r8rigq41t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.242Z"
+    }
+  ]
+}

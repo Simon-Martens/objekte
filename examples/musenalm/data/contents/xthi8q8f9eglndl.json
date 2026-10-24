@@ -1,0 +1,43 @@
+{
+  "annotation": "Widmungsgedicht",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Nimm hin, was sich aus Scherz und Jubel webte, / Nimms Büchlein hin; es sey Dir, Freund geweiht,",
+  "language": [],
+  "musenalm_id": 70608,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem hochverdienten Bürger, / dem Freunde der Freiheit, / dem Vater der Hanseaten, / dem edlen Hanfft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem hochverdienten Bürger, / dem Freunde der Freiheit, / dem Vater der Hanseaten, / dem edlen Hanfft",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o6xwtr49dpb9um7",
+      "agents": "scmt2snhwdglbs9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.247Z"
+    }
+  ]
+}

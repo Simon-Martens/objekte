@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juli. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.468Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59098,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Falckenberg bei Falkenwalde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Marohn gest. v. H. Fincke",
+  "scans": [
+    "alm_876_59098_50r09cb9jl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Falckenberg bei Falkenwalde",
+  "updated": "2008-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qmz1wctwh0ne6f9",
+      "agents": "blk0bwibfqnyvz6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.640Z"
+    },
+    {
+      "id": "0htg2pihmnxapj3",
+      "agents": "kxthlk7g2kfou9x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.640Z"
+    }
+  ]
+}

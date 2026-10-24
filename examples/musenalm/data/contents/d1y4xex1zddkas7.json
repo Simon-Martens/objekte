@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Nur ein Gedanke wacht, dem Kleinmut über- / legen / stets in des Weisen Brust,",
+  "language": [],
+  "musenalm_id": 17101,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das höchste Gesetz. / (Fragment aus einem Popischen Gedichte)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. L. Spalding",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das höchste Gesetz. / (Fragment aus einem Popischen Gedichte)",
+  "updated": "2001-08-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "75bvnxwyyehprqo",
+      "agents": "d9s2lrexo84wbfs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.416Z"
+    }
+  ]
+}

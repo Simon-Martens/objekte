@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5 /) Graphik im Kalendarium September /) Illustration zum unbetitelten, unbezeichneten Beitrag von G. A. Neuhofer INr 81976, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95802,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pommier wird zu Babenhausen erschossen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Weber del. J. Nußbiegel sc.",
+  "scans": [
+    "alm_3829_95802_ldm5pzbvs8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pommier wird zu Babenhausen erschossen",
+  "updated": "2012-06-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1gw609sj8juaepx",
+      "agents": "h38sezk5a79h4rw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.649Z"
+    },
+    {
+      "id": "n8qq1od0m306y59",
+      "agents": "1cxxm0968owp2z9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.649Z"
+    }
+  ]
+}

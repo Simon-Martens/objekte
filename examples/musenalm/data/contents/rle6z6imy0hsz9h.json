@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Unter der Brüdergemeine zu *berg lebt ein reicher und angesehener Mann mit seiner Gemahlin, die ehemals seine Haushälterin war.",
+  "language": [],
+  "musenalm_id": 33005,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Urtheil der Welt, eine herrnhuthische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. F. Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Urtheil der Welt, eine herrnhuthische Erzählung",
+  "updated": "2003-04-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y8ktrqk4plc3i9v",
+      "agents": "j6zj4e02mmgth5i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.687Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Weltkräfte (Sammlung INr 2752, Obj 132)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "Schmachte nicht du Liebesschwärmer, / Stelle dich der Schönen nah.",
+  "language": [],
+  "musenalm_id": 27587,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gunst und Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gunst und Liebe",
+  "updated": "2002-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dffgf1nlxyuvs8c",
+      "agents": "j5e1jto7rj2ibw3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.409Z"
+    }
+  ]
+}

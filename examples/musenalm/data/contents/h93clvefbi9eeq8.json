@@ -1,0 +1,45 @@
+{
+  "annotation": "Griseldis. Volkssage in zehn Romanzen (Sammlung INr 1937, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Mein Weib ist schön und tugendsam, / Gehorsam, lieblich, fein;",
+  "language": [],
+  "musenalm_id": 1942,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Wie sich der Graf gegen Griseldis / stellt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Wie sich der Graf gegen Griseldis / stellt",
+  "updated": "2000-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xrfn1zfa96khodl",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.699Z"
+    }
+  ]
+}

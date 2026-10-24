@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 60721, Obj 138)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Hindert sie doch nicht und lasst sie die Schwäche / in Ruhe geniessen,",
+  "language": [],
+  "musenalm_id": 60728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 145,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erbeigenthum",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "ANTHROPOS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erbeigenthum",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2aasf924z28am6w",
+      "agents": "v63rmmxw84k8ut2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.826Z"
+    }
+  ]
+}

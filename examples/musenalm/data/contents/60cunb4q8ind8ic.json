@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Gedichte in Aachener Mundart (Sammlung INr 65879, Obj 70) mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.434Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Et is decks pinglich zau bemerken, / Dat Dröbger, öm de Maag ze sterken,",
+  "language": [],
+  "musenalm_id": 65880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1) De Magendröbger. (1816.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Jansen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1) De Magendröbger. (1816.)",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cxd7y7z5d23q5fu",
+      "agents": "6n6rqwxyicpa3g2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.226Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.226Z"
+    }
+  ]
+}

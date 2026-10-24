@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Liebe, Liebe, welche Freuden / Gabst du mit der Holden mir!",
+  "language": [],
+  "musenalm_id": 5102,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Miller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Mädchen",
+  "updated": "2000-10-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "170zr3k33j7t3ss",
+      "agents": "majfhkazcb1ylfy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.020Z"
+    }
+  ]
+}

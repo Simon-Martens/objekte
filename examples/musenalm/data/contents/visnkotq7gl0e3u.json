@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.629Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Dir hätt' ich, wäre mir das Loos der Phi- / lomele, / Wär' einer Lerche Loos vom Himmel mir ertheilt,",
+  "language": [],
+  "musenalm_id": 41183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heloise an Abälard",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heloise an Abälard",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xcdjvhvv1m2lpxx",
+      "agents": "l446jiuqx4rmxf3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.228Z"
+    }
+  ]
+}

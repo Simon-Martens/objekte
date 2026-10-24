@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Patriotisches Trinklied« von Fr. Schütt INr 35210, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35211,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Patriotisches Trinklied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amon",
+  "scans": [
+    "alm_485_35211_yi9bklcqbf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Patriotisches Trinklied",
+  "updated": "2003-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9eh7odx77z1dney",
+      "agents": "qqt6rtvr4y2rv42",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.793Z"
+    }
+  ]
+}

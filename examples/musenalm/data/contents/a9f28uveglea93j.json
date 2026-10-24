@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium September",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57080,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. Doctor und Apotheker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L.",
+  "scans": [
+    "alm_760_57080_dc6nc50yxs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. Doctor und Apotheker",
+  "updated": "2008-04-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fogk78qfsmhogx2",
+      "agents": "dsxgxd2rsqe5f4z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.852Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.852Z"
+    }
+  ]
+}

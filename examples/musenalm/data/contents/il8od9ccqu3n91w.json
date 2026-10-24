@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Er zeichnet richtig mit Fleiß und Müh', / Er färbet lieblich, klar und rein,",
+  "language": [],
+  "musenalm_id": 4097,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mahler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mahler Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mahler",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3rm5jcvad51w7qt",
+      "agents": "xudibmgptrwrx3w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.250Z"
+    }
+  ]
+}

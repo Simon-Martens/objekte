@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Anekdoten (Sammlung INr 67270, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Ein neu angestellter Pastor, der zugleich nach der Mode der Zeit Dichter und musikalischer, auch plastischer Künstler war, ward von dem alten Förster seines Wohnortes um die Darleihung eines Buches zur Verkürzung der Winterabende gebeten.",
+  "language": [],
+  "musenalm_id": 67271,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k45xvibbw6t6ywx",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.059Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.059Z"
+    }
+  ]
+}

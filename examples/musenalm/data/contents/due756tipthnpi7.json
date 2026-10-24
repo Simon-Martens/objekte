@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium Dezember, paginiert 12. /) s. Textbezug INr 96039, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96025,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MATTHIAS WILHELM / von BELOW",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. H. sc.",
+  "scans": [
+    "alm_3961_96025_mbggb6za06.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MATTHIAS WILHELM / von BELOW",
+  "updated": "2013-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gwnmtt04rwra442",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.751Z"
+    }
+  ]
+}

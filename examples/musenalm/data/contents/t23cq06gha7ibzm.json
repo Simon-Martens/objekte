@@ -1,0 +1,45 @@
+{
+  "annotation": "Brasilien (INr 41521, Obj 6); s. a. die Graphiken u. Karte des Taschenbuchs INr 41516, Obj 1; 41530-41541, Obj 15-26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Nicht völlig unter so schrecklichen Scenen, als Peru, ward Brasilien von den Europäern eingenommen.",
+  "language": [],
+  "musenalm_id": 41523,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Der Mensch] b) Der Fremde; der in Brasilien Ange- / siedelte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Der Mensch] b) Der Fremde; der in Brasilien Ange- / siedelte",
+  "updated": "2005-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9onyu3td4mhncme",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.113Z"
+    }
+  ]
+}

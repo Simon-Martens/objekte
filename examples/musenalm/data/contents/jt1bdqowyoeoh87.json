@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung s. INr 71892, Obj 94",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Dämmrung faltet die Abendflügel / Ueber eine schlummerdürftige Welt,",
+  "language": [],
+  "musenalm_id": 71893,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Aglasterhausen. / Im Juny, 1806 - beym Sonnenuntergange]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Aglasterhausen. / Im Juny, 1806 - beym Sonnenuntergange]",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dhrtj4qtfvjjwi7",
+      "agents": "o2pvd0n9c0ulrf4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.453Z"
+    }
+  ]
+}

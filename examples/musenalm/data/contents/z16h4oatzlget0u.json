@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 69547-69551, Obj 85-89",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69546,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leben in Liebe. / Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Stelzhammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leben in Liebe. / Lieder",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qzw90iep6v9uk5h",
+      "agents": "a014bqncl68cjih",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.260Z"
+    }
+  ]
+}

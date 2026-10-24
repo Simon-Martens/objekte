@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Bemerkungen aus dem Leben (Sammlung INr 48609, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Deb Bösen schrecken die Dämonen, den Guten ängstigen die Ideale.",
+  "language": [],
+  "musenalm_id": 48638,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deb Bösen schrecken die Dämonen, den Guten ängstigen die Ideale.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rjgwo9k1om6auwj",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.654Z"
+    }
+  ]
+}

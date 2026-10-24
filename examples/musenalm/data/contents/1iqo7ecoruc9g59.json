@@ -1,0 +1,45 @@
+{
+  "annotation": "§1-12§ bez. Graphiken im Kalendarium fehlen",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Sie stellen nach Hrn. Chodowiecky's Wahl Scenen aus Shakespear's Sturm vor.",
+  "language": [],
+  "musenalm_id": 7310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kurze Erklärung / der Monats-Kupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hagedorn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kurze Erklärung / der Monats-Kupfer",
+  "updated": "2000-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ylxu9yjosz7b3s",
+      "agents": "b9k8fa9bjxcqs84",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.176Z"
+    }
+  ]
+}

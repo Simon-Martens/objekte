@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Goetz von Berlichingen« von J. W. von Goethe s. Textbezug INr 40566, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40566,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Goetz von Berlichingen IIIr. Act. / Goetz: Ich trieb sie, und da sie geht, möcht' ich sie halten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_528_40566_xt4szqdp7z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Goetz von Berlichingen IIIr. Act. / Goetz: Ich trieb sie, und da sie geht, möcht' ich sie halten",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dsckjiom9j69rly",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.972Z"
+    },
+    {
+      "id": "uselzpubcwtimcm",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.973Z"
+    }
+  ]
+}

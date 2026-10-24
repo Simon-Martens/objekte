@@ -1,0 +1,45 @@
+{
+  "annotation": "Jupiter (Sammlung INr 91482, Obj 6) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5) s. folgendes Gedicht INr 91489, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Die uralten Gottheiten waren Himmel und Erde. Die Erde vermählte sich mit dem Uranos oder umwölbenden Himmel,",
+  "language": [],
+  "musenalm_id": 91488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kriege des Donnergottes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Kriege des Donnergottes",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "994zyqbwcyehxfr",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.406Z"
+    }
+  ]
+}

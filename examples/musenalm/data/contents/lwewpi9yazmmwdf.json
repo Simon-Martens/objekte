@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 25641, Obj 172)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Preist eure Gegend meinethalb! / Ich sehe, wenn ich steige, bald",
+  "language": [],
+  "musenalm_id": 25674,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 205,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine Gegend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meine Gegend",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lu1zedzn9cbhv6j",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.957Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 90912, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "An einem regnerischen Vormittage des Jahres 1810 rollte auf einer einsamen Landstraße von Göppingen nach Ulm ein leichter Wagen, mit zwei muthigen Brauen bespannt,",
+  "language": [],
+  "musenalm_id": 90918,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schön Suschen von Pforzheim. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz X. Told",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schön Suschen von Pforzheim. / Erzählung",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uozvma3qsn4q555",
+      "agents": "tglq0d4pyb420do",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.542Z"
+    }
+  ]
+}

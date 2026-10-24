@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Die Schwalben sammeln sich im Raum, / Und rüsten sich zum Wandern.",
+  "language": [],
+  "musenalm_id": 64728,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zueignung. / An Wilhelmine",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hilarus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zueignung. / An Wilhelmine",
+  "updated": "2009-06-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1873,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vncq3wojw2vol8o",
+      "agents": "euexsjcr9ar4su1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.241Z"
+    }
+  ]
+}

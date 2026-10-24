@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Du dort dunkelgrün, fast schwarz, / Mit dem würz'gen Duft von Harz,",
+  "language": [],
+  "musenalm_id": 111671,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Tannenbäumchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Gottfried Leopold Ritter von Leitner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Tannenbäumchen",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wgl0tyzzjgnan3b",
+      "agents": "kzo5zf1o5a1ke0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.384Z"
+    }
+  ]
+}

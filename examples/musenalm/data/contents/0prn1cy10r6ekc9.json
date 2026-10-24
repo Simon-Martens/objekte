@@ -1,0 +1,45 @@
+{
+  "annotation": "Luftstücke (Sammlung INr 85431, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Es gibt Menschen, die das Leben an der Brustseite, an der zarten verletzbaren Epidermis angreifen, und es zu einem lang gezogenen Weinen ausdehnen.",
+  "language": [],
+  "musenalm_id": 85432,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es gibt Menschen, die das Leben an der Brustseite, an der zarten verletzbaren Epidermis angreifen, und es zu einem lang gezogenen Weinen ausdehnen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. G. Saphir",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y5qmcy8k3xm1c6j",
+      "agents": "31iymrx6tazubtp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.088Z"
+    }
+  ]
+}

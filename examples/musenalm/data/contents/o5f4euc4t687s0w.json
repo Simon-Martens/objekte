@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30509, Obj 19) mit einer Illustration s. Graphik INr 30513, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Da sitzt der Mann der Zeit, / Tief sinnend, was ihm fehle,",
+  "language": [],
+  "musenalm_id": 30514,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Der Grübler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Der Grübler",
+  "updated": "2002-11-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ewy6e5ghc0pu1zl",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.664Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.664Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Die sehnende Liebe, die schmachtende Noth, / Die ist mir nun endlich verhaßt in den Tod.",
+  "language": [],
+  "musenalm_id": 30254,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Belagerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Belagerung",
+  "updated": "2002-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h64i24yho8eaut3",
+      "agents": "dgebk50hujqbvc5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.586Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Zwei Wölfe sind im November 1805, wie in der Jagdchronik schon aufgezeichnet, bei Cassel und Frankfurt erlegt worden.",
+  "language": [],
+  "musenalm_id": 66768,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Schon wieder ein Wolf!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Wildungen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Schon wieder ein Wolf!",
+  "updated": "2009-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zkwar8zqhf3fwup",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.059Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.059Z"
+    }
+  ]
+}

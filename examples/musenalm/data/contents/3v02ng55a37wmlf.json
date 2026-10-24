@@ -1,0 +1,45 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 135265, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Vor vielen Jahren fanden sich in der Stadt Brou in Beausse drei junge Menschen, welche werder Heller noch Pfennig hatten, ein, und gaben sich für Komödianten aus,",
+  "language": [],
+  "musenalm_id": 135266,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kälber von Bron. / (Neu angelegter historischer Lustgarten. Von Martino Maurern. Nürnberg 1687. S. 196",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gab. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Kälber von Bron. / (Neu angelegter historischer Lustgarten. Von Martino Maurern. Nürnberg 1687. S. 196",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uwr2u78tuvbfurz",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.139Z"
+    }
+  ]
+}

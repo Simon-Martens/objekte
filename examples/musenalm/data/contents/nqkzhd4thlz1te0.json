@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 51584, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51563,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ringgenberg, Cant. Oberland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. N. König",
+  "scans": [
+    "alm_700_51563_5jwo81997i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ringgenberg, Cant. Oberland",
+  "updated": "2007-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x8e80eb3fx8p5cx",
+      "agents": "grbttvgkqnprgwf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.869Z"
+    }
+  ]
+}

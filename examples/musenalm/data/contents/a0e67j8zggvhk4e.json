@@ -1,0 +1,56 @@
+{
+  "annotation": "<div>&nbsp;Gallerie aus Oberon&nbsp; s. Graphik INr 140337&nbsp;</div>",
+  "content_type": [],
+  "created": "2026-08-12T08:36:11.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Kalife. / Komm näher, meine Tochter! - Ha! Schwertgeklirr! Bei meinem Barte! Was für eine Verwegenheit",
+  "language": [],
+  "musenalm_id": 140338,
+  "musenalm_pagination": [
+    "2. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Planché [übers.]: Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2026-08-13T08:39:02.415Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "g3774ku9e4cdb7q",
+      "agents": "e5me99lnv5l0sbd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-12T08:39:23.512Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-13T08:39:02.416Z"
+    },
+    {
+      "id": "yveuytnd8j0gvry",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-12T08:39:40.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-13T08:39:02.416Z"
+    }
+  ]
+}

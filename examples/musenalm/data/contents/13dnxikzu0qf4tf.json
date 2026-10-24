@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Von deiner ersten Liebe, junger Mann, / Erzähle mir, laß keinen Umstand fehlen;",
+  "language": [],
+  "musenalm_id": 4429,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Prüfstein der Freundschaft. / Nach Montaigne",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Prüfstein der Freundschaft. / Nach Montaigne",
+  "updated": "2000-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t1ksyzxpvmiqalp",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.212Z"
+    }
+  ]
+}

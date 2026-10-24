@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Beitrag »Erinnerung an Johann von Besser, und seine Gattin Katharina Elisabeth, geborene Kühlewein« von Fr. Horn INr 26790, Obj 40 beigegeben",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Phillis Augen brennen mich verstohlen, / Denn sie scheinen ausgelöschte Kohlen;",
+  "language": [],
+  "musenalm_id": 36446,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die blauen und die schwarzen Augen / Die schwarzen Augen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann von Besser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die blauen und die schwarzen Augen / Die schwarzen Augen",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dphup9jqyfb378r",
+      "agents": "71e9r7ulp49pzsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.759Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.759Z"
+    }
+  ]
+}

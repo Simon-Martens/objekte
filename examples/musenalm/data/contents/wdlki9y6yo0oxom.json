@@ -1,0 +1,45 @@
+{
+  "annotation": "Geistliche Lieder (Sammlung INr 55728, Obj 123)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "Laß legen sich die Ungeduld, / Sey stille, Herz, nur stille!",
+  "language": [],
+  "musenalm_id": 55740,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. / An das Herz. / März 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. v. Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. / An das Herz. / März 1816",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ynyhlnz7vqbbq2",
+      "agents": "591e69im25wvavb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.694Z"
+    }
+  ]
+}

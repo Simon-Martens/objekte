@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 96546, Obj 97",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Leuchtest schon hernieder, / Trauter Abendstern!",
+  "language": [],
+  "musenalm_id": 96547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingsnacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Vagedes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingsnacht",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7kk9fhoz4baxeh5",
+      "agents": "vwjpew1dybbkwm8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.639Z"
+    }
+  ]
+}

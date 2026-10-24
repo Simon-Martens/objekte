@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "Wenn sich die Thräne, die der Himmel weinet, / Und wenn der Sonne Strahlen sich berühren,",
+  "language": [],
+  "musenalm_id": 55724,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Regenbogen. / An Elisa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Regenbogen. / An Elisa",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "prw412pc4huvz0r",
+      "agents": "5dfik7lfhc9fltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.793Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "Weinest schon lange, Rabbi, / Auf dem alten Leichenstein;",
+  "language": [],
+  "musenalm_id": 37026,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 151,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der trauernde Rabbi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Wihl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der trauernde Rabbi",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6is66ggaxwpots3",
+      "agents": "z9zzha2tz10lf47",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.789Z"
+    }
+  ]
+}

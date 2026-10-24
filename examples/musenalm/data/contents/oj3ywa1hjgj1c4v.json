@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwischentitel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.212Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60986,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Darstellungen / aus der Geschichte der Menschheit. / Zweite Periode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Darstellungen / aus der Geschichte der Menschheit. / Zweite Periode",
+  "updated": "2008-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u42z04j7l1igjw7",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.846Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.846Z"
+    }
+  ]
+}

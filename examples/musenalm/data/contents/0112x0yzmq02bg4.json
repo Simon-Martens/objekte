@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juli; paginiert 7. Illustration zu »Uebersicht der Kriegsjahre 1813. 1814.1815.« von E. H. A. v. Pfuel INr 58481, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58475,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Napoleon zerreisst die Friedenspraeliminarien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. Meno Haas sc.",
+  "scans": [
+    "alm_852_58475_fdicd6477f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Napoleon zerreisst die Friedenspraeliminarien",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gtmosvchq6q4r6j",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.740Z"
+    },
+    {
+      "id": "2rkn2z2xfyndqaa",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.740Z"
+    }
+  ]
+}

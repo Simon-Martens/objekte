@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Knabe! bring' her mir den Becher! / Füll ihn mit schäumendem Wein!",
+  "language": [],
+  "musenalm_id": 17648,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied / nach dem Persischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Siegm. Frhr. v. Seckendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied / nach dem Persischen",
+  "updated": "2001-09-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r9gspexhthtuexd",
+      "agents": "73xknlldquars2a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.721Z"
+    }
+  ]
+}

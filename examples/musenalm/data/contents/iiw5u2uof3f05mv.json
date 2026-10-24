@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Ja, Vater in den Himmeln! dich zu preisen, / Sey stets mein erster, seliger Gedanke,",
+  "language": [],
+  "musenalm_id": 91077,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Vater der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Carové",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Vater der Liebe",
+  "updated": "2013-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f6v7kndq3m6f161",
+      "agents": "9zdfy29sj074b5x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.440Z"
+    }
+  ]
+}

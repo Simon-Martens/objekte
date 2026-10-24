@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 48867, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.688Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Wenn man Raphaels Seelenbruder bei seiner Nachwelt ausser Italien aufsuchen wollte, der einen großen Theil dessen edeln Karakters und seinen Geschmacks in der Kunst,",
+  "language": [],
+  "musenalm_id": 48866,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nro. 3 / Der H. Levite Laurenz, / in seiner Hingebung. / Von Eustach le Sueur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W..... in Köln $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nro. 3 / Der H. Levite Laurenz, / in seiner Hingebung. / Von Eustach le Sueur",
+  "updated": "2007-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8bgdx5b55mts7xe",
+      "agents": "ev2ai2de3c8aird",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.594Z"
+    }
+  ]
+}

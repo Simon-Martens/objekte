@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 2. s. Textbezug 32099, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32088,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Mohr, Strauss u. Kameelparder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Rmbg. del. H. Grape sc.",
+  "scans": [
+    "alm_433_32088_8hqys6vmyr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Mohr, Strauss u. Kameelparder",
+  "updated": "2003-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g9cdduwr07qzhqv",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.454Z"
+    },
+    {
+      "id": "46a1yh5mblezfaq",
+      "agents": "t2z8lq4qwm3oov7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.454Z"
+    }
+  ]
+}

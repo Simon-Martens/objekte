@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 46178, 48179; Obj 22, 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46177,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schottische Volksballaden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Dönniges",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schottische Volksballaden",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uok417v4upuzb4w",
+      "agents": "xe8yjskg4xmo479",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.240Z"
+    }
+  ]
+}

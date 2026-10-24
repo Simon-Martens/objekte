@@ -1,0 +1,45 @@
+{
+  "annotation": "Stickerei (Sammlung INr 76164, Obj 62) mit einer graph. Stickanleitung s. INr 76166, Obj 64",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Das Knötchensticken war schon vor einem Jahre bey uns bekannt, allein seitdem hat es sich in Ansehung der verschiedenen Größe der Knötchen und durch die Durchbrechung des Spitzenstich so vervollkommnet,",
+  "language": [],
+  "musenalm_id": 76165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1) Das Musselin-Sticken mit durch- / brochenen Knötchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1) Das Musselin-Sticken mit durch- / brochenen Knötchen",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dnz0ip9w89qayg3",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.681Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 2. /) Illustration zum Gedicht »Der süße Wilhelm« von S. Ch. Pape INr 4255, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4256,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sieh, deine Braut ist todt!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Böttger sc.",
+  "scans": [
+    "alm_94_4256_k1by0bsbu0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sieh, deine Braut ist todt!",
+  "updated": "2000-09-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r2lxarj9octnpi5",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.253Z"
+    },
+    {
+      "id": "era3uubv7rvvf8j",
+      "agents": "iypyb8g8bxed1eq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.253Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.253Z"
+    }
+  ]
+}

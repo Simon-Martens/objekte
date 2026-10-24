@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus: Verzeichniss der Verfasser des N. W. Musenalmanachs vom J. 1798 in: Neuer Wiener Musenalmanach 1800",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Näher wandelt mir der Dämmrung Stunde, / Und der Sterne leichtes Silberbild / Träufelt Balsam auf des Geistes Wunde;",
+  "language": [],
+  "musenalm_id": 122582,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ERINNERUNGEN",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fischel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "ERINNERUNGEN",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "byj9yzmqkj267m2",
+      "agents": "9fm6ody20z4gtke",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.823Z"
+    }
+  ]
+}

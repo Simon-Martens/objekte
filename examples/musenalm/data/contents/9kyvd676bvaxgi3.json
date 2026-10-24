@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 71382, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Basilisk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil del. et sc.",
+  "scans": [
+    "alm_3605_71373_eu9e7q8ac5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Basilisk",
+  "updated": "2010-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "afdskq0ql1bmqqy",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.517Z"
+    }
+  ]
+}

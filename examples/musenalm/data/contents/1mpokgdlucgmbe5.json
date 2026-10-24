@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Frühlingslied« von Wilhelmine v. Gersdorf INr 10521, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_202_10522_mv1ovp6hkg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingslied",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8hfc8d42wdc9ih7",
+      "agents": "ubitdekwc4vpg28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.577Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.577Z"
+    }
+  ]
+}

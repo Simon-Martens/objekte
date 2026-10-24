@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Gib mir, o Mutter! - also bat / Einst Flora eine kaum dem Schooße / Des Nichts entstieg'ne weiße Rose,",
+  "language": [],
+  "musenalm_id": 84520,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 342,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gelbe Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottl. Konr. Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gelbe Rose",
+  "updated": "2010-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "590729i8cbhcg2r",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.966Z"
+    }
+  ]
+}

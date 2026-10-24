@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 67237, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.217Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67230,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WILHELM FRIED. FREYHERR VON DER BORCH",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Boettger sen. sc.",
+  "scans": [
+    "alm_1149_67230_h5uvqz46s5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WILHELM FRIED. FREYHERR VON DER BORCH",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h8gadeagbve3am5",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.286Z"
+    }
+  ]
+}

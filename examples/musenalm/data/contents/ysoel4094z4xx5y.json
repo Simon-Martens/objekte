@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.695Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ich kann Ihnen nicht nicht verhehlen, theuerster Freund! daß man in der stolzen Kaiserstadt das Vergnügen Ihres Umgangs sehr lebhaft vermißt.",
+  "language": [],
+  "musenalm_id": 31418,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Hrn. S**. / Karlsbad im Brachmond 1794. / Hail, sacred flood! o may thy tuneful woods / For ever flourisch, and thy vales look gay / With painted meadows! / Armstrong",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Hrn. S**. / Karlsbad im Brachmond 1794. / Hail, sacred flood! o may thy tuneful woods / For ever flourisch, and thy vales look gay / With painted meadows! / Armstrong",
+  "updated": "2003-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ey2xcr7dr3sfxmd",
+      "agents": "y0pp926xdweonfb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.411Z"
+    }
+  ]
+}

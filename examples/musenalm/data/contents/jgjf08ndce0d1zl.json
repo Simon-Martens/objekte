@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "»Was soll ich nach dem Himmel fragen, Von dem / kein Mensch ein Wörtchen weiß? / Was soll ich ob der Hölle klagen? Sie macht ja / weder kalt noch heiß",
+  "language": [],
+  "musenalm_id": 122963,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 222,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Trümmerburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Pape",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Trümmerburg",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aci5e26n5r26y0b",
+      "agents": "8jkm2mpf22llpf2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.825Z"
+    }
+  ]
+}

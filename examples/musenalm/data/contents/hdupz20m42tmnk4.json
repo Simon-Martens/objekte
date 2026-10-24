@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 12.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32278,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Himmlische Erscheinung / dein Harrte ich. / II B. S. 220",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. & sc.",
+  "scans": [
+    "alm_441_32278_qs9hjgmmg8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Himmlische Erscheinung / dein Harrte ich. / II B. S. 220",
+  "updated": "2003-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6fwcapqshfa27sr",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.595Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.595Z"
+    }
+  ]
+}

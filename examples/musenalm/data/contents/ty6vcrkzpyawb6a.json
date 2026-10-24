@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Die verfehlte Stunde« von A. W. Schlegel INr 10544, Obj 71 (Photos 10640,01; 10640,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10640,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 70.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die verfehlte Stunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Schmiedt",
+  "scans": [
+    "alm_202_10640_01_iu01wp9y7v.jpg",
+    "alm_202_10640_02_6wvtbth6np.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die verfehlte Stunde",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8nh6fk8lqyyv6uo",
+      "agents": "m8h0i8atzha2rbr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.578Z"
+    }
+  ]
+}

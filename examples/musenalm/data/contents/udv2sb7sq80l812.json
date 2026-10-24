@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Zeitverse (Sammlung INr 64840, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Im freien Land der Christenheit entsprungen, / Wälz' ich durch Christenreiche meine Wogen,",
+  "language": [],
+  "musenalm_id": 64848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klage und Bitte der Donau",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Cebes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klage und Bitte der Donau",
+  "updated": "2009-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wsq9og1javju0yy",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.126Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.126Z"
+    }
+  ]
+}

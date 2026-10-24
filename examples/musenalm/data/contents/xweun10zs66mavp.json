@@ -1,0 +1,45 @@
+{
+  "annotation": "Devisen in Stammbücher (Sammlung INr 21996, Obj 160)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.495Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Lerne die Menschen kennen, doch hüte dich, daß / du den Glauben",
+  "language": [],
+  "musenalm_id": 22004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 168,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lerne die Menschen kennen, doch hüte dich, daß / du den Glauben…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u6kt09qjce6o23o",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.877Z"
+    }
+  ]
+}

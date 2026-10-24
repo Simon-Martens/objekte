@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 29815, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Gedenkst du wohl noch deiner Kindheit Stunden? / Das Leben war Ein Sommer-Sonntagsmorgen,",
+  "language": [],
+  "musenalm_id": 29817,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Sonnett",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Silvio Romano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Sonnett",
+  "updated": "2002-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z9azaz72zu3brnh",
+      "agents": "rw4d1lc8bcz0sk7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.479Z"
+    }
+  ]
+}

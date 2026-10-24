@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium Januar",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135560,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WILHELM / Herzog von Nassau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schalk p. Stahlstich von Carl Mayer Nbg.",
+  "scans": [
+    "alm_2088_135560_4rg7em6kdz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WILHELM / Herzog von Nassau",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yy2ks1uhgrs9f3k",
+      "agents": "la05751iz21yo3g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.152Z"
+    },
+    {
+      "id": "1wt7540ajdc9uzl",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.152Z"
+    }
+  ]
+}

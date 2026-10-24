@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 83986, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83993,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Scherflein der Wittwe #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Dubufe pinxt. W. Baumann sulpt.",
+  "scans": [
+    "alm_1067_83993_rowwx58jsx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Scherflein der Wittwe #",
+  "updated": "2009-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tu6xwtgz3e7ioad",
+      "agents": "6y4rw75bkercnfq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.982Z"
+    },
+    {
+      "id": "rurh61shxxw9nfn",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.982Z"
+    }
+  ]
+}

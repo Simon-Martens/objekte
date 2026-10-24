@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesellschaftslieder (Sammlung INr 21175, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.539Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "350",
+  "incipit_statement": "Seht an ! wie dampft sie lieblich hier / Die holde Punschterrine!",
+  "language": [],
+  "musenalm_id": 21177,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Auf den Punsch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Treumund Wellentreter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Auf den Punsch",
+  "updated": "2002-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rhya6o8cg15wm78",
+      "agents": "0lth2adu21imy6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.883Z"
+    }
+  ]
+}

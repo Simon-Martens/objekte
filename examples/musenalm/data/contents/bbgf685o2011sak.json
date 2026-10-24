@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Arche Noah« von W. Müller INr 22607, Obj 120 /) Musik-Beilage zu dem Taschenbuch zum geselligen Vergnügen 1823. Enthaltend Neugriechische Melodien Leipzig, bei Joh. Friedr. Gleditsch (Sammlung INr 22621, Obj 134) (Photos 22632,01; 22632,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22632,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 145,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Arche Noah",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schneider",
+  "scans": [
+    "alm_301_22632_01_wcc3iag7me.jpg",
+    "alm_301_22632_02_s79ek2yugr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Arche Noah",
+  "updated": "2002-03-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ljgupj452x65tro",
+      "agents": "659wajziz7tp24k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.817Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Du schloßest in der Käfichs Rund / Die Lerche - o, wie bitter!",
+  "language": [],
+  "musenalm_id": 86968,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aphorismen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. v. Metzerich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aphorismen",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vxmlvr25cez6fyu",
+      "agents": "em3dkpa48ys3kzf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.051Z"
+    }
+  ]
+}

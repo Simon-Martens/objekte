@@ -1,0 +1,45 @@
+{
+  "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Da sitz' ich armer Vogelsteller / Vergebens nun, / Und bin entblößt vom letzten Heller; / Was soll ich thun?",
+  "language": [],
+  "musenalm_id": 66238,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der arme Vogelsteller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dunker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der arme Vogelsteller",
+  "updated": "2009-08-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "20hq01n8hlr379z",
+      "agents": "n5liie3i2dvrx17",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.099Z"
+    }
+  ]
+}

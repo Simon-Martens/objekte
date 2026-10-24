@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.936Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Wie schön erwacht der Tag! Wie trächtig steht / Von bunten Morgentropfen Laub und Gras!",
+  "language": [],
+  "musenalm_id": 8867,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Josephs fünfte Reise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Denis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Josephs fünfte Reise",
+  "updated": "2001-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zcrt0uazj23wqho",
+      "agents": "fon9iiilzs9ke5a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.193Z"
+    }
+  ]
+}

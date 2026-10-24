@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 59291, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Im Paradies wird Ehestand vermißt, / Weil auch kein Paradies im Ehstande ist",
+  "language": [],
+  "musenalm_id": 59304,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bibelexegese / den Ehestand betreffend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bibelexegese / den Ehestand betreffend",
+  "updated": "2008-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u2ichvpqhxwgzvc",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.021Z"
+    }
+  ]
+}

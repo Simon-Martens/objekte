@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Bemerkungen aus der Kinderstube (Sammlung INr 48565, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "364",
+  "incipit_statement": "Du enthälst dich, deine Flöte falsch anzublasen, damit sie nicht in ihren Fibern den falschen Ton festhalte.",
+  "language": [],
+  "musenalm_id": 48569,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du enthälst dich, deine Flöte falsch anzublasen, damit sie nicht in ihren Fibern den falschen Ton festhalte.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w3qatblkirfo4z0",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.528Z"
+    }
+  ]
+}

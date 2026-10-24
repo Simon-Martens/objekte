@@ -1,0 +1,45 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Syrien, Phönicien und Nieder-Aegypten (Sammlung INr 87983, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87985,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sonnen-Tempel zu Palmyra von innen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cassas del. Blaschke sc.",
+  "scans": [
+    "alm_3101_87985_x53v169i34.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Sonnen-Tempel zu Palmyra von innen",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zvm6l29o4fa39iv",
+      "agents": "mwzww6qj9viy1kj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.081Z"
+    }
+  ]
+}

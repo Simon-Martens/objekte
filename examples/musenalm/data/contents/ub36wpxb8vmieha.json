@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28848,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. Aus Elise von Nalberg von Iffland",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. A.",
+  "scans": [
+    "alm_373_28848_2m8hs76uh5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. Aus Elise von Nalberg von Iffland",
+  "updated": "2002-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ytsg4dq8ckgzuwp",
+      "agents": "72r3qe0psneye9d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.567Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.567Z"
+    }
+  ]
+}

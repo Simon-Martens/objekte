@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Siegmund mein Bräutigam« von A. J. Laur INr 2846, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (J. André)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. André",
+  "scans": [
+    "alm_80_2847_8uii4khxnc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jk1mw13kqhs9fza",
+      "agents": "jsx11n3en45yzmt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.998Z"
+    }
+  ]
+}

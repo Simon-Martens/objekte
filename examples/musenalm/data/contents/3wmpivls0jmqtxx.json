@@ -1,0 +1,45 @@
+{
+  "annotation": "Auf 19 SS Text folgen 21 SS Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Die herrische , übermüthige Donna Sabina verband mit allen Lüsternheiten und Ausschweifungen jener bodenlosen Sittenverderbniß,",
+  "language": [],
+  "musenalm_id": 711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Sabina an der Küste von Neapel / Erste Abtheilung: (Fortsetzung von Sabina oder Toilette einer Römerin.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Sabina an der Küste von Neapel / Erste Abtheilung: (Fortsetzung von Sabina oder Toilette einer Römerin.)",
+  "updated": "2000-08-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sd6868ybs6pizz5",
+      "agents": "7cdnqd525rp9gi5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.002Z"
+    }
+  ]
+}

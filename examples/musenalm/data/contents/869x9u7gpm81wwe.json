@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24427, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ihr kennt des Eulenspiegels Streiche, / Gar weit berühmt im Röm'schen Reiche.",
+  "language": [],
+  "musenalm_id": 24428,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Eulenspiegel als Thurmwächter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Eulenspiegel als Thurmwächter",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j2bs5nnh7txwk0a",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.909Z"
+    }
+  ]
+}

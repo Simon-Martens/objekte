@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Des Schicksals Macht hat uns geschieden, / Es darf nicht Herz an Herz erglüh'n;",
+  "language": [],
+  "musenalm_id": 114198,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Entfernte. / Glosse: Wenn du betrübt bist, möcht' ich klagen / Und wünschen: könnt'st du heiter seyn - / Ach! einen Himmel möcht' ich tragen / In deine stille Welt hinein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Proch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Entfernte. / Glosse: Wenn du betrübt bist, möcht' ich klagen / Und wünschen: könnt'st du heiter seyn - / Ach! einen Himmel möcht' ich tragen / In deine stille Welt hinein",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3cfww83utvorg15",
+      "agents": "d5qebprx0tlpzv8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.520Z"
+    }
+  ]
+}

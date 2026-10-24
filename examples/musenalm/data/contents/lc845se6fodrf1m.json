@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.944Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "328",
+  "incipit_statement": "Du tiefes Thal, wo finstre Tannen sprossen, / Und ew'gen Schnee der Berge Gipfel tragen,",
+  "language": [],
+  "musenalm_id": 13677,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lauterbrunnen / in der Schweiz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Charlotte von Ahlefeld, / geb. v. Seebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lauterbrunnen / in der Schweiz",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i810vdf5sjmsejk",
+      "agents": "l4enih6aag2oyqg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.460Z"
+    }
+  ]
+}

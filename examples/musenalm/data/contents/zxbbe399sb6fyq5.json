@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Sieh die Knospe der Rose, wie lauscht / ihr der fröhliche Gärtner,",
+  "language": [],
+  "musenalm_id": 31614,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS LEBLOSE. / (Elegie)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kristof Kueffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DAS LEBLOSE. / (Elegie)",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "45cketczow99eax",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.342Z"
+    }
+  ]
+}

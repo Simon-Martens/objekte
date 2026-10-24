@@ -1,0 +1,45 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64377, Obj 11) s. Graphik INr 64374, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Hört' ich das Pförtchen nicht gehen? / Hat nicht der Riegel geklirrt? / Nein, es war des Windes Wehen, / Der durch die Pappeln schwirrt.",
+  "language": [],
+  "musenalm_id": 64380,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Die Erwartung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Die Erwartung",
+  "updated": "2009-05-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "70eo53x66g2i5zh",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.977Z"
+    }
+  ]
+}

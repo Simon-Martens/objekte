@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium April, nummeriert 4 /) Illustration zu »Centifolium stultorum« von Abraham a Santa Clara d. i. Ulrich Megerle; s. Textbezug INr 129070, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129046,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Artzney-Narr / Malade imaginaire",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del. Rosmaesler sc.",
+  "scans": [
+    "alm_157_129046_vya4c5cl4q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Artzney-Narr / Malade imaginaire",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "73kusugwctug43h",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.000Z"
+    },
+    {
+      "id": "gzoemtjg9riguno",
+      "agents": "n3n9pdzq4tdymdn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.000Z"
+    }
+  ]
+}

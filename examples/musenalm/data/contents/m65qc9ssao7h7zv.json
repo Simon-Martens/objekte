@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 5. s. Textbezug INr 49224, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.511Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 49209,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Springhölzchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. W. sc.",
+  "scans": [
+    "alm_674_49209_8yuetj5rby.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Springhölzchen",
+  "updated": "2007-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9eob1km79tpn5ou",
+      "agents": "o3ct6ijrde3gzy6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.407Z"
+    }
+  ]
+}

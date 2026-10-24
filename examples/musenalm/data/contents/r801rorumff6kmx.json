@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Unabsehbar dehnt die Heide / Rings im grauen Nebelkleide / Sich vor meinen Blicken hin:",
+  "language": [],
+  "musenalm_id": 14703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abends auf einer Reise",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R. Walther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abends auf einer Reise",
+  "updated": "2001-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gszm2p3veezytfd",
+      "agents": "6nwmu2j1m8xu6n4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.538Z"
+    }
+  ]
+}

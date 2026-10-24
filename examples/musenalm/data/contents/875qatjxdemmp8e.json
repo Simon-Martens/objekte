@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 77146, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77126,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THUSNELDA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. H. Schnorr del. Dav. Weiss sc. Viennae",
+  "scans": [
+    "alm_2398_77126_90nkeco1ig.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THUSNELDA",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hwkjftm2sef70zb",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.557Z"
+    },
+    {
+      "id": "2021pshlr0r7qps",
+      "agents": "yf7uqcfkp0nwlnb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.557Z"
+    }
+  ]
+}

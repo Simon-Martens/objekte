@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 138, Obj 138)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Grausam häufet ein höhnend Geschick hier Schrecken / des Wahnes;",
+  "language": [],
+  "musenalm_id": 24861,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Sand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Varnhagen von Ense",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Sand",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ux8viidur77u7gd",
+      "agents": "ep8tm0egvn3ld0y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.164Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.164Z"
+    }
+  ]
+}

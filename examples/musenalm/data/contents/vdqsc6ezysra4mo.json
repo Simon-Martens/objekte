@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 59492, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Seht das Kind, das holde, seht, / Wie's auf schwachen Füßchen steht,",
+  "language": [],
+  "musenalm_id": 59501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. Mutterglück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Kletke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. Mutterglück",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cao8fl2gg6hr5ln",
+      "agents": "oxvlsvgq5f4m5gr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.870Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.870Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Zu Southampton am Strande / Mit Zepter und mit Kron' / Im Purpur-Prachtgewande / Sitzt König Kurt zu Thron,",
+  "language": [],
+  "musenalm_id": 90508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Der Herr des Meeres. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter C. Gottfried von Leitner. (Graz.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Der Herr des Meeres. / Ballade",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kukoo1q9hwgq8u9",
+      "agents": "kzo5zf1o5a1ke0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.175Z"
+    }
+  ]
+}

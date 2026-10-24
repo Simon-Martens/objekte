@@ -1,0 +1,45 @@
+{
+  "annotation": "Nummeriert II. /) Graphik (Silhouette) im Kalendarium Februar",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104563,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mademoiselle Ackermann / die aeltere",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Endner fec.",
+  "scans": [
+    "alm_3249_104563_036v0x0ke5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mademoiselle Ackermann / die aeltere",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qf6bx4656d3vdkg",
+      "agents": "lyz2x127nyb2cxs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.984Z"
+    }
+  ]
+}

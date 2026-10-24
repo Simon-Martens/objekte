@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "Was hab' ich ihm zu Leid gethan, / Was war's, das ihn empörte,",
+  "language": [],
+  "musenalm_id": 35237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Sturmwind, / der meinen Zwetschenbaum zertrümmerte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Maisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Sturmwind, / der meinen Zwetschenbaum zertrümmerte",
+  "updated": "2003-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lrylc9qftjc0zsb",
+      "agents": "ibdeh1gpf166351",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.784Z"
+    }
+  ]
+}

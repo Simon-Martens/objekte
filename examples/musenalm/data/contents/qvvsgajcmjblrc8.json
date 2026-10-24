@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. /) Graphik im Kalendarium Mai /) Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75652, Obj 37 /) s.a. Textbezug INr 75636, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75623,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Ferdinand hat zur Freude der Jesu- / iten das Restitutions Edikt unterschrieben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. J. Penzel fec.",
+  "scans": [
+    "alm_2142_75623_kql94x2w6j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Ferdinand hat zur Freude der Jesu- / iten das Restitutions Edikt unterschrieben",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u244abjbxkk0dft",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.691Z"
+    },
+    {
+      "id": "g8zeoz5b0o5h1ce",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.691Z"
+    }
+  ]
+}

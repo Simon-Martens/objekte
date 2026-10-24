@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder der Wehmuth (Sammlung INr 98323, Obj 194)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "Das ist das Schöne an der Dichtung, / Daß fessellos und keck sie lebt,",
+  "language": [],
+  "musenalm_id": 98324,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 195,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Poesie und Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Frank",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Poesie und Leben",
+  "updated": "2014-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0gsimk3v2o1qg57",
+      "agents": "km9osfzve59w4c0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.698Z"
+    }
+  ]
+}

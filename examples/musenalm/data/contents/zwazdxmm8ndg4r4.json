@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Es liebte König Adalwin / Die Malerkunst vor allen / Den schönen Künsten,",
+  "language": [],
+  "musenalm_id": 90474,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der König und der Maler. Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fitzinger. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der König und der Maler. Ballade",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3i1ub6qyk3nss0x",
+      "agents": "arq1wi6im7bawmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.160Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.160Z"
+    }
+  ]
+}

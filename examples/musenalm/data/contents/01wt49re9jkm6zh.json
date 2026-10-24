@@ -1,0 +1,45 @@
+{
+  "annotation": "Xenien auf einen großen Todten (Sammlung INr 84130, Obj 125)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Thut denn, was Euch beliebt! Dem Dichter / ziemt das Verkünden / Seiner Gäste,",
+  "language": [],
+  "musenalm_id": 84133,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thut denn, was Euch beliebt! Dem Dichter / ziemt das Verkünden / Seiner Gäste,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "irez5eo73rc5n6h",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.926Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.926Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "20. Zwei-Gespräch in Charaden (Sammlung INr 42443, Obj 65) VI. Agrionien für 1826. Gesammelt von Theodor Hell (Sammlung INr 42423, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.054Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "489",
+  "incipit_statement": "Das soll ein Freudenfest werden! Nimm im Voraus mein Ganzes zu demselben.",
+  "language": [],
+  "musenalm_id": 42456,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. 2. / Hannchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. 2. / Hannchen",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rvz2wrquml7rqhd",
+      "agents": "mkd957rgkmp3pvz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.849Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.849Z"
+    }
+  ]
+}

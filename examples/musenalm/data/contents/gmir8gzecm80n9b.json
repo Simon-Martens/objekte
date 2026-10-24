@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Titel (INr 124453, Obj 1)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "»Zusammen gab der Priester der Verliebten / Hände, / So ging den andern gleich, auch der Roman / zu Ende« / Hätte der Priester das Paar vor dem ersten Capitel zusammen gegeben, so [gäbe es] einen langweiligen Roman weniger.",
+  "language": [],
+  "musenalm_id": 124459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebhaber und Geliebte / in einer Person. / Eine / dramatische Kleinigkeit in einem Aufzuge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz August von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebhaber und Geliebte / in einer Person. / Eine / dramatische Kleinigkeit in einem Aufzuge",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8wrrmlkb9bjy4ap",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.802Z"
+    }
+  ]
+}

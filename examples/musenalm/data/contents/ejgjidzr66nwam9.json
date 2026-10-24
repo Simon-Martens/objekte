@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Gedicht INr 112488, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112486,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Johann Ender del. Fr. Stöber sc. Vien.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Ender del. Fr. Stöber sc. Vien.",
+  "scans": [
+    "alm_2471_112486_s07crmej28.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z3ee210z161hbgc",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.358Z"
+    },
+    {
+      "id": "islwhid5jygq4ti",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.358Z"
+    }
+  ]
+}

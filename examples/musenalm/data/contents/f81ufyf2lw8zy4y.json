@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite s. Anm. dort /) paginiert 2 /) Graphik im Kalendarium Februar /) Illustration zu »Henriade« von F. M. A. de Voltaire",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69996,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Umgewandelt an diesem Tage des Heils, erkennt / Das ganze Volk in ihm seinen besiger seinen / wahren König und Vater. / Henr. Ges. X.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. F. Berger sc.",
+  "scans": [
+    "alm_793_69996_k1ywkg0fqy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Umgewandelt an diesem Tage des Heils, erkennt / Das ganze Volk in ihm seinen besiger seinen / wahren König und Vater. / Henr. Ges. X.",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jkoyz3eigtgrlzw",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.520Z"
+    }
+  ]
+}

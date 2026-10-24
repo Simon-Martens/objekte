@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumen (Sammlung INr 48975, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "O Mädchen, sprich, was suchest du / Wol auf der duft'gen Au?",
+  "language": [],
+  "musenalm_id": 48991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das seltene Blümlein",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rosa Maria",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das seltene Blümlein",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iq240yta3q6ywc4",
+      "agents": "7qd9korfk9bcwc9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.621Z"
+    }
+  ]
+}

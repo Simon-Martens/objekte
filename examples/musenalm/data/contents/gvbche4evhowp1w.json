@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezüge INr 77290, 77291; Obj 5, 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77287,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JOHANNA von CASTILIEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl Wien",
+  "scans": [
+    "alm_2402_77287_st6x457zxw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "JOHANNA von CASTILIEN",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b4oakzly4tuk3t9",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.771Z"
+    },
+    {
+      "id": "cu1mf922fr7fnu7",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.771Z"
+    }
+  ]
+}

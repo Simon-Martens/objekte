@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthsel und Charaden (Sammlung INr 20685, Obj 82)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "409",
+  "incipit_statement": "Als Vogel steh'n Eins Zwei vor Dir, / Als Freudenmädchen Drei und Vier;",
+  "language": [],
+  "musenalm_id": 20689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Charade",
+  "updated": "2002-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vdofe2i42x1xro0",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.832Z"
+    }
+  ]
+}

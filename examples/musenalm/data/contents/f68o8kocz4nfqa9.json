@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Mit Recht erhebt Magister Krumm / Den Vorzug seiner Bücher:",
+  "language": [],
+  "musenalm_id": 3034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 140,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Etwas Vorzügliches an den / Schriften eines schlechten Autors",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Etwas Vorzügliches an den / Schriften eines schlechten Autors",
+  "updated": "2000-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5ydjr7qg0h988qo",
+      "agents": "tvrder99cpa3fos",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.970Z"
+    }
+  ]
+}

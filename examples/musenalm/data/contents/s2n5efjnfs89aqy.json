@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Gieb mir Gehör Gevattermann, / Und fang einmal ein andres Leben an!",
+  "language": [],
+  "musenalm_id": 8584,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Freund und der Trinker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blum",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Freund und der Trinker",
+  "updated": "2000-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wsoxm40buxfs0c4",
+      "agents": "quu68xfhyzxlogj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.274Z"
+    }
+  ]
+}

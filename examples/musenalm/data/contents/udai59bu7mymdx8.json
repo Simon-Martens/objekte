@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Lied s. INr 43433, Obj 30 mit 2 Illustrationen s. Graphiken INr 43418, 43419; Obj 15, 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Eben hatte der Landrath sein Abendpfeifchen ausgeklopft und der Oberpfarrer Wohlmuth Hut und Stock ergriffen,",
+  "language": [],
+  "musenalm_id": 43432,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der freiwillige Jäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der freiwillige Jäger",
+  "updated": "2006-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t6nnpgziq9t54wl",
+      "agents": "j6u4xe56jqv8urn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.303Z"
+    }
+  ]
+}

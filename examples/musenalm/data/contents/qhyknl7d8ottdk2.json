@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Wahrhaft schildert der Dichter den Werth / des edleren Weibes, / Aber er lehrt uns nicht, was ihm den / Vorzug ertheilt.",
+  "language": [],
+  "musenalm_id": 32758,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zu Schillers Würde der Frauen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Schweighäuser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zu Schillers Würde der Frauen",
+  "updated": "2003-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8dresrgcjp35kgs",
+      "agents": "07qu7qawpxno6h3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.699Z"
+    }
+  ]
+}

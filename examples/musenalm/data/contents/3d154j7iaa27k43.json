@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Gold und Myrten und Weihrauch brachten / vormahls / Die drei Könige, brachten's mit Verehrung",
+  "language": [],
+  "musenalm_id": 17963,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich der Zweite an die / Königinn Mutter. / Am 1. Januar, 1746. / Nach der Handschrift Friedrich's / des Zweiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich der Zweite an die / Königinn Mutter. / Am 1. Januar, 1746. / Nach der Handschrift Friedrich's / des Zweiten",
+  "updated": "2001-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gbymzl9e7xh9nqz",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.938Z"
+    }
+  ]
+}

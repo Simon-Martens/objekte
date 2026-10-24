@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht im Beitrag »Das Marmorbild« INr 26943, Obj 192",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.542Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "387",
+  "incipit_statement": "Vergangen ist die finstre Nacht, / Des Bösen Trug und Zaubermacht",
+  "language": [],
+  "musenalm_id": 36454,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 200,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergangen ist die finstre Nacht, / Des Bösen Trug und Zaubermacht…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Freiherr v. Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gh8iylp8tcq7liq",
+      "agents": "h99uxdryiugeh6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.913Z"
+    }
+  ]
+}

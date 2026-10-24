@@ -1,0 +1,45 @@
+{
+  "annotation": "Die 6. Karikaturen (Sammlung INr 60249, Obj 33)  XVIII. Erklärung der Kupfer (Sammlung INr 60248, Obj 32) s. Graphik INr 60251, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Der feine Sand ist verworfen; die großen haben die Augen voll; nehmet nun den groben und macht auch das Volk blind!",
+  "language": [],
+  "musenalm_id": 60250,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Staaten-Sicherheits-Wächter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Staaten-Sicherheits-Wächter",
+  "updated": "2008-10-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "76wzkpc0as6okmq",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.818Z"
+    }
+  ]
+}

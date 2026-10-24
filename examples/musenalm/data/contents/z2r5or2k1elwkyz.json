@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Die gespenstige Puppe« von L. Storch INr 80722, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80709,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emilie Frühbing. / Zur Novelle von Ludwig Storch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Grevedon del. C. Kotterba sc.",
+  "scans": [
+    "alm_1798_80709_rm7q8r74fo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Emilie Frühbing. / Zur Novelle von Ludwig Storch",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ru2ezxpp059uowt",
+      "agents": "fnowuly66bkynwc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.933Z"
+    },
+    {
+      "id": "r0trpvd5uwi2zyd",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.933Z"
+    }
+  ]
+}

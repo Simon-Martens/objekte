@@ -1,0 +1,45 @@
+{
+  "annotation": "# lt. I-Verz: Mit Melodie von A. C. Fürstenau. §5§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "362",
+  "incipit_statement": "Den Korb voll frischer Rosen, / Getreuer Liebe Bild und Grab',",
+  "language": [],
+  "musenalm_id": 20397,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mariechen am Sarge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mariechen am Sarge",
+  "updated": "2001-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "853wlvrcsmdmhg6",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.960Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 22645, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "In der weltberühmten Stadt Paris lebte vor Zeiten eine Jungfrau von hoher Schönheit,",
+  "language": [],
+  "musenalm_id": 22690,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zauberspiegel. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina v. Chezy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Zauberspiegel. / Novelle",
+  "updated": "2002-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kf3skmsqgtnhoe2",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.943Z"
+    }
+  ]
+}

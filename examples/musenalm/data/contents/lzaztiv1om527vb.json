@@ -1,0 +1,45 @@
+{
+  "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "372",
+  "incipit_statement": "Ich bin wieder einmal auf dem Campanile gewesen und zwar bis hoch über die Attika hinauf",
+  "language": [],
+  "musenalm_id": 44050,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Siebenter Brief. / Venedig im September",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Siebenter Brief. / Venedig im September",
+  "updated": "2006-06-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zu5lwmnxp61cj2k",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.954Z"
+    }
+  ]
+}

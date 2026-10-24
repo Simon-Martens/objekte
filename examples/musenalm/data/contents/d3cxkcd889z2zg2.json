@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite /) Graphik im Kalendarium Dezember /)  Illustration zu »Geschichte der Bartholomäusnacht oder der Bluthochzeit zu Paris« INr 68912, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68907,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herzog Heinrich v. Guise. / Henri Duc de Guise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et fec. 1797 # M. Haas",
+  "scans": [
+    "alm_834_68907_h16osg036u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herzog Heinrich v. Guise. / Henri Duc de Guise",
+  "updated": "2008-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qnby2s8cpamo5i4",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.342Z"
+    },
+    {
+      "id": "wazxks2ey5zknj9",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.342Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Legenden (INr 93348, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Medardus lebte in des Klosters Stille / Als Jüngling früh schon nach des Herrn Gebot,",
+  "language": [],
+  "musenalm_id": 93350,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "St. Medardus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "St. Medardus",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4tara2zn4sagbs2",
+      "agents": "epma680nee4q5et",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.556Z"
+    }
+  ]
+}

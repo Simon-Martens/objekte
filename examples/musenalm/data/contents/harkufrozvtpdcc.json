@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Gleims Gedicht »Der Abt« in: Musenalmanach (Hamburger) 1795 INr 12729",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Die Nonnen für den, Wein zu geben, / In siebzig Jahren geht das an;",
+  "language": [],
+  "musenalm_id": 4066,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Gleims Abt. / (Voss'ens Musenalanach. 1795 S. 183) #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Gleims Abt. / (Voss'ens Musenalanach. 1795 S. 183) #",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j8hc0z6kzds6oa9",
+      "agents": "6cp00jd21onlhwl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.042Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "lt. G-Verz: nach Hodges",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.063Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42248,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agrah",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hodges pinx. J. G. A. Frenzel sc. Dresd.",
+  "scans": [
+    "alm_556_42248_panh1cczw2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Agrah",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2orvt4ofy296s1l",
+      "agents": "xqoghpkng47rofa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.277Z"
+    },
+    {
+      "id": "q3if84iitk8cah4",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.277Z"
+    }
+  ]
+}

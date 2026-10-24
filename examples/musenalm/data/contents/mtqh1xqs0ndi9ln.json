@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13075,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloss Bärenfels",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zingg del. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_215_13075_x78mbaj80s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloss Bärenfels",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vncutgglnajzzrq",
+      "agents": "tv0kfo1dowgyyed",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.652Z"
+    },
+    {
+      "id": "8z8rx8gjed64k7n",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.652Z"
+    }
+  ]
+}

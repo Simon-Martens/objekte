@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Rheinsagen (Sammlung INr 35140, Obj 110)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Umsonst nicht stimmte Frauenlob / Sein Saitenspiel den Frauen,",
+  "language": [],
+  "musenalm_id": 35141,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Frauenlob",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Frauenlob",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "92ggi9eznogh50v",
+      "agents": "dgebk50hujqbvc5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.691Z"
+    }
+  ]
+}

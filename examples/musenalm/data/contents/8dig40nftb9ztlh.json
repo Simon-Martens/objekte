@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium August; nummeriert 8.; s. Textbezug INr 133028, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132878,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PHILIP CHRISTIAN / von BOHLEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Haas fec.",
+  "scans": [
+    "alm_3960_132878_8t1nynun6o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PHILIP CHRISTIAN / von BOHLEN",
+  "updated": "2013-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gsn60h89jh7x6vy",
+      "agents": "3mymtnunkvww3p2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.098Z"
+    }
+  ]
+}

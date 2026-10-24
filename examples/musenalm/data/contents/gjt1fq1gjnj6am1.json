@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt mit Hinweis auf den Tod Christian Friedrich Pfeffels, Bruder des Dichters",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Was für ein Rauschen, gleich dem Silberton / Der Aeolsharfe, weckt mich aus dem Arme",
+  "language": [],
+  "musenalm_id": 23848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Threnodie. / Frühjahr 1807. / The triumph of my soul is that i am. / YOUNG #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Threnodie. / Frühjahr 1807. / The triumph of my soul is that i am. / YOUNG #",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kn28sliesjbbd3v",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.072Z"
+    }
+  ]
+}

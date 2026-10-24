@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Mag sich der Eigendünkel eines jeden Reichs der Erde ein unermeßlich hohes Alterthum zuschreiben, schwerlich ist eins derselben vermögend,",
+  "language": [],
+  "musenalm_id": 42258,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Allgemeiner Rückblick auf Hindostan # I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Allgemeiner Rückblick auf Hindostan # I.",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3vqw6mrml483qsj",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.285Z"
+    }
+  ]
+}

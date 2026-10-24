@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Den, auf dessen Brod er hofft, sieht er / oft im Traum begraben:",
+  "language": [],
+  "musenalm_id": 36195,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf / einen Taugenichts, / der die Sürvivance auf eines braven / Mannes Dienst erschlichen hatte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf / einen Taugenichts, / der die Sürvivance auf eines braven / Mannes Dienst erschlichen hatte",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c03hvoqadci2joa",
+      "agents": "tvrder99cpa3fos",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.751Z"
+    }
+  ]
+}

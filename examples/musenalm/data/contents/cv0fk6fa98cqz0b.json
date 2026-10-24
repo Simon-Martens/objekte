@@ -1,0 +1,45 @@
+{
+  "annotation": "Stechpalmen (Sammlung INr 92739, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Sieh, wie schlau sie hier in München / Alle Gräber übertünchen / Mit Gemälden, nicht zu zählen;",
+  "language": [],
+  "musenalm_id": 92752,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Orbis pictus. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Seeger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Orbis pictus. / 1.",
+  "updated": "2013-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0vbhiksynex58nt",
+      "agents": "nwzg4t9e6f4r4qh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.322Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.322Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "§4§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Liebchen, laß dich küssen! / Liebchen, gute Nacht; / Wirst nun schlafen müssen,",
+  "language": [],
+  "musenalm_id": 13811,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied. / Mit Musik v. Hrn. Capellmeister Himmel §5§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied. / Mit Musik v. Hrn. Capellmeister Himmel §5§",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "22nvm5kwwvbc69g",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.603Z"
+    }
+  ]
+}

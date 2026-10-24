@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Der du im frühsten Lebenslenze / Lobgierig nach dem Ehrentempel / frugst,",
+  "language": [],
+  "musenalm_id": 4907,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weissagung / der Melpomene / an einen Jungen Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Weissagung / der Melpomene / an einen Jungen Dichter",
+  "updated": "2000-10-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ggbmj9wbrkhs0d",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.010Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "als Motto dem Beitrag »Uiber die Declamation« INr 115330, Obj 21 vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Kunstlos, ohne Müh' und Streben, / Giebst du dem Gedichte Leben, / Giebst ihm zarten Hauch und Ton.",
+  "language": [],
+  "musenalm_id": 115329,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Rapsodin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Rapsodin",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wh9i7pvuosuch1z",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.482Z"
+    }
+  ]
+}

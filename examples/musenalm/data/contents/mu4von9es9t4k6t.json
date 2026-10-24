@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April; paginiert 4. Illustration zu »Die Ahnfrau« von Fr. Grillparzer; Wien 1817 /) s. Textbezug INr 59207, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59196,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jaromir. Hier und dort, und dort und hier! / Ueb'rall sie und nirgends sie! / die Ahnfrau. Abthl. 2. Sc. 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. M.",
+  "scans": [
+    "alm_890_59196_9feewuwaj3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jaromir. Hier und dort, und dort und hier! / Ueb'rall sie und nirgends sie! / die Ahnfrau. Abthl. 2. Sc. 2.",
+  "updated": "2008-08-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2onbnch8oe1gr41",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.645Z"
+    },
+    {
+      "id": "8083pq1kwlfyhdo",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.645Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebesreime (Sammlung INr 62235, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Weg, ihr abgebroch'nen Blumen! Ach, ich seh' euch schmerzgefüllt; / Denn ihr führt vor meiner Seele ein geliebtes theures Bild.",
+  "language": [],
+  "musenalm_id": 62238,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weg, ihr abgebroch'nen Blumen! Ach, ich seh' euch schmerzgefüllt; / Denn ihr führt vor meiner Seele ein geliebtes theures Bild.…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ferrand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "756xnjr7n2yeng9",
+      "agents": "ozyc7qe9178qexh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.242Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "Fliehe du banger Gedanke voll Schrecken, fliehe! / Was packst du, / Wie das geängstigte Wild gierige Hunde, / mich an!",
+  "language": [],
+  "musenalm_id": 132201,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Trennungen / Elegie.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Gruber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Trennungen / Elegie.",
+  "updated": "2013-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w1xtxfcz7sqoqtv",
+      "agents": "fkp6eousr91x3by",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.088Z"
+    }
+  ]
+}

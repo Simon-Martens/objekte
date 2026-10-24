@@ -1,0 +1,56 @@
+{
+  "annotation": "Zwischentitel. Es folgt: Prolog und Beitrag INr 73795, 73796",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.919Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73794,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Carl Stuart. / Trauerspiel / von / Andreas Gryphius, / gedichtet im Jahr 1649. / Auszug, / in reimlosen Jamben bearbeitet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Andreas Gryphius; [bearb.] Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Carl Stuart. / Trauerspiel / von / Andreas Gryphius, / gedichtet im Jahr 1649. / Auszug, / in reimlosen Jamben bearbeitet",
+  "updated": "2000-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "stmw51zqdqtlh5j",
+      "agents": "wdmud7e2famppia",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.642Z"
+    },
+    {
+      "id": "f9im656qjl8biur",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.642Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Glossen (Sammlung INr 14869, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Zieht den Hut vor der Kunst, doch grüßt auch bescheiden das / Handwerk; / Dieses gibt Segen und Brod, jene nur Sorgen und / Ruhm.",
+  "language": [],
+  "musenalm_id": 28079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zieht den Hut vor der Kunst, doch grüßt auch bescheiden das / Handwerk; / Dieses gibt Segen und Brod, jene nur Sorgen und / Ruhm.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Baldamus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ztgpzxvnr2ux9xg",
+      "agents": "gvrm573djft0g9v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.369Z"
+    }
+  ]
+}

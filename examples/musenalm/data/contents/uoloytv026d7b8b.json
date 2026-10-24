@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Räthsel (Sammlung INr 22610, Obj 123) Charaden und Räthsel (Sammlung INr 22609, Obj 122)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "425",
+  "incipit_statement": "An der erwählten Schönen / Nennt schön mich spat und früh, / Der Zögling der Camöen,",
+  "language": [],
+  "musenalm_id": 22614,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Hagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2002-03-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jnu3zlra641hmfn",
+      "agents": "1js33mmqeo20b02",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.985Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Die Kirmse von Wallendorf« von W. G. Becker in: Taschenbuch zum geselligen Vergnügen 1796 INr 10489",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10650,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der Kirmse zu Wallendorf. / im Taschenbuch zum gesellsch. Vergnügen. pro 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Cl. Kohl sc.",
+  "scans": [
+    "alm_203_10650_uzn1yhi5bg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus der Kirmse zu Wallendorf. / im Taschenbuch zum gesellsch. Vergnügen. pro 1796",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "thn4n4cs1dn259o",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.578Z"
+    },
+    {
+      "id": "vbo0ojwfq6qudc1",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.579Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.579Z"
+    }
+  ]
+}

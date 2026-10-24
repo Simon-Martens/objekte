@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Kurz vor der französischen Schreckenszeit lebte in Wetzlar ein kaiserlicher Kammerrath, den wir Liebtheuer nennen wollen,",
+  "language": [],
+  "musenalm_id": 15146,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die alten Freunde. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Kruse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die alten Freunde. / Novelle",
+  "updated": "2001-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "otjiipylo7qsrzu",
+      "agents": "jfhywk4cbxcodws",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.713Z"
+    }
+  ]
+}

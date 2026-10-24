@@ -1,0 +1,48 @@
+{
+  "annotation": "auszufaltende Musikbeigabe /) Photos 114553,01-114553,04 /) s. Portrait INr 114520, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ich sprach zum silbernen Felsenquell / Weißt du ob Phillis entfloh",
+  "language": [],
+  "musenalm_id": 114553,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich sprach zum silbernen Felsenquell / Weißt du ob Phillis entfloh…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Weigl",
+  "scans": [
+    "alm_1847_114553_01_jzolp4kof7.jpg",
+    "alm_1847_114553_02_prk9oo1qow.jpg",
+    "alm_1847_114553_03_soa08ot9a3.jpg",
+    "alm_1847_114553_04_rttzvgqmwo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qi65kcuvo2kril2",
+      "agents": "59hd68neg8fo1jg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.489Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Es weinet die Jugend, es weinet das Alter; aber dort thauet der Morgen,",
+  "language": [],
+  "musenalm_id": 28557,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die doppelten Thränen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die doppelten Thränen",
+  "updated": "2002-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zupwds4yfbvqvgz",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.389Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Rundgesang« von F. L. v. Stolberg INr 5113, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5114,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rundgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Weiß",
+  "scans": [
+    "alm_104_5114_oqbqemc4na.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rundgesang",
+  "updated": "2000-10-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zwpj4lv7zm0mn7k",
+      "agents": "x1lckegivk1oedd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.163Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.163Z"
+    }
+  ]
+}

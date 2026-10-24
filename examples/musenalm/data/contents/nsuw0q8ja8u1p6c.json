@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am Blatt 1. /) paginiert 5 /) Illustration zu »Der Taucher« von Fr. Schiller",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56890,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Den Becher reicht er knieend dar. / Schillers Taucher",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "gezeichnet von Joh. Voltz in Nördlingen gestochen von P. J. Laminit in Leipzig",
+  "scans": [
+    "alm_48_56890_9b0f5ej6vw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Den Becher reicht er knieend dar. / Schillers Taucher",
+  "updated": "2008-04-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "px1fkc3j3uowmbu",
+      "agents": "9jdjix2kojsx6en",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.893Z"
+    },
+    {
+      "id": "zcxnt1jm66dlhce",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.894Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musilbeigabe s. INr 96577, Obj 128",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Schlaf wohl auf weichem Flaum! / Dein Tagewerk war Liebe.",
+  "language": [],
+  "musenalm_id": 96578,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Serenade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Serenade",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h4e4q98xldz5lhb",
+      "agents": "4g2r3ta4uzw1gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.355Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait # Bezeichnung und Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72519,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "König Friedrich II. in seiner Jugend #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Pesne",
+  "scans": [
+    "alm_859_72519_sjnlgob5d4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "König Friedrich II. in seiner Jugend #",
+  "updated": "2008-07-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fhr0hhvkkaau3nc",
+      "agents": "sgs38l89ma3xwqh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.714Z"
+    }
+  ]
+}

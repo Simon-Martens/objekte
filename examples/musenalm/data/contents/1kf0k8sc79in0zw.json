@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juli /) s. folgenden Textbezug INr 82710, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82709,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (A. Berka inventit sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Berka inventit sc.",
+  "scans": [
+    "alm_3817_82709_2befsxbdi3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "saicor4emf5pw2n",
+      "agents": "jlkwrxo4vggz8uy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.974Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Eine Frühlingsliebe. Lieder (Sammlung INr 64015, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Mir klingt's im Ohr, - ob durch die Luft / Der Stillgeliebten Stimme ruft:",
+  "language": [],
+  "musenalm_id": 64031,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hilarius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16.",
+  "updated": "2009-05-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "06cyvg4e013cqhg",
+      "agents": "euexsjcr9ar4su1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.296Z"
+    }
+  ]
+}

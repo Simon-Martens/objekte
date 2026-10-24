@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Altertümler« von W. Scott s. Textbezug INr 43758, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43757,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Alterthümler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmäsler in München",
+  "scans": [
+    "alm_584_43757_1obix2ly0g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Alterthümler",
+  "updated": "2006-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4zii93f2qtht60t",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.405Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche (Sammlung INr 63937, Obj 4) s. Graphik INr 63947, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Und drinnen waltet / Die züchtige Hausfrau, / Die Mutter der Kinder / Und herrschet weise / Im häuslichen Kreise",
+  "language": [],
+  "musenalm_id": 63941,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Die Hausfrau und Mutter aus Schil- / lers Glocke, / gezeichnet von C. Nilson und in Stahl gestochen von / A. Spieß in München",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Die Hausfrau und Mutter aus Schil- / lers Glocke, / gezeichnet von C. Nilson und in Stahl gestochen von / A. Spieß in München",
+  "updated": "2009-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jp8q65ttu5ge8oz",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.948Z"
+    }
+  ]
+}

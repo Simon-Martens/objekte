@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Amalie Trunemann« INr 46883, Obj 58",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "302",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46884,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carl Ehrenberg. Komm denn und preise dein Geschick / in der glücklichen Aenderung deines Weibes.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. [unleserlich] sc. 1786",
+  "scans": [
+    "alm_632_46884_do2buby8xf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Carl Ehrenberg. Komm denn und preise dein Geschick / in der glücklichen Aenderung deines Weibes.",
+  "updated": "2006-11-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "seds412yutc9lzr",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.382Z"
+    }
+  ]
+}

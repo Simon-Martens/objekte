@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April /) s. Textbezug INr 82345, Obj 25 /) lt. G-Verz aus: H. W. Williams Select views in Greece",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82328,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Acrocorinth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Williams pinx. C. Frommel direxit",
+  "scans": [
+    "alm_868_82328_y4n5ehxtjh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Acrocorinth",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n19ocbvk5x2237h",
+      "agents": "he24o0fv8ipisid",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.083Z"
+    },
+    {
+      "id": "rrh2cxb6gkp2yxi",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.083Z"
+    }
+  ]
+}

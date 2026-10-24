@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Gedicht »Wilhelm Penn« von Fr. Kuhn in: Taschenbuch zum geselligen Vergnügen 1821 (1) INr 20375",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20096,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philadelphia, / von dem großen Baum zu Kingston wo Penn den / großen Tractat mit den Indianern schloß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. A. Frenzel sc. Dresd.",
+  "scans": [
+    "alm_269_20096_ys91uvnq0q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Philadelphia, / von dem großen Baum zu Kingston wo Penn den / großen Tractat mit den Indianern schloß",
+  "updated": "2001-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eqynxkwhyd12ytp",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.947Z"
+    }
+  ]
+}

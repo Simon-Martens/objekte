@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Traue nicht dir allein; empfang' auch die Lehre: der / Reiche,",
+  "language": [],
+  "musenalm_id": 4748,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gar nicht lesen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Ch. Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gar nicht lesen",
+  "updated": "2000-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g7godrppax19rbe",
+      "agents": "lw3uqo50dp1mpif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.759Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.759Z"
+    }
+  ]
+}

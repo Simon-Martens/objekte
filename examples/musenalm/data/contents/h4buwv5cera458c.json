@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Abendlied« von Tiedge. INr 11636, Obj 73",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11637,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_205_11637_stla6pzz79.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abendlied",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ohfzz089jqjo18r",
+      "agents": "ubitdekwc4vpg28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.482Z"
+    }
+  ]
+}

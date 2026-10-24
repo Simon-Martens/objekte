@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 18363-18364, Obj 72-73",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf das Vergißmeinnicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Mereau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf das Vergißmeinnicht",
+  "updated": "2001-10-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "csl4pj5mrlxl3ry",
+      "agents": "zoqy5th408hrb4e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.996Z"
+    }
+  ]
+}

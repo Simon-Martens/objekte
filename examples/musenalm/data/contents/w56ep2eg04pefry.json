@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebesaphorismen (Sammlung INr 25931, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Ich sah die Blüthe deiner Liebe fallen, / Des Schmerzes Übermaß hat mich gestählt.",
+  "language": [],
+  "musenalm_id": 25982,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "51.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Hermannsthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "51.",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t3431u7700gx34q",
+      "agents": "rxn9x0k5ac10jd7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.172Z"
+    }
+  ]
+}

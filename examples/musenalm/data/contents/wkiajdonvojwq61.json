@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 6. /) Illustration zu »Badende Mädchen« von F. v. Gaudy INr 59563, Obj 81 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59562,
+  "musenalm_pagination": [
+    "4. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Badende Mädchen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59562_qqcbws5idr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Badende Mädchen #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6npwsi8rvrvj1bd",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.913Z"
+    }
+  ]
+}

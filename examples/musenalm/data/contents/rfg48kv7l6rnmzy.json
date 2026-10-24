@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.004Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103398,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRANZ ANTON MAI. / geb. d. 16. Dec. 1742",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt v. Tischbein. gest. v. Ant. Karcher",
+  "scans": [
+    "alm_4188_103398_ig3qa0e18c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRANZ ANTON MAI. / geb. d. 16. Dec. 1742",
+  "updated": "2015-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j47yifgo4cgf1mh",
+      "agents": "ihw95n9iakzowyo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.134Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.134Z"
+    },
+    {
+      "id": "o9nu9zmhmco4pgu",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.134Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.134Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel mit kleiner Graphik (Apollmotiv) # vollst. Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22489,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TASCHENBUCH / zum / geselligen Vergnügen / auf das Jahr 1823. / Mit Königl. Sächs. allergnädigstem Privilegio. / LEIPZIG / bei Joh. Friedrich Gleditsch. / Wien, bei Carl Gerold",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwerdgeburth # Martin sc.",
+  "scans": [
+    "alm_301_22489_khsehnmfw1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "TASCHENBUCH / zum / geselligen Vergnügen / auf das Jahr 1823. / Mit Königl. Sächs. allergnädigstem Privilegio. / LEIPZIG / bei Joh. Friedrich Gleditsch. / Wien, bei Carl Gerold",
+  "updated": "2002-03-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8bfj4p5ftxcqnww",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.942Z"
+    },
+    {
+      "id": "apidwz5fppw5giq",
+      "agents": "u3ev7bjxvo21hzz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.942Z"
+    }
+  ]
+}

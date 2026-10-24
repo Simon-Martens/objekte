@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Mai",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127857,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "May. 31 Tage. / KÜSTRIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Haas f.",
+  "scans": [
+    "alm_3651_127857_c09vbg7s4c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "May. 31 Tage. / KÜSTRIN",
+  "updated": "2011-03-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e0mdpeyv8p43fkc",
+      "agents": "3mymtnunkvww3p2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.690Z"
+    }
+  ]
+}

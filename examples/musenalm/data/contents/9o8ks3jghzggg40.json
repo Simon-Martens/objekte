@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 22882, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Feurige Wolken / Thürmend wie Berge, / Kommst du, Allvater",
+  "language": [],
+  "musenalm_id": 22883,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Wanderung in der Troas, / im Mai 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Wanderung in der Troas, / im Mai 1819",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m7i26pktan3pho1",
+      "agents": "rlu2d4ml9zlhov2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.185Z"
+    }
+  ]
+}

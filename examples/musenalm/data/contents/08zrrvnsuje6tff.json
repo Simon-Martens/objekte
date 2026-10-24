@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 166. /) Illustration zu »Friedrich Gonzaga« INr 46990, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.429Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46992,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria. Prinz, eine wunderbare Zusammenkunft! / Prinz: Auch Fürsten haben ihr unvermeidliches Schicksal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mechau del. D. Berger sculps. 1788",
+  "scans": [
+    "alm_634_46992_f8dn17qg07.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maria. Prinz, eine wunderbare Zusammenkunft! / Prinz: Auch Fürsten haben ihr unvermeidliches Schicksal",
+  "updated": "2006-12-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fdcjg7lp15k6eyh",
+      "agents": "37z1qs9sbpbcupa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.400Z"
+    },
+    {
+      "id": "82m5ofajgsen8m3",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.400Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Wandergrüße. Erinnerungen aus dem Tagebuche einer Herbstreise (Sammlung INr 81147, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.064Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Heilige Mutter Natur, dich feir' ich; doch feir' ich im Herzen / Mächtger und inniger noch dich, den unsterblichen Sohn:",
+  "language": [],
+  "musenalm_id": 81155,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einheit",
+  "updated": "2008-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7n4aciklrdiay6j",
+      "agents": "1obisuoppirekjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.904Z"
+    }
+  ]
+}

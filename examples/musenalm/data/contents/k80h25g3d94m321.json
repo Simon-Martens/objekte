@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Lasset mich so nach Hause gehen, / Eure Thränen nehmt sie zurück!",
+  "language": [],
+  "musenalm_id": 42786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Natur. / Eine Rhapsodie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Albrecht Kochen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Natur. / Eine Rhapsodie",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "in0s3107jbn1zgm",
+      "agents": "fyntyt5h3n204i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.809Z"
+    }
+  ]
+}

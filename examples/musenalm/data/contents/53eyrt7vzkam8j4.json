@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait recto",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106221,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. A. R. le Marggrave / CHARLES / de Brandenbourg, Grand Maitre / de l'Ordre de St. Jean à Sonenbourg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Wolffgang Sc. Aug. Vind. 1755",
+  "scans": [
+    "alm_4207_106221_kh56hft81u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. A. R. le Marggrave / CHARLES / de Brandenbourg, Grand Maitre / de l'Ordre de St. Jean à Sonenbourg",
+  "updated": "2015-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1756,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7rxllmiwgyvmsu8",
+      "agents": "t0skl0zuoovbyqo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.228Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Ihr staunet wohl, daß, was ich still getragen / In meines Herzens heiliger Clausur, / Was Thränen sonst verrätherisch zu sagen / Gewaget kaum, und unbelauschet nur,",
+  "language": [],
+  "musenalm_id": 94706,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Enttäuschung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. G. Ritt. v. Frank",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Enttäuschung",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v1peo3ygh33hilm",
+      "agents": "km9osfzve59w4c0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.568Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.568Z"
+    }
+  ]
+}

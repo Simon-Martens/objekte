@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 5 Beiträgen INr 44927-44931, obj 32-37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Sieh einmal in diesen Guckkasten hinein. Ein halbes Dutzend wohlgetroffener Portraits wird sich Deinem Blicke darstellen,",
+  "language": [],
+  "musenalm_id": 44926,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Portraits-Guckkasten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Portraits-Guckkasten",
+  "updated": "2006-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6vjnfua2w9yj32o",
+      "agents": "wd7yy1894regb5j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.392Z"
+    }
+  ]
+}

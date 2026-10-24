@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 45715-45718, Obj 122-125",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45714,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stammbuchblätter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Bodenstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stammbuchblätter",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5x3zemxr2rh7htn",
+      "agents": "3bb8mhymqsjn5dk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.140Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.140Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Es zieht ein gräuliches Unwetter herauf, sende den Hannes zu Marien auf die Alp, damit er sie heimhole, Mann, sprach Frau Elsbeth zu ihrem Gatten,",
+  "language": [],
+  "musenalm_id": 63388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie. / Erzählung / (Nach einer wahren Begebenheit.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalia Schoppe, geb. Weise",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Marie. / Erzählung / (Nach einer wahren Begebenheit.)",
+  "updated": "2009-04-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r4lbf8i8mo9qxy1",
+      "agents": "2nm1hcqes98n5i9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.965Z"
+    }
+  ]
+}

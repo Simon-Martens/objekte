@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 123432, Obj 2; # Bezeichnung aus den Vorworten bis Jg. 1806",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Herein wären wir. / Ja, wenn wir nur auch schon wieder draußen wä- / ren. Das ist eine Mauer trotz der chinesischen.",
+  "language": [],
+  "musenalm_id": 123433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die englischen Waaren. / Posse / in zwei Acten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die englischen Waaren. / Posse / in zwei Acten",
+  "updated": "2018-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8fnshnt5yrqrrv6",
+      "agents": "sse24vstbh0jbtd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.754Z"
+    }
+  ]
+}

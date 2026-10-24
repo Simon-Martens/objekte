@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Erklärung der zwölf Monatskupfer (Sammlung INr 9074, Obj 6) s. Graphik INr 9104, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "S. Seite 189 bis 192 des Textes, dem hier zur Erklärung lediglich nichts beizusezen ist.",
+  "language": [],
+  "musenalm_id": 16766,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.) / RheinUibergang der Franken. / (In der Nacht vom 5. auf den 6. Sept.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.) / RheinUibergang der Franken. / (In der Nacht vom 5. auf den 6. Sept.)",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x6mrdu0v699rtka",
+      "agents": "b68wiq4xeilaqf3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.819Z"
+    }
+  ]
+}

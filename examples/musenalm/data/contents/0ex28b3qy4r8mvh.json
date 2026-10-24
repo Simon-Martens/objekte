@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.023Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Hülfe! Hülfe! ich vergehe, / Wehe ruf' ich Doctor wehe! / Schenk' mir diesmal deine Gunst,",
+  "language": [],
+  "musenalm_id": 67295,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Der Förster an den Arzt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Der Förster an den Arzt",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z459j4jsyho14ve",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.347Z"
+    }
+  ]
+}

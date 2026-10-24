@@ -1,0 +1,45 @@
+{
+  "annotation": "Allemannische Lieder (Sammlung INr 63159, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Sagmer Näumer, öbbe Näumer; / Tönt ei Namen an se süeß,",
+  "language": [],
+  "musenalm_id": 63160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meieli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hofmann v. Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meieli",
+  "updated": "2009-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "95p4e5e1x3f0vva",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.159Z"
+    }
+  ]
+}

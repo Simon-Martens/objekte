@@ -1,0 +1,45 @@
+{
+  "annotation": "Vulkan (Sammlung INr 91563, Obj 87) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5) s. foglednes Gedicht INr 91570, Obj 94",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Vulkan wünschte, obgleich vergeblich, sich mit der Minerva zu vermählen,",
+  "language": [],
+  "musenalm_id": 91569,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vulkan und Minerva, / die bildendenGottheiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vulkan und Minerva, / die bildendenGottheiten",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rj76ijt69qlfzif",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.262Z"
+    }
+  ]
+}

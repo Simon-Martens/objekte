@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Einst sagt' ein Finke sich: wenn Nachti- / gallen singen, / Und alle Vögel hier im Hain,",
+  "language": [],
+  "musenalm_id": 36234,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Finke. / Als in einem Zirkel von Dichtern jeder / ein Lied singen sollte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Stamford",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Finke. / Als in einem Zirkel von Dichtern jeder / ein Lied singen sollte",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0itddez2rmpzwm4",
+      "agents": "3m5nfg6fbusqjem",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.673Z"
+    }
+  ]
+}

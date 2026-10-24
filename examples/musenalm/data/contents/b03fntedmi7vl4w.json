@@ -1,0 +1,56 @@
+{
+  "annotation": "IV. Topographie (Sammlung INr 67387, Obj 24 /) mit 2 Illustrationen s. Graphiken INr 67388, Obj 25, INr 67291, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Früher war Eulbach ein einstöckiges Haus, und die Wohnung des Revierjägers des Forstes Eulbach, nachdem aber der Herr Graf, zum Besten seiner Unterthanen, sich entschlossen hatte, alle seine hohen Jagden im Freien aufzugeben,",
+  "language": [],
+  "musenalm_id": 67390,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Eulbach, ein Jagdhaus und Sommer-Aufenthalt des Herrn Grafen Franz von Erbach]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Eulbach, ein Jagdhaus und Sommer-Aufenthalt des Herrn Grafen Franz von Erbach]",
+  "updated": "2009-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l91g6dyrfzr2iyn",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.494Z"
+    },
+    {
+      "id": "4cuf08riqb2xoq1",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.494Z"
+    }
+  ]
+}

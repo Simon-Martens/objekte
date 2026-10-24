@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 38; mit einer Musikbeigabe s. INr 60001, Obj 83",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Die Liebe nicht, und nicht der Wein, / Drängt unser Lied hervor.",
+  "language": [],
+  "musenalm_id": 6000,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gute Fürst",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-tt-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gute Fürst",
+  "updated": "2000-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wb5rz586c6aj7eq",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.192Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 101489, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Ein Englein stiegst du von des Himmels Weiten / In unser Erdenjammerthal;",
+  "language": [],
+  "musenalm_id": 101495,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Empfindungen / guter Ältern bey dem Sarge / ihres zarten Kindes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schlecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Empfindungen / guter Ältern bey dem Sarge / ihres zarten Kindes",
+  "updated": "2013-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rus88ewrza8po54",
+      "agents": "c4desl7afayuss3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.039Z"
+    }
+  ]
+}

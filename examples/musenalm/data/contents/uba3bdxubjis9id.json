@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "373",
+  "incipit_statement": "Es geht in die Capelle / Ein Mädchen fromm - doch arm,",
+  "language": [],
+  "musenalm_id": 94951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Thräne der Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herrm. Rollett",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Thräne der Mutter",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iek2qb6hk48js31",
+      "agents": "httczwoxxn80r7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.369Z"
+    }
+  ]
+}

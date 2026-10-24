@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 27664, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27666,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (H. Stilke del. C. Barth sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Stilke del. C. Barth sc.",
+  "scans": [
+    "alm_354_27666_dxyol9nao8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "85fwgoak75gfxn7",
+      "agents": "4ht5ezov61cxhie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.400Z"
+    },
+    {
+      "id": "vmxdt0dfkp7r16h",
+      "agents": "ak2qa5c9tflxdbf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.400Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "365",
+  "incipit_statement": "Ameisenhatten ihren Haufen / Im Gartenwinkel aufgethürmt,",
+  "language": [],
+  "musenalm_id": 55547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 163,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fabel. / (Nach einem Spruche Bacos.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. R. Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fabel. / (Nach einem Spruche Bacos.)",
+  "updated": "2008-02-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zte1pnva3nlv3nd",
+      "agents": "0nqqxalglgwp4fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.737Z"
+    }
+  ]
+}

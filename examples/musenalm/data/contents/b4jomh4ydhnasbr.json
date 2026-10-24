@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel; [unter der Graphik: Atelier v. Grünewald & Cooke. / Verlag von J. D. Sauerländer]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44127,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1844 / Rheinisches / Taschenbuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. I. B. Zwecker W. J. Cooke sc",
+  "scans": [
+    "alm_599_44127_td0jmmh16t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1844 / Rheinisches / Taschenbuch",
+  "updated": "2006-06-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xfsbwypq6jw4ht5",
+      "agents": "usgtr6dipvre26m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.241Z"
+    },
+    {
+      "id": "i9mqyq66uy6y8fs",
+      "agents": "uohs1l6y8ng1p96",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.241Z"
+    }
+  ]
+}

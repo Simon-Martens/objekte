@@ -1,0 +1,67 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem G-Verz u. am 1. Blatt der Suite /) Graphik im Kalendarium März; paginiert 3. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Ende der Regierung des großen Churfürsten« von Fr. Wilken INr 58520, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58510,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Petri- Kirche im J. 1690",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Stridbeck. L. Wolf del. Jügel sc.",
+  "scans": [
+    "alm_856_58510_wh7pj5koaq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Petri- Kirche im J. 1690",
+  "updated": "2008-07-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "loon200jamiewu4",
+      "agents": "hme5av0o5bms2s7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.628Z"
+    },
+    {
+      "id": "0wyn7y0po9zlfz3",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.628Z"
+    },
+    {
+      "id": "f9pzu4h3xshx8j3",
+      "agents": "flivu8hnh9tq1va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.628Z"
+    }
+  ]
+}

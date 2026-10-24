@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Siehe oben die Anmerkungen zu dem »Ritter von Aegerten« S. 163; s. Anm. zu INr 52920, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Von Egerdon der Ritter zog / In's Feld der wilden Schlacht: / Des Königs erstes Panner flog, / Der Ritter führt die Macht.",
+  "language": [],
+  "musenalm_id": 52938,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der wankende Fuß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, d. jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der wankende Fuß",
+  "updated": "2007-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aqm35nxl8p70sfd",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.627Z"
+    }
+  ]
+}

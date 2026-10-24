@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 7. /) # Bezeichnung aus dem G-Verz s. Textbezug INr 18711, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9151,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Franken auf dem Capitol. / (15. Febr. 1798.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_198_9151_4hpbuiowbi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Franken auf dem Capitol. / (15. Febr. 1798.)",
+  "updated": "2001-01-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a4lf6t92a5xvnw3",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.050Z"
+    }
+  ]
+}

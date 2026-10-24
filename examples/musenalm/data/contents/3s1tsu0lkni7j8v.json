@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 54324, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey Tells Capelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. H.",
+  "scans": [
+    "alm_701_54307_i4k3zptngx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bey Tells Capelle",
+  "updated": "2007-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "84yq2mcnxxfvbkq",
+      "agents": "uc4ahm2w7hhtikb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.731Z"
+    }
+  ]
+}

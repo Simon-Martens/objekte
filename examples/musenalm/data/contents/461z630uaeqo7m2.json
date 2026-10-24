@@ -1,0 +1,45 @@
+{
+  "annotation": "§5§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.253Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Am Maifesttag in der Frühe / Lag ich im blühenden Wald.",
+  "language": [],
+  "musenalm_id": 13821,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marie und Willibald. / Romanze. / Mit Musik v. Hrn L. Abeille §6§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Marie und Willibald. / Romanze. / Mit Musik v. Hrn L. Abeille §6§",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2q2sp4wp0gt6q97",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.404Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.404Z"
+    }
+  ]
+}

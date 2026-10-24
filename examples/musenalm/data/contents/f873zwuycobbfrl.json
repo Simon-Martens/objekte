@@ -1,0 +1,46 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 126806, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Wenn man von Grätz vor das Sackthor hinaus kömmt, so fühlet man, was Schiller schrieb: Des Wassers und des Feuers Kraft sieht man verbindet hier;",
+  "language": [],
+  "musenalm_id": 126828,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Sackthor von Grätz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Kumar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Sackthor von Grätz",
+  "updated": "2014-07-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qidp5zw02jjp1po",
+      "agents": "rd1rezufezr9qx8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.938Z"
+    }
+  ]
+}

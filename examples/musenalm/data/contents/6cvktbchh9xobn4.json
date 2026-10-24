@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Fern von der Welt, in meinem stillen Zimmer, / Sas ich allein; / Spann feinen Flachs, bei einer Lampe Schimmer, / Und nikte ein",
+  "language": [],
+  "musenalm_id": 93267,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als altes Mütterchen, / auf dem lezten Maskeraden-Abend, / bei der Anwesenheit / der / drei Hessischen Prinzen. / Kassel den 5. April 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippine Engelhard, geb. Gatterer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als altes Mütterchen, / auf dem lezten Maskeraden-Abend, / bei der Anwesenheit / der / drei Hessischen Prinzen. / Kassel den 5. April 1783",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lv5tv3tleciffxo",
+      "agents": "e50fn3dat2tsaev",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.340Z"
+    }
+  ]
+}

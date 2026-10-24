@@ -1,0 +1,45 @@
+{
+  "annotation": "Naturbilder (Sammlung INr 55025, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Dem Gotteshaus vertrauet / Die Schwalbe sich aufs best,",
+  "language": [],
+  "musenalm_id": 55039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. Die Schwalbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abr. Em. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. Die Schwalbe",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zuufg9tl12pbacj",
+      "agents": "94rmjnpm6yfqwop",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.832Z"
+    }
+  ]
+}

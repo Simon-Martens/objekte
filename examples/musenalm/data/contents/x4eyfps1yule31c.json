@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Dich sah zu seinem Untergange / Der Mensch in seinem Forscherdrange, / O Gold, und gab dich frank;",
+  "language": [],
+  "musenalm_id": 111781,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 168,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lore-Ley",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Isidor Beck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lore-Ley",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bf0xw3jbf7f2pvg",
+      "agents": "66iujo8o9cmvd91",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.419Z"
+    }
+  ]
+}

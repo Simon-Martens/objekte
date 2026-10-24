@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Es gibt Geschichten, die, wie wohlgetroffene Porträts, Physiognomie und Charakter haben, so daß Jedermann durch den Stempel der Echtheit, den sie an sich tragen, ergriffen und überzeugt wird,",
+  "language": [],
+  "musenalm_id": 39258,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Zuleima",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler geb. von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Zuleima",
+  "updated": "2005-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9irj50h2leanzsk",
+      "agents": "vxzn7evqhv18e38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.913Z"
+    }
+  ]
+}

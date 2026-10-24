@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 22 Beiträgen INr 91962-92983, Obj 107-128 /) fehlerhafte Nummerierung der Beiträge: 1-10 und 13-24 ohne Textverlust",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91961,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Funken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ig. Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Funken",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9bah9qyq17l4fl9",
+      "agents": "ink6oi00gx0e0hw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.302Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.302Z"
+    }
+  ]
+}

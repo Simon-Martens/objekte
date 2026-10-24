@@ -1,0 +1,58 @@
+{
+  "annotation": "<div># Zwei Darstellungen. s. Textbezug »Die guten Frauen, als Gegenbilder der bösen Weiber« von Goethe INr 32883, Obj 35</div>",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tischgespräch / Entschädigung #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Catel (Zeichnung) und G. C. Gropius (Stich)",
+  "scans": [
+    "alm_456_32885_t4gvshy4bm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tischgespräch / Entschädigung #",
+  "updated": "2026-10-23T11:52:55.234Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "hbwf3kmsfyyeo1u",
+  "contributors": [
+    {
+      "id": "4k33z9vb7e32e35",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-23T11:52:55.232Z",
+      "edit_comment": "",
+      "type": "Zeichner:in",
+      "uncertain": false,
+      "updated": "2026-10-23T11:52:55.232Z"
+    },
+    {
+      "id": "ddz4ywpzibjwq6o",
+      "agents": "8mt05gws3vpx1mi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-23T11:52:55.233Z",
+      "edit_comment": "",
+      "type": "Kupferstecher:in",
+      "uncertain": false,
+      "updated": "2026-10-23T11:52:55.233Z"
+    }
+  ]
+}

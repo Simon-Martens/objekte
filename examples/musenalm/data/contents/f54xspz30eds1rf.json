@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-08-12T09:55:45.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "In den mittleren Lebensjahren Ludwigs des Fünfzehnten zwangen zum Theil politische Verhältnisse, die genauer zu entwickeln nicht zum Zwecke folgender Blätter gehört, eine angesehene niederländische Familie, das Vaterland heimlich zu verlassen.",
+  "language": [],
+  "musenalm_id": 140350,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Der Verschollene. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Kruse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Der Verschollene. / Novelle",
+  "updated": "2026-08-13T09:11:10.314Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "19ac8fonqsnp3wc",
+      "agents": "jfhywk4cbxcodws",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-13T09:11:10.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-13T09:11:10.316Z"
+    }
+  ]
+}

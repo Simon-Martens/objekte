@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.081Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35930,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Alxinger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rahl sc. 1801",
+  "scans": [
+    "alm_491_35930_ctnf47339i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Johann Alxinger",
+  "updated": "2003-08-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j3jva472ij916gc",
+      "agents": "d645btewd8dbrsc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.855Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.855Z"
+    }
+  ]
+}

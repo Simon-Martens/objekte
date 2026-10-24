@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium Juni",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90181,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloß Ombras in Tyrol",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schindler del. Langer sc.",
+  "scans": [
+    "alm_3723_90181_9dlhzcxslx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schloß Ombras in Tyrol",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ivimy85su5g8ce",
+      "agents": "b015htf5wn6svli",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.344Z"
+    },
+    {
+      "id": "95hfx713it96yz2",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.344Z"
+    }
+  ]
+}

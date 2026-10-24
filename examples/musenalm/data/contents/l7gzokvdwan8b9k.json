@@ -1,0 +1,45 @@
+{
+  "annotation": "Legenden, Balladen, Mährchen (Sammlung INr 71073, Obj 146)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Es zogen drei Bursche wohl über den Rhein, / Bei einer Frau Wirthin, da kehrten sie ein.",
+  "language": [],
+  "musenalm_id": 71085,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wirthin Töchterlein",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Volker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wirthin Töchterlein",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g4q2zhe6xxoa39g",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.456Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.456Z"
+    }
+  ]
+}

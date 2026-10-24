@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Den 20. Juny, unter Donner, Blitz und Regen, aber im Vertrauen auf den guten Stern, der uns bisher geleitet hatte, bestiegen wir um zehn Uhr des Nachts unser Schiff.",
+  "language": [],
+  "musenalm_id": 61197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus / Emiliens Tagebuch / während ihrer Reise auf den Gotthard",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Von der verehrten Frau Therese Huber mitgetheilt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus / Emiliens Tagebuch / während ihrer Reise auf den Gotthard",
+  "updated": "2008-12-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "me3xz7fi1kjcjgd",
+      "agents": "6pw6iul8mmx44oj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.916Z"
+    }
+  ]
+}

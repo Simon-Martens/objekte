@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Schwaben (Sammlung INr 99100, Obj 6) Dem Gedicht vorangestellt: Und doch ist, was es von sich strahlet, / Noch schöner, als was es empfing. / Schiller",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Denkst du daran? O ich, ich denke daran! / Es war ein goldner Tag; wie Sterne flogen / Die Möwen auf dem See; wir zwei im Kahn;",
+  "language": [],
+  "musenalm_id": 99135,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung an den Gardasee",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung an den Gardasee",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zbxrhil7bcyesx3",
+      "agents": "wuncq1n9k4kudbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.701Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Ferne her hallen der Klage dumpfe Töne, / Und Melpomene, schmerzlich tief erschüttert, / Birgt das thränende Antlitz in des Schleyers / Düstre Halle",
+  "language": [],
+  "musenalm_id": 114597,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anna Federowna Krüger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Wallner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anna Federowna Krüger",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gd4oscjd2vu49r0",
+      "agents": "j2it7npv2xglcvy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.515Z"
+    }
+  ]
+}

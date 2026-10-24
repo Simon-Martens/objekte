@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.691Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Schweigen soll ich, soll nicht sagen, / Was mich froh und glücklich macht,",
+  "language": [],
+  "musenalm_id": 71874,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heimliche Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cesar Heigel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heimliche Liebe",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aas1q3zqemjat2n",
+      "agents": "y0n5xpakyalvzgl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.545Z"
+    }
+  ]
+}

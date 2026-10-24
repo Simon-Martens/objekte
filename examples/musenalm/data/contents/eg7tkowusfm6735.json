@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 117079, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Blätter flattern von den Zweigen, / Rauschen traurig mir zu Füßen",
+  "language": [],
+  "musenalm_id": 117080,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachsommer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm v. Metzerich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachsommer",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q6zix9x1b46d01z",
+      "agents": "em3dkpa48ys3kzf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.638Z"
+    }
+  ]
+}

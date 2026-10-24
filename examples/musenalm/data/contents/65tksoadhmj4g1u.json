@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 44500, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.414Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44501,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE FISCHERFAMILIE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Henry Ritter del. Ch. Hoffmeister sculpt.",
+  "scans": [
+    "alm_606_44501_tatoaks373.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE FISCHERFAMILIE",
+  "updated": "2006-07-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ubpn1r2fbkypsfw",
+      "agents": "qh4rm3il7fh8dnu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.303Z"
+    },
+    {
+      "id": "pm58aketxs9384g",
+      "agents": "zuqeig2avlr6rku",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.303Z"
+    }
+  ]
+}

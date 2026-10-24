@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Geisterstimme eines flüchtigen Schuldners« von Röller (INr 130394, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Wo ich sey, und wo mich hingewendet, / Als mein flücht’ger Schatten dir entschwebt? Hab’ ich nicht beschlossen und geendet, / Hab’ ich nicht geliebet und gelebt?",
+  "language": [],
+  "musenalm_id": 130393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXVI. / Thekla, / eine Geisterstimme, / von / Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXVI. / Thekla, / eine Geisterstimme, / von / Schiller",
+  "updated": "2009-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v5qtyl03veczp4r",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.069Z"
+    }
+  ]
+}

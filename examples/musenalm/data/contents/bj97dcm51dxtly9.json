@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.100Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Ich seh' auf deiner Staffelei / Sich, schaffender Natur so treu, / In göttlichen Gestalten / Des Herzens Füll' entfalten:",
+  "language": [],
+  "musenalm_id": 96581,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Künstler und Kunstliebhaber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Vagedes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Künstler und Kunstliebhaber",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6wm2cwmqv8ph8fx",
+      "agents": "vwjpew1dybbkwm8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.355Z"
+    }
+  ]
+}

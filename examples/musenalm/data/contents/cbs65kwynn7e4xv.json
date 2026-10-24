@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonettenkranz (Sammlung INr 116514, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.370Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Denn alles Große, was im Menschen wohnet, / Und alles Schöne, was sein Geist umschließt, / Erfaßt der Künstler,",
+  "language": [],
+  "musenalm_id": 116518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Künstlerkranz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Künstlerkranz",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sxh864ycr7momjp",
+      "agents": "arq1wi6im7bawmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.579Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.579Z"
+    }
+  ]
+}

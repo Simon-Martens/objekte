@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Vertonung s. Musikbeigabe INr 47472, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Die Trennungsstunde hat geschlagen; / Mit Seufzern und mit lauten Klagen / Gedenk ich Dein.",
+  "language": [],
+  "musenalm_id": 47473,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Trennung, / frey nach dem Persischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Trennung, / frey nach dem Persischen",
+  "updated": "2007-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jdz883ltd64191c",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.383Z"
+    }
+  ]
+}

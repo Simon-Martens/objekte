@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers s. folgendes Gedicht",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Umstände, die erst eintraten, als die Erklärung des Kupfers schon abgedruckt war. Machten es nothwendig, daß jene erschien und dieses nicht.",
+  "language": [],
+  "musenalm_id": 72980,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An das Publikum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Falk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An das Publikum",
+  "updated": "2010-02-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vqo1ikyjk1xckct",
+      "agents": "bjik5dzyzk4cu0g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.653Z"
+    }
+  ]
+}

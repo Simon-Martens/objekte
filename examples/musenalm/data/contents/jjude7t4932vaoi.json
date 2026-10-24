@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedankenkerne (Sammlung INr 71821, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.133Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Wähle dir aus der Natur, aus dem Umgange mit Menschen, aus deiner Lectüre, aus den Begegnissen des Tages das Beste, was sich denken läßt,",
+  "language": [],
+  "musenalm_id": 71835,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wähle dir aus der Natur, aus dem Umgange mit Menschen, aus deiner Lectüre, aus den Begegnissen des Tages das Beste, was sich denken läßt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "474enp1lmf53d3k",
+      "agents": "o2pvd0n9c0ulrf4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.500Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.500Z"
+    }
+  ]
+}

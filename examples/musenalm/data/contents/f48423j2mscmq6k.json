@@ -1,0 +1,78 @@
+{
+  "annotation": "Titelgraphik. # Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.440Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59323,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die heilige Familie #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Romano pinx. Stürmer del. L. Buchhorn dir. C. Hübner sculp.",
+  "scans": [
+    "alm_893_59323_obggxrewhd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die heilige Familie #",
+  "updated": "2008-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rwjhkkl8u413fbe",
+      "agents": "6tqk2ha5d097dh6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.874Z"
+    },
+    {
+      "id": "apw9fval5e4v1n9",
+      "agents": "xsc8m0e0lt02y28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.874Z"
+    },
+    {
+      "id": "z17crijjfq8iwc6",
+      "agents": "z3xj5kkwhch6rva",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.874Z"
+    },
+    {
+      "id": "7azpjrmajxurf9f",
+      "agents": "ia6scaqocfa01ut",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.875Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed V, 166",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Entzweit mit einem Favoriten, / Flog einst Fortun' der Weisheit zu.",
+  "language": [],
+  "musenalm_id": 41683,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Glück und die Weisheit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Glück und die Weisheit",
+  "updated": "2005-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0cz7dmamzxby2le",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.201Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.201Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Wir danken Hern Dr. Peter Rastl (Wien) für die Auflösung des Pseudonyms A. A. Nomis = Anton Simon; 1760-1810 (geb. in Reichenberg) und weisen hin auf seine Recherche nach unbekannten Textdichtern von Schubertliedern in »Die Musikforschung«, 71. Jahrgang 2018, Heft 2, S. 166 ff.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Ein Derwisch, fromm und streng von Sit- / ten, / Sprach am Beschluß des heil'gen Ramazan",
+  "language": [],
+  "musenalm_id": 31307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rache",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. A. Nomis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rache",
+  "updated": "2003-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9mjn09w2r5epwa1",
+      "agents": "bqsgwi9w7kt5uq1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.625Z"
+    }
+  ]
+}

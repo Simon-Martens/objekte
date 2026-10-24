@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Hör' ich das Pförtchen nicht gehen? / Hat nicht der Riegel geklirrt?",
+  "language": [],
+  "musenalm_id": 1349,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erwartung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "SCHILLER",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Erwartung",
+  "updated": "2000-07-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vgti7fmoxy2rsy7",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.982Z"
+    }
+  ]
+}

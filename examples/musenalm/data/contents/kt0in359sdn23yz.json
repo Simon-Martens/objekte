@@ -1,0 +1,45 @@
+{
+  "annotation": "$ Franz Rudolf Hermann (ADB XII, 167f.)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.915Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Unter den jungen Schönheiten, an welchen Athen so reich war, wurde Pamphilumene eine Zeitlang zuerst genannt.",
+  "language": [],
+  "musenalm_id": 119812,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Pamphilumene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Herrmann $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Pamphilumene",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tyitrg15a9090mb",
+      "agents": "kvqo68p64ik630m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.552Z"
+    }
+  ]
+}

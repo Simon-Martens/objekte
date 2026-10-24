@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium Mai",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135528,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DOM PEDRO / Kaiser von Brasilien. / Empereur de Brésil",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Barckhan del. Bolt sc.",
+  "scans": [
+    "alm_2080_135528_jipurbvri2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DOM PEDRO / Kaiser von Brasilien. / Empereur de Brésil",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u2jgu00w28ngud9",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.152Z"
+    }
+  ]
+}

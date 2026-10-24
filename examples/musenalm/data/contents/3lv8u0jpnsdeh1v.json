@@ -1,0 +1,45 @@
+{
+  "annotation": "Aphorismen (Sammlung INr 23885, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Hohe Standpunkte geben große Ideen; daß aber diese Regel",
+  "language": [],
+  "musenalm_id": 23892,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hohe Standpunkte geben große Ideen; daß aber diese Regel…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eibwq9apcr4txba",
+      "agents": "pnennqhmzrv3ms6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.045Z"
+    }
+  ]
+}

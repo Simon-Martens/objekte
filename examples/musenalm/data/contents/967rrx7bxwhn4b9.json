@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Näbich stammt nach Grimm vom altdeutschen »äbich«, was abwärts, schief, bedeutet, [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Ein Wörtchen geht von Mund zu Munde - / Sein Ursprung blieb uns unbekannt -",
+  "language": [],
+  "musenalm_id": 119012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Näbich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wertheimer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Näbich",
+  "updated": "2017-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dzysueklj971gek",
+      "agents": "t40io73vfefta51",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.710Z"
+    }
+  ]
+}

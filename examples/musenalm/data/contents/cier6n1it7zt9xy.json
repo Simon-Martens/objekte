@@ -1,0 +1,45 @@
+{
+  "annotation": "nummeriert 2. /) Kopie eines Stichs von F. Catel in: Taschenbuch für Damen 1803; alm-458",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129399,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Orientalische Toilettenscene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerstner sc.",
+  "scans": [
+    "alm_3729_129399_smwnz9fksc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Orientalische Toilettenscene",
+  "updated": "2011-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zyzod9d72c44tct",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.956Z"
+    }
+  ]
+}

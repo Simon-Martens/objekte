@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Wohl schön ist dieses Sonnenlicht / Und heiter leuchtet hier der Mond:",
+  "language": [],
+  "musenalm_id": 27422,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsucht nach dem Vaterlande. / Frankreich im September 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Graf Kalkreuth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsucht nach dem Vaterlande. / Frankreich im September 1815",
+  "updated": "2002-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2zddzw6t883zhwc",
+      "agents": "7s14awjauhcdi1w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.263Z"
+    }
+  ]
+}

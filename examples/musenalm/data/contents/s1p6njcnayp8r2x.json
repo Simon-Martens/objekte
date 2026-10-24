@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Ich hatt' auf meinen Reisen / Die halbe Welt gesehn;",
+  "language": [],
+  "musenalm_id": 24768,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das erste Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst von Houwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das erste Lied",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5aqphnv490cw2y2",
+      "agents": "yekzbr1mkxuaimv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.232Z"
+    }
+  ]
+}

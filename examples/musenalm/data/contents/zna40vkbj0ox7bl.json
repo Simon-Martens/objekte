@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer kol. Illustration (INr 125378, Obj 10); $ vermutl. Jean-François-Alfred Bayard (vgl. NBG IV, Sp. 863)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Die Flinte ist in Ordnung, der Morgen schön, ich verspreche Euch heute gewiß den Hasen zu liefern, der mir gestern so vergebliche Mühe machte.",
+  "language": [],
+  "musenalm_id": 125377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans Michel. / Lustspiel in einem Akt. / Nach Bayard / von / C. W. Koch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bayard $ [bearb.] C. W. Koch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans Michel. / Lustspiel in einem Akt. / Nach Bayard / von / C. W. Koch",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nhn54upkz7zjqdy",
+      "agents": "snm7ivv5m1ogx5v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.890Z"
+    }
+  ]
+}

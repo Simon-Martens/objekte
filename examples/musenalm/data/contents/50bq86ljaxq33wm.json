@@ -1,0 +1,45 @@
+{
+  "annotation": "Tristia ex Ponto (Sammlung INr 26124, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "Hier sitz' ich mit läßigen Händen / In stiller behaglicher Ruh,",
+  "language": [],
+  "musenalm_id": 26129,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Fischer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Fischer",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sg6g722pv1p2av1",
+      "agents": "jf5q6ykf9ux52yq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.201Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.201Z"
+    }
+  ]
+}

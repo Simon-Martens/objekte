@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Asteria (Sammlung INr 22552, Obj 66) Distichen (Sammlung INr 22522, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Wie die Sonne ihr Haupt mit duftigen Wolken / umfloret, / Daß nicht ihr glühender Blick schmachtende Flu- / ren versenkt;",
+  "language": [],
+  "musenalm_id": 22553,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-03-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nlu6a6lj1xhbkly",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.994Z"
+    }
+  ]
+}

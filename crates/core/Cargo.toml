@@ -19,6 +19,9 @@ pulldown-cmark = "0.13.4"
 deunicode = "1.6"
 percent-encoding = "2.3"
 icu_collator = "2.4"
+grep-regex = "0.1.14"
+grep-matcher = "0.1.9"
+lru = "0.16"
 
 [dev-dependencies]
 tempfile = "3"

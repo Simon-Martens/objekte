@@ -1,0 +1,45 @@
+{
+  "annotation": "§3§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "380",
+  "incipit_statement": "So mancher möcht' ihr Blümchen seyn, / Ich stimme nicht mit ein,",
+  "language": [],
+  "musenalm_id": 19879,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gegenlied. / Mit Composition von A. Methfessel §3§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gegenlied. / Mit Composition von A. Methfessel §3§",
+  "updated": "2001-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qi4iyy8g930lv3c",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.683Z"
+    }
+  ]
+}

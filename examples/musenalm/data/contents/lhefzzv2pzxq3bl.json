@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Lieder, die den Herren singen, / Müssen von den Hügeln klingen,",
+  "language": [],
+  "musenalm_id": 42649,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 182,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder, die den Herren singen, / Müssen von den Hügeln klingen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Maltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dk43emhl4rzikuz",
+      "agents": "enmi0t9mog462m5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.364Z"
+    }
+  ]
+}

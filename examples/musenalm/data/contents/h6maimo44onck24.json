@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Lern' o Mensch, dich still bescheiden, / Traue nicht dem falschen Glück. [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Einige Jahre meines Lebens, vielleicht die schönsten, brachte ich in einem Landstädtchen zu, in welchem man eben nicht viel Poesie gesucht hätte.",
+  "language": [],
+  "musenalm_id": 86234,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Uhrmacherhaus. / Novellette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Uhrmacherhaus. / Novellette",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cl34dotdywi1k1v",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.198Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.198Z"
+    }
+  ]
+}

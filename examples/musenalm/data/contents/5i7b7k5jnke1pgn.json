@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.191Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Nicht den Sisyphus beklag' ich, / Nicht den schwindelnden Ixion,",
+  "language": [],
+  "musenalm_id": 804,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das gerechte Mitleiden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blum",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das gerechte Mitleiden",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e16s5kx1g1h4vg2",
+      "agents": "quu68xfhyzxlogj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.923Z"
+    }
+  ]
+}

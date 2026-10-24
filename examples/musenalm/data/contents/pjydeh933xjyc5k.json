@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 103981, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Dich fürcht' ich nicht, o grauser Tod, / Doch will ich dich nicht rufen,",
+  "language": [],
+  "musenalm_id": 103985,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / An den Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Sauter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / An den Tod",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "97d2balxsd7bzht",
+      "agents": "g0tj5b3gu209p0h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.902Z"
+    }
+  ]
+}

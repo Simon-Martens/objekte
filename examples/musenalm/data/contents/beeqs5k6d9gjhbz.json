@@ -1,0 +1,45 @@
+{
+  "annotation": "# Druckfehler /) Romanzen und Lieder (Sammlung INr 94605, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Die Blume klagt, die in der Wüste blüht, / Nur Düfte haucht, die wilder Sturm verwehet,",
+  "language": [],
+  "musenalm_id": 94609,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. Raupach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "43vlscdwlyaa3pa",
+      "agents": "uxyu52yd3v030gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.349Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.349Z"
+    }
+  ]
+}

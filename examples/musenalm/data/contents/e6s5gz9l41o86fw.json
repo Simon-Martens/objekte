@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 4 Illustrationen s. Graphiken INr 132827-132-132830, Obj 8-11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Blicke auf, Wandrer, der du hinabgetragen wirst von den smaragdenen Wellen des Rheins, blicke auf zu den grünbekränzten Gipfeln seiner Berge,",
+  "language": [],
+  "musenalm_id": 132826,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Adler und Taube",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Adler und Taube",
+  "updated": "2023-12-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ohb27f6m123a694",
+      "agents": "g7ovzuyzi8c0g2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.096Z"
+    }
+  ]
+}

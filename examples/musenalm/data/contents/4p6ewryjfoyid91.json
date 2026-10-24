@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Lieb' ist ein Feuer, das den Herd / Sogar auf dem es brennt, verzehrt. Zedlitz /) mit einer Illustration s. Graphik INr 117182, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.473Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Das Abenddunkel kletterte bergan, nur auf den Spitzen der Gebirge thronte noch der Strahl des Lichtes. Die elegische Ruhe der Waldeinsamkeit beherrschte die Umgegend.",
+  "language": [],
+  "musenalm_id": 117186,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein weibliches Herz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Steinebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein weibliches Herz",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6q2i9p8apwsygur",
+      "agents": "lzi1zyn6aqla0ny",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.510Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.510Z"
+    }
+  ]
+}

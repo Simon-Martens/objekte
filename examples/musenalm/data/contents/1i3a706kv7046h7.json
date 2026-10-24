@@ -1,0 +1,45 @@
+{
+  "annotation": "# vermutl. Arthur vom Nordstern d.i. G. A. E. von Nostitz-Jänkendorf /) Anm. am Objekt: Dieß Lied ist von Herrn Chor-Director Miksch vortrefflich componirt worden.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "414",
+  "incipit_statement": "Das Leben ist ein Almanach, / das soll ein Jeder merken,",
+  "language": [],
+  "musenalm_id": 65187,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Sylvesterabende. / Im Liederkreise",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Sylvesterabende. / Im Liederkreise",
+  "updated": "2002-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0bh4u5pk7hsx30e",
+      "agents": "1tsjgk40ftnty4f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.039Z"
+    }
+  ]
+}

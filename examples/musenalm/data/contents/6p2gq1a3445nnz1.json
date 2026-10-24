@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Februar. Illustration zu »Historisch-statistisches Gemälde von Ost- und Westpreußen« von F. W. Schubert INr 58939, Obj 20 s.a. Textbezug INr 58957, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58925,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Georg Sabinus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gest. v. Auguste Hüssener in Berlin",
+  "scans": [
+    "alm_869_58925_illbhpac65.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Georg Sabinus",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oqt8bgr05ugsqh6",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.994Z"
+    }
+  ]
+}

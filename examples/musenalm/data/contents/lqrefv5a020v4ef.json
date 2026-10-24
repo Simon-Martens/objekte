@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Hymne an die Liebe« von L. T. Kosegarten INr 4404, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.897Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4405,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne an die Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_95_4405_r5s0jqeke4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hymne an die Liebe",
+  "updated": "2000-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ukm1918uo1varfw",
+      "agents": "ubitdekwc4vpg28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.181Z"
+    }
+  ]
+}

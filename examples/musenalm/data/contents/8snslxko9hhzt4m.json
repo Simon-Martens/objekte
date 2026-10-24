@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Das traurige Novemberwetter / Bricht nun herein; / Das grüne Schattendach der Blätter / Stürzt kläglich ein;",
+  "language": [],
+  "musenalm_id": 6143,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gespräch zwischen mir und ihr. / Im Herbste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gespräch zwischen mir und ihr. / Im Herbste",
+  "updated": "2000-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "57e3whglxsjh9xu",
+      "agents": "cxnpeuic3nrym95",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.934Z"
+    }
+  ]
+}

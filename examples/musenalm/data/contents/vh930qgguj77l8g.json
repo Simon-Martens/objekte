@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "441",
+  "incipit_statement": "Um des Tempels neu erstandene Pracht / Schallten die Jubelgesänge; / Preisend erhob die Menge / Des Heiligen, Hochgelobten Macht,",
+  "language": [],
+  "musenalm_id": 39422,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIII. / Jezer Horra. / Rabbinische Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Apel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIII. / Jezer Horra. / Rabbinische Legende",
+  "updated": "2005-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zc9xibty9ls6p24",
+      "agents": "mv54y583pvqjcic",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.178Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.178Z"
+    }
+  ]
+}

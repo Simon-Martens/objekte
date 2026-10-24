@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Wer zählet unser Dichterheer? / Zählt Jemand auch den Sand am Meer?",
+  "language": [],
+  "musenalm_id": 84032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Knüttelgedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Ries",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Knüttelgedicht",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ldjtcffhfdcxnn7",
+      "agents": "qto9t6cuwltpfja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.095Z"
+    }
+  ]
+}

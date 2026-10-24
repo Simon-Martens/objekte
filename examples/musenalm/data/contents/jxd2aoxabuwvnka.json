@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 36",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Stillt Wein und süßer Lieder Klang / Jedweden Gram der kranken Seele,",
+  "language": [],
+  "musenalm_id": 5633,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elisens Abwesenheit. / Nach Prior",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "P.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elisens Abwesenheit. / Nach Prior",
+  "updated": "2000-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hsn65nekpebgrcz",
+      "agents": "n4kki21smc12tdq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.151Z"
+    }
+  ]
+}

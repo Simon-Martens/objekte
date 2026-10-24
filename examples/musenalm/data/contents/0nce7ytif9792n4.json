@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Unglück, Bildnerin des Mannes! komm / Mit allen deinen Schrecken, und ziehe die / Stahlrüstung / Um mein Herz,",
+  "language": [],
+  "musenalm_id": 31693,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AN DAS KOMMENDE UNGLÜCK",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kristof Kueffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AN DAS KOMMENDE UNGLÜCK",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p6wx9kn1r3z0aph",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.645Z"
+    }
+  ]
+}

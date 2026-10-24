@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht INr 60966, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60967,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schubert del. C. Schule sc. 1794)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc. 1794",
+  "scans": [
+    "alm_950_60967_rtie9ni9zt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s9h6iklg1dyebq3",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.029Z"
+    },
+    {
+      "id": "9524wnaz0jezznh",
+      "agents": "c0fepqesuedn747",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.029Z"
+    }
+  ]
+}

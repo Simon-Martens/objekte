@@ -1,0 +1,45 @@
+{
+  "annotation": "Zufriedenheit mit seinem Beruf (Sammlung INr 48768, Obj 115)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Ich bin der Böttcher, ich binde das Faß, / Vom Binden wohl wird die Stirne mir naß,",
+  "language": [],
+  "musenalm_id": 48770,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Böttcherlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Böttcherlied",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iv13xit2e1j2piq",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.519Z"
+    }
+  ]
+}

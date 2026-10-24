@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium März. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Zweiter Theil« INr 59129, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.911Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59119,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wolfshagen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gest. v. Fincke",
+  "scans": [
+    "alm_877_59119_biz70g8nxi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wolfshagen",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w5gitdsqzhajwwe",
+      "agents": "kxthlk7g2kfou9x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.819Z"
+    }
+  ]
+}

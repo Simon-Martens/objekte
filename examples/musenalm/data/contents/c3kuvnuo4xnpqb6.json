@@ -1,0 +1,45 @@
+{
+  "annotation": "Hierzu der Herausgeber A. Schreiber im Vorwort INr 62236, Obj 6: Warum ich übrigens für mein Taschenbuch den Namen Cornelia gewählt, dies ergiebt sich aus der herrlichen Elegie des Porperz, welche die Sammlung eröffnet.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.008Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "End's, o Paulus, zu netzen mit strömender Thräne mein Grabmal. / Drunten die dunkele Pfort' öfnet sich nimmer dem Flehn.",
+  "language": [],
+  "musenalm_id": 62345,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cornelia an Paulus. / Elegie von Properz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cornelia an Paulus. / Elegie von Properz",
+  "updated": "2009-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "irn935lwvwvorlg",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.039Z"
+    }
+  ]
+}

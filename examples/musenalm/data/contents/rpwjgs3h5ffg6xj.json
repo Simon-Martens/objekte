@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Gedichte (Sammlung INr 56141, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.064Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "348",
+  "incipit_statement": "Ich rief den Teufel, und er kam, / Und ich sah ihn mit Verwundrung an.",
+  "language": [],
+  "musenalm_id": 56145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2008-03-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lepn8zr9jadp1zu",
+      "agents": "1z1aqho0pmi2dwm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.751Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebesgesänge (Sammlung INr 21125, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Daß die schönste der Rosen so früh am Herzen dir / welkte, / Wundert dich, liebliches Kind? hör' und bedenke / mein Wort!",
+  "language": [],
+  "musenalm_id": 21132,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosentod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rosentod",
+  "updated": "2002-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ywypdutale3pfgo",
+      "agents": "s6vrgm9x7setd1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.121Z"
+    }
+  ]
+}

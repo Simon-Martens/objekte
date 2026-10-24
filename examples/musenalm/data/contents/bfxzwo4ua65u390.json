@@ -1,0 +1,47 @@
+{
+  "annotation": "Neue Tänze (Sammlung INr 10857, Obj 212)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10866,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 222,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angl. 9",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pannenberg",
+  "scans": [
+    "alm_203_10866_sm1z1i22hk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Angl. 9",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lyxn9ghsxogzoz5",
+      "agents": "xcvglhwosgzvu0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.348Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.348Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehendes Gedicht »Die Bienen« von C. L. INr 16547, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Wer so ne Liedle machen cha, / Mueß selber schier en Immle sy.",
+  "language": [],
+  "musenalm_id": 16548,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Verfasserin / des vorstehenden Gedichts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Verfasserin / des vorstehenden Gedichts",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tsijozkisfhma59",
+      "agents": "u04oy46tu9dlk6x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.864Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.864Z"
+    }
+  ]
+}

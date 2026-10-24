@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1. s. Textbezüge INr 43515, 43516; Obj 8, 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43526,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fetzberg und Gleiberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinermann del. Haldenwang sc.",
+  "scans": [
+    "alm_574_43526_hw7x6mrzhd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fetzberg und Gleiberg",
+  "updated": "2006-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "legnll8apbhp1lq",
+      "agents": "fcqt2gq0p7946y6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.300Z"
+    },
+    {
+      "id": "xssjzn5g56rak4c",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.300Z"
+    }
+  ]
+}

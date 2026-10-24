@@ -1,0 +1,45 @@
+{
+  "annotation": "XXIV. Gedichte (Sammlung INr 66720, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Ihr edleln Waidgenossen, / Bejammert meine Noth! / Ich Armer bin geschossen / Mit - Amors Hasenschrot!",
+  "language": [],
+  "musenalm_id": 66722,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der geschossene Jäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der geschossene Jäger",
+  "updated": "2009-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i3qhiokae2xh4lr",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.272Z"
+    }
+  ]
+}

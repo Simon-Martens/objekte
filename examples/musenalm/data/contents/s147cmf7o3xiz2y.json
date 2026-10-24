@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "327",
+  "incipit_statement": "Mit kräft'gen Wurzeln haft' ich an dem Leben / Und aus den eingesenkten Wurzeln heben / Sich Sprossen jugendlich vom Stamme los:",
+  "language": [],
+  "musenalm_id": 90609,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 205,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der ewige Bau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Ferd. Weigl. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der ewige Bau",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1mjsp3iczr05wkd",
+      "agents": "esza4g1ixbolac8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.461Z"
+    }
+  ]
+}

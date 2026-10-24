@@ -1,0 +1,45 @@
+{
+  "annotation": "Anmerkung am Objekt: s. Histoire de Genève, par M. Spom, avec les Notes de M. Abauzit.Tom I. p. 220",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Dunkel sind die Nachrichten von seiner Geburt und Erziehung. Er war in Genf geboren und wenig mit Glücksgütern begabet.",
+  "language": [],
+  "musenalm_id": 50764,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebensgeschichte / Philibert Berthier's",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebensgeschichte / Philibert Berthier's",
+  "updated": "2007-07-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ut0iq9tzswp8kt6",
+      "agents": "p5gf5jmw6zu623q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.741Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 113182,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauenlob. / Taschenbuch / für das Jahr / 1836. / Von / Joh. N. Vogl. / Auf Kosten des Herausgebers der Vesta. / Gedruckt von Franz Ludwig. / WIEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Passini del. et sc.",
+  "scans": [
+    "alm_1781_113182_w2tf5o53zl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauenlob. / Taschenbuch / für das Jahr / 1836. / Von / Joh. N. Vogl. / Auf Kosten des Herausgebers der Vesta. / Gedruckt von Franz Ludwig. / WIEN",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3yi92r1cu3m35y9",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.409Z"
+    }
+  ]
+}

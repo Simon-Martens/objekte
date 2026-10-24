@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 29576, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Mein Wunsch, das schöne, gesellige Berlin wieder zu sehen, war endlich erfüllt.",
+  "language": [],
+  "musenalm_id": 29575,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Der Verhaßte. / Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Der Verhaßte. / Erzählung",
+  "updated": "2002-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zgsnn9nj0gw3rsq",
+      "agents": "z3f86v065s6vcml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.473Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) Illustration zu »Thekla« von Fr. Schiller s. Gedicht »Thekla« von Th. Hell d.i. K. G. T. Winkler INr 77071, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.766Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77072,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ob ich den Verlorenen gefunden? / Glaube mir, ich bin mit ihm vereint. / Wo sich nicht mehr trennt, was sich verbunden, / Dort wo keine Thräne wird geweint.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Carl Meyer v. Nbg.",
+  "scans": [
+    "alm_2397_77072_zbkzw7d1sc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ob ich den Verlorenen gefunden? / Glaube mir, ich bin mit ihm vereint. / Wo sich nicht mehr trennt, was sich verbunden, / Dort wo keine Thräne wird geweint.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ye09t7vzwp3juc5",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.762Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.762Z"
+    },
+    {
+      "id": "800vxey0mlquavo",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.762Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.762Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginert 10. /) Illustration zu »Die Wahrsagung« von Fr. Kind INr 14108, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14065,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wahrsagung. von Fr. Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. W. Böhm sc.",
+  "scans": [
+    "alm_221_14065_xu7z36cd2z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Wahrsagung. von Fr. Kind",
+  "updated": "2001-04-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "npu2bkyu4uev17x",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.618Z"
+    },
+    {
+      "id": "ujxdwvoq5oxbgpy",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.619Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.619Z"
+    }
+  ]
+}

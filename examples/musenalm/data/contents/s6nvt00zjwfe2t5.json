@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 5293, Obj 107",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Er schlägt ein ganzes Heer / Autoren in den Staub dahin!",
+  "language": [],
+  "musenalm_id": 5292,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Siegslied / an den Kritiker Buff",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "André",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Siegslied / an den Kritiker Buff",
+  "updated": "2000-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "odx9nr1vjboohgb",
+      "agents": "jsx11n3en45yzmt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.937Z"
+    }
+  ]
+}

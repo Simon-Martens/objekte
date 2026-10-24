@@ -1,0 +1,45 @@
+{
+  "annotation": "Damen-Charaden (Sammlung INr 61699, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Die beiden Ersten wechseln mit der Zeit. / Und folgen, neckend, dem Gesetz' der / Launen;",
+  "language": [],
+  "musenalm_id": 61710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Dreisilbig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Dreisilbig",
+  "updated": "2009-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "atwk3ns3ko5upfn",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.016Z"
+    }
+  ]
+}

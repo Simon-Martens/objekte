@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Was sagt ihr denn, der Weg sey weit? / Und Liebchens Haus ist fern?",
+  "language": [],
+  "musenalm_id": 106025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nah und fern?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nah und fern?",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gurka5byi62vrke",
+      "agents": "nz03xhzpzbg7xlq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.847Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.847Z"
+    }
+  ]
+}

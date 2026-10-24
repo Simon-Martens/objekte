@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium. paginiert 4. Illustration zu »Agathon« von C. M. Wieland",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4821,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Agathon 1.Thl., 7.B., 5.C., p. 313",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meil",
+  "scans": [
+    "alm_60_4821_sy3i85gcsv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Agathon 1.Thl., 7.B., 5.C., p. 313",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r6idqk46mgsvmji",
+      "agents": "tofq8m4srkv5wfy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.704Z"
+    }
+  ]
+}

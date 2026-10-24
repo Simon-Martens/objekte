@@ -1,0 +1,56 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 68652, Obj 26) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Konnten wir in unserem Forst-und Jagdbericht der vorigen zwei Jahre unseren verehrten Lesern nicht lauter fröhliche Kunde bringen, so freut es uns, jetzt desto mehr den ächten Jagd- und Naturfreund mit vielen angenehmen Gegenständen unterhalten zu können.",
+  "language": [],
+  "musenalm_id": 68653,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Forst- und Jagddenkwürdigkeiten des verflossenen Jahres aus dem südlichen / Deutschlande, insbesondere aus der / Rheingegend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Forst- und Jagddenkwürdigkeiten des verflossenen Jahres aus dem südlichen / Deutschlande, insbesondere aus der / Rheingegend",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tir109x9ez4likh",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.261Z"
+    },
+    {
+      "id": "1cfkjo7yxqm4e6n",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.261Z"
+    }
+  ]
+}

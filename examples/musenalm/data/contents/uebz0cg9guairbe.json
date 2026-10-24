@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die wilde Rose« von B. v. Guseck d.i. C. G. v. Berneck INr 112677, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112668,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE WILDE ROSE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Förster del. LS.",
+  "scans": [
+    "alm_2479_112668_ym1lc8udub.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE WILDE ROSE",
+  "updated": "2010-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ropt83w6eq0b7br",
+      "agents": "u6usmv9ity89zes",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.532Z"
+    }
+  ]
+}

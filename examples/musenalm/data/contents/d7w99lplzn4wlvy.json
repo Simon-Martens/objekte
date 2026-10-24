@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 50470, Obj 4 /) # Bez. s. G-C 367 Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50467,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bibliothek eines Leckermauls / im XIX Jahrhundert",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Denant del. Maradan sc.",
+  "scans": [
+    "alm_12_50467_b1mh33mvog.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bibliothek eines Leckermauls / im XIX Jahrhundert",
+  "updated": "2007-07-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dtxusi9j5iashpw",
+      "agents": "usj9r6i9zfxeo9t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.674Z"
+    }
+  ]
+}

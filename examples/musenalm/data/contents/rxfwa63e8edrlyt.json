@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Pli. Natur. Histor. L. XXI. c. 2 XXXV. II /) mit einer Illustration s. Graphik INr 99, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Warum denn, Glycere, wunderst du dich / eben heute über meinen Besuch,",
+  "language": [],
+  "musenalm_id": 66,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GLYCERE #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "GLYCERE #",
+  "updated": "2001-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "13etq0h3txg48br",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.964Z"
+    }
+  ]
+}

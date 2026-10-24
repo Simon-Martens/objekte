@@ -1,0 +1,45 @@
+{
+  "annotation": "Einer (Sammlung INr 38158, Obj 227)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Hast du die Kunde vernommen vom fern- / herwandernden Landmann? / Bei Mariensees Gräbern ist Hölty gesehn.",
+  "language": [],
+  "musenalm_id": 38178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 247,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hölty's Geist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Woltmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hölty's Geist",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iet736nhm452z9n",
+      "agents": "s1uxwuwtfdr9if2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.919Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Ein weiblicher Oberjägermeister, und zwar über alle Oberjägermeister, ist schon an sich eine seltene Erscheinung; wenn aber gar eine verwittwete Herzogin, die Schwester eines Königs mit diesem Amt und Titel belohnt wird,",
+  "language": [],
+  "musenalm_id": 102403,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Der / weibliche Oberjägermeister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bunsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Der / weibliche Oberjägermeister",
+  "updated": "2009-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w0it53xrgyhuf0m",
+      "agents": "d1cx5vxdeeve5kc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.030Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.030Z"
+    }
+  ]
+}

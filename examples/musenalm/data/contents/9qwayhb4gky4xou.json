@@ -1,0 +1,45 @@
+{
+  "annotation": "Poesien [geordnet von Friedrich Rückert] (Sammlung INr 25037, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Sein Weh verschließen, muß das Herz beklemmen; / Drum sind's im Leben nicht die schwächsten Schranken,",
+  "language": [],
+  "musenalm_id": 25043,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die befreiten Herzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Barth; Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die befreiten Herzen",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l7ikaettj1qwk3u",
+      "agents": "fudlqmk45pdt6si",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.977Z"
+    }
+  ]
+}

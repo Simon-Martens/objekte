@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. an den übrigen Graphiken der Suite /) paginiert 7. Illustration zu »Die Sächsischen Bauern-Unruhen 1790« INr 59889, Obj 7 s.a. Textbezug INr 59922, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "266",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59921,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auftritt aus den Sächsischen Bauer-Unruhen 1796",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen",
+  "scans": [
+    "alm_934_59921_mnqejfwrb3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auftritt aus den Sächsischen Bauer-Unruhen 1796",
+  "updated": "2008-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ajisrgk04m5cspg",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.893Z"
+    },
+    {
+      "id": "ou6tp2holhjfnh0",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.893Z"
+    }
+  ]
+}

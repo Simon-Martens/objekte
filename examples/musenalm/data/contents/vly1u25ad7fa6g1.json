@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Mädchen, traut der Dichterliebe nicht; / Denn sie ist gewöhnlich nur Gedicht",
+  "language": [],
+  "musenalm_id": 31026,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. J. Koller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Warnung",
+  "updated": "2003-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zj7imbiwrj5gb3m",
+      "agents": "klmzscnh01mej5u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.493Z"
+    }
+  ]
+}

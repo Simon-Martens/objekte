@@ -1,0 +1,45 @@
+{
+  "annotation": "A. W. von Schlegel: 5. Variationen auf den Refrain des Hexengesanges im Macbeth (Sammlung INr 24432, Obj 10) Gedichte (Sammlung INr 24427, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Double, double, toil and trouble! / Fire burn and cauldron bubble!",
+  "language": [],
+  "musenalm_id": 24433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Double, double, toil and trouble! / Fire burn and cauldron bubble!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakespeare",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lelru140n8kus6l",
+      "agents": "confomdodiakpla",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.186Z"
+    }
+  ]
+}

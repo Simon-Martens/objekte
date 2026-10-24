@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. ar1: S. 60",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Unter allen Armeen in Europa, und mithin unter allen in der Welt, behauptete durch den Ruf, den sie von Friedrich ererbt, die Preußische Armee in der Meinung der Menge vor allen übrigen den Rang,",
+  "language": [],
+  "musenalm_id": 130329,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Ueber die Ursachen des Verlustes der / Schlachten vom 14. Oktober 1806",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R. v. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Ueber die Ursachen des Verlustes der / Schlachten vom 14. Oktober 1806",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jhbj7jfja2clr4e",
+      "agents": "agwm13klir8dxzf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.065Z"
+    }
+  ]
+}

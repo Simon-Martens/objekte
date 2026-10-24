@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "342",
+  "incipit_statement": "Vier erhab'ne Gestalten umschweben mein einsames / Lager, / Schreckend den zagenden Geist, welcher die Dich- / tung versucht.",
+  "language": [],
+  "musenalm_id": 77374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dante. Chalderon. Shakespeare. / Göthe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. v. Lüdemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dante. Chalderon. Shakespeare. / Göthe",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4isuedad44349ta",
+      "agents": "jqanokpcqaenxu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.837Z"
+    }
+  ]
+}

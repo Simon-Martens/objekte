@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert II. /) Illustration zu »Elysium« von J. G. Jacobi # Titelzusatz aus dem G-Verz: Elise war die Tochter eines Pächters von Themre' s Vater",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16180,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Und als meine Bedienten ihr begegneten / weinte Sie. / Jacobi Schr. Th. I. S. 224 #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri H. Lips sculp.",
+  "scans": [
+    "alm_255_16180_u940h0z0fr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Und als meine Bedienten ihr begegneten / weinte Sie. / Jacobi Schr. Th. I. S. 224 #",
+  "updated": "2001-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9n8m0d2h7i0831b",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.627Z"
+    },
+    {
+      "id": "xibo3m2oj06nwf3",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.627Z"
+    }
+  ]
+}

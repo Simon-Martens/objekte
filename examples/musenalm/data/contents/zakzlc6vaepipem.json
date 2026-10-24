@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.368Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Weh! Sollte das den rauhen Fels nicht rühren / Zu hören Laute, die Verzweiflung lallen- / Zu schauen den Gerechten so gefallen?",
+  "language": [],
+  "musenalm_id": 129620,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hiob",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "And. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hiob",
+  "updated": "2022-02-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qor3cavc753c8is",
+      "agents": "w54qzevkgviemdi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.046Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Brudermord (Sammlung INr 66370, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Beim dumpfen Schall der eig'nen Stimme drang / Entsetzen durch des Brudermörders Glieder,",
+  "language": [],
+  "musenalm_id": 66374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Kains Flucht mit seinem Weibe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Schanz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Kains Flucht mit seinem Weibe",
+  "updated": "2009-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vq35ulcovih58ja",
+      "agents": "tpwve3h1enyv5eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.289Z"
+    }
+  ]
+}

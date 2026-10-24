@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Sühnung« von F. Weigl (INr 120341, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120332,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amelie / Zur Erzählung: Die Sühnung, von F. Weigl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. C. Kotterba sc.",
+  "scans": [
+    "alm_1789_120332_rj59c9diwo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amelie / Zur Erzählung: Die Sühnung, von F. Weigl",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s3x258fk7df9q7e",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.743Z"
+    },
+    {
+      "id": "gybiue3fjgleplq",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.743Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgendes Gedicht INr 80255, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80254,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mädchen und Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Ender pinx. C. Preisel sc.",
+  "scans": [
+    "alm_1698_80254_ysa1pum54s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mädchen und Rose",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mb3ka5fgf4gpyjz",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.988Z"
+    },
+    {
+      "id": "ahycl8nj116n6v1",
+      "agents": "9s6c9wuymvvgbhx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.988Z"
+    }
+  ]
+}

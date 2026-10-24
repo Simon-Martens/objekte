@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juli s. Textbezug INr 58915, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58897,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloss zu Neu-Hardenberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blechen del. C. Frommel sculps.",
+  "scans": [
+    "alm_866_58897_f4nnvwezg3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schloss zu Neu-Hardenberg",
+  "updated": "2008-07-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gsufhl0wp48vj2p",
+      "agents": "iyauzg61pbtokgc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.779Z"
+    },
+    {
+      "id": "f8hxkpyu11flm90",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.779Z"
+    }
+  ]
+}

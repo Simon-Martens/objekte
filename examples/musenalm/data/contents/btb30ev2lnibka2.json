@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Poetische Kleinigkeiten (INr 93436, Obj 121) mit einigen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Düster rollendie Wogen, gleiten die Wolken vorüber, Aber der ruhige Blick haftet am hohen Gestirn;",
+  "language": [],
+  "musenalm_id": 93443,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bilder aus den Träumen eines / Einsamen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Fellinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bilder aus den Träumen eines / Einsamen",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gru92b7n9n5rcyw",
+      "agents": "1qmtp93bgh7ryk0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.242Z"
+    }
+  ]
+}

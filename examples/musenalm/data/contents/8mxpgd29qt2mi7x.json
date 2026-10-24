@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 10. /) Illustration zu »Regner Lodbrog« von Fouqué INr 26604, Obj 28; s. a. Textbezug INr 26596, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.710Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26600,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Regner Lodbrog von de la Motte Fouqué",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke del. H. Guttenberg sc.",
+  "scans": [
+    "alm_348_26600_a2gi6g7csw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Regner Lodbrog von de la Motte Fouqué",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e29pgn1wdftkqkn",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.304Z"
+    },
+    {
+      "id": "85adchvas3p0ghx",
+      "agents": "p79994clraf220s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.304Z"
+    }
+  ]
+}

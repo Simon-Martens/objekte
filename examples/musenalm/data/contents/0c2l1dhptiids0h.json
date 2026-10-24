@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik; zus. Bez.: Druck v. F. Kargl. /) s. Textbezug INr 86620, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86617,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Melitta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Decker del. C. Mahlknecht",
+  "scans": [
+    "alm_1603_86617_4nmn57ftpq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Melitta",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hgz0mz1infv0y3s",
+      "agents": "vfryk9lf23r0kke",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.313Z"
+    },
+    {
+      "id": "b8i9a3zu47g2a5q",
+      "agents": "z8rsr5de0jmn33o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.313Z"
+    }
+  ]
+}

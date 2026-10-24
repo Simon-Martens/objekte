@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von kleinen Gedichten und prosaischen Aufsätzen, in Stammbücher (Sammlung INr 9657, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Eigennutz ist die größte Klippe der Freundschaft umschifft sie diese ohne zu scheitern; dann erst ist sie bewährt.",
+  "language": [],
+  "musenalm_id": 9742,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eigennutz ist die größte Klippe der Freundschaft umschifft sie diese ohne zu scheitern; dann erst ist sie bewährt.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Albrecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "58cfg1gp8kvj84j",
+      "agents": "fby2gdha04397wg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.438Z"
+    }
+  ]
+}

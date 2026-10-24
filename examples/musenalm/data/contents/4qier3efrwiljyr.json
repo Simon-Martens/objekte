@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16308,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Sturm sc. N.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sturm sc. N.",
+  "scans": [
+    "alm_148_16308_w5r8gd3oem.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0zc9540494gb7hj",
+      "agents": "83bgj21cr6rcy33",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.695Z"
+    }
+  ]
+}

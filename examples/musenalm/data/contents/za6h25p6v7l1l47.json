@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu Edmunds Schicksale« von E. Selbig INr 76837, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76823,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Edmunds Schicksale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Opiz del. F. Fleischmann sc. Nbg.",
+  "scans": [
+    "alm_2391_76823_qctjabnr9v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Edmunds Schicksale",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xy7eswmjw2806sk",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.674Z"
+    },
+    {
+      "id": "k6a6v2s2a6207y6",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.674Z"
+    }
+  ]
+}

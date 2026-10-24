@@ -1,0 +1,37 @@
+{
+  "annotation": "Photos 40062,01-40062,05",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40062,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_536_40062_01_n8b9iyyqkx.jpg",
+    "alm_536_40062_02_oo8lvrs0h4.jpg",
+    "alm_536_40062_03_6bb0hy6fkh.jpg",
+    "alm_536_40062_04_3vdfj4yllr.jpg",
+    "alm_536_40062_05_zaga4i45qe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": []
+}

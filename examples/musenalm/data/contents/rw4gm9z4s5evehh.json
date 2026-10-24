@@ -1,0 +1,67 @@
+{
+  "annotation": "Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83925,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Porta Westphalica",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Maron nach v. Laer gest v. Schulin",
+  "scans": [
+    "alm_878_83925_rzr1smyrom.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Porta Westphalica",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5ufnye6b2pdihjw",
+      "agents": "npndkjuvc6cqvzm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.146Z"
+    },
+    {
+      "id": "17ywl0cf4jlg3xh",
+      "agents": "blk0bwibfqnyvz6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.147Z"
+    },
+    {
+      "id": "knvp6cjbaj4k566",
+      "agents": "upsrb82zs34rpbh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.147Z"
+    }
+  ]
+}

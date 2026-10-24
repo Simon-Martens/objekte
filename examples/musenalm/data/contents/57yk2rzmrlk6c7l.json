@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Wühlt jener schauervolle Sturm aus Norden / Zerstörend auch im frischen Liederkranze?",
+  "language": [],
+  "musenalm_id": 26313,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesang und Krieg. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesang und Krieg. / 1.",
+  "updated": "2002-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kl0ol2i11qzuu8z",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.246Z"
+    }
+  ]
+}

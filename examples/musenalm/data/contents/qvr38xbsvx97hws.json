@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "370",
+  "incipit_statement": "Erhaben über Kunst und Wort, / Du großer Stromesfall,",
+  "language": [],
+  "musenalm_id": 54078,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rheinfall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Lips",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rheinfall",
+  "updated": "2008-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dmf65x614tolk76",
+      "agents": "iwoqrcn7d9iuxfi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.712Z"
+    }
+  ]
+}

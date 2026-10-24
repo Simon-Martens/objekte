@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.215Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Er sey Genie? Verräth er nicht / selbst in griechischen Nahmen / Seine Muster?",
+  "language": [],
+  "musenalm_id": 31602,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WIELAND",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Gaheis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "WIELAND",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d3t3693i971w1rc",
+      "agents": "h2r7vychlnktmwb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.361Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.361Z"
+    }
+  ]
+}

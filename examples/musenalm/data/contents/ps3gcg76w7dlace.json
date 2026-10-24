@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Gefunden! Bilder aus dem Leben einiger Vielgeprüften (Sammlung INr 40433, Obj 83)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "357",
+  "incipit_statement": "Der Nachthauch wehete herbstlich kalt über die Lüneburger Haide, und streifte bisweilen scharf an den Fenstern der kleinen, einsam gelegenen Predigerwohnung hin,",
+  "language": [],
+  "musenalm_id": 40434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Ein Abend im Pfarrhause",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Ein Abend im Pfarrhause",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u47ullm54553co5",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.748Z"
+    }
+  ]
+}

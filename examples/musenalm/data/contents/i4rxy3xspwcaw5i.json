@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Ach! wär' ich doch zu dieser Stund / Wohl eine Blum' auf grünem Grund,",
+  "language": [],
+  "musenalm_id": 55678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20. / Mein Verlangen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20. / Mein Verlangen",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3gixim2cukejrsj",
+      "agents": "5dfik7lfhc9fltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.660Z"
+    }
+  ]
+}

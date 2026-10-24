@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41367,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Römische Bilder II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thomas del. Döbler sc.",
+  "scans": [
+    "alm_483_41367_rkz56vqgck.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Römische Bilder II.",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jlzcx022xzrnsu1",
+      "agents": "axerjmclyw1o0sc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.946Z"
+    },
+    {
+      "id": "muqqlqyu4f0sfiv",
+      "agents": "774ug9zf5qb4ald",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.946Z"
+    }
+  ]
+}

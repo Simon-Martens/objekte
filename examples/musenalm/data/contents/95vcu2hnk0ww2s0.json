@@ -1,0 +1,45 @@
+{
+  "annotation": "es folgt: Sammlung von 4 Textbezügen zu 4 Graphiken INr 32513-32520, Obj 9-16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Der Kopf war von jeher, bey allen Völkern der Erde, dasjenige Glied des Leibes, das man am sorgfältigsten und mannigfaltigsten zu putzen suchte;",
+  "language": [],
+  "musenalm_id": 32512,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Kopfputz / der vier weiblichen Alter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Kopfputz / der vier weiblichen Alter",
+  "updated": "2003-03-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5xsidiu7m98dzmf",
+      "agents": "1j2glyr4uzfohrn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.591Z"
+    }
+  ]
+}

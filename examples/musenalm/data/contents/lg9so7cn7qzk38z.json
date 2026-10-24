@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Gemsjäger. Einige Züge und Anekdoten« von F. Kuenlin INr 54457, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54458,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gemsjagd-Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Volmar gez. Jb. Lips gest.",
+  "scans": [
+    "alm_741_54458_pcjjw8kcv0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gemsjagd-Scene",
+  "updated": "2008-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o7tqdnfk81nbrfe",
+      "agents": "5rfe1xu4i476kzq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.887Z"
+    },
+    {
+      "id": "9hp4b6aqx0siv63",
+      "agents": "iwoqrcn7d9iuxfi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.887Z"
+    }
+  ]
+}

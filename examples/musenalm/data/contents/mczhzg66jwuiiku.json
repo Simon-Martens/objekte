@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37828, Obj 120)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Wie wenn nach langem Regen / Der Nebel endlich sinkt,",
+  "language": [],
+  "musenalm_id": 37833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Sonnenlächeln",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. E. Prutz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Sonnenlächeln",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kh8akm38qga1y2m",
+      "agents": "fxxm37a191ki2vr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.034Z"
+    }
+  ]
+}

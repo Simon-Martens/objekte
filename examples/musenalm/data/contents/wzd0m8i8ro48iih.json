@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Auf! Rache! von der Hölle Tiefen / Empor! Vom Lager deiner Ruh!",
+  "language": [],
+  "musenalm_id": 79121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode. / Die Heilung Sauls",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brown [übers.] Eschenburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode. / Die Heilung Sauls",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "29dqnxha76uhrjk",
+      "agents": "zjm0wp8bizr6m9i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.880Z"
+    }
+  ]
+}

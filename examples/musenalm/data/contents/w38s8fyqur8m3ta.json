@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 14; mit kleiner Graphik unter dem Gedicht",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Freund, welcher Nordwind, schwarz / vom Gifte, / Gießt seines Aushauchs bange Düfte",
+  "language": [],
+  "musenalm_id": 38394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Trost. / An einen Freund",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Trost. / An einen Freund",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "of6cgamgdv86r6c",
+      "agents": "hu6ba8zv7wtaxe9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.896Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.896Z"
+    }
+  ]
+}

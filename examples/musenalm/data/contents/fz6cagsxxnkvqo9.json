@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Der Wasserfluth entgieng der brave / Mann, / Und baute drauf den Weinstock an,",
+  "language": [],
+  "musenalm_id": 12777,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Noah der Stifter der zweyten / Sündfluth",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. C. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Noah der Stifter der zweyten / Sündfluth",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1ah4z5accefm5xa",
+      "agents": "b349lt9abynr81b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.595Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.595Z"
+    }
+  ]
+}

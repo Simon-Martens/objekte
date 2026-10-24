@@ -1,0 +1,45 @@
+{
+  "annotation": "Weihnachtslieder 1814 (Sammlung INr 123142, Obj 6) Reliquien (Sammlung INr 1231400, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Auf stillen Felsenhöhn / Wir standen viele Nächte, / Dort nach dem Licht zu sehn / Vom künftigen Geschlechte.",
+  "language": [],
+  "musenalm_id": 123145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die heiligen drei Könige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max von Schenkendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die heiligen drei Könige",
+  "updated": "2019-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k2osopnknunzyqr",
+      "agents": "591e69im25wvavb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.828Z"
+    }
+  ]
+}

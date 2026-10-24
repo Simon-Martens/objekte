@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Grünen die Birken an des sanften Hügels / Leis sich neigenden Abhang, wo im Thale",
+  "language": [],
+  "musenalm_id": 1252,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Julius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. M. Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Julius",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ugubm6k8xfv3hbr",
+      "agents": "9g2bjngyi7jp8ga",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.687Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Januar /) Illustration zu »Der Vater« von C. Weisflog INr 85785, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85772,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es bedünkt mich, guter Freund, Ihr seid / aus dem Ganzen geschnitten und vom Stamm- / ende /) zur Erzählung: der Vater",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. del. F. Meyer sen. sculp.",
+  "scans": [
+    "alm_895_85772_grsb0dshir.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Es bedünkt mich, guter Freund, Ihr seid / aus dem Ganzen geschnitten und vom Stamm- / ende /) zur Erzählung: der Vater",
+  "updated": "2008-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4u6f8tfbzary22v",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.026Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.026Z"
+    },
+    {
+      "id": "8tfj59ocff4tsyl",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.027Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) s. INr 18592, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9017,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dumouriers Einzug in Breda / den 25ten Februar 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küfner inv. del. & sc.",
+  "scans": [
+    "alm_191_9017_4rz2dsnhkp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dumouriers Einzug in Breda / den 25ten Februar 1793",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zn6tqtaj4w35fve",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.271Z"
+    }
+  ]
+}

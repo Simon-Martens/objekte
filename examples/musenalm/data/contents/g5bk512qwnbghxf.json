@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus Rom (Sammlung INr 37084, Obj 209)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "356",
+  "incipit_statement": "Wir saßen still und froh beisammen, / Da brachen aus des Himmels Flammen,",
+  "language": [],
+  "musenalm_id": 37097,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 221,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir saßen still und froh beisammen, / Da brachen aus des Himmels Flammen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfizer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sx0j9bcgccv30ci",
+      "agents": "sv92qni765t0f64",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.720Z"
+    }
+  ]
+}

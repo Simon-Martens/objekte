@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 32767, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32768,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Gest. von Anton Karcher Mannh. 1799)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gest. von Anton Karcher Mannh. 1799",
+  "scans": [
+    "alm_454_32768_z2hp2mgyjv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fy6lzeqltutyib6",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.762Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.762Z"
+    }
+  ]
+}

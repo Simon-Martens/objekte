@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 5. /) Illustration zu »Der Türke in Wien« von H. Gundacker INr 83960, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83945,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Türk' in Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. J. Kautzner sc.",
+  "scans": [
+    "alm_1012_83945_ygweqh4hvg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Türk' in Wien",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bc08d8ylclfe5yj",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.147Z"
+    }
+  ]
+}

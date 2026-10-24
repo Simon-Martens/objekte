@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge (Sammlung INr 41075, Obj 100) mit einer Musikbeigabe s. INr 401074, Obj 99",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Ja vergessen hat sein eignes Leben / Nun der liebende Gedank' von mir,",
+  "language": [],
+  "musenalm_id": 41076,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Stets bey ihr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Winkler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Stets bey ihr",
+  "updated": "2005-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gha994plwklvp0f",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.072Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.072Z"
+    }
+  ]
+}

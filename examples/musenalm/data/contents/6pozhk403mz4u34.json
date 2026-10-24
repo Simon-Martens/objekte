@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Erinnerungen« von Kl. Schmidt INr 17077, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17076,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_122_17076_oia3j03ooa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerungen",
+  "updated": "2001-08-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0f4dp651nfsvmzy",
+      "agents": "oqecb466dne8cni",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.842Z"
+    }
+  ]
+}

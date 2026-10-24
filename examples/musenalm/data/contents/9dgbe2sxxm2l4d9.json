@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Mir juckt der Daumen  - ich muß schreiben, / Und zwar zum Drama will's mich treiben; / Wo aber ist ein Stoff zu finden, / Und wo die Form, den Stoff zu binden.",
+  "language": [],
+  "musenalm_id": 132430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rhapsodie. / Verfaßt im Jahre 1842",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rhapsodie. / Verfaßt im Jahre 1842",
+  "updated": "2022-06-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2g61le3jl1jho6g",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.091Z"
+    }
+  ]
+}

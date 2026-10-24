@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35066, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Bist du verdammt zu lauern / In dumpfer Nachtzeit Schauern, / Ob's denn nicht tagt?",
+  "language": [],
+  "musenalm_id": 35069,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Ermuthigung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. H. von Wessenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Ermuthigung",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ma0wpfsxvpoewy",
+      "agents": "ct6ke46zkjmvu7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.701Z"
+    }
+  ]
+}

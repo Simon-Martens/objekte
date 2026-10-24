@@ -1,0 +1,45 @@
+{
+  "annotation": "II. (Sammlung INr 86033, Obj 37) XI. Fragmente der Lehre für die Gegenwart und die kommenden Zeitalter (Sammlung IN 85023, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Wenn ein Volk auf der Stufe der Bildung steht, wo Sinnlichkeit und geistige Kultur zusammen regieren,",
+  "language": [],
+  "musenalm_id": 86039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Woltmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2013-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t933urmtpu5gkge",
+      "agents": "s1uxwuwtfdr9if2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.177Z"
+    }
+  ]
+}

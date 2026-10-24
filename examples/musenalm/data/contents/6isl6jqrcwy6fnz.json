@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.933Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Rauschend durch die weiten Hallen / Tönt der volle Orgelklang,",
+  "language": [],
+  "musenalm_id": 45701,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In der Kirche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Bornowski",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In der Kirche",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uhzqd86m853yahg",
+      "agents": "59l3z560kdcow7s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.141Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Hier, wo ehdem die Mauern des weitgepriesenen Cumä / Prangten, der herrlichste Ruhm meines Tyrrhenischen / Meers,",
+  "language": [],
+  "musenalm_id": 51435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cumä. / Eine Elegie (Nach Sannazaro)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. Niemeyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cumä. / Eine Elegie (Nach Sannazaro)",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u1dhsrstsdnk3y2",
+      "agents": "5a8704hajrf01e5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.577Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.577Z"
+    }
+  ]
+}

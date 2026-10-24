@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Solte wol eigentlich ganz Theolog sein, wenn er ein rechter Supterintendent, nach dem Geschmak seines mächtigen Namensvetters sein wolte;",
+  "language": [],
+  "musenalm_id": 98687,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Nikolaus Götz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Johann Nikolaus Götz",
+  "updated": "2009-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ezw6c9osujkbdk6",
+      "agents": "wqzupcw1vi6tnne",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.661Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.661Z"
+    }
+  ]
+}

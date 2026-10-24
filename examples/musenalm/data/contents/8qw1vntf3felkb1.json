@@ -1,0 +1,45 @@
+{
+  "annotation": "Miszellen (Sammlung INr 28733, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Schwatzt mir nicht von Weltklugheit!",
+  "language": [],
+  "musenalm_id": 28743,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwatzt mir nicht von Weltklugheit!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Wagener",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0y5pxhk2xar1d5t",
+      "agents": "x7c2pl3bvx7jtlf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.585Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Wohl vor Wittenberg auf den Schanzen / sind der edlen Werber viel,",
+  "language": [],
+  "musenalm_id": 26415,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die ernsthafte Fastnacht 1814. / als das 11te schles. Landwehr-Infanterie-Regiment / Wittenberg in der Nacht mit Sturm nahm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freyherr v. Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die ernsthafte Fastnacht 1814. / als das 11te schles. Landwehr-Infanterie-Regiment / Wittenberg in der Nacht mit Sturm nahm",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ngk9muoihah1so4",
+      "agents": "h99uxdryiugeh6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.363Z"
+    }
+  ]
+}

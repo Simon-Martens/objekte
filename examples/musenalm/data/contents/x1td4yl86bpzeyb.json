@@ -1,0 +1,45 @@
+{
+  "annotation": "Salomonische Lieder (Sammlung INr 18044, Obj 92)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Ich bin eine Blume, die in Saron blüht; / Eine Rose bin ich, die im Thale glüht!",
+  "language": [],
+  "musenalm_id": 18047,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Wechselgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Wechselgesang",
+  "updated": "2001-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8dx1bw9lir1ty9m",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.779Z"
+    }
+  ]
+}

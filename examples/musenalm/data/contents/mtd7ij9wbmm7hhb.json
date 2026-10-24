@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Nach demLateinischen des Bischgos Hieronymus Vida",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Wer schimmert so blitzend in Harnisch und Stahl / Und führt das beflügelte Heer?",
+  "language": [],
+  "musenalm_id": 101518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymnus auf den heil. Erzengel Michael",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Silbert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymnus auf den heil. Erzengel Michael",
+  "updated": "2013-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mziwhurnkvyji2d",
+      "agents": "cxwzri2a7ny9shr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.917Z"
+    }
+  ]
+}

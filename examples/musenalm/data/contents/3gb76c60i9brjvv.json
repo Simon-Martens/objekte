@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. aus dem G-Verz; paginiert 10. s. Textbezug INr 60269, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60271,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die dreifarbige, Fahne und Bernadotte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert",
+  "scans": [
+    "alm_940_60271_i5s741u8h5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die dreifarbige, Fahne und Bernadotte",
+  "updated": "2008-10-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qlhmom6nrks4ftd",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.972Z"
+    }
+  ]
+}

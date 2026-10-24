@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm. zu J. A. Eberhards Werk",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.936Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Sag', o Wanderer, nicht: der hier ruht unter / dem Marmor, / Eberhard,",
+  "language": [],
+  "musenalm_id": 83838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift auf Joh. Aug. Eberhard",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift auf Joh. Aug. Eberhard",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "61dobkhcthcp0ht",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.090Z"
+    }
+  ]
+}

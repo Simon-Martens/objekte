@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Übertragung ins Hochdeutsche s. INr 25877, Obj 22; mit einer Illustration s. Graphik INr 25862, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Er schloft, er schloft! Do lit er, wie ne Grof! / Du lieben Engel, was i bitt,",
+  "language": [],
+  "musenalm_id": 25876,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter am Christ-Abend. / (Allemannisches Gedicht)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Hebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter am Christ-Abend. / (Allemannisches Gedicht)",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kar6t0iwkt0qa6a",
+      "agents": "u04oy46tu9dlk6x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.187Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.187Z"
+    }
+  ]
+}

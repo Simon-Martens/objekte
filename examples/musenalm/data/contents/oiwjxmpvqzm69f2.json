@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Jüngling« von Klopstock INr 2329, Obj 111",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.430Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sommernacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter Gluck",
+  "scans": [
+    "alm_76_2368_a1havx317p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Sommernacht",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3piivxo1puj5tvy",
+      "agents": "bcx2c0r10adpoyu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.095Z"
+    }
+  ]
+}

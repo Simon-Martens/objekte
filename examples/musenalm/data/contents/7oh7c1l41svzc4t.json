@@ -1,0 +1,56 @@
+{
+  "annotation": "Einige Satyren und Episteln des Horaz. Im Versmaaß der Urschrift (Sammlung INr 91743, Obj 12) mit Erläuterungen s. INr 91748, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Stets war dieses mein Wunsch: ein Landgut, nicht so ge- / räumig, / Wo ein Garten und nahe dem Haus ein rinnendes Bäch- / lein,",
+  "language": [],
+  "musenalm_id": 91745,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sechste Satyre / des zweiten Buchs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horaz [übers.] Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sechste Satyre / des zweiten Buchs",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "13adutyjzlgqrxr",
+      "agents": "ogosxb6kwkoek7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.265Z"
+    },
+    {
+      "id": "kmpede4ttrxr49j",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.265Z"
+    }
+  ]
+}

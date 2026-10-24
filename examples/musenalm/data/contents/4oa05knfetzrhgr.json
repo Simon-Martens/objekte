@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 4.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52264,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "unverdorbene Menschheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del & fec.",
+  "scans": [
+    "alm_308_52264_x4lmf982e3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "unverdorbene Menschheit",
+  "updated": "2002-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7b3jk0eufqll4b7",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.647Z"
+    }
+  ]
+}

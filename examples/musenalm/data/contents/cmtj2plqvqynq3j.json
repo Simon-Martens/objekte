@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-08-06T09:06:25.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Es führt ein Mann im Syrerland / Ein Pantherthier am Halfterband.",
+  "language": [],
+  "musenalm_id": 140314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Parabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rückert #",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Parabel",
+  "updated": "2026-08-06T10:05:41.032Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "hi9n6co0hujsgqu",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-06T09:06:50.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-08-06T09:07:27.757Z"
+    }
+  ]
+}

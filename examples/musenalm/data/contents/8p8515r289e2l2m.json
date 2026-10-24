@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Albrecht von Wallenstein« von K. L. von Woltmann INr 68485, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.508Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68483,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ottavio Piccolomini",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas",
+  "scans": [
+    "alm_838_68483_jtwg9fkq5h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ottavio Piccolomini",
+  "updated": "2008-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nybh8h9c96doo2p",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.524Z"
+    }
+  ]
+}

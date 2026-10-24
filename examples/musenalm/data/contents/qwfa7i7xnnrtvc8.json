@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus F. G. Wetzels Nachlasse (Sammlung INr 22405, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.936Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Weß Herz unsträflich ist und sonder Flecken, / Er darf die Brust mit keinem Schilde decken,",
+  "language": [],
+  "musenalm_id": 22408,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Sängers Liebesleben. / (Horaz Buch 1, Ode 22.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Sängers Liebesleben. / (Horaz Buch 1, Ode 22.)",
+  "updated": "2002-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bzy9oqqhgnf4jhc",
+      "agents": "s6vrgm9x7setd1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.930Z"
+    }
+  ]
+}

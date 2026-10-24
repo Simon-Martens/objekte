@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Nachwort INr 92130, Obj 16 /) s. Titelvignette INr 92117, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Was für ahnungsvolle Schauer / aus dem Grau der Väterzeit, / Was für Bilder von der Dauer / Schimmervoller Wenigkeit,",
+  "language": [],
+  "musenalm_id": 92129,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Empfindungen bey dem Besuche des alten Schlosses / zu Klosterneuburg im J. 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. von Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Empfindungen bey dem Besuche des alten Schlosses / zu Klosterneuburg im J. 1797",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bsf5j6fvru8z8zo",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.560Z"
+    }
+  ]
+}

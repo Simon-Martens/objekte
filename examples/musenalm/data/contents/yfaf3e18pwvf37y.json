@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Ich will euch singen Mähre von einem Rosse gut, / Das war geheißen Bayart und trug so kühnen Muth,",
+  "language": [],
+  "musenalm_id": 67878,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Roß Bayarts Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Waldeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Roß Bayarts Tod",
+  "updated": "2009-08-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "54f5mczwxlkknr6",
+      "agents": "6j1axvcf9v8yiru",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.494Z"
+    }
+  ]
+}

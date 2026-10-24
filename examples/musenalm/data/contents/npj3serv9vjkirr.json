@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50868,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im obern Sibl-Wald, bey Zürich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conrad Gessner del. Joh. Heinrich Meyer sc.",
+  "scans": [
+    "alm_691_50868_kizskbg6zd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Im obern Sibl-Wald, bey Zürich",
+  "updated": "2007-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0rop2mumb9vodgz",
+      "agents": "k94qbf18ch2c8vt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.819Z"
+    },
+    {
+      "id": "gqjp4x21bis3ty1",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.819Z"
+    }
+  ]
+}

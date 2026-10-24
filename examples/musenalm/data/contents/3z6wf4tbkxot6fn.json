@@ -1,0 +1,43 @@
+{
+  "annotation": "Fünf Minnelieder Oswalds von Wolkenstein, von ihm selbst in Musik gesetzt (Sammlung INr 126318, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ich hat gelebt wol viertzig Jar leicht  mynne zway / mit toben, wuten, tichten, singen mangerlay",
+  "language": [],
+  "musenalm_id": 126323,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Oswald von Wolkenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2010-01-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qpot1hg6w0s654k",
+      "agents": "bql8u40rryml71n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.899Z"
+    }
+  ]
+}

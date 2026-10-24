@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Der Sipunt ist ein wüstes, romantisches Thal beim Dorfe Fahrland, ohnweit Potsdam.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Folge mir, Verehrer Du der nackten / Ländlichen Natur - ich geh' voran- / In ein Märkisch Thal;",
+  "language": [],
+  "musenalm_id": 39068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sipunt bei Fahrland. / An * #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sipunt bei Fahrland. / An * #",
+  "updated": "2005-07-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gwqm9l7p1j0prsl",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.024Z"
+    }
+  ]
+}

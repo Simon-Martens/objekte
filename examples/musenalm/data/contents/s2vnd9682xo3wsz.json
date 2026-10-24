@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.430Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Nur noch diese kleine Strecke, / Und das Dörfchen ist erreicht,",
+  "language": [],
+  "musenalm_id": 68202,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 219,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang der Heimath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann v. Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang der Heimath",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "50rbua2jnne36jy",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.226Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.226Z"
+    }
+  ]
+}

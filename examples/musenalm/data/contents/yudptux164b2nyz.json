@@ -1,0 +1,45 @@
+{
+  "annotation": "Leben Gözens von Berlichingen Teil (Sammlung INr 21728, Obj 10), Graphik im Kalendarium paginiert 7.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.825Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21734,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Göz von Berlichingen der Bauernhauptmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner inv. del. & sc. 1793",
+  "scans": [
+    "alm_293_21734_q4f5bpnurt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Göz von Berlichingen der Bauernhauptmann",
+  "updated": "2002-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fzj9zcu1kasxwfb",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.023Z"
+    }
+  ]
+}

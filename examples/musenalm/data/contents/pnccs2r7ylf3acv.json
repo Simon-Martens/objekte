@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.580Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Ihr Blätter, die des Frühlings Hauch getrieben, / Einst frisch und grün, wie bunt nun eure Farben!",
+  "language": [],
+  "musenalm_id": 14628,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Herbstlaub",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Raimund Walther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Herbstlaub",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mfcg158sji4rzhn",
+      "agents": "6nwmu2j1m8xu6n4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.782Z"
+    }
+  ]
+}

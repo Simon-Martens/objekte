@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Gedicht »Das Geleite« von L. f. G. v. Goekingk in: Musenalmanach (Hamburger) 1785; INr 5845",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Ein hoher Staatsminister fuhr / Durchs Städtchen Nimmerdur;",
+  "language": [],
+  "musenalm_id": 75245,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pendant / zu einem Goekingckschen Gedicht im / Voss- / und Goekingschen Almanach / von 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kausch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pendant / zu einem Goekingckschen Gedicht im / Voss- / und Goekingschen Almanach / von 1785",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "50qbl4cxru8vpu1",
+      "agents": "5jdwcyiwfdtu44o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.359Z"
+    }
+  ]
+}

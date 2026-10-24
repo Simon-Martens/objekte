@@ -1,0 +1,45 @@
+{
+  "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Um das zu können, was wir sollen – / Ich weiß wohl! – ist kein leichtes Spiel;",
+  "language": [],
+  "musenalm_id": 119774,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Um das zu können, was wir sollen – / Ich weiß wohl! – ist kein leichtes Spiel;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xp43d4hoqp9z3gh",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.712Z"
+    }
+  ]
+}

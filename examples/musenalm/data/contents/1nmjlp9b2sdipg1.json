@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Bettler von Sankt Columba« von Johann Schopenhauer INr 77368, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77352,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Camilla",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pöhacker del. Dav. Weiss sculp. Vieanna",
+  "scans": [
+    "alm_2403_77352_czg5rm3nhc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Camilla",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y9uvsfaydcuj9no",
+      "agents": "n3frc0soph8hl9f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.837Z"
+    },
+    {
+      "id": "7ov5i4fa2p3vp3j",
+      "agents": "yf7uqcfkp0nwlnb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.837Z"
+    }
+  ]
+}

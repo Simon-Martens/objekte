@@ -1,0 +1,45 @@
+{
+  "annotation": "Orientalische Granaten (Sammlung INr 86415, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Der König von Persien war ein Weiser, / Der Salomon des Orients benannt;",
+  "language": [],
+  "musenalm_id": 86416,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Des Herrschers schönstes Vorrecht. / (Orientalisch)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Des Herrschers schönstes Vorrecht. / (Orientalisch)",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "70bvwnq7ihidge4",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.216Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.216Z"
+    }
+  ]
+}

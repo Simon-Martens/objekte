@@ -1,0 +1,47 @@
+{
+  "annotation": "6 Deutsche Tänze. 2 Quadrillen (Sammlung INr 61546, Obj 157) /) Anhang zu Beckers Taschenbuch 1808 (Sammlung INr 61535, Obj 146)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61547,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No.1",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vinzenz Mascheck Kapellmeister in Prag",
+  "scans": [
+    "alm_215_61547_ej46ckpgd1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "No.1",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "46zlutl5svab10m",
+      "agents": "f5hnxd5mx1nzaii",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.145Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.145Z"
+    }
+  ]
+}

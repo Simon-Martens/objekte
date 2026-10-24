@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung aus der »Erklärung der Kupfertafel« /) Graphik im Kalendarium April /) paginiert IV. /) s. vorstehenden Textbezug INr 82363, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82364,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Venus iritée contre l'Amour, ce Dieu se refugie dans les bras de Cerés",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Le Sueur; Riepenhausen",
+  "scans": [
+    "alm_168_82364_saqycd4jy1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Venus iritée contre l'Amour, ce Dieu se refugie dans les bras de Cerés",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g587iw1xlox8sxk",
+      "agents": "rgscrveej5a4mer",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.046Z"
+    },
+    {
+      "id": "curzli9icrc1m1j",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.046Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.046Z"
+    }
+  ]
+}

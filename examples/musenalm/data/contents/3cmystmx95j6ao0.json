@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52442,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Le Canton de Neuchatel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dessiné et gravé d'après la carte de Mr. d'Osterwald par G. Hegi",
+  "scans": [
+    "alm_718_52442_c27maj230e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Le Canton de Neuchatel",
+  "updated": "2007-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wqyl6lob2u1itrm",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.683Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Vierte Lieferung. Götz von Berlichingen  (Sammlung INr 40557, Obj 6) s. Graphik INr 40571, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Flick das Strohdach über der Grübe, Tochter, gibt hint Nacht noch Regen genug.",
+  "language": [],
+  "musenalm_id": 40570,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Fünfter Akt. / Nacht im wilden Wald. Zigeunerlager",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Fünfter Akt. / Nacht im wilden Wald. Zigeunerlager",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3x0gkeusvt80n1k",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.121Z"
+    }
+  ]
+}

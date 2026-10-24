@@ -1,0 +1,47 @@
+{
+  "annotation": "kol. Tachtenkupfer im Kalendarium s. Textbezug INr 51536, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51511,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einsamkeit Arnold Winkelrieds v. Unterwalden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meyer f.",
+  "scans": [
+    "alm_699_51511_hvundrvnmw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Einsamkeit Arnold Winkelrieds v. Unterwalden",
+  "updated": "2007-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "irstkmrsnhhtcsk",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.603Z"
+    }
+  ]
+}

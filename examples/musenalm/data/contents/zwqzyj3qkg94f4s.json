@@ -1,0 +1,45 @@
+{
+  "annotation": "Abendlieder (Sammlung INr 103958, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "November ist gekommen, / Doch grünt's noch um die Bäume; / Der Abend ist entglommen / Im Schooß der Himmelsräume,",
+  "language": [],
+  "musenalm_id": 103963,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Herbstabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Herbstabend",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ge5o0lv3v1bqfoq",
+      "agents": "arq1wi6im7bawmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.204Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.204Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. # Titel aus dem G-Verz s. Textbezug INr 33784, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33760,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Offrande à l'Esculape #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guerin pt. Forssell st.",
+  "scans": [
+    "alm_468_33760_ll3lvoh7de.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Offrande à l'Esculape #",
+  "updated": "2003-05-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fjjxxyfolz1li1u",
+      "agents": "unn5933trorqlfh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.655Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.655Z"
+    },
+    {
+      "id": "swmcxft996di8or",
+      "agents": "vn5l930p5j41o40",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.655Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.655Z"
+    }
+  ]
+}

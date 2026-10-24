@@ -1,0 +1,45 @@
+{
+  "annotation": "Historische Aufsätze (Sammlung INr 43361, Obj 23) mit einer Illustration s. Titelgraphik INr 43339, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "In der Reihe ruhmwürdiger Fürsten aus dem Großherzoglich-Hessischen Hause glänzt Landgraf Ludwig V. oder Jüngere, der zweite Sohn Landgraf Georg's I. oder Frommen,",
+  "language": [],
+  "musenalm_id": 43362,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ludwig V. der Getreue, / Landgraf von Hessen-Darmstadt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. K. W. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ludwig V. der Getreue, / Landgraf von Hessen-Darmstadt",
+  "updated": "2006-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uu2kywp7hcu1ghs",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.083Z"
+    }
+  ]
+}

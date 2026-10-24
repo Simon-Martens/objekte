@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Haltet die Fackeln uns nicht zu nah dem lieblichen Bildwerk! / Schwärzet es lieber doch nicht durch den unendlichen Qualm!",
+  "language": [],
+  "musenalm_id": 15993,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An gewisse Dichtererklärer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Morgenstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An gewisse Dichtererklärer",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cuberyipz1u1gyw",
+      "agents": "9hensmccxc9b4rz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.587Z"
+    }
+  ]
+}

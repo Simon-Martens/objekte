@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.529Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Sein dankbar Herz kennt keine Schranken / Kaum schickt man ihm ein klein Präsent,",
+  "language": [],
+  "musenalm_id": 12894,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Puff",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Puff",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "01616s8kz2ynx82",
+      "agents": "vn2a6zjk0dwki92",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.504Z"
+    }
+  ]
+}

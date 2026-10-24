@@ -1,0 +1,47 @@
+{
+  "annotation": "s. folgendes Gedicht INr 81651, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81650,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prosa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leudner del. Ausführung u. Stich d. Manz' Kunst-Verlag",
+  "scans": [
+    "alm_1814_81650_dzl7xh5xex.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Prosa",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g4dqgj9484kejz7",
+      "agents": "bi3l84nage57jnv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.821Z"
+    }
+  ]
+}

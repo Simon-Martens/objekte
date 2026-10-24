@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Gründung von Gelnhausen in der Wetterau. Altdeutsche Sage. (Sammlung INr 19961, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.886Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Des Taunus Höhen winken, / Die Hügel lass' ich sinken,",
+  "language": [],
+  "musenalm_id": 19970,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Getäuschte Hoffnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elise v. Hohenhausen, geb. v. Ochs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Getäuschte Hoffnung",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u03596i3zt0b011",
+      "agents": "egwykz1ou8cu8sz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.922Z"
+    }
+  ]
+}

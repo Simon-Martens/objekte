@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert II. /) Illustration zu »Gedrängte Darstellung der kriegerischen Ereigniße in den letzten Monathen des Jahres 1805« INr 72206, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78201,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die tapferen Baiern erobern den / Pass Lofer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mettenleiter inv. Mon. P. J. Laminit sc. 1806 Aug. Vind.",
+  "scans": [
+    "alm_2198_78201_h27qbqfxje.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die tapferen Baiern erobern den / Pass Lofer",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j4rzfi2o3td5drj",
+      "agents": "47esr93u2wyl7ta",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.763Z"
+    },
+    {
+      "id": "wadrlxlyae9w29i",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.763Z"
+    }
+  ]
+}

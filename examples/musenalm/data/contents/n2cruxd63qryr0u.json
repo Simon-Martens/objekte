@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 2. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21658,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ritter Franz von Sickingen umarmt seinen Freund / und Lehrer, D. Joh. Reuchlin im Lager von Stuttgard",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_291_21658_6inb3ezx7q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ritter Franz von Sickingen umarmt seinen Freund / und Lehrer, D. Joh. Reuchlin im Lager von Stuttgard",
+  "updated": "2002-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ts2bmy2fn3ohwy8",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.038Z"
+    }
+  ]
+}

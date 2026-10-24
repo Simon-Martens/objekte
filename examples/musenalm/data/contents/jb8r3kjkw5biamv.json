@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97916, Obj 4) mit Anmm. /) s. Titelportrait INr 97913, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Das Titelkupfer gibt ein treues Bild des ruhmwürdigen Landgrafen Ludwig's V., des jüngern, von Hessen-Darmstadt, der den Zunamen des Getreuen führte.",
+  "language": [],
+  "musenalm_id": 97917,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1)",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fpbsk7c03vwysp8",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.765Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Aus Jugend, Liebreiz, Schönheit, Sinn, Verstande, / Gefühl des Edeln, hoher Tugend Willen,",
+  "language": [],
+  "musenalm_id": 60717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. NEUMANN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonet",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f8m6iqvwfh5lq01",
+      "agents": "qwgxcg99zpa7j4i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.608Z"
+    }
+  ]
+}

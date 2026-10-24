@@ -1,0 +1,45 @@
+{
+  "annotation": "Bemerkungen aus der Kinderstube (Sammlung INr 48405, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Es ist eine eigene Kunst, das Kind anschauen zu lehren, es seine Aufmerksamkeit, sein Interesse, seinen Wunsch auf einen Gegenstand richten zu lassen.",
+  "language": [],
+  "musenalm_id": 48411,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. B.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8p31barssvbsu4h",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.656Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.656Z"
+    }
+  ]
+}

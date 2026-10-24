@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 79930, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.988Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79923,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AUGUST WILHELM GRAF MELLIN / des heil. Römischen und des Schwedischen / Reichs Graf und Freiherr des St. Johaniter Maltheser Ordens Commendator zu Golgast, Königl. Preus. erster Kammerherr, / Mitglied mehrerer gelehrten / Gesellschaften &c",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conrad Westermayr sculp. Weise de.",
+  "scans": [
+    "alm_1147_79923_celh5jv7dg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AUGUST WILHELM GRAF MELLIN / des heil. Römischen und des Schwedischen / Reichs Graf und Freiherr des St. Johaniter Maltheser Ordens Commendator zu Golgast, Königl. Preus. erster Kammerherr, / Mitglied mehrerer gelehrten / Gesellschaften &c",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q9jk49ryibwyans",
+      "agents": "2d34emvmf13qf3h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.900Z"
+    }
+  ]
+}

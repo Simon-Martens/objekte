@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. an Blatt 7. der Suite /) Graphik im Kalendarium September; paginiert 9. Illustration zu »Gegenwärtiger Zustand von Ostindien« von M. C. Sprengel INr 59784, Obj 20 s.a. Textbezug INr 59788, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.468Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59776,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der englische Oberst Caillaud macht am / 20. October den Nabob Mihr Jassier / in seinem Pallast zum Gefangenen und ent- / setzt ihn der Regierung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp. 1785",
+  "scans": [
+    "alm_926_59776_iaszvl2fnp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der englische Oberst Caillaud macht am / 20. October den Nabob Mihr Jassier / in seinem Pallast zum Gefangenen und ent- / setzt ihn der Regierung",
+  "updated": "2008-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kixfaa5wbfqqrfb",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.074Z"
+    },
+    {
+      "id": "z7t7gllepqul07z",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.074Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik paginiert 1. Illustration zu »Johanna von Kent. Gemahlin Eduards, Prinzen von Wales« von Cäcilia d.i. Amalie Henriette Caroline von Voigt INr 43466, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43438,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johanna von Kent / S. 69",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fohr del. J. Lips sclp. München",
+  "scans": [
+    "alm_572_43438_7whqil4vey.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Johanna von Kent / S. 69",
+  "updated": "2006-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gst2ntg70iu76qo",
+      "agents": "mwin9klvyol78mm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.388Z"
+    },
+    {
+      "id": "rgcvrogg53vguou",
+      "agents": "iwoqrcn7d9iuxfi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.388Z"
+    }
+  ]
+}

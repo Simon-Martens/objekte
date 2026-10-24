@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Wenn ich das vorliegende Taschenbuch dem Schutze der reitzenden Titania anvertraute, so bitte ich Deutschlands schöne Damen, welchen ich es voll Ehrfurcht überreiche, sich dabey der nachsichtsvollen Milde zu erinnern, womit diese Königin der Feen",
+  "language": [],
+  "musenalm_id": 75938,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wenn ich das vorliegende Taschenbuch dem Schutze der reitzenden Titania anvertraute, so bitte ich Deutschlands schöne Damen, welchen ich es voll Ehrfurcht überreiche, sich dabey der nachsichtsvollen Milde zu erinnern, womit diese Königin der Feen…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Lang",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-05-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n94izj386varzoj",
+      "agents": "0vejvx9ns82bwxr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.945Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64147, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64151,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blumenfreundin #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Drummond pinxt. J. Cochran sct.",
+  "scans": [
+    "alm_1060_64151_u8cj7vj0gp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Blumenfreundin #",
+  "updated": "2009-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "415qokmdalbgs37",
+      "agents": "mjdfp2oyu3rz0g7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.361Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.361Z"
+    },
+    {
+      "id": "dh5pc3av6ofd0jr",
+      "agents": "899ch4som8qytw3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.361Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.361Z"
+    }
+  ]
+}

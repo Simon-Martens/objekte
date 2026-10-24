@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Beiträgen INr 26464-26470, Obj 94-100",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "396",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26463,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sprüche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sprüche",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7y78b9sd8noeigy",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.029Z"
+    }
+  ]
+}

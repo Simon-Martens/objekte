@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte (Sammlung INr 84768, Obj 39) Vermischte Gedichte (Sammlung INr 84766, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Den Trinkern bin ich hold; / Nur stimmen wir nicht ein:",
+  "language": [],
+  "musenalm_id": 84781,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Gastwirth O.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Gastwirth O.",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "50hqj8o3lm8uk66",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.964Z"
+    }
+  ]
+}

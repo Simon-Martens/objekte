@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "Aug' in Auge, Hand in Hand / Saßen wir am Bachesrand,",
+  "language": [],
+  "musenalm_id": 94932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ironie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. von Schulheim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ironie",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oxitq4d6pujrdz5",
+      "agents": "miy11spit4lljvz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.351Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.351Z"
+    }
+  ]
+}

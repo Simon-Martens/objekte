@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachtrag zum Beitrag INr 62030, Obj 122 /) Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "So eben, da ich den letzten Bogen des Taschenbuchs aus der Druckerei erhalte, find' ich im ersten Stück der, nach einem sehr zweckmässigen Plan angelegten Bibliothek für die Geschichte etc des niederrheinischen Deutschland von Prof. Borheck",
+  "language": [],
+  "musenalm_id": 62035,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtrag, / die / bergische Geschichte betreffend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtrag, / die / bergische Geschichte betreffend",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4mlwtq4wuwvpqhr",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.915Z"
+    }
+  ]
+}

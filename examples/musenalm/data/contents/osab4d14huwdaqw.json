@@ -1,0 +1,45 @@
+{
+  "annotation": "Evangelische Gedichte (Sammlung INr 38891, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Ihr wißt, wohin ich geh' und ihr sollt streben, / Und auch den Weg.",
+  "language": [],
+  "musenalm_id": 38897,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Ich bin der Weg, die Wahrheit und das / Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Sallet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Ich bin der Weg, die Wahrheit und das / Leben",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0px42v2sml5dbvd",
+      "agents": "paudfbsdce3dysa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.249Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Titelgraphik /) Unter der Graphik: Nach einem Original-Gemälde des Palma Vecchio im besitze des Verlegers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111083,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Camilla",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Palam Veccio L. Sichling sc.",
+  "scans": [
+    "alm_3481_111083_axj4pbnoy2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Camilla",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ttl1odxgqzcb92",
+      "agents": "v4ukljtiialnocd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.385Z"
+    },
+    {
+      "id": "9dt0hzmslbumtqc",
+      "agents": "4h5l66xotmujbik",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.385Z"
+    }
+  ]
+}

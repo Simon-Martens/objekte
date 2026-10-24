@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35676,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 195,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WALZER II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. H. Kunze",
+  "scans": [
+    "alm_488_35676_za6nditvtu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WALZER II.",
+  "updated": "2003-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ojln9vl4hxb2tjk",
+      "agents": "fwuqoacyjd1urf1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.729Z"
+    }
+  ]
+}

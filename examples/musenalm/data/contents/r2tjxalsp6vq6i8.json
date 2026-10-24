@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24496, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Im Weinhaus steht ein Eichentisch, / Steht spiegelhell gebohnt und frisch,",
+  "language": [],
+  "musenalm_id": 24498,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Wirtshaustisch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Wirtshaustisch",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eqoktci5ovnsbx6",
+      "agents": "98q4i55rpu2zkyi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.258Z"
+    }
+  ]
+}

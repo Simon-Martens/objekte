@@ -1,0 +1,45 @@
+{
+  "annotation": "Ehrentafel österreichischer Juden (Sammlung INr 119062, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Der höhere Maßstab, den wir an Handlungen der öffentlichen Wohlthätigkeit legen, läßt uns hier nur eines einzelnen, aber außerordentlichen Falles erwähnen.",
+  "language": [],
+  "musenalm_id": 119071,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Großartiger Wohlthätigkeitssinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wertheimer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Großartiger Wohlthätigkeitssinn",
+  "updated": "2017-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nb7rsl7fzb4qhvn",
+      "agents": "t40io73vfefta51",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.614Z"
+    }
+  ]
+}

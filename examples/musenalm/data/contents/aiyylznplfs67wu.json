@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik (Portrait) INr 112554, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Sie sah zu ihm hinauf mit Kindessinne, / Kaum selbst bewußt des Herzens neuer Gluthen,",
+  "language": [],
+  "musenalm_id": 112555,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antoinette Fournier, / Mitglied des Königl. Theaters / zu Berlin, / als / Margarethe in Göthe's Faust",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antoinette Fournier, / Mitglied des Königl. Theaters / zu Berlin, / als / Margarethe in Göthe's Faust",
+  "updated": "2010-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jlmy2yy1nlaly92",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.469Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.469Z"
+    }
+  ]
+}

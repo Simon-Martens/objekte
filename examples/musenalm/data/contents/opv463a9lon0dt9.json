@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.168Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Welch ein schmelzendes Entzüken, / Kaum Unsterblichen bekant,",
+  "language": [],
+  "musenalm_id": 93217,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Rosalia, als sie die Laute schlug. / (Nach dem Englischen des Waller.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Engelschall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Rosalia, als sie die Laute schlug. / (Nach dem Englischen des Waller.)",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "142azcjy939aolo",
+      "agents": "vurjmtt5tprr0cw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.470Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.470Z"
+    }
+  ]
+}

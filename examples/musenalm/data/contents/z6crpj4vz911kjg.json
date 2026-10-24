@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Natur, Glück, und Erziehung sind die drey wahrhaftigen Mören, die durch ihre Gaben das Schicksal des Menschen bestimmen.",
+  "language": [],
+  "musenalm_id": 75104,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Der Proselyt. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Ernst Raupach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Der Proselyt. / Eine Erzählung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7b54k6qd3vniv9f",
+      "agents": "uxyu52yd3v030gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.747Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.747Z"
+    }
+  ]
+}

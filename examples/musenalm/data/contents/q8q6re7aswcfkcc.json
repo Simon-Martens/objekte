@@ -1,0 +1,47 @@
+{
+  "annotation": "Die Lilie. Ein Symbol der Unschuld (Sammlung INr 84468, Obj 288)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Silberschimmer umstrahlt die reinen Blätter, / Die mit blendendem Glanz du duften öffnest,",
+  "language": [],
+  "musenalm_id": 84469,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 290,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Silberschimmer umstrahlt die reinen Blätter, / Die mit blendendem Glanz du duften öffnest,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Müchler",
+  "scans": [
+    "alm_1601_84469_1ao99vatu7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8dv3ua1aunkag7o",
+      "agents": "cqrs6fj7ecvzmh8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.098Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Hilf mir - du freundliche Muse / - den Hypo- / gryphen zu besteigen,",
+  "language": [],
+  "musenalm_id": 30059,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Fahrt nach Mäuseborn. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Weisflog",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Fahrt nach Mäuseborn. / Erzählung",
+  "updated": "2002-11-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u2zrtomwyg3vrau",
+      "agents": "iv41ps6uccpba1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.337Z"
+    }
+  ]
+}

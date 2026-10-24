@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit »Die Worte des Wahns. Parodie« (INr 130378, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Drei Worte hört man, bedeutungsschwer, / Im Munde des Guten und Besten. / Sie schallen vergeblich, ihr Klang ist leer, / Sie können nicht helfen und trösten",
+  "language": [],
+  "musenalm_id": 130377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVIII. / Die Worte des Wahns, / von / Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVIII. / Die Worte des Wahns, / von / Schiller",
+  "updated": "2009-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fqn26pbypn9vas8",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.068Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.068Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Wie durch's offne Erkerfenster / Bei der Sonne Scheidestral Blumendüfte zu dir dringen,",
+  "language": [],
+  "musenalm_id": 46466,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie durch's offne Erkerfenster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emmy Freiin von Dincklage",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wie durch's offne Erkerfenster",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fyxefje21ldtduf",
+      "agents": "wv0ljb4mcunvv0n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.508Z"
+    }
+  ]
+}

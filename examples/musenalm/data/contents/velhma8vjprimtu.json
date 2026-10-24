@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Auf der Wasser feuchten Schwingen, / Durch das klare Meer der Luft, / Unter Blumen hier und Duft / Willst, o Hoffnung! du mich bringen,",
+  "language": [],
+  "musenalm_id": 68165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 182,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein zweites",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. Kurowski-Eichen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein zweites",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yb7jdjrhp9aiv21",
+      "agents": "prvw4acsenveets",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.406Z"
+    }
+  ]
+}

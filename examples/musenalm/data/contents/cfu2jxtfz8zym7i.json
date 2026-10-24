@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 117924, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Quelle, wohin strömst Du? / Quelle, woher kömmst Du? / Sprich, was eilen deine Wellen!",
+  "language": [],
+  "musenalm_id": 117928,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Am Waldbach",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Halm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Am Waldbach",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "li9xeqrmt85palf",
+      "agents": "g5bo98tjkpy8a15",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.565Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.565Z"
+    }
+  ]
+}

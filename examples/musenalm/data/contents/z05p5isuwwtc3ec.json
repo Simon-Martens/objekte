@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Krieger! Durch die Würgerscenen / Nähert sich der Tanz der Schönen,",
+  "language": [],
+  "musenalm_id": 5300,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Saracene Kirimach in der / Schlacht. / Nach dem Persischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Saracene Kirimach in der / Schlacht. / Nach dem Persischen",
+  "updated": "2000-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kruuuofl9vq3h73",
+      "agents": "9gcqlq955fggn37",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.042Z"
+    }
+  ]
+}

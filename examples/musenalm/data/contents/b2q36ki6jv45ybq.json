@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Gedicht wurde unter dem Titel »Lied« erstmals abgedruckt in: Musenalmanach (Hamburger) 1788; Alm 120, INr 6125",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Melodie! schöne Vertraute der Lebenden Seele, / Mit der sie tauchet ins Meer der Empfindung,",
+  "language": [],
+  "musenalm_id": 26791,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ihren Stollberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Gr. zu Stollberg geb. v. Witzleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ihren Stollberg",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h691ih83ts051c7",
+      "agents": "eqtbdj8gy4m2hsw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.277Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 63719, Obj 9 /) Illustration zu »Arabella« von Wilhelm Blumenhagen INr 63730, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63726,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Findling #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Thomson pinx. J. Fleischmann sc.",
+  "scans": [
+    "alm_1046_63726_6o0sr9zk43.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Findling #",
+  "updated": "2009-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w4x925bvo5ah8ux",
+      "agents": "ryc3z421c9l8txx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.970Z"
+    },
+    {
+      "id": "bpijtpzra2gbn5t",
+      "agents": "9lorjkhsnx1rkjc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.970Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. a. Buris »Herbstlandschaft« Gedicht in: Taschenbuch der Liebe und Freundschaft gewidmet 1805 INr 28440",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Im Zwielicht, durch gesunkner Nebel Grauen, / Bricht sich das Auge mühsam eine Bahn.",
+  "language": [],
+  "musenalm_id": 28397,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Winterlandschaft. / 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Winterlandschaft. / 1799",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zk5z4ygqjxbtd57",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.086Z"
+    }
+  ]
+}

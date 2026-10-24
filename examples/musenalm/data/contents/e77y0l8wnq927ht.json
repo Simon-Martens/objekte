@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "Von allem, was im Kreis der Welt / Luft, Feuer, Erd und Meer enthält, / Von allem, was durch innern Werth / Den Adamskindern Achtung lehrt;",
+  "language": [],
+  "musenalm_id": 75535,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine Königin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meine Königin",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ohr4ffgwdlr1xxw",
+      "agents": "pbt3h5zr358vg6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.739Z"
+    }
+  ]
+}

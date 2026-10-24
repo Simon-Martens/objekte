@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64708, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64714,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das betende Kind #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T. Ulwins pinx. L. Sichling sc.",
+  "scans": [
+    "alm_1083_64714_h0i0msu9gg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das betende Kind #",
+  "updated": "2009-06-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1872,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c6197cm15lt4lmm",
+      "agents": "4h5l66xotmujbik",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.028Z"
+    }
+  ]
+}

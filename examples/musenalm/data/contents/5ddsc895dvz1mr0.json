@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Man nennt die Nacht des Menschen Feind, / Ein Thor ist, wer das glaubt,",
+  "language": [],
+  "musenalm_id": 31434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Hoffnung an eine Braut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriela von Baumberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Hoffnung an eine Braut",
+  "updated": "2003-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hxsg9qgw4fhnoog",
+      "agents": "sjp9eapkpagxg0d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.475Z"
+    }
+  ]
+}

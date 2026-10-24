@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bemerkungen (Sammlung INr 48486, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Ich frage mich oft, warum man nicht viel mehr zufriedene Weiber sieht, als Männer.",
+  "language": [],
+  "musenalm_id": 48512,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich frage mich oft, warum man nicht viel mehr zufriedene Weiber sieht, als Männer.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tzhl5vwps10q9uc",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.367Z"
+    }
+  ]
+}

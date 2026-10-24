@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Jägertbraut« INr 57983, Obj 5 /) unter der Graphik: Pesth C. Hekenast",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57984,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE JÄGERBRAUT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. v. Barabás del. Preisel sc.",
+  "scans": [
+    "alm_772_57984_5nzd293765.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE JÄGERBRAUT",
+  "updated": "2008-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "986srhq3m8rrjt4",
+      "agents": "jt9vrpcti67n6hx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.865Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.865Z"
+    },
+    {
+      "id": "brs3b000j3vdoay",
+      "agents": "9s6c9wuymvvgbhx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.865Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.865Z"
+    }
+  ]
+}

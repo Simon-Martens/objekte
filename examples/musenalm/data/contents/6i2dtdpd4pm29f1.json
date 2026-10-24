@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.788Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Ich machte jüngst ein Lobgedicht / An eine schöne Frau, / Sie heißt - jedoch ihr kennt sie nicht, / Und sagt' ich's auch genau.",
+  "language": [],
+  "musenalm_id": 90802,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Lobgedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Gottfried v. Leitner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Lobgedicht",
+  "updated": "2013-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p4we0axskhq0dgs",
+      "agents": "kzo5zf1o5a1ke0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.433Z"
+    }
+  ]
+}

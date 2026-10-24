@@ -1,0 +1,45 @@
+{
+  "annotation": "Allemannische Lieder (Sammlung INr 63159, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Jo, wenni Di liebe, was chümmert es Di? / Du muesch halt lustig sin und froh.",
+  "language": [],
+  "musenalm_id": 63162,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Meieli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hofmann v. Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Meieli",
+  "updated": "2009-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nq7rw9sjq3u2l4p",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.093Z"
+    }
+  ]
+}

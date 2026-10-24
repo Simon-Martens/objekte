@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "316",
+  "incipit_statement": "Es werden mit dem jetzt ablaufenden dreißig Jahre, daß ich in einem Nonnenkloster mehrere Wochen zugebracht habe.",
+  "language": [],
+  "musenalm_id": 77602,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Nonnenkloster / zur / heiligen Katharina in Breslau während der Belagerung 1806. / Ein Kapitel aus meinem Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. W. Häring. ( W. Alexis.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Nonnenkloster / zur / heiligen Katharina in Breslau während der Belagerung 1806. / Ein Kapitel aus meinem Leben",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ngfva22f5zgwo6n",
+      "agents": "0o91z9eq6iw8en8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.554Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.554Z"
+    }
+  ]
+}

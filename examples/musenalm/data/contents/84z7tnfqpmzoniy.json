@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Willkommen mir, o Birkenhain! / In dir erweitert sich die Seele!",
+  "language": [],
+  "musenalm_id": 12826,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einem heitern Frühlings- / morgen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einem heitern Frühlings- / morgen",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "55fyh48ufd7uwgd",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.386Z"
+    }
+  ]
+}

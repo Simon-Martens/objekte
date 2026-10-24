@@ -1,0 +1,45 @@
+{
+  "annotation": "Diavolini (Sammlung INr 23478, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "O könnt' ich nur allein 'mal sein, / Allein 'mal etwas sehn!",
+  "language": [],
+  "musenalm_id": 23507,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "29. John Bull der Enthusiast",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "29. John Bull der Enthusiast",
+  "updated": "2002-05-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c4qn1o2n0ieeuex",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.198Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.198Z"
+    }
+  ]
+}

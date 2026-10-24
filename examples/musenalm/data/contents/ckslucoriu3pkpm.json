@@ -1,0 +1,45 @@
+{
+  "annotation": "Weimars Meistersinger (Sammlung INr 1562, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Und wenn fortan entzückte Leyer singet / Den reinen Quell des ewig höchsten Schönen,",
+  "language": [],
+  "musenalm_id": 19330,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie Freifrau von Bechtoldsheim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schiller",
+  "updated": "2000-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kcqg6cphi654vwc",
+      "agents": "7wewn5gfr0shp0v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.930Z"
+    }
+  ]
+}

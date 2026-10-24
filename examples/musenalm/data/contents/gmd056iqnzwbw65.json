@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der neue Pausias und sein Blumenmädchen« von J. W. von Goethe s. Gedicht INr 40251, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40250,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der neue Pausias und sein Blumenmädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Stölzel d. j. sc.",
+  "scans": [
+    "alm_525_40250_sn14zyvnje.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der neue Pausias und sein Blumenmädchen",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hkwt5ybr25svkx7",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.749Z"
+    },
+    {
+      "id": "6p1v0i2kbxtjt4q",
+      "agents": "faptm77901k6u4a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.749Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln (Sammlung INr 91618, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Ein Wiesel, das am Tag die Falle stehen sah, / Kam, wann es dunkel war, niemals der Falle nah,",
+  "language": [],
+  "musenalm_id": 91621,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das junge Wiesel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Gellert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das junge Wiesel",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fjhbn8zdyb2hix3",
+      "agents": "ktano13bmefet8q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.250Z"
+    }
+  ]
+}

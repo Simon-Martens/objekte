@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.933Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Von einheimischen wilden Gewächsen wird uns keines von einigem Belang namhaft gemacht, das nicht auch den übrigen Inseln angehörte,",
+  "language": [],
+  "musenalm_id": 42345,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Celebes]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Celebes]",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "edqv2e7nxd5ihge",
+      "agents": "wa9sa5vspt41k6t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.264Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.264Z"
+    }
+  ]
+}

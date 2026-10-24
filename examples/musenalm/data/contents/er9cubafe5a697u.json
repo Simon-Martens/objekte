@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Oskar und Malvina« von Eduard Silesius # d.i. E. v. Badenfeld INr 85691, Obj 15 ff",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.741Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85684,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oskar und Malvina",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Russ del. J. Kovatsch sc.",
+  "scans": [
+    "alm_1594_85684_5idh7gjuu8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Oskar und Malvina",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jqv5rolwd3p3mdk",
+      "agents": "iexyvzdzwrb4rqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.079Z"
+    },
+    {
+      "id": "p3n80qhdzz35fmt",
+      "agents": "7b9443ro2tn4o8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.079Z"
+    }
+  ]
+}

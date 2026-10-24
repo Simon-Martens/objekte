@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbst 1833 in Neuseß (Sammlung INr 98982, Obj 8) Gedichte (Sammlung INr 98981, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Ein Dichter sprach: Wie tausend Lichtgedanken, / Eh sie rangen an des Tages Licht,",
+  "language": [],
+  "musenalm_id": 99023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Dichter sprach: Wie tausend Lichtgedanken, / Eh sie rangen an des Tages Licht,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "omaackh311cebf9",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.981Z"
+    }
+  ]
+}

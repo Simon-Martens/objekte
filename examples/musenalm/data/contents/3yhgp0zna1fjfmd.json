@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 1. /) Illustration zum  Kapitel: »Churfürst Friedrich I.« aus »Geschichte der Mark Brandenburg unter den Regenten des Hohenzollerschen Hauses vom Jahre 1412 bis zum Jahre 1640« INr 72263, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72264,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (D. Chodowiecki del. et. sc. 1790)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et. sc. 1790",
+  "scans": [
+    "alm_826_72264_kmponjz7q1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d9a4r8ti89bd7ow",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.590Z"
+    }
+  ]
+}

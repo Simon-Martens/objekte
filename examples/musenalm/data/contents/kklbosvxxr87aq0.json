@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 46483-46486, Obj 89-92",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46482,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Legenden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Bornowsky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Legenden",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aq5snu3n8n92km6",
+      "agents": "59l3z560kdcow7s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.290Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.290Z"
+    }
+  ]
+}

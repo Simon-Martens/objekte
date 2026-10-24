@@ -1,0 +1,45 @@
+{
+  "annotation": "Diavolini (Sammlung INr 23478, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.797Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Ja, bei Gott! ihr Welschen dürfet / Keine alten Römer sein,",
+  "language": [],
+  "musenalm_id": 23483,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Classischer Boden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallerleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Classischer Boden",
+  "updated": "2002-05-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j0kbpgd78e2gif5",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.168Z"
+    }
+  ]
+}

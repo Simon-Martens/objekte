@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 19439, Obj 72)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "380",
+  "incipit_statement": "Kannst du im wahren, ächten Sinn / Dich mit der ersten Sylbe nennen,",
+  "language": [],
+  "musenalm_id": 19442,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst v. Houwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Charade",
+  "updated": "2001-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b030pi6866ly23o",
+      "agents": "yekzbr1mkxuaimv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.832Z"
+    }
+  ]
+}

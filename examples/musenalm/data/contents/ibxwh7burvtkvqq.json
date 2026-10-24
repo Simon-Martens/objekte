@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24715, Obj 293)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "383",
+  "incipit_statement": "Am Charfreitag starb der Winter, schauernd unter / Thränengüssen,",
+  "language": [],
+  "musenalm_id": 24717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 293,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Mai",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. A. Pfizer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im Mai",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sbxw5zi41dwasxg",
+      "agents": "7vx6qiqaoli0gyj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.050Z"
+    }
+  ]
+}

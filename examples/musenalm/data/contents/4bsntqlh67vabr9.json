@@ -1,0 +1,43 @@
+{
+  "annotation": "Sammlung von 8 graph. Tanzanleitungen INr 19691-19698, Obj 112-119",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19690,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "TANZTOUREN / zu Beckers Taschenbuch 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "TANZTOUREN / zu Beckers Taschenbuch 1817",
+  "updated": "2001-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r4obs71v3eeimw7",
+      "agents": "5e64t7ca8x2wyim",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.720Z"
+    }
+  ]
+}

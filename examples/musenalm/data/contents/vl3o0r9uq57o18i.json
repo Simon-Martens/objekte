@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 79310, Obj 5) s. Graphik INr 79315, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Die Dioskuren (Kastor und Pollux) rauben die Töchter des Leukippos, Phöbe und Ilaira, für welche sie nachher auch mit Lynkeus und Idas, den Söhnen des Aphareus kämpften, wobei Kastor erlag.",
+  "language": [],
+  "musenalm_id": 79315,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Mädchenraub. / Von Pet. Paul Rubens, (geb 1577, gest. 1640.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Chr. Braun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Mädchenraub. / Von Pet. Paul Rubens, (geb 1577, gest. 1640.)",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fuhcmk4t0jwy4ba",
+      "agents": "z8ye4fkoz7ogybi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.830Z"
+    }
+  ]
+}

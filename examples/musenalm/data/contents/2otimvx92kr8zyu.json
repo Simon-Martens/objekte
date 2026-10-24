@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 92827, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Ich bin auf breitem Weg gegangen, / Wie ihn uns führt die alte Welt;",
+  "language": [],
+  "musenalm_id": 92832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rückblick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Althaus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rückblick",
+  "updated": "2013-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yx8rm9jdh4kuiik",
+      "agents": "s9wk71d9wn7dhto",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.414Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.414Z"
+    }
+  ]
+}

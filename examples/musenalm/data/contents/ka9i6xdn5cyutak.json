@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Mit grausen Getümmel / Verschwunden vom Himmel / Sind Wolken voll Nacht;",
+  "language": [],
+  "musenalm_id": 33608,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingsbilder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingsbilder",
+  "updated": "2003-05-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "10at9bvngjk7i44",
+      "agents": "z3510nlbg6hd1qt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.622Z"
+    }
+  ]
+}

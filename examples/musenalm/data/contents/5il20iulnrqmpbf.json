@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1. /) Graphik im Kalendarium Januar /) Illustration zu »Die neue Heloise« von J. J. Rousseau",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90937,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "--- als ich dich auf einmal erblassen sah.... / Rousseaus neue Helise 1. Theil 14. B.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki F. Berger sculpsit",
+  "scans": [
+    "alm_794_90937_4yqpj08n3s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "--- als ich dich auf einmal erblassen sah.... / Rousseaus neue Helise 1. Theil 14. B.",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "izf0fb0bd3adccq",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.259Z"
+    },
+    {
+      "id": "y01mlshulf9ahgg",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.259Z"
+    }
+  ]
+}

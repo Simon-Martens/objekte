@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.834Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Als ich Minchen zum ersten Mahle ah, überfiel mich eine Art von Betäubung. Mein ganzes Wesen erlitt eine totale Veränderung.",
+  "language": [],
+  "musenalm_id": 113924,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Debut / des modernen Tragöden. / Bruchstück / aus den Papieren eines s. g. schönen Geistes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Hannusch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Debut / des modernen Tragöden. / Bruchstück / aus den Papieren eines s. g. schönen Geistes",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "btihnp5p4lud9r1",
+      "agents": "1gx7z956tuv7ghs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.549Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.549Z"
+    }
+  ]
+}

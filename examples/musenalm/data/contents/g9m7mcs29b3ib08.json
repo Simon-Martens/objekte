@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 105308, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Die Zeit hat Flügel - spricht ein Weiser, / Sie rennt davon! schreit alle Welt sich heiser - / Nicht immer!",
+  "language": [],
+  "musenalm_id": 105314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey Eröfnung der Bühne in Leipzig / am 10ten April 1787 verfertigt und / gesprochen von Sophie Albrecht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Albrecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bey Eröfnung der Bühne in Leipzig / am 10ten April 1787 verfertigt und / gesprochen von Sophie Albrecht",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ouepgsjic4tp2m8",
+      "agents": "fby2gdha04397wg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.060Z"
+    }
+  ]
+}

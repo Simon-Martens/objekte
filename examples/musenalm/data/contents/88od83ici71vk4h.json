@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 10. /) Graphik im Kalendarium August /) Illustration zu »Die beiden Hauptleute« von Fouqué s. Textbezug INr 69005, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.933Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68986,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Er taufte die holde Bekehrte, / Antonia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. W. M. H.",
+  "scans": [
+    "alm_851_68986_c8je2i7f3c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Er taufte die holde Bekehrte, / Antonia",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z3oammhgvezazil",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.965Z"
+    },
+    {
+      "id": "wdvsdd27y68fk30",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.965Z"
+    }
+  ]
+}

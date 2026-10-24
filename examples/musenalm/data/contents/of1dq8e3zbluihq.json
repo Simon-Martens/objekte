@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitendes Gedicht  zum Beitrag »Der Wunderstein. Fantasiegemälde«",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.054Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Abendroth, du düstre Glut, / Bist der armen Sonne Blut,",
+  "language": [],
+  "musenalm_id": 61683,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendroth, du düstre Glut, / Bist der armen Sonne Blut,…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sf93aoswn2997t7",
+      "agents": "kjfa5zse6o9jzto",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.748Z"
+    }
+  ]
+}

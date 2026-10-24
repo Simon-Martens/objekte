@@ -1,0 +1,46 @@
+{
+  "annotation": "es folgt: Sammlung von 7 Touren INr 69175-68181, Obj 131-137",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Fast so lange Rom vorhanden ist, sind seine schönen Gebirgsumgebungen berühmt, ja manche spielen lange vor seiner Entstehung eine Rolle in der Geschichte oder Fabel,",
+  "language": [],
+  "musenalm_id": 69174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Skizze eines Wegweisers / durch / die Umgebung Roms, die Gebirge der Latiner, Volsker, / Sabiner, Aequer, Herniker und Marsen bis in die Abruzzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Skizze eines Wegweisers / durch / die Umgebung Roms, die Gebirge der Latiner, Volsker, / Sabiner, Aequer, Herniker und Marsen bis in die Abruzzen",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gu1t73i03wmzsd0",
+      "agents": "6li7ibbf1vr3nv9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.037Z"
+    }
+  ]
+}

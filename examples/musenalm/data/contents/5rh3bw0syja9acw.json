@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Die ihr noch wohnt im Kreis der Lieben, / Ihr, die kein ernster Augenblick, / Vom Vaterhaus hinausgetrieben, / O preisest selig das Geschick.",
+  "language": [],
+  "musenalm_id": 62226,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Vaterhaus. / Thema: So leb' denn wohl, du stilles Haus! / Wir zieh'n betrübt von dir hinaus! / Und fänden wir das höchste Glück, / Wir denken doch an dich zurück! / Ferd. Raimund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Vaterhaus. / Thema: So leb' denn wohl, du stilles Haus! / Wir zieh'n betrübt von dir hinaus! / Und fänden wir das höchste Glück, / Wir denken doch an dich zurück! / Ferd. Raimund",
+  "updated": "2009-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nkdw0ki150nf4ho",
+      "agents": "roqd4m2swedwv3j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.128Z"
+    }
+  ]
+}

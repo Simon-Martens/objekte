@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik  im Kalendarium # Titel aus dem G- Verz INr 50287, Obj 19; /) Illustration zu »Wilhelm Meisters Lehrjahre« Berlin 1795-1796 von J. W. von Goethe",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50276,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwey Personen, die vor einander erschrecken: der Hereintretende, weil er sich irrt; der Sitzende, in den Spíegel Blickende, weil er recht sieht. (Bd II. S. 128.) #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Catel del. W. Jury fec.",
+  "scans": [
+    "alm_7_50276_mrf606vp2j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zwey Personen, die vor einander erschrecken: der Hereintretende, weil er sich irrt; der Sitzende, in den Spíegel Blickende, weil er recht sieht. (Bd II. S. 128.) #",
+  "updated": "2007-06-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rmzkdazwz2wplu1",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.714Z"
+    },
+    {
+      "id": "k88b6wntq7vxqfm",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.714Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.714Z"
+    }
+  ]
+}

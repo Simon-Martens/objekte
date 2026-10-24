@@ -1,0 +1,45 @@
+{
+  "annotation": "Dornenkranz für Benöthigte (Sammlung INr 53173, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Da Langeweile dich tagtäglich plagt, / So rufe deinen Arzt, und bald ist ausgeklagt.",
+  "language": [],
+  "musenalm_id": 53182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. Guter Rath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Schnyder v. Wartensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. Guter Rath",
+  "updated": "2007-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ag57xuv6pofk3yl",
+      "agents": "qn8g13ehspgkph8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.508Z"
+    }
+  ]
+}

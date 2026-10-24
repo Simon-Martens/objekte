@@ -1,0 +1,45 @@
+{
+  "annotation": "Bemerkungen über die Theatertrachten (Sammlung INr 32540, Obj 36) s. Graphik INr 32544, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Brissards Kleidung ist ein Muster von gutem römischen Kostume für das Theater.",
+  "language": [],
+  "musenalm_id": 32543,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "B. / Römische Tracht. / No. 8. / Herr Brissard als alter Horaz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "B. / Römische Tracht. / No. 8. / Herr Brissard als alter Horaz",
+  "updated": "2003-03-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1j3vmq7t25nam9i",
+      "agents": "1j2glyr4uzfohrn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.406Z"
+    }
+  ]
+}

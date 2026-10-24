@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Elegien (INr 93525, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Die Nacht fliegt auf, die Sonne sinkt, / Die Zeit vom Kelch des Schönen trinkt,",
+  "language": [],
+  "musenalm_id": 93527,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe ohne Gegenliebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. J. C. Graf v. Sermage",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe ohne Gegenliebe",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "souvkorfomjjfxf",
+      "agents": "nf6hcprj7w45n4m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.460Z"
+    }
+  ]
+}

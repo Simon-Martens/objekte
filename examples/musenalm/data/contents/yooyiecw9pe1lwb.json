@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.856Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Beym Grab des Herrn von Degenband / Da weint' niemand und lacht' niemand;",
+  "language": [],
+  "musenalm_id": 3054,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift / auf einen wichtigen Mann",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. C. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift / auf einen wichtigen Mann",
+  "updated": "2000-09-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x07crt3kxu6srl6",
+      "agents": "b349lt9abynr81b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.997Z"
+    }
+  ]
+}

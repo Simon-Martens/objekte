@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Pflicht um Pflicht« von Wolff (INr 125504, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schnorr v. K. del. L. Buchhorn del)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. L. Buchhorn del",
+  "scans": [
+    "alm_1337_125505_3tiaz94kwk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "umtzb81fin3ltax",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.893Z"
+    },
+    {
+      "id": "1pt257xhym5tsdq",
+      "agents": "z3xj5kkwhch6rva",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.894Z"
+    }
+  ]
+}

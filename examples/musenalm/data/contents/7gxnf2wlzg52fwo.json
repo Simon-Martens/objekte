@@ -1,0 +1,45 @@
+{
+  "annotation": "Geschichten eines Hundertjährigen (Sammlung INr 103517, Obj 12) mit einer Illustration s. Graphik INr 103529, Ob 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Sein Vater ist ein armer Mann gewesen und seine Mutter hat nicht den Kreuzer gehabt.",
+  "language": [],
+  "musenalm_id": 103528,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bonebard von Langenschnirchlingen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bonebard von Langenschnirchlingen",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dcij5fmsyhd9a5z",
+      "agents": "jo3symqxy3hqpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.162Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Drei Dinge sind es, die das Aug' erfreuen: / Das Grün, das auf den Fluren sprießt,",
+  "language": [],
+  "musenalm_id": 15038,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mohammed's Drei-mal-Drei. / Nach der Sunna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mohammed's Drei-mal-Drei. / Nach der Sunna",
+  "updated": "2001-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "grd9g9glfw4sfw7",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.460Z"
+    }
+  ]
+}

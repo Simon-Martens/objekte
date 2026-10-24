@@ -1,0 +1,56 @@
+{
+  "annotation": "mit einer Einleitung s. INr 53375, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.127Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Mein Haupt ist grau, doch ist's nicht altergrau, / Noch bleicht' es mir, wie manches Menschen Haupt, / Vom Drang der Furcht in Einer Nacht so ganz.",
+  "language": [],
+  "musenalm_id": 53376,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Der Gefangene von Chillon. aus dem Englischen des Lord Byron]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lord Byron; [übers.] J. R. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Der Gefangene von Chillon. aus dem Englischen des Lord Byron]",
+  "updated": "2007-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i0f9fjh8zxqwovy",
+      "agents": "z2vp1av7e4ucapr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.757Z"
+    },
+    {
+      "id": "uwspveg5h3lxj5b",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.757Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung aus der »Erklärung der Kupfertafel« /) Graphik im Kalendarium Mai /) paginiert V. /) s. vorstehenden Textbezug INr 82365, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.462Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82366,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "L'Amour reçois les homages des Dieux",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Le Sueur; Riepenhausen",
+  "scans": [
+    "alm_168_82366_k1v9t0fy0a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "L'Amour reçois les homages des Dieux",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5xt6puq4ugci9l7",
+      "agents": "rgscrveej5a4mer",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.129Z"
+    },
+    {
+      "id": "2jw89cwxfvaybbv",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.129Z"
+    }
+  ]
+}

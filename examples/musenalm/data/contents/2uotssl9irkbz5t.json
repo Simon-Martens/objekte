@@ -1,0 +1,45 @@
+{
+  "annotation": "Tändeleien (Sammlung INr 29917, Obj 60)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "So reis' hinweg vom sonnigen Spalier, / Du Pfirsich, saft'ger noch, als Amorellen!",
+  "language": [],
+  "musenalm_id": 29919,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gärtner an den Pfirsich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gärtner an den Pfirsich",
+  "updated": "2002-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1hpjs9tmv2jac4o",
+      "agents": "4g2r3ta4uzw1gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.614Z"
+    }
+  ]
+}

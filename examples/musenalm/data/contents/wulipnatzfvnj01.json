@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Atala oder die Liebe zweier Wilden« von Chateaubriand /) # vollst. Bez. s. Textbezug INr 86405, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86406,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Atala und Cactas",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chopin pinx. Jazet. C. Preissel sc.",
+  "scans": [
+    "alm_1600_86406_q7zf3m654i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Atala und Cactas",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m9mao5t09dmauow",
+      "agents": "rzeigvne9106dpe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.216Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.216Z"
+    },
+    {
+      "id": "gd1myr1xumav36k",
+      "agents": "9s6c9wuymvvgbhx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.216Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.216Z"
+    }
+  ]
+}

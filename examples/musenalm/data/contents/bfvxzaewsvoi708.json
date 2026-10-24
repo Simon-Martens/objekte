@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 122954–122956",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 122953,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 212,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Polemische Sonette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Oser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Polemische Sonette",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bmv02d6qc6osjpq",
+      "agents": "ngznzj0g16yvwzs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.824Z"
+    }
+  ]
+}

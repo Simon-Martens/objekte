@@ -1,0 +1,54 @@
+{
+  "annotation": "Kupfer, zum Sturm, zum Kaufmann von Venedig und zu König Lear. Erläutert durch Beifügung der dargestellten Scenen nach der Uebersetzung von J. H. Voß und H. Voß (Sammlung INr 19221, Obj 7) s. Graphik INr 9301, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Kennt ihr mich, Herr? / Ja, ja, du bist ein Geist. Wann starbst du denn?",
+  "language": [],
+  "musenalm_id": 19227,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "König Lear. / Vierter Aufzug, siebente Scene. / Ein Zelt im französischen Lager",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakespeare; [übers.] Heinrich Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "König Lear. / Vierter Aufzug, siebente Scene. / Ein Zelt im französischen Lager",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ym1pnbri3qo1wi8",
+      "agents": "confomdodiakpla",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.949Z"
+    },
+    {
+      "id": "611my354nuvev8z",
+      "agents": "kqtjs5z40p79gpq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.949Z"
+    }
+  ]
+}

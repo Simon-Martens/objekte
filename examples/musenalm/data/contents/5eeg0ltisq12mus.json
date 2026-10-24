@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Herbstwanderung von Basel nach Biel. Bruchstücke von Briefen an einen Freund« von J. R. Wysz d. J. INr 53340, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.076Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pont de Pennes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Juillerat del. F. Hegi sc.",
+  "scans": [
+    "alm_730_53341_8x8sran8n5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pont de Pennes",
+  "updated": "2007-12-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "21guzi2i8lbvq8s",
+      "agents": "xh6k6nw5l5dihva",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.685Z"
+    },
+    {
+      "id": "qtv8s2699uzpmsx",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.685Z"
+    }
+  ]
+}

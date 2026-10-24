@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Beiträgen INr 123410-123416, Obj 130-136",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.965Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einfälle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerning",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einfälle",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3sbcvzvuhc6530x",
+      "agents": "ka1wm9mc4kl7y0b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.686Z"
+    }
+  ]
+}

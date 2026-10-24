@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97860, Obj 5) s. Umschlaggraphik v. INr 97911, Obj 56",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Auf der hinteren Seite des Umschlages sind die Ruinen des großen Bergschlosses Thurmberg am Rhein,",
+  "language": [],
+  "musenalm_id": 97867,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7)",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lip2k50crovnqry",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.776Z"
+    }
+  ]
+}

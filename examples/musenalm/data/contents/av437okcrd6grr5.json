@@ -1,0 +1,67 @@
+{
+  "annotation": "Dem Vorwort der Herausgeber INr 52676, Obj 4 beigegeben",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Kein Gärtlein ist so fein, / Kein Gärtlein ist so klein, / Kein Gärtlein ist so rein, / Es schleicht sich Unkraut ein.",
+  "language": [],
+  "musenalm_id": 52677,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kein Gärtlein ist so fein, / Kein Gärtlein ist so klein, / Kein Gärtlein ist so rein, / Es schleicht sich Unkraut ein.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Herausg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "us3ejsegiep7zvc",
+      "agents": "0v61flsplw084qp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.836Z"
+    },
+    {
+      "id": "mlaj4xp4xrcy093",
+      "agents": "k4ji2bliezq9pwr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.837Z"
+    },
+    {
+      "id": "wqxd8z7uxlrr7ju",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.837Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.837Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 13 Aphorismen INr 23886-23898, Obj 47-59",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aphorismen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aphorismen",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2cc5dna6i3volm4",
+      "agents": "pnennqhmzrv3ms6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.044Z"
+    }
+  ]
+}

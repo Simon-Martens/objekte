@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.004Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20893,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ophelia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rensch del. F. Fleischmann sc.",
+  "scans": [
+    "alm_276_20893_jobnm4d5eb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ophelia",
+  "updated": "2002-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a0yn4tj27gwhqu2",
+      "agents": "ail6kpkgq3rdfot",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.829Z"
+    },
+    {
+      "id": "0oba7fdzywdyyy5",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.829Z"
+    }
+  ]
+}

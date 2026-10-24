@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Stammbuch der verewigten Gräfin Tina Brühl (Sammlung INr 20856, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "324",
+  "incipit_statement": "Blumen und Kränze gebühren der Schönheit; / Blumen und Kränze verhüllet die Feier",
+  "language": [],
+  "musenalm_id": 20858,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Knebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2002-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "orc2i6xdol6eey0",
+      "agents": "ymo6fj9vzc9ufg1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.082Z"
+    }
+  ]
+}

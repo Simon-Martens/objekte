@@ -1,0 +1,45 @@
+{
+  "annotation": "Rosenlieder (Sammlung INr 132459, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Eine Rose send' ich Dir, / Eine junge, frische Rose, / Die erblüht aus grünem Moose,",
+  "language": [],
+  "musenalm_id": 132460,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Mit einer Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Mit einer Rose",
+  "updated": "2022-06-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w2fdoccqaeqouv7",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.092Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.549Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ich war noch ein kleines Kind, als mein Mutter starb, und erinnere mich ihrer nur dunkel.",
+  "language": [],
+  "musenalm_id": 64467,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwester. / Eine Geschichte aus dem kleinrussischen Volksleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Bodenstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwester. / Eine Geschichte aus dem kleinrussischen Volksleben",
+  "updated": "2009-06-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lec7kdv2s8i9nr2",
+      "agents": "3bb8mhymqsjn5dk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.151Z"
+    }
+  ]
+}

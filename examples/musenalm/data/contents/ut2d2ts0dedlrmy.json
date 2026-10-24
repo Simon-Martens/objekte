@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel am 1. Blatt der Suite. Graphik im Kalendarium paginiert II. Illustration zu »Reise nach Paris« von W. G. Becker",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11112,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der Reise nach Paris / V. Darstellungen von W. G. Becker I. B. #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Cl. Kohl sc.",
+  "scans": [
+    "alm_206_11112_sbi3xmscnw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus der Reise nach Paris / V. Darstellungen von W. G. Becker I. B. #",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ncn16efv1erfg3m",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.512Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.512Z"
+    },
+    {
+      "id": "i1gltiz2ycnf15s",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.512Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.512Z"
+    }
+  ]
+}

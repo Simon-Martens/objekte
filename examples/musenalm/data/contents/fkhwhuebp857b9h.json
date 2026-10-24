@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Sachsen (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Es ahnet Niemand meines Herzens Regen, / Das dunkle Meer von meiner Seele Tiefen,",
+  "language": [],
+  "musenalm_id": 99525,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geständniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Otto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geständniß",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r8q1vzmg2lv8gme",
+      "agents": "wdljo1hy3zp7qgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.854Z"
+    }
+  ]
+}

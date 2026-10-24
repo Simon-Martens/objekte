@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Muscheln von der Insel Rügen. 1825 (Sammlung INr 1888, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Schon wieder hundert Jahre! / Ich darf aus meiner Gruft / Heraus die Blicke senden",
+  "language": [],
+  "musenalm_id": 1902,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Hünengrab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Hünengrab",
+  "updated": "2000-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fj7w2teic92ygf5",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.022Z"
+    }
+  ]
+}

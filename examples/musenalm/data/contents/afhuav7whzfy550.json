@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Nonnen von Burgos« von J. G. Seidl INr 85674, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85675,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nonnen von Burgos",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clementine Russ del. M. Hofmann sc. Viennae",
+  "scans": [
+    "alm_1591_85675_bcdb574vo3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Nonnen von Burgos",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zu3lmo37a03x0ey",
+      "agents": "iexyvzdzwrb4rqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.035Z"
+    },
+    {
+      "id": "ga7z3aym6uqm2tw",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.035Z"
+    }
+  ]
+}

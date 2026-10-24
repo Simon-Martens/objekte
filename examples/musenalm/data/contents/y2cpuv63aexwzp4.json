@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Nur vier Meilen war der Justiz-Rath Strahlen noch von der Residenz *** entfernt. Vor ihm lag Rosenbühl, ein freundliches Dorf mit ungemein angenehmen Umgebungen.",
+  "language": [],
+  "musenalm_id": 112237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Friedirch Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Dichter",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qk8qrhe9dzppdtn",
+      "agents": "scmt2snhwdglbs9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.345Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Pfand. Nomannische Sage in Balladen (Sammlung INr 26970, Obj 228)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "439",
+  "incipit_statement": "In Herzog Wilhelms Flotte schifft ein Held, / Sein ganzer Sinn auf Sang und Sieg gestellt,",
+  "language": [],
+  "musenalm_id": 36458,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 230,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ivnx37ja0v56l47",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.712Z"
+    }
+  ]
+}

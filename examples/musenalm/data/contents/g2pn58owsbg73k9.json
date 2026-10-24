@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Erfindungen und Vorschläge zu Garten Gebäuden« INr 74321, Obj 45 /) # Titel aus dem Beitrag",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74323,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine RuheHalle an einem Wasser #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "erf. u. gez. von Klinsky",
+  "scans": [
+    "alm_3111_74323_u43mld2uum.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine RuheHalle an einem Wasser #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qcaufynsjqtzbol",
+      "agents": "jluxmeayxx3ga35",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.812Z"
+    }
+  ]
+}

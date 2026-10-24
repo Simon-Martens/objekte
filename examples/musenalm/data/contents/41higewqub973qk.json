@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Ich wüßte nichts, das ich wohl sehen möchte, / Weil nichts mehr Reiz für meine Augen hat;",
+  "language": [],
+  "musenalm_id": 16793,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Mond. / Nachts in der Laube",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Nantchen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Mond. / Nachts in der Laube",
+  "updated": "2001-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dmf2kvn61balpv7",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.701Z"
+    }
+  ]
+}

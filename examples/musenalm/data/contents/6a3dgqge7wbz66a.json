@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. G 2",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Du, dem die Musen, von den Aktenstöcken, / Die Rosenhände willig strecken,",
+  "language": [],
+  "musenalm_id": 8775,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Göthe an Schloßer. / (Als der letztere dem ersten für ein Gemälde in / lateinischen Versen gedankt hatte.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Göthe an Schloßer. / (Als der letztere dem ersten für ein Gemälde in / lateinischen Versen gedankt hatte.)",
+  "updated": "2001-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jtmb1zj430fb4l3",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.131Z"
+    }
+  ]
+}

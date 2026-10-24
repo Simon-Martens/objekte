@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. Zehnte und letzte Lieferung (Sammlung INr 77261, Obj 5) Illustration zu »Der Treubruch« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77265, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77266,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "108. / Wo bin ich? Weh, was für ein Wahnsinn reisst mich fort?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pöhacker del. Ig. Krepp sc. Viennae",
+  "scans": [
+    "alm_2401_77266_2r1otwjvil.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "108. / Wo bin ich? Weh, was für ein Wahnsinn reisst mich fort?",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9zfw1bxzwdyiolo",
+      "agents": "n3frc0soph8hl9f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.750Z"
+    },
+    {
+      "id": "kyymfmgrg7po9o8",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.750Z"
+    }
+  ]
+}

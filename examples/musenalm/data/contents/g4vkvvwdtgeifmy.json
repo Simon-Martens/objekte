@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28109,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Riepns)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepns",
+  "scans": [
+    "alm_143_28109_1atml5jfh3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zr4ppzbe7541oh9",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.214Z"
+    }
+  ]
+}

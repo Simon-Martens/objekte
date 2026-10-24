@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Vampyr« von H. Marschner / W. A. Wohlbrück s. Textbezug INr 75450, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75451,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER VAMPYR. / II. Aufz. 12. Sc. / (Quartett.) Im Herbst da muss man trinken! / Das ist die rechte Zeit.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_2375_75451_6i8yo7dvw9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER VAMPYR. / II. Aufz. 12. Sc. / (Quartett.) Im Herbst da muss man trinken! / Das ist die rechte Zeit.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u90hrvhuc9ou8c7",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.662Z"
+    },
+    {
+      "id": "s73x3af7nmsgvjw",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.662Z"
+    }
+  ]
+}

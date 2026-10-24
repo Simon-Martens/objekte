@@ -1,0 +1,45 @@
+{
+  "annotation": "Pfeffels letztes Geschenk für die Iris (Sammlung INr 16443, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.968Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Ein kleiner Cäsar drang mit einem Schwarm / Piraten / Ins Herz von Afrika. Ein Völkchen ward / bekriegt.",
+  "language": [],
+  "musenalm_id": 16445,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Das Bild des Teufels",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Das Bild des Teufels",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "81kgrjtk3k518af",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.555Z"
+    }
+  ]
+}

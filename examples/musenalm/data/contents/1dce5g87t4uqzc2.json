@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.416Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Wie wird mir seyn, wenn einst die Nacht verronnen, / Die ewig hier den Sterblichen umringt,",
+  "language": [],
+  "musenalm_id": 101396,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich werde Seyn!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herrmann Waldow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ich werde Seyn!",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ntqy62q4wabr8dr",
+      "agents": "nicecucaceak00n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.876Z"
+    }
+  ]
+}

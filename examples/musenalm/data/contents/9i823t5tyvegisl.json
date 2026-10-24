@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 34",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Hier der tägliche Lebenslauf Rosaura's, / Deren Adel von ächtem Schrot und Korn ist!",
+  "language": [],
+  "musenalm_id": 6288,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rousaura's Lebenslauf. / Nach dem Französischen eines / Ungenannten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rousaura's Lebenslauf. / Nach dem Französischen eines / Ungenannten",
+  "updated": "2000-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1m8iqy8gtbkgre1",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.327Z"
+    }
+  ]
+}

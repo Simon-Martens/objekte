@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Ade, Frau Politik! Sie mag sich fürbaß / trollen; Die Schrift-Censur ist heut zu Tage scharf.",
+  "language": [],
+  "musenalm_id": 17864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Entsagung der Politik",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "U.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Entsagung der Politik",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v00piwm2l7arz0s",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.802Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63674, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.316Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Gleich der Wolk' am düstern Himmel! / Ziehen durch dies Pilgerleben / Wolken hin,",
+  "language": [],
+  "musenalm_id": 63678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meiner Gattin zum Geburtstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meiner Gattin zum Geburtstage",
+  "updated": "2009-04-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "stgricf2bxziima",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.213Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.213Z"
+    }
+  ]
+}

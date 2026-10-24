@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium März; nummeriert 3.; s. Textbezug INr 133023, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132873,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ALEANDER FRIEDRICH / von KNOBELSDORF",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Haas sc.",
+  "scans": [
+    "alm_3960_132873_ooi8jn7c0p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ALEANDER FRIEDRICH / von KNOBELSDORF",
+  "updated": "2013-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "14yqh2y5qbp1p27",
+      "agents": "3mymtnunkvww3p2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.097Z"
+    }
+  ]
+}

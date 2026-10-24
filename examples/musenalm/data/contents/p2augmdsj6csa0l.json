@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "O fließt, o fließt, ihr Thränen! / O warum fließt ihr nicht?",
+  "language": [],
+  "musenalm_id": 123618,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Qual vor Jesus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Lauffs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Qual vor Jesus",
+  "updated": "2009-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f9r3a4cknnqnlwi",
+      "agents": "psuy4hua61ncqyq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.845Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bez. aus dem I-Verz /) Rheinischer Dichter-Salon (Sammlung INr 44325, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.190Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Ist's nicht wie ein Zauberbann, / Daß ich gar nichts schreiben kann?",
+  "language": [],
+  "musenalm_id": 44331,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Lebensabschnitt.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Louise von Gall Schücking",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Lebensabschnitt.",
+  "updated": "2006-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8zoaru32ds19wme",
+      "agents": "lex2io8tsvo9rhi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.992Z"
+    }
+  ]
+}

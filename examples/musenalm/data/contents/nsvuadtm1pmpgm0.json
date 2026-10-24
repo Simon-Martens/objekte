@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Titel (INr 124592, Obj 3): mit zwei kol. Illustration (INr 124599, Obj 10; INr 124600, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Diese Gabe wird meinen Gustav sehr freuen; um so mehr, wenn er erfährt, daß ich für seinen neuen Schulfreund, den man vor wenigen Tagen in die Kostschule brachte, ein ähnliches Tuch stickte.",
+  "language": [],
+  "musenalm_id": 124598,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verschiedene Lebensweise. / Charakter-Skizze in einem Aufzug",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz August von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verschiedene Lebensweise. / Charakter-Skizze in einem Aufzug",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g1yg9tcknvbrzqg",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.741Z"
+    }
+  ]
+}

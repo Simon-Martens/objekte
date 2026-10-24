@@ -1,0 +1,45 @@
+{
+  "annotation": "s. graph. Titel INr 44022, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Lieber Leser, denkst du gerne / An des Rheinlands heitre Ferne, An die Burgen, hochgethürmt,",
+  "language": [],
+  "musenalm_id": 44025,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Titelvignette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelheid v. Stolterforth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zur Titelvignette",
+  "updated": "2006-06-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0rcizpugaq5v1f1",
+      "agents": "3jhgiv1hh1vm2en",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.317Z"
+    }
+  ]
+}

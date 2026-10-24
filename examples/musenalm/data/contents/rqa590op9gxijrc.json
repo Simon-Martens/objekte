@@ -1,0 +1,56 @@
+{
+  "annotation": "Oden aus dem Horaz (Sammlung INr 91628, Obj 23) s. zweite Übersetzung INr 91634, Obj 29mit Erläuterungen s. INr  91640, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Ruh' erflehtt von Göttern der Sturmergriff'ne / Auf Aegäums Meere, sobald die schwarze / Wolk' umzog den Mond,",
+  "language": [],
+  "musenalm_id": 91633,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Grosphus. / II. 16.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horaz [übers.] Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Grosphus. / II. 16.",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vguogpzw1iu32dd",
+      "agents": "ogosxb6kwkoek7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.382Z"
+    },
+    {
+      "id": "gvp3amiqkz7wzvd",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.382Z"
+    }
+  ]
+}

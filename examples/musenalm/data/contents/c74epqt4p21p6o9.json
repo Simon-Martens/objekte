@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Das Portugiesische ist eine Nachbildung von Moliere's: Souvent d'un faux espoir un Amanat est nourri, / Le mieux reçu toujours n'est pas le plus cheri,",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Mit der süßen Hoffnung falschem Schim- / mer / nährt sich nur zu oft, wer zärtlich liebt;",
+  "language": [],
+  "musenalm_id": 87725,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonett. / (Nach dem Portugiesischen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. W. Ahlwardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonett. / (Nach dem Portugiesischen.)",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "01ufpxt0sv0dqjk",
+      "agents": "zh4jp396sh7uyw8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.334Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.334Z"
+    }
+  ]
+}

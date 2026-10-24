@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik im Kalendarium INr 49212, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Die treffliche Frau von Waldmann hatte am ersten Nov. die sämmtlichen Mädchen zu sich gebeten.",
+  "language": [],
+  "musenalm_id": 49226,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. Novemberspiel. / Das Hausmütterchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. Novemberspiel. / Das Hausmütterchen",
+  "updated": "2007-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y3rhrluv12i4798",
+      "agents": "l2p9o0rcq31xal5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.619Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.619Z"
+    }
+  ]
+}

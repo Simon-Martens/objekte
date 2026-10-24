@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Der Lerchenbaum (Leerbaum, die Lerche, Pinus Larix.) ist heut zu Tage in Teutschland schon zu bekannt, als ich nöthig hätte, hier dessen eigentliche Naturgeschichte zu liefern.",
+  "language": [],
+  "musenalm_id": 130798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Vom Lerchenbaum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Oberforstmeister Wizleben zu Dillenburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Vom Lerchenbaum",
+  "updated": "2022-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r81t9x2g4p33700",
+      "agents": "iiexbt3f7jmpzqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.052Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.052Z"
+    }
+  ]
+}

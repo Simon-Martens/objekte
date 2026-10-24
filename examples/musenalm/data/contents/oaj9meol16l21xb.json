@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.965Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Der Ehestand ist ein beschwerlich Joch, / So klagt Fabulla stets bey Tage;",
+  "language": [],
+  "musenalm_id": 88831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fabulla. / Aus dem Martial",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. A. Eschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fabulla. / Aus dem Martial",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7bj88qcp1adsp2g",
+      "agents": "xmtpvsqh9ku69qr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.967Z"
+    }
+  ]
+}

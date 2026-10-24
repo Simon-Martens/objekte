@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Zeit ist hin, wo Bertha spann« von Helmina v. Chézy INr 22451, Obj 74",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.694Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22383,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zeit ist hin, wo Bertha spann. / Novelle von Helmina v. Chezy",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Pauquet sc.",
+  "scans": [
+    "alm_300_22383_6u53yoziwe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Zeit ist hin, wo Bertha spann. / Novelle von Helmina v. Chezy",
+  "updated": "2002-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "al5w66ht198x569",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.010Z"
+    }
+  ]
+}

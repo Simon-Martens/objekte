@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert XXXXX /) »Welsche Oper« (Sammlung INr 48185, Obj 103)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48191,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dominicus Mombelli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48191_8govb6jlne.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dominicus Mombelli",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gmva1pszvm46k89",
+      "agents": "theiyy8sya8no7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.493Z"
+    }
+  ]
+}

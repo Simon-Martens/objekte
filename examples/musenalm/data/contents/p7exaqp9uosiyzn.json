@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Wie nächtlich ungestüm die Wellen wogen, / Bald schwellend liebevoll zum Sternenkranze,",
+  "language": [],
+  "musenalm_id": 71110,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gedicht der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gedicht der Liebe",
+  "updated": "2010-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6bfiajoul8jymf8",
+      "agents": "dz9l16q76ffup70",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.603Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem G-Verz /) Titelgraphik; paginiert 10. /) Illustration zu »Selama, eine neuentdeckte, köstliche Reliquie Ossians« von Freiherr v. Harold INr 101698 f, Obj 83 f",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 101616,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selama v. Ossian. / Malvina, ich fühle die Stimme des Liedes",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Heß",
+  "scans": [
+    "alm_1014_101616_bxyu1o6j2z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Selama v. Ossian. / Malvina, ich fühle die Stimme des Liedes",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cpbja3z2d74nqhy",
+      "agents": "dvhp1mfxgvurunq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.008Z"
+    }
+  ]
+}

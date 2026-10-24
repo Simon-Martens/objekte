@@ -1,0 +1,45 @@
+{
+  "annotation": "See- und Alpenbilder (Sammlung INr 95601, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Wenn die Fische hier mit ritterlichem Geiste beseelt sind, werden es die Jungen wol ebenfalls sein?",
+  "language": [],
+  "musenalm_id": 95605,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Fischermädchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Fischermädchen",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mrte3qbh3cm7pl1",
+      "agents": "wzmgymh9fjau9gk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.766Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.766Z"
+    }
+  ]
+}

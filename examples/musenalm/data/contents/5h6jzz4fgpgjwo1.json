@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Du liebes Feld! ich geh vergnüget / Von dir mit meinem Pflug nach Haus!",
+  "language": [],
+  "musenalm_id": 107695,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied / eines deutschen Bauern bey Herannahung / des Winters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T. B. Berger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied / eines deutschen Bauern bey Herannahung / des Winters",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "494ro46ti2x09at",
+      "agents": "lmhkzj71seuklka",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.008Z"
+    }
+  ]
+}

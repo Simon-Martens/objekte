@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 127337, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.433Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Seid gegrüsst mit Frühlingswonne, / Blauer Äther, goldne Sonne!",
+  "language": [],
+  "musenalm_id": 127351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. Im Herbst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. U.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. Im Herbst",
+  "updated": "2020-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xk49400aj927i0l",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.885Z"
+    }
+  ]
+}

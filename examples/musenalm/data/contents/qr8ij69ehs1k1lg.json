@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Mährchen von Thule« INr 71207, Obj 105",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "358",
+  "incipit_statement": "Was du erbat's, sey dir gewähret, / gieb nur der schönsten Hoffnung Raum,",
+  "language": [],
+  "musenalm_id": 71212,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was du erbat's, sey dir gewähret, / gieb nur der schönsten Hoffnung Raum,…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sylvester",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f1xt5w67jqgghnb",
+      "agents": "ift6i2oy1gozbs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.412Z"
+    }
+  ]
+}

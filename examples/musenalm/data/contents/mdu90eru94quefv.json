@@ -1,0 +1,56 @@
+{
+  "annotation": "Übersetzung des nicht dargestellten griechischen Gedichts",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "331",
+  "incipit_statement": "Ungeschlachter Sultan, wilde Katze, / Aufgefüttert im Eunuchen-Haufen, / Greifst mit Griechenblut dich zu besaufen, / Greise, Männer, Kinder mit der Tatze.",
+  "language": [],
+  "musenalm_id": 131913,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode an die Hellenen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jacobus Rizos Nerulus [übers.:] C. A. Mebold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode an die Hellenen",
+  "updated": "2013-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cz76arr8rb275pb",
+      "agents": "p790a5gd43fde8n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.044Z"
+    },
+    {
+      "id": "9uovo9klt3zxl74",
+      "agents": "y3vcu2p4zhikm7w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.045Z"
+    }
+  ]
+}

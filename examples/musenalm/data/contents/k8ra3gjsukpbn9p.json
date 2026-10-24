@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Christian der Vierte, König von Dänemark, und Christine Munk« von C. A. INr 30103, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30104,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Christian der Vierte, Erz. von C. A.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_390_30104_owu8wqv38l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Christian der Vierte, Erz. von C. A.",
+  "updated": "2002-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "11p1srsxesoljo4",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.535Z"
+    },
+    {
+      "id": "oz75xuwzbe9di6r",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.535Z"
+    }
+  ]
+}

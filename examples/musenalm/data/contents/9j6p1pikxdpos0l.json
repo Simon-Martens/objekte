@@ -1,0 +1,58 @@
+{
+  "annotation": "S. 49 /) Illustration zu »Erzählungen beim Licht. Achter Abend. Der Olymp auf dem Schwarzwald« von C. Spindler INr 103480, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.156Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103482,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Olymp auf dem Schwarzwalde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Weisser. ALGAIER",
+  "scans": [
+    "alm_3418_103482_s7bdc67r1w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Olymp auf dem Schwarzwalde",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gasmztz0o2kf6fd",
+      "agents": "ewmnajdflq8wfzp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.021Z"
+    },
+    {
+      "id": "arlvm2mfcga1t3w",
+      "agents": "mx9jzlh4jlxt87l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.021Z"
+    }
+  ]
+}

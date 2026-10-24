@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Der Pelzrock« von St. Schütze INr 13591, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.767Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13571,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Pelzrock / von St. Schütze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Jury sc.",
+  "scans": [
+    "alm_218_13571_bwjl20tf89.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Pelzrock / von St. Schütze",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y8ncf51lx1r847w",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.653Z"
+    },
+    {
+      "id": "28cfkat1j0lgiis",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.653Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Maria. Ein Sonettenkranz (Sammlung INr 34398, Obj 121)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "288",
+  "incipit_statement": "Zu ihren Füßen sank ich bebend nieder: / Was weinest du, was kann Dir Thränen rauben,",
+  "language": [],
+  "musenalm_id": 34409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Georg Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI.",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m1g0rqts4xlq04l",
+      "agents": "g7ovzuyzi8c0g2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.435Z"
+    }
+  ]
+}

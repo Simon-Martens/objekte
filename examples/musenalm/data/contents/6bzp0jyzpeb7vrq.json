@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September; paginiert 9. /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Anfange des siebzehnten Jahrhunderts« von Fr. Wilken INr 58497, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58493,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans George Kurfürst / Manu ppria",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. Jügel sc.",
+  "scans": [
+    "alm_855_58493_zrd73bzdir.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hans George Kurfürst / Manu ppria",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5bhy2im2sfw7ddv",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.961Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.961Z"
+    },
+    {
+      "id": "vegrn5lqae1tkjc",
+      "agents": "flivu8hnh9tq1va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.961Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.961Z"
+    }
+  ]
+}

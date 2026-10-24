@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke aus Hymnen an die Musik (Sammlung INr 71996, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.956Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Das Brautlied Adams und Heva's war verloren gegangen; die Lilien ihrer Umarmung hielten die Kinder nicht mehr in einander geschlossen.",
+  "language": [],
+  "musenalm_id": 72000,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidorus Orientalis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0cn9ximwfombdpj",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.647Z"
+    }
+  ]
+}

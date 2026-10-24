@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Dritte Fortsetzung (Sammlung INr 74293, Obj 17) mit einer Illustration s. Graphik INr 74306, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Diesen Namen trägt eine andere Parthie, die nicht weit von der Säule entfernt ist.",
+  "language": [],
+  "musenalm_id": 74305,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kauf-Laden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kauf-Laden",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "03203gxjigihfnr",
+      "agents": "0qzneijgjsm86gl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.731Z"
+    }
+  ]
+}

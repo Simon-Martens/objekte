@@ -1,0 +1,48 @@
+{
+  "annotation": "auszufaltende Musikbeigabe, nummeriert /) No. 3 /) Photos 114757,01; 114757,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Puthöneken, Puthöneken, wat deist in unsern Hof? Du plückst uns all de Blöhmkens af, du mäkest all to groff!",
+  "language": [],
+  "musenalm_id": 114757,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VOLKSLIED / in plattdeutscher Mundart, / in Musik gesetzt von / Otto Nicolai",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "OTTO NICOLAI",
+  "scans": [
+    "alm_1304_114757_01_edev9xoilv.jpg",
+    "alm_1304_114757_02_fcw0abyebr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "VOLKSLIED / in plattdeutscher Mundart, / in Musik gesetzt von / Otto Nicolai",
+  "updated": "2010-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s6tgcr8ud3k1szc",
+      "agents": "6b04gnxspwoatkh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.489Z"
+    }
+  ]
+}

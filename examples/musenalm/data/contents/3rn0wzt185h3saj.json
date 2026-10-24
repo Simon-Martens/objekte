@@ -1,0 +1,45 @@
+{
+  "annotation": "Novellen und Sardellen (Sammlung INr 57377, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Die galanten Damen der City waren mehrere Tage ganz außer sich, und die Londoner Blätter vergaßen Don Miguel und den Großsultan, um ein Duell zu beschreiben, wozu eine Laune der Demoiselle Sonntag Veranlassung gab.",
+  "language": [],
+  "musenalm_id": 57384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Abenteuer der Demoiselle Sonntag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Abenteuer der Demoiselle Sonntag",
+  "updated": "2008-04-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ul1mlinvkr77d8y",
+      "agents": "exegl4z6k8jnby0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.695Z"
+    }
+  ]
+}

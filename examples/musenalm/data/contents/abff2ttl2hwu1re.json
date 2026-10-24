@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Gedichte (Sammlung INr 28943, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Du, Meisterinn der Harmonie, / Verlangst ein Lied von mir?",
+  "language": [],
+  "musenalm_id": 28947,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Wilhelm, als ihn Anna um ein Lied bat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Wilhelm, als ihn Anna um ein Lied bat",
+  "updated": "2002-10-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cz39q1mv7m2qorh",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.187Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.187Z"
+    }
+  ]
+}

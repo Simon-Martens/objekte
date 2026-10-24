@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 130121, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Laß mich lieber in der Kammer, / Wo ich sitze, wo ich brüte!",
+  "language": [],
+  "musenalm_id": 130126,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutterschmerz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mutterschmerz",
+  "updated": "2009-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "trdgsxtnkcx8fxa",
+      "agents": "4g2r3ta4uzw1gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.058Z"
+    }
+  ]
+}

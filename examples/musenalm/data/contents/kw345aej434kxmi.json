@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. Juni s. Textbezug INr 584",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58456,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Andres Städtchen, andres Mädchen!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Meno Haas",
+  "scans": [
+    "alm_848_58456_7ua0lqnjxm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Andres Städtchen, andres Mädchen!",
+  "updated": "2008-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hqzaizeezplvncd",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.949Z"
+    },
+    {
+      "id": "c3xwh4pdidwrmv9",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.949Z"
+    }
+  ]
+}

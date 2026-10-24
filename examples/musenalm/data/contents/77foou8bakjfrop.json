@@ -1,0 +1,43 @@
+{
+  "annotation": "Die verheimlichte Schöne. Ein erzählendes Gedicht in zwölf Balladen (Sammlung INr 29749, Obj 5) s. Graphik INr 29755, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Halloh! zum Kampf ein neues Ziel, / Zum Sieg ein neues Zeichen!",
+  "language": [],
+  "musenalm_id": 29754,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dritte Ballade. / Der Liebe Trauer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dritte Ballade. / Der Liebe Trauer",
+  "updated": "2002-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "864jcdv8ct22lk3",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.350Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.350Z"
+    }
+  ]
+}

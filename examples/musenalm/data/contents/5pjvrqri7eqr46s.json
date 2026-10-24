@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 7858, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7859,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pastor Henley wie er ein Kind tauft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth del. Rip. f.",
+  "scans": [
+    "alm_170_7859_gykg4x0jzl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pastor Henley wie er ein Kind tauft",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y9qpar54san4ef1",
+      "agents": "yylanvnf5ct4jbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.408Z"
+    },
+    {
+      "id": "70kcyr8too3cpp8",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.408Z"
+    }
+  ]
+}

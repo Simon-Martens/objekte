@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorowort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Mit einem Vertrauen auf die Güte meiner Leser, das seit eilf Jahren nicht getäuscht wurde, übergebe ich auch diesen Jahrgang meines Taschenbuchs der Buchdruckerpresse. Mancherley Hindernisse, theils durch neue Amtsgeschäfte des Herausgebers,",
+  "language": [],
+  "musenalm_id": 79081,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorerinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Neuhofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorerinnerung",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b4cbg087mjdmaml",
+      "agents": "n8qx3uzpvdlhykc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.798Z"
+    }
+  ]
+}

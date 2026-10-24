@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Demetrius« von Fr. Schiller s. Textbezug INr 39898, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.216Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39899,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Demetrius. 2r. Aufz. 2te. Scene. / Dem. Du fühlst als Pohle, ich bin Moskau's Sohn, / Es ist das Land, das mir das Leben gab.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_522_39899_lj2gfas6r5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Demetrius. 2r. Aufz. 2te. Scene. / Dem. Du fühlst als Pohle, ich bin Moskau's Sohn, / Es ist das Land, das mir das Leben gab.",
+  "updated": "2005-08-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4tvsewwoyqu7pv3",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.874Z"
+    },
+    {
+      "id": "0wjqtghk2dgazse",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.874Z"
+    }
+  ]
+}

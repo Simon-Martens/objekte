@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "O die an Dircens die Pieris / Mir stimmte nach den Tönen des Schwa- / nes, den / auf Wässern sie erzog,",
+  "language": [],
+  "musenalm_id": 96340,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Laute",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Liebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Laute",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d2o250r1nj79pju",
+      "agents": "bhyvkh2a1vif6bg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.798Z"
+    }
+  ]
+}

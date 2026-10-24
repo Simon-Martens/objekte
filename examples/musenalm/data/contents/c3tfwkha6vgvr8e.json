@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Meiden, liebe Hütte, meiden / Muß ich nun auf ewig dich!",
+  "language": [],
+  "musenalm_id": 5270,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sprickmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied",
+  "updated": "2000-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lliz24mjk3rs6a4",
+      "agents": "9p4t51qtb5vwvkk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.329Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.329Z"
+    }
+  ]
+}

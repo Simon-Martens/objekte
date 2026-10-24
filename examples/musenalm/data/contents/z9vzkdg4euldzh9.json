@@ -1,0 +1,69 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44662,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angelica und Medor",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Kauffmann pinx. Bartolozzi. A. Fenzel sc. Dresd.",
+  "scans": [
+    "alm_171_44662_sb2faul9oh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Angelica und Medor",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0upi1i724d3q15h",
+      "agents": "rvjtnjmzxqlhxml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.139Z"
+    },
+    {
+      "id": "t3h1luoqwpam8zb",
+      "agents": "vc8twbfp7kmalkk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.139Z"
+    },
+    {
+      "id": "glwyd4icix6dxkv",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.139Z"
+    }
+  ]
+}

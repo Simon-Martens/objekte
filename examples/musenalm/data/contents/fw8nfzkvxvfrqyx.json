@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Der Zeiten Erstgeburt, o Frühling, kehre wieder! / Belebe die Natur, belebe meine Lieder!",
+  "language": [],
+  "musenalm_id": 92319,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Winterabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kronegk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Winterabend",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q8mws8dcc365ut0",
+      "agents": "z5fp6h353pqhhsu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.636Z"
+    }
+  ]
+}

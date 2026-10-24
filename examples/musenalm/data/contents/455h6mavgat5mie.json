@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Agrionien für das Jahr 1829. Gesammelt von Th. Hell (Sammlung INr 40941, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "435",
+  "incipit_statement": "So manche zwei Letzte schwanden dahin, / Bis Laura's Huld ich gewonnen,",
+  "language": [],
+  "musenalm_id": 40961,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17. / Charade",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yfqna3s4zbq7dmd",
+      "agents": "utw4utrm977hsx5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.937Z"
+    }
+  ]
+}

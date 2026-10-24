@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 89589, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.183Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Wie man uns nennt, geläufig ist's den Leuten, / Und reicher Wünsche Zielscheib' ist der Name.",
+  "language": [],
+  "musenalm_id": 89609,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Überraschung. / (Zum Titelkupfer.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Überraschung. / (Zum Titelkupfer.)",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "84rpz6jxr8ianz6",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.109Z"
+    }
+  ]
+}

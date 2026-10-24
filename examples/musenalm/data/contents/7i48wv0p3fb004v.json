@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Das Gespenst von Rodenstein« von C. Spindler; s. Textbezug INr 103201, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103200,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS GESPENST VON RODENSTEIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Fellner del. D. v. Lange Leop. Beyer sc.",
+  "scans": [
+    "alm_3413_103200_20csgtfw6h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS GESPENST VON RODENSTEIN",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "82sd87a6ek2po3r",
+      "agents": "9z4h7ka6ovxy0ac",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.011Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.011Z"
+    },
+    {
+      "id": "lxn6ub9gap7jyhq",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.011Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.011Z"
+    }
+  ]
+}

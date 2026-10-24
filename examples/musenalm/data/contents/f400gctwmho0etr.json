@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Im Kuß der Phantasien zu entbrennen, / In holder Tändelei, in süßer Brunst,",
+  "language": [],
+  "musenalm_id": 13121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen jungen Dichter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidorus Orientalis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen jungen Dichter",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xucb0z0etukjzmw",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.335Z"
+    }
+  ]
+}

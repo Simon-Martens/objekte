@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Ein Schäfer ist der Amor auf dem / Lande, / Kind allezeit! und nackend allezeit!",
+  "language": [],
+  "musenalm_id": 38427,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beyden Amorn. / An Lalage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beyden Amorn. / An Lalage",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nyyh28ts2f2prpg",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.696Z"
+    }
+  ]
+}

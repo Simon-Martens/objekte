@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) s. Texbezug INr 78214, Obj 6 /) unter der Graphik: gedr. v. Altmayer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78210,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WALDEMAR / Prinz von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "KRÜGER pinx. TEICHEL sc.",
+  "scans": [
+    "alm_882_78210_qag28rt18m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WALDEMAR / Prinz von Preussen",
+  "updated": "2008-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4plm38nu0np029v",
+      "agents": "dp1i9gllz2qxsbz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.777Z"
+    },
+    {
+      "id": "bs602vxglja45ac",
+      "agents": "filrbdi16sdmhwd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.777Z"
+    }
+  ]
+}

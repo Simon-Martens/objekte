@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58711,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloß des Prinzen Carl zu Glienicke nach dem Umbau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Drawn by M. Mauch. Berlin. Engraved by George Cooke",
+  "scans": [
+    "alm_863_58711_0gpzn2tiby.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloß des Prinzen Carl zu Glienicke nach dem Umbau",
+  "updated": "2008-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "593ql6a9rid3t29",
+      "agents": "4qmuru1kuzg7ngl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.751Z"
+    },
+    {
+      "id": "sc00o8161iw7wm4",
+      "agents": "a7m5750fz1o3qqp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.751Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Ueberraschung in vier Bildern (Sammlung INr 30536, Obj 4) s. Graphik INr 30541, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der Herr Professor, grundgelehrt, / Hat wohl, in Bücher ganz vergraben, / Vom Kriege draußen nichts gehört,",
+  "language": [],
+  "musenalm_id": 30542,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Die ungebetenen Gäste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sonderland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Die ungebetenen Gäste",
+  "updated": "2002-11-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xkvzawmlde3l2vb",
+      "agents": "qy6yej73pl7anzc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.551Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.551Z"
+    }
+  ]
+}

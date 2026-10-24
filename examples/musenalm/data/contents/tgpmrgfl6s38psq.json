@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an Blatt 2 und 7 der Suite; paginiert 4. /) Illustration zu »Hessisches Landmädchen« von E. Ferrand d.i. Ed. Schulz INr 59542, Obj 61 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59541,
+  "musenalm_pagination": [
+    "3. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hessisches Landmädchen #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59541_740ejb16pg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hessisches Landmädchen #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ch3xnrri980tcs6",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.139Z"
+    }
+  ]
+}

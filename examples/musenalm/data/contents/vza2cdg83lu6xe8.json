@@ -1,0 +1,45 @@
+{
+  "annotation": "Reisescenen (Sammlung INr 95830, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Soll das Mädchen, dem die geliebten Eltern einen Mann zu geben wünschen, und in dem Wunsche es befehlen, sich dagegen sträuben, oder soll sich das Opfer ruhig an den Altar führen lassen.",
+  "language": [],
+  "musenalm_id": 95832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Wiedervereinigung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Wiedervereinigung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ciuawdbwgeuwjfa",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.764Z"
+    }
+  ]
+}

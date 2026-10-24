@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Alles schläft auf unsern Matten. / Nur die Nachtigall noch singt;",
+  "language": [],
+  "musenalm_id": 8562,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Cronegk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nacht",
+  "updated": "2000-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4kglomynqeru95w",
+      "agents": "z5fp6h353pqhhsu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.722Z"
+    }
+  ]
+}

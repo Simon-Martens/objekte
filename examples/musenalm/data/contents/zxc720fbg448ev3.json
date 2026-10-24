@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48860,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Taschenbuch / für / KUNST und LAUNE / auf das Jahr / 1802 / Köln / bei / Haas und Sohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Malbeste sculp.",
+  "scans": [
+    "alm_668_48860_8qpyv8kif0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / KUNST und LAUNE / auf das Jahr / 1802 / Köln / bei / Haas und Sohn",
+  "updated": "2007-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j2jnhu1bsf3ljwd",
+      "agents": "t6kwrc1ens7g178",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.238Z"
+    }
+  ]
+}

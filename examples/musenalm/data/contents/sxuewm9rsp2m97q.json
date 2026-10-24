@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht mit 107 Strophen SS 3-56, u. Anmerkungen SS 57-64",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "1. Mich hatte Waldesdunkel eingeschlossen / Und in Betrachtung lag ich tief versunken, / Von Bildern meiner Träume rings umwoben:",
+  "language": [],
+  "musenalm_id": 15068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todtenkränze. / Canzone. / \n»En toutes choses ce n'est que l'émotion qui est sublime!« / Lettres et maximes du Prince de Ligne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todtenkränze. / Canzone. / \n»En toutes choses ce n'est que l'émotion qui est sublime!« / Lettres et maximes du Prince de Ligne",
+  "updated": "2001-05-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ls29srrgrmumpz1",
+      "agents": "id1mj19iathigp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.645Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinische Sagen (Sammlung INr 63179, Obj 9) mit einer Illustration s. Graphik INr 63190, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Kaiser Ludewig, der Fromme / Liebte, von des Reiches Bürden / Auszuruh'n im trauten Tahle,",
+  "language": [],
+  "musenalm_id": 63184,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20. Die heilige Regiswindis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20. Die heilige Regiswindis",
+  "updated": "2009-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ghcz20ks51oylps",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.092Z"
+    }
+  ]
+}

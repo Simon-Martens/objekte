@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanztouren zu Beckers Taschenbuch 1816 (Sammlung INr 19568, Obj 101) 3 graph. Tanzanleitungen",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19570,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ecossaisen / I. II. III. / V te und V Ite Tour Chasseur od. Walzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [
+    "alm_264_19570_ztnw9hivm5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ecossaisen / I. II. III. / V te und V Ite Tour Chasseur od. Walzer",
+  "updated": "2001-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xrf2oazhblwl9j8",
+      "agents": "5e64t7ca8x2wyim",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.665Z"
+    }
+  ]
+}

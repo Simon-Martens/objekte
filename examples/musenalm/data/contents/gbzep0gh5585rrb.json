@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert XI. /) Illustration zu »Ludwig XVI. König von Frankreich« INr 59832, Obj 34 s.a. Textbezug INr 59827, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59829,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ludwigs XVI. Abschied von seiner / Familie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc. 1793",
+  "scans": [
+    "alm_932_59829_xdvz80ofar.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ludwigs XVI. Abschied von seiner / Familie",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hhuifdz8xvzeszz",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.084Z"
+    },
+    {
+      "id": "zinyhed9wojhjdg",
+      "agents": "c0fepqesuedn747",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.084Z"
+    }
+  ]
+}

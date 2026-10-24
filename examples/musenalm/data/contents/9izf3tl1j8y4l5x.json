@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollständige Bezeichnung aus dem Textbezug. Illustration (paginiert f) zu »Fleiß und Faulheit. Nach zwei Zeichnungen von Hrn. Nahl« INr 7601, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7600,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faulheit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Nahl inv. del. Riepenhausen",
+  "scans": [
+    "alm_163_7600_4fmw43fvnl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Faulheit",
+  "updated": "2000-12-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wetd11avslt7coc",
+      "agents": "19dpt0c5iom2ho8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.240Z"
+    },
+    {
+      "id": "d0k0u59nktwsxis",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.240Z"
+    }
+  ]
+}

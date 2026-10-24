@@ -1,0 +1,45 @@
+{
+  "annotation": "X. 1. Das Mädchen mit der Harfe. 2. Der Jäger. Romanze (Sammlung INr 31964, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Wer ist es, so mit himmlischem Gesange / Den zarten Laut ans weiche Herz mir schlägt?",
+  "language": [],
+  "musenalm_id": 31966,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Das Mädchen mit der Harfe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Das Mädchen mit der Harfe",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2jgwxl19rjut3cu",
+      "agents": "hdhytmzu9u57ana",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.250Z"
+    }
+  ]
+}

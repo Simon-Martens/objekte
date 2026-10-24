@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. / Fliegende Blätter (Sammlung INr 39746, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "In meinen jüngern Jahren stand es in Absicht der Philosophie so mit mir, daß ich ein Erbe unermeßlicher Reichthümer war,",
+  "language": [],
+  "musenalm_id": 39842,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In meinen jüngern Jahren stand es in Absicht der Philosophie so mit mir, daß ich ein Erbe unermeßlicher Reichthümer war,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "naumcx257qqe725",
+      "agents": "02o1v7ogp6q644r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.883Z"
+    }
+  ]
+}

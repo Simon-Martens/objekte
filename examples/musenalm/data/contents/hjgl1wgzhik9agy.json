@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Gedicht INr 98388, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98387,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Herbst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3532_98387_gpqk6w0qtg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Herbst",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hpmf1kxj9slwb6m",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.691Z"
+    }
+  ]
+}

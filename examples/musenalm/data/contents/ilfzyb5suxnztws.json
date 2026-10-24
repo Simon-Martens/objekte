@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Die Leiden eines Modernen. Skizze aus dem Leben.« von And. Schumacher",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "Verklungen war der Klang der Becher, / Verbraucht der laute Lärm der Zecher;",
+  "language": [],
+  "musenalm_id": 65336,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dichter. / Ein Fragment",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "And. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dichter. / Ein Fragment",
+  "updated": "2009-07-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c09zt6l58kp3b63",
+      "agents": "w54qzevkgviemdi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.530Z"
+    }
+  ]
+}

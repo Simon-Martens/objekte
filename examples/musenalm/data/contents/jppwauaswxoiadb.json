@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Agrionien für das Jahr 1825 gesammelt von Theodor Hell (Sammlung INr 40698, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.639Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "545",
+  "incipit_statement": "Ich von Fleisch und Bein - und Du, / Nur aus Pflanzensaft bereitet.",
+  "language": [],
+  "musenalm_id": 40721,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "23. / Homonyme",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "23. / Homonyme",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ix2yig85aj86tpu",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.230Z"
+    }
+  ]
+}

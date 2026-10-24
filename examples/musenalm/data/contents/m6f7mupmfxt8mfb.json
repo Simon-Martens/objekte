@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder der Liebe  (nachträgliche Blüthen aus der Jugendzeit.) (Sammlung INr 42115, Obj 25) II. Gedichte (Sammlung INr 42113, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Von jedem Harm der Zeit entbunden, / Froh wie ein Gott umarm ich dich.",
+  "language": [],
+  "musenalm_id": 42121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebesglück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebesglück",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "leji7qra9g8ltg3",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.909Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert III. /) Illustration zu »Die Wildschützen« aus: Bodmer (Übers.): »Altenglische Balladen« Th. II. S. 78-111. 8. Zürich 1781. # aus dem G-Verz INr 16537, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16490,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Inzwischen kam der Burgvogt an, denen freylich die drey Einzelnen sich nicht gewachsen fanden, #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hegi del. et sculp.",
+  "scans": [
+    "alm_259_16490_6svw5jlugd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Inzwischen kam der Burgvogt an, denen freylich die drey Einzelnen sich nicht gewachsen fanden, #",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r6dqzsauw96yg7w",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.876Z"
+    }
+  ]
+}

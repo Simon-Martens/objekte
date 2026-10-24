@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 87122, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Wohl mir, ziehen mich einst hinab die Arme / des Todes,",
+  "language": [],
+  "musenalm_id": 87134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gittermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12.",
+  "updated": "2013-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dtyirbd1ev1j91j",
+      "agents": "csr350ne0svibrz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.199Z"
+    }
+  ]
+}

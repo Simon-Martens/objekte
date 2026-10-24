@@ -1,0 +1,45 @@
+{
+  "annotation": "Versuch über die Schriftstellerei: Fragmente aus diesem Gedichte (Sammlung INr 31657, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Kunst und Natur! ja ihr, ihr bildet / den Mann, des es werth ist, / Daß ihn der Urenkel nennt.",
+  "language": [],
+  "musenalm_id": 31659,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kunst und Natur! ja ihr, ihr bildet / den Mann, des es werth ist, / Daß ihn der Urenkel nennt.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Gaheis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2uxvlw84a2fzajk",
+      "agents": "h2r7vychlnktmwb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.680Z"
+    }
+  ]
+}

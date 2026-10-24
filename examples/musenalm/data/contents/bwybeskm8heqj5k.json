@@ -1,0 +1,45 @@
+{
+  "annotation": "An die Wolken (Sammlung INr 42017, Obj 218)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "O ihr Wolken, die ihr trüb und düster, / Wandelt über Mond und Sternen,",
+  "language": [],
+  "musenalm_id": 42025,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 226,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Der Melancholische",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Zeising",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Der Melancholische",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ltg0t0xifbk9sg8",
+      "agents": "s5kqm22xcf4do3c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.326Z"
+    }
+  ]
+}

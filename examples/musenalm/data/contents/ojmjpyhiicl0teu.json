@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Nagt ein stiller Gram am wunden Herzen; / Flieht der Freude heitres Bild von mir;",
+  "language": [],
+  "musenalm_id": 84690,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Die Zuflucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Glatz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Die Zuflucht",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s467nehtxtftew8",
+      "agents": "qxcj6iktsu2xp76",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.270Z"
+    }
+  ]
+}

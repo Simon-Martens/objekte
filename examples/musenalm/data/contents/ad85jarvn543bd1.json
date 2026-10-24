@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Wohl dem, der frühe schon des Lebens / Mit weisem Sinn genießen lernt!",
+  "language": [],
+  "musenalm_id": 61369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Genuß des Lebens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hinsberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Genuß des Lebens",
+  "updated": "2009-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jzwky7tpofc6kxx",
+      "agents": "fd94g9jto2pspie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.921Z"
+    }
+  ]
+}

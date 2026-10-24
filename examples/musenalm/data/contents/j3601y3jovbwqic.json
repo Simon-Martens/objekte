@@ -1,0 +1,58 @@
+{
+  "annotation": "Gallerie zu den Opern. Erste Lieferung. Der Freischütz (Sammlung INr 89298, Obj 4) Illustration zu »Der Freischütz« von C. M. von Weber / Fr. Kind /) s. Textbezug INr 89307, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89308,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER FREISCHÜTZ. / IIr. Aufz. 6r. Auftr. / Caspar Fünf! Wehe! Das wilde Heer!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. J. G. A. Frenzel sc.",
+  "scans": [
+    "alm_2367_89308_xpe8v9be40.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER FREISCHÜTZ. / IIr. Aufz. 6r. Auftr. / Caspar Fünf! Wehe! Das wilde Heer!",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f2mcxanvqoj3mlx",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.100Z"
+    },
+    {
+      "id": "0mgh7fil3qqq2lk",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.100Z"
+    }
+  ]
+}

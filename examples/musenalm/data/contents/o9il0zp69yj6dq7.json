@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Mai /) nummeriert 3.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93821,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich darf mich dieses Verbrechens nicht beschuldigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+  "scans": [
+    "alm_989_93821_c74ega62pd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich darf mich dieses Verbrechens nicht beschuldigen",
+  "updated": "2009-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zs7huo193ob3gu7",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.235Z"
+    },
+    {
+      "id": "izot0e98c8q6252",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.235Z"
+    }
+  ]
+}

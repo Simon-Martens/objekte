@@ -1,0 +1,43 @@
+{
+  "annotation": "# s. Goed VI. 145, 2",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ob unsterblicher Nachruhm Dir wird, ob / die kommende Welt einst / Deinem geheiligten Bild' prangende / Tempel erbaut?",
+  "language": [],
+  "musenalm_id": 23928,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Königin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Königin",
+  "updated": "2002-05-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8qd4030lkrh15z7",
+      "agents": "ep8tm0egvn3ld0y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.158Z"
+    }
+  ]
+}

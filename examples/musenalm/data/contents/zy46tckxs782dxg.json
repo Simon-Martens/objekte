@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 95930, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95929,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FORNARINA. / Das Original-Gemälde befindet sich zu Rom im Pallaste Barbarina",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. de Perger del. C. Kotterba sc.",
+  "scans": [
+    "alm_4091_95929_4jtgcthor1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FORNARINA. / Das Original-Gemälde befindet sich zu Rom im Pallaste Barbarina",
+  "updated": "2014-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "at0tutz61md28ps",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.689Z"
+    },
+    {
+      "id": "6c2y2bf8krsamne",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.689Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm. /) s. folgendes Gedicht INr 88334, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Sitz' auf, du kleiner Schwärmer du! Warum / Verschmähst du dieses Veilchen hier?",
+  "language": [],
+  "musenalm_id": 88333,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schmetterling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mastalier",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schmetterling",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hqdohub3z33zul6",
+      "agents": "f2jay1ec3g5rdgn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.179Z"
+    }
+  ]
+}

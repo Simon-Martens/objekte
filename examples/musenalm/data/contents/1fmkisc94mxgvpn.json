@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 21086, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Des Gotteskindes Mutter Du, / Neig' Dich den Waisenkindern zu!",
+  "language": [],
+  "musenalm_id": 21087,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Waisenkinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Ortlepp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Waisenkinder",
+  "updated": "2002-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xdr4rm9gtfvvoeb",
+      "agents": "8jy8jxpsgv6f24z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.829Z"
+    }
+  ]
+}

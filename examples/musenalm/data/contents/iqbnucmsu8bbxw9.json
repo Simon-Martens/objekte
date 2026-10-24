@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed V, 167",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Hinweg den geflügelten Wagen, / Pfauen Junos! Erwartet mich / Auf Zythärons wolkichtem Gipfel!",
+  "language": [],
+  "musenalm_id": 41736,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Semele, / eine lyrische Operette von zwo Scenen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Y.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Semele, / eine lyrische Operette von zwo Scenen",
+  "updated": "2005-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xbdkvoo9kz5mi5a",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.171Z"
+    }
+  ]
+}

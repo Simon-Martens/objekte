@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Es freyten Stolz und Dummheit sich, / Von Adel Sie und Er,",
+  "language": [],
+  "musenalm_id": 2174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf eine / adliche Verbindung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "U. M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf eine / adliche Verbindung",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ewnqx023c15bbj",
+      "agents": "majfhkazcb1ylfy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.960Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert I. /) # Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13748,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NEPTON",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H. Gottschick",
+  "scans": [
+    "alm_219_13748_7aq1u7wuzn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NEPTON",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "65prd215kynsp5i",
+      "agents": "anvuxewtojf01i3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.389Z"
+    }
+  ]
+}

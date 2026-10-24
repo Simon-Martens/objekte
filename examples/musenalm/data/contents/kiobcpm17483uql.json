@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 86423, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "In der Vergangenheit lebt' er, der Zukunft gehöret sein / Wirken",
+  "language": [],
+  "musenalm_id": 86445,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Historiker",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Rain",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Historiker",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p3eib91pmnfqliw",
+      "agents": "ut3gc8g2lomjo63",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.239Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.239Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite /) Graphik im Kalendarium paginiert 3. Illustration zu »Die lustigen Weiber von Windsor« von W. Shakespeare s. Textbezug INr 6926, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6883,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hab ich dich erhascht mein himm- / lisches Kleinod! Ha! itzt will ich / gern sterben. / III. Aufz. 8. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et sc.",
+  "scans": [
+    "alm_139_6883_4zrepy84r0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hab ich dich erhascht mein himm- / lisches Kleinod! Ha! itzt will ich / gern sterben. / III. Aufz. 8. Auftr.",
+  "updated": "2000-11-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b6rxykos33re1lo",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.245Z"
+    }
+  ]
+}

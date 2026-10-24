@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Pfand. Nomannische Sage in Balladen (Sammlung INr 26970, Obj 228)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "450",
+  "incipit_statement": "Und in Freuden stand der Sänger / Vor der Königin,",
+  "language": [],
+  "musenalm_id": 36465,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 237,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX.",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "18hfwixv45f9rc2",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.884Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.884Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64676, Obj 11 /) Unter der Graphik: Darmstadt G. G. Lange",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64682,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In der Frühlingszeit #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. J. van den Berghe pinx. W. Steelink shulps.",
+  "scans": [
+    "alm_1081_64682_99fzodk39u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "In der Frühlingszeit #",
+  "updated": "2009-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1871,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nflvob8765kkr1f",
+      "agents": "qqznuujvi8ibff7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.349Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.349Z"
+    },
+    {
+      "id": "r41ypycw4qhf9gb",
+      "agents": "lwzw1g7isc1pjy6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.349Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.349Z"
+    }
+  ]
+}

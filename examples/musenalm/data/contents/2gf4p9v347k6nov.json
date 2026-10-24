@@ -1,0 +1,45 @@
+{
+  "annotation": "Beilage (INr 98783, Obj 142)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.545Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Privatisirt zu Berlin. Hat eigentlich Theologie studirt, mag aber wohl von jeher wenig Neigung zu orthodoxen Lehrsätzen gehabt haben, deshalb vetauschte er Theologie mit der Bellettristerei.",
+  "language": [],
+  "musenalm_id": 98788,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 147,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cranz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cranz",
+  "updated": "2009-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a8f0rbqy5wecogq",
+      "agents": "wqzupcw1vi6tnne",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.791Z"
+    }
+  ]
+}

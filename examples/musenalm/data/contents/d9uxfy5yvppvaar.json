@@ -1,0 +1,45 @@
+{
+  "annotation": "Der sächsische Bauer in drey Nummern Von Dienstag den 12. August, bis zu Donnerstag den 14. (Sammlung INr 73009, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "331",
+  "incipit_statement": "Gestern ging hier das dumpfe Gerücht, als ließe sich unweit dieses Platzes ein ungewöhnliches Gefiep', wie von einer ganzen Schwadron Mäuse hören,",
+  "language": [],
+  "musenalm_id": 73014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vom Kornboden, dicht unter der Scheune, / den 3. August",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Swift; [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vom Kornboden, dicht unter der Scheune, / den 3. August",
+  "updated": "2010-02-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "92gcyj3qkpbtynz",
+      "agents": "hcn45fi9qd30jgt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.660Z"
+    }
+  ]
+}

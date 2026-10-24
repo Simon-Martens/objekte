@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 95670, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Ungefähr ein Jahrhundert nach der Erschütterung, welche die Schweiz von fremdem Joche befreite, in jenem Zeitalter, da noch Tell's kühner Geist auf den aufkeimenden Republiken zu ruhen schien,",
+  "language": [],
+  "musenalm_id": 95669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die beiden Freunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Mereau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die beiden Freunde",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v4y8qmyo64v8i56",
+      "agents": "zoqy5th408hrb4e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.795Z"
+    }
+  ]
+}

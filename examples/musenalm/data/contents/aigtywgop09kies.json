@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus: Verzeichniss der Verfasser des N. W. Musenalmanachs vom J. 1798 in: Neuer Wiener Musenalmanach 1800",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Stille Freundinn, / Seliger Gedanken holde Mutter,",
+  "language": [],
+  "musenalm_id": 122419,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AN DIE EINSAMKEIT",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fischel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AN DIE EINSAMKEIT",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "awy37lbbnl10dpy",
+      "agents": "9fm6ody20z4gtke",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.708Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.708Z"
+    }
+  ]
+}

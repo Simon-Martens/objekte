@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung an Blatt A der Suite. »Das Collegium medicum« paginiert G s. Textbezug INr 7036, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ET PLURIMA MORTIS IMAGO",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth inv. Riepenhaus. sc.",
+  "scans": [
+    "alm_141_7037_unvcb00h85.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ET PLURIMA MORTIS IMAGO",
+  "updated": "2000-11-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wiu51rdzseyr99j",
+      "agents": "yylanvnf5ct4jbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.110Z"
+    },
+    {
+      "id": "fg2rtcilqmcuocn",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.110Z"
+    }
+  ]
+}

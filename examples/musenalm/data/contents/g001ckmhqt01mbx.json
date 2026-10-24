@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Der Außenwelt gehört des Tages Leben / In seinem Treiben, Hoffen, Sorgen, Mühn;",
+  "language": [],
+  "musenalm_id": 20385,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tag und Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elise von Hohenhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tag und Nacht",
+  "updated": "2001-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a4kh6jj20v9ikn4",
+      "agents": "egwykz1ou8cu8sz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.684Z"
+    }
+  ]
+}

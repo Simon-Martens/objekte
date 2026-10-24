@@ -1,0 +1,45 @@
+{
+  "annotation": "Spiele (Sammlung INr 49247, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Knaben und Mädchen tanzten am ersten August in der freyen Natur ein lustiges Spiel.",
+  "language": [],
+  "musenalm_id": 49302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XX. / Das Knotenspiel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XX. / Das Knotenspiel",
+  "updated": "2007-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hzyefz3umoyyllw",
+      "agents": "l2p9o0rcq31xal5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.453Z"
+    }
+  ]
+}

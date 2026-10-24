@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Mög' ein anderer Schäze von funkelndem Golde / sich sammeln, / Und ein weites Gebiet fruchtbarer Thäler und / Höhn:",
+  "language": [],
+  "musenalm_id": 16964,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tibull an Messala, / der dem Dichter eine Kriegswürde in seinem / Heere angeboten hatte. / Des ersten Buches erste Elegie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tibull an Messala, / der dem Dichter eine Kriegswürde in seinem / Heere angeboten hatte. / Des ersten Buches erste Elegie",
+  "updated": "2001-08-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k0blvysjeh95j9y",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.825Z"
+    }
+  ]
+}

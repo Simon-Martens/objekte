@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug INr 54613, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.984Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54618,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Geßlers Tod in der hohlen Gasse] #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. M. Disteli. gest. v. Jh. Lips",
+  "scans": [
+    "alm_743_54618_ij4waqp1d0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Geßlers Tod in der hohlen Gasse] #",
+  "updated": "2008-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7lzpn6mf728so85",
+      "agents": "yf0tgu146w1t5rh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.269Z"
+    },
+    {
+      "id": "jvm48bv4maaroad",
+      "agents": "iwoqrcn7d9iuxfi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.269Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Triolette (Sammlung 68000, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Wie oft ich auch entzückt vor dir gestanden, / Wie sehr mich auch der Schwester Muthwill neckt,",
+  "language": [],
+  "musenalm_id": 68001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rousseau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tektgdfch2nazs0",
+      "agents": "xojpiwzkdga93tk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.371Z"
+    }
+  ]
+}

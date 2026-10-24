@@ -1,0 +1,58 @@
+{
+  "annotation": "zus. Bez.: Pub. by Ackermann London 1828 /) s. Textbezug INr 34431, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34430,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THE LOGICIANS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Richter pinxt. H. C. Shenton sculpt.",
+  "scans": [
+    "alm_478_34430_yvak9ex88o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THE LOGICIANS",
+  "updated": "2003-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fqe9kn9gwlbs8mp",
+      "agents": "2p87lmr62wiucvw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.718Z"
+    },
+    {
+      "id": "pekisap79lx53k1",
+      "agents": "jfn0m9odb0mqqv8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.718Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Gedichte (Sammlung INr 29273, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Wie war sie heute spröd' und kalt! / O nein, der Scherz soll enden,",
+  "language": [],
+  "musenalm_id": 29284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Versuch zu zürnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Versuch zu zürnen",
+  "updated": "2002-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xdbwdhe6ct5oeve",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.453Z"
+    }
+  ]
+}

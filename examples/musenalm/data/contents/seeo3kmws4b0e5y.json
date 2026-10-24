@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Ritter Roststaub« von Maltitz (INr 124176, Obj 13 /) $ Zeichner: Christian Heinrich Schneider (T/B 30, 192)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124177,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bayard. / He, Bayard, bringe Wein! / 5te Scene. Ritter Roststaub",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schneider del. gest. bei Fleischmann # $",
+  "scans": [
+    "alm_1296_124177_d49s3qyqsg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bayard. / He, Bayard, bringe Wein! / 5te Scene. Ritter Roststaub",
+  "updated": "2010-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qkmv27r4jqtcjsy",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.859Z"
+    }
+  ]
+}

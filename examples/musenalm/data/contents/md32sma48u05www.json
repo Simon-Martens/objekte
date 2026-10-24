@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik (Portrait) im Kalendarium August /) s. Textbezug INr 96209, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96193,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "George Friedrich v. Bardeleben, / K. P. General Lieut. v. d. Kavallerie",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas",
+  "scans": [
+    "alm_2183_96193_yu5g9b5sh8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "George Friedrich v. Bardeleben, / K. P. General Lieut. v. d. Kavallerie",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rwykb2ur3y5zxl9",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.755Z"
+    }
+  ]
+}

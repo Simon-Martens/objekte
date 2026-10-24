@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 62099, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.930Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Welch Aengstigen und Quälen! / Wie pocht mein Busen hoch!",
+  "language": [],
+  "musenalm_id": 62100,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die kranke Rosette. / (mit einer Mel. von Franz.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Bothe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die kranke Rosette. / (mit einer Mel. von Franz.)",
+  "updated": "2009-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z4u2cgi4lz7a267",
+      "agents": "naz7pgrgy8ee7vq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.105Z"
+    }
+  ]
+}

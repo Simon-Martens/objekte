@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Apologen (Sammlung INr 10882, Obj 25) /) Prosaische Aufsätze (Sammlung INr 10878, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Sieh dort die Katze, wie sie sich niederdrückt zur Erde, wie sie auf dem Sammet ihrer Füße einherschleicht,",
+  "language": [],
+  "musenalm_id": 10885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Nachtigal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wir094s5c7qhgq3",
+      "agents": "fct0t8vge28lj72",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.435Z"
+    }
+  ]
+}

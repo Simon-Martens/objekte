@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Zwischen oben, zwischen unten / Schweb ich hin zu muntrer Schau,",
+  "language": [],
+  "musenalm_id": 45596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Seinem jungen Freunde Grafen / Moritz Brühl, / mit einem Bilde, einen über der Erde schwebenden Engel darstellend. / Weimar, 23. Dec. 1826",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Wolfgang v. Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Seinem jungen Freunde Grafen / Moritz Brühl, / mit einem Bilde, einen über der Erde schwebenden Engel darstellend. / Weimar, 23. Dec. 1826",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tdkr443nleik703",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.301Z"
+    }
+  ]
+}

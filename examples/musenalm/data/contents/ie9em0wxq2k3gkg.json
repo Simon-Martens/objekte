@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Oheim« von der Verfasserin der Klara von Walburg INr 32145, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32146,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich wußte nicht, wie ich dem Engel danken sollte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. et sculp",
+  "scans": [
+    "alm_434_32146_0z1gefb90b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich wußte nicht, wie ich dem Engel danken sollte",
+  "updated": "2003-02-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1j5ido9lczv1b5y",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.425Z"
+    }
+  ]
+}

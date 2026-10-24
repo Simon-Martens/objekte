@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelportrait INr 77632, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Die Raute sprießt an einem hohen Throne / Umschattend ihn mit ihrem milden Segen,",
+  "language": [],
+  "musenalm_id": 77635,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihro Königliche Hoheit Prinzessin / Amalia von Sachsen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihro Königliche Hoheit Prinzessin / Amalia von Sachsen",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w0mjb3td3xszi98",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.413Z"
+    }
+  ]
+}

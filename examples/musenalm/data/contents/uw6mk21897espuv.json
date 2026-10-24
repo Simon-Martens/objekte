@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette und Distichen (Sammlung INr 49072, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Wol denk' ich jener sel'gen Jugendträume, / Obschon sich die Gefühle mir versagen,",
+  "language": [],
+  "musenalm_id": 49084,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oeder Frühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Derselbe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Oeder Frühling",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x95lcyivyztc9dx",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.732Z"
+    }
+  ]
+}

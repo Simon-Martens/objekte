@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 104272, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "Frauenliebe ist die Quell' im Thale; / Ob das Eis sie noch so fest umschließt,",
+  "language": [],
+  "musenalm_id": 104273,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Frauenliebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise von Plönnies",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Frauenliebe",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5f3vktz6awup1vm",
+      "agents": "x92gop17wjmkkw4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.092Z"
+    }
+  ]
+}

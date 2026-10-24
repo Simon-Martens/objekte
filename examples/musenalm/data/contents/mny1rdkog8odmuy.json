@@ -1,0 +1,56 @@
+{
+  "annotation": "nummeriert 4. /) s. Textbezug INr 98124, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.912Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98085,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Klinsky erf. J. A. Darnstedt sc. 96)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klinsky erf. J. A. Darnstedt sc. 96",
+  "scans": [
+    "alm_2842_98085_48lmys8djn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g1yql5o5fq70akp",
+      "agents": "jluxmeayxx3ga35",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.826Z"
+    },
+    {
+      "id": "n1lpa1opnuvsolp",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.826Z"
+    }
+  ]
+}

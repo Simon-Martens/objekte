@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135840,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARIE / Prinzessin von Preussen, / Herzogin zu Sachsen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Mayer sc. Nbg.",
+  "scans": [
+    "alm_2126_135840_qukhztdx08.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARIE / Prinzessin von Preussen, / Herzogin zu Sachsen",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1874,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wufymea3urbdrpo",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.115Z"
+    }
+  ]
+}

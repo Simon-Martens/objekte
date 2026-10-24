@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.466Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Den liebsten Buhlen, den ich hab, / Der liegt beym Wirt im Keller;",
+  "language": [],
+  "musenalm_id": 5334,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinkgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischart, / Dichter des 16ten Jahrhunderts",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinkgesang",
+  "updated": "2000-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o5i24w6w6dh0zx1",
+      "agents": "9cddmq2idc4br21",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.951Z"
+    }
+  ]
+}

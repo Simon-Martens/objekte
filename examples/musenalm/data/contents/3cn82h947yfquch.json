@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Ludwig der Baier« INr 79089, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.352Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79079,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ludwig der Baier und Seyfried / Schweppermann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Usteri inv. P. J. Laminit sc.",
+  "scans": [
+    "alm_2199_79079_jefawolmey.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ludwig der Baier und Seyfried / Schweppermann",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "23uuulpfo1spl9e",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.797Z"
+    },
+    {
+      "id": "dvf2qy4s2smjx74",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.797Z"
+    }
+  ]
+}

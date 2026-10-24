@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 21087, Obj 10 # am Objekt: Carlsruhe im Verlag von Creuzbauer",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.013Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21086,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE WAISENKINDER #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pingret pinxit C. Frommel direxit",
+  "scans": [
+    "alm_279_21086_n44c5zgqgq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE WAISENKINDER #",
+  "updated": "2002-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ap2cwerelh874yw",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.829Z"
+    }
+  ]
+}

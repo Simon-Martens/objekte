@@ -1,0 +1,45 @@
+{
+  "annotation": "Amor. Sonettenkranz (Sammlung INr 21041, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Urheil'ge Nacht, Dir ist das Licht entsprungen! / Es rang sich flammend aus des Chaos Schoos",
+  "language": [],
+  "musenalm_id": 21042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ypo19hc325ravno",
+      "agents": "6qn9afrpxniwvx7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.132Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 80819, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Wer zu einer gewissen Stunde sich in dem alten zum Theil zur Ruine gewordenen Bibliotheksgebäude der Stadt Z. einfand, konnte fast jedes Mal einen jungen Mann erblicken,",
+  "language": [],
+  "musenalm_id": 80832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Freskobild. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karoline Leonhardt-Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Freskobild. / Novelle",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c88gr67v08g6ut5",
+      "agents": "3tut4t2f7uno1ba",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.923Z"
+    }
+  ]
+}

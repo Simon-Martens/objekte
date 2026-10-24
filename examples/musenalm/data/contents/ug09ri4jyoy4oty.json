@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Auf einem Rosenstamm, beschirmt von Dor- / nenhecken, / Saß eine Nachtigall und schlug",
+  "language": [],
+  "musenalm_id": 31561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nachtigall und der Habicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriela von Baumberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Nachtigall und der Habicht",
+  "updated": "2003-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "092xvmr0u9nf2g1",
+      "agents": "sjp9eapkpagxg0d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.388Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Nach dem Chinesischen (Sammlung INr 35108, Obj 77) /) Gedichte (Sammlung INr 35106, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Dsi dsi! / Dsi dsi! / Mulan sizt vor seiner Thür und webt. / Du hörst das Weberschiffchen rauschen,",
+  "language": [],
+  "musenalm_id": 35109,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Mu-Lan",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Elissen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Mu-Lan",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lkqyzzmzavgapin",
+      "agents": "g3mog3e4iqetkn4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.717Z"
+    }
+  ]
+}

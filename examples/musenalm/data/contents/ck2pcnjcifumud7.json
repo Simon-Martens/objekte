@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Honigsuchende , holde Bienchen, schwärmet, / Schwärmt zu meiner geliebten Amaryllis!",
+  "language": [],
+  "musenalm_id": 746,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Bienchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Bienchen",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ae04xkzk4ktzk8z",
+      "agents": "ymo6fj9vzc9ufg1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.713Z"
+    }
+  ]
+}

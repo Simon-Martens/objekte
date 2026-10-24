@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Die Meister und Gesellen aller Zünfte der weltberühmten Reichsstadt Nürnberg, die selbst bei den gewaltigen Veränderungen des Reichsfriedens-Deputationsschlußes vom Jahre 1803 ihre alte Freiheit behauptete,",
+  "language": [],
+  "musenalm_id": 57357,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Regiment über Nacht. / Eine historische Novelle aus Nürnbergs Chronik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Regiment über Nacht. / Eine historische Novelle aus Nürnbergs Chronik",
+  "updated": "2008-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p89b43wiauyaqts",
+      "agents": "exegl4z6k8jnby0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.416Z"
+    }
+  ]
+}

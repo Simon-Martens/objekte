@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert II. /) Illustration zu »Hedwig von Schwaben« von »Der Verfasserin der Reise von Freyberg nach Carlsbad«. Iris 1806 INr 16037",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16112,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bin ich denn wirklich glücklich? / Iris 1806 S. 42",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri del. H. Lips sc.",
+  "scans": [
+    "alm_254_16112_4t5zhokb9l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bin ich denn wirklich glücklich? / Iris 1806 S. 42",
+  "updated": "2001-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "egrvdy4611x8fm1",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.529Z"
+    },
+    {
+      "id": "twowbyzpchsla7g",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.530Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Juni paginiert 6. /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg und der damit verbundenen Staaten vom Jahre 1688 bis zum Jahr 1740. Churfürst Friedrich III. erster König von Preussen« INr 72344, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72331,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tod der Königin Sophie Charlotte. / Königin. Lebe wohl geliebter Bruder. / S. 67",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki & sculp",
+  "scans": [
+    "alm_828_72331_fjuecle1s5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tod der Königin Sophie Charlotte. / Königin. Lebe wohl geliebter Bruder. / S. 67",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m9keuhzcp17akyj",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.610Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.610Z"
+    }
+  ]
+}

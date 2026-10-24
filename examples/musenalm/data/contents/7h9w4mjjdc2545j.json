@@ -1,0 +1,45 @@
+{
+  "annotation": "s. 6 Graphiken mit je 2 Darstellungen INr 32884-32889, Obj 36-41",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Henriette war mit Armidoro schon einige Zeit in dem Garten auf und ab spaziert, in welchem sich der Sommerklubb zu versammeln pflegte.",
+  "language": [],
+  "musenalm_id": 32883,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die guten Frauen, / als Gegenbilder / der bösen Weiber, / auf den Kupfern des dießjährigen Damenal- / manachs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die guten Frauen, / als Gegenbilder / der bösen Weiber, / auf den Kupfern des dießjährigen Damenal- / manachs",
+  "updated": "2003-04-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pxln70eyr4q5i0b",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.499Z"
+    }
+  ]
+}

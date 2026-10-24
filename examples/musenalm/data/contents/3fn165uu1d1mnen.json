@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers /) in der Anmerkung: der lat. Text aus: Plinii epist. Lib. I. ep. 6.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Lachen wirst du, lieber Tacitus, schrieb Plinius einst seinem Freunde, und du hast recht dazu, lache nur!",
+  "language": [],
+  "musenalm_id": 66490,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2009-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hwbgguy940x7ut8",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.396Z"
+    }
+  ]
+}

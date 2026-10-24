@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Wer die anmuthige Gegend des Dorfes L- weiler zwei Meilen von Coblenz auf der Straße nach Luxemburg kennt, wird sich besonders der Partie um die etwa eine Viertelstunde vom Orte gelegene schöne Wassermühle mit Vergnügen erinnern,",
+  "language": [],
+  "musenalm_id": 77412,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schleier der Königinn. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von der Heyden",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schleier der Königinn. / Novelle",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hczyacnkhm02hpq",
+      "agents": "y4sojkg698u6ihg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.860Z"
+    }
+  ]
+}

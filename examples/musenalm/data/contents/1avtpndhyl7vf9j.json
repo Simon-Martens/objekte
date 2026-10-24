@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.804Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Du Centifolie, mach hier am R. den Kopf! / Hinab zur Biegung dort mit dir, du kleiner Topf; Die Monatsröschen stell’ ich All’ in diese Lücken, / So ründet sich das Ding, so wird der Zug schon glücken.",
+  "language": [],
+  "musenalm_id": 128287,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Morgenscherz. / Lustspiel in Versen, / von / Karl Immermann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Immermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Morgenscherz. / Lustspiel in Versen, / von / Karl Immermann",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ri2um91vroa3ohd",
+      "agents": "47huvmykx9z6337",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.962Z"
+    }
+  ]
+}

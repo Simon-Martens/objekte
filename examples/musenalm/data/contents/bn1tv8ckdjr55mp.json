@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zu folgendem Gedicht INr 92109, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Dieses uralte Bendictiner Stift, in Österreich ob der Enns in einem anmuthigen Thale vier Meilen von Linz gelegen - ist durch seine Erziehungsanstalt für Jünglinge aus den höheren Ständen,",
+  "language": [],
+  "musenalm_id": 92108,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XV. / Kremsmünster, Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler, geb. von Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XV. / Kremsmünster, Legende",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qrpux7ta6790t6t",
+      "agents": "vxzn7evqhv18e38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.451Z"
+    }
+  ]
+}

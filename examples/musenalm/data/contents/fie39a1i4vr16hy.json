@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 1175439, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.392Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Wie die Reichen mich verdrießen, / Die den Mammon, den ererbten / Unbarmherzig-frech genießen, / Die Selbsüchtigen, Verderbten.",
+  "language": [],
+  "musenalm_id": 117540,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Proletariers Unmuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Proletariers Unmuth",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "77gykbjfl8mow09",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.316Z"
+    }
+  ]
+}

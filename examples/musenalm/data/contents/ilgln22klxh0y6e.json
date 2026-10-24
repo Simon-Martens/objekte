@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Tadle so bitterlich nicht das heftige Wesen der / Jugend, / Lieblich und hold ist der Lenz,",
+  "language": [],
+  "musenalm_id": 11465,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 145,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "81. / Heftigkeit der Jugend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "81. / Heftigkeit der Jugend",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2cu8omet3abwkwh",
+      "agents": "lw3uqo50dp1mpif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.195Z"
+    }
+  ]
+}

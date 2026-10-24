@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April nummeriert 4; s. Textbezug INr 135470, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135487,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Speckbacher im Gefecht bey Melek. / Sp. dans la bataille de Melek",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. D. Schubert del. Meno Haas sc.",
+  "scans": [
+    "alm_2071_135487_cjka221hfh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Speckbacher im Gefecht bey Melek. / Sp. dans la bataille de Melek",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eb3ifb7x690tevp",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.149Z"
+    },
+    {
+      "id": "2rn3xqxv6waxam7",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.150Z"
+    }
+  ]
+}

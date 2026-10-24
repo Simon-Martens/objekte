@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "In die Segel des Schiffs, zärtliche Liebende, / Blies ein freundlicher Wind sittig, und / raubte mir / Meine bessere Hälfte,",
+  "language": [],
+  "musenalm_id": 2094,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Odarion / nach dem Griechischen des Meleager",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Z. T.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Odarion / nach dem Griechischen des Meleager",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wk40qhj7y2krnv5",
+      "agents": "5zi0b6u2dct0970",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.749Z"
+    }
+  ]
+}

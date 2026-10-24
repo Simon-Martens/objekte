@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bemerkungen (Sammlung INr 48486, Obj 54) mit Zitat aus dem 1. Kapitel von Goethes »Wahlverwandtschaften«",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Ist dir die sonderbare Stelle in den Wahlverwandtschaften aufgefallen, lieber Albert? Gieb doch einmal das Buch aus dem Schranke. Da steht sie. Die Männer denken mehr auf das Einzelne, auf das Gegenwärtige, und das mit Recht,",
+  "language": [],
+  "musenalm_id": 48513,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ist dir die sonderbare Stelle in den Wahlverwandtschaften aufgefallen, lieber Albert? Gieb doch einmal das Buch aus dem Schranke. Da steht sie. Die Männer denken mehr auf das Einzelne, auf das Gegenwärtige, und das mit Recht,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lh2lvtc8lyeijrh",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.368Z"
+    }
+  ]
+}

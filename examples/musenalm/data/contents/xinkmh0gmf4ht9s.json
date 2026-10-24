@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 40163, Obj 96)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "385",
+  "incipit_statement": "Es schwankt ein Wand'rer so matt und erbleicht / Am Stab, ihm beben die Lippen,",
+  "language": [],
+  "musenalm_id": 40167,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Stein. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Therese von Artner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Stein. / Ballade",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bakvjan6mbeygbx",
+      "agents": "easxd2ciuxkfl7o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.104Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.104Z"
+    }
+  ]
+}

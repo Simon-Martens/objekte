@@ -1,0 +1,45 @@
+{
+  "annotation": "4 Sammlungen mit 18 Gedichten INr 24471-24492, Obj 49-70",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.118Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 24470,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "51cwqb6qq835bz4",
+      "agents": "on0a0wityl8730t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.840Z"
+    }
+  ]
+}

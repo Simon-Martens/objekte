@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Beschreibung des Gartens in Hohenheim. / Die Köhlerhütte« von G. H. Rapp INr 74120, Obj 13 /) # Zuschreibung: Fischer S. 190",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Köhlerhütte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schöpflin sc.",
+  "scans": [
+    "alm_3108_74121_70fmn1c7eh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Köhlerhütte",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0m53vcty88ykwm6",
+      "agents": "4b4lhy0iqevooje",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.762Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.762Z"
+    },
+    {
+      "id": "c7wcrc595fs2gvt",
+      "agents": "d3csdnfdndi0txl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.762Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.762Z"
+    }
+  ]
+}

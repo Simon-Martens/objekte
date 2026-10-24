@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei kleine Erzählungen (Sammlung INr 94114, Obj 43) mit einer Illustration s. Graphik INr 94113, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "335",
+  "incipit_statement": "Das Fräulein von Bodmann war eine Waise; von ihrer Mutter hatte sie große Güter geerbt, unter diesen war auch die liebliche Insel Maynau im Bodensee, mit Höfen, Wäldern und Fischteichen.",
+  "language": [],
+  "musenalm_id": 94115,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Das Fräulein von Bodmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf von Mailáth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Das Fräulein von Bodmann",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xxwhyobg09btre6",
+      "agents": "ynz1wrh0mfk3t8y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.684Z"
+    }
+  ]
+}

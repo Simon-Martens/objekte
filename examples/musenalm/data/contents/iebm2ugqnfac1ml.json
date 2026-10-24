@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41 /) Sammlung von 4 Gedichten INr 1233-1236, Obj 57-60",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegien",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegien",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "byiwg45248b3nyi",
+      "agents": "xydtn3fjijfv56e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.131Z"
+    }
+  ]
+}

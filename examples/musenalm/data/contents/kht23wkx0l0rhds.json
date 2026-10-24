@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 11 Beiträgen INr 51184-51194, Obj 16-26 davon 6 Textbezüge (s. Anm. dort) zu den 6 Graphiken INr 50171-50176, Obj 3-8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51183,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber einige Gegenden / der Cantone / Glarus, Uri, Unterwalden / und / Schweiz. / Als Erklärung der 6 radirten Blätter des / Almanachs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber einige Gegenden / der Cantone / Glarus, Uri, Unterwalden / und / Schweiz. / Als Erklärung der 6 radirten Blätter des / Almanachs",
+  "updated": "2007-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "scqvo67ccy4d2ea",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.628Z"
+    }
+  ]
+}

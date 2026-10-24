@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 86260, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.715Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Hoch ob des Murstroms Felsenbette, / Umtost vom Schalle seines Grimm's, / Schwebt überhangend eine Feste,",
+  "language": [],
+  "musenalm_id": 86264,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Das Bankett auf Rabenstein. / (Steiermärk'sche Sage.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Das Bankett auf Rabenstein. / (Steiermärk'sche Sage.)",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ct0098xi91o6u9z",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.314Z"
+    }
+  ]
+}

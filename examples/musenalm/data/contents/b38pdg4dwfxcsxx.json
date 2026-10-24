@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium April",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135527,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FELIX / König von Sardinien, / Roi de Sargaigne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Boucheron p. Bolt sc.",
+  "scans": [
+    "alm_2080_135527_bjv355mhd4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FELIX / König von Sardinien, / Roi de Sargaigne",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wb0fs7ye0u87x92",
+      "agents": "7mlzn9jkwsc0rad",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.151Z"
+    },
+    {
+      "id": "jd14vf30rq6nlf1",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.152Z"
+    }
+  ]
+}

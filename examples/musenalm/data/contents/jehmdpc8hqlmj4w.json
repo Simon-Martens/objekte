@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Emilie am Grabe ihrer Mutter« von Christian Friedrich Traugott Voigt INr 13151, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131953,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emilie am Grabe ihrer Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Schmiedt",
+  "scans": [
+    "alm_1946_131953_3c44oas8mm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Emilie am Grabe ihrer Mutter",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0q8oyw9zn7hs4aj",
+      "agents": "m8h0i8atzha2rbr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.084Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Siebzehn Lieder (Sammlung INr 79345, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "So hast du ganz und gar vergessen, / Daß ich so lang' dein Herz besessen,",
+  "language": [],
+  "musenalm_id": 79351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Heine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI.",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a0i2eenilw1klls",
+      "agents": "1z1aqho0pmi2dwm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.976Z"
+    }
+  ]
+}

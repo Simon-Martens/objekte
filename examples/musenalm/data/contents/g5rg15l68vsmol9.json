@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Umschlaggraphik r. # vollst. Bez. s. L/R 95",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73547,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (L/S 1822)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L/S 1822",
+  "scans": [
+    "alm_1616_73547_sd765cbwbk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z4p3hw9wvysz5db",
+      "agents": "7yfzgmx3iovs38k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.672Z"
+    }
+  ]
+}

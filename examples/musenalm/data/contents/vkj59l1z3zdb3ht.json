@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Zurück, ihr Herrn, ich sag' euch laßt mich los! / Es gilt den Kopf, mein sprödes Mägdlein nicht, / Den Lippen gilt's",
+  "language": [],
+  "musenalm_id": 114854,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bruchstücke / aus dem dramatischen Gedichte: / Rudolph von Habsburg. / 1. Akt, 1.-4. Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bruchstücke / aus dem dramatischen Gedichte: / Rudolph von Habsburg. / 1. Akt, 1.-4. Scene",
+  "updated": "2012-06-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b9fnx8d3v82ez0j",
+      "agents": "5vrpezk8s9sgvqz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.488Z"
+    }
+  ]
+}

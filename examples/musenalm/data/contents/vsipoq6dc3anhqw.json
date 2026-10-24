@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Morgen Abend, so Gott will, sollst du, Trauter, / Bey mir schmausen! und hoch soll's bey mir hergehn!",
+  "language": [],
+  "musenalm_id": 8459,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn Kanonikus Gleim, / nach dem 13ten Gedichte des Katull",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. E. K. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn Kanonikus Gleim, / nach dem 13ten Gedichte des Katull",
+  "updated": "2026-06-23T09:01:04.879Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zwnpz8swazw1evs",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.986Z"
+    }
+  ]
+}

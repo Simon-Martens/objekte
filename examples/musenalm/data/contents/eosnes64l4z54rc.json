@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. aus dem G-Verz /) paginiert 5. Illustration zu »Der Lootse und sein Liebchen« INr 59576, Obj 94 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59577,
+  "musenalm_pagination": [
+    "5. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Lootse und sein Liebchen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jordan # Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59577_i8tjig72k8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Lootse und sein Liebchen #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vbh6m422czsc4cu",
+      "agents": "1f0xqgbb6vsljyb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.861Z"
+    },
+    {
+      "id": "jw1impsfa7xtwnq",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.861Z"
+    }
+  ]
+}

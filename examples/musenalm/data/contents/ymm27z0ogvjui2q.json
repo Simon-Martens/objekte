@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Da seht ihr mich! Versprechen bringet Schuld. / Doch eh wir noch zum Werke selber schreiten,",
+  "language": [],
+  "musenalm_id": 8260,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / beym Eintritt des Jahrs 1771, / (Gesprochen von Madame Koch.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Engel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / beym Eintritt des Jahrs 1771, / (Gesprochen von Madame Koch.)",
+  "updated": "2000-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uyuiw7svgxhzxtf",
+      "agents": "uqq3zzvz1phg9u6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.230Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 7. /) Illustration zu »Liamande. Ein Märchen« von August Mahlmann in: Taschenbuch zum geselligen Vergnügen 1803 INr 11906",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12061,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergiß du nur alles, dann wirst du gesund. / Ebendaselbst S. 106",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Meno Haas sc. Berlin 1803",
+  "scans": [
+    "alm_211_12061_0pq1lk9md8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vergiß du nur alles, dann wirst du gesund. / Ebendaselbst S. 106",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pik3sbfkincbegv",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.571Z"
+    },
+    {
+      "id": "9moc5pszk6m899o",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.571Z"
+    }
+  ]
+}

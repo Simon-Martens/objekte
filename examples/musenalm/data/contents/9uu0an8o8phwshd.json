@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Dem Land hochherziger Hellenen, / Dem nun ein zweites Werde naht,",
+  "language": [],
+  "musenalm_id": 66036,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Griechenlands Wiedergeburt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Messow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Griechenlands Wiedergeburt",
+  "updated": "2009-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "grmq2ttu75cdix0",
+      "agents": "u3h0otg4lapzo9f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.231Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.231Z"
+    }
+  ]
+}

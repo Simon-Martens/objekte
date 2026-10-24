@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgebers von der Borch mit Nachruf auf den Mitherausgeber V. F. S. Fischer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Mit den bittersten Gefühlen ergreife ich die Feder, um den geehrten Lesern des Sylvans die betrübende Nachricht mitzutheilen, daß der vortreffliche Ministerial- und Forstrath Fischer zu Karlsruhe",
+  "language": [],
+  "musenalm_id": 67525,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frhr. von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2009-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tyzg1jhrl03a21d",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.139Z"
+    }
+  ]
+}

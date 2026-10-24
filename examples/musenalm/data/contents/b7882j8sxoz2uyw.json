@@ -1,0 +1,45 @@
+{
+  "annotation": "dem folgenden Beitrag Bürgers vorangestellt INr 3838, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Schüchtern trete der Künstler vor die Kritik / und das Publikum, aber nicht die Kritik vor den Künstler,",
+  "language": [],
+  "musenalm_id": 3906,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unterschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unterschied",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "in1gtjejgn9pkub",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.094Z"
+    }
+  ]
+}

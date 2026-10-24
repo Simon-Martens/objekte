@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.515Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Die Uhr auf dem Dome schlug Eilf zur Nacht, da schaute Maria des Mahlers Marcello Wittwe aus dem Fenster ihrer Wohnung nach dere Kirche hinüber.",
+  "language": [],
+  "musenalm_id": 26928,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 177,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pellegrin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Borromäus Freiherr v. Miltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pellegrin",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hfsflybghdzhh0j",
+      "agents": "e36ydmk4x9m4umt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.770Z"
+    }
+  ]
+}

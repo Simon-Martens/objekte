@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Mich mit blendendem Schnee, Victoria! / warfst du. / Ich wähnte, / Feuerlos wäre der Schnee; dennoch war / Glut in dem Ball.",
+  "language": [],
+  "musenalm_id": 84156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 152,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Victoria. / (Nach dem Lateinischen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. W. Soltau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Victoria. / (Nach dem Lateinischen.)",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vv28kvqh5kgyeib",
+      "agents": "i2xso6w3k57v5qz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.956Z"
+    }
+  ]
+}

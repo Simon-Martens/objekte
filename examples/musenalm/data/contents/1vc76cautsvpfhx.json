@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 7. Blatt Suite /) Graphik im Kalendarium Februar; paginiert 3. /) s. Textbezug INr 96793, Obj 12 /) wohl Illustration zu »Kurze Geschichte der Hessen, mit besonderer Rücksicht auf ihre Kriege.« INr 96916 f, 35 f",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96906,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir sind deutsche Oficiere und sprechen / kein französisch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Küffner inv. de. & sc. 1794",
+  "scans": [
+    "alm_1967_96906_4oaansfo81.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wir sind deutsche Oficiere und sprechen / kein französisch",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k0biqrktujuc4qk",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.740Z"
+    }
+  ]
+}

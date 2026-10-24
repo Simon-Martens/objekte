@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Der große Städte-Krieg in der Mitte des XV. Jahrhunderts ist als ein Verheerungskrieg bekannt.",
+  "language": [],
+  "musenalm_id": 45227,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Eßlinger Frauen- und Jung- / frauen-Raub im J. 1450",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Pfister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Eßlinger Frauen- und Jung- / frauen-Raub im J. 1450",
+  "updated": "2006-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4mtxx5mnmjrn37q",
+      "agents": "hrkytlpebpsdn8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.330Z"
+    }
+  ]
+}

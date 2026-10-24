@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Was, ihr Leutchen, geht über das Tanzen? / Wir verfliegen die Grillen hey sa!",
+  "language": [],
+  "musenalm_id": 10740,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "46. / Lied für eine Tanzgesellschaft. / Nach der Tanzmelodie in der Oper, Don Juan: / Hat ein Mädchen sein Liebchen gefunden etc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "46. / Lied für eine Tanzgesellschaft. / Nach der Tanzmelodie in der Oper, Don Juan: / Hat ein Mädchen sein Liebchen gefunden etc",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sozfwfctq96mz69",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.299Z"
+    }
+  ]
+}

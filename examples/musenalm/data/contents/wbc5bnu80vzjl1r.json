@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Schönres gäb' es, als die Liebe? / Wie sich Blüth' mit Blüthe einet,",
+  "language": [],
+  "musenalm_id": 78462,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 117,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthäus v. Collin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe",
+  "updated": "2011-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fh2p8c4wkvb79l0",
+      "agents": "fd00ei6z82qcoka",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.950Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24287, Obj 67)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Ich hatte längst dich lieb gewonnen, / Geschäftig waltende Natur,",
+  "language": [],
+  "musenalm_id": 24288,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Rhonegletscher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Egon Ebert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Rhonegletscher",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6j6good0evn9y8n",
+      "agents": "8gvoxfhtianvore",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.140Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.140Z"
+    }
+  ]
+}

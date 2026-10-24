@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Gedichte. Erste Sammlung. (INr 17527)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.944Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Ich liege jede Nacht an deiner Thür, / Und seufz' und klage jeden Tag um dich.",
+  "language": [],
+  "musenalm_id": 17530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Ode von Khosru. / Aus dem Persischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Ode von Khosru. / Aus dem Persischen",
+  "updated": "2001-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jaov6rs6w8sp4gm",
+      "agents": "11ylx5z0u965md8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.823Z"
+    }
+  ]
+}

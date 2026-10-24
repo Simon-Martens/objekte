@@ -1,0 +1,56 @@
+{
+  "annotation": "mit einer Einleitung s. INr 59341, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Von vorn, von hinten, von den Seiten dringen / Die Flammen, immer wachsend, zu ihm her.",
+  "language": [],
+  "musenalm_id": 59342,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Das Leben im Wallfischbauche. Bruchstück aus Ariosts fünf Gesängen] Vierter Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ariost; [übers.] Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Das Leben im Wallfischbauche. Bruchstück aus Ariosts fünf Gesängen] Vierter Gesang",
+  "updated": "2008-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "99dxt50gt98yi6t",
+      "agents": "a42o5c274tls1qd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.830Z"
+    },
+    {
+      "id": "lx7nq0s0q0kwnih",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.830Z"
+    }
+  ]
+}

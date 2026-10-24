@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Wenn von der Zeit der innigsten Seligkeit die Rede ist, so muß man nicht die Kinderzeit anführen, sondern die Jahre des Jünglings und der Jungfrau.",
+  "language": [],
+  "musenalm_id": 43042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schönheit des Sterbens in der / Blüte des Lebens; und ein Traum / von einem Schlachtfelde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Friedrich Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schönheit des Sterbens in der / Blüte des Lebens; und ein Traum / von einem Schlachtfelde",
+  "updated": "2003-05-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6fch6tzxdlnkajg",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.328Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.327Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 7. /) s. Textbezug INr 30273, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30272,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Ramberg del. E. Schuler sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. E. Schuler sculp.",
+  "scans": [
+    "alm_395_30272_b7hek38otv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "epp0ryoldxgizdh",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.563Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.563Z"
+    },
+    {
+      "id": "tfhw4e1w1czlsov",
+      "agents": "hk6k9w6jym7fe8o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.563Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.563Z"
+    }
+  ]
+}

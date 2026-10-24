@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Entblättert stehen die Bäume / Wohl um das alte Schloß",
+  "language": [],
+  "musenalm_id": 46215,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Roß!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conrad von Prittwitz und Gaffron",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Roß!",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3bl0kyh2o72tl3a",
+      "agents": "lddqf86sm2shosm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.447Z"
+    }
+  ]
+}

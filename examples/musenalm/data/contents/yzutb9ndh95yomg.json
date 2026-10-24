@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Reit, Schalk, was das Zeug hält, und / jage zurük, / Und brichst du's Genik,",
+  "language": [],
+  "musenalm_id": 21259,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rechberger. / 1790. / Aus Wend Unmuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bührer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rechberger. / 1790. / Aus Wend Unmuth",
+  "updated": "2002-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t8v9w69wc2gwtbr",
+      "agents": "utsrdm6m0s2in9m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.936Z"
+    }
+  ]
+}

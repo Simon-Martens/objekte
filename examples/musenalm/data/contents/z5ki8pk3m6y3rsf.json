@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Todesengel« von S. May d. i. S. Meyer INr 22868, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.155Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22856,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Todesengel (Novelle) von Sophie May / Seite 38",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. C. A. Schwerdgeburth sct.",
+  "scans": [
+    "alm_304_22856_a0w7eb66xq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Todesengel (Novelle) von Sophie May / Seite 38",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "76pwl1kvqvyvhvd",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.951Z"
+    },
+    {
+      "id": "42swfqfz5kqn0dn",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.951Z"
+    }
+  ]
+}

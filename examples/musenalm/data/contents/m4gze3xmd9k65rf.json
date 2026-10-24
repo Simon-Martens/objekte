@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Marie« INr 87280, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "342",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Hampe del. F. W. Nettling sc. Lips 99)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Hampe del. F. W. Nettling sc. Lips 99",
+  "scans": [
+    "alm_3804_87284_fshofpbxxh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-05-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "067ty6gpta5i7wi",
+      "agents": "y511o9lstnz12un",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.161Z"
+    },
+    {
+      "id": "kw1vacl53fl74al",
+      "agents": "fn3t3tszgd00osz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.161Z"
+    }
+  ]
+}

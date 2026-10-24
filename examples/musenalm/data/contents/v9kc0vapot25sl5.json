@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Wißt ihr, warum Frau Velten / Von unsrer Kirche sich verirrt?",
+  "language": [],
+  "musenalm_id": 36310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reliquien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reliquien",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "77iyclnrg90rw7l",
+      "agents": "60dpq63kk6xup5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.600Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.600Z"
+    }
+  ]
+}

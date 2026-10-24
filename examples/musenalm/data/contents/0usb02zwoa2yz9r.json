@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 6 /) Graphik im Kalendarium Juni /) Illustration zu »Hamlet« v. W. Shakespeare /) s. G-Verz INr 69979, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69972,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schlafen? Vielleicht auch träumen Da, / da liegts",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp.",
+  "scans": [
+    "alm_790_69972_y3f73p1ggz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schlafen? Vielleicht auch träumen Da, / da liegts",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2fatanvgphzuxik",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.434Z"
+    },
+    {
+      "id": "2ceoeckjoxt288p",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.434Z"
+    }
+  ]
+}

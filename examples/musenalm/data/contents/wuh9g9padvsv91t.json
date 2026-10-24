@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 103854, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103853,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HERZOG PIPIN UND SEINE TOCHTER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. P. Rubens pinx. S. v. Perger del. I. Krepp sculp.",
+  "scans": [
+    "alm_1928_103853_3evl8oo9c9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HERZOG PIPIN UND SEINE TOCHTER",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pgtpln7jjdmyrwo",
+      "agents": "co7d0f8bep36m8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.120Z"
+    },
+    {
+      "id": "4i56d06lu5sizac",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.120Z"
+    },
+    {
+      "id": "3fyh24rii2d2cg5",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.120Z"
+    }
+  ]
+}

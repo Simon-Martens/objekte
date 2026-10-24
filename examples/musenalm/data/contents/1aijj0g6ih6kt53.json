@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19835,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arabischer Brunnen in Granada",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Darnstedt sc.",
+  "scans": [
+    "alm_267_19835_p9kp4m3k5f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Arabischer Brunnen in Granada",
+  "updated": "2001-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rw1ekm5gayy4z9d",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.814Z"
+    }
+  ]
+}

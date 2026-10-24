@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 9. Illustration zu »Darstellungen aus der Geschichte der Deutschen seit dem Tode Otto des Großen bis auf Rudolf von Habsburg 973-1293«  von Fr. Chr. Schlenkert INr 60901, Obj 4 /) s.a. Textbezug INr 60934, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.442Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60919,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Deutschen dulden kein Glaubensgericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1795",
+  "scans": [
+    "alm_949_60919_sjoc1for85.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Deutschen dulden kein Glaubensgericht",
+  "updated": "2008-11-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vgxhfgni6tfrror",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.934Z"
+    }
+  ]
+}

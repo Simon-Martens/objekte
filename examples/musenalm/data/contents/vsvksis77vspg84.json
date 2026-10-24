@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung und Titel aus dem G- Verz. /) Umrißgraphik nach »Scherzi poetici et pittorici« Parma 1795 (Bodon)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26245,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor holt die Träume aus der Unterwelt #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Weise",
+  "scans": [
+    "alm_250_26245_gdh3t8eum1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amor holt die Träume aus der Unterwelt #",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l1ske0u7xujcm10",
+      "agents": "u7rxljsdm7a5kt9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.195Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 132964, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Der gute Ohle-Madsen! Verloren habe ich ihn nun für diese Welt, und er sieht mich hier nicht wieder, weder zu Pferde, noch zu Fuß!",
+  "language": [],
+  "musenalm_id": 132967,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unterricht für Reiterinnen / von Frauen Petronillen verwitwete Ohler- / Madsen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unterricht für Reiterinnen / von Frauen Petronillen verwitwete Ohler- / Madsen",
+  "updated": "2024-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mtu6rc5wy5eps4e",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.100Z"
+    }
+  ]
+}

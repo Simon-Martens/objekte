@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Schlummre du duftendes Herrchen, / Schlummre du plapperndes Närrchen,",
+  "language": [],
+  "musenalm_id": 2551,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiegenlied, / für die süßen Herren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiegenlied, / für die süßen Herren",
+  "updated": "2000-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o5m95jnd1g51rxu",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.946Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Feldblumen (Sammlung INr 57754, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Ordentlich keine Zeit bleibt mir für mein Tagebuch, wenigstens nicht für den versendbaren Theil - sechzehn Tage, merke ich an dem Monatsdatum, sind unbeschrieben abgelaufen",
+  "language": [],
+  "musenalm_id": 57763,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. Schwarzrothe Königskerze. / 19. Juni 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adalbert Stifter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. Schwarzrothe Königskerze. / 19. Juni 1834",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uasgo6rsxs516em",
+      "agents": "gqt48yh8xk0p2zo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.750Z"
+    }
+  ]
+}

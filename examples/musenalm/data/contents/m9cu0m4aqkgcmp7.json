@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 13.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76402,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vue d'une partie de Kirnitzschthale. / Parthie aus dem Kirnitzschthale. S. 69",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther sculp.",
+  "scans": [
+    "alm_3699_76402_5n7f47y83f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vue d'une partie de Kirnitzschthale. / Parthie aus dem Kirnitzschthale. S. 69",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r9y4db02h3pwcok",
+      "agents": "k3qfb3024y59h2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.751Z"
+    }
+  ]
+}

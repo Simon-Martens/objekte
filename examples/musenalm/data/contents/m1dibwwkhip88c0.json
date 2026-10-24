@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachtigallen-Einsamkeit (Sammlung INr 22510, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "An frischer Quelle muß ich lechzend schmachten, / In Gluth getaucht muß ich vor Frost erbeben,",
+  "language": [],
+  "musenalm_id": 22518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. Dezime",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina von Chezy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. Dezime",
+  "updated": "2002-03-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rm7cnpiz0ptle66",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.959Z"
+    }
+  ]
+}

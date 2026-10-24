@@ -1,0 +1,45 @@
+{
+  "annotation": "Der sächsische Bauer in drey Nummern Von Dienstag den 12. August, bis zu Donnerstag den 14. (Sammlung INr 73009, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Wir können Ewr. Edlen von sichrer Hand melden, daß ein Heyrathskontract zwischen dem alten rothen Haushahn, und der bunten Henne auf dem Tapete ist.",
+  "language": [],
+  "musenalm_id": 73016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auszug aus den Gerichtsprotokollen der / Amtsstube, den 7. August. / Morgensitzung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Swift; [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auszug aus den Gerichtsprotokollen der / Amtsstube, den 7. August. / Morgensitzung",
+  "updated": "2010-02-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s54kledbm0m2c6o",
+      "agents": "hcn45fi9qd30jgt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.787Z"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Dritte Fortsetzung. / Der Backofen« von G. H. Rapp INr 74309, Obj 33 /) # Zuschreibung: Fischer S. 280",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74311,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Backofen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3111_74311_65bybwartr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Backofen",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6w3ray18soe0k3w",
+      "agents": "4b4lhy0iqevooje",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.632Z"
+    },
+    {
+      "id": "fszesyw52qt2l5j",
+      "agents": "vegn0h1zmp24y6i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.632Z"
+    },
+    {
+      "id": "1p6d24nvjg5ic0p",
+      "agents": "dmfllispixrqk5r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.632Z"
+    }
+  ]
+}

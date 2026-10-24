@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken INr 59394, 59395; Obj 25, 26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "Die reiche Fernau ist mit dem Appellationsrath Willmann versprochen. Diese große Neuigkeit beschäftigt alle Kreise der Residenz.",
+  "language": [],
+  "musenalm_id": 59393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die zweite Liebe, oder: Ruben Loew",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die zweite Liebe, oder: Ruben Loew",
+  "updated": "2008-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4kbdelpggde4yqa",
+      "agents": "j6u4xe56jqv8urn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.781Z"
+    }
+  ]
+}

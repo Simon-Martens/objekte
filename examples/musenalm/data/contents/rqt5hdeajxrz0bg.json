@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung  von 13 Gedichten INr 48542-48554, Obj 25-37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48541,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Die Monate. / Poetischer Kranz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Treumund Wellentreter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Die Monate. / Poetischer Kranz",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1t81sv5musi5weh",
+      "agents": "0lth2adu21imy6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.196Z"
+    }
+  ]
+}

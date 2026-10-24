@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.707Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "An unsrer Wiege grüssen uns die Horen, / Den Säugling küsst des Morgens Rosenlicht,",
+  "language": [],
+  "musenalm_id": 1344,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Menschenalter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "VON STEIGENTESCH",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Menschenalter",
+  "updated": "2000-07-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j3i4c8lbwi4g4zn",
+      "agents": "hbndpd23j3pyj28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.982Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Bastard« von C. Spindler /) s.a. Textbezug INr 104324, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104322,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER BASTARD. / I. Band. Seite 29.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zeichng. v. Phil. Foltz. Stahlstich von Leop. Beyer",
+  "scans": [
+    "alm_3408_104322_k13uaok6rb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER BASTARD. / I. Band. Seite 29.",
+  "updated": "2010-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9c9rj2bcfzr3slz",
+      "agents": "q352vh257bwt4mb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.087Z"
+    },
+    {
+      "id": "qec7o8pdcu7wrcm",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.087Z"
+    }
+  ]
+}

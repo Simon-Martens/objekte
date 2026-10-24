@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Schattirungen zum Lichtgemälde der Grimsel und der Grimselstraße« von J. Schweizer INr 54274, Obj 96 /) unter der Graphik: Alpenrosen 1827",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.433Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "348",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54275,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Aarenfall / an der Handeck (Oberhasli.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rose d'Osterwald del. F. Hegi sc.",
+  "scans": [
+    "alm_739_54275_ul9l99v62h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Aarenfall / an der Handeck (Oberhasli.)",
+  "updated": "2008-01-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f3ldebef0thpfh7",
+      "agents": "m95pg5mdiwljwyb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.503Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.503Z"
+    },
+    {
+      "id": "e3mz6j5c5leuoa6",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.503Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.503Z"
+    }
+  ]
+}

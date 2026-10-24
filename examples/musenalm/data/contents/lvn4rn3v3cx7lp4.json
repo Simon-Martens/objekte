@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 78106, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Um das Ganze wird oft noch mühsam kämpfend gestritten, / Wenn der Feind es schon längst gänzlich im Innern zerstört,",
+  "language": [],
+  "musenalm_id": 78117,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schleiermacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11.",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "go0ankw4901s3of",
+      "agents": "272r3k0zcaqt41m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.725Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 48897, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48891,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zeit rettet die Wahrheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Poussin Boehm",
+  "scans": [
+    "alm_669_48891_nlge4dzk3a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Zeit rettet die Wahrheit",
+  "updated": "2007-04-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xs8ruxhsj7xww90",
+      "agents": "o7lqwdeddlwmr62",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.602Z"
+    },
+    {
+      "id": "s0vvygqrmzpwwet",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.602Z"
+    }
+  ]
+}

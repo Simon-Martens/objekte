@@ -1,0 +1,45 @@
+{
+  "annotation": "4. Umgebungen Roms (Sammlung INr 77319, Obj 34) Skizzen aus Italien (Sammlung INr 77307, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "Wand're nur vor, es umgarnen Dich wild der Sabiner / Gebirge, / Folge dem Strom,",
+  "language": [],
+  "musenalm_id": 77329,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blandusische Quelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blandusische Quelle",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p6ifanpv49klelq",
+      "agents": "6li7ibbf1vr3nv9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.515Z"
+    }
+  ]
+}

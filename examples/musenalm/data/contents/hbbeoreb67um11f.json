@@ -1,0 +1,45 @@
+{
+  "annotation": "Beleuchtungen (Sammlung INr 19946, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.602Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Nein, nein, ich ward von Wahn zu Wahn geleitet, / Es löst sich ab von jener Waldeszinne,",
+  "language": [],
+  "musenalm_id": 19952,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freiherr von der Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gcqv3x968qv06je",
+      "agents": "7pclzh61bvgdvvq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.896Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.896Z"
+    }
+  ]
+}

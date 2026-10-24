@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Vorwort (INr 128570, Obj 2)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Nein! – Ich darf nicht mehr essen! – Was bliebe denn wohl für meinen guten Caspar übrig?",
+  "language": [],
+  "musenalm_id": 128578,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Der brave Deserteur, / oder / belohnte Kindesliebe. / Ein Schauspiel in drei Aufzügen. / An dem Geburtstage eines geliebten Vaters auf- / zuführen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Moritz Thieme",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Der brave Deserteur, / oder / belohnte Kindesliebe. / Ein Schauspiel in drei Aufzügen. / An dem Geburtstage eines geliebten Vaters auf- / zuführen",
+  "updated": "2009-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "47jb0kka13m5fuh",
+      "agents": "l4w058wzote60qs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.992Z"
+    }
+  ]
+}

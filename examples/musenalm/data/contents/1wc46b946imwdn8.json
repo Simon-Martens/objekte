@@ -1,0 +1,45 @@
+{
+  "annotation": "Widmung zu vorstehendem Gedicht INr 16199, Obj 64",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "O du, von der ich seine Züg' entlieh, / Vergönne, daß ich dieses Bild dir weihe,",
+  "language": [],
+  "musenalm_id": 36581,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eignung an meine Gattin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eignung an meine Gattin",
+  "updated": "2001-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oov6oa3m0u8asmj",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.916Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) # Bez. s. Textbezug INr 78292, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78242,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich der Zweyte / König von Preussen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frisch",
+  "scans": [
+    "alm_928_78242_kjxhvj2vu5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich der Zweyte / König von Preussen",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a7al2ptuldw9w3z",
+      "agents": "qbx7z8yvqh8m9zu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.920Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Im Kalendarium paginiert 1. s. Textbezug INr 7483, Obj 59",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.370Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7441,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vermählung des Herzogs von York / Mariage de Duc d'York",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del.",
+  "scans": [
+    "alm_151_7441_6juq94410o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vermählung des Herzogs von York / Mariage de Duc d'York",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "27ct9a5nop98rkc",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.411Z"
+    }
+  ]
+}

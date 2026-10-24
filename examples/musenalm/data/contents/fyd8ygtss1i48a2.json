@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 10993, Obj 134",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Liebes holdes Wesen, / Schlummre sanft und wachse groß!",
+  "language": [],
+  "musenalm_id": 10991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "78. / Wiegenlied. / Die Compos. ist vom H. Capellmstr. Naumann",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elisa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "78. / Wiegenlied. / Die Compos. ist vom H. Capellmstr. Naumann",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "coyt2oxthj716kd",
+      "agents": "w70q3jb7y9a6a6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.479Z"
+    }
+  ]
+}

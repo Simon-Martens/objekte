@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August; paginiert 8. Illustration zu »Uebersicht der Kriegsjahre 1813. 1814.1815.« von E. H. A. v. Pfuel INr 58481, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58476,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Monarchen empfangen auf der Höhe von / Belleville die Abgeordneten der Stadt Paris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. Meno Haas sc.",
+  "scans": [
+    "alm_852_58476_lz4rdwlzc6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Monarchen empfangen auf der Höhe von / Belleville die Abgeordneten der Stadt Paris",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6g42thwkv7ifv6v",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.981Z"
+    },
+    {
+      "id": "3gpvmh9kvrou5hm",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.981Z"
+    }
+  ]
+}

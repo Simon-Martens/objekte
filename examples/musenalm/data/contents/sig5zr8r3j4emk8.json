@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24100, Obj 83)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Ein Gärtlein weiß ich hier auf Erden, / Drin wandl' ich gern bei Tag und Nacht;",
+  "language": [],
+  "musenalm_id": 24103,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Garten der Kindheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Garten der Kindheit",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0fdqy4ww4hdpa33",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.240Z"
+    }
+  ]
+}

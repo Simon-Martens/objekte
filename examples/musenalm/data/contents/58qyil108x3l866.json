@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Vorabend des Weihnachtsfestes« von N. INr 54530, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54531,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER VORABEND DES WEIHNACHTSFESTES",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dl. Burgdorfer del. F. Buser sc. Aarau",
+  "scans": [
+    "alm_742_54531_mt0jdvawe3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER VORABEND DES WEIHNACHTSFESTES",
+  "updated": "2008-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2cheagcdztza4qt",
+      "agents": "jl6b68q9vo9ytf5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.842Z"
+    },
+    {
+      "id": "mhy8mewbxpe98lz",
+      "agents": "gpua5gdwasv89sy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.842Z"
+    }
+  ]
+}

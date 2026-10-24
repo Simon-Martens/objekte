@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik v. # Titel aus dem G-Verz s. Textbezug 27650, Obj 19,01",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36114,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 201,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. Götzenberger del. F. Weisbeck sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Götzenberger del. F. Weisbeck sc.",
+  "scans": [
+    "alm_353_36114_vaczu99k51.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gldu3tow7utqep3",
+      "agents": "k52j0ci4hisa6dc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.886Z"
+    },
+    {
+      "id": "1y5w22nvphqsd6k",
+      "agents": "1yq819tqy4kbasy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.886Z"
+    }
+  ]
+}

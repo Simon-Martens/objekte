@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Wir können die vollkommene Einsicht gewinnen, wie es zugegangen ist, daß auf dem selben Acker, auf den vor 1000 Jahren Recht gesäet wurde.",
+  "language": [],
+  "musenalm_id": 40291,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir können die vollkommene Einsicht gewinnen, wie es zugegangen ist, daß auf dem selben Acker, auf den vor 1000 Jahren Recht gesäet wurde.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7bbyvqv01dn25nf",
+      "agents": "02o1v7ogp6q644r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.246Z"
+    }
+  ]
+}

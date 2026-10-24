@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 115388, Obj 79",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.974Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Postl. del. J. Berka sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Postl. del. J. Berka sc.",
+  "scans": [
+    "alm_3246_115326_ym17nko5z2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i3brm7dqzaedsh4",
+      "agents": "th01lvt4530e6x4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.482Z"
+    },
+    {
+      "id": "6qmv139jwb8b5jn",
+      "agents": "awkkthw51bj1y7d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.482Z"
+    }
+  ]
+}

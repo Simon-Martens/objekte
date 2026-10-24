@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>mit einer Illustration s. Graphik im Kalendarium INr 140190</div>",
+  "content_type": [],
+  "created": "2026-07-15T08:43:13.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "In einem armseligen Dörfchen lebte ein Mann, Namens Hans, mit seinem Weibe, oder vielmehr lebte ein Weib mit Hans, seinem Manne,",
+  "language": [],
+  "musenalm_id": 140201,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hans in der Schule. / Oberösterreichische Volkssage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hans in der Schule. / Oberösterreichische Volkssage",
+  "updated": "2026-07-16T08:57:49.233Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "ghalyal10aszqt1",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-07-15T08:46:08.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-07-16T08:57:49.234Z"
+    }
+  ]
+}

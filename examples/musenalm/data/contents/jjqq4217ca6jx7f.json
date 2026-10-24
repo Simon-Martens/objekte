@@ -1,0 +1,45 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 61639, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Die alten Fechtmeister hatten die Gewohnheit, ihren Schülern, wenn sie dieselben noch so genau unterrichteten, doch immer einen oder andern Meisterstreich geheim zu halten,",
+  "language": [],
+  "musenalm_id": 61642,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Meisterstreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Meisterstreich",
+  "updated": "2009-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t0rsnh5tz8bbdwj",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.921Z"
+    }
+  ]
+}

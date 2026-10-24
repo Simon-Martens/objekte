@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Wenn im düsteren Grau ferner Vergangenheit / Mein umnebelter Geist trauriger schwärmend irrt;",
+  "language": [],
+  "musenalm_id": 23867,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwermuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwermuth",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4t7f8veb3ys029t",
+      "agents": "q7zvyheam3iyblc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.966Z"
+    }
+  ]
+}

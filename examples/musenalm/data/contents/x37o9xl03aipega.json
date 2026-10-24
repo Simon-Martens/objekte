@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. »Der Gang nach dem Eisenhammer« in: Musenalmanach (Schiller) 1798; alm 33, INr 1270",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Ein frommer Knecht war Fridolin, / Und in der Furcht des Herrn,",
+  "language": [],
+  "musenalm_id": 120609,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang nach dem Eisen- / hammer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang nach dem Eisen- / hammer",
+  "updated": "2018-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "psazcfea2ppws2f",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.682Z"
+    }
+  ]
+}

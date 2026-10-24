@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Rose« von Fouqué s. Textbezug INr 26489, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26490,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rose, eine Erzählung von de la Motte Fouqué",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke del. H. C. Müller sc.",
+  "scans": [
+    "alm_347_26490_bday0tdl08.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rose, eine Erzählung von de la Motte Fouqué",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "foc68pjxeiz7cu2",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.396Z"
+    }
+  ]
+}

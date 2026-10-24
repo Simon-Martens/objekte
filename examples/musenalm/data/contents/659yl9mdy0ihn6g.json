@@ -1,0 +1,45 @@
+{
+  "annotation": "Übersetzung des vorstehenden Gedichts INr 40673,Obj 39 /) V. Gedichte (Sammlung INr 40664, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "364",
+  "incipit_statement": "Sus! En campagne! / Les jours de paix / sont les seuls faits / pour ma compagne.",
+  "language": [],
+  "musenalm_id": 40674,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Uebersetzung von Professor Valier. / LE CHEVALIER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Imité de H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Uebersetzung von Professor Valier. / LE CHEVALIER",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2h5xbp1oyyrqhwe",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.210Z"
+    }
+  ]
+}

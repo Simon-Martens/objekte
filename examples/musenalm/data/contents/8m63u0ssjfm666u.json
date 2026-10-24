@@ -1,0 +1,45 @@
+{
+  "annotation": "Harmonien (Sammlung INr 34639, Obj 47) Übersetzung des vorstehenden Gedichts von A. Lamartine INr 34640, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Warum, o bleiche Lampe, schmachtet / Dein Licht im dunkeln Heiligthum,",
+  "language": [],
+  "musenalm_id": 34641,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Lampe des Tempels / oder / Die Seele vor Gott",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Lampe des Tempels / oder / Die Seele vor Gott",
+  "updated": "2003-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pqbb25fg4ictvps",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.977Z"
+    }
+  ]
+}

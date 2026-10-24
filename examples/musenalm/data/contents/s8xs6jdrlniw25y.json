@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "O ein Glöcklein klingelt mir früh und spät / Silbernen Schalles in die Seele hinein, / Zart wie ein Luftlied, welches von Osten weht, / Unermüdlich plaudernd, melodisch rein!",
+  "language": [],
+  "musenalm_id": 122126,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 201,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Räthsel",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6ux8kyzfaiowtqo",
+      "agents": "3pzkf5igvpvswjd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.814Z"
+    }
+  ]
+}

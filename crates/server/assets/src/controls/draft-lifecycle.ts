@@ -42,7 +42,7 @@ async function available(id: string) {
 function formKey(form: HTMLFormElement) {
   const action = new URL(form.action, location.origin).pathname;
   if (!action.endsWith('/edit-sessions')) return null;
-  if (action.startsWith('/documents/')) {
+  if (action.includes('/documents/')) {
     const file = (form.elements.namedItem('file') as HTMLInputElement)?.value;
     if (!file) return null;
     // Match Rust's percent encoding of non-alphanumeric bytes.

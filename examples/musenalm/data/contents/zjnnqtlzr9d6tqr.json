@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert VI. /) Illustration zu »Ludwig XVI. König von Frankreich« INr 59832, Obj 34 s.a. Textbezug INr 59814, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59821,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ludwig XVI. ahndet bey'm Anblick des Tempel- / Thurms sein Schicksal.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc. 1793",
+  "scans": [
+    "alm_932_59821_v12r3i6w7i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ludwig XVI. ahndet bey'm Anblick des Tempel- / Thurms sein Schicksal.",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dp6nfifjk8qufq7",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.083Z"
+    },
+    {
+      "id": "ck8fm09yg5wwihg",
+      "agents": "c0fepqesuedn747",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.083Z"
+    }
+  ]
+}

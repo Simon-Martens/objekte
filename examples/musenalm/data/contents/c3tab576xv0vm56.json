@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.462Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Aber ist sie nicht höchst liebenswürdig? über die Kurländerinnen geht doch nichts in der Welt! rief die Gräfin Wittenfels, indem sie zu der Gesellschaft in ihrem Salon zurückkehrte,",
+  "language": [],
+  "musenalm_id": 82340,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Reise nach Italien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johanna Schopenhauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Reise nach Italien",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "89bx62sdmzl754f",
+      "agents": "ms9iodhebw7wz0l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.129Z"
+    }
+  ]
+}

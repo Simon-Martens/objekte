@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Zehn Bände will der Herr von Schmieren / Im kleinsten Duodez ediren?",
+  "language": [],
+  "musenalm_id": 88808,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ankündigung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Eschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ankündigung",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aynnmmyvy87nm52",
+      "agents": "xmtpvsqh9ku69qr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.018Z"
+    }
+  ]
+}

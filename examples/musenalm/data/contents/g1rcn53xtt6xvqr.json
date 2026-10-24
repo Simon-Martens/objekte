@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.460Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Die blonde Locke, einst von dir gegeben, / War nicht die Locke der Gelegenheit,",
+  "language": [],
+  "musenalm_id": 100525,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 189,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Auf eine Locke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Doerr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Auf eine Locke",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9trqxq6lddgudmu",
+      "agents": "rnjsm42qs5m6lrr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.781Z"
+    }
+  ]
+}

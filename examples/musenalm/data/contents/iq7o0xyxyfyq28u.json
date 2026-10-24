@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 32 Distichen INr 76986-77018, Obj 40-72",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "354",
+  "incipit_statement": "Stille wirthliche Frau, du waltest so sittig und emsig, / Rein sind das Haus und der Hof, zierlich Gemächer / und Saal.",
+  "language": [],
+  "musenalm_id": 76985,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Penelope bei Uebersendung einiger / Reisedistichen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Baldamus D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Penelope bei Uebersendung einiger / Reisedistichen",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c8q8plqufd3lw0d",
+      "agents": "gvrm573djft0g9v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.377Z"
+    }
+  ]
+}

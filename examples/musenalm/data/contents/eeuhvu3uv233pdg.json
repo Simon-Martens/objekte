@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Agrionien für das Jahr 1816 (Sammlung INr 39691, Obj 93)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "481",
+  "incipit_statement": "Wie hast du alles mir zerstöret, / Was sonst so lieblich mir gelacht!",
+  "language": [],
+  "musenalm_id": 39711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Räthsel",
+  "updated": "2005-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2kgm4fvtj4kq2lc",
+      "agents": "ijn3e3gugtz46hh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.121Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Nach eilf Jahren bin ich wieder auf europäischem, auf deutschen Boden. Das Komptoir, und die Horden der Wilden, von denen ich Felle eintauschte, waren in diesen eilf Jahren meine ganze Welt.",
+  "language": [],
+  "musenalm_id": 32898,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das mißlungene Opfer. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das mißlungene Opfer. / Eine Erzählung",
+  "updated": "2003-04-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ufxwiagsuzzjm2l",
+      "agents": "6pw6iul8mmx44oj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.682Z"
+    }
+  ]
+}

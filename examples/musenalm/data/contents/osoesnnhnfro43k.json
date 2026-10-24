@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Ich fühl's, bald, bald wird mir zu Theil, / Was ich so heiß begehrte,",
+  "language": [],
+  "musenalm_id": 90561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 157,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Holden Todes Ahnung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Holden Todes Ahnung",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gsiv2orv4xah5kc",
+      "agents": "rpx0m3s76l0s5s5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.252Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.252Z"
+    }
+  ]
+}

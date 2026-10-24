@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.767Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "328",
+  "incipit_statement": "Gestern war's so warm, so sonnig, / Und der Himmel war so rein.",
+  "language": [],
+  "musenalm_id": 25464,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 239,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbst-Lied. / An A. v. Chamisso",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. B. Trinius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herbst-Lied. / An A. v. Chamisso",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "06fe2q7540hg914",
+      "agents": "r4o522ozdhhdj78",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.808Z"
+    }
+  ]
+}

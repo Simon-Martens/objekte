@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Den alten Vater trug aus Trojens Brande / Nicht eiliger der fromme Held, / Als ich mich selbst aus Wien.",
+  "language": [],
+  "musenalm_id": 31316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An H. H. R. / Vom Lande 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prandstetter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An H. H. R. / Vom Lande 1792",
+  "updated": "2003-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kzzy4p7cbfzlw3g",
+      "agents": "v5wbuj6yomki99q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.249Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 10./) Illustration zu  »Züge und Bruchstücke aus der Geschichte älterer und neuerer Revolutionen« INr 59895, Obj 13 /) s.a. Textbezug INr 59927, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59928,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cromwell in Gefahr von der Hand einer Dame zu / sterben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riep. sc.",
+  "scans": [
+    "alm_934_59928_avpsdag4e1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cromwell in Gefahr von der Hand einer Dame zu / sterben",
+  "updated": "2008-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fy67nu5kn6g5r5a",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.967Z"
+    },
+    {
+      "id": "2zuq44w7bfktgj0",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.967Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.135Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Engelwonne ist dein Loos, / Freudenvolle Einsamkeit! / Dein ist seelensüsser Frieden, / Dein ist Seligkeit hienieden,",
+  "language": [],
+  "musenalm_id": 67633,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Einsamkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schilling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Einsamkeit",
+  "updated": "2009-11-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "904m4tiubm2c2mk",
+      "agents": "tiijnij1nbeebby",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.356Z"
+    }
+  ]
+}

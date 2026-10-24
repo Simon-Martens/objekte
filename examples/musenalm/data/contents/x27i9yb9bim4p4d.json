@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 2. [Heirathsanträge. Zweite Folge] s. Textbezug INr 42988, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.553Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42959,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Menoniste. / Le Menonite",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodoviecki del & sculps.",
+  "scans": [
+    "alm_156_42959_rbwu4znrnj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Menoniste. / Le Menonite",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "25qu2lgfwt8uja1",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.314Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.314Z"
+    }
+  ]
+}

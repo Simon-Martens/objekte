@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Lord Algernoon S. hätte längst Palermo verlassen, da Lady Sara, seine Gemahlin, den Ton der dortigen Zirkel unausstehlich fand, indeß er erwartete Briefe aus England,",
+  "language": [],
+  "musenalm_id": 77045,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Reise zum Aetna. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Heyden",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Reise zum Aetna. / Erzählung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1u60twrtlxgrowy",
+      "agents": "y4sojkg698u6ihg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.685Z"
+    }
+  ]
+}

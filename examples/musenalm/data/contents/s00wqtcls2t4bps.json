@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Genoveva« von L. Tieck # Titel s. Textbezug INr 66260, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.636Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66261,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wendelin mit andern Dienern und Jägern #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hensel gez. Stahlstich v. Ernst Rauch Darmstadt",
+  "scans": [
+    "alm_1100_66261_o4wvi2z7x2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wendelin mit andern Dienern und Jägern #",
+  "updated": "2009-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fkrl2t3pd7ncsn8",
+      "agents": "902nw56856wz9rx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.890Z"
+    },
+    {
+      "id": "bc446pccq7v3qte",
+      "agents": "k7ib4tmw0w1jiao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.890Z"
+    }
+  ]
+}

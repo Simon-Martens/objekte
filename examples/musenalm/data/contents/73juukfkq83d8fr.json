@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik im Kalendarium INr 49200, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Ich trat in Waldmanns Zimmer. Die erwachsenere Jugend saß mit dem würdigen Prediger Müller und Herrn Walter um den Tisch.",
+  "language": [],
+  "musenalm_id": 49218,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Märzspiel. / Die Redner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Märzspiel. / Die Redner",
+  "updated": "2007-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sq93r6k73f0k5x0",
+      "agents": "l2p9o0rcq31xal5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.502Z"
+    }
+  ]
+}

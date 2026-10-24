@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Glarus« INr 51944, Obj 5 /) s.a. Textbezug INr 51961, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51945,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glarus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Biedermann pinx. J. H. Meyer sc.",
+  "scans": [
+    "alm_709_51945_hwazpxxoun.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Glarus",
+  "updated": "2007-10-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m3y44l1ly2ev2pq",
+      "agents": "ukud3h5af10w8d8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.825Z"
+    },
+    {
+      "id": "8ziq0a5u52trwbm",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.825Z"
+    }
+  ]
+}

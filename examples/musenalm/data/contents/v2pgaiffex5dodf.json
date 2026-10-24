@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 56086, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.023Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56081,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Deckengemälde im Schloss zu Pillnitz v. C. Vogel. gestochen von Anton Krüger Dresden 1824)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Deckengemälde im Schloss zu Pillnitz v. C. Vogel. gestochen von Anton Krüger Dresden 1824",
+  "scans": [
+    "alm_756_56081_745fnk5g6o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s45rcveshqv4x82",
+      "agents": "hnc7x2p8pzr9l8y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.829Z"
+    },
+    {
+      "id": "1dzesomnibtvi1f",
+      "agents": "f5agim78k7u8l7v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.829Z"
+    }
+  ]
+}

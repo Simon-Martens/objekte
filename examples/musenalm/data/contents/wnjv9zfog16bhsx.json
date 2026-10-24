@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Agrionien für das Jahr 1824, gesammelt von Theodor Hell (Sammlung INr 40605, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "437",
+  "incipit_statement": "Kennst Du den Ruf, den Muthigen, zum Kampfe / Der Krieger schwingt sich auf sein brausend Roß.",
+  "language": [],
+  "musenalm_id": 40624,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "19. / Charade von vier Sylben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "19. / Charade von vier Sylben",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "isvj35z9f633bmr",
+      "agents": "mkd957rgkmp3pvz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.151Z"
+    }
+  ]
+}

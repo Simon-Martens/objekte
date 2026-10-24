@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "342",
+  "incipit_statement": "Nur dich küssen, nur dich küssen / Ist auf Erden meine Pflicht;",
+  "language": [],
+  "musenalm_id": 42034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 235,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Amt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Felix Adolphi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Amt",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cgmtwlp274am3xv",
+      "agents": "4irsdlf9sfhpmc0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.091Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24256, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Zu Augsburg steht ein hohes Haus / Nah bei dem alten Dom,",
+  "language": [],
+  "musenalm_id": 24257,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Himmelsbraut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justinus Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Himmelsbraut",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wz9gt6gtnd5wgmw",
+      "agents": "92oewhsfc44pa2v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.162Z"
+    }
+  ]
+}

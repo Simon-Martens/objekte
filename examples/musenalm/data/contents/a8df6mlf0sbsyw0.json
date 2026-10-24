@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Eine der merkwürdigsten Eigenheiten in der Gerichtsverfassung der Teutschen, in den frühen Zeiten, sind die sogenannten Gerichte Gottes, Gottes Urtheile, oder die Ordalien.",
+  "language": [],
+  "musenalm_id": 75898,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Ordalien, oder Urtheile Gottes / der Teutschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Ordalien, oder Urtheile Gottes / der Teutschen",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "grg8y5w4pqscscx",
+      "agents": "i1y44hlx8jbhczd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.523Z"
+    }
+  ]
+}

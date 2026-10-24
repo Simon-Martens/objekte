@@ -1,0 +1,44 @@
+{
+  "annotation": "Besprechungen zeitgenössischer deutscher Liedkompositionen mit Gedichtbeispielen und musik-ästhetischen Überlegungen",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.125Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37630,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neue deutsche Lieder / Kurz angezeigt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Friedrich Reichardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neue deutsche Lieder / Kurz angezeigt",
+  "updated": "2005-04-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "82zqlhjx0b2rmr8",
+      "agents": "it8ptc76fbrkd73",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.860Z"
+    }
+  ]
+}

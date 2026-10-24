@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Abbassiden. Ein Gedicht in neun Gesängen (Sammlung INr 26103, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Eingewurzelt stand der Mohr, dem Prinzen / Blickt' er nach und rief ergrimmt:",
+  "language": [],
+  "musenalm_id": 26107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vierter Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen Hallermünde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vierter Gesang",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0bxdlrf1v4612s0",
+      "agents": "on0a0wityl8730t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.033Z"
+    }
+  ]
+}

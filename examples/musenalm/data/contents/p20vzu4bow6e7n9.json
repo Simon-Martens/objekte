@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 23375, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kinder Freude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner del. & sc. 1797",
+  "scans": [
+    "alm_309_23374_ampdqymnbr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kinder Freude",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "12ywi8h8zcwahhy",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.956Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Aglaia 1820 INr 14520",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "An einem hohen Feyertage stand nach der Messe, die er mit mehr Andacht, als seines Gleichen pflegen, angehört hatte, ein junger Officier,",
+  "language": [],
+  "musenalm_id": 14568,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leiden im Glück. / Gegenstück zu der Erzählung: Glück im Leiden #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Josephine von Perin, geb. v. Vogelsang",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leiden im Glück. / Gegenstück zu der Erzählung: Glück im Leiden #",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0y0sfg070hflg0o",
+      "agents": "jvr9ms12j3ec0zq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.562Z"
+    }
+  ]
+}

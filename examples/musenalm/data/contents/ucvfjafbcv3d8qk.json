@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Harmonisch ist die Stimm’ und auch die Seele, / Gewiß ist iene nicht blos Hauch aus Aeols Höhle, / Wie er bei manchem Sänger streng / Nur über Stoppeln fährt und Strohgemeng",
+  "language": [],
+  "musenalm_id": 129156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Wilhelm Häfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nehrlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Wilhelm Häfer",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vsgzvt830sknkh7",
+      "agents": "af2coslmz6zf95x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.006Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt. - - Das Lied ist alt und schlicht; / Die Spinn- und Knittemädchen an der Luft, / Unschuld'ge Mädchen, wenn ihr Garn sie weifen, / So singen sie's. / Shakspeare im »Dreikönigsabend",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Das Dorf Reichmannsdorf, unweit Saalfeld, trug in alter Zeit mit Recht diesen Namen; denn das Erdreich zeigte sich dort, so an Feldfrüchten, als an edlen Erzen, ungemein ergiebig.",
+  "language": [],
+  "musenalm_id": 75400,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Vom versunkenen Bergwerk.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Vom versunkenen Bergwerk.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mtwt8pjmb6he9lv",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.749Z"
+    }
+  ]
+}

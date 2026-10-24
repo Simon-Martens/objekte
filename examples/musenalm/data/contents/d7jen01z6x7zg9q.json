@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer und Steindrücke (Sammlung INr 97860, Obj 5) s. Titelportrait INr 97857, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Das Titelkupfer stellt den Wiederhersteller der Universität Marburg, L. Wilhelm VI. den Gerechten vor,",
+  "language": [],
+  "musenalm_id": 97861,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1)",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vpiohmdus3dwcvr",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.932Z"
+    }
+  ]
+}

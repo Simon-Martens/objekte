@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge vermischten Inhalts (Sammlung INr 83606, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.961Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Lobt den Herren! Die Morgensonne / Weckt die Flur aus ihrer Ruh,",
+  "language": [],
+  "musenalm_id": 83607,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Lobgesang am Morgen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Patzke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Lobgesang am Morgen",
+  "updated": "2012-09-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ssse0f72dv89emj",
+      "agents": "wdh53h2mjk4wpnu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.026Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.026Z"
+    }
+  ]
+}

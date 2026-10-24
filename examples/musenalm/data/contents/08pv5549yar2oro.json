@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 65796, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "346",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65795,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kurt Christoph Graf v. Schwerin / K. Preuss. General Feld Marschall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Henne sc.",
+  "scans": [
+    "alm_1105_65795_w81ka97dqy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kurt Christoph Graf v. Schwerin / K. Preuss. General Feld Marschall",
+  "updated": "2009-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pcqazwnlfx55x6r",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.183Z"
+    }
+  ]
+}

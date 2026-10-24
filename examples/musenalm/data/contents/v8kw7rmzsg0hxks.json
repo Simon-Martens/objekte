@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.100Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85604,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem / Hochwolgeborenen / Herrn Herrn / Balthasar Edlen v. Ziernfeld, / k.k. wirklichem Gubernialrath und Kreishauptmann / zu Cilli / aus dankbarer Verehrung / gewidmet vom / Herausgeber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem / Hochwolgeborenen / Herrn Herrn / Balthasar Edlen v. Ziernfeld, / k.k. wirklichem Gubernialrath und Kreishauptmann / zu Cilli / aus dankbarer Verehrung / gewidmet vom / Herausgeber",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l751bitcp1faujv",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.167Z"
+    }
+  ]
+}

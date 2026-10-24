@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) s. Widmung INr 116957-116959, Obj 6-8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.212Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116953,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARIE HENRIETTE / Herzogin von Brabant, Erzherzogin von Oesterreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unleserlich; Stahlstich F. Zastiera",
+  "scans": [
+    "alm_3221_116953_a2wm0ryhb0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARIE HENRIETTE / Herzogin von Brabant, Erzherzogin von Oesterreich",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zeyha43b1soul0o",
+      "agents": "ocng47uzapri3n3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.636Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Widmungsgedicht /) s.a. Titelportrait INr 95499, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.678Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Poesie, im Süden gern gelitten, / Zog einmal hoffnungsreich nach Norden aus,",
+  "language": [],
+  "musenalm_id": 95503,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Poesie, im Süden gern gelitten, / Zog einmal hoffnungsreich nach Norden aus,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4rpg9p3pr0yg9b6",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.708Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.708Z"
+    }
+  ]
+}

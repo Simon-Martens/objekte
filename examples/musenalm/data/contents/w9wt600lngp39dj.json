@@ -1,0 +1,45 @@
+{
+  "annotation": "Glockenlieder (Sammlung INr 98275, Obj 146)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Das Eis brach auf dem Strome / Der Frühling aus dem Schnee,",
+  "language": [],
+  "musenalm_id": 98277,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alex. Jul. Schindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2014-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "awt67yujkx8qa5v",
+      "agents": "c5g4qkh29vufd7a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.767Z"
+    }
+  ]
+}

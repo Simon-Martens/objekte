@@ -1,0 +1,45 @@
+{
+  "annotation": "Anekdoten und Fragmente, aus meiner Schreibtafel. Auf einer Herbstreise 1795. gesammelt. (Sammlung INr 51147, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Man hat schon mehrer Epitaphien geschildert, die durch ihren äusserlichen Inhalt merkwürdig wurden.",
+  "language": [],
+  "musenalm_id": 51150,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Originale Grabschrift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Originale Grabschrift",
+  "updated": "2007-08-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bj2nnpw2ddvrj1k",
+      "agents": "2zqoqv8fdrs839t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.630Z"
+    }
+  ]
+}

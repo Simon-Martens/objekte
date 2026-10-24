@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 20243, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Bergt mich, Kluft und Waldesgrün, / Vor der Sonne heißem Glühn;",
+  "language": [],
+  "musenalm_id": 20354,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wallfahrt. / Metrische Ergänzung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wallfahrt. / Metrische Ergänzung",
+  "updated": "2001-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g7y4ptr1chmfh2g",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.923Z"
+    }
+  ]
+}

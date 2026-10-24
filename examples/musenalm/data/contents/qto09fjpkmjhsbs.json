@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bemerkungen (Sammlung INr 48486, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.004Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Schon manches fromme Herz mag dadurch an der Vorsehung irre geworden seyn, daß es zu altklug mit ihren Augen zu sehen wähnte,",
+  "language": [],
+  "musenalm_id": 48510,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schon manches fromme Herz mag dadurch an der Vorsehung irre geworden seyn, daß es zu altklug mit ihren Augen zu sehen wähnte,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wtgd7hxd93b6xkj",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.468Z"
+    }
+  ]
+}

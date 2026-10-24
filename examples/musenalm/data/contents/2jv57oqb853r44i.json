@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) # Titel s. Textbezug INr 60098, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61010,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pisistratus #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Kininger del. Cl. Kohl sc. Viennae",
+  "scans": [
+    "alm_951_61010_e3wsbz78wf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pisistratus #",
+  "updated": "2008-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cc40ij0x3jlaxke",
+      "agents": "60p50kezhrh7h42",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.923Z"
+    },
+    {
+      "id": "jsc3b0ewabam5xs",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.923Z"
+    }
+  ]
+}

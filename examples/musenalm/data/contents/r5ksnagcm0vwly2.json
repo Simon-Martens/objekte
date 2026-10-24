@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik # Titel s. Textbezug INr 42383, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42379,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Muse Brauttag. Eine allegorische Idylle. Zur Erklärung des Titelkupfers #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sculps.",
+  "scans": [
+    "alm_530_42379_l3lxkwf0dy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Muse Brauttag. Eine allegorische Idylle. Zur Erklärung des Titelkupfers #",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "10q8jjlwwsrkeoy",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.388Z"
+    },
+    {
+      "id": "y8ek1rdezmr0w3n",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.388Z"
+    }
+  ]
+}

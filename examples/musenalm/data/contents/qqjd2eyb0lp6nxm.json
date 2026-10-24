@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 82108, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.565Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Rathaus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von C. Heideloff Gestochen von Duttenhofer",
+  "scans": [
+    "alm_3070_82120_de1423wuz1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Rathaus",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5y66manatccl2wl",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.942Z"
+    },
+    {
+      "id": "1jd65kzn7l780bz",
+      "agents": "2wfa45xu4b0q4dp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.942Z"
+    }
+  ]
+}

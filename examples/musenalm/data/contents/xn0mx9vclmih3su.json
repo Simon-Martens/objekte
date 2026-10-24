@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen-Kranz (Sammlung INr 63753, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Er wirft mit leichtem Herzen / Sich um das Jagdgewehr, / Er nimmt die leere Tasche / Un die gefüllte Flasche,",
+  "language": [],
+  "musenalm_id": 63758,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Der Jäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Ed.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Der Jäger",
+  "updated": "2009-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cvq06p0i7fvvcz2",
+      "agents": "2k8x09vp5cub27j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.053Z"
+    }
+  ]
+}

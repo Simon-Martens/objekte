@@ -1,0 +1,80 @@
+{
+  "annotation": "# Titel aus dem G-Verz. s. Textbezug INr 43012, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43011,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine heilige Familie #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach Raphael gez. von Riepenhausen in Rom. gest. von C. W. Schenk in Braunschweig",
+  "scans": [
+    "alm_469_43011_w2sviv95u6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine heilige Familie #",
+  "updated": "2003-05-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kzefotcenn0qxej",
+      "agents": "ztgmm4mptvjp8o3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.938Z"
+    },
+    {
+      "id": "ff2ebagowvmfmkx",
+      "agents": "wn0jpqwykk4f079",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.938Z"
+    },
+    {
+      "id": "23mljhexk6tm5ph",
+      "agents": "8u98l2oorjap7pb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.938Z"
+    },
+    {
+      "id": "u6zi0a7kv81dpow",
+      "agents": "voq5dlml9870uhq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.938Z"
+    }
+  ]
+}

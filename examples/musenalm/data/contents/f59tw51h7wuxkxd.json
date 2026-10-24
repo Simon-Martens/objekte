@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelportrait INr 77029, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "Ein Abriß des schönen Lebens dieser erlauchten Tochter unsres Vaterlandes, deren die Geschichte stets, als einer, wegen seltener Tugenden, mit Recht Gefeyerten ihres Geschlechts, ehrenvoll gedenken wird,",
+  "language": [],
+  "musenalm_id": 77049,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria Josepha, / Dauphine von Frankreich. / (Zur Erläuterung des Titelbildnisses.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Eck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria Josepha, / Dauphine von Frankreich. / (Zur Erläuterung des Titelbildnisses.)",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d8ui1npptoakobu",
+      "agents": "t4962qj1xtqcfm9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.685Z"
+    }
+  ]
+}

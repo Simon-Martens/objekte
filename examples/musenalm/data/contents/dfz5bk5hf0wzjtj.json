@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Die Veilchen sind blau vor Ärger, / Die Sterne gelb vor Neid,",
+  "language": [],
+  "musenalm_id": 42011,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 212,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verdruß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herrmann Marggraff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verdruß",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e4xzxlo92zo6djo",
+      "agents": "xpfslvhm6lhhpgp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.179Z"
+    }
+  ]
+}

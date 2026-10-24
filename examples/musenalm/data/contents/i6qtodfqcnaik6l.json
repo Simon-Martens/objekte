@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Ewig bist du nun der Meine! / Dieses Wort voll Himmelsinn / Gäb' ich nicht um Edelsteine,",
+  "language": [],
+  "musenalm_id": 2948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lidia und Lidas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. R. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lidia und Lidas",
+  "updated": "2000-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g0y0q3fl6w7hn6b",
+      "agents": "hwr5g4cryfwmbpv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.061Z"
+    }
+  ]
+}

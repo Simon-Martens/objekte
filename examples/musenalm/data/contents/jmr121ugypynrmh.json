@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "222",
+  "incipit_statement": "Ja, ja! Vollkommnes Saitenspiel, / Schon hör ich deines Tones Pracht!",
+  "language": [],
+  "musenalm_id": 5061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ein / Fritzisches Klavier, / das an Fräulein Henriette von Spie- / gel gesandt wurde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zachariä",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ein / Fritzisches Klavier, / das an Fräulein Henriette von Spie- / gel gesandt wurde",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nxixm9gd3f17xbe",
+      "agents": "wj40krq87n1bwgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.247Z"
+    }
+  ]
+}

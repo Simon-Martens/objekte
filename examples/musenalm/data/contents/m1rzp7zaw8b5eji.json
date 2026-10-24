@@ -1,0 +1,45 @@
+{
+  "annotation": "Slovenische Sagen und Geschichten (Sammlung INr 89695, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Nordwärts von Praßberg, einem Markte in Untersteier, welcher etwa vier Stunden von Cilli, den San aufwärts,",
+  "language": [],
+  "musenalm_id": 89706,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / St. Radegrundis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / St. Radegrundis",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7440tpwpar9irz5",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.377Z"
+    }
+  ]
+}

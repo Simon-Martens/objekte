@@ -1,0 +1,45 @@
+{
+  "annotation": "Vier Lieder an's gute Aennchen (Sammlung INr 93754, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Ich sah die Flur, den Wald in grüner Hülle, / Und obenhin den Himmel blau und frei,",
+  "language": [],
+  "musenalm_id": 93758,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Der Zank mit der Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Gottfried v. Leitner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Der Zank mit der Rose",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "79ikssn9b3nwfce",
+      "agents": "kzo5zf1o5a1ke0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.501Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) s. Textbezug INr 72383, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72377,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dietrich von Kayserling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pesne pinx. M. Haas",
+  "scans": [
+    "alm_830_72377_t2qnns9f1w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dietrich von Kayserling",
+  "updated": "2008-06-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lb0akspb7np4om4",
+      "agents": "sgs38l89ma3xwqh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.507Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.507Z"
+    },
+    {
+      "id": "1w7t3m9442zl6tv",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.507Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.507Z"
+    }
+  ]
+}

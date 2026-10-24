@@ -1,0 +1,46 @@
+{
+  "annotation": "10 Kurzrezensionen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.462Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130808,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Anzeige / einiger neuern Forst- und Jagdschriften",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Anzeige / einiger neuern Forst- und Jagdschriften",
+  "updated": "2022-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yobh4nt8m55tsxy",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.053Z"
+    }
+  ]
+}

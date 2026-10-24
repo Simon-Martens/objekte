@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar; nummeriert 1.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107092,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie kommen, weil der Almanach / Sie ruft und nun der Reihe nach, / Spricht jeder wie sein Vormann sprach [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv & sc.",
+  "scans": [
+    "alm_2157_107092_996uf8z01x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie kommen, weil der Almanach / Sie ruft und nun der Reihe nach, / Spricht jeder wie sein Vormann sprach [...]",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aq4xwinw9rosf4v",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.103Z"
+    }
+  ]
+}

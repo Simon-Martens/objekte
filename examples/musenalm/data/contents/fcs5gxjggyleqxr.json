@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "O ew'ge Liebe heil'ge mich / Mit deinen sanften Gluten,",
+  "language": [],
+  "musenalm_id": 45373,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gebet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Curtius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gebet",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wbeu9n4w73ir6sq",
+      "agents": "bmboy2xxmlf33nl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.189Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebensansichten (Sammlung INr 14570, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Glück entblüht nicht öden Haiden: / Stumm und todt ist die Natur.",
+  "language": [],
+  "musenalm_id": 14572,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Die Städterin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. Contessa d. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Die Städterin",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "18pasvpwxyyq3g4",
+      "agents": "jho0bsnjm9w01d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.614Z"
+    }
+  ]
+}

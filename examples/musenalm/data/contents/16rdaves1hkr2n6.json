@@ -1,0 +1,43 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in acht Gedichten (Sammlung INr 83979, Obj 6) s. Graphik INr 83993, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.264Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Im Kampf mit Armuth und beschwert von Lasten, / Doch fleißig und beseelt vom frommen Drange, / Erspart die Wittwe stets zum Kirchengange",
+  "language": [],
+  "musenalm_id": 83986,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. Das Scherflein der Wittwe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. Das Scherflein der Wittwe",
+  "updated": "2009-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3lao83gv08nskn6",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.983Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. s. Almanach-Titel /) Graphik im Kalendarium Februar /) s. Gedicht INr 71813, Obj 15 und Textbezug INr 71915, Obj 117",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71805,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hast du solche Lockspeise, / du Schelm?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg und Jury",
+  "scans": [
+    "alm_2671_71805_9pqy54j6xu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hast du solche Lockspeise, / du Schelm?",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qargwdu9kq2krxl",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.369Z"
+    },
+    {
+      "id": "4dq9jgiqw4x5mak",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.369Z"
+    }
+  ]
+}

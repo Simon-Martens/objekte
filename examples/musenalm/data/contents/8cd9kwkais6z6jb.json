@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 34306, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Ich weiß auf Erden einen Spiegel klein, / Der größer mir als Meer und Himmel gilt,",
+  "language": [],
+  "musenalm_id": 34338,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich weiß auf Erden einen Spiegel klein, / Der größer mir als Meer und Himmel gilt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u00ydl5ro5tq0lc",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.515Z"
+    }
+  ]
+}

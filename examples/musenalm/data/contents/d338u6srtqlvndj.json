@@ -1,0 +1,43 @@
+{
+  "annotation": "# s. G 15 /) mit einer Musikbeigabe s. INr 37597, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Diese Federn, weiß' und schwarze, / Die ihr auf den Häuptern traget,",
+  "language": [],
+  "musenalm_id": 37598,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[März] / Der Federschmuck",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "GÖTHE",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[März] / Der Federschmuck",
+  "updated": "2005-04-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4x0tb5vj9r25rlg",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.125Z"
+    }
+  ]
+}

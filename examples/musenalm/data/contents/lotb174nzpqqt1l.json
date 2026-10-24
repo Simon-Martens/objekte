@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 79310, Obj 5) s. Graphik INr 79313, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Hier der Musenführer als - Recensent. Nachdem er den Wettstreit mit dem Gegner, den er doch anfangs würdigte, vor erhabenen Zeugen, dem alten Berggotte",
+  "language": [],
+  "musenalm_id": 79312,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Apollo und Marsyas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Chr. Braun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Apollo und Marsyas",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "goaom5b4k96670x",
+      "agents": "z8ye4fkoz7ogybi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.829Z"
+    }
+  ]
+}

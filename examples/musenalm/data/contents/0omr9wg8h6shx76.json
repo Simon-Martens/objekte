@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez.aus dem I-Verz /) Romanzen (Sammlung INr 98542, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Die du im Lenz gestorben unter Blumen, / Du lebst in meines Herzens Heiligthume,",
+  "language": [],
+  "musenalm_id": 98547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die todte Braut",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die todte Braut",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w90cff1keyy2z2n",
+      "agents": "6z5qy0vfiswoqx8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.736Z"
+    }
+  ]
+}

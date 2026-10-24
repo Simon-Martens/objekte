@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) Illustration zu » Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75858,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Katharina von Medici, / Königinn von Frankreich / Wittwe des K. Heinrich II. / Catherine de Medicis, / Reine de France. / Veuve du Roi Henry II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bollinger sc. Berlin 1799",
+  "scans": [
+    "alm_835_75858_ej2leth37e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Katharina von Medici, / Königinn von Frankreich / Wittwe des K. Heinrich II. / Catherine de Medicis, / Reine de France. / Veuve du Roi Henry II.",
+  "updated": "2008-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "50bvly32vg2ngmz",
+      "agents": "xudps8vzrobe0d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.664Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.664Z"
+    }
+  ]
+}

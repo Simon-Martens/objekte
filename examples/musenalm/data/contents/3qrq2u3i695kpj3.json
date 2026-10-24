@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 41967-41971, Obj 168-172 /) Gedichte (Sammlung INr 41965, Obj 166)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41966,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 167,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Auf den Tod meines Kindes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freiherr von Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Auf den Tod meines Kindes",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g32i9kdat33f01z",
+      "agents": "h99uxdryiugeh6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.191Z"
+    }
+  ]
+}

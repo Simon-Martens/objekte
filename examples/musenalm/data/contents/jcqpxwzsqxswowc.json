@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Das Theater war aus. Das Haus hatte sich diesen Abend keines starken Besuchs erfreut, denn Macbeth, die tiefmystische Schöpfung des großen Briten, war in der Schiller'schen Bearbeitung über die Bühne gegangen,",
+  "language": [],
+  "musenalm_id": 30619,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schutzgeist. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Storch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schutzgeist. / Novelle",
+  "updated": "2002-11-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8hhzuxkuknl93xh",
+      "agents": "n05stp52kkm5on3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.495Z"
+    }
+  ]
+}

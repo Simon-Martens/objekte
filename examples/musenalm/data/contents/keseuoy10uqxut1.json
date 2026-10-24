@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Taschenbuch für Damen 1807 INr 33355, der erste Teil des Beitrags wird hier wiederholt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Fast schäme ich mich zu schreiben, am Tage, da ich die Nachtigall zum erstenmale hörte",
+  "language": [],
+  "musenalm_id": 33392,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Er verführt seine eigene Frau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lafontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Er verführt seine eigene Frau",
+  "updated": "2003-04-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8mxhl2ylxdi6mc1",
+      "agents": "0w2k67v3yzi61te",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.354Z"
+    }
+  ]
+}

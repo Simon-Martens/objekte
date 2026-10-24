@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 3. /) s. Textbezug INr 79253, Obj 35 /) Nachstich aus: Revolutions-Almanach 1793; alm-934",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79252,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anacharsis Cloots theilt die Rollen aus / zum Possenspiele vom 19. Junius 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mansfeld sc.",
+  "scans": [
+    "alm_2490_79252_dldtz4orqd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Anacharsis Cloots theilt die Rollen aus / zum Possenspiele vom 19. Junius 1790",
+  "updated": "2012-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0lf55z138s1wjyu",
+      "agents": "x056xs6zlyqcn0t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.574Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.574Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "»als die Sonne nun versunken« (Sammlung INr 36719; Obj 49) 2. Teil von: Abendröthe (Sammlung INr 15252, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Es wehet kühl und leise / Die Luft durch dunkle Auen,",
+  "language": [],
+  "musenalm_id": 15271,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gebüsche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "FR. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gebüsche",
+  "updated": "2001-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kvf0nu1a8gnpk0a",
+      "agents": "dz9l16q76ffup70",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.706Z"
+    }
+  ]
+}

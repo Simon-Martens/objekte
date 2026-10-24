@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Ich weiß nicht, sprach ein junger Thelog, / Welch ein System ich mir erwähle,",
+  "language": [],
+  "musenalm_id": 3688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der kluge Rath. / Regensburg im May 1788",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Giseke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der kluge Rath. / Regensburg im May 1788",
+  "updated": "2000-09-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0qe66b1wrbiq34u",
+      "agents": "41u796off43ym0d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.054Z"
+    }
+  ]
+}

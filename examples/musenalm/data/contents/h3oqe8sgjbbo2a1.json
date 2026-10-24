@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An Laura« von Jünger INr 88787, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (Hiller)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiller",
+  "scans": [
+    "alm_2319_88786_tm0miv5qb8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ftbmh9bk7mw75nu",
+      "agents": "93qj54q4os5w6av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.925Z"
+    }
+  ]
+}

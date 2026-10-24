@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Wenn Gott Neptun in seinem Grimm ein Schiff, / Das unerschrockne Europäer kühn",
+  "language": [],
+  "musenalm_id": 8241,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Giesen, bey der Ankunft / der Seilerischen Schauspielergesellschaft. / Eine Erscheinung. / (Den 26sten August.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Giesen, bey der Ankunft / der Seilerischen Schauspielergesellschaft. / Eine Erscheinung. / (Den 26sten August.)",
+  "updated": "2000-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ud2r5hd1kzso452",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.354Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Palmenblätter (Sammlung INr 27874, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.635Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "222",
+  "incipit_statement": "Hälst Du - ich frage Dich auf Pflicht und Ueberzeugung - / Wohl Tugend lohnenswerth, entsprießt sie blinder Neigung?",
+  "language": [],
+  "musenalm_id": 27880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2002-08-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wcptmabjbfwghxn",
+      "agents": "ynj6s229zp88pv2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.296Z"
+    }
+  ]
+}

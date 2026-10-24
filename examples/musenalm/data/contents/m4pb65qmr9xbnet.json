@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Bei Uebersendung von »Schillers Todtenfeyer auf dem Theater zu Bremen v. N. Meyer, 8.« [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Still ist die Nacht, wenn Schimmer goldner / Sterne / Vergessenheit in unsre Seele streut!",
+  "language": [],
+  "musenalm_id": 33341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gattinn Friedrichs v. Schiller #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gattinn Friedrichs v. Schiller #",
+  "updated": "2003-04-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h1f7ccy96ng0eni",
+      "agents": "vd3inw12z8a6gd2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.672Z"
+    }
+  ]
+}

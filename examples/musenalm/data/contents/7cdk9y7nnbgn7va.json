@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.846Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Von den Termopylen nieder war gestürmt der / Rachezug, / Der des Perser's Sklavenketten hin zum freien / Hellas trug,",
+  "language": [],
+  "musenalm_id": 100520,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 184,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Geisterwolke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Beck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Geisterwolke",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ytpvafhe3f0uxd",
+      "agents": "psrg2sd88q25odj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.820Z"
+    }
+  ]
+}

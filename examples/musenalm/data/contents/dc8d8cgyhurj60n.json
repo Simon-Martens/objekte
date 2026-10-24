@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 19925, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19937,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aussicht auf den Hudson",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fraïser d.; I. B. Hößel sc. Berlin",
+  "scans": [
+    "alm_268_19937_4ekeuna9bu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aussicht auf den Hudson",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "prcjmf1lqqkjpe6",
+      "agents": "t4wlsbli26ob7y0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.812Z"
+    }
+  ]
+}

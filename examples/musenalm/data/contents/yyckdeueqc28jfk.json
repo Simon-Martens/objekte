@@ -1,0 +1,45 @@
+{
+  "annotation": "DemGedicht vorangestellt: Die Väter bedrängte gräulicher Krieg, / Die Mucken halfen ihnen zum Sieg! / Alte Inschrift",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Das ist die Murg, zum Fluß geworden, / Die erst als Waldbach dumpf gebraust -",
+  "language": [],
+  "musenalm_id": 99731,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Muckensturm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Otto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Muckensturm",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uh0w4t4zem4sv5w",
+      "agents": "wdljo1hy3zp7qgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.923Z"
+    }
+  ]
+}

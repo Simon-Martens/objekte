@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 94731, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "361",
+  "incipit_statement": "Die lächelndzarte, wundersüße Blume, / Die frische Rose hat sie mir geschenket,",
+  "language": [],
+  "musenalm_id": 94736,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m0swyors6euagmh",
+      "agents": "xy1xe258ffgo9ok",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.292Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.292Z"
+    }
+  ]
+}

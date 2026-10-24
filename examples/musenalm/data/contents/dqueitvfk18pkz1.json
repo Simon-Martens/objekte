@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed. VIII, 47",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Fröhlich durchs Leben dahin laß sie fliegen die mu-/ thigen Rosse;",
+  "language": [],
+  "musenalm_id": 22193,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warnung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Warnung",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mvm8lohd2pxwyy9",
+      "agents": "67zaqw1ahn1z54k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.036Z"
+    }
+  ]
+}

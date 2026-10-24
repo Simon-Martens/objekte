@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Ahnung« von W. G. Becker. INr 12138, 89 (Photo 12139,01; 12139,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12139,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ahnung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_211_12139_01_gkhc7ar0k2.jpg",
+    "alm_211_12139_02_h2gw36sl6t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ahnung",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "emtoic1fus8eqsl",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.390Z"
+    }
+  ]
+}

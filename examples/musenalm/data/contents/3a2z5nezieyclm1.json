@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Hast du durchmessen Meer und Land, / Den Weg entdeckt zum Mondesrand,",
+  "language": [],
+  "musenalm_id": 45983,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Himmelsleiter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfarrius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Himmelsleiter",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e4ozahu1nxz36m6",
+      "agents": "gnvpzonh9gm3x0g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.623Z"
+    }
+  ]
+}

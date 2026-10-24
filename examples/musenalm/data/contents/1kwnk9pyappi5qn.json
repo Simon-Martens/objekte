@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 7. /) Illustration zu »Alethes von Lindenstein« von Fouqué s. Textbezug INr 26765, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26766,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alethes von Lindenstein. / S. 11",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hensel del. F.Geißler sc.",
+  "scans": [
+    "alm_349_26766_4iiwyubdot.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Alethes von Lindenstein. / S. 11",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4pq1ep4cgitm46o",
+      "agents": "902nw56856wz9rx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.075Z"
+    },
+    {
+      "id": "gijd4z0sqbzk9bc",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.075Z"
+    }
+  ]
+}

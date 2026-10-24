@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.061Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Es ist genug! Er flieht, er scheuet Deine Blicke. / O rufe die Vernunft zurücke!",
+  "language": [],
+  "musenalm_id": 122928,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sappho Zuruf an sich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. L. Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sappho Zuruf an sich",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l3uk7w2jjmeyqr9",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.805Z"
+    }
+  ]
+}

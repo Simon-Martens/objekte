@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Laßt die Politiker doch sprechen! / Singt, Freunde, singt, und seid vergnügt!",
+  "language": [],
+  "musenalm_id": 5669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied, / bei Tische zu singen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gökingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied, / bei Tische zu singen",
+  "updated": "2000-10-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n1h2o402t3psszp",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.934Z"
+    }
+  ]
+}

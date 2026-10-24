@@ -1,0 +1,45 @@
+{
+  "annotation": "Kriegslieder (Sammlung INr 31722, Obj 66; fortgesetzt durch INr 31718, Obj 91)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.752Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Wir kämpften eine große Schlacht, / Vom ersten Morgenstrahl, / Bis niedersank die dunkle Nacht / Ins leichenvolle Thal.",
+  "language": [],
+  "musenalm_id": 31719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Nach dem Siege bei Liptingen vom 25ten / März 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hinsberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Nach dem Siege bei Liptingen vom 25ten / März 1799",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zdez1blgfphhrlm",
+      "agents": "fd94g9jto2pspie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.689Z"
+    }
+  ]
+}

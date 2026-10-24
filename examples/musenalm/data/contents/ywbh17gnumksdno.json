@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel recto mit Portraitmedaillon: ERZHERZOG JOHANN",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.032Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92568,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichte / des neunzehnten Jahrhunderts. / Mit / besonderer Hinsicht / auf die Oesterreichischen Staaten. Drittes Bändchen. / Geschichte des Jahres 1803. / Wien, 1807. / Im Verlage bey Anton Doll",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blaschke sc.",
+  "scans": [
+    "alm_4016_92568_gx6q23jnah.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Geschichte / des neunzehnten Jahrhunderts. / Mit / besonderer Hinsicht / auf die Oesterreichischen Staaten. Drittes Bändchen. / Geschichte des Jahres 1803. / Wien, 1807. / Im Verlage bey Anton Doll",
+  "updated": "2013-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "psksr26tizyw0fa",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.459Z"
+    }
+  ]
+}

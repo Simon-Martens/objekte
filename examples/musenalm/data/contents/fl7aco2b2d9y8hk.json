@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Auf Tiefen und Höhen / Ruht dämmernde Nacht. / Komm mit uns, Du Schöne / Die einsam noch wacht!",
+  "language": [],
+  "musenalm_id": 63006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elfengesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rese",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elfengesang",
+  "updated": "2009-03-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "exoyd8f0namp52z",
+      "agents": "ckm5lh2oeabz6sp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.338Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.338Z"
+    }
+  ]
+}

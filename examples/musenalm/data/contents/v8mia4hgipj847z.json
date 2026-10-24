@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Schon ist die zehnte Frühlingsrose, / Mein theurer Freund, auf deiner Gruft ver-/ blüht,",
+  "language": [],
+  "musenalm_id": 2103,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Andenken / meines alten Freundes L.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frhr. v. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Andenken / meines alten Freundes L.",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1ig5gvzyf1fiomi",
+      "agents": "6y2vclvz6pkp0l9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.719Z"
+    }
+  ]
+}

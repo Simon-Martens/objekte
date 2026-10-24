@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Mutter am Christabend« von J. P. Hebel INr 25876, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25862,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE MUTTER AM CHRISTABEND",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Fendi pinx. J. Passini sc. Vienna",
+  "scans": [
+    "alm_339_25862_o0nuw5l77k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE MUTTER AM CHRISTABEND",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c3cyl96sxgrel9e",
+      "agents": "aj12jgcexyaf6b2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.775Z"
+    },
+    {
+      "id": "qcwv92ayvbkrjoq",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.775Z"
+    }
+  ]
+}

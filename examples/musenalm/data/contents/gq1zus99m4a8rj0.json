@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Monathe (Sammlung INr 77455, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "365",
+  "incipit_statement": "Jungfrau ward, die Kind gewesen, / Und die Mutter ist genesen,",
+  "language": [],
+  "musenalm_id": 77462,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Juli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. v. Lüdemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Juli",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "olqzz0ua7lfd6nb",
+      "agents": "jqanokpcqaenxu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.662Z"
+    }
+  ]
+}

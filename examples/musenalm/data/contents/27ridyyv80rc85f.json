@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar, paginiert 1. zu S. 128 /) Illustration zu »Beschreibung von Brasilien« von Link INr 70379, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70367,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine vornehme Brasilianerinn, zum Besuch getragen. / Nach Koster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Koster Friedr. Jügel sculp",
+  "scans": [
+    "alm_853_70367_kt586drjys.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine vornehme Brasilianerinn, zum Besuch getragen. / Nach Koster",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jda397ti2aj34qp",
+      "agents": "flivu8hnh9tq1va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.056Z"
+    }
+  ]
+}

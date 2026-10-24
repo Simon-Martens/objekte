@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "251",
+  "incipit_statement": "Kant war ein an Leib und Seele ganz trockner Mann. Magerer, ja dürrer als sein kleiner Körper hat vielleicht nie einer existirt;",
+  "language": [],
+  "musenalm_id": 1406,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kant und Hamann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Friedrich Reichhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kant und Hamann",
+  "updated": "2000-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1yadapbv216smvw",
+      "agents": "it8ptc76fbrkd73",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.005Z"
+    }
+  ]
+}

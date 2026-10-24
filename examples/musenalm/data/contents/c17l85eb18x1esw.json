@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30522, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Als in Aegypten lag Dschemil am Sterben, / Sprach er: Wer will das Botenbrot erwerben?",
+  "language": [],
+  "musenalm_id": 30526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Todtenklage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Todtenklage",
+  "updated": "2002-11-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qoa3rji49op9cti",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.677Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Ich war in's ferne Dunkel / Der Waldesnacht gefloh'n,",
+  "language": [],
+  "musenalm_id": 100480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Glockenton",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfarrius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Glockenton",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s1u49si9zsmvzo8",
+      "agents": "gnvpzonh9gm3x0g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.982Z"
+    }
+  ]
+}

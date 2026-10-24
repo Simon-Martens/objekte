@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Abendlieder« von Fouqué INr 62794, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62788,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Abendlieder / von L. M. Fouqué",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. Fleischmann sc.",
+  "scans": [
+    "alm_1029_62788_xi4w1i5whc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Abendlieder / von L. M. Fouqué",
+  "updated": "2009-03-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sl1k3k3am2p51is",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.639Z"
+    },
+    {
+      "id": "k9sfkm87jdsq2d9",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.639Z"
+    }
+  ]
+}

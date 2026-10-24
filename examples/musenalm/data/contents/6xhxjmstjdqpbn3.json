@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Trinklied« von D. P. INr 88790, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88789,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (Hiller)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiller",
+  "scans": [
+    "alm_2319_88789_cxedfehbko.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d75mfzr47avvl2j",
+      "agents": "93qj54q4os5w6av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.925Z"
+    }
+  ]
+}

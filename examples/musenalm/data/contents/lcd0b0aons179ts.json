@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Psyche. Didaktisches Gedicht« von Ed. Müller INr 112678, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112671,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE HEIMATH",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ender del. J. Passini sc.",
+  "scans": [
+    "alm_2479_112671_hl0fl986jx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE HEIMATH",
+  "updated": "2010-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vxjlsfdbo8u18j1",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.533Z"
+    },
+    {
+      "id": "3l8ahl5y9vtnc6s",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.533Z"
+    }
+  ]
+}

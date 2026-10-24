@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am 3. u. 4. Blatt der Suite /) paginiert 4. /) Illustration zu »Marie-Antoinette, Königin von Frankreich. Biographische Skizze« INr 89800, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89804,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "M. Antoniens letzter Augen- / blick",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc.",
+  "scans": [
+    "alm_3985_89804_0e6xxvlcuy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "M. Antoniens letzter Augen- / blick",
+  "updated": "2013-06-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3euoxp9xoodk9l7",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.412Z"
+    }
+  ]
+}

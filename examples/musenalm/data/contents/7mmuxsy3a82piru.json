@@ -1,0 +1,45 @@
+{
+  "annotation": "Polymeter (Sammlung INr 33078, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.750Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "O wie schwebt auf dem grimmigen Wassersturm der Bogen des Friedens so fest!",
+  "language": [],
+  "musenalm_id": 33081,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei einem Wasserfalle mit dem Regenbogen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei einem Wasserfalle mit dem Regenbogen",
+  "updated": "2003-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pyj2evs4hn5ugtz",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.689Z"
+    }
+  ]
+}

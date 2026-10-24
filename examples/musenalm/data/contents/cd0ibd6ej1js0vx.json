@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlungen mit 16 Gedichten INr 27719-27736, Obj 69-86",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "415",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27718,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Nisami's Iskandername / (Alexanders-Buch)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Nisami's Iskandername / (Alexanders-Buch)",
+  "updated": "2002-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w74phvlu25ucafl",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.210Z"
+    }
+  ]
+}

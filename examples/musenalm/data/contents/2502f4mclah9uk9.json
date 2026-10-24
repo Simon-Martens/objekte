@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 57848, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.284Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "461",
+  "incipit_statement": "Im Frühlingsland, wo schöner, blauer / Das Firnament dem Aug' erscheint,",
+  "language": [],
+  "musenalm_id": 57847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Heilung (der Neapolitanerin.) / Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Gottfried Neumann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Heilung (der Neapolitanerin.) / Gedicht",
+  "updated": "2008-06-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4lbh38k85kfdaal",
+      "agents": "u56d09jffk0z5ur",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.936Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Rosenliederchen (Sammlung INr 112582, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Schwebt das Mädchen, schön zum Neiden, / Nur im Kleid von weißer Lust,",
+  "language": [],
+  "musenalm_id": 112601,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "19.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Blumauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "19.",
+  "updated": "2010-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f4ca5ohz5an806p",
+      "agents": "0dgz99aw81m2ex1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.399Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.399Z"
+    }
+  ]
+}

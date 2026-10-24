@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Schlimm Ding ists doch ein Arzt zu sein! / Von Menschenelend und von Noth",
+  "language": [],
+  "musenalm_id": 6243,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn B. L***. / H. 18. Nov. 1787",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn B. L***. / H. 18. Nov. 1787",
+  "updated": "2000-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0nsgpjsjy0o2f5n",
+      "agents": "4iaot4jwwlq6r5e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.081Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Noch einiges über Gleim« INr 128181, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Wenn gutes Herz mein Lob in sanften Tönen singt, / Und etwa mir es süß in meinen Ohren klingt, / Dann stutz' ich, stehe still,",
+  "language": [],
+  "musenalm_id": 128182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gleim an Heinse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gleim an Heinse",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9u9rhvfoifl3pss",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.979Z"
+    }
+  ]
+}

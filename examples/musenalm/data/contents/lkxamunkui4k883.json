@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22257,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloß Prunn im Altmühl Thale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Quaglio del. E. Aubert sc.",
+  "scans": [
+    "alm_299_22257_66dn91s8mm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schloß Prunn im Altmühl Thale",
+  "updated": "2002-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4b7rajjkeb2qm88",
+      "agents": "84udokklcf53ize",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.976Z"
+    },
+    {
+      "id": "orn3pfker1qx0xe",
+      "agents": "ya6nbtop6m03yer",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.976Z"
+    }
+  ]
+}

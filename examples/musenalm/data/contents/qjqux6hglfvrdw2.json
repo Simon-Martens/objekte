@@ -1,0 +1,45 @@
+{
+  "annotation": "Anmerkung am Objekt: Erster poetischer Versuch. s. folgendes Gedicht INr 16615, Obj 76",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.933Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Gaben der Flora, Dir von Grazienhänden / gespendet, / Priesest Du oft; aber nie sangst Du zur Leyer / dem Gott,",
+  "language": [],
+  "musenalm_id": 16614,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meinen Vater, / bey Ueberreichung einiger Flaschen alten / Rheinweins",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fritz Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meinen Vater, / bey Ueberreichung einiger Flaschen alten / Rheinweins",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "orh7mnv1oqo41gg",
+      "agents": "02o1v7ogp6q644r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.550Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.550Z"
+    }
+  ]
+}

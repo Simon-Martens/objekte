@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66180,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1810",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Pöltzel sc.",
+  "scans": [
+    "alm_974_66180_yr1guab48v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1810",
+  "updated": "2009-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "re1safn7ojhwwxa",
+      "agents": "xv14o5f88jzmj56",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.361Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.361Z"
+    }
+  ]
+}

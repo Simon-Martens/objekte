@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu Valloncheri. Ein ländliches Gedicht« von A. A. Simon INr 74529, Obj 13 /) Fischer S. 449:  zus. Bezeichnung: gez. von Joris",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.512Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74530,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Maillard del. Duttenhofer sc. Dresde)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Maillard del. Duttenhofer sc. Dresde",
+  "scans": [
+    "alm_3115_74530_8h3g1uv8tw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i7uwl6jp5cfv5bk",
+      "agents": "jqx789ngxccpl2l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.678Z"
+    },
+    {
+      "id": "ombcku9lx0uvuui",
+      "agents": "2wfa45xu4b0q4dp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.678Z"
+    }
+  ]
+}

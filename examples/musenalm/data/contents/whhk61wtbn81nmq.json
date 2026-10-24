@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Mit Recht wird Honig dem geschickt, / Dem so ein süßes Liedchen glückt,",
+  "language": [],
+  "musenalm_id": 8439,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn Ebert, / (nebst einem Topf mit Honig)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zachariä",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn Ebert, / (nebst einem Topf mit Honig)",
+  "updated": "2026-06-23T09:01:04.889Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zejukft16dp04t2",
+      "agents": "wj40krq87n1bwgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.240Z"
+    }
+  ]
+}

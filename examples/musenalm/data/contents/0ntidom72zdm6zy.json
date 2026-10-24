@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Dich, von baltischem Wogen umrauscht, / Dich, Rugia, will ich / Singen anjetzt,",
+  "language": [],
+  "musenalm_id": 42795,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne / an Rugia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neubeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymne / an Rugia",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nnlzqulzl5yuyby",
+      "agents": "62d9p80gfw782cr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.694Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 68570, Obj 2,1",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.442Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68569,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2.09,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CHARITAS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Correggio pt. F. John sc.",
+  "scans": [
+    "alm_235_68569_wtlpnvl6xz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CHARITAS",
+  "updated": "2001-05-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lpea2xzi4lyocuo",
+      "agents": "irhvezh3jd0m3va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.380Z"
+    },
+    {
+      "id": "ez4ir84yd0vi791",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.380Z"
+    }
+  ]
+}

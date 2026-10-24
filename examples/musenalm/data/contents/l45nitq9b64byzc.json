@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 26 Beiträgen INr 11602-11627, Obj 38-63 /) Prosaische Aufsätze (Sammlung INr 11583, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11601,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Apophthegmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Apophthegmen",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ty6qe1nn6tzktrk",
+      "agents": "5uss88okhpw2gvm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.320Z"
+    }
+  ]
+}

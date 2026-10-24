@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 38",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.937Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Behüt' uns Gott, daß wir mit unsrer Tugend / pralen; / Im Beichtstuhl kriecht sie ganz gewaltig ein.",
+  "language": [],
+  "musenalm_id": 5719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frau von Triks",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frau von Triks",
+  "updated": "2000-10-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8z6ju6j5o8pgtpt",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.008Z"
+    }
+  ]
+}

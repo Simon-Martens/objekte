@@ -1,0 +1,45 @@
+{
+  "annotation": "mir Anmerkungen des Autors SS 179-188",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.064Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Mit entfesseltem Haar, im Schimmer wehender Fackeln / Suchte die Tochter Demeter bei Nacht,",
+  "language": [],
+  "musenalm_id": 18287,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymnus an Ceres. / Prima Ceres unco terram dimovit / aratro, / Prima dedit fruges alimentaque mi- / tia terris, / Prima dedit leges: Cereris sunt om- / nia munus. / Ovid. Metam. V. vers. 341",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. d. Lühe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymnus an Ceres. / Prima Ceres unco terram dimovit / aratro, / Prima dedit fruges alimentaque mi- / tia terris, / Prima dedit leges: Cereris sunt om- / nia munus. / Ovid. Metam. V. vers. 341",
+  "updated": "2001-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rdckpa3uf7uzvif",
+      "agents": "qwwcjghfrvf5pds",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.836Z"
+    }
+  ]
+}

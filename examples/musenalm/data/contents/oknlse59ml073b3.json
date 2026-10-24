@@ -1,0 +1,45 @@
+{
+  "annotation": "Philidors Klagen (Sammlung INr 12555, Obj 76) Philidor und Nanny (Sammlung INr 12548, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Wenn ich des Morgens früh erwach, Dann öffnen sich die Wunden;",
+  "language": [],
+  "musenalm_id": 12556,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. P. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2001-03-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pj9vga2q2mkusmy",
+      "agents": "zcowt1c8qli1wm3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.396Z"
+    }
+  ]
+}

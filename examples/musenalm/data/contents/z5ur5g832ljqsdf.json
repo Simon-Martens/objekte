@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Welche süße, langentwohnten Töne! / Theure Schwestern, ach seyd mir gegrüßt!",
+  "language": [],
+  "musenalm_id": 25740,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Teutona / an Swea und Dana / bey ihrer Wieder-Vereinigung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gräter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Teutona / an Swea und Dana / bey ihrer Wieder-Vereinigung",
+  "updated": "2002-05-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wx6yr1akkubwe3f",
+      "agents": "6b95o6o4p7mql27",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.228Z"
+    }
+  ]
+}

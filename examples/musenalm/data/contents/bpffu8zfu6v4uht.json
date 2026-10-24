@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "Es schlug 8 Uhr Morgens, als in der kleinen Stadt Auerwald der Bürgermeister Felder in Amtkleidung sein Wohnzimmer betrat,",
+  "language": [],
+  "musenalm_id": 53528,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der heilge Bund. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Hottinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der heilge Bund. / Erzählung",
+  "updated": "2007-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jvtxj74su7ug5y4",
+      "agents": "9dyqyb46cpqyd97",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.396Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20243,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Göthes Gartenhaus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lieber del. C. A. Schwerdg. sc.",
+  "scans": [
+    "alm_270_20243_0jzvj9cnfg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Göthes Gartenhaus",
+  "updated": "2001-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "voswpa7af7mosv9",
+      "agents": "4bsiajn0srw5670",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.020Z"
+    },
+    {
+      "id": "ap1harftmziintk",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.020Z"
+    }
+  ]
+}

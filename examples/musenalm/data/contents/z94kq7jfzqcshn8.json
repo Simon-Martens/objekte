@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Am letzten Abende des Jahres« von Friederike Geyersbach, geb. Schlez INr 35403, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35404,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am letzten Abende des Jahres",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Muck",
+  "scans": [
+    "alm_487_35404_9rgo8al4f5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Am letzten Abende des Jahres",
+  "updated": "2003-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p5yirxdgw5gtidn",
+      "agents": "fggq39g7blrfvqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.279Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Süsser Bewohner jener grünen Wälder, / Ewiger Gast des jungen Rosenmondes,",
+  "language": [],
+  "musenalm_id": 17341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Zephyr. / Nach dem Estevan Manuel de Villegas",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gu.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Zephyr. / Nach dem Estevan Manuel de Villegas",
+  "updated": "2001-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "itp47p8pk5jhrq8",
+      "agents": "byuhkknqr79s51g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.734Z"
+    }
+  ]
+}

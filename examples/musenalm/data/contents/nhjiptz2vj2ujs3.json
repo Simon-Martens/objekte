@@ -1,0 +1,56 @@
+{
+  "annotation": "kol. Karte",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.101Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70387,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER / ARENSWALDISCHE / CREIS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. F. Sotzmann gest. von C. C. Glassbach sen.",
+  "scans": [
+    "alm_827_70387_qa9vz9n1v3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER / ARENSWALDISCHE / CREIS",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "330qym6skemj9en",
+      "agents": "llfbsdoltk6o89d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.571Z"
+    },
+    {
+      "id": "ph0syl990wwx602",
+      "agents": "6wpxf2bdypg3j23",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.571Z"
+    }
+  ]
+}

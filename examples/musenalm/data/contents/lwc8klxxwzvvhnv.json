@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Wenn wir, wie in den vorigen Theilen dieser Arbeit, die Einwohner auch hier in Urbewohner und Eingewanderte oder Fremde eintheilen,",
+  "language": [],
+  "musenalm_id": 42287,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Sumatra] Der Mensch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. Z.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Sumatra] Der Mensch",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "86u54lwwaasth5e",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.285Z"
+    }
+  ]
+}

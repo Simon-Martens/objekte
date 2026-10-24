@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: nach Webber aus: A Voyage to the Pacific Ocean performed under the direction of Cpt. Cook; Clerke and Gore. London 1784, 3 V. 4 to",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41555,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Frau von Unalaschka",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frosch sc.",
+  "scans": [
+    "alm_545_41555_yvwd2gtzov.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine Frau von Unalaschka",
+  "updated": "2005-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kdyt1ymyw1xpj5z",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.230Z"
+    }
+  ]
+}

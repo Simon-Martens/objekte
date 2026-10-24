@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "393",
+  "incipit_statement": "Der Morgen kam, und mit ihm in die Hallen / Der Kaiserburg trat festen Schritts der Tod;",
+  "language": [],
+  "musenalm_id": 109743,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tod des Königs von Rom",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Rogge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tod des Königs von Rom",
+  "updated": "2016-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p8ousyko0lt2rex",
+      "agents": "qg9jxudttjp2daq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.341Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.341Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem G-Verz. s. Textbezug INr 19019, Obj 15 (Carlsruhe im Kunst-Verlag)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19020,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE TYROLERIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Bodmer # F. Weber scp.",
+  "scans": [
+    "alm_137_19020_v1b7ms0u9m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE TYROLERIN",
+  "updated": "2001-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pttzyin5aph2qpq",
+      "agents": "d4v5f8ipt5yar1l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.988Z"
+    },
+    {
+      "id": "0p739wv6qkhdtwm",
+      "agents": "0tfckyxltbezg39",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.988Z"
+    }
+  ]
+}

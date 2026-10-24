@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Grünmantel von Venedig« von H. Clauren d.i. C. G. S. Heun INr 102690, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102692,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tod und Hölle, das ist der Grünmantel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. C. Büscher sc. Berol.",
+  "scans": [
+    "alm_3363_102692_bp9mdcd9fd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tod und Hölle, das ist der Grünmantel",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6e9gq543wd76ami",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.167Z"
+    },
+    {
+      "id": "rld4334pb7mkran",
+      "agents": "rookj8hzrynkcws",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.168Z"
+    }
+  ]
+}

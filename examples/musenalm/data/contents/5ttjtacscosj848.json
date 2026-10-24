@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Herr! Fing der vierte der Sclaven zu erzählen an; als ich noch in Stambul verweilte, begab sich daselbst folgende sonderbare Geschichte.",
+  "language": [],
+  "musenalm_id": 41646,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gebackene Kopf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Morier [bearb. W. Hauff]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gebackene Kopf",
+  "updated": "2005-12-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3muckh34azu8lbh",
+      "agents": "dn1maczb7o8b9l4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.738Z"
+    },
+    {
+      "id": "hinxvriesoxjqch",
+      "agents": "ntl4yryhhmz1v3s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.738Z"
+    }
+  ]
+}

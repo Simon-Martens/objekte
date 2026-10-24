@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. L/R 30. Titelgraphik. Motiv: Herakles tötet die lernäische Hydra",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.720Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30756,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (M. sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. sc.",
+  "scans": [
+    "alm_408_30756_2tt7nlqlfa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mym2o0l0wgnyu2g",
+      "agents": "7x793ydyq97csrl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.415Z"
+    }
+  ]
+}

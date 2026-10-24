@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.478Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2060,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Karl Förster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vogel v. V. pinx. M. Steinla sc.",
+  "scans": [
+    "alm_70_2060_yp6ljzuoce.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Karl Förster",
+  "updated": "2000-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "llopaqmrhugkhep",
+      "agents": "hnc7x2p8pzr9l8y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.637Z"
+    },
+    {
+      "id": "l7j13ampi42wv4e",
+      "agents": "sw3kksjw5md0hd0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.637Z"
+    }
+  ]
+}

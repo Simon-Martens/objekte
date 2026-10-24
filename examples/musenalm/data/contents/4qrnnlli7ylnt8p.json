@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bayern. Franken (Sammlung INr 99331, Obj 237)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "404",
+  "incipit_statement": "Ich lehnte am Lindenbühle, / O träumende Knabenzeit!",
+  "language": [],
+  "musenalm_id": 99403,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 309,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Posthornschall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Scheurlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Posthornschall",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n4ah3zm41016ez2",
+      "agents": "kddiuy2wa4u1map",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.970Z"
+    }
+  ]
+}

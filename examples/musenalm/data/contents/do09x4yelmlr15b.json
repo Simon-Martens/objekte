@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Nikolaus, das ist der Volksbesieger, / Des Türkenvolks Besieger, der bist Du; / Dir unterliegt der moslemit'sche Tiger, / Ihn jage seiner alten Wüste zu.",
+  "language": [],
+  "musenalm_id": 34561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "König Ludwig von Bayern / an / Rußland's Kaiser. / Im Sommer 1828",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "König Ludwig von Bayern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "König Ludwig von Bayern / an / Rußland's Kaiser. / Im Sommer 1828",
+  "updated": "2003-06-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nw56g22aaavs8jj",
+      "agents": "0lj8fztokin6ffi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.976Z"
+    }
+  ]
+}

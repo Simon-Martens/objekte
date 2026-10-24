@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 67740, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67739,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIANA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guido Reni pt. F. John sc.",
+  "scans": [
+    "alm_237_67739_7lqtdnl104.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIANA",
+  "updated": "2001-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gq7lpmnk9sohx72",
+      "agents": "azlvdz0ge43hlgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.345Z"
+    },
+    {
+      "id": "movi4m94wi4g2yu",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.345Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts»Die Missethäterin an ihren Säugling« von G. F. Stäudlin INr 21574, Obj 61",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36744,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Missethäterin an ihren Säugling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zumsteeg",
+  "scans": [
+    "alm_287_36744_xx4zpf12tz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Missethäterin an ihren Säugling",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9wrikljxnpay6w1",
+      "agents": "hbhvbvw4lv57yvj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.675Z"
+    }
+  ]
+}

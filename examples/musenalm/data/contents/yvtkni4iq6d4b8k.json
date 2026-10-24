@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 7. /) Graphik im Kalendarium Juli /) Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75652, Obj 37 /) s.a. Textbezug INr 75638, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75625,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tilly vor Magdeburg. / Brennet und schlachtet noch eine Stunde! / dann will ich mich besinnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. J. Penzel fec.",
+  "scans": [
+    "alm_2142_75625_0lhxd84a7b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tilly vor Magdeburg. / Brennet und schlachtet noch eine Stunde! / dann will ich mich besinnen",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5fndfwzwo5r7thi",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.691Z"
+    },
+    {
+      "id": "wmaelukwgo9qq1g",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.691Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechs Blumenlieder (Sammlung INr 81266, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Es war eine Laube von Rosen / Darin die Zephire ihr Spiel,",
+  "language": [],
+  "musenalm_id": 81270,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Rosentraum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Rosentraum",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8evbe2cug40p7rg",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.802Z"
+    }
+  ]
+}

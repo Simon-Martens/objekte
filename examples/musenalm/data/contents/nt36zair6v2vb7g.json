@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 24471, Obj 49) Gedichte (Sammlung INr 24470, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Muthig stand an Persiens Grenzen Roms erprobtes / Heer im Feld,",
+  "language": [],
+  "musenalm_id": 24472,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Tod des Carus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Tod des Carus",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1h0tbfxd00l1pvn",
+      "agents": "on0a0wityl8730t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.113Z"
+    }
+  ]
+}

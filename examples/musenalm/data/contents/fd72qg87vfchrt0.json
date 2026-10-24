@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Linde zu Freyburg in der Schweiz« von Fr. Kuenlin INr 53721, Obj 49 /) unter der Graphik: Alpenrosen 1822",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.715Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53722,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Murtner Linde in Freyburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Vischer del. G. Lory exec. D. Burgdorfer sculp.",
+  "scans": [
+    "alm_734_53722_wolxe4lkl1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Murtner Linde in Freyburg",
+  "updated": "2007-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xylco926k9cohj4",
+      "agents": "apfgolbsarcaim2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.804Z"
+    },
+    {
+      "id": "096lw8r1jjlt09u",
+      "agents": "jl6b68q9vo9ytf5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.804Z"
+    }
+  ]
+}

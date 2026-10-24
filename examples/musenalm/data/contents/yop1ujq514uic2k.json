@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Das Schauspiel war beendet, die schönste Sommernacht brach herein, zwischen den grünen Linden flackerten auf weißen, leichtgeformten Feuerbecken die hellen Flammen.",
+  "language": [],
+  "musenalm_id": 26410,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Abtrünnige. / Eine Vision aus der Nacht des siebenten August / 1814. in Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Baronin de la Motte Fouqué, geb. Briest",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Abtrünnige. / Eine Vision aus der Nacht des siebenten August / 1814. in Berlin",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "prvbd94ef273ecz",
+      "agents": "t59v9lajt8yljq5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.362Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.362Z"
+    }
+  ]
+}

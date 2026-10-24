@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Drei Sonntage. Aus den Papieren eines Künstlers« INr 103016, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103017,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drey Sonntage von C. Spindler. / Morgen auf der Parade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stahlstich von Fr. Fleischmann",
+  "scans": [
+    "alm_3403_103017_ftsnpdxljr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Drey Sonntage von C. Spindler. / Morgen auf der Parade",
+  "updated": "2010-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tn7xqnq23ryojsp",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.169Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dritte Aufstellung von Volksscenen (Titel aus dem I-Verz) s. Graphik INr 77575, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Die Ernte ist vorüber nun, / Da kann der Spielmann nicht mehr ruhn,",
+  "language": [],
+  "musenalm_id": 77576,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Pfifferari in Rom",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Pfifferari in Rom",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "luozfogdjd938wo",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.668Z"
+    }
+  ]
+}

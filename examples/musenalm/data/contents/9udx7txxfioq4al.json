@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Chrison, ein Epigrammenmacher, / Wie, ohne Ruhm zu melden, ich / Schrieb eben etwas für die Lacher,",
+  "language": [],
+  "musenalm_id": 83263,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Alten. / Nach S ***",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stiegler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Alten. / Nach S ***",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5pgxzdvd40c2ug8",
+      "agents": "t6wjjpa90xmd7r2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.048Z"
+    }
+  ]
+}

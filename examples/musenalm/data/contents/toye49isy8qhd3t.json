@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 87122, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Ruhe spendet uns nicht der Becher des irdischen / Lebens;",
+  "language": [],
+  "musenalm_id": 87142,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gittermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20.",
+  "updated": "2013-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s4sp3m2wrxk6ii3",
+      "agents": "csr350ne0svibrz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.212Z"
+    }
+  ]
+}

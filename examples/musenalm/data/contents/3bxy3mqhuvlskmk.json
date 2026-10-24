@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Horch! mit jauchzendem Heißa / Ruft bei zögernder Weile, / Dich der bräunliche Fuhrmann / Auf den ländlichen Wagen!",
+  "language": [],
+  "musenalm_id": 75825,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An F. W. A. Schmidt. / Bei seiner Abreise nach Werneuchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rud. Agricola",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An F. W. A. Schmidt. / Bei seiner Abreise nach Werneuchen",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "in6vab842lwjqlf",
+      "agents": "yvwmvtjd7z5rjtc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.465Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.465Z"
+    }
+  ]
+}

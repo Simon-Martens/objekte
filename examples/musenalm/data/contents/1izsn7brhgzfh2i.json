@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanzlieder (Sammlung INr 82276, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "O wie im May die Natur sich verjüngt! / Jugendliche Lust und Gesang erwachet!",
+  "language": [],
+  "musenalm_id": 82279,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingstanz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingstanz",
+  "updated": "2012-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u209ndpyc9xvt00",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.067Z"
+    }
+  ]
+}

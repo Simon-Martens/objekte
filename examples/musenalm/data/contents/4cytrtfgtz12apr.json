@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 55135-55137, Obj 145-147 /) Musikalische Sonette (Sammlung INr 55116, Obj 126)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.419Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "328",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XV. An Neuere",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Theodor Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XV. An Neuere",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c9pub1e74irodjc",
+      "agents": "2zdwvvsdgu1m59h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.775Z"
+    }
+  ]
+}

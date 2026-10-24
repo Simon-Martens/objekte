@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu Racines »Phädra« übersetzt von Fr. Schiller s. Textbezug INr 40077, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40076,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phaedra. IVr. Aufz. IIr. Auftr. / Theseus. Jetzt fleh ich dich, Erschütterer der Erde! / Räch' einen Vater, der verraten ist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Schwerdgeburth sc.",
+  "scans": [
+    "alm_524_40076_niwdwqxpa6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Phaedra. IVr. Aufz. IIr. Auftr. / Theseus. Jetzt fleh ich dich, Erschütterer der Erde! / Räch' einen Vater, der verraten ist",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "raxzusvpq2wcv7m",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.949Z"
+    },
+    {
+      "id": "e3421qh5o0hbyet",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.949Z"
+    }
+  ]
+}

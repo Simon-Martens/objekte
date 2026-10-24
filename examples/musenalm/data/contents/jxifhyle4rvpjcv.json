@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober.; nummeriert 10. # Bez. am 1. Blatt der Suite /) Illustration zu »Der lustige Tag oder Figaro's Hochzeit« von Beaumarchais",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 134932,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Suschen, Suschen, Suschen, wie mar- / terst du mich! / V. Handl. 3. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del. Geyser sc.",
+  "scans": [
+    "alm_2036_134932_u7hj8ouimr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Suschen, Suschen, Suschen, wie mar- / terst du mich! / V. Handl. 3. Auftr.",
+  "updated": "2010-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fsgqfh0brd676gl",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.128Z"
+    },
+    {
+      "id": "4z6quwn4tf62me1",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.128Z"
+    }
+  ]
+}

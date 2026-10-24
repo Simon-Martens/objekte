@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Alte Denkmäler der Kunst« INr 48325, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ruinen von Kaiser Adrian's Landhause",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Wagner sc.",
+  "scans": [
+    "alm_658_48326_67wnr2nzhw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ruinen von Kaiser Adrian's Landhause",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "35ve63md46gtyv5",
+      "agents": "o3ct6ijrde3gzy6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.290Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.290Z"
+    }
+  ]
+}

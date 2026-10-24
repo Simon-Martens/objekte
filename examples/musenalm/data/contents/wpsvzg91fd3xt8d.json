@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Der Sandwichs-Archipel, welcher aus 13 Inseln besteht, hat ein ähnliches Klima wie Westindien, und beinahe eine gleiche Fruchtbarkeit wenigstens in den Thälern und auf den Flächen, welche trefflich bewässert sind.",
+  "language": [],
+  "musenalm_id": 127461,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Orakel auf Owaichi. / Novellette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Moshamer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Orakel auf Owaichi. / Novellette",
+  "updated": "2019-03-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ws3f9aa9esibca4",
+      "agents": "hsujjp5smywjyiq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.942Z"
+    }
+  ]
+}

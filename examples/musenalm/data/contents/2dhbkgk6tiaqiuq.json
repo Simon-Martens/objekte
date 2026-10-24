@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Sonnett von Treitschke INr 68597, Obj 2,09",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.359Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68596,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2.08,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AMOR TRAEUMEND",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guido Reni pt. F. John sc.",
+  "scans": [
+    "alm_224_68596_7jhanyj55w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AMOR TRAEUMEND",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w0v1kgei18m1u9y",
+      "agents": "azlvdz0ge43hlgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.442Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.442Z"
+    },
+    {
+      "id": "4tsy05a5emgmx9p",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.442Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.442Z"
+    }
+  ]
+}

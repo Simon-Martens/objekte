@@ -1,0 +1,45 @@
+{
+  "annotation": "Blüthen aus der Schweiz. Zweyter Strauß (Sammlung INr 54435, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.394Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Selig Schweizerland, wie deine / Jubel in dem Thale schallen!",
+  "language": [],
+  "musenalm_id": 54440,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Das Mädchen von Luzern. / a.) Erstes Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Das Mädchen von Luzern. / a.) Erstes Lied",
+  "updated": "2008-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kagbtitvj6g2m4h",
+      "agents": "6li7ibbf1vr3nv9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.499Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 10. /) Graphik im Kalendarium Oktober /) s. Textbezug INr 88293, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88263,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Böses Wetter / Mauvais tems",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki sculps.",
+  "scans": [
+    "alm_154_88263_7qk6yz6u2a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Böses Wetter / Mauvais tems",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1ekescd0wbiln0p",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.258Z"
+    }
+  ]
+}

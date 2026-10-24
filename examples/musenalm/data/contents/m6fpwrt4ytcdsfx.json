@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123357, Obj 3); Illustration zu »Das Strandrecht« von Kotzebue (INr 123367, Obj 13); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Juchhe! Pudel komm her! / Das Strandrecht. lezte Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. M. Kraus del. C. Müller sc. # $",
+  "scans": [
+    "alm_1275_123366_vqzz93olur.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "4. / Juchhe! Pudel komm her! / Das Strandrecht. lezte Scene",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "71xoyrf8njvrbcr",
+      "agents": "vvn2bsy8p7l2qv3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.807Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.807Z"
+    }
+  ]
+}

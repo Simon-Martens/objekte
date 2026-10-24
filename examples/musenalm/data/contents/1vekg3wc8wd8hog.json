@@ -1,0 +1,45 @@
+{
+  "annotation": "Waldtreiben (Sammlung INr 69830, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.589Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Ein ganz ähnlicher Fall von Dreistigkeit eines Trappenhahhns ist vor einigen Jahren auch bei einem Dorfe in der Nähe von Gotha vorgekommen.",
+  "language": [],
+  "musenalm_id": 69851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "21. / Der dreiste Trappenhahn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. v. W.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "21. / Der dreiste Trappenhahn",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gzah8tz3aick89i",
+      "agents": "cmylaolo9dbcgmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.157Z"
+    }
+  ]
+}

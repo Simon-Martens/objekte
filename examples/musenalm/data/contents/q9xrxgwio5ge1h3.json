@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Die Gesellschaft der Kinder war am ersten Junius durch Besuch zahlreicher, da nahm sich das Barres wiederum sehr gut aus.",
+  "language": [],
+  "musenalm_id": 49221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. Juniusspiel. / Planetenspiel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. Juniusspiel. / Planetenspiel",
+  "updated": "2007-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "avyf02aiaxty9bu",
+      "agents": "l2p9o0rcq31xal5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.529Z"
+    }
+  ]
+}

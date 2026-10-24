@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Halt aus, halt aus mein prächtiges Roß, Du allein kannst mich erlösen, / Du schwarzes Roß, mein trauter Genoß / In guten Tagen, in bösen!",
+  "language": [],
+  "musenalm_id": 122792,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Reiter und sein Roß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Reiter und sein Roß",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6z0ixzbsr9xdxls",
+      "agents": "o11zrg5nk396fgh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.697Z"
+    }
+  ]
+}

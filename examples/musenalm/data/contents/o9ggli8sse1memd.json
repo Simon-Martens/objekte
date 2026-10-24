@@ -1,0 +1,47 @@
+{
+  "annotation": "Neue Tänze (Sammlung INr 10627, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10630,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 146,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angloise I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Siegfr. Schmiedt",
+  "scans": [
+    "alm_202_10630_1jcrepjy63.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Angloise I.",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y7cu4ls2jvgr1iz",
+      "agents": "m8h0i8atzha2rbr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.600Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.600Z"
+    }
+  ]
+}

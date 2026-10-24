@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium /) s. Textbezug INr 90993, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.507Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90977,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MADEMOISELLE CHARLOTTE DE BISCHOFFWERDER. DAME D'ATOUR / MADAME HENRIETTE DE DOERNBERG NÉE DE GEUDER. DAME D'ATOUR",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas sc.",
+  "scans": [
+    "alm_825_90977_vk5ud0nnx6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MADEMOISELLE CHARLOTTE DE BISCHOFFWERDER. DAME D'ATOUR / MADAME HENRIETTE DE DOERNBERG NÉE DE GEUDER. DAME D'ATOUR",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w9r91cvwg6a3ylf",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.398Z"
+    }
+  ]
+}

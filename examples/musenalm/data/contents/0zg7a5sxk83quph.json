@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Eine der ältesten Weinstuben Berlins befindet sich in einem weitläufigen, verräucherten Eckhause der Königsstraße. Die innere Einrichtung stammt noch aus den guten, alten Zeiten, wo das Wesen mehr galt als der Schein,",
+  "language": [],
+  "musenalm_id": 96819,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Stumme. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr von Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Stumme. / Novelle",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7s4k6km8k9pkdt3",
+      "agents": "snnpz92vgxnioxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.374Z"
+    }
+  ]
+}

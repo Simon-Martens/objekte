@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Gedichte (Sammlung INr 40302, Obj 71) # Anm. am Objekt: In ihrem neuesten Romane: Die Novize von St. Dominique",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Träumest du schon von Frühlingswonne? / Blume der Luft! Du Kind der Sonne! / Schmetterling!",
+  "language": [],
+  "musenalm_id": 40306,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Maischmetterling im Jahre 1817. / Frei, nach Miß Owenson (Lady Morgan) #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Maischmetterling im Jahre 1817. / Frei, nach Miß Owenson (Lady Morgan) #",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e0ltbgg0h67s7m4",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.194Z"
+    }
+  ]
+}

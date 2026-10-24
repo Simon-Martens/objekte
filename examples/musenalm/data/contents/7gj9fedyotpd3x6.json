@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert IV /) kol. Illustration zu »Der Fasan« von A. W. von Mellin INr 69593, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69592,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gemeiner Fasan. Hahn und Henne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen ad viv. pinx. G. B. sc.",
+  "scans": [
+    "alm_1132_69592_duy273iv55.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gemeiner Fasan. Hahn und Henne",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mzyervwessttj5c",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.375Z"
+    },
+    {
+      "id": "mjjtk8aoxxb8r8n",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.375Z"
+    }
+  ]
+}

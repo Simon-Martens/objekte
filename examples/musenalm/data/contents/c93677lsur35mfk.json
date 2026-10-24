@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Meine Seele taumelt, nicht berauscht vom Weine / Im bemooßten Faße hergebracht vom Rheine,",
+  "language": [],
+  "musenalm_id": 8081,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode / auf die Geburt des jungen Prinzen von Preußen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mad. Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode / auf die Geburt des jungen Prinzen von Preußen",
+  "updated": "2000-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "948qqru0hb6hpt3",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.387Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. des Hrsg.: Dieses Gedicht ist unter den diesmal zur Preisbewerbung eingegangenen Erzählungen als vorzüglich ausgezeichnet worden. /) s. Vorwort des Herausgebers INr 9266, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.594Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Wie sich im Fluß die fernen Berge spiegeln, / Als seyn sie nah dem, der am Ufer steht,",
+  "language": [],
+  "musenalm_id": 1556,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sinnpflanze. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Winkler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sinnpflanze. / Erzählung",
+  "updated": "2000-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mqfbq2psx54o8jl",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.967Z"
+    }
+  ]
+}

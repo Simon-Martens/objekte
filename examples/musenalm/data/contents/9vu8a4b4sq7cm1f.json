@@ -1,0 +1,45 @@
+{
+  "annotation": "3. An die Apostolischen (Sammlung INr 24124, Obj 10) Gedichte (Sammlung INr 24121, Obj 104)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Es steht die öffentliche Meinung auf und klagt. / Ihr habt von mir erborget eure Kraft,",
+  "language": [],
+  "musenalm_id": 24128,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ivei1ef5efzrbo",
+      "agents": "3emdj29jey7pglq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.103Z"
+    }
+  ]
+}

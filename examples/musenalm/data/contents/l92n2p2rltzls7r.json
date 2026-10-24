@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Kunz von Drachenfels« von F. W. A. Schmidt (von Werneuchen) INr 78935, Obj 123",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78934,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Er fasst die Hand: sie war so kalt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. et sc. 1797",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Er fasst die Hand: sie war so kalt",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "goz8r1z5b6k0cbq",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.890Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.890Z"
+    }
+  ]
+}

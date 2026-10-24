@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juni. Illustration zu »Historisch-statistisches Gemälde von Ost- und Westpreußen. Dritter Abschnitt.« von F. W. Schubert INr 59028, Obj 19 s.a. Textbezug INr 59037, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.715Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59019,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kirche zu Arnau nebst Aussicht auf den alten u. neuen Pregel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von Rausche. Gest. v. J. Willmore in London",
+  "scans": [
+    "alm_871_59019_ajd42p50l2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Kirche zu Arnau nebst Aussicht auf den alten u. neuen Pregel",
+  "updated": "2008-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i46cld7qe0yfbkx",
+      "agents": "0y7p9f329hiskvv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.983Z"
+    }
+  ]
+}

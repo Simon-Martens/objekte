@@ -1,0 +1,56 @@
+{
+  "annotation": "TABELLEN  zur Bemerkung der Festtage des häuslichen Glücks und des gesellschaftlichen Lebens (Sammlung INr 50408, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50415,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JULY",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. d. M. sc.",
+  "scans": [
+    "alm_9_50415_buropincr8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "JULY",
+  "updated": "2007-06-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gfq0bcir4hmyw8v",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.703Z"
+    },
+    {
+      "id": "6s7ut65yqpcsllr",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.703Z"
+    }
+  ]
+}

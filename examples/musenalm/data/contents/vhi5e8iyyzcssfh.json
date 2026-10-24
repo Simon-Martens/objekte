@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4.; Graphik im Kalendarium April /) Illustration zu »König Ludwig der Heilige, auf dem Kreuzzuge nach Ägypten« INr 68974, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68963,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Demüthig-frommer Einzug in Damiate. / S. 85. 86",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf d. F. Bolt sc.",
+  "scans": [
+    "alm_845_68963_fp4c8y348a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Demüthig-frommer Einzug in Damiate. / S. 85. 86",
+  "updated": "2008-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "flmerlm1id3p6jm",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.234Z"
+    },
+    {
+      "id": "ilazcb2jmqmckqx",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.234Z"
+    }
+  ]
+}

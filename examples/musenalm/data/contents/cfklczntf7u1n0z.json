@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.075Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Seyd ihr vorausgegangen, / Liebe Gefährten der Reise, / Wohnung mir zu bereiten, / Der noch im Staube des Wegs.",
+  "language": [],
+  "musenalm_id": 14521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die vorausgegangenen Lieben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die vorausgegangenen Lieben",
+  "updated": "2001-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4piy5j6sm83tyyo",
+      "agents": "jf5q6ykf9ux52yq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.568Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.568Z"
+    }
+  ]
+}

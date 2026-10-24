@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesang (Sammlung INr 49062, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Hier geht der Weg nach Südens Würzegarten, / Den einst auch ich, ein treuer Pilgram ging;",
+  "language": [],
+  "musenalm_id": 49070,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Otto Heinrich, Grafen von Löben. / In ein spanisches Wörterbuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich, Baron de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Otto Heinrich, Grafen von Löben. / In ein spanisches Wörterbuch",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sxhi4q6xamhje5u",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.759Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.759Z"
+    }
+  ]
+}

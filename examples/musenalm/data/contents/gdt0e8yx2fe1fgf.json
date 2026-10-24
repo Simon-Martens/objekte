@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das Wirtshaus zu Neumarket« von J. Langer INr 113456, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 113457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es ist meine - nein! nicht mehr meine / Tochter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Beyer",
+  "scans": [
+    "alm_2702_113457_jfp7pges7u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Es ist meine - nein! nicht mehr meine / Tochter",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "608bdt24b76hzgn",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.441Z"
+    }
+  ]
+}

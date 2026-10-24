@@ -1,0 +1,45 @@
+{
+  "annotation": "Beylagen (Sammlung INr 21671, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Vorsiechtigen ersamen Wißen Lieben Herrn und Insonders gutte Freund was ich liebs und gutts vermag sy euch mit vleis zuvor bereit",
+  "language": [],
+  "musenalm_id": 21675,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Abschrift eines Briefs von Franz von / Sickingen, an die Stadt Heilbronn, / vom Jahr 1521",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franciscus von Sieckingen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Abschrift eines Briefs von Franz von / Sickingen, an die Stadt Heilbronn, / vom Jahr 1521",
+  "updated": "2002-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d3tzvl2kqkiqw9x",
+      "agents": "p9wnu0sevul9zqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.050Z"
+    }
+  ]
+}

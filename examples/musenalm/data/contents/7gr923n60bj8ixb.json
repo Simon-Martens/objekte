@@ -1,0 +1,47 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.206Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Der Herausgeber hält es für nötig, einige einleitende Worte, mit Zustimmung des Verfassers, vorauszusenden, um Beider Absicht, bei Herausgabe dieses Stückes, vor Mißdeutung zu sichern",
+  "language": [],
+  "musenalm_id": 125764,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franck",
+  "scans": [
+    "alm_2730_125764_0d45iuwuqf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1y9xpblr235q2t1",
+      "agents": "q3vezx66ehdwkf0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.760Z"
+    }
+  ]
+}

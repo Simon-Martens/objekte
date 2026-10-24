@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. aus dem G-Verz /) paginiert 4. Illustration zu »Die Wahrsagerin« INr 59574, Obj 92 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59575,
+  "musenalm_pagination": [
+    "5. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wahrsagerin #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fürstenberg # Auguste Hüssener",
+  "scans": [
+    "alm_898_59575_67i0znapbq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Wahrsagerin #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "83sht9rg2io8r8q",
+      "agents": "czymjsu9p8uj1yn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.860Z"
+    },
+    {
+      "id": "50rhwylop5f03bb",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.861Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "376",
+  "incipit_statement": "Wenn auf den rau'sten Pfad hinaus gesendet, / Kein milder Laut des Dichters Klage dämpft,",
+  "language": [],
+  "musenalm_id": 77344,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tonkunst",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Henr. Freese",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tonkunst",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dz5pe65jb0n64rj",
+      "agents": "i20nafn5d00efxt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.778Z"
+    }
+  ]
+}

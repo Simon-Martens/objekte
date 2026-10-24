@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ludwig der Große, aus dem Hause Anjou-Neapel, König von Ungarn und Pohlen, war im September des Jahres 1382 zu Tyrnau gestorben.",
+  "language": [],
+  "musenalm_id": 14406,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm, Herzog von Oesterreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marianne von Neumann- Meißenthal, gebohrne von Tiell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm, Herzog von Oesterreich",
+  "updated": "2001-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r8p3x95xzm5t5li",
+      "agents": "blexso3sv1n2ckh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.529Z"
+    }
+  ]
+}

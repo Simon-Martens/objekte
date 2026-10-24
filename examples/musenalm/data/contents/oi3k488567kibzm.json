@@ -1,0 +1,45 @@
+{
+  "annotation": "Widmungsgedicht s. Widmung INr 69742, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.749Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "In Deines Forstes friedlicher Einsamkeit, / Wo Weimuthsfichten dämmernde Schatten streu'n,",
+  "language": [],
+  "musenalm_id": 69743,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In Deines Forstes friedlicher Einsamkeit, / Wo Weimuthsfichten dämmernde Schatten streu'n,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Renn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-06-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8unenmgk9uvp6yz",
+      "agents": "qnb96innln6psir",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.092Z"
+    }
+  ]
+}

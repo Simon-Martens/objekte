@@ -1,0 +1,43 @@
+{
+  "annotation": "Anm. zum vorstehenden Kalendarium INr 92589, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Vorstehender Licht- und Nachtkalender hat zeitgemäße Verbesserungen erhalten. Die Werkeltage erhalten auch diesmal die Namen der mehr oder weniger literaisch bekannten uns verdienten Männer; mitunter hie und da ein räudiges Schaaf.",
+  "language": [],
+  "musenalm_id": 92590,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorstehender Licht- und Nachtkalender hat zeitgemäße Verbesserungen erhalten. Die Werkeltage erhalten auch diesmal die Namen der mehr oder weniger literaisch bekannten uns verdienten Männer; mitunter hie und da ein räudiges Schaaf.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m62mjt2qnjln8sb",
+      "agents": "i1m0o75lvyphony",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.527Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.527Z"
+    }
+  ]
+}

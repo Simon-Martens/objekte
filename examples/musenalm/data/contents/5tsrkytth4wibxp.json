@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1. /) Graphik im Kalendarium Januar /) Illustration zu »Promenades de Mr. Le Noble. Tom. III. nouv. 6« s. G-Verz INr 69948, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.909Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69936,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blasius Gaulart reiset nach Paris, / Promenades de Mr. Le Noble. Tom. III. nouv. 6",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. et del. D. Berger sculpsit Berolini",
+  "scans": [
+    "alm_787_69936_z7u05jd5qk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Blasius Gaulart reiset nach Paris, / Promenades de Mr. Le Noble. Tom. III. nouv. 6",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "913sq63kxik07v7",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.418Z"
+    },
+    {
+      "id": "it63ryfv0qzd7r7",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.418Z"
+    }
+  ]
+}

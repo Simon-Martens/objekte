@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Im Sommergarten zu St. Petersburg pochte im Frühling des Jahres 1768 ein bildschöner, beinahe 6 Fuß hoher Kernjunge aus dem blauaugigen und rothwangigen Schwedenstamme an das Gitterthor",
+  "language": [],
+  "musenalm_id": 117712,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unbegreiflich. / Novelle aus der russischen Geschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. I. F. Proschko",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unbegreiflich. / Novelle aus der russischen Geschichte",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0154xj1xa7cc2c8",
+      "agents": "agwsn5i724aiq5h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.480Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.480Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Monogramen (Sammlung INr 122649, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Die Fluthen, die den Durchgang sich erzwingen, / Vermögt ihr schwerlich ohne Ernst und Grau'n",
+  "language": [],
+  "musenalm_id": 122654,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die Öfen bei Golling",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die Öfen bei Golling",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lg885fl6pm923sx",
+      "agents": "wzmgymh9fjau9gk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.792Z"
+    }
+  ]
+}

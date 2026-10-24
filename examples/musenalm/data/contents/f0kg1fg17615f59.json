@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Ich sah ein Veilchen auf der Flur, / Süß duftend und bescheiden / In Laub verhüllt:",
+  "language": [],
+  "musenalm_id": 94458,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das verlorene Veilchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das verlorene Veilchen",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ej7xnuelhuuub4e",
+      "agents": "cqrs6fj7ecvzmh8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.562Z"
+    }
+  ]
+}

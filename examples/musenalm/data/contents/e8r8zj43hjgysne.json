@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 4 Illustrationen s. Titelgraphik INr 98975, Obj 1; Graphiken INr 98978-98980, Obj 4-6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Alle Brüder sind versammelt / Betend in dem kühlen Chor: / Da ertönt das Klosterglöcklein, / Eisern pocht es an dem Thor.",
+  "language": [],
+  "musenalm_id": 99083,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ezzelin von Romano",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfizer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ezzelin von Romano",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5f14in8r5i4b03z",
+      "agents": "sv92qni765t0f64",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.934Z"
+    }
+  ]
+}

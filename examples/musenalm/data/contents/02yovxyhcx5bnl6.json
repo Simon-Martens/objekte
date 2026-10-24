@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag zur Sammlung »Kleine Genrebilder ...« von Schlönbach (INr 131201, Obj 28); # Bezeichnung an der Sammlung;",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Bekannt ist der heftige persönliche und wissenschaftliche Streit zwischen Lessing und dem Hamburger Pastor Götze, dem Hengstenberg des 18ten Jahrhunderts.",
+  "language": [],
+  "musenalm_id": 131202,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Lessing, Götze und Dreier",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Schlönbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Lessing, Götze und Dreier",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o5w9ly5c3usl0qc",
+      "agents": "gb3gsdsk2jy6855",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.009Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug INr 50944, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.846Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50920,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf dem Vierwaldstätter-See, bey Altststaad",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meyer f.",
+  "scans": [
+    "alm_693_50920_q7cp8n2h46.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auf dem Vierwaldstätter-See, bey Altststaad",
+  "updated": "2007-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "enl112wyyqtwrnu",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.726Z"
+    }
+  ]
+}

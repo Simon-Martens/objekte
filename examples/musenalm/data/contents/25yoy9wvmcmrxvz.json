@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.713Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Als Hermann der Cherusker den Todespfeil empfand, / Den ihm so nahverwandte untreue Hand gesandt,",
+  "language": [],
+  "musenalm_id": 46161,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hermann der Cherusker. / (Letztes Gedicht vom Januar 1853.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kopisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hermann der Cherusker. / (Letztes Gedicht vom Januar 1853.)",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gl37nstwwb07evt",
+      "agents": "aq3u8k3couckqq1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.440Z"
+    }
+  ]
+}

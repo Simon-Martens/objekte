@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember; paginiert 12. Illustration zu »Die Geisterbraut« von S. H. Spiker INr 59361, Obj 40 aus »Bruchstücke aus Crayons Skizzenbuche«",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59337,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "zur Geisterbraut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. W. Jury sc.",
+  "scans": [
+    "alm_893_59337_kwo3mhma4c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "zur Geisterbraut",
+  "updated": "2008-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hs5kcfy8gcz9i5g",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.989Z"
+    },
+    {
+      "id": "g5wstw9rvlnan1z",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.989Z"
+    }
+  ]
+}

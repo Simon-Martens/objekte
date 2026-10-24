@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Ein ehrend' Kleinod möcht' ich liebend gern dir geben, / Möcht' dir so gern, wie ich dich liebe, zeigen,",
+  "language": [],
+  "musenalm_id": 14569,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angebinde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Christ. Baron v. Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Angebinde",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b0g33po38qo9wsm",
+      "agents": "id1mj19iathigp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.562Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 85692-85698, Obj 15-22 /) mit einer Illustration s. Graphik INr 85684, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85691,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Oskar und Malvina. / Romanzenkranz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Oskar und Malvina. / Romanzenkranz",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n37pvlnrdxnlya2",
+      "agents": "kjfa5zse6o9jzto",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.165Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.165Z"
+    }
+  ]
+}

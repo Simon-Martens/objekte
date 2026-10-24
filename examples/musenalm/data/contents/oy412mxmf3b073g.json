@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Der Verfasser des folgenden Briefs hält es für nöthig, über die Anwendung der neuesten Philosophie, welche darin beyläufig statt gefunden hat,[...] /) Mit einer Illustration s. Titelgraphik INr 23285, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Deine Sorge, du lieber alter Freund, um einen neuen Titel für dein Taschenbuch, dem neuen Verleger zu Liebe, der ihn wünscht,",
+  "language": [],
+  "musenalm_id": 23289,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede. / Ein Brief an den Herausgeber [Eutin 1799. Am heiligen 3 Königs Tage.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Heinrich Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede. / Ein Brief an den Herausgeber [Eutin 1799. Am heiligen 3 Königs Tage.]",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j6a2hz6s2m49mii",
+      "agents": "02o1v7ogp6q644r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.060Z"
+    }
+  ]
+}

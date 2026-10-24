@@ -1,0 +1,45 @@
+{
+  "annotation": "Alphabet aus 25 Scherenschnitten (Sammlung INr 20039, Obj 121 # s. Anm. dort) Räthsel, Charaden und Logogryphen (Sammlung INr 20026, Obj 109)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20050,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V / W",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_268_20050_31uelq22nj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "V / W",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q7rxyl8o6byc1sb",
+      "agents": "yko18otkj7ju8x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.976Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In dem großen prachtvollen Saale des reichen Handelsherrn Hubert in Antwerpen schien das Morgenlicht durch die hohen Fensterbogen",
+  "language": [],
+  "musenalm_id": 2019,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die Gebrüder Breughel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Freiherr von Sternberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die Gebrüder Breughel",
+  "updated": "2000-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0s44rq9w4fzmblv",
+      "agents": "323k0krc681l77m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.698Z"
+    }
+  ]
+}

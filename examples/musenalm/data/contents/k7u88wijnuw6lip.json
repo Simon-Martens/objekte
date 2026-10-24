@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.515Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Gib Rechenschaft, grausame Atropos! / Warum schnitt deine Hand so mitleidlos / Den Lebensfaden eines Sohnes ab,",
+  "language": [],
+  "musenalm_id": 133394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen leidenden Vater",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen leidenden Vater",
+  "updated": "2024-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eeb5re5ik7c3yxv",
+      "agents": "vnh3lwvt81shntt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.107Z"
+    }
+  ]
+}

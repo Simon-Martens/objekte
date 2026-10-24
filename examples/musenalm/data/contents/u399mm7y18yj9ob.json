@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 16 Beiträgen mit Einleitung INr 27084-27100, Obj 114-130",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27083,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bilder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bilder",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ybsy756v8n7b86a",
+      "agents": "ep2ivkqi4f7w9jh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.219Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium. Illustration zu »Sethona« von Hg. INr 35175, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.984Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35165,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich rettete dein Leben - sey dankbar und bleib. / aus Sethona",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gauermann del. Guttenberg sc.",
+  "scans": [
+    "alm_485_35165_vdf964syjt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich rettete dein Leben - sey dankbar und bleib. / aus Sethona",
+  "updated": "2003-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ltvlrjkrfcms00l",
+      "agents": "2mva6jy22bwfmo3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.717Z"
+    },
+    {
+      "id": "8gmajo6rn73mn9q",
+      "agents": "p79994clraf220s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.717Z"
+    }
+  ]
+}

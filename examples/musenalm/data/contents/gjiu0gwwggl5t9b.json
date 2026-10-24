@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.392Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Sieh, schon blüht im herrlichsten Mittags- / glanze / Auf der ringsumdorneten Flur dein Lorbeer!",
+  "language": [],
+  "musenalm_id": 31689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "UNSTERBLICHKEIT. / Dem Herrn Direktor am k.k. Theresianum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kristoff Kueffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "UNSTERBLICHKEIT. / Dem Herrn Direktor am k.k. Theresianum",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jlkut00gaa6gmb7",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.492Z"
+    }
+  ]
+}

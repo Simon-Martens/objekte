@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Es war ein herrlicher Vollmondabend. Der ehrwürdige Einsiedler, der schon seit vielen Jahren die Höhe des heiligen Bergs bey Jerusalem bewohnte, trat vor den Eingang seiner grünumlaubten Felsenwohnung",
+  "language": [],
+  "musenalm_id": 39208,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Die Freunde, / oder / Geschichte / Herrmanns von Eschenbach / und Willibalds von Thurnau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Die Freunde, / oder / Geschichte / Herrmanns von Eschenbach / und Willibalds von Thurnau",
+  "updated": "2005-07-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f5bhmaybv7f22p7",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.898Z"
+    }
+  ]
+}

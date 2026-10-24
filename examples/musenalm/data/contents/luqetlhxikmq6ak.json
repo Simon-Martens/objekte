@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 3. Blatt der Suite /) Graphik im Kalendarium Juli paginiert 7. /) # Titel s. Textbezug INr 107211, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107199,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Pferd mit einem englischen Staatswagen-Geschirr #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent",
+  "scans": [
+    "alm_3124_107199_y4jz0tc47o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Pferd mit einem englischen Staatswagen-Geschirr #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n3l978lvfu0ovbn",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.085Z"
+    }
+  ]
+}

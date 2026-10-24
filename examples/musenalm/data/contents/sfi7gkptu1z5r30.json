@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 5. /) Illustration zu »Rath und That« von Fr. Kind INr 13610,Obj 44",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13574,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rath und That / von Fr. Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. Heß sc.",
+  "scans": [
+    "alm_218_13574_w2gqovylvh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rath und That / von Fr. Kind",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gbek2z4o2xu0g5v",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.654Z"
+    }
+  ]
+}

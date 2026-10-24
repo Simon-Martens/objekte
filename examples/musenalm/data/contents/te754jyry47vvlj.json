@@ -1,0 +1,45 @@
+{
+  "annotation": "Andre Sachen die zu kaufen gesucht werden (Sammlung INr 37323, Obj 50) Intelligenz-Blatt. Nro. I (Sammlung INr 37316, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Suchen unsre neuen dramatischen Schriftsteller, Oden und Romanendichter;",
+  "language": [],
+  "musenalm_id": 37325,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ferner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ferner",
+  "updated": "2004-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q8ulpmcrmsqsvl8",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.927Z"
+    }
+  ]
+}

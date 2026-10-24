@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) s. Textbezug INr 9712, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97707,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ludwig IV. der aeltere, / Landgraf von Hessen, / Nach einem Original-Gemälde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. B. Kessler del. G. Boettger senior sc.",
+  "scans": [
+    "alm_3496_97707_ax7wi0zx3q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ludwig IV. der aeltere, / Landgraf von Hessen, / Nach einem Original-Gemälde",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rq0ej0w1m5wlnq8",
+      "agents": "2e0zj08qq2qshay",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.732Z"
+    },
+    {
+      "id": "ovip60ws44g95e6",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.732Z"
+    }
+  ]
+}

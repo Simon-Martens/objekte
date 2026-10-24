@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30362, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.593Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "325",
+  "incipit_statement": "Welch' köstlich Gut, mit Freunden leben, / Sich dreist der gold'nen Stunde freun,",
+  "language": [],
+  "musenalm_id": 30364,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Liebe und Vertrauen. / (Mel. Schlußchor der Entführung von Mozart)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Liebe und Vertrauen. / (Mel. Schlußchor der Entführung von Mozart)",
+  "updated": "2002-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ukqrokn404bpnf0",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.003Z"
+    }
+  ]
+}

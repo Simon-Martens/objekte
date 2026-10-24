@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Topographisch-statistische Beschreibung des Cantons Zürich« INr 52347, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.206Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52353,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cappel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hegi del.",
+  "scans": [
+    "alm_714_52353_boh82xphag.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cappel",
+  "updated": "2007-11-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dfmicoqfcvzap4h",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.549Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.549Z"
+    }
+  ]
+}

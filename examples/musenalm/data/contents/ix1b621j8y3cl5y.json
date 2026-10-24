@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Fr. Schiller's Gedichten. II. (Sammlung INr 76915, Obj 5) mit einer Illustration s. Graphik INr 76926, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Und die wilden Winde schweigen, / Hell an Himmels Rande steigen / Eos Pferde in die Höh'.",
+  "language": [],
+  "musenalm_id": 76925,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hero und Leander",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hero und Leander",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gsk7iz9orfsmkwi",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.753Z"
+    }
+  ]
+}

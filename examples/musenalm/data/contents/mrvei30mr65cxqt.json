@@ -1,0 +1,45 @@
+{
+  "annotation": "Erstdruck in: Musenalmanach (Schiller) 1786, INr 964; hier: 2. Fassung aus: Gedichte, Leipzig 1800 /) mit einer Musikbeigabe s. INr 87318, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "Ehret die Frauen! Sie flechten und weben / Himmlische Rosen ins irdische Leben. / Flechten der Liebe beglückendes Band, / Und in der Grazie züchtgem Schleier / Nähren sie wachsam das ewige Feuer",
+  "language": [],
+  "musenalm_id": 87317,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Würde der Frauen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Würde der Frauen",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5q5v0mqum023hqn",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.448Z"
+    }
+  ]
+}

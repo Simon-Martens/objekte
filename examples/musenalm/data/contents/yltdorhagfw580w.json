@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 94731, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "360",
+  "incipit_statement": "Mir schien die Sonne stolz aus weiter Ferne, / Und drang mit glüh'ndem Strahl zum wunden Herzen;",
+  "language": [],
+  "musenalm_id": 94734,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y8g6b5iwigp1c29",
+      "agents": "xy1xe258ffgo9ok",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.291Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.291Z"
+    }
+  ]
+}

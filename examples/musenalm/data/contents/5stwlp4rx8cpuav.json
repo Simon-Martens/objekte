@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 27957, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27953,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. R.",
+  "scans": [
+    "alm_359_27953_dc4hcac8bi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maria #",
+  "updated": "2002-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qtaedrx16a5t8tr",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.219Z"
+    }
+  ]
+}

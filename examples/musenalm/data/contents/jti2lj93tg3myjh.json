@@ -1,0 +1,45 @@
+{
+  "annotation": ". Es folgt: Beitrag INr 87799, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Diese Erzählung möchte wohl das anziehendste unter den alten französischen Fabliaux seyn. La Curne de Sainte Palaye gab sie nach eine Handschrift unter dem Titel: Laes amours du bon vieux tems - à Vaucluse et à Paris, 1756, 12. mit einer Vorrede heraus",
+  "language": [],
+  "musenalm_id": 87798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aucassin und Nicolette. / Vorwort",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Verfasser des Romans Heliodora",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aucassin und Nicolette. / Vorwort",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "33y805cexn0zqlh",
+      "agents": "082sspsj3rz0i1b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.195Z"
+    }
+  ]
+}

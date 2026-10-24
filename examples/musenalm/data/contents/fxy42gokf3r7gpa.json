@@ -1,0 +1,47 @@
+{
+  "annotation": "Nummerierung V.; auszufaltende kol. Illustration zu »Abentheuerliche Wanderung von Weimar nach Carlsbad« von St. Schütze INr 124466, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.023Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124470,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. H. Rmbg 1809)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Rmbg 1809",
+  "scans": [
+    "alm_4689_124470_ot6d2l08dc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2020-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lhumdlf8pylukul",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.803Z"
+    }
+  ]
+}

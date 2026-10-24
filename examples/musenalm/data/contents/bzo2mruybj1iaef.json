@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Ein herrlicher Maymorgen war es, an dem ich in meiner Laube auf dem Ruhebette lag, und die Zufälle des menschlichen Lebens durchlief,",
+  "language": [],
+  "musenalm_id": 89093,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gasthof im Monde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aus Ungers Lesefrüchten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gasthof im Monde",
+  "updated": "2013-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0e7oi0ztafmb18r",
+      "agents": "14s4e7sp59idp02",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.388Z"
+    }
+  ]
+}

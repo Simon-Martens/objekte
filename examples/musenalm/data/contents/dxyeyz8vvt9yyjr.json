@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Ernst sterbe! - Eh flieht mich nicht Angst und nicht Qual! / Mit flammenden Blicken, mit flammendem Stahl",
+  "language": [],
+  "musenalm_id": 27694,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der schwarze Gefährte. / Ballade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Willibald Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der schwarze Gefährte. / Ballade",
+  "updated": "2002-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dsq2falnowi6j14",
+      "agents": "0o91z9eq6iw8en8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.210Z"
+    }
+  ]
+}

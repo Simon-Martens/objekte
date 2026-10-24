@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64674, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64680,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Brunnen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. de Keijser del. J. P. Lange sculp.",
+  "scans": [
+    "alm_1081_64680_mr4qyhwtex.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Am Brunnen #",
+  "updated": "2009-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1871,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6hg1g42mnoqtct8",
+      "agents": "xnz60ozopg5qaed",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.348Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.348Z"
+    }
+  ]
+}

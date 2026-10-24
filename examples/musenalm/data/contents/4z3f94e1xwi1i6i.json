@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Illustrationen s. Graphiken INr 14062, 14063; Obj 9, 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Schon hatt der Tag sich geneigt; nur die fernen Gebirgsgipfel standen noch von der untergehenden Sonne geröthet,",
+  "language": [],
+  "musenalm_id": 14107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Grab auf dem Oybin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. G. Prätzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Grab auf dem Oybin",
+  "updated": "2001-04-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ay47fjl37tvn38e",
+      "agents": "ufh0csiazwb0bf6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.321Z"
+    }
+  ]
+}

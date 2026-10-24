@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.101Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Unverdrossen, mein Str--b-, steig / Auf zur Höhe, wo Gott deiner Kraft Gränzstein, wo / Deinem Leben er Ziel gesetzt;",
+  "language": [],
+  "musenalm_id": 107630,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Str--b-",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmohl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Str--b-",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "63zbp8d1vfinvrp",
+      "agents": "m59qbdr7ru308p3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.194Z"
+    }
+  ]
+}

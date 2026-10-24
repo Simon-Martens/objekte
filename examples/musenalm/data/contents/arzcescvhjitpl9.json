@@ -1,0 +1,56 @@
+{
+  "annotation": "Vielen (Sammlung INr 38138, Obj 2079)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Keine lockt mich von euch, ich möchte zu / keiner mich wenden,",
+  "language": [],
+  "musenalm_id": 38152,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 221,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ranunkeln",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. und S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ranunkeln",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4yygilkpjclfggi",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.030Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.030Z"
+    },
+    {
+      "id": "pcujr4qahrm64hh",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.030Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.030Z"
+    }
+  ]
+}

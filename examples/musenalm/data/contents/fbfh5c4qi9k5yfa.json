@@ -1,0 +1,45 @@
+{
+  "annotation": "Gespräche mit Bäumen (Sammlung INr 90599, Obj 195)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "Herrlich bist du aufgestiegen / Aus des Berges trock'nem Grund',",
+  "language": [],
+  "musenalm_id": 90603,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 199,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Birke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Birke",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nd0w7l1x9841bd4",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.221Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.221Z"
+    }
+  ]
+}

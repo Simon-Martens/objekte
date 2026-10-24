@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.865Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Das Ideale ist gegeben, / Und auch die Wirklichkeit daneben.",
+  "language": [],
+  "musenalm_id": 86671,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Rath. / (In ein Album.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freih. von Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Rath. / (In ein Album.)",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vrwpmwoiu7smy41",
+      "agents": "kul4vu28bmx1z4v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.154Z"
+    }
+  ]
+}

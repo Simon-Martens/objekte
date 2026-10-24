@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Im Frühen sind wir ausgegangen / Mit frischem Sinn, mit raschem Lauf,",
+  "language": [],
+  "musenalm_id": 45223,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang auf die Wurmlinger / Capelle 1815",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Stange",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang auf die Wurmlinger / Capelle 1815",
+  "updated": "2006-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v6eefznq9jhuhco",
+      "agents": "he41wwlxk557zoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.455Z"
+    }
+  ]
+}

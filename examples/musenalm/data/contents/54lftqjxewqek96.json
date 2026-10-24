@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Gedichte (Sammlung INr 29426, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Jedes Ding im weiten Leben / Hat zwei Seiten, bös und gut,",
+  "language": [],
+  "musenalm_id": 29432,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Muth im Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Muth im Leben",
+  "updated": "2002-10-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yr0hhhhgsrs9gac",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.463Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.463Z"
+    }
+  ]
+}

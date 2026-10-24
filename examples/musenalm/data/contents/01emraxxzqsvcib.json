@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.678Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15066,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AGLAJA / Taschenbuch / für das Jahr / 1828. / Vierzehnter Jahrgang. / Wien / gedruckt und im Verlage / bey Joh. B. Wallishauser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Junker sc.",
+  "scans": [
+    "alm_235_15066_f24rrvz777.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AGLAJA / Taschenbuch / für das Jahr / 1828. / Vierzehnter Jahrgang. / Wien / gedruckt und im Verlage / bey Joh. B. Wallishauser",
+  "updated": "2001-05-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "03w7fd54m25c7yx",
+      "agents": "zuzc1anf4hbbexc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.645Z"
+    }
+  ]
+}

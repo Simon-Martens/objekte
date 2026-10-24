@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 59539, Obj 58",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Ein schmuckes Pärchen, welches vor uns wandert / Den langersehnten Gang zum eignen Heerd,",
+  "language": [],
+  "musenalm_id": 59540,
+  "musenalm_pagination": [
+    "3. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Abzug der Brautleute",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Kletke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Abzug der Brautleute",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "newezs59hdrzfzz",
+      "agents": "oxvlsvgq5f4m5gr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.139Z"
+    }
+  ]
+}

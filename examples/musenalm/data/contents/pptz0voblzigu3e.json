@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Januar /) s. Textbezug INr 118646, Obj 70",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.490Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 118581,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fürst Potemkin stirbt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weinrauch inv. et sc. Wien",
+  "scans": [
+    "alm_3634_118581_iqe4cfviwz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fürst Potemkin stirbt",
+  "updated": "2010-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gx2mctzt4gdxqvo",
+      "agents": "nhcnwrqiq042uja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.587Z"
+    }
+  ]
+}

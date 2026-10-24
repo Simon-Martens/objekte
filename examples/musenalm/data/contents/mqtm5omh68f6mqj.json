@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Graf Richard von der Normandie / Erschrak in seinem Leben nie. / Er schweifte Nacht wie Tag umher, / Manchem Gespenst' begegnet' er,",
+  "language": [],
+  "musenalm_id": 133473,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Altfranzösisches Gedicht / übersetzt von Ludwig Uhland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Uhland [übers.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Altfranzösisches Gedicht / übersetzt von Ludwig Uhland",
+  "updated": "2024-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pv8ejuy4r3xni91",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.107Z"
+    }
+  ]
+}

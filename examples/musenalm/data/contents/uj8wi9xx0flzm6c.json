@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Februar nummeriert II /) Illustration zu »Angelika« von Ph. Körber INr 120423, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120413,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angelika",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Russ del. S. Langer sc.",
+  "scans": [
+    "alm_4571_120413_m14vk8lx1z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Angelika",
+  "updated": "2018-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9rn19xzukr3btx7",
+      "agents": "iexyvzdzwrb4rqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.658Z"
+    },
+    {
+      "id": "sqxwqlc17k3m1dy",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.658Z"
+    }
+  ]
+}

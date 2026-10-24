@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Es lud der Herr Jupiter einmal, / In seinem grossen Himmels-Saal,",
+  "language": [],
+  "musenalm_id": 36182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ixion",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sangerhausen der Jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ixion",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l98r01lzmxufml1",
+      "agents": "9ffesqccgj8nyl5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.811Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "/ VI. Agrionien für das Jahr 1831 (Sammlung INr 75472, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "334",
+  "incipit_statement": "Bei der letzten Sylbe saß ich, / Die gefüllet war und gut,",
+  "language": [],
+  "musenalm_id": 75488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15. / Charade",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kn1z65ftpnpzmbl",
+      "agents": "utw4utrm977hsx5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.709Z"
+    }
+  ]
+}

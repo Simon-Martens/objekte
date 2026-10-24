@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August. Illustration zu »Wechsel des Schicksals« von F. Krug v. Nidda INr 59281, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.040Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59274,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wechsel des Schicksals. / S. 96",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. F. Meyer sc.",
+  "scans": [
+    "alm_892_59274_djdcl05uib.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wechsel des Schicksals. / S. 96",
+  "updated": "2008-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sul523kf4wjmqzf",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.042Z"
+    },
+    {
+      "id": "nu4esx5v0eevsmq",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.042Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Nr. 33-59 /) ARIOSTO (s. Zwischentitel INr 71277, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Sie flieht auf wilden, menschenleeren Wegen, / Durch finstrer Wälder grauenvolle Nacht.",
+  "language": [],
+  "musenalm_id": 71278,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AUS DEM ERSTEN GESANGE / DES / RASENDEN ROLAND",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ariosto; [übers.] Gries",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AUS DEM ERSTEN GESANGE / DES / RASENDEN ROLAND",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "asbeziohswnc20j",
+      "agents": "a42o5c274tls1qd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.398Z"
+    },
+    {
+      "id": "m4mg6cp358wtksl",
+      "agents": "29ohnryhyvah0tt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.398Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gaselen (Sammlung INr 26194, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "Wo Platanen stehn im Rasen, / Ruhten sanft wir aus und lasen,",
+  "language": [],
+  "musenalm_id": 26198,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wo Platanen stehn im Rasen, / Ruhten sanft wir aus und lasen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen Hallermünde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o95weio2bs6lqnz",
+      "agents": "on0a0wityl8730t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.262Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.262Z"
+    }
+  ]
+}

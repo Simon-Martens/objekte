@@ -1,0 +1,48 @@
+{
+  "annotation": "sep. Beilage: paginiert 1-4; Vertonung des Gedichts »Königstraum« von L. A. Frankl /) Photos 69464,01-69464,04",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Mit träumt, mir träumt' ich wär' ein König und herrschte weit umher",
+  "language": [],
+  "musenalm_id": 69464,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KÖNIGSTRAUM / Gedicht von Ludw. Aug. Frankl. / Musik von Josef Fischhof, / Professor am Conservatorium der Musik in Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Josef Fischhof",
+  "scans": [
+    "alm_758_69464_01_sqcmkcwasp.jpg",
+    "alm_758_69464_02_qim1ngojqv.jpg",
+    "alm_758_69464_03_6kx4oj7004.jpg",
+    "alm_758_69464_04_7ci0txx5ii.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KÖNIGSTRAUM / Gedicht von Ludw. Aug. Frankl. / Musik von Josef Fischhof, / Professor am Conservatorium der Musik in Wien",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m66knttjfqh1bzk",
+      "agents": "0ph95htp0lr7rdq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.436Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.436Z"
+    }
+  ]
+}

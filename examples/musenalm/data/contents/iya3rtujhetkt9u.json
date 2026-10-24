@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Bechert froh den süßen Wein, / Von der Mosel, von dem Rhein, / Brüder, weil wir leben.",
+  "language": [],
+  "musenalm_id": 62352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Skolie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mahler Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Skolie",
+  "updated": "2009-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0hws8poj6prtqhy",
+      "agents": "xudibmgptrwrx3w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.033Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.624Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "Zwei Schwäne hast du mir gegeben / Zum Neujahrsgruß, und tief entquillt / Aus meinem Dichterleben / Dem holden Bild manch neues Bild.",
+  "language": [],
+  "musenalm_id": 42685,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 218,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neujahrsdank für Neujahrsgabe. / Am ersten Januar 1829. / An Hufeland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neujahrsdank für Neujahrsgabe. / Am ersten Januar 1829. / An Hufeland",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vdab4jw6kfuc5aq",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.100Z"
+    }
+  ]
+}

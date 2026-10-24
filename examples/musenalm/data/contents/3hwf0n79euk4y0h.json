@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Vorwurf« von J. F. Jünger INr 88803, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88802,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (Hiller)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiller",
+  "scans": [
+    "alm_2319_88802_exfvful7ua.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4of8r7vov6ktdc4",
+      "agents": "93qj54q4os5w6av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.091Z"
+    }
+  ]
+}

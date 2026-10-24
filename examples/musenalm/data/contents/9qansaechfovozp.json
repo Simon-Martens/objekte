@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 6 Beiträgen INr 71835-71840, Obj 37-42",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Mit leichter Mühe und immer zunehmendem Vergnügen sammle ich Kerne",
+  "language": [],
+  "musenalm_id": 71821,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedankenkerne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedankenkerne",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qli6mhsre9f7wow",
+      "agents": "o2pvd0n9c0ulrf4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.546Z"
+    }
+  ]
+}

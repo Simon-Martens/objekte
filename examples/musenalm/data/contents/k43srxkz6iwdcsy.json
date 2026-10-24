@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.100Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Sprich, Orpheus Schatten! Denn du / mußt es wissen",
+  "language": [],
+  "musenalm_id": 4362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 151,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach einer traurigen Begebenheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Ch. Pape",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach einer traurigen Begebenheit",
+  "updated": "2000-09-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dcttwlb6cndwdl0",
+      "agents": "2glx0j2o180tzfm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.315Z"
+    }
+  ]
+}

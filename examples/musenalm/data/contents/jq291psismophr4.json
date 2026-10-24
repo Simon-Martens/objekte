@@ -1,0 +1,45 @@
+{
+  "annotation": "Aphorismen (Sammlung INr 57991, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Geduld ist freiwillige Unterwerfung unter die Herrschaft des Schmerzes, weil sie seine Bedeutung für die Entwicklung des sittlichen Lebens ahnt, oder erkannt hat.",
+  "language": [],
+  "musenalm_id": 58009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geduld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geduld",
+  "updated": "2008-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jlc9gtwn3rpv03i",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.720Z"
+    }
+  ]
+}

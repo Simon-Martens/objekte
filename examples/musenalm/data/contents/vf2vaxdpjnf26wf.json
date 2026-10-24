@@ -1,0 +1,45 @@
+{
+  "annotation": "# lt. Vorwort des Herausgebers: Karl Grosse nach dem Decameron Francois par M. Ussieux",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Das Serail des Großherrn bereitete sich eben, die schönste Feier des Jahres, das Tulpenfest, mit aller Pracht des Morgenlandes zu begehen.",
+  "language": [],
+  "musenalm_id": 47303,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elizene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Grosse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elizene",
+  "updated": "2006-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wsp1ansr68gi76d",
+      "agents": "iylck5md36617hv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.533Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Einladung zur Pränumeration",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Dieses Taschenbuch, das unter so höchst ermunternden Auspicien ins Leben tritt, wird alljährlich fortgesetzt,",
+  "language": [],
+  "musenalm_id": 79498,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bekanntmachung, / das Taschenbuch »Hortensia« betreffend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. August Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bekanntmachung, / das Taschenbuch »Hortensia« betreffend",
+  "updated": "2003-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hkvleikzhvz7qrv",
+      "agents": "ijn3e3gugtz46hh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.630Z"
+    }
+  ]
+}

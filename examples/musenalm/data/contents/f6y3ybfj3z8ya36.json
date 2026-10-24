@@ -1,0 +1,45 @@
+{
+  "annotation": "Regner Lodbrog. Eine altdänische Sage in Balladen (Sammlung INr 26604, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.230Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Um meine Hand / Wirbt überdreist / Der junge Dänenkönig?",
+  "language": [],
+  "musenalm_id": 26608,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lathgertha's Stolz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lathgertha's Stolz",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gmf9n9bimrd2o6t",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.363Z"
+    }
+  ]
+}

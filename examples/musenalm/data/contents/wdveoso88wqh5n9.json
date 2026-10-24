@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Beitrag »231 satirische Lügenartikel« INr 44965, Obj 70 vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44962,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / ersten / Primadonna der Welt, / Demoiselle Henriette Sontag, / verehelichten / Gräfin Rossi / in tiefster Ehrfurcht / gewidmet / vom / Verfasser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "vom Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / ersten / Primadonna der Welt, / Demoiselle Henriette Sontag, / verehelichten / Gräfin Rossi / in tiefster Ehrfurcht / gewidmet / vom / Verfasser",
+  "updated": "2006-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y185tk7wefp85io",
+      "agents": "wd7yy1894regb5j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.426Z"
+    }
+  ]
+}

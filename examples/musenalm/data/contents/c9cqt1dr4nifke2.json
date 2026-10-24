@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 9 /) Türkische Kriegslieder von Uzim Abdallah. 1788 (Sammlung INr 3616, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Die Mahomsfahne fordert uns. / Frisch auf zu Kampf und Sieg!",
+  "language": [],
+  "musenalm_id": 3617,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "a. Zuruf",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Uzim Abdallah",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "a. Zuruf",
+  "updated": "2000-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o57qgkpu7oyaj1c",
+      "agents": "27lkhlbux1m8s5c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.086Z"
+    }
+  ]
+}

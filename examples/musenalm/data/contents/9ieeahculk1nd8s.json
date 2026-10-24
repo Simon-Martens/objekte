@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite (A). Détail aus »Die Tageszeiten in vier Blättern. Der Morgen« paginiert B. s. Textbezug INr 7245, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7248,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (W. Hogarth inv. E. Riepenhausen sculps.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth inv. E. Riepenhausen sculps.",
+  "scans": [
+    "alm_146_7248_k3s7obakny.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "73agtgahouwtsx8",
+      "agents": "yylanvnf5ct4jbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.197Z"
+    },
+    {
+      "id": "xmxm00ps9839lha",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.197Z"
+    }
+  ]
+}

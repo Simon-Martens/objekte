@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Bärenjagd« von J. R. Wysz d. J. INr 52542, Obj 71 /) unter der Graphik: Alpenrosen 10r. Jarg.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53543,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bärenjagd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "König fecit",
+  "scans": [
+    "alm_732_53543_mcqf66p7sj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Bärenjagd",
+  "updated": "2007-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "50gq3kfs3ak5yk4",
+      "agents": "grbttvgkqnprgwf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.713Z"
+    }
+  ]
+}

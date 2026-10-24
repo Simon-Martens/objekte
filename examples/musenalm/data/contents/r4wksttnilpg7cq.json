@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Kapuzinerfahrt« INr 102048, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103045,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kapuzinerfahrt II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Schwind del. Leop. Beyer sc.",
+  "scans": [
+    "alm_3405_103045_iuu0qds0su.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kapuzinerfahrt II.",
+  "updated": "2010-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m44sotb4hgpx9fq",
+      "agents": "dz642gh37bafou9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.114Z"
+    },
+    {
+      "id": "hulfw1hphv307g8",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.114Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 86211, Obj 52) Dem Gedicht vorangestellt: Aurora kiss'd her lips with dew / Taking her for a sister. / Don Juan canto II. 142",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "Zum neuen Jahr send' ich Dir Auroren! / Der Morgen küsset mit Begier Auroren,",
+  "language": [],
+  "musenalm_id": 86213,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei Uebersendung des Taschenbuch's Aurora / Ghasel.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei Uebersendung des Taschenbuch's Aurora / Ghasel.",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "43lsczj7rx4che6",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.178Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.178Z"
+    }
+  ]
+}

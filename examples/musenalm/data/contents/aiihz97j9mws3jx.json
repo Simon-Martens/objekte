@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 117945, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Wie die Knospen schwellend blitzen! / Schon geht auf der Blüthe Stern;",
+  "language": [],
+  "musenalm_id": 117947,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Frühlingsgedanken. / (In einem Garten vor einem knospenden Strauch.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Frühlingsgedanken. / (In einem Garten vor einem knospenden Strauch.)",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mdjzrl7o82iovye",
+      "agents": "jf5q6ykf9ux52yq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.623Z"
+    }
+  ]
+}

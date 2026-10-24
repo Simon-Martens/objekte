@@ -1,0 +1,47 @@
+{
+  "annotation": "Melodieen zum Schillerschen Musenalmanach (Sammlung INr 38801, Obj 663) Vertonung des Gedichts »Mignon als Engel verkleidet«",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "So lasst mich scheinen bis ich werde, zieht mir das weiße Kleid nicht aus.",
+  "language": [],
+  "musenalm_id": 38809,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 672,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mignon als Engel verkleidet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_511_38809_vnd17qeksu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mignon als Engel verkleidet",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ufx1cuzxnceg21d",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.171Z"
+    }
+  ]
+}

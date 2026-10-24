@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorbemerkung zu »Der Plagegeist« von Cipriani [bearb.] Theodor Hell (INr 128114, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Je seltener [...] neuere Arbeiten italienischer Bühnendichter in deutscher Bearbeitung zur Aufführung gelangen, [...] desto interessanter dürfte das nachstehende dramatische Product [...] sein, und dies um so mehr als es [...] noch ungedruckt [...] ist.",
+  "language": [],
+  "musenalm_id": 128115,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbemerkung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorbemerkung",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1ain4qk2cvag2ck",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.977Z"
+    }
+  ]
+}

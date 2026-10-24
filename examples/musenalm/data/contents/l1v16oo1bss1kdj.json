@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Verschwiegenheit« von G. A. Bürger INr 61468, Obj 66",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.744Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61470,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (A. Rieder)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Rieder",
+  "scans": [
+    "alm_967_61470_lt0mqhwugj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "siac51rn9feqyyl",
+      "agents": "m8i62ga5ns140zr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.167Z"
+    }
+  ]
+}

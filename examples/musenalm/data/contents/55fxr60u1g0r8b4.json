@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 54991, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Gäll, was ein so nes Hüsli freut / I so ner schöne Einsamkeit, / Das halb i Felse n isch versteckt",
+  "language": [],
+  "musenalm_id": 54996,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "'Sheimelig Hüsli. / (Zum Titelkupfer.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "'Sheimelig Hüsli. / (Zum Titelkupfer.)",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ylcxq02d1y22wzd",
+      "agents": "94rmjnpm6yfqwop",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.510Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.510Z"
+    }
+  ]
+}

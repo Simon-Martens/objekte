@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Neunzehn ungedruckte Epigramme (Sammlung INr 39645, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "Je scharfsinniger denkt der Geist der Franzosen, je toller / Treiben mit ihm ihr Spiel Leidenschaft und Phantasie,",
+  "language": [],
+  "musenalm_id": 39648,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Republikaner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Republikaner",
+  "updated": "2005-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wd01vfvhbgps44e",
+      "agents": "ckd4l48jtgsgmor",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.154Z"
+    }
+  ]
+}

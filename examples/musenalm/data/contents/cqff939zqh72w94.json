@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Dieses Gedicht wurde schon vor 10 Jahren von Herrn Hofrath Wieland in den Merkur eingerückt. Allein so ganz verändert, wie es jetzt ist, mag es hier noch einen Platz einnehmen.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Wie in süssen Traum gesunken, / Voll von heiligem Gefühl,",
+  "language": [],
+  "musenalm_id": 21870,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ruhe. / Eine allegorische Hymne #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ruhe. / Eine allegorische Hymne #",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l6af821won1tll6",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.096Z"
+    }
+  ]
+}

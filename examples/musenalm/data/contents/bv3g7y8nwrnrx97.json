@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43890,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "RHEINISCHES / TASCHENBUCH / auf das Jahr / 1835. / Herausgegeben von / Dr. ADRIAN. / Frankfurt a/ M., / bei Johann David Sauerländer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Dondorf invt.",
+  "scans": [
+    "alm_590_43890_cdywfbrsjr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "RHEINISCHES / TASCHENBUCH / auf das Jahr / 1835. / Herausgegeben von / Dr. ADRIAN. / Frankfurt a/ M., / bei Johann David Sauerländer",
+  "updated": "2006-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3cwcg8sd6ofursj",
+      "agents": "5fc2fy392haquun",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.221Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.221Z"
+    }
+  ]
+}

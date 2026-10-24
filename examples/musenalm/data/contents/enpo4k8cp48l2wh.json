@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwanzig Sonette. Als Probe aus 300 ungedruckten. (Sammlung INr 65570, Obj 138) Gedichte (Sammlung INr 65534, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.622Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Der Schmetterling schwebt auf die Blumen nieder, / Die mit den frischen wangen glühend winken;",
+  "language": [],
+  "musenalm_id": 65590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Puchta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20.",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6xw1tpu1i2yi482",
+      "agents": "yjnbioe01jyvf6s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.010Z"
+    }
+  ]
+}

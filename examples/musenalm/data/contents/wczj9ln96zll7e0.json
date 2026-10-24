@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 86365, Obj 44) Gedichte (Sammlung INr 86357, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Wenn Manche sagen: Haltet reinen Mund! / So heißt das oft nur: Macht es Allen kund!",
+  "language": [],
+  "musenalm_id": 86371,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Façon de parler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Façon de parler",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0xq62ntln321ai7",
+      "agents": "arq1wi6im7bawmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.106Z"
+    }
+  ]
+}

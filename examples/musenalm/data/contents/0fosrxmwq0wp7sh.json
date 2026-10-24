@@ -1,0 +1,45 @@
+{
+  "annotation": "Letzte Liebe. Kanzonen (Sammlung INr 86296, Obj 59) Gedichte (Sammlung INr 86293, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Nicht gelten kann ein Zufall je dem Denker / In dieser Welt harmonischer Gestalten,",
+  "language": [],
+  "musenalm_id": 86299,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridolin Freihr. v. Wend",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ivwc7csl8bw0s3s",
+      "agents": "9hjrqh1l94hv21m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.161Z"
+    }
+  ]
+}

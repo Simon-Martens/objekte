@@ -1,0 +1,58 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert S. 141 /) # Bez. aus dem I-Verz /)  Illustration zu »Die Sitten der Zeit. Eine moralische Erzählung« von K. L. Rahbeck INr 45278, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45280,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du bist ein niedriger Mensch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Schubert del. Riepenhausen sc.",
+  "scans": [
+    "alm_621_45280_o7egknlld1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Du bist ein niedriger Mensch",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6yezm9299vtraua",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.247Z"
+    },
+    {
+      "id": "4mdcn6yvo0ss4di",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.247Z"
+    }
+  ]
+}

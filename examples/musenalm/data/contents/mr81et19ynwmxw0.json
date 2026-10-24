@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite s. Anm. dort /) paginiert 11 /) Graphik im Kalendarium November/) Illustration zu »Vermischte philosophische Schriften« von F. M. A. de Voltaire",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70005,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie -----/ ist über alle meine Lobsprüche / über alle meine Kunst. / Vermischte philos. Schr. Th. 5. S. 4",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. F. Berger sc.",
+  "scans": [
+    "alm_793_70005_g3ljmdhco9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie -----/ ist über alle meine Lobsprüche / über alle meine Kunst. / Vermischte philos. Schr. Th. 5. S. 4",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mnb7ehmeh4n2q18",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.521Z"
+    }
+  ]
+}

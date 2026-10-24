@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Welch duftendes Erröthen und Erglühen / Auf meinem Morgentisch? Ein Selam! wie?",
+  "language": [],
+  "musenalm_id": 53925,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Harfners Frühstück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Harfners Frühstück",
+  "updated": "2008-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i3idqqajfk61ogj",
+      "agents": "jq74p3fe1dijn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.784Z"
+    }
+  ]
+}

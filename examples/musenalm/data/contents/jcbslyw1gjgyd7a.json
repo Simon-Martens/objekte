@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 19066, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Jedermann weiß, wie viel Vorbedeutendes im Namen des Kindes liegt",
+  "language": [],
+  "musenalm_id": 19065,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Venus Urania auf dem / Schwan sich emporschwingend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Venus Urania auf dem / Schwan sich emporschwingend",
+  "updated": "2000-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o1akg7a7fcb8c60",
+      "agents": "7cdnqd525rp9gi5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.879Z"
+    }
+  ]
+}

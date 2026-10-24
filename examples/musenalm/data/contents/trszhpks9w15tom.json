@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Einleitung INr 87308, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Mein im Leben und Tod geliebter Ehegatte! Wenn Du diese Zeilen lesen wirst, so werde ich nicht mehr sein.",
+  "language": [],
+  "musenalm_id": 87309,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Letzte Bitten an meinen ge- / liebten Ehegatten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Henriette Friederike Baronesse von Hohenhausen geb. Lebedur aus dem Hause Mühlenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Letzte Bitten an meinen ge- / liebten Ehegatten",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "venhmcqn69i8adu",
+      "agents": "2omaqukxwrs4fqe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.333Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.333Z"
+    }
+  ]
+}

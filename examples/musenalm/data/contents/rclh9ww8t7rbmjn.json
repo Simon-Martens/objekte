@@ -1,0 +1,45 @@
+{
+  "annotation": "Florida, Mexiko und die wichtigsten Theile von Süd-Amerika (INr 41476, Obj 6); s. a. die Graphiken des Taschenbuchs INr 41471, Obj 1; 41486-41496, Obj 16-26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Bereits seit dem Uebergang über den südlichen Theil des Rio del Norte ist man in dem Alten Mexico, im eigentlichen Neu-Spanien,",
+  "language": [],
+  "musenalm_id": 41480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bereits seit dem Uebergang über den südlichen Theil des Rio del Norte ist man in dem Alten Mexico, im eigentlichen Neu-Spanien,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xffk01o3orxq9q4",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.357Z"
+    }
+  ]
+}

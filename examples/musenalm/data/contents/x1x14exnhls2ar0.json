@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 88686, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.083Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Daß deine Rüge mich entzückt, / Trag' ich, zu beichten, kein Bedenken",
+  "language": [],
+  "musenalm_id": 88687,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Haug. / (Ueber ein obenstehendes Epigramm.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Haug. / (Ueber ein obenstehendes Epigramm.)",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lpubzp5raj60ogr",
+      "agents": "jq74p3fe1dijn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.163Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.163Z"
+    }
+  ]
+}

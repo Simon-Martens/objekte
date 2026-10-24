@@ -1,0 +1,45 @@
+{
+  "annotation": "Abend (Sammlung INr 23530, Obj 55) Lieder eines Autodidakten (Sammlung INr 23528, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Im Glase glüht ein frischer Rosenstrauß / Daneben webt ein Jünglingsleben aus;",
+  "language": [],
+  "musenalm_id": 23533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2002-05-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d6xofoyblxglti3",
+      "agents": "3pzkf5igvpvswjd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.008Z"
+    }
+  ]
+}

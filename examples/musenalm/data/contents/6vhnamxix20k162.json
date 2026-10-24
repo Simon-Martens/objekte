@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 121878, Obj 139)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Holz theilt der reiche Mann, / der christliche, der fromme, / Hülfreich den Armen aus.",
+  "language": [],
+  "musenalm_id": 121883,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Daumer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v5i4o4pbrcyaxfr",
+      "agents": "t36jhwo4crudqp3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.777Z"
+    }
+  ]
+}

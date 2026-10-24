@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 112515, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Da wo sich der reißende Schwarzbach von den Gebirgen herabstürzt, welche Böhmen und Oestreich trennen, lagerten zwei junge Krieger unter einer alten Eiche,",
+  "language": [],
+  "musenalm_id": 112514,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Findling. / Historisch-Romantische Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Findling. / Historisch-Romantische Erzählung",
+  "updated": "2010-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "14veajl4hdlo1dt",
+      "agents": "iiexbt3f7jmpzqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.334Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.334Z"
+    }
+  ]
+}

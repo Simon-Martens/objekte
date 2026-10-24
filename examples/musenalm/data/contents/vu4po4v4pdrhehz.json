@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Lob der braunen Farbe im Munde einer Pastorsfrau« (INr 130598, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Vor allen Farben auf der Welt / Mir doch am meisten blau gefällt; –",
+  "language": [],
+  "musenalm_id": 130597,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXIV. / Lob der blauen Farbe, / von / Müchler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXIV. / Lob der blauen Farbe, / von / Müchler",
+  "updated": "2009-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uze9w2wisjq2xze",
+      "agents": "cqrs6fj7ecvzmh8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.074Z"
+    }
+  ]
+}

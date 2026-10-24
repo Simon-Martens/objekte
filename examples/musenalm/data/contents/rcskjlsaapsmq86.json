@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "398",
+  "incipit_statement": "Her brausen geflügelte Donnerwolken, / Luftdrachen und Ungeheuer in Wuthkampf, / Der Tag ist Nacht, zerklüftet von Blitzen;",
+  "language": [],
+  "musenalm_id": 100307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 247,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wittwenklage / um ihr nachgeborenes gestorbenes Kind. / An Rose von Hauenschild. / Motto: O sende doch Niemand etwas den Göttern! / Sie senden Empfangenes niemals wieder.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wittwenklage / um ihr nachgeborenes gestorbenes Kind. / An Rose von Hauenschild. / Motto: O sende doch Niemand etwas den Göttern! / Sie senden Empfangenes niemals wieder.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7rzca4a51qu9v6i",
+      "agents": "rlu2d4ml9zlhov2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.844Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.844Z"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "annotation": "Photos 76151,01; 761510,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76151,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Variations pour Guitarre",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. C. Reinicke",
+  "scans": [
+    "alm_3281_76151_01_xq2bonjc8n.jpg",
+    "alm_3281_76151_02_04b6chozxz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Variations pour Guitarre",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iae2keooccf1c68",
+      "agents": "hmzypuwafp281gf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.698Z"
+    }
+  ]
+}

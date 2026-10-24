@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Preßfreiheit ist das Loosungswort unserer Zeit. Alles, was drucken läßt, fordert sie laut, und wenn ein Censor einmal eine zum Drucke bestimmte Stelle durchstreicht, oder einer Handschrift den Druck versagt: so schreyet man laut",
+  "language": [],
+  "musenalm_id": 95872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Preßfreyheit!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Preßfreyheit!",
+  "updated": "2014-04-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rwihznglz975s1o",
+      "agents": "zta4jxuxzdm872n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.467Z"
+    }
+  ]
+}

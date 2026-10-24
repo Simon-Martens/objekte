@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Meist neblig, trübe und naß, oft frühlingsartig lau, war der erste Monat dieses doch auch wieder seegensreichen Kometenjahres.",
+  "language": [],
+  "musenalm_id": 109221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Beitrag / zur Chronik der Jahre 1819 u. 1820 / Aus Kurhessen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. W.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Beitrag / zur Chronik der Jahre 1819 u. 1820 / Aus Kurhessen",
+  "updated": "2015-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "guxkj2k9k0bm1r2",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.053Z"
+    }
+  ]
+}

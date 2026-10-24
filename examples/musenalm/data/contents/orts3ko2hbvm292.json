@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Neuer Frühling (Sammlung INr 34504,Obj 36) Gedichte (Sammlung INr 34495, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Es hat die warme Frühlingsnacht / Die Blumen hervorgetrieben,",
+  "language": [],
+  "musenalm_id": 34508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Heine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2003-06-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x096ejp752q0ur3",
+      "agents": "1z1aqho0pmi2dwm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.366Z"
+    }
+  ]
+}

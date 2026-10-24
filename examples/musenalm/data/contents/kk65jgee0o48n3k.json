@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert Pl. 3. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne [übers.: unbezeichnet] INr 111594, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eroberung der Bastille. / Den 14ten Julius 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Moreau inv. Guerin sculp.",
+  "scans": [
+    "alm_4320_111596_b6l98e8r07.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eroberung der Bastille. / Den 14ten Julius 1789",
+  "updated": "2016-06-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lhlzxu78sess08n",
+      "agents": "6v2mea0laepybs2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.279Z"
+    }
+  ]
+}

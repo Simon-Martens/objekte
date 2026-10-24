@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "In finsterem Schweigen - die Tuilerie'n - / Dichter die Massen zusammen sich zieh'n, / Der blutige Julimorgen bricht an,",
+  "language": [],
+  "musenalm_id": 46195,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schweizersoldat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "George Hesekiel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schweizersoldat",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sajpmze6tdcb2wo",
+      "agents": "v3swaugl78suots",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.162Z"
+    }
+  ]
+}

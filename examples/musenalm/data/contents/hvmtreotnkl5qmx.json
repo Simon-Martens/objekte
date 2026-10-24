@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3. /) s. Textbezug INr 88170, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88180,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lichtenberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Schilbach del. F. Haldenwang sc.",
+  "scans": [
+    "alm_575_88180_apmx79bz8z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lichtenberg",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iwj6laz4jt8jzpq",
+      "agents": "wqze1ivkmgxwz33",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.115Z"
+    },
+    {
+      "id": "84j2qehqhi87j0e",
+      "agents": "mdifn6ta9ogjkym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.115Z"
+    }
+  ]
+}

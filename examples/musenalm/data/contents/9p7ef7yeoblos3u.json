@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.589Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "So schnell, als er, stieg noch kein dichten- / des Genie / Zum Hofrath, Envoyé,",
+  "language": [],
+  "musenalm_id": 3864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carl der Grosse, / als Dichter / aus dem Piemontesischen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Menschenschreck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Carl der Grosse, / als Dichter / aus dem Piemontesischen",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wfjlm3or0w5tfi2",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.648Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.648Z"
+    }
+  ]
+}

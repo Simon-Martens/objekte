@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwischentitel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56749,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "October. / Der Herbst spendet den Wein, und der Wein erfreut des Menschen Herz; / aber wehe dem Unmäßigen, er wird zum Narren und Kranken!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. C.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "October. / Der Herbst spendet den Wein, und der Wein erfreut des Menschen Herz; / aber wehe dem Unmäßigen, er wird zum Narren und Kranken!",
+  "updated": "2008-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rk87gnqtxkbfkau",
+      "agents": "doais0yqjhhelne",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.889Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.889Z"
+    }
+  ]
+}

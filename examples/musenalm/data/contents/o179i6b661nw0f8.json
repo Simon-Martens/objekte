@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 21; Anm. im I-Verz: Nach Dryden, Love triumph. A. III. Sc. I.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "O Leben, wie im Himmelreich, / Zwey Herzen, edel und sich gleich,",
+  "language": [],
+  "musenalm_id": 2162,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eifersucht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "O.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eifersucht",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rdt0d7sxb3rcn5g",
+      "agents": "stasese2l43xq94",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.872Z"
+    }
+  ]
+}

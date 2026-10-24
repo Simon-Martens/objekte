@@ -1,0 +1,45 @@
+{
+  "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 73; Alm-177, INr 38372",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Fühlend, gelehrt für die Lust, die Flaccus und / Naso gewähren, / Sang ich doch selten ein römisches Lied;",
+  "language": [],
+  "musenalm_id": 79178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als ein Frauenzimmer die Ode aus dem / Horaz sang: / Integer vitae etc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als ein Frauenzimmer die Ode aus dem / Horaz sang: / Integer vitae etc",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5axts2molo0zq3a",
+      "agents": "6cp00jd21onlhwl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.738Z"
+    }
+  ]
+}

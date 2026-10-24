@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.073Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Ein deutscher Gruß ist Goldes werth, / Und süß der Druck der Hand.",
+  "language": [],
+  "musenalm_id": 3646,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gruß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Bouterwek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gruß",
+  "updated": "2000-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4tphilxlzj8wqcc",
+      "agents": "27lkhlbux1m8s5c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.037Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Hochzeittag« von A. v. Tschabuschnigg 80355, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80330,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER HOCHZEITTAG. / Erzählung von A. Ritter von Tschabuschnigg (Pag. 231.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl, Franz u. Kotterba, Carl",
+  "scans": [
+    "alm_1791_80330_f7emyuofh4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER HOCHZEITTAG. / Erzählung von A. Ritter von Tschabuschnigg (Pag. 231.)",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8b06a7ku4ynvccs",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.919Z"
+    },
+    {
+      "id": "gg6k74qzs7yrb0v",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.920Z"
+    }
+  ]
+}

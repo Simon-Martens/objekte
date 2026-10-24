@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an den übrigen Blättern der Suite /) Graphik im Kalendarium September; paginiert 6. Illustration zu »Das armenische Gastmahl« INr 58810, Obj 41 s.a. Textbezug INr 58826, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58778,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Armenisches Gastmahl",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil inv. et f.",
+  "scans": [
+    "alm_837_58778_m4mjsou270.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Armenisches Gastmahl",
+  "updated": "2008-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zirffgp2nbul54o",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.628Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Mantel. Ein kleines Reisabentheuer« von St. Schütze INr 29165, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.855Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Der Mantel / Ein kleines Reiseabentheuer von St. Schütze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury sc.",
+  "scans": [
+    "alm_377_29166_zgq5p2fe1i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Der Mantel / Ein kleines Reiseabentheuer von St. Schütze",
+  "updated": "2002-10-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9emqeceazrejwo2",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.425Z"
+    },
+    {
+      "id": "n0666ch725sux7x",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.425Z"
+    }
+  ]
+}

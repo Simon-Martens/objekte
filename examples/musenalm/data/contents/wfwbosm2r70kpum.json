@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Herr von Norberg ist einer der ersten Geschäftsmänner Wiens. Sein Haus gehört zu den reichsten der Stadt;",
+  "language": [],
+  "musenalm_id": 15091,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Norberg und Eilsa. / Eine Charakterskizze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Thomas West",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Norberg und Eilsa. / Eine Charakterskizze",
+  "updated": "2001-05-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "acxvracqcfb2673",
+      "agents": "ks6j3ite531t4h3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.715Z"
+    }
+  ]
+}

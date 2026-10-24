@@ -1,0 +1,45 @@
+{
+  "annotation": "Waldina, Sage in acht Bildern (Sammlung INr 26561, Obj 89)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "350",
+  "incipit_statement": "Wohin so früh, du Waldessohn, / Du wehrumleuchteter Knabe?",
+  "language": [],
+  "musenalm_id": 36437,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schuld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Krug von Nidda",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schuld",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9yspli4z04nj1hg",
+      "agents": "ynj6s229zp88pv2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.922Z"
+    }
+  ]
+}

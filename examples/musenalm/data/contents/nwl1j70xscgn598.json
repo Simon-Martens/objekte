@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22380,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "St. Margarethen Capelle in der Burg zu Nürnberg, / erbaut im X. Jahrhundert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Quaglio del. Frosch sc.",
+  "scans": [
+    "alm_300_22380_ajnjv6s7ud.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "St. Margarethen Capelle in der Burg zu Nürnberg, / erbaut im X. Jahrhundert",
+  "updated": "2002-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ljc5sp666k4ih8",
+      "agents": "84udokklcf53ize",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.910Z"
+    },
+    {
+      "id": "3jlvwgvrpuz1k7i",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.910Z"
+    }
+  ]
+}

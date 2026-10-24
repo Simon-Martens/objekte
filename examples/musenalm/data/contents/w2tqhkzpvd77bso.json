@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert I. s. G-Verz INr 43221, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43207,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Madonna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lucas Cranach del. L. Schnell sc.",
+  "scans": [
+    "alm_566_43207_ofs8y3w7pc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Madonna",
+  "updated": "2006-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6e29n3mlpp9y7ky",
+      "agents": "rej9gy7ybrg6fzx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.380Z"
+    },
+    {
+      "id": "1xwebqxx8biy1j9",
+      "agents": "vbyfdjf3wft42hq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.380Z"
+    }
+  ]
+}

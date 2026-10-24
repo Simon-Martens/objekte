@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten (INr 122966–122968) # Bezeichnung am Gedicht INr 122964, Obj 224",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Ich bin ein junger Schmetterling / Und muß mich weiter schwingen. / Die Blume jung’, was trauerst du? / Dir fliegt noch mancher Falter zu, / Den dir die Lüfte bringen",
+  "language": [],
+  "musenalm_id": 122965,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 224,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Pfau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wewtzkh7i9c2751",
+      "agents": "faiv8kpnorpjyle",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.825Z"
+    }
+  ]
+}

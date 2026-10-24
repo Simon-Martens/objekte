@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zur folgenden Sammlung von 8 Gedichten des Graphikers Karl Barth INr 25038-25045, Obj 60-67 s. a. Titelportrait INr 24979, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Als, ich weiß nicht zum wievielsten Male, / Du mein schlechtes Antlitz zeichnen wolltest,",
+  "language": [],
+  "musenalm_id": 25037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Poesien von Karl Barth, dem Zeichner und Kupferstecher, / geordnet von / Friedrich Rückert. / Vorwort des Anordners",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Poesien von Karl Barth, dem Zeichner und Kupferstecher, / geordnet von / Friedrich Rückert. / Vorwort des Anordners",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0xn0ecvy0sq0oed",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.071Z"
+    }
+  ]
+}

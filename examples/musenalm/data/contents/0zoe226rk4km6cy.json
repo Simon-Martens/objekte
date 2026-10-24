@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.529Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59230,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Macbeth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "erfunden und radirt von Wilhelm Hensel",
+  "scans": [
+    "alm_891_59230_o6907ocw3y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Macbeth",
+  "updated": "2008-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8zp8c5sje4wggrf",
+      "agents": "902nw56856wz9rx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.958Z"
+    }
+  ]
+}

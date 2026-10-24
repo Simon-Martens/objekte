@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25610, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.434Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Der schönste Jüngling, der in Ispahan / Gelebt seit des Kalifen Harun Zeiten,",
+  "language": [],
+  "musenalm_id": 25613,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Katze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Katze",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hbw7l29lnu3nifr",
+      "agents": "snnpz92vgxnioxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.979Z"
+    }
+  ]
+}

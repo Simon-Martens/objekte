@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 79046, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79022,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht der hohen Schule zu Eton an der Themse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riedel sc. 1817",
+  "scans": [
+    "alm_2389_79022_io21sklpcr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht der hohen Schule zu Eton an der Themse",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "idj2jcm6qz3dkt4",
+      "agents": "69t1km5kfklijqt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.706Z"
+    }
+  ]
+}

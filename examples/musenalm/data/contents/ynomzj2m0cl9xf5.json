@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Auf, ihr Schwestern! stellt den Reigen, / Juda's Feinde sind gefallen,",
+  "language": [],
+  "musenalm_id": 24010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gelübde. / Eine Ballade aus der Bibel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "ROBERT",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gelübde. / Eine Ballade aus der Bibel",
+  "updated": "2002-05-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nhsnbo9pqqz52n8",
+      "agents": "shwrrrsohbx2ih5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.102Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Uebersetzungen und Bearbeitungen von Gedichten aus fremden Sprachen (INr 93456, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "308",
+  "incipit_statement": "Zwey Worte sind im Lebensraum / Die früh'sten und die wärmsten Triebe.",
+  "language": [],
+  "musenalm_id": 93468,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 153,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwey Worte / (Aus dem Französischen von ...)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "[übers.] J. B. Rupprecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwey Worte / (Aus dem Französischen von ...)",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m6inkykhhacdym4",
+      "agents": "47jltbo11xjvoib",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.263Z"
+    }
+  ]
+}

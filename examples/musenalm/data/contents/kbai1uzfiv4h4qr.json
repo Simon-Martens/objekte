@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Charakter und die Geistesbeschaffenheit eines jeden Menschen ist ein Produkt des von Gott verliehenen Urstoffs der Seele und deren Entwickelung unter dem Einflusse der Zeit, welcher Niemand entgeht,",
+  "language": [],
+  "musenalm_id": 60544,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kindheits- und Jugendgeschichte / des hochseligen Königs Friedrich Wilhelm des Dritten / Majestät. / Aus authentischen Quellen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Wilhelm von Raumer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kindheits- und Jugendgeschichte / des hochseligen Königs Friedrich Wilhelm des Dritten / Majestät. / Aus authentischen Quellen",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s6ugh1i808qp78x",
+      "agents": "8gn9tio9q1ibeyb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.741Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.741Z"
+    }
+  ]
+}

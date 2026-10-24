@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 67420, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Es bricht am dunkeln Waldesthor / Das erste helle Grün hervor,",
+  "language": [],
+  "musenalm_id": 67422,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Auerhahnenjagd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alois Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Auerhahnenjagd",
+  "updated": "2009-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g18sd83iwv165wt",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.368Z"
+    }
+  ]
+}

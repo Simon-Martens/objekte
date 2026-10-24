@@ -1,0 +1,45 @@
+{
+  "annotation": "An Nikolaus Lehnau. Döbling. (1848. 1849) (Sammlung INr 86758, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Deutschland ist frei! Im Jubelsturm nur leise / Dich nicht zu schrecken, klang' s aus Freundesmunde;",
+  "language": [],
+  "musenalm_id": 86759,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1i17lp5jg5k4ksr",
+      "agents": "7s5akx33j2gpr6y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.176Z"
+    }
+  ]
+}

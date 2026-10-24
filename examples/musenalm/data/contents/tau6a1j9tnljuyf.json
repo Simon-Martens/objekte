@@ -1,0 +1,58 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.776Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92866,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KITTY",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hillner pinx. Meno Haas sc. Berlin 1794",
+  "scans": [
+    "alm_3123_92866_13r4hi2vfd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KITTY",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0tw1xunih3q4v2w",
+      "agents": "sjryrwpw74yqnj4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.150Z"
+    },
+    {
+      "id": "bhps9p3qa64s710",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.150Z"
+    }
+  ]
+}

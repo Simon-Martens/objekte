@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25379, Obj 150)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Der Dichter steht mit dem Zauberstab / Auf wolkigem Bergesthrone,",
+  "language": [],
+  "musenalm_id": 25380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 151,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / König Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emanuel Geibel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / König Dichter",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ylxh080hfpn7skn",
+      "agents": "h8j0pzrwje92vvq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.956Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.956Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) # Bezeichnung und Titel aus dem G-Verz und Beitrag INr 82927, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82911,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rubens und seine erste Gattin #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Peter Paul Rubens. Heß",
+  "scans": [
+    "alm_3072_82911_f4qdhzahl1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rubens und seine erste Gattin #",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "igkujtbnydl89al",
+      "agents": "co7d0f8bep36m8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.982Z"
+    },
+    {
+      "id": "2t80zduw0ty6nzn",
+      "agents": "dvhp1mfxgvurunq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.983Z"
+    }
+  ]
+}

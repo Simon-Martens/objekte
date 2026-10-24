@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10658,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gareis del. 1796 C. F. Stoelzel sc.",
+  "scans": [
+    "alm_203_10658_1n5oq7qfvc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amor #",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u6u8z4h235vpw8t",
+      "agents": "n19otymu71c4njx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.523Z"
+    },
+    {
+      "id": "72vmb8vljajbisl",
+      "agents": "e5dzzklohvjx1fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.523Z"
+    }
+  ]
+}

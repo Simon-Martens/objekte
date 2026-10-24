@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Stammbuchblätter (Sammlung INr 115892, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Von Allem, was hienieden / Des Menschen Herz begehrt, / Ist nur des Herzens Frieden / All des Begehrens werth.",
+  "language": [],
+  "musenalm_id": 115893,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl von Holtei",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qpmp9gd2qg0pfp3",
+      "agents": "zg6jbd5dfgl0cyy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.508Z"
+    }
+  ]
+}

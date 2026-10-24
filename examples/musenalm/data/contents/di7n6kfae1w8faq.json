@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "In unserm deutschen Vaterlande / Die gute Sitte, Harm / Im Auge, bey Leuten von Stande?",
+  "language": [],
+  "musenalm_id": 5144,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Seufzer / (Zu Pyrmont in einer Gesellschaft von / Standespersonen, als eine Dame von den / edelsten Sitten genöthigt wurde, die Ge- / sellschaft zu verlassen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Seufzer / (Zu Pyrmont in einer Gesellschaft von / Standespersonen, als eine Dame von den / edelsten Sitten genöthigt wurde, die Ge- / sellschaft zu verlassen.)",
+  "updated": "2000-10-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ezhhilh66k2mra3",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.080Z"
+    }
+  ]
+}

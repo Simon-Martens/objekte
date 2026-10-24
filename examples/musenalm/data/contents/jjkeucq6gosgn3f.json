@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Genug der langen Leiden! / Wie bitter auch das Scheiden, / Nun trenn' ich mich von Ihr.",
+  "language": [],
+  "musenalm_id": 62736,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Doppelleid",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludig Robert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Doppelleid",
+  "updated": "2009-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qbqyaxqzmktpvn5",
+      "agents": "shwrrrsohbx2ih5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.040Z"
+    }
+  ]
+}

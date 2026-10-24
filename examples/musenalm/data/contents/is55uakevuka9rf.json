@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Maria von England« INr 102890, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102891,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria von England",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Ender del. Dav. Weiss sc. Viennae",
+  "scans": [
+    "alm_3376_102891_uy9z8sxi5v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maria von England",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mz9ozuz1rcxfs12",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.079Z"
+    },
+    {
+      "id": "cx85s2lsk1vwtas",
+      "agents": "yf7uqcfkp0nwlnb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.079Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# mit Hinweis auf Kretschmanns Gedicht in: Musenalmanach (Göttinger) 1771 INr 4930",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Der Mitternacht Geflüster wecket mich / Auf meinem Lager?",
+  "language": [],
+  "musenalm_id": 4982,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sineds Gesicht. / Ringulphen, dem Freunde der / Geister, gewidmet #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Denis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sineds Gesicht. / Ringulphen, dem Freunde der / Geister, gewidmet #",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qadhprzqji01fnp",
+      "agents": "fon9iiilzs9ke5a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.290Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.290Z"
+    }
+  ]
+}

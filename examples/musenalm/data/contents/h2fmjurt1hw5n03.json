@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 49098, Obj 126) Sonette und Distichen (Sammlung INr 49072, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Blick ich dir tief in das Aug' , so stralet mit feurigen Zügen / Aus deinem seligen Raum, Süße, mein Bild mir zurück.",
+  "language": [],
+  "musenalm_id": 49105,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 133,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frage",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yqu1taja3gc3fhd",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.494Z"
+    }
+  ]
+}

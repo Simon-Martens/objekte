@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37006, Obj 132)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Er stieg den Herzogstuhl herab: / Du goldner Reif, du goldner Stab,",
+  "language": [],
+  "musenalm_id": 37007,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Heinrich der Heilige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fanz Kugler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Heinrich der Heilige",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "arofzxz1vsfqxfv",
+      "agents": "dlauvagqjefeu2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.960Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der 1. Graphik der Suite /) Graphik im Kalendarium Juli; nummeriert 7.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.831Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102152,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach ständ ich da wo nur dein Schäfer lauschte / Der dumkopf, den der Anblick wie berauschte, / Dann würd ich dir dein Schäfgen bald befrein / Und würdest du zum Lohn wohl grausam seyn?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sturm sc.",
+  "scans": [
+    "alm_4167_102152_1spen4mvx8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ach ständ ich da wo nur dein Schäfer lauschte / Der dumkopf, den der Anblick wie berauschte, / Dann würd ich dir dein Schäfgen bald befrein / Und würdest du zum Lohn wohl grausam seyn?",
+  "updated": "2015-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7md084bsa38ii04",
+      "agents": "83bgj21cr6rcy33",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.119Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.119Z"
+    }
+  ]
+}

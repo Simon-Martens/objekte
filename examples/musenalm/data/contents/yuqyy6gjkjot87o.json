@@ -1,0 +1,45 @@
+{
+  "annotation": "Spiele (Sammlung INr 49247, Obj 18) mit graph. Spielanleitung im Text",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.143Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Ein guter alter Freund des Forstmeisters von Waldmann, ein Franzose, Namens Mersenne, kam zum Besuch nach Tannenberg.",
+  "language": [],
+  "musenalm_id": 49292,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVI. / Barre, französisch Aux Barres",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVI. / Barre, französisch Aux Barres",
+  "updated": "2007-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yksx8lfo4umifqe",
+      "agents": "l2p9o0rcq31xal5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.621Z"
+    }
+  ]
+}

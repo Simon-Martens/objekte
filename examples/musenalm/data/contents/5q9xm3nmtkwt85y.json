@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.054Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Einst kam zu einem Harnpropheten / Ein armer Bauersmann und bat,",
+  "language": [],
+  "musenalm_id": 35332,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Harnprophet und der Bauer. / Erzehlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlez",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Harnprophet und der Bauer. / Erzehlung",
+  "updated": "2003-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0qmnjvf3urullcx",
+      "agents": "emp0e7sw474z41u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.976Z"
+    }
+  ]
+}

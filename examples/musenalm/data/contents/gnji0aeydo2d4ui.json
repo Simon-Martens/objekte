@@ -1,0 +1,56 @@
+{
+  "annotation": "Es folgen: Vorwort und Beitrag INr 73095, 73096; Obj 9, 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73094,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Lausiade. / Frey nach Peter Pindar",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Peter Pindar # [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Lausiade. / Frey nach Peter Pindar",
+  "updated": "2010-02-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bghhi4k97tvnirf",
+      "agents": "w3v9qhkkgi193zi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.545Z"
+    },
+    {
+      "id": "eevpp2oc0osyxih",
+      "agents": "bjik5dzyzk4cu0g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.546Z"
+    }
+  ]
+}

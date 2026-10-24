@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Du lieblich Thal, durch dessen Lustgefilde / Mäandrisch sich die kleine Urfe schlingt,",
+  "language": [],
+  "musenalm_id": 4506,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sidonia, / oder das realisirte Traumbild. / Im Löwensteinischen Grunde, am / 13. September, 1789",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Engelschall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sidonia, / oder das realisirte Traumbild. / Im Löwensteinischen Grunde, am / 13. September, 1789",
+  "updated": "2000-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t0ja3fl50440774",
+      "agents": "vurjmtt5tprr0cw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.146Z"
+    }
+  ]
+}

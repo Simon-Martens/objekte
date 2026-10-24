@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Wer frei darf handeln, kann auch handeln, wie / er soll.",
+  "language": [],
+  "musenalm_id": 6310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die französische Revolution. / Wer frei darf denken, denket wohl. / Haller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ebert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die französische Revolution. / Wer frei darf denken, denket wohl. / Haller",
+  "updated": "2000-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "25nkkv8m2340lam",
+      "agents": "6bfutz0x9ote9sz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.184Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Robert und Rosalie. Eine Heroide in zwölf Episteln (Sammlung INr 29653, Obj 5) s. Graphik INr 29669, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.834Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Denkst du das Schicksal zu besiegen? / Weit eher stillt sich inn'rer Schmerz;",
+  "language": [],
+  "musenalm_id": 29668,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Robert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Robert",
+  "updated": "2002-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h5o2k3qksy03v7j",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.172Z"
+    }
+  ]
+}

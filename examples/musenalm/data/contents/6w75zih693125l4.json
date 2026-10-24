@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 31",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "'s ist Krieg! 's ist Krieg! O Gottes Engel / wehre, / Und rede du darein!",
+  "language": [],
+  "musenalm_id": 5365,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kriegslied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Asmus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kriegslied",
+  "updated": "2000-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nsse5pu7lmmnp8v",
+      "agents": "bm6n1x459jfghwe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.131Z"
+    }
+  ]
+}

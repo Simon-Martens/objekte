@@ -1,0 +1,56 @@
+{
+  "annotation": "Sammlung von 19 Gedichten INr 55700-55718, Obj 89-107 /) Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.802Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55699,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neunzehn Serbische Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "[übers.] Brüder Grimm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neunzehn Serbische Lieder",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "da5zeaedj5xheux",
+      "agents": "hzws8t1sn4cz0f6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.813Z"
+    },
+    {
+      "id": "siwlue0j4mra7d0",
+      "agents": "3grzeu7khs4sl5r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.813Z"
+    }
+  ]
+}

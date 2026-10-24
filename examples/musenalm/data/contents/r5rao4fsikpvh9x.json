@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An das häusliche Glück« von Schrbr. INr 35437, Obj 62",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36847,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 61.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An das häusliche Glück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amon",
+  "scans": [
+    "alm_487_36847_q7uspdf7e9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An das häusliche Glück",
+  "updated": "2003-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x4jo3oaid870ang",
+      "agents": "qqt6rtvr4y2rv42",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.796Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.796Z"
+    }
+  ]
+}

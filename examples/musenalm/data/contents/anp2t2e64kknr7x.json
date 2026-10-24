@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Als Advocat von einem Handelshause bevollmächtigt, aus der Verlassenschaft des Johann Georg Fischer eine Forderung von beiläufig 3000 Gulden einzutreiben, kam ich aus der Hauptstadt in das hübsche Landstädtchen Glaubenhausen",
+  "language": [],
+  "musenalm_id": 86413,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Waise. / Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fernand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Waise. / Erzählung",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bwfobr58oj8p6nw",
+      "agents": "big4tm69ocucym5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.216Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.216Z"
+    }
+  ]
+}

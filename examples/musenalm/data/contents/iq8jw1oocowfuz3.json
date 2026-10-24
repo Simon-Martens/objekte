@@ -1,0 +1,45 @@
+{
+  "annotation": "Bemerkungen (Sammlung INr 56024, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Lesen ist wenigstens, aber auch höchstens, ein Behelf zur Erweckung des eigenen Denkens.",
+  "language": [],
+  "musenalm_id": 56002,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lesen ist wenigstens, aber auch höchstens, ein Behelf zur Erweckung des eigenen Denkens.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7m0e2iq44ak42lc",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.952Z"
+    }
+  ]
+}

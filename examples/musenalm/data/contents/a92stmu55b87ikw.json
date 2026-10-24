@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. aus dem G-Verz; paginiert 1.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.968Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59607,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mit neuem Glanz strahlt itzt / der Siegeswagen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf; Riepenhausen",
+  "scans": [
+    "alm_921_59607_9s9m5clln0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mit neuem Glanz strahlt itzt / der Siegeswagen",
+  "updated": "2008-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dng2nbw6aveksfs",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.822Z"
+    },
+    {
+      "id": "i4pnl5tlc6il8r8",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.822Z"
+    }
+  ]
+}

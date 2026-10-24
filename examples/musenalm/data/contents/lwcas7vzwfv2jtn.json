@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Mit diesem Liede, in Musik gesetzt von Kücken, errang der Kölner Männer-Gesang-Verein bei dem Düsseldorfer Sängerfest im Jahre 1850 den Preis",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Es wird hiermit bekannt gemacht, / Daß auf dem Balle gestern Nacht, / Ein Mädchen hier aus dieser Stadt / Gar manches Herz gestohlen hat.",
+  "language": [],
+  "musenalm_id": 45369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Steckbrief",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Firmenich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Steckbrief",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7yp3vpbg0b6l8h4",
+      "agents": "fc09ekcgxjxmoow",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.188Z"
+    }
+  ]
+}

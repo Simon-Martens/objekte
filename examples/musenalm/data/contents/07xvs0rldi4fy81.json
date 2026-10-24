@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Figaro's Hochzeit« von W. A. Mozart / L. da Ponte; s.a. Textbezug INr 75115, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75119,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FIGARO'S HOCHZEIT. / I. Act. / Graf. Und hob endlich leise - leise / So - den Teppich von ihrem Tische",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_2370_75119_94eoyypoaq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FIGARO'S HOCHZEIT. / I. Act. / Graf. Und hob endlich leise - leise / So - den Teppich von ihrem Tische",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pri7d9h9msgh5r9",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.654Z"
+    },
+    {
+      "id": "t4psajrufzkz5ve",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.654Z"
+    }
+  ]
+}

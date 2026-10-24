@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 113. numeriert 3. /) Illustration zu »Mariane oder der vollendete Sieg der Liebe« INr 47429, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47432,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nur der stille Wohlthäter giebt der menschli- / chen Natur ihre schönste Würde!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 97",
+  "scans": [
+    "alm_643_47432_vgx1sye3he.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nur der stille Wohlthäter giebt der menschli- / chen Natur ihre schönste Würde!",
+  "updated": "2007-01-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5tmutux2irm7nq6",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.615Z"
+    },
+    {
+      "id": "v0k1cai7alw4uzf",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.615Z"
+    }
+  ]
+}

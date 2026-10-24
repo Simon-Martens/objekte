@@ -1,0 +1,45 @@
+{
+  "annotation": "Häusliche Farbenlehre (Sammlung INr 76070, Obj 82) VI. Häusliche Oekonomie (Sammlung INr 76065, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.624Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Alle alte Sachen, die man färben will, müssen erst rein gewaschern und von den etwa darin befindlichen Flecken gereinigt werden.",
+  "language": [],
+  "musenalm_id": 76073,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Färben selbst",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Netto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Färben selbst",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ik33j7zjnh4o86z",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.944Z"
+    }
+  ]
+}

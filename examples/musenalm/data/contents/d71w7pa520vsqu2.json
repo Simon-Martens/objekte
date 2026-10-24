@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Stufenalter des Weibes. Vier Idyllen (Sammlung INr 62928, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Heil dem glücklichen Mann, dem Gott ein verständiges / Weib gab, / Tugendsam und bedacht, der Pflichten des Hauses zu warten,",
+  "language": [],
+  "musenalm_id": 62931,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gattin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gattin",
+  "updated": "2009-03-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tpkug92c5j2vkwq",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.230Z"
+    }
+  ]
+}

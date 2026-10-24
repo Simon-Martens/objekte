@@ -1,0 +1,45 @@
+{
+  "annotation": "Die vier Jahreszeiten des Trinkers. Ein lyrischer Accord. Zweites Jahr. 1826 (Sammlung INr 41382, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "377",
+  "incipit_statement": "Schenke, bringe hellen Wein, / Weil die Lüfte sind dunkel;",
+  "language": [],
+  "musenalm_id": 41390,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Winter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Müller, Wilhelm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Winter",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5felh2h5h4ukj40",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.694Z"
+    }
+  ]
+}

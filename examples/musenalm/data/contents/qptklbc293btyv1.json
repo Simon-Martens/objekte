@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Nachtigallenlied. In vier Romanzen (Sammlung INr 88649, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Mir ist so dunkel, wie und wann / Mein leises Seyn zuerst begann.",
+  "language": [],
+  "musenalm_id": 88650,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Thautropfen. / Erste Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Thautropfen. / Erste Romanze",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wlubu4e4v2xps5t",
+      "agents": "jq74p3fe1dijn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.078Z"
+    }
+  ]
+}

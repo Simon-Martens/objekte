@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Du, noch endliche, wirst dem Sterblichen / Ewigkeit - jenseits;",
+  "language": [],
+  "musenalm_id": 16089,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Zeit",
+  "updated": "2001-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "atd3fusmpnyl172",
+      "agents": "q7zvyheam3iyblc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.717Z"
+    }
+  ]
+}

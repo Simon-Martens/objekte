@@ -1,0 +1,45 @@
+{
+  "annotation": "dem Text vorangestellt: et adhuc sub judice lis est! /) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Durch die meisterhafte Abhandlung meines verehrten Freundes, des Herrn G. F. D. a. d. Winkell",
+  "language": [],
+  "musenalm_id": 109172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Abermals ein Nachtrag ad Acta, / die Brunftzeit der Rehe betreffend.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Abermals ein Nachtrag ad Acta, / die Brunftzeit der Rehe betreffend.",
+  "updated": "2015-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fu4mm07bup61704",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.275Z"
+    }
+  ]
+}

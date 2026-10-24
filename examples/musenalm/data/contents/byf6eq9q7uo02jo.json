@@ -1,0 +1,45 @@
+{
+  "annotation": "Laienbrevier (Sammlung INr 24150, Obj 133)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "O Frühlingssonne, und o Frühlingserde, / O laßt auch mich schon sterben!",
+  "language": [],
+  "musenalm_id": 24177,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 160,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O Frühlingssonne, und o Frühlingserde, / O laßt auch mich schon sterben!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q1qif5ppq8xofrp",
+      "agents": "rlu2d4ml9zlhov2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.971Z"
+    }
+  ]
+}

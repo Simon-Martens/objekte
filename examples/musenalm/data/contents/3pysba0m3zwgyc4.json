@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. INr 67741, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15125,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MAGDALENA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carlo Dolce pt. F. Johnsc.",
+  "scans": [
+    "alm_237_15125_ykcquhfjlf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MAGDALENA",
+  "updated": "2001-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3qfdtml23cvo1o5",
+      "agents": "euk2i6r7y1kmuys",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.713Z"
+    },
+    {
+      "id": "pau1xwc18129s2y",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.713Z"
+    }
+  ]
+}

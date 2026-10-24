@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Der Morgen graut. Am blauen Himmelsbogen / In Osten glänzt ein Punkt, ein Streifen Licht;",
+  "language": [],
+  "musenalm_id": 57854,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Nil. / Ein Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter v. Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Nil. / Ein Gedicht",
+  "updated": "2008-06-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9838x35cdti14si",
+      "agents": "e22fzyl0voj5sux",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.791Z"
+    }
+  ]
+}

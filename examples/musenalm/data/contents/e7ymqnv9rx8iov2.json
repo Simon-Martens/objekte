@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Titel (INr 125516, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Die Einladung zu Beiträgen für diesen Almanach, welche der Vorbericht zum ersten Bändchen enthält, hat sehr zahlreiche Mittheilungen zur Folge gehabt.",
+  "language": [],
+  "musenalm_id": 125519,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Leser",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Müllner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Leser",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "exss7g80iow5kr3",
+      "agents": "fy9yit4uuer2yhm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.832Z"
+    }
+  ]
+}

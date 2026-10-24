@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Abendsonnenstrahlen zittern / Gold auf stille Wiesen hin;",
+  "language": [],
+  "musenalm_id": 86669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Abendlich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freih. von Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Abendlich",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pqxu3a8xl5aeepf",
+      "agents": "kul4vu28bmx1z4v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.172Z"
+    }
+  ]
+}

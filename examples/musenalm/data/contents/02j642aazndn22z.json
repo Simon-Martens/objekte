@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 10918, Obj 60",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.003Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Ich denke dein, und neues Wonneleben / Erfüllt mein Herz. / Ich denke dein,",
+  "language": [],
+  "musenalm_id": 10917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Minna als Wilhelms Braut, / bei dessen Abreise. / Die Compos. ist vom Herrn Capellmstr. Naumann",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elisa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Minna als Wilhelms Braut, / bei dessen Abreise. / Die Compos. ist vom Herrn Capellmstr. Naumann",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ucmyr11wp38mfgo",
+      "agents": "w70q3jb7y9a6a6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.387Z"
+    }
+  ]
+}

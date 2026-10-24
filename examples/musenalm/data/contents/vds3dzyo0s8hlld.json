@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ein Lied für Liebesdichter« von F.W. A. Schmidt (von Werneuchen) INr 48698, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.461Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50080,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 45.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seit am Abend hinter'm grünen Schirme / Wir am Tischchen sitzen, Liebchen strickt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod d. Fr. Bolt sc. 96",
+  "scans": [
+    "alm_665_50080_av1gqx2wuu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seit am Abend hinter'm grünen Schirme / Wir am Tischchen sitzen, Liebchen strickt",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uugvs5wcps8ahs6",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.578Z"
+    },
+    {
+      "id": "ewars5fon2eo1c7",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.579Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.579Z"
+    }
+  ]
+}

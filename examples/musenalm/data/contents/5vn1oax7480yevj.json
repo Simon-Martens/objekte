@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Lina« INr 58595, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (M. C. G. Hausius)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. C. G. Hausius",
+  "scans": [
+    "alm_624_58596_vppwek06b2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7eo1f5po21pfemi",
+      "agents": "uf91zrt87qnsu6f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.806Z"
+    }
+  ]
+}

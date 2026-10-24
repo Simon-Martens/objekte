@@ -1,0 +1,43 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 37668, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Du bist, gepriesne Toilette, / Den Schönen mehr als Zauberinn,",
+  "language": [],
+  "musenalm_id": 37667,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Toilette",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Von dem Verfasser der bekannten Eipeldauerbriefe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Toilette",
+  "updated": "2005-04-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7s63mx83u0n0xox",
+      "agents": "vnh3lwvt81shntt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.887Z"
+    }
+  ]
+}

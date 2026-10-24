@@ -1,0 +1,45 @@
+{
+  "annotation": "Legenden (Sammlung INr 90595, Obj 191)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Auf hohem Felsen ein Fräulein stand, / In Ketten geschmiedet Fuß und Hand.",
+  "language": [],
+  "musenalm_id": 90596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 192,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. St. Georg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. W. A. Swoboda. (Prag.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. St. Georg",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jf6wo4go5eysvjf",
+      "agents": "9kz5ml6439jqbxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.410Z"
+    }
+  ]
+}

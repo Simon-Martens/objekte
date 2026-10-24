@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) Graphik im Kalendarium Januar /) s. Textbezug 90994, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.783Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90963,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich Wilhelm II. / König von Preussen und / Churfürst von Brandenburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Berger sc.",
+  "scans": [
+    "alm_825_90963_lkojjqfjzn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich Wilhelm II. / König von Preussen und / Churfürst von Brandenburg",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p8xyci231h32z3i",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.321Z"
+    }
+  ]
+}

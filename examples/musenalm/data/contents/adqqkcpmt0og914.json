@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vornagestellt: --- omnes una manet nox Et calcanda semel via leti. / Horat",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "O mit dem schändlichen Neide! / O mit dem ewigen Hassen! / Entehret die Menschheit doch nicht!",
+  "language": [],
+  "musenalm_id": 128195,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVIII. Aufforderung zur Eintracht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Glatz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVIII. Aufforderung zur Eintracht",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bsyeul15y6xd849",
+      "agents": "qxcj6iktsu2xp76",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.979Z"
+    }
+  ]
+}

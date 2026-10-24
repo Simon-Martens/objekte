@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Abhandlung vom Nelkenbau« von Procurat. Heller INr 74139, Obj 31 /) # Zuschreibung: Fischer S. 190",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74140,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3108_74140_digapsgtzj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0u1wh1lx1b313hx",
+      "agents": "o9xw92sdiade0lv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.665Z"
+    }
+  ]
+}

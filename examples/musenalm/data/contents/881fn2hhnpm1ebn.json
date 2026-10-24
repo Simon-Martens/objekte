@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 11121, Obj 16). # s. 1. Teil des Beitrags in: Taschenbuch zum geselligen Vergnügen 1798, INr 10880",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Nun war sie also wieder auf Abend, Nacht und Vormittag mein, diese theuerste Madam Scarron;",
+  "language": [],
+  "musenalm_id": 11123,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Scarron / abermals am Fenster. / (Fortsetzung vom vorigen Jahre.) # / Die Staffelei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Scarron / abermals am Fenster. / (Fortsetzung vom vorigen Jahre.) # / Die Staffelei",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zzpz8chhnkwuzli",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.172Z"
+    }
+  ]
+}

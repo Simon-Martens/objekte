@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Novelle ohne Titel« von C. M. Wieland s. INr 28345, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28336,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der Novelle ohne Titel von Wieland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury inv. del. et fec.",
+  "scans": [
+    "alm_367_28336_fkk1qhkrvt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus der Novelle ohne Titel von Wieland",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mnc7r91hexi0wnu",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.317Z"
+    }
+  ]
+}

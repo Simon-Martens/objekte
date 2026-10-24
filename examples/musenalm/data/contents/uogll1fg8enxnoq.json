@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Bauer« von I. INr 2149, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bauer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Capellm. Bach",
+  "scans": [
+    "alm_75_2221_1x10vii7s2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Bauer",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rw2buq0g6epeyvz",
+      "agents": "ady6xosn7r31djl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.756Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.756Z"
+    }
+  ]
+}

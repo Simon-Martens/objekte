@@ -1,0 +1,45 @@
+{
+  "annotation": "Fünf Sonnette nach dem Petrarca (Sammlung INr 31256, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Hör' ich deine Klagen, Nachtigall! / Hör' ich in den Zweigen schauerndlinde",
+  "language": [],
+  "musenalm_id": 31259,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Laura's Erscheinung. / Nach ihrem Tod zu Vauklüse. / 238. S. Se lamentar Augelli, o verdi / fronde & c.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Laura's Erscheinung. / Nach ihrem Tod zu Vauklüse. / 238. S. Se lamentar Augelli, o verdi / fronde & c.",
+  "updated": "2003-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "idazc08olubh205",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.420Z"
+    }
+  ]
+}

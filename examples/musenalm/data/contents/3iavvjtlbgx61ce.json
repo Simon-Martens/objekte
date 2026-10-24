@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte an Schauspieler (Sammlung INr 104802, Obj 20) Gedichte (Sammlung INr 104795, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Käm' ich zum Menschenfeind herab, / Und wäre schon bereit, ins Grab / Des Lebens Bürden all' zu senden:",
+  "language": [],
+  "musenalm_id": 104809,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf / Madam Koch. / 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wagenseil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf / Madam Koch. / 1779",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0m05goshexhmyz9",
+      "agents": "hjzso88gvqk6ag5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.220Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.676Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Wem, Geliebter, der Tanz silberner Töne hier? / Wie der Jüngling ihn hüpft, dem noch der Freude Wahn, / Heerer jauchzender Jahre / Aus der Zukunft entgegenführt.",
+  "language": [],
+  "musenalm_id": 51402,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Bardenhold, / beim Klavier. / Im November 1772",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Hahn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Bardenhold, / beim Klavier. / Im November 1772",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cf9nz1bmfjfu3ne",
+      "agents": "snkwc9cbi7x7n6u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.717Z"
+    }
+  ]
+}

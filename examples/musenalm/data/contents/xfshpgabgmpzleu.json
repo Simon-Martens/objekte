@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert IV. /) # Bezeichnung aus dem G-Verz; paginiert IV",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13641,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CALLIOPE",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottschick",
+  "scans": [
+    "alm_218_13641_h365mqtilg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CALLIOPE",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uk2oy1o8dad3enc",
+      "agents": "anvuxewtojf01i3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.497Z"
+    }
+  ]
+}

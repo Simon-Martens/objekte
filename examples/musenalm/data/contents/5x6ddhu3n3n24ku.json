@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 21; ## Anm. am Objekt: The history of Clarissa Harlove. Vol. I. Chap. 34",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Hier ist ein kleines süsses Mädchen, / Kaum sechzehn alt vor sieben Tagen",
+  "language": [],
+  "musenalm_id": 824,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Rosenknöspchen. / Lovelace an Belford ##",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "O.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Rosenknöspchen. / Lovelace an Belford ##",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u53qc2g738jm70k",
+      "agents": "stasese2l43xq94",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.639Z"
+    }
+  ]
+}

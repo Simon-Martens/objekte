@@ -1,0 +1,45 @@
+{
+  "annotation": "An J. G. Jacobi, nach dem Verluste seines einzigen Sohns (Sammlung INr 16620, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.937Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Laß mich lösen Deines Zweifels Fragen! / Nur die Hülle ruht im engen Haus,",
+  "language": [],
+  "musenalm_id": 16621,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Fritz Jacobi an Vater Jacobi / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Fritz Jacobi an Vater Jacobi / 1.",
+  "updated": "2001-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "osxc7ic25w81qcd",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.550Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.550Z"
+    }
+  ]
+}

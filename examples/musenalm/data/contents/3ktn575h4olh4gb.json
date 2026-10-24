@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April /) s. Textbezug 97375, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97349,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "APRIL30 Tage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Arndt sc.",
+  "scans": [
+    "alm_3653_97349_hp5tkf5orr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "APRIL30 Tage",
+  "updated": "2011-03-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "umrq65uhi2i9vwv",
+      "agents": "72r3qe0psneye9d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.735Z"
+    }
+  ]
+}

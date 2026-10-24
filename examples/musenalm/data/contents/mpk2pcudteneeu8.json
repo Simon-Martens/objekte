@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert pag. 81 /) Illustration zu »Briefe an Elise« von Viktor INr 72174, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72175,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich bot ihr noch einmal guten Abend / und bat um ein Glas Milch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner del.",
+  "scans": [
+    "alm_1181_72175_ny2k2api73.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich bot ihr noch einmal guten Abend / und bat um ein Glas Milch",
+  "updated": "2009-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wzanl4umnzi8g3b",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.640Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Die Sündfluth flieht - Trost thaut der Bundesbogen! / Der Lebenskeim, vom Dämmerschein erzogen,",
+  "language": [],
+  "musenalm_id": 14423,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bundesbogen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Bundesbogen",
+  "updated": "2001-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p6vuf3a3d9z4em5",
+      "agents": "g7f1xv6d8kkyhx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.581Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.581Z"
+    }
+  ]
+}

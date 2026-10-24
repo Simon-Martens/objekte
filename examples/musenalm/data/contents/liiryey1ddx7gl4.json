@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 7 Stanzen aus dem 37. Gesang des »Rasenden Roland« von L. Ariosto in der Nachdichtung von J. D. Gries INr 53284-53290, Obj 36-42",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Unter die schönsten, aber auch seltensten Erscheinungen, ja man möchte fast sagen, unter, die für unmöglich auf dieser Welt geachteten, gehören unstreitig zwei Liebende,",
+  "language": [],
+  "musenalm_id": 53274,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vittoria Colonna, / Marchese von Pescara",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cäcilia",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vittoria Colonna, / Marchese von Pescara",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xhz7r0ylphghwjx",
+      "agents": "e2rrjjwetvb2bmn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.866Z"
+    }
+  ]
+}

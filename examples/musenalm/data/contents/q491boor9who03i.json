@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus Rom (Sammlung INr 37084, Obj 209)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "351",
+  "incipit_statement": "Weißt du, was vom Thurm zu Babel / In der Schrift geschrieben ist?",
+  "language": [],
+  "musenalm_id": 37094,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 218,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weißt du, was vom Thurm zu Babel / In der Schrift geschrieben ist?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfizer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5liybnd7cax5357",
+      "agents": "sv92qni765t0f64",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.720Z"
+    }
+  ]
+}

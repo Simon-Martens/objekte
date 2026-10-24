@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium November. Illustration zu »Geschichte der Mark Brandenburg unter den Kurfürsten des Hauses Hohenzollern. Mit einer Einleitung betreffend die Geschichte der Burggrafen von Nürnberg. Erster Theil« INr 59103, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59101,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NAUMBURG UND CHRISTIANSTADT. / am Bober",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marohn del. Carl Mayer's Kunst-Anstalt in Nürnberg",
+  "scans": [
+    "alm_876_59101_5g7a6lb4pe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NAUMBURG UND CHRISTIANSTADT. / am Bober",
+  "updated": "2008-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9fdxdk21osin19d",
+      "agents": "blk0bwibfqnyvz6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.774Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.774Z"
+    }
+  ]
+}

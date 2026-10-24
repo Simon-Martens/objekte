@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64300, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.744Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64308,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. Der Lieblingshund #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Landseer pinxt. J. W. Baumann sulpt.",
+  "scans": [
+    "alm_1066_64308_pyjeijk3eh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "VI. Der Lieblingshund #",
+  "updated": "2009-05-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qtbupcqiamf61n6",
+      "agents": "9b2uxqkf8x5d4i0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.251Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.251Z"
+    },
+    {
+      "id": "nscqh86pfa6g3d2",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.251Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.251Z"
+    }
+  ]
+}

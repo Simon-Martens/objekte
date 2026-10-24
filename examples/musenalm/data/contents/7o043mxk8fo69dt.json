@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 34306, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.536Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Daß ein Gefühl die Brust mir schwellt, / Ist eine Gottes Gabe.",
+  "language": [],
+  "musenalm_id": 34348,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Daß ein Gefühl die Brust mir schwellt, / Ist eine Gottes Gabe.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "08v8oh56d169trd",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.516Z"
+    }
+  ]
+}

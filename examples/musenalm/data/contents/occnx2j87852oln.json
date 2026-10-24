@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. s. Titelblatt /) Dritte Periode. Jahr 887-1056.Sammlung (INr 60891, Obj 23) Deutschland ein historisches Gemaelde (Sammlung INr 60887, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Die königliche Wittwe Mathilde hatte bei Heinrichs Lebzeiten schon Alles aufgeboten und angewendet, ihrem Lieblingssohne Heinrich, den sie ihrem Gemahl",
+  "language": [],
+  "musenalm_id": 60895,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Otto der Erste",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Otto der Erste",
+  "updated": "2008-11-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yjp25fqw6ythdn5",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.960Z"
+    }
+  ]
+}

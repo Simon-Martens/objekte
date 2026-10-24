@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Eine Idylle (INr 125233, Obj 87)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Michel, rief Hans, und sah mit kleineren, thränenden Augen, / Auf zum Kirchthurm, von der Morgensonne bestrahlet,",
+  "language": [],
+  "musenalm_id": 125234,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Werbung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Werbung",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gtwomd06a12wcbz",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.876Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm. d. Autors /) mit einem Nachtrag s. INr 62035, Obj 127",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Das erste Grafengeschlecht war erloschen. Mit Engelbert des Heiligen Ermordung sank der lezte männliche Sprosse desselben. Nur ein weiblicher Zweig war noch übrig, Irmengard, die Tochter Adolph des Fünften,",
+  "language": [],
+  "musenalm_id": 62030,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kurze Darstellung / der / Bergischen Landesgeschichte / Erster Abschnitt. / vom Jahr 1000-1360. / (Fortsetzung von S. 248 d. Taschenb. für 1801.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kurze Darstellung / der / Bergischen Landesgeschichte / Erster Abschnitt. / vom Jahr 1000-1360. / (Fortsetzung von S. 248 d. Taschenb. für 1801.)",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bz7uxw4oz8ctjtl",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.983Z"
+    }
+  ]
+}

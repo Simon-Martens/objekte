@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Ist nichts so elend auf der Welt, / Das nicht, wenn man's gehörig nimmt, / Moral uns vor die Augen stellt.",
+  "language": [],
+  "musenalm_id": 31616,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER TANZ. / Eine Fastenbetrachtung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kristof Kueffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DER TANZ. / Eine Fastenbetrachtung",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u8nky4fmkobgmnn",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.376Z"
+    }
+  ]
+}

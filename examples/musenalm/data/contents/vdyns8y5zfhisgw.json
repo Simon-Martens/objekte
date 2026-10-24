@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 111713-111715, Obj 100-102",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111712,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Den Kunstfreunden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Friedrich Beck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Den Kunstfreunden",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hm89i2jmfc6pyu8",
+      "agents": "psrg2sd88q25odj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.353Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.353Z"
+    }
+  ]
+}

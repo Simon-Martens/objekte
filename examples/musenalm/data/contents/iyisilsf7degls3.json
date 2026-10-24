@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 9347, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Graf Cicognara behauptet, in dem Kopfe dieser Statue sey das Portrait der Fürstin Pauline Bonaparte Borghese gegeben,",
+  "language": [],
+  "musenalm_id": 19059,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die ruhende Venus mit dem Apfel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die ruhende Venus mit dem Apfel",
+  "updated": "2000-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jl0lqg8xlqk470p",
+      "agents": "7cdnqd525rp9gi5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.983Z"
+    }
+  ]
+}

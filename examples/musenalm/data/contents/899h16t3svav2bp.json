@@ -1,0 +1,45 @@
+{
+  "annotation": "#. s. Goed VIII. 79, 148 /) Wanderung. Jagd. Krieg. (Sammlung INr 49029, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Ja, ich möchte Vieles sagen, / Aber reden wird mir schwer.",
+  "language": [],
+  "musenalm_id": 49032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klage",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klage",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p8mdjbzskyokbbu",
+      "agents": "1s7x50uh0tm3jdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.505Z"
+    }
+  ]
+}

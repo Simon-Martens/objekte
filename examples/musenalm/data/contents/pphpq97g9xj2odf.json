@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42954,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coëffures de Leipsic. / 1. à la facilité 2. à la recherche 3. à la saporite / 4. à toutuent 5. à la decouverte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmaesler del. sc.",
+  "scans": [
+    "alm_156_42954_odoewspd93.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coëffures de Leipsic. / 1. à la facilité 2. à la recherche 3. à la saporite / 4. à toutuent 5. à la decouverte",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gij1to9vncjepzp",
+      "agents": "n3n9pdzq4tdymdn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.088Z"
+    }
+  ]
+}

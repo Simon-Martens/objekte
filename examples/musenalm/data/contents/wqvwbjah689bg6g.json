@@ -1,0 +1,43 @@
+{
+  "annotation": "Frauenleben. Sonetten-Cyklus von Johann N. Vogl als Erklärung der Kupferstiche (Sammlung INr 94994, Obj 5) s. Titelgraphik INr 94891, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Verschwend'risch hat des Reizenden und Schönen / Der Welten Herr dem Sohn des Staubs gegeben,",
+  "language": [],
+  "musenalm_id": 94895,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3lb22sofydttex6",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.670Z"
+    }
+  ]
+}

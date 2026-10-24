@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 83985, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83992,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gretchen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Stone p. W. Baumann sc.",
+  "scans": [
+    "alm_1067_83992_lh26hqp06s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gretchen #",
+  "updated": "2009-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "295m6gk3ln89zja",
+      "agents": "jij8m2y7q2rp7we",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.981Z"
+    },
+    {
+      "id": "5hav991o29xb25n",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.981Z"
+    }
+  ]
+}

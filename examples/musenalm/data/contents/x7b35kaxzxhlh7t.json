@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug INr 51163, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51127,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey Lachen, gegen den Eingang in's Wäggithal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meyer f. ad. nat.",
+  "scans": [
+    "alm_696_51127_rjzb7wds1m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bey Lachen, gegen den Eingang in's Wäggithal",
+  "updated": "2007-08-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "84tgru7px5gdwvy",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.691Z"
+    }
+  ]
+}

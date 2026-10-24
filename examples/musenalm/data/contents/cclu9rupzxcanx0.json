@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Der Vfr. war i.J. 1814-1815 Hauslehrer bei dem daselbst wohnenden k.k. östreichischen Genral-Feldwachtmeister Baron v. Mylius [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.896Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Nun bin ich wieder kommen / In diesen lieben Raum, / Wo mir zuerst entglommen / Des Lebens Mainachttraum.",
+  "language": [],
+  "musenalm_id": 67866,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Besuch auf dem Schlosse Reuschenberg bei / Mülheim am Rheine. / Am 4. Aug. 1822",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Besuch auf dem Schlosse Reuschenberg bei / Mülheim am Rheine. / Am 4. Aug. 1822",
+  "updated": "2009-08-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6y7umwh52yarlwl",
+      "agents": "whg5xn8e9tsvu69",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.100Z"
+    }
+  ]
+}

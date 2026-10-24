@@ -1,0 +1,56 @@
+{
+  "annotation": "mit 9 Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Die dermal so allgemeine Jagd nach neuen Erfindungen, wozu bald eine Kirrung blinkenden Goldes, bald eine Witterung duftender Ehre, die rüstigen Jäger mächtig hinzieht,",
+  "language": [],
+  "musenalm_id": 66883,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Neue Erfindungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Neue Erfindungen",
+  "updated": "2009-09-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fgx86t0l76ba1wd",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.116Z"
+    },
+    {
+      "id": "bo07l8bhtsx3udm",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.116Z"
+    }
+  ]
+}

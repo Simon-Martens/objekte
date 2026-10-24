@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert 2",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28099,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Ri)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ri",
+  "scans": [
+    "alm_143_28099_6zb3h8l0dy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hl3v8gmtm96derw",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.299Z"
+    }
+  ]
+}

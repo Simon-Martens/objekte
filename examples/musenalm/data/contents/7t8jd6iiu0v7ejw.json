@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Ich danke Gott, und freue mich / Wie's Kind zur Weihnachtsgabe,",
+  "language": [],
+  "musenalm_id": 16864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Täglich zu singen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Asmus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Täglich zu singen",
+  "updated": "2001-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ywj8xc15xbfb5o",
+      "agents": "bm6n1x459jfghwe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.783Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.783Z"
+    }
+  ]
+}

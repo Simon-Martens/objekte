@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik Illustration zum Beitrag »Das Nachtlager in Granada« von Fr. Kind INr 19837, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19818,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Nachtlager von Granada v. Fr. Kind 1. Bl.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_267_19818_qt7chppi5c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Nachtlager von Granada v. Fr. Kind 1. Bl.",
+  "updated": "2001-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "11e5a70nmmfmrt0",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.548Z"
+    },
+    {
+      "id": "g2w6dtll6ns4f7i",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.548Z"
+    }
+  ]
+}

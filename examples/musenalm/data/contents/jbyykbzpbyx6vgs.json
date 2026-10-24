@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Gedicht zuerst in: Huldigung den Frauen 1831; INr 94328; hier variant",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Wofür mein Herz in Liebe flammet, / Was unaufhörlich, ohne Ruh / Zur Sehnsucht dieses Herz verdammet, / Bist Du.",
+  "language": [],
+  "musenalm_id": 94391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Sophie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Sophie",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nwsxplu7c2cq3h1",
+      "agents": "cqrs6fj7ecvzmh8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.325Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.325Z"
+    }
+  ]
+}

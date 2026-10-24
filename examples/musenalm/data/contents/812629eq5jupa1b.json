@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Schon färbte sich der Hochwald grün und grüner, und die Wiesen blühten wieder voll bunter Blumen, und das Mairohr klang aus den Erlen am Bache herauf,",
+  "language": [],
+  "musenalm_id": 62526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elsbeth, / die Braut auf Burg Lindenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. L. Grimm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elsbeth, / die Braut auf Burg Lindenstein",
+  "updated": "2009-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sf0pa443zzocm2l",
+      "agents": "qpcpdbpmmfuqn6x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.007Z"
+    }
+  ]
+}

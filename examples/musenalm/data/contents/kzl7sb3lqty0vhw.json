@@ -1,0 +1,45 @@
+{
+  "annotation": "Ehrentafel der Humanität im Verhalten von Christen gegen Juden (Sammlung INr 119042, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.915Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Auch die grauen Schwestern widmen sich dem Dienste der leidenden Menschheit ohne Unterschied des Glaubensbekenntnisses;",
+  "language": [],
+  "musenalm_id": 119049,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die grauen Schwestern in Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wertheimer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die grauen Schwestern in Wien",
+  "updated": "2017-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9zz3lno4p35mcky",
+      "agents": "t40io73vfefta51",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.613Z"
+    }
+  ]
+}

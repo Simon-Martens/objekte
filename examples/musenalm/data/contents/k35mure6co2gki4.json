@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "305",
+  "incipit_statement": "Lieder brüht man nicht am Feuer, / Trägt zur Tafel nicht Gesänge;",
+  "language": [],
+  "musenalm_id": 100233,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 173,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sängers Sorge. / Estnisches Volkslied von der Insel Oesel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jegór von Sivers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sängers Sorge. / Estnisches Volkslied von der Insel Oesel",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gddgtzg0py0lpdu",
+      "agents": "gpow9s19ygz3th4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.991Z"
+    }
+  ]
+}

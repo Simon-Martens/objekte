@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In Krähwinkel war die weltberühmte Sängerin Rouladini krank. Die Krähwinkler waren darob in größter Angst und Bestürzung.",
+  "language": [],
+  "musenalm_id": 44899,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesundheitsbülletin einer Sängerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tobias Grasgrün, Lorbeerblatt-Händler, Theatergärtner und befugter Klacquer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesundheitsbülletin einer Sängerin",
+  "updated": "2006-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pixkt093z1jif5w",
+      "agents": "wd7yy1894regb5j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.489Z"
+    }
+  ]
+}

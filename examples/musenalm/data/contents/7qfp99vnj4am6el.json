@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Vermischte Gedichte (Sammlung INr 29190, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Wenn hold des Lenzes reiche Blüthenfülle / Der Sommergluth als welkes Opfer sinkt,",
+  "language": [],
+  "musenalm_id": 29191,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Caroline, / bei / Uebersendung einiger gemalten Blumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Charlotte von Ahlefeldt geb. von Seebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Caroline, / bei / Uebersendung einiger gemalten Blumen",
+  "updated": "2002-10-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pjazkwd9apqwvwh",
+      "agents": "l4enih6aag2oyqg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.431Z"
+    }
+  ]
+}

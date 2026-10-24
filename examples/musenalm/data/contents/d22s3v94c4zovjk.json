@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Warner« von H. Welling INr 127435, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127414,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Warner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. A. D. sc.",
+  "scans": [
+    "alm_3359_127414_9t3yjdfgii.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Warner",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "knte84ggn7av899",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.940Z"
+    },
+    {
+      "id": "1qno7wjbvnitbb5",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.940Z"
+    }
+  ]
+}

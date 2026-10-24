@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Die Thatsache wird angeführt in dem Werke: The voiage and travail of Sir John Maundeville",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Zur Zeit, da, seit dem Verluste des Paradieses, der Rosenstrauch auf Erden ausgestorben war, lebte in dem Städtchen Bethlehem eine Jungfrau, Namens Zillah,",
+  "language": [],
+  "musenalm_id": 120364,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zillah. / Eine althebräische Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zillah. / Eine althebräische Legende",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "64t0tazy4r5oxai",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.744Z"
+    }
+  ]
+}

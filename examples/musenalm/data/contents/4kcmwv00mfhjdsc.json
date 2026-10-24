@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller s. Textbezug INr 39300, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.457Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39301,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jungfrau von Orleans. IIIr. Aufz. IXr. Auftr. / Tödte,was sterblich ist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Bolt sc.",
+  "scans": [
+    "alm_516_39301_8x1408w6bw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jungfrau von Orleans. IIIr. Aufz. IXr. Auftr. / Tödte,was sterblich ist",
+  "updated": "2005-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o9dw63kvx1521h2",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.075Z"
+    },
+    {
+      "id": "p4jd7q0c3xagos3",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.075Z"
+    }
+  ]
+}

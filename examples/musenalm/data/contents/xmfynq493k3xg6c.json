@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Wie thöricht klagt Gargil, kein Brodt / könn' er erwerben!",
+  "language": [],
+  "musenalm_id": 75221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen schlechten Arzt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Rahmel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen schlechten Arzt",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p2c2d99f0ugl79x",
+      "agents": "apv8utbqro872oi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.670Z"
+    }
+  ]
+}

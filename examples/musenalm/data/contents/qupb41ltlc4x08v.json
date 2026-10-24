@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "Ein Anderer zu seyn, was könnt' es frommen? / Da sind wir längst, eh' wir uns nur besonnen;",
+  "language": [],
+  "musenalm_id": 122256,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonett",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Silvio Romano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonett",
+  "updated": "2011-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u93i7jvf3tu28cf",
+      "agents": "rw4d1lc8bcz0sk7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.819Z"
+    }
+  ]
+}

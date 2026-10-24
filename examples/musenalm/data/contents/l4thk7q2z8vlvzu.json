@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das quälende Gespenst zu Gehofen in Thüringen« INr 130249, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.660Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130250,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das quälende Gespenst zu Gehofen in Thüringen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Catel pinx. Cl. Kohl sc. Viennae 1803",
+  "scans": [
+    "alm_1227_130250_jn2vt7333n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das quälende Gespenst zu Gehofen in Thüringen",
+  "updated": "2009-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v1fh0gxpikzypdv",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.060Z"
+    },
+    {
+      "id": "2soezkkmv0sfwzx",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.060Z"
+    }
+  ]
+}

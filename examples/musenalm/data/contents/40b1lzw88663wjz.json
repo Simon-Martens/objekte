@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 2",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50723,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey Cleven in Bündten, wo Plürs gestanden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hess p. S. G. f.",
+  "scans": [
+    "alm_686_50723_twvqc0uohd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bey Cleven in Bündten, wo Plürs gestanden",
+  "updated": "2007-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ysrdjjg4weog6f",
+      "agents": "uc4ahm2w7hhtikb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.979Z"
+    },
+    {
+      "id": "wl7hug3nbc2ky3g",
+      "agents": "pua8u6y6ts6oo5o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.979Z"
+    }
+  ]
+}

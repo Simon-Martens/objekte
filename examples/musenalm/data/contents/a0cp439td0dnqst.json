@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert Tab. V. (für IV.) /) kolorierte Illustration zu »Die Waldschnepfe« von L. C. E. H. F. von Wildungen INr 66500, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scolopax rusticola. Die Waldschnepfe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen ad viv. pinx.",
+  "scans": [
+    "alm_1136_66501_56t5ev483o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Scolopax rusticola. Die Waldschnepfe",
+  "updated": "2009-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l9488n6jkellwdi",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.240Z"
+    }
+  ]
+}

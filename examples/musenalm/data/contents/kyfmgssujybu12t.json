@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 306. /) Illustration zu »Das beschützte Bild« von A. F. E. Langbein INr 59251, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "306",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59253,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das beschützte Bild. / von Langbein IItes Blatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. W. F. M.",
+  "scans": [
+    "alm_891_59253_xdsa6ofv0e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das beschützte Bild. / von Langbein IItes Blatt",
+  "updated": "2008-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1dwgpgtzpam4mg0",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.747Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.747Z"
+    },
+    {
+      "id": "tn6m46j1pmns9um",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.747Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.747Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte (Sammlung INr 67034, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Mädchen komm in meine Hütte; / Sieh! ich biete Herz und Hand,",
+  "language": [],
+  "musenalm_id": 67035,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Bitte um Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von der Borch, Forstmeister in Gunzenhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Bitte um Liebe",
+  "updated": "2009-09-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zu97mb47va1h6yc",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.459Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bemerkungen (Sammlung INr 48486, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Ein wenig Himmel, viel Erde, mitunter ein kleines Fegfeuer, nur keine Hölle! das ist menschlich.",
+  "language": [],
+  "musenalm_id": 48488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein wenig Himmel, viel Erde, mitunter ein kleines Fegfeuer, nur keine Hölle! das ist menschlich.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yw7px9559upb2ei",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.449Z"
+    }
+  ]
+}

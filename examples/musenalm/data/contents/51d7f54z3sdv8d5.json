@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "O willkommen bei uns, ihr langsamwandelnden / Horen, / Bringet die griechische Zeit gütig uns wieder zurück!",
+  "language": [],
+  "musenalm_id": 122930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Horen. / (Bei Ankündigung der bekannten Zeitschrift.) / 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. C. Bindemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Horen. / (Bei Ankündigung der bekannten Zeitschrift.) / 1794",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3vljtu5w5mdrxar",
+      "agents": "maje80twv7ynq1d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.806Z"
+    }
+  ]
+}

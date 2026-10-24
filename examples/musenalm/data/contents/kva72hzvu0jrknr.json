@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Du heilig Denkmal längst erblichner Zeiten, / Du herrlich Denkmal längst verlorner Kunst,",
+  "language": [],
+  "musenalm_id": 14312,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kapelle zu den heil. drey Königen / in Tulln",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. J. E. Veith",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Kapelle zu den heil. drey Königen / in Tulln",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w6y0tf3sojxttuk",
+      "agents": "qfipgoo804kgoao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.297Z"
+    }
+  ]
+}

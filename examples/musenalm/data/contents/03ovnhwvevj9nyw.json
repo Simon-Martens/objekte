@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Zwei Freunde stiegen vor dem Thore vom Wagen, um zu Fuß durch die Gassen zu wandeln und den Fragen am Thor auszuweichen.",
+  "language": [],
+  "musenalm_id": 56079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musikalische / Leiden und Freuden. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Musikalische / Leiden und Freuden. / Novelle",
+  "updated": "2008-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yz5f35jzu88joru",
+      "agents": "lu281a3pqqlvbj5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.488Z"
+    }
+  ]
+}

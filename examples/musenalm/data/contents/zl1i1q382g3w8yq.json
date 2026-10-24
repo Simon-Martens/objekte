@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Die stille Nacht« von A. E. Fröhlich INr 55027, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55224,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 234,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die stille Nacht / von A. E. Fröhlich (Seite 141.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Fröhlich",
+  "scans": [
+    "alm_746_55224_xseuk6ydwr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die stille Nacht / von A. E. Fröhlich (Seite 141.)",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gcot9os49tpqxf6",
+      "agents": "2zdwvvsdgu1m59h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.739Z"
+    }
+  ]
+}

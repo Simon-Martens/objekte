@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25177, Obj 199)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Von Anton Fugger singe ich, die Leier in der Hand, / Den, seiner Zeit, die Sänger den edlen Mann genannt.",
+  "language": [],
+  "musenalm_id": 25178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 200,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Ein neu Lied von Herrn Fugger",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Bornitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Ein neu Lied von Herrn Fugger",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x1t7nsjrwygzn4n",
+      "agents": "rlu2d4ml9zlhov2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.173Z"
+    }
+  ]
+}

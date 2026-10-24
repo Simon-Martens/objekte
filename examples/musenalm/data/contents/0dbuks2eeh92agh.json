@@ -1,0 +1,45 @@
+{
+  "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 93794, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "374",
+  "incipit_statement": "Mein Erstes ist ein sonderbares Ding, / Die Damen halten's manchmal sehr gering,",
+  "language": [],
+  "musenalm_id": 93796,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Charade",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d75bcp6alap0xcq",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.697Z"
+    }
+  ]
+}

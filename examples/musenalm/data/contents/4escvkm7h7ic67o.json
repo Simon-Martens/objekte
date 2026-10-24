@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Vierter Streifzug nach Pötzelssdorf, dem Himmel, Cobenzelberg, Kahlenberg, Klosterneubeurg, Nußdorf, der Brigittenau und dem Prater INr 92725, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tempel auf dem Cobenzelberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Blaschke sc.",
+  "scans": [
+    "alm_4024_92728_omaun51k2u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tempel auf dem Cobenzelberg",
+  "updated": "2013-09-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sxtkqssiw27jdlz",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.476Z"
+    }
+  ]
+}

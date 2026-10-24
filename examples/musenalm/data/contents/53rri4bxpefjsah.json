@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Bürgerhaß und Bürgerliebe in zwey Beyspielen« INr 130246, Obj 17 /) über der Graphik p. 146",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130247,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Grafen Warfüsser Verrätherey zu Lüttich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Catel pinx.Cl. Kohl sc. Viennae 1803",
+  "scans": [
+    "alm_1227_130247_ojun5ajgwn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des Grafen Warfüsser Verrätherey zu Lüttich",
+  "updated": "2009-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d95jhjpv0hg19l9",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.060Z"
+    },
+    {
+      "id": "l6phv2hwvc1w0m9",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.060Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Der Gang zur Urne« von K. J. von Braunthal INr 106405, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106404,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER GANG ZUR URNE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl del. Gestochen im Karlsruher Kunstinstitute",
+  "scans": [
+    "alm_1790_106404_fy6taiyq4u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER GANG ZUR URNE",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "23a8s84sutv95ed",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.167Z"
+    }
+  ]
+}

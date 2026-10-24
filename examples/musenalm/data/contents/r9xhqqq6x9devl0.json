@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.678Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Sei, mein Herz gefaßt / An dem guten Tage, / Daß der bös' in Hast / Aus dem Feld ihn schlage.",
+  "language": [],
+  "musenalm_id": 86880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fassung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie v. Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fassung",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7h0ybo8vhdoiqqd",
+      "agents": "pg4xeyhd29oq3nl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.144Z"
+    }
+  ]
+}

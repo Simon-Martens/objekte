@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 123243, Obj 8; # Bezeichnung aus dem Vorwort (INr 123233, Obj 2)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Dir, Brama, Dank und Preis! der schöne Morgen / tagt, / An dem die Söhne mir die Heimkehr zugesagt.",
+  "language": [],
+  "musenalm_id": 123242,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Köstlichste / Schauspiel in einem Akt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Köstlichste / Schauspiel in einem Akt",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "51v1axaduj2rctx",
+      "agents": "sse24vstbh0jbtd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.829Z"
+    }
+  ]
+}

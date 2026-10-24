@@ -1,0 +1,43 @@
+{
+  "annotation": "Liebestäuschungen in acht Bildern (Sammlung INr 30411, Obj 4) s. Graphik INr 30414, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.804Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Flüstern hört' ich in der Laube, / Schmeichelnd strich der Abendwind",
+  "language": [],
+  "musenalm_id": 30415,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Ehe nach den Flitterwochen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stephan Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Ehe nach den Flitterwochen",
+  "updated": "2002-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "irr4qk9oebunjsg",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.555Z"
+    }
+  ]
+}

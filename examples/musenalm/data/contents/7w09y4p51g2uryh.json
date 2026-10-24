@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel am ersten Blatt der Suite. Graphik im Kalendarium paginiert VI. Illustration zu W. G. Becker: »Die Angebinde« in: Taschenbuch zum geselligen Vergnügen 1798 INr 10881",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11324,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus den Angebinden. / S. W. G. Beckers Taschenbuch von 1798 #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Cl. Kohl sc.",
+  "scans": [
+    "alm_207_11324_oxpz2fr16q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus den Angebinden. / S. W. G. Beckers Taschenbuch von 1798 #",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hs1ppnctl3qlknb",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.606Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.606Z"
+    },
+    {
+      "id": "25pifixrpj5krvv",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.606Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.606Z"
+    }
+  ]
+}

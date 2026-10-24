@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller s. Textbezug INr 39295, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.596Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39294,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jungfrau von Orleans. 1r. Aufz. 10r. Auftr. / Da trat die heilige zu mir, ein Schwert / und Fahne tragend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_516_39294_owutrabf5o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jungfrau von Orleans. 1r. Aufz. 10r. Auftr. / Da trat die heilige zu mir, ein Schwert / und Fahne tragend",
+  "updated": "2005-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wt9xrwfxp6lvcse",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.923Z"
+    },
+    {
+      "id": "yteab37tygxtesn",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.923Z"
+    }
+  ]
+}

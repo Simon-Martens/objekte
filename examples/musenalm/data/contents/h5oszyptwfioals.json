@@ -1,0 +1,45 @@
+{
+  "annotation": "Blüthen aus der Schweiz. Zweyter Strauß (Sammlung INr 54435, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Der Nebel hängt um grauen Felsgranit, / In schwarzen Schlünden stürzt die junge Reuß / Von weithin donnerndem Gestein herab,",
+  "language": [],
+  "musenalm_id": 54437,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Ueber den Gotthard",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Ueber den Gotthard",
+  "updated": "2008-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jxgl8diojk9odnl",
+      "agents": "6li7ibbf1vr3nv9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.716Z"
+    }
+  ]
+}

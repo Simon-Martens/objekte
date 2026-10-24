@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64240, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64248,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Mädchen mit der Brille #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lafosse pinxt. J. W. Baumann sculpt.",
+  "scans": [
+    "alm_1064_64248_0ygo5nwtgx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "II. Mädchen mit der Brille #",
+  "updated": "2009-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i2azobdmk67kjt6",
+      "agents": "jfx6mc31qu17k04",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.978Z"
+    },
+    {
+      "id": "pjn80zbwzi2r7m4",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.978Z"
+    }
+  ]
+}

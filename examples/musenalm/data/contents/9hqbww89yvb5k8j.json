@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r. s. Textbezug INr 59405, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.443Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59370,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BERLINISCHER / TASCHEN-KALENDER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. et del. [unleserlich] sc.",
+  "scans": [
+    "alm_894_59370_tcruygkb0g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BERLINISCHER / TASCHEN-KALENDER",
+  "updated": "2008-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nbercjikmannebb",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.875Z"
+    }
+  ]
+}

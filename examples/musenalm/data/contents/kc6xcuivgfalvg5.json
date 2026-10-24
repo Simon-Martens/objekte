@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Als Kindlein sah so gern ich auf / Zum Sternengefild, zu des Mondes Lauf!",
+  "language": [],
+  "musenalm_id": 53936,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine Geschichte mit dem nächtlichen / Himmel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. T. Pfeiffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meine Geschichte mit dem nächtlichen / Himmel",
+  "updated": "2008-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "28w67funhi5kgtt",
+      "agents": "42yarzq0yz2e1hp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.793Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Syrien, Phönicien und Nieder-Aegypten (Sammlung INr 87829, Obj 5) s. Textbezug INr 87845, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87846,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tempel des Jupiter zu Baalbek",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Cassas del. J. Gerstner sc.",
+  "scans": [
+    "alm_3100_87846_ixg9p9mihm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Tempel des Jupiter zu Baalbek",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "utxzact9nhb3q61",
+      "agents": "mwzww6qj9viy1kj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.133Z"
+    },
+    {
+      "id": "llk94t5f8hl6zrq",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.133Z"
+    }
+  ]
+}

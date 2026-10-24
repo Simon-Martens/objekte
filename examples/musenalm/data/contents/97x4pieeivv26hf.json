@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.375Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Sprich Vater, warum wir die dunkle Nacht, / Im Walde tief in den Tannen durchwacht?",
+  "language": [],
+  "musenalm_id": 14754,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm Tell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Christ. Bar. v. Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm Tell",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "30g0uxho04e99ql",
+      "agents": "id1mj19iathigp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.739Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Seit dein süßer Mund beschworen, / Daß du mir dein Herz geweiht,",
+  "language": [],
+  "musenalm_id": 67840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebsten Geheimiß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Messow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebsten Geheimiß",
+  "updated": "2009-08-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v3cyhs8wgjzpmdo",
+      "agents": "u3h0otg4lapzo9f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.386Z"
+    }
+  ]
+}

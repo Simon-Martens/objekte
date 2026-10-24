@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Belisar« von E. von Schenk INr 20907, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.670Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20902,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Belisar, E. von Schenk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. S. Langer sc.",
+  "scans": [
+    "alm_276_20902_9t6bk8bh7c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus Belisar, E. von Schenk",
+  "updated": "2002-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b454djf0z08hkz3",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.129Z"
+    },
+    {
+      "id": "408mcndj2v4mt2x",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.129Z"
+    }
+  ]
+}

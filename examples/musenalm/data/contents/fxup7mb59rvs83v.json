@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Invalide« von C. Spindler; s. Textbezug INr 103063, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103064,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Invalide",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwind del. W. Hessloehl sculp.",
+  "scans": [
+    "alm_3406_103064_pmueuy8z28.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Invalide",
+  "updated": "2010-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "35ibceasky2k0xt",
+      "agents": "dz642gh37bafou9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.015Z"
+    },
+    {
+      "id": "lbq8lo473xwik54",
+      "agents": "g141z8lw112bbl6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.015Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.015Z"
+    }
+  ]
+}

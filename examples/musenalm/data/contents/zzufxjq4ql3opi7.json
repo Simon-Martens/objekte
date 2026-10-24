@@ -1,0 +1,45 @@
+{
+  "annotation": "graph.-typograph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46748,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRAUENZIMMER / ALMANACH / zum Nuzen und Vergnügen / MDCCLXXXVI. / Leipzig / bei A. F. Böhmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nabholz fec.",
+  "scans": [
+    "alm_631_46748_2no3b49aip.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRAUENZIMMER / ALMANACH / zum Nuzen und Vergnügen / MDCCLXXXVI. / Leipzig / bei A. F. Böhmen",
+  "updated": "2006-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rjt45dwklg9s51y",
+      "agents": "3zx5z0tpqsm7ctk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.320Z"
+    }
+  ]
+}

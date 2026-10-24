@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Der Mensch denkt, der Himmel lenkt! so hatte ich oft von meinem alten sauertöpfischen Professor sagen hören,",
+  "language": [],
+  "musenalm_id": 86356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bekanntschaft / auf der Reise. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz X. Told von Doldenburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Bekanntschaft / auf der Reise. / Erzählung",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z652qy6swg4z3c1",
+      "agents": "tglq0d4pyb420do",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.193Z"
+    }
+  ]
+}

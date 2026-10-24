@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelportrait INr 120454, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Wir geben hier unseren Leserinnen das getreue Abbild einer Fürstin, welche, was die Schönheit und den Adel ihrer Züge betrifft, gewiß werth ist, ein Büchlein von dem Titel des unsrigen zu schmücken.",
+  "language": [],
+  "musenalm_id": 120474,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria von Medicis / Gemahlin Heinrich's IV., / Königs von / Frankreich. / (Zum Titelkupfer.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria von Medicis / Gemahlin Heinrich's IV., / Königs von / Frankreich. / (Zum Titelkupfer.)",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n85ejo9gr67lgyc",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.730Z"
+    }
+  ]
+}

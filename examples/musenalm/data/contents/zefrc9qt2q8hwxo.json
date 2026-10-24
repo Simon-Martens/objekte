@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Merkwürdige Schüsse (Sammlung INr 70557, Obj 49) V. Vermischte Gegenstände (Sammlung INr 70542, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Vor einigen Jahren erlegte der unvergeßliche Graf Franz von Erbach-Erbach im Thiergarten zu Eulbach am Moltenbrunnen ein Schmalthier.",
+  "language": [],
+  "musenalm_id": 70563,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2009-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x1v4w0hvoldpozw",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.607Z"
+    }
+  ]
+}

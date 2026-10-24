@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Unverhoffter Ersatz« von K. L. M. Müller INr 79030, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79021,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unverhofter Ersatz von M. Müller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lehmann del. C. Frosch sc.",
+  "scans": [
+    "alm_2389_79021_owf6ayjdjf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Unverhofter Ersatz von M. Müller",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w0zimqmofe6q8c9",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.513Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Beiträgen INr 19379-19381, Obj 14, 16, 18 Scholien zu den Bildern (Sammlung 9204, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19378,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum biblischen Cyclus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum biblischen Cyclus",
+  "updated": "2000-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iiexklza21z3d0e",
+      "agents": "7cdnqd525rp9gi5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.701Z"
+    }
+  ]
+}

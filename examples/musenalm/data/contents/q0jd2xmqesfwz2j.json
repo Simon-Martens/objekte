@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Atelier von. Grünewald & Cooke] s. Textbezug INr 44072, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.856Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44071,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ROMEO UND JULIE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Sohn pinx. T. S. Engleheart sc.",
+  "scans": [
+    "alm_597_44071_m1p52qz8ak.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ROMEO UND JULIE",
+  "updated": "2006-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oethc6q540cqvi0",
+      "agents": "kd2m6gqwwqw3i2v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.804Z"
+    },
+    {
+      "id": "gkgzk7kd4fzflto",
+      "agents": "8w6n9g0x6dcpwhp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.804Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Sollt' ich voller Sorg' und Pein / Um ein schönes Mädchen seyn ?",
+  "language": [],
+  "musenalm_id": 832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gleichsinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eschenburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gleichsinn",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cunidxmeihg8icd",
+      "agents": "zjm0wp8bizr6m9i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.640Z"
+    }
+  ]
+}

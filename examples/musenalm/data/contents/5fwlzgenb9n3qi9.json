@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Dämoneninsel« von Tiedge INr 20629, Obj 27 /) Historische Kupfer (Sammlung INr 20610, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20611,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Dämoneninsel von Tiedge No. I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Fr. Stöber sc. Vienna",
+  "scans": [
+    "alm_273_20611_a36ll7ym0l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Dämoneninsel von Tiedge No. I.",
+  "updated": "2002-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xtji62kidfkasu7",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.845Z"
+    },
+    {
+      "id": "q921j8pdru7g8yd",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.845Z"
+    }
+  ]
+}

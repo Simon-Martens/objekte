@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.543Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "367",
+  "incipit_statement": "Und dabei bleibt's - sagte der Meier zu Lisbeth, seiner einzigen Tochter - mit dem Martin ist's nichts!",
+  "language": [],
+  "musenalm_id": 77759,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Felsenmühle. / Eine Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emile d'Estrées",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Felsenmühle. / Eine Erzählung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qqeolojxciyu9uk",
+      "agents": "28na2h32tcn3skv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.808Z"
+    }
+  ]
+}

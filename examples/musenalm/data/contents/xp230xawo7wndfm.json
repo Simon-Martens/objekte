@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 48994, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Graf Turneck kam nach hartem Strauß / Bei Nacht wol vor ein Gotteshaus.",
+  "language": [],
+  "musenalm_id": 48998,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das weisse Roß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justinus Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das weisse Roß",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wdfuqzfhshylk0c",
+      "agents": "92oewhsfc44pa2v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.621Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.621Z"
+    }
+  ]
+}

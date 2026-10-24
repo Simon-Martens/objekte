@@ -1,0 +1,43 @@
+{
+  "annotation": "S: Graphik INr 54984, Obj 1,08",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Kindheit mag der Laute sich vergleichen, / Die neu und zart vom Meister ausgegangen.",
+  "language": [],
+  "musenalm_id": 54985,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 1.09,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Amor, die Laute stimmend. / Gemählde von Rosso",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Amor, die Laute stimmend. / Gemählde von Rosso",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pywmqvqhjqu5qle",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.957Z"
+    }
+  ]
+}

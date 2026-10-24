@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 37; mit einer Musikbeigabe s. INr 5707, Obj 66",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Komm, schönes Mädchen, traue mir! / Ich führe dich. Tritt nicht so leise!",
+  "language": [],
+  "musenalm_id": 5706,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warnung / eines Mädchens an ein andres, das sie über / einen zugefrornen Bach führte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Warnung / eines Mädchens an ein andres, das sie über / einen zugefrornen Bach führte",
+  "updated": "2000-10-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ij9f65fw3g1q76q",
+      "agents": "3m5nfg6fbusqjem",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.029Z"
+    }
+  ]
+}

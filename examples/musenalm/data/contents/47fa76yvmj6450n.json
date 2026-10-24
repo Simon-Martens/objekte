@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 26 Übersetzungsproben von Dorothea Tieck INr 77093-77118, Obj 29-54",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "314",
+  "incipit_statement": "Wer diesen Dichter irgend will näher kennen lernen, muß nicht bey seinen gerühmten dramatischen Arbeiten stehen bleiben, sondern sich auch mit allen denen vertraut machen, die lange Zeit vernachlässigt und gering geschätzt wurden.",
+  "language": [],
+  "musenalm_id": 77092,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber Shakspears Sonette einige Worte, nebst / Proben einer Uebersetzung derselben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber Shakspears Sonette einige Worte, nebst / Proben einer Uebersetzung derselben",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "se5k3vkrikxqaia",
+      "agents": "lu281a3pqqlvbj5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.666Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.666Z"
+    }
+  ]
+}

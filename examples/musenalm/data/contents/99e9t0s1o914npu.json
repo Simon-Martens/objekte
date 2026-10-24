@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Tamina« von F. Lohmann INr 29990, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.632Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29991,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tamina. Erzählung von Friederike Lohmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. de. W. Jury fec.",
+  "scans": [
+    "alm_388_29991_b1e2ajaka2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tamina. Erzählung von Friederike Lohmann",
+  "updated": "2002-11-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q212s4n1iaqk91r",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.116Z"
+    },
+    {
+      "id": "uu9c6bc70guooe4",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.116Z"
+    }
+  ]
+}

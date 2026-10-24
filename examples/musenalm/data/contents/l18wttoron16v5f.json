@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Erwartung« von Fr. Schiller s. Textbezug (Gedicht) INr 64380, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64374,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erwartung #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Noack delt. H. Walther sculpt.",
+  "scans": [
+    "alm_1070_64374_bb0gje7xmn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Erwartung #",
+  "updated": "2009-05-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xl0bfqu0p5ls3la",
+      "agents": "6g8a6ln0xqsj1k7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.191Z"
+    }
+  ]
+}

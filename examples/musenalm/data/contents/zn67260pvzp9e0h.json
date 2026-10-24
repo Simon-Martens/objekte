@@ -1,0 +1,43 @@
+{
+  "annotation": "Fünf Minnelieder Oswalds von Wolkenstein, von ihm selbst in Musik gesetzt (Sammlung INr 126318, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Gen Preussen, Littawn, Tartarey, Türkey, / über mer / gen Frankreich, Lampart, Yspanien mit zway / en Kiniges Her / trib mich die Mynn auf meines aigen geldes wer,",
+  "language": [],
+  "musenalm_id": 126319,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Oswald von Wolkenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nxikcn14mo5u6ym",
+      "agents": "bql8u40rryml71n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.899Z"
+    }
+  ]
+}

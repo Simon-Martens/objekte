@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gegengifte (Sammlung INr 38837, Obj 25) Gedichte (Sammlung INr 38823, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Ihr lieben Leute, seid doch willig / Und bringt ein größres Opfer dar!",
+  "language": [],
+  "musenalm_id": 38838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Napoleons Asche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Napoleons Asche",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vjtkoos9js0xqf0",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.065Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Anekdoten und Einfälle (Sammlung INr 11767, Obj 17) Prosaische Aufsätze (Sammlung 23125, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Zwei Kaufleute, der eine gewandt, der andre faul und einfältig,",
+  "language": [],
+  "musenalm_id": 11769,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Zum Laufen hilft nicht schnell seyn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Zum Laufen hilft nicht schnell seyn",
+  "updated": "2001-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hdtsy8nkftgwtsb",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.493Z"
+    }
+  ]
+}

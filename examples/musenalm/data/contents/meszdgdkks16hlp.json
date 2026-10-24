@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette und Distichen (Sammlung INr 49072, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Sie tönen alle laut in mir zusammen / Die reinen Hymnen vaterländ'scher Dichter",
+  "language": [],
+  "musenalm_id": 49075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Teutschheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Derselbe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Teutschheit",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m9o5n9izmw5kiom",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.731Z"
+    }
+  ]
+}

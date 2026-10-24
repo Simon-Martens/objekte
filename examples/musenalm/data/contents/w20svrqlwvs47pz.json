@@ -1,0 +1,47 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 33523, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33539,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reich der Musen. Die Muse Clio unterrichtet den Orpheus in der Musik #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Bock",
+  "scans": [
+    "alm_465_33539_y68u2o1h9p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Reich der Musen. Die Muse Clio unterrichtet den Orpheus in der Musik #",
+  "updated": "2003-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "89vkldiz6jxmdbc",
+      "agents": "ekn9rg5y5vkc116",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.426Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.426Z"
+    }
+  ]
+}

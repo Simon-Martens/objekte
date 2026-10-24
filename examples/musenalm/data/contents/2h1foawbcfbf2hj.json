@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "So wünsch ich ihr ein gute Nacht, bei der ich was alleine. Ein freundlich Wort sie zu mir sprach,",
+  "language": [],
+  "musenalm_id": 116209,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es ist so schlimm noch nicht. / Altdeutsches Lied aus dem 16ten Jahrhundert (1592) Herausgegeben von Hoffmann v. Fallersleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Barth",
+  "scans": [
+    "alm_3212_116209_e0zdbfa5zy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Es ist so schlimm noch nicht. / Altdeutsches Lied aus dem 16ten Jahrhundert (1592) Herausgegeben von Hoffmann v. Fallersleben",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "39el3vsqxarhi5s",
+      "agents": "efa95sh0vgqy5y4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.283Z"
+    }
+  ]
+}

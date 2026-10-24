@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Fragt, o Mädchen, wenn im Thale, / Bey dem frohen Aehrenmahle,",
+  "language": [],
+  "musenalm_id": 5100,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lina",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sprickmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lina",
+  "updated": "2000-10-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6gbtcqmce8dyoe2",
+      "agents": "9p4t51qtb5vwvkk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.020Z"
+    }
+  ]
+}

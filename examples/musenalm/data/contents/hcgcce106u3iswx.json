@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114581,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maximilian Korn / K.K. Hof-Schauspieler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Mahnke d. D. Weiss sc.",
+  "scans": [
+    "alm_1854_114581_3l4d8prfcx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maximilian Korn / K.K. Hof-Schauspieler",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xfyq9l5m8xxzcny",
+      "agents": "3qbv1l8lr4alybw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.491Z"
+    },
+    {
+      "id": "pzesyyqzvh7c7j3",
+      "agents": "yf7uqcfkp0nwlnb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.491Z"
+    }
+  ]
+}

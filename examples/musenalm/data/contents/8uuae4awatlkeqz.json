@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Wunden und Heilung« von K. J. Braun von Braunthal INr 90844, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.257Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90845,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Erzählung Wunden und Heilung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Hofmann sc.",
+  "scans": [
+    "alm_1775_90845_f3f7vio8id.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Erzählung Wunden und Heilung",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2lhluae3qm20hw8",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.367Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachtitel /) Dem Titel als Motto beigegeben: Greift nur hinein in's volle Menschenleben, / Ein Jeder lebt's, nicht Vielen ist's bekannt, / Und wo Ihr's faßt, da ist's interessant. / (Göthe im Faust.)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61139,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drei Erzählungen / von / Talvi. / Halle, / Verlag von Friedrich Ruff. / 1825",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Talvi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drei Erzählungen / von / Talvi. / Halle, / Verlag von Friedrich Ruff. / 1825",
+  "updated": "2008-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8iyvj1aej5faeoy",
+      "agents": "7h2sz4yxt1ki0lh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.931Z"
+    }
+  ]
+}

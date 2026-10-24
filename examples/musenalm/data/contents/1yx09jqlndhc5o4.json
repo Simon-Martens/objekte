@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März; paginiert 3. Illustration zu »Zur Geschichte von Berlin und Potsdam unter der Regierung des Königs Friedrich des Zweiten. « von Fr. Buchholz INr 58580, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.903Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58570,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prinz Eugen v. Würtemberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. Meno Haas sc.",
+  "scans": [
+    "alm_861_58570_8o9xgc0xve.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Prinz Eugen v. Würtemberg",
+  "updated": "2008-07-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mcdjy4kp1ea9dy7",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.665Z"
+    },
+    {
+      "id": "nism5ssw5l8jkr4",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.666Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.666Z"
+    }
+  ]
+}

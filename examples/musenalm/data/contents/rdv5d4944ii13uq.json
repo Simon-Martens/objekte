@@ -1,0 +1,45 @@
+{
+  "annotation": "Blüten aus dem Reiche der Flora (Sammlung INr 82451, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Jüngling, in Fülle der Kraft, und du, zartblühende Jung- / frau / Seht, es winken euch dort Kränze von Rosen fürs Fest.",
+  "language": [],
+  "musenalm_id": 84254,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Die Rose (Rosa centifolia)] 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Muth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Die Rose (Rosa centifolia)] 2.",
+  "updated": "2010-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ok3i6hhhe3chd9",
+      "agents": "cuv25mgj45dpxdp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.122Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.122Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Bemerkungen aus dem Leben (Sammlung INr 48609, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Auf der einen Seite ist es fast unbegreiflich, welche Menge von Fertigkeiten und Kenntnissen sich der Mensch schon frühzeitig erwerben kann.",
+  "language": [],
+  "musenalm_id": 48614,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf der einen Seite ist es fast unbegreiflich, welche Menge von Fertigkeiten und Kenntnissen sich der Mensch schon frühzeitig erwerben kann.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0bvgzsbzdopwvnd",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.552Z"
+    }
+  ]
+}

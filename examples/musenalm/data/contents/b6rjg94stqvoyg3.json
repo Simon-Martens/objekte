@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 51538, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51514,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bey Hirslanden unweit Zürich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Hess fec.",
+  "scans": [
+    "alm_699_51514_mvoq51y08i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bey Hirslanden unweit Zürich",
+  "updated": "2007-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jysk7s0emqfgt5o",
+      "agents": "uc4ahm2w7hhtikb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.603Z"
+    }
+  ]
+}

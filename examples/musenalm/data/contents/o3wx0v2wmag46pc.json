@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung und Titel s. Textbezug INr 69061, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69062,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vielbesuchter Winkel am Fuße des Posilipp #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Götzloff",
+  "scans": [
+    "alm_2655_69062_jey3wnzvlo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vielbesuchter Winkel am Fuße des Posilipp #",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h79tz2bt76u9mnl",
+      "agents": "g32zhxg420ik0a7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.408Z"
+    }
+  ]
+}

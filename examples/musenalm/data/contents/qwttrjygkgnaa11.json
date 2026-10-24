@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Du mit dem zarten Gefühl für die Grazien sittli- / cher Schönheit, / Freund mit dem schöpfrischen Geist, lebe noch / lange der Kunst!",
+  "language": [],
+  "musenalm_id": 128850,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn Goldmann, / k.k. akademischen Historienmahler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ant. Ferd. Drexler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn Goldmann, / k.k. akademischen Historienmahler",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5ix8kceabfues42",
+      "agents": "j4fihvyes63kxz4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.988Z"
+    }
+  ]
+}

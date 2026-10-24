@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht von Treitschke INr 36097; Obj 3,007",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36096,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.006,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CUPIDO",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Correggio pinxt. F: John sct.",
+  "scans": [
+    "alm_226_36096_c8q4m8s8qu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CUPIDO",
+  "updated": "2001-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "45bmadktukl6lru",
+      "agents": "irhvezh3jd0m3va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.845Z"
+    },
+    {
+      "id": "hpbjfxb3skxijum",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.845Z"
+    }
+  ]
+}

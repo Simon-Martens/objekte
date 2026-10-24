@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Gedichte (Sammlung INr 29510, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "Könnt ich je zu viel dich lieben, / Der du selbst die Liebe bist,",
+  "language": [],
+  "musenalm_id": 29511,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Liebe Gottes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. H. von Wessemberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Liebe Gottes",
+  "updated": "2002-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mcugz0j4kc9avwb",
+      "agents": "ct6ke46zkjmvu7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.504Z"
+    }
+  ]
+}

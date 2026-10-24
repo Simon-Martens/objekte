@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert II. /) Graphik im Kalendarium /) Illustration zu »Beatrix, Kaiser Otto's des IV. Gemahlin« INr 48067, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79912,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Otto, beruhiget Euch! Beschattet uns / doch diese Eiche noch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Meno Haas sc. Berlin 1810",
+  "scans": [
+    "alm_656_79912_sf1lr29zmb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mein Otto, beruhiget Euch! Beschattet uns / doch diese Eiche noch",
+  "updated": "2007-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3nf6ak3sg49vu3l",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.953Z"
+    },
+    {
+      "id": "slxhm8yj186tcuh",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.953Z"
+    }
+  ]
+}

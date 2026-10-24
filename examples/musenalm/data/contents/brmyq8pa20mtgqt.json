@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bezeichnung an den übtigen Blättern der Suite; s. Textbezug INr 7856, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7857,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Slack, Broughton, J. Figg",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hogarth del. Riep. f.",
+  "scans": [
+    "alm_170_7857_am5ural21f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Slack, Broughton, J. Figg",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p1azlltcbysrjbl",
+      "agents": "yylanvnf5ct4jbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.408Z"
+    },
+    {
+      "id": "zm1uz7mfpbce4uj",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.408Z"
+    }
+  ]
+}

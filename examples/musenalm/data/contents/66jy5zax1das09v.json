@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Sonett von Treitschke INr 54985, Obj 1,13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54988,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1.12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AMOR UND HYMEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guido Reni. F. John sc.",
+  "scans": [
+    "alm_223_54988_b1nisqsrnw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AMOR UND HYMEN",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "unspr67y814i9fh",
+      "agents": "azlvdz0ge43hlgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.957Z"
+    },
+    {
+      "id": "81b33kbfd6mhm2b",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.957Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86626, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86625,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwestern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clem. Russ del. G. Leybold sc.",
+  "scans": [
+    "alm_1603_86625_qdp9quue75.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwestern",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "krghzdxr3gwg4m2",
+      "agents": "iexyvzdzwrb4rqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.229Z"
+    },
+    {
+      "id": "awfwfy2k70ygzqa",
+      "agents": "zefb5ir07ld7tkj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.229Z"
+    }
+  ]
+}

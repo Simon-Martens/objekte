@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. an den übrigen Blättern der Suite /) paginiert No. 1. Illustration zu »Geschichte des Cüstineschen Einfalls in Deutschland, bis zur Wiedereinnahme von Frankfurt. Von einem Augenzeugen.« INr 59950, Obj 15 s.a. Textbezug INr 59973, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.958Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "354",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59970,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die braven, biedern Hessen bei Custine's / Manifeste",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen",
+  "scans": [
+    "alm_935_59970_999103tx8j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die braven, biedern Hessen bei Custine's / Manifeste",
+  "updated": "2008-09-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rr2zzkyrgh4bc7a",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.908Z"
+    },
+    {
+      "id": "65b3wjndx1eqgca",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.908Z"
+    }
+  ]
+}

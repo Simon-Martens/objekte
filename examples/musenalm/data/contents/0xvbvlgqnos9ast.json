@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Vermischte Gedichte (Sammlung INr 29731, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Weine nicht, du gute Seele! / Diese Thräne brennt mein Herz,",
+  "language": [],
+  "musenalm_id": 29734,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freundschaft",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Silvio Romano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freundschaft",
+  "updated": "2002-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0h97q2nrhvdmfzq",
+      "agents": "rw4d1lc8bcz0sk7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.557Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "Sei Frühlingsbotin! feudig mir gegrüßt! / Du kleine Schwalbe, die ich lang vermißt!",
+  "language": [],
+  "musenalm_id": 103968,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die erste Schwalbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Foglar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die erste Schwalbe",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cxnsu49imow514i",
+      "agents": "j7plmb89f8s4m2q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.204Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.204Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnette aus Werners Nachlaß. Zu einem Brief an Göthe, am 18. Januar 1814. An Helios (Sammlung INr 15039, Obj 36) s. G 68",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Vor Allen auf dem ganzen Erdenrunde / Hab' ich allein das grause Bild verstanden:",
+  "language": [],
+  "musenalm_id": 15042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "c. Die Braut von Corinth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "aus Werners Nachlaß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "c. Die Braut von Corinth",
+  "updated": "2001-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x0r7tn77ecq7piv",
+      "agents": "g7f1xv6d8kkyhx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.463Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.463Z"
+    }
+  ]
+}

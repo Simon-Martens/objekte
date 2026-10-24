@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Was pochet das Herzchen so laut? / Was röthet die Wangen der Braut?",
+  "language": [],
+  "musenalm_id": 72010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Braut und die Gespielen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Reinbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Braut und die Gespielen",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u57d6kuqz9ne992",
+      "agents": "j6u4xe56jqv8urn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.647Z"
+    }
+  ]
+}

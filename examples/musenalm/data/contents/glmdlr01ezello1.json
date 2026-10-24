@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80661, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Bergesluft / Haucht um uns're Glieder; / Waldesduft / Strömt auf uns hernieder.",
+  "language": [],
+  "musenalm_id": 80663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Berglied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Storch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Berglied",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "se8fh6qusgk663m",
+      "agents": "n05stp52kkm5on3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.013Z"
+    }
+  ]
+}

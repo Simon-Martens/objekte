@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Fortsetzung. / Das Boudoir« von G. H. Rapp INr 74169, Obj 19 /) # Zuschreibung: Fischer S. 216",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.580Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Boudoir",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3109_74170_nah0c8c56h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Boudoir",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zv54whlp3k0kt88",
+      "agents": "4b4lhy0iqevooje",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.810Z"
+    },
+    {
+      "id": "5znq573sew1z2n9",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.810Z"
+    }
+  ]
+}

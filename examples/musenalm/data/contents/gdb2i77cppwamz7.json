@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 34478, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.374Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34487,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THE BLIND PIPER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Clenell delt. H. C. Shenton sculpt.",
+  "scans": [
+    "alm_479_34487_408kxd8ajr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THE BLIND PIPER",
+  "updated": "2003-06-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pcb3221ldokpikq",
+      "agents": "n8j6d5bsny24p36",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.490Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.490Z"
+    },
+    {
+      "id": "zrryjtigcqdozos",
+      "agents": "jfn0m9odb0mqqv8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.490Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.490Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 85791, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Gastmahlt nicht, wo sich Jugend ergötzt, in blühenden / Lauben! / Kommt zu mir! Mein Garten ist reich an zerfallenen / Blumen,",
+  "language": [],
+  "musenalm_id": 85800,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das ernste Gastmahl. / (Nach dem Englischen)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das ernste Gastmahl. / (Nach dem Englischen)",
+  "updated": "2008-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "no0butdewk4n0sk",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.159Z"
+    }
+  ]
+}

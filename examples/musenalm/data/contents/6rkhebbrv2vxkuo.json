@@ -1,0 +1,46 @@
+{
+  "annotation": "Einleitung zum folgenden Gedicht INr 25809, Obj 94 /) Der todte Adonis, nach der 30. Idylle des Theokrit und Balders Leichen-Feyer, nach der 43. Fabel der jüngern Edda, Eine Parallele (Sammlung INr 25807, Obj 92)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Eine der lieblichsten Dichtungen der alten Griechen ist die, von der Liebe Aphrodite's zu dem schönen Jünglinge Adonis,",
+  "language": [],
+  "musenalm_id": 25808,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-05-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "huiq860ypvpuiwy",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.359Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.359Z"
+    }
+  ]
+}

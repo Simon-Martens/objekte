@@ -1,0 +1,45 @@
+{
+  "annotation": "Ermländische Sagen (Sammlung INr 45961, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Wer durch's Ermland ist gewandert, / Der vernahm wol tausend Wunder, / Tausend Wunder von dem Heilquell,",
+  "language": [],
+  "musenalm_id": 45963,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Heilbrunn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Bornowski",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Heilbrunn",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "luzm5jhtxxttm8r",
+      "agents": "59l3z560kdcow7s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.383Z"
+    }
+  ]
+}

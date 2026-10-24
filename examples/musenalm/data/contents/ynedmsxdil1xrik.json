@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "Hätt' ich in den schönen Morgenstunden / Deines Lebens, Hulda! dich gekannt!",
+  "language": [],
+  "musenalm_id": 11193,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "46. / Klage des Geliebten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Meinert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "46. / Klage des Geliebten",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r5wwel8ze2pkxyc",
+      "agents": "6g8r11hxaocz3tf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.580Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.580Z"
+    }
+  ]
+}

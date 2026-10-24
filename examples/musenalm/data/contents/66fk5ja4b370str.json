@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Agrionien für das Jahr 1829. Gesammelt von Th. Hell (Sammlung INr 40941, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.554Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "444",
+  "incipit_statement": "Sag' an, wie ich betonen soll / Des Wortes zwei Sylben gehörig,",
+  "language": [],
+  "musenalm_id": 40971,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "27. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "27. / Charade",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "68jo2xmwm8zaclt",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.780Z"
+    }
+  ]
+}

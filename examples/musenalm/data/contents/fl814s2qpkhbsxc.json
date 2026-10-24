@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen (INr 93327, Obj 12) mit einer Illustration s. Graphik INr 93328, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.777Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Horch, die Thurmuhr hat geschlagen, / Und er naht den Augenblick! / Darf ich hier zu bleiben wagen?",
+  "language": [],
+  "musenalm_id": 93329,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philippine Welferinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Pichler, geg. v. Greiner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Philippine Welferinn",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jfi226tsiypx1fi",
+      "agents": "vxzn7evqhv18e38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.433Z"
+    }
+  ]
+}

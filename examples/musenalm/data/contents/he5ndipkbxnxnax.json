@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "224",
+  "incipit_statement": "War das nicht eine herrliche Jagd, / Apoll, das musst du doch gestehen,",
+  "language": [],
+  "musenalm_id": 1240,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tantalus. / Ein Dramolet, auf dem Olymp",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "LENZ",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tantalus. / Ein Dramolet, auf dem Olymp",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0zjyzx7amrp4lpf",
+      "agents": "xjsto93uz3ejsp3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.728Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 133018, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132868,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jacob Keith / Königl Preuss. / General Feldmarschall / Diese Bildsäule steht auf dem Wilhelmsplatz zu Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Henne del. et sc. Berol 1787",
+  "scans": [
+    "alm_3960_132868_84ulljiugt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jacob Keith / Königl Preuss. / General Feldmarschall / Diese Bildsäule steht auf dem Wilhelmsplatz zu Berlin",
+  "updated": "2013-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ctx44z0l5knisso",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.097Z"
+    }
+  ]
+}

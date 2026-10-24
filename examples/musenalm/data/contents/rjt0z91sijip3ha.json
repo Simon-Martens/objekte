@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer. Illustration zu »Statistischer Versuch über den Kanton Wallis« INr 52448, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "380",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52455,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Canton Wallis / Mädchen von Champery / im Unterwallis",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_720_52455_7e9dfsrono.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Canton Wallis / Mädchen von Champery / im Unterwallis",
+  "updated": "2007-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dc8l3ittqljj3qn",
+      "agents": "grbttvgkqnprgwf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.652Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 9. /) Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72249,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "August Wilhelm, / Prinz von Preussen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas sc.",
+  "scans": [
+    "alm_826_72249_v5tjmidmbd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "August Wilhelm, / Prinz von Preussen",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "op59w2obgi7xr7j",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.589Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.589Z"
+    }
+  ]
+}

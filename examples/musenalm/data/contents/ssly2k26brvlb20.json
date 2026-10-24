@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Agrionien für 1827. Gesammelt von Theodor Hell (Sammlung INr 40761, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "378",
+  "incipit_statement": "Linchen sprach: Es ist die Letzte, / Mach' zum Ganzen Dich bereit,",
+  "language": [],
+  "musenalm_id": 40788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20. / Charade",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7z18vn61ltq1jmw",
+      "agents": "utw4utrm977hsx5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.157Z"
+    }
+  ]
+}

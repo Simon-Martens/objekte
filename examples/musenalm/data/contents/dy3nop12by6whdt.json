@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium November; paginiert 11. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich Wilhelm I.« von Fr. Wilken INr 58539, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.958Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58537,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jacob Paul Freyherr von Gundling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stürmer del. L. Meyer sc.",
+  "scans": [
+    "alm_858_58537_6ibdxdf69z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jacob Paul Freyherr von Gundling",
+  "updated": "2008-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uneovns1atmqgwi",
+      "agents": "xsc8m0e0lt02y28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.690Z"
+    },
+    {
+      "id": "v5m9cibxhwo9czx",
+      "agents": "l5ef0nkmotzvzwh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.690Z"
+    }
+  ]
+}

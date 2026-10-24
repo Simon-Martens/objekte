@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus: Verzeichniss der Verfasser des N. W. Musenalmanachs vom J. 1798 in: Neuer Wiener Musenalmanach 1800",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.694Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "In goldner Freiheit fliesst das Leben / mir dahin; / Kein Wölkchen trübet meinen Sinn;",
+  "language": [],
+  "musenalm_id": 122439,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AN BELDORF",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fischel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AN BELDORF",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "olcr3iqfnsso4e4",
+      "agents": "9fm6ody20z4gtke",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.725Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Oft wohl hast du gesehn, wenn Wetter mit Re- / gen gehauset, / Wie sich Blüthen und Baum schaurig dem Wet- / ter gebeugt.",
+  "language": [],
+  "musenalm_id": 51363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Antwort auf einige Verse",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "ANTHROPOS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Antwort auf einige Verse",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qho28ppvw9hqcsg",
+      "agents": "v63rmmxw84k8ut2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.613Z"
+    }
+  ]
+}

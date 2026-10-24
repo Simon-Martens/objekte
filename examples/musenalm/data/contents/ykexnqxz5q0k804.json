@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember; nummeriert 5. /) # Bez. aus dem G-Verz /) Illustration zu »Der Schweizer in Holland« INr 124703, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124694,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schweizer in Holland",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Mettenleiter",
+  "scans": [
+    "alm_4702_124694_x2lhy0xb8n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Schweizer in Holland",
+  "updated": "2020-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "682tk04qfunql6n",
+      "agents": "47esr93u2wyl7ta",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.861Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.861Z"
+    }
+  ]
+}

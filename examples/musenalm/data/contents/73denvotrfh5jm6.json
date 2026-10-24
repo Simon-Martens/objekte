@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Mondschein, Erdschein, / Gehst so trüb' um diesen Kloß,",
+  "language": [],
+  "musenalm_id": 126590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tod im Leben, Leben im Tod",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Goldmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tod im Leben, Leben im Tod",
+  "updated": "2020-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pd1bksygtcjsqd1",
+      "agents": "afol13njmocrx8d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.795Z"
+    }
+  ]
+}

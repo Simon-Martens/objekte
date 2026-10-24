@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 2. /) Graphik im Kalendarium Januar /) Illustration zu »Albert und Albertine« von Friedrike Unger /) s. Textbezug INr 85853, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85814,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich bitte mein Herr lassen Sie mir / meinen Gram",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury sc.",
+  "scans": [
+    "alm_445_85814_ipjquzvmxp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich bitte mein Herr lassen Sie mir / meinen Gram",
+  "updated": "2003-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h0mm00vmd472z23",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.168Z"
+    }
+  ]
+}

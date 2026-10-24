@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "396",
+  "incipit_statement": "Ein großer Herr, der Padischah - / Doch braucht er Zeit zu lesen; / Und bin ich auch schon lange da, / Ist's doch nicht g'nug gewesen.",
+  "language": [],
+  "musenalm_id": 99833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 237,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Der begrabene Baß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Der begrabene Baß",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7j849rlblrr8i4e",
+      "agents": "ozbm86woe020u89",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.003Z"
+    }
+  ]
+}

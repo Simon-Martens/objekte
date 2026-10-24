@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Im Jahr 18** an Mariä Heimsuchung kurz nach Sonnenaufgang stieg ein junges Ehepaar von der Anhöhe von Bogenhausen herab,",
+  "language": [],
+  "musenalm_id": 42403,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Die Proselyten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Jacobs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Die Proselyten",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z21c33e2l9hjr51",
+      "agents": "ll7waoj43h6ojrc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.954Z"
+    }
+  ]
+}

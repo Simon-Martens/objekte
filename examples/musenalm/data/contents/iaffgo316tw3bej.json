@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Der Tag, an dem des großen Meisters Leiden / Beginnen sollten, stieg in Osten ernst empor,",
+  "language": [],
+  "musenalm_id": 79369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Abendmahl des Herrn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. C. Tenner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Abendmahl des Herrn",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b4nugmsdc3b3eg8",
+      "agents": "h2od5uetg73g87x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.919Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.919Z"
+    }
+  ]
+}

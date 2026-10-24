@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.394Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Ja, werde Oekonom, mein lieber junger Veit,",
+  "language": [],
+  "musenalm_id": 54780,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beruf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Schnyder von Wartensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beruf",
+  "updated": "2008-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ppi31pezq291797",
+      "agents": "qn8g13ehspgkph8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.869Z"
+    }
+  ]
+}

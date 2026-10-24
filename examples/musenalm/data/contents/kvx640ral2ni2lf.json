@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Die Garden waren unter den Fenstern des Fürsten vorüberdefilirt und der Paradeplatz fing an leer zu werden.",
+  "language": [],
+  "musenalm_id": 29955,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Die Ferse des Achilles. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Borromäus von Miltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Die Ferse des Achilles. / Erzählung",
+  "updated": "2002-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "igwfi2u5jbe6k1k",
+      "agents": "e36ydmk4x9m4umt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.318Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.318Z"
+    }
+  ]
+}

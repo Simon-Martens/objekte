@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik 36096; Obj 3,006",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Zwey Pfeile halt' ich prüfend in den Händen, / Ob Einer fehle, der Zweyte trifft das Ziel.",
+  "language": [],
+  "musenalm_id": 36097,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3.007,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Cupido. / Gemählde von Correggio",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Cupido. / Gemählde von Correggio",
+  "updated": "2001-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "koz4foq4mji1akp",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.846Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.846Z"
+    }
+  ]
+}

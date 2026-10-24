@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober; Illustration zu »Geschichte von Berlin und Potsdam unter der Regierung des Königs Friedrich des Zweiten« INr 58680, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58676,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seite 104",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. W. Jury fec.",
+  "scans": [
+    "alm_862_58676_09w9xj3rwo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seite 104",
+  "updated": "2008-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lv7e4n0b3bjtryb",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.624Z"
+    },
+    {
+      "id": "2rmtvxhv0bi1q3e",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.624Z"
+    }
+  ]
+}

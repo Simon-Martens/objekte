@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 126915, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Die Strasse von Grätz gegen Wien gehört zu den angenehmsten und interessantesten, die es geben kann.",
+  "language": [],
+  "musenalm_id": 126914,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die kleine Poststation / Röthelstein, / und der Drachenhelm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Kumar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die kleine Poststation / Röthelstein, / und der Drachenhelm",
+  "updated": "2020-09-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1tihcphjjhjgvn7",
+      "agents": "rd1rezufezr9qx8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.939Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag in 4 Abschnitten INr 9076-9079, Obj 21, 23, 29, 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Krieg / der fränkischen Nation / gegen / die coalierten Mächte Europens. / Vierter Jahrgang. / 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Krieg / der fränkischen Nation / gegen / die coalierten Mächte Europens. / Vierter Jahrgang. / 1795",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jprwnhtds5odbnq",
+      "agents": "b68wiq4xeilaqf3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.308Z"
+    }
+  ]
+}

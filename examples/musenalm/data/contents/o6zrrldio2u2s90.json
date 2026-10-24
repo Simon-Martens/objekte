@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 102227, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Es sind die Sterne Millionen Zungen / In der Natur allewig heiligem Munde,",
+  "language": [],
+  "musenalm_id": 102230,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Sterne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Sterne",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q8qg1w6ekom9hz6",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.053Z"
+    }
+  ]
+}

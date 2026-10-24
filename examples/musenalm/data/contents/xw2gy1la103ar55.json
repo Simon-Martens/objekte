@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium November; Illustration zu »Zur Geschichte von Berlin und Potsdam unter der Regierung des Königs Friedrich des Zweiten« von Fr. Buchholz INr 58560, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58558,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich am Bette seines sterben- / den Lehrer du Han de Fandun",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. W. Jury sc.",
+  "scans": [
+    "alm_860_58558_hj6r7vajf0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich am Bette seines sterben- / den Lehrer du Han de Fandun",
+  "updated": "2008-07-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hq7lympuviai4qy",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.955Z"
+    },
+    {
+      "id": "tyy3jw0cydj85np",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.955Z"
+    }
+  ]
+}

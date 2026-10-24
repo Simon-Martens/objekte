@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Preußen (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Ein frischer Tag! Durch's grüne Waldthal hallt / Und dröhnt im Takt der Marschtritt der Kolonnen,",
+  "language": [],
+  "musenalm_id": 99483,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesicht eins Preußischen Landwehrmannes / am Neckar. / (Sommer 1849.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philipp Engelhard Nathusius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesicht eins Preußischen Landwehrmannes / am Neckar. / (Sommer 1849.)",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7y2bkkunlnzemro",
+      "agents": "tr8mb3pxom078aa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.981Z"
+    }
+  ]
+}

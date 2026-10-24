@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonettenkranz in drei Bildern (Sammlung INr 22289, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.496Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "So hat sein Ziel der kleine Gott gefunden! / Er darf im Grün von blüthenreichen Hainen",
+  "language": [],
+  "musenalm_id": 22292,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drittes Bild. Amor vereint ein lie- / bendes Paar, das einen Kranz auf der / Eltern Haupt drückt. / (Nach einem Niederländer Meister.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Mosengeil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drittes Bild. Amor vereint ein lie- / bendes Paar, das einen Kranz auf der / Eltern Haupt drückt. / (Nach einem Niederländer Meister.)",
+  "updated": "2002-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zmlxxq8jgt51549",
+      "agents": "on9jq8q7af8kfmj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.878Z"
+    }
+  ]
+}

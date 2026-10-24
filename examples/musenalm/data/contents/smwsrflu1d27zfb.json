@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumenmärchen (Sammlung INr 64518, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Es liegt im Volke eine sichere Ahnung des geheimnißvollen Lebens der Pflanze. Die Bäume reden miteinander sagen die Bauern, wenn der Wind die Kronenäste bewegt,",
+  "language": [],
+  "musenalm_id": 64523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Die Mollie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Fentsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Die Mollie",
+  "updated": "2009-06-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nut55uye5i6egbo",
+      "agents": "euexsjcr9ar4su1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.059Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.059Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Agrionien für das Jahr 1822. gesammelt von Theodor Hell (Sammlung INr 40440, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "511",
+  "incipit_statement": "An dem Ersten nähte Lotte, / Und war sehr die beiden Andern,",
+  "language": [],
+  "musenalm_id": 40454,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14. / Charade",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qzx3elax8hiol37",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.256Z"
+    }
+  ]
+}

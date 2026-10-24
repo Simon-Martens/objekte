@@ -1,0 +1,46 @@
+{
+  "annotation": "Anhang mit zahlreichen Einträgen zu »Das Reh« von A. W. von Mellin INr 69588, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Auch in der Grafschaft Schaumburg ist die höchst seltene und merkwürdige schwarze Varietät von Rehen anzutreffen,",
+  "language": [],
+  "musenalm_id": 69589,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anhang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vom Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anhang",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ekv76t4jdmrn1h8",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.341Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.341Z"
+    }
+  ]
+}

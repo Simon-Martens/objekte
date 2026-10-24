@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 32108, Obj 3,02",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.036Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32107,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "St. HIERONIMUS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Domenichino pt. Fr. John sc.",
+  "scans": [
+    "alm_230_32107_b8ft61k4mk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "St. HIERONIMUS",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9rgb4m8nb2y4620",
+      "agents": "ke8b3zzq6e79hhk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.450Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.450Z"
+    },
+    {
+      "id": "4x4webqkdsrp849",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.450Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.450Z"
+    }
+  ]
+}

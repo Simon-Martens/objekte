@@ -1,0 +1,45 @@
+{
+  "annotation": "Poetisches Tagebuch (Sammlung INr 122450, Obj 10) # Bezeichnung an der Sammlung INr 122450, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Die Kalabreser flatterten / So liedlich und so hold! / Die deutschen Jungfraun’n schnatterten / Und strichen schwarz-roth-gold",
+  "language": [],
+  "musenalm_id": 122502,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kalabreser flatterten / So liedlich und so hold! / Die deutschen Jungfraun’n schnatterten / Und strichen schwarz-roth-gold…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard v. Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "atu5ub1jcbn4p63",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.690Z"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "mit einer Illustration § bez. Graphik fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Die Sonne war heiter untergegangen, und Wölkchen, in denen sich Gold und Azur, und Rosenroth, und durchsichtig tiefes Veilchenblau vermischten, prangten wie eine Blumenflur des Himmels,",
+  "language": [],
+  "musenalm_id": 121765,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Johannisabend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Johannisabend",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1knvjzdyz609e6r",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.793Z"
+    }
+  ]
+}

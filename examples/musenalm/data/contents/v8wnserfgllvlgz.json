@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 80214, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Liebe wandelt im Licht, in Nacht der Haß:",
+  "language": [],
+  "musenalm_id": 80243,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe und Haß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe und Haß",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9obli4smknsic2u",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.988Z"
+    }
+  ]
+}

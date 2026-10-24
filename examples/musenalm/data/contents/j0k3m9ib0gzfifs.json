@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Aber ich bin nun einmal der Herr im Hause, lieber Adam, und kann mit Recht begehren, daß meine Befehle auf das Strengste vollzogen werden",
+  "language": [],
+  "musenalm_id": 125713,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Herr im Hause. / Lustspiel in einem Akt / von / Dr. Franck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Herr im Hause. / Lustspiel in einem Akt / von / Dr. Franck",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m3l9de2lxvwhx0w",
+      "agents": "q3vezx66ehdwkf0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.912Z"
+    }
+  ]
+}

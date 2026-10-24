@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) Illustration zu »Jakobea von Holland« von Ch. von Glumer, geb. Spohr INr 77414, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77395,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jacobea von Holland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Fr. Stöber sc. Viennae",
+  "scans": [
+    "alm_2404_77395_a3ldi40791.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jacobea von Holland",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "guolxwjq47g4caa",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.683Z"
+    },
+    {
+      "id": "ka2arey6v9i0247",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.683Z"
+    }
+  ]
+}

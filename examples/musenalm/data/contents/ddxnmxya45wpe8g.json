@@ -1,0 +1,56 @@
+{
+  "annotation": "Sammlung von 6 Gedichten, Übersetzung der hier nicht dargestellten griechischen Gedichte INr 131903-131908, Obj 44-49",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131902,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Deutsche Uebersetzung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rigas [übers.:] Mebold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Deutsche Uebersetzung",
+  "updated": "2013-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ium4b2wgsuhn4dt",
+      "agents": "m46r0k8xyml7u8e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.043Z"
+    },
+    {
+      "id": "72vuf7sw34lf9o8",
+      "agents": "y3vcu2p4zhikm7w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.043Z"
+    }
+  ]
+}

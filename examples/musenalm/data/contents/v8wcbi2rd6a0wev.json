@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Alle die Weisen, welche verblichen / Unter den Römern, unter den Griechen, / Können mir nimmer gefallen,",
+  "language": [],
+  "musenalm_id": 99905,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der größte Weise / (Scherz.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jgnaz Franz Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der größte Weise / (Scherz.)",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w4vs7dxw8mzmada",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.972Z"
+    }
+  ]
+}

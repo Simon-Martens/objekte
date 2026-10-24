@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Damen vor! - tourner! - chassez an die Wand! - nein, nein! Sie sind ja an der Reihe!",
+  "language": [],
+  "musenalm_id": 115732,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gefangene wider Willen. / Dramatische Aufgabe in einem Akt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Cosmar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gefangene wider Willen. / Dramatische Aufgabe in einem Akt",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3b35ctpt4zb6per",
+      "agents": "2s3vhf9nlntlu1k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.500Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.500Z"
+    }
+  ]
+}

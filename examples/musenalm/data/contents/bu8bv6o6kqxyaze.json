@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41444,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Total Anblick des Niagara Falls",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Schumann sc.",
+  "scans": [
+    "alm_540_41444_s5mjoo6ci8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Total Anblick des Niagara Falls",
+  "updated": "2005-11-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1apbm2uyp452d3v",
+      "agents": "j761ried9spu4il",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.936Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Niedersachsen (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Und wenn die Noth am größten ist, / Dann ist die Hülfe nah!",
+  "language": [],
+  "musenalm_id": 99459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Carl Schurz. / Dem Erretter G. Kinkles",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Stahr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Carl Schurz. / Dem Erretter G. Kinkles",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d3hn8qt3dxlyxqz",
+      "agents": "bb9z2ffyn7qc15x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.926Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.926Z"
+    }
+  ]
+}

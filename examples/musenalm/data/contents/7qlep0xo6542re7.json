@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Das Venediger Röslein« von Fr. von Franzenshuld INr 117502, Obj 27 /) s.a. Textbezug INr 117484, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.541Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117477,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fiorine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Katzler del. J. Sonnleiter sc.",
+  "scans": [
+    "alm_3228_117477_020nogj27f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fiorine",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "prlj377jhmgcqfz",
+      "agents": "he3qh02om9n8rxy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.590Z"
+    },
+    {
+      "id": "v3upfn4j8h8nvp8",
+      "agents": "8rozncu5haoklb5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.590Z"
+    }
+  ]
+}

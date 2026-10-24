@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.013Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Heinrich II. von England hatte 1172 Irland erobert, aber der Unwille dieses Landes gegen seine Besieger, war seit jener langen Zeit noch nicht erloschen.",
+  "language": [],
+  "musenalm_id": 91033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vereinigung Irlands mit Großbrit- / tanien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwaldopler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vereinigung Irlands mit Großbrit- / tanien",
+  "updated": "2013-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b53ki5xaqmjrg1u",
+      "agents": "lgm7bery1pehuzm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.256Z"
+    }
+  ]
+}

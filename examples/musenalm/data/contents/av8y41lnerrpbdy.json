@@ -1,0 +1,45 @@
+{
+  "annotation": "Von der Welt (Sammlung INr 75163, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "haben ein sanfters, ruhigeres Licht als die Fixsterne, weil sie an sich dunkle Körper sind, und ihr Licht erst in der Sonne erhalten,",
+  "language": [],
+  "musenalm_id": 75166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Planeten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Planeten",
+  "updated": "2011-05-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6mpqy5cw6wvfmo1",
+      "agents": "58byfz890fzelu8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.557Z"
+    }
+  ]
+}

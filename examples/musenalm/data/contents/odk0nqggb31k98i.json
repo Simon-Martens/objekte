@@ -1,0 +1,46 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 89565, Obj 35) mit einer Illustration s. Graphik im Kalendarium INr 89544, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Ein reisender Jude kehrte in ein ledig stehendes, ödes Haus ein, und mußte darin, weil ihn die Nacht überfiel, verbleiben,",
+  "language": [],
+  "musenalm_id": 89572,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das leere Faß. / (Erasm. Franscisci, lustige Schaubühne. Nürn- / berg 1702. S. 194.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das leere Faß. / (Erasm. Franscisci, lustige Schaubühne. Nürn- / berg 1702. S. 194.)",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zze47byzcdpzqti",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.393Z"
+    }
+  ]
+}

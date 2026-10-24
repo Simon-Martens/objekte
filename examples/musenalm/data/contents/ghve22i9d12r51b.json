@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: aus [Jacques Julien Houtou de] Labillardiere's Reisen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42358,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Indische Landschaft auf der Insel Buro",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. P. Veith sc.",
+  "scans": [
+    "alm_559_42358_tnyuussgw2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Indische Landschaft auf der Insel Buro",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ez4qbekvadahsk2",
+      "agents": "agad4ahnieynhoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.265Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 3 /) Graphik im Kalendarium März /) Illustration zu Werken von C. F. Gellert",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70026,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chloris / Ach Göttin ...... / Lasz diese Taube doch / zur Chloris wieder werden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del et sculp.",
+  "scans": [
+    "alm_796_70026_airq5n90e5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Chloris / Ach Göttin ...... / Lasz diese Taube doch / zur Chloris wieder werden",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g76d8mxch8bwc3c",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.495Z"
+    }
+  ]
+}

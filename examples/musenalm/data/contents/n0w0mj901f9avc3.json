@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7385,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aglaje wäre dies? wie Käm ich zu der Dame! / Ihr Grazien irrt; was soll der ganze Scherz! / Ich sag es euch nur der gehört mein Herz. / Aglaje nicht. Louise ist ihr Nahme",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sturm sc.",
+  "scans": [
+    "alm_148_7385_plvwy0mlha.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aglaje wäre dies? wie Käm ich zu der Dame! / Ihr Grazien irrt; was soll der ganze Scherz! / Ich sag es euch nur der gehört mein Herz. / Aglaje nicht. Louise ist ihr Nahme",
+  "updated": "2000-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zxb0uro02xwukxr",
+      "agents": "83bgj21cr6rcy33",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.407Z"
+    }
+  ]
+}

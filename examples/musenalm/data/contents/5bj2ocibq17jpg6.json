@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "O Schaam, die mit der Reinheit / Der edle Stolz erzeugt,",
+  "language": [],
+  "musenalm_id": 3982,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Schaamhaftigkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gotthold Friedrich Stäudlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Schaamhaftigkeit",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f9xcgpp67nbcggc",
+      "agents": "2f965te58psi6tx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.021Z"
+    }
+  ]
+}

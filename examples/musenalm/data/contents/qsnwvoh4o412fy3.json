@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56611,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kósciuszko. / Gott! laß mich für's Vaterland sterben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. P. W. Schwarz sc. Nbg. 1794",
+  "scans": [
+    "alm_27_56611_sytods0i9d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kósciuszko. / Gott! laß mich für's Vaterland sterben",
+  "updated": "2008-04-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yxs44l82o7hkxp5",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.631Z"
+    },
+    {
+      "id": "lqgpzhcnn5p70pq",
+      "agents": "cbu5qgqlakgyc6u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.631Z"
+    }
+  ]
+}

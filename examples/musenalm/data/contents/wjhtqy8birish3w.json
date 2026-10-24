@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung aus den umliegenden Jg.; Illustration zu »Die Helden« (INr 124223, Obj 14); $ Zeichner: Christian Heinrich Schneider (T/B 30, 192)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124223,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bertha. / Denn das gesteht mein Feind, ich bin superb als Mann. / 6. Scene. Die Helden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schneider del. gest. bei Fleischmann # $",
+  "scans": [
+    "alm_1298_124223_29bf8i5meh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bertha. / Denn das gesteht mein Feind, ich bin superb als Mann. / 6. Scene. Die Helden",
+  "updated": "2010-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9pxgveomq0b2wpo",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.780Z"
+    }
+  ]
+}

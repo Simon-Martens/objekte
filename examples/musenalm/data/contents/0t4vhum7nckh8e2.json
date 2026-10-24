@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.715Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Die Sara in der Hand begrüßet er die / Schatten, / Die sich erwartungsvoll, / um ihn versammlet / hatten:",
+  "language": [],
+  "musenalm_id": 10548,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "35. / Auf Lessings Tod. / 1781. Warschau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martyni-Laguna",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "35. / Auf Lessings Tod. / 1781. Warschau",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z4zy3dr17w2uirs",
+      "agents": "l6hj99jvi2k960l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.437Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.437Z"
+    }
+  ]
+}

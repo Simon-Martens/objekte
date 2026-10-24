@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6. /) Graphik im Kalendarium Mai /) s. Textbezug 90994, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90968,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fridrike Christine Auguste / Prinzessin von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer del. Meno Hass sc.",
+  "scans": [
+    "alm_825_90968_h204oopnrf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fridrike Christine Auguste / Prinzessin von Preussen",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "darkawmqcnthb4z",
+      "agents": "p7iaugjwyuo2qga",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.321Z"
+    },
+    {
+      "id": "h0y97oycm2ut9p1",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.321Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.120Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41233,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freistadt Freetown ein englisches Etablissement auf Sierra Leona, 8°. 29' n. Breite / nebst der Stadt des Königs Thomas u. einem Sklavenschiffe.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "an Ort und Stelle gezeichnet P. Veith sc. Dr.",
+  "scans": [
+    "alm_538_41233_n46lrlffxb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Freistadt Freetown ein englisches Etablissement auf Sierra Leona, 8°. 29' n. Breite / nebst der Stadt des Königs Thomas u. einem Sklavenschiffe.",
+  "updated": "2005-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b9r91h53od0ykv9",
+      "agents": "agad4ahnieynhoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.904Z"
+    }
+  ]
+}

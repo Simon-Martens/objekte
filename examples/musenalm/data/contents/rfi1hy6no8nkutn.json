@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Wer Feuer mahlen kann, wie's bald der / Gott der Liebe, / Bald Zeus der Donnerer im Auge hat,",
+  "language": [],
+  "musenalm_id": 6075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An unsre Mahler",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "vom preußischen Grenadier",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An unsre Mahler",
+  "updated": "2000-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zxtxvv4q8haoo16",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.259Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Zahme Xenien (Sammlung INr 95250, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.387Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "392",
+  "incipit_statement": "Dir zu weinen / Mag sie scheinen, / Aber niesen will sie nur.",
+  "language": [],
+  "musenalm_id": 95257,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dir zu weinen / Mag sie scheinen, / Aber niesen will sie nur.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freiherr v. Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eqnmo2lexus81sh",
+      "agents": "kul4vu28bmx1z4v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.500Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.500Z"
+    }
+  ]
+}

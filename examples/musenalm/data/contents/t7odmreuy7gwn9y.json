@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-malerische Reise durch Neapel und Sicilien. Wien, MDCCCVI. Bey J. V. Degen, Buchdrucker und Buchhändler (Sammlung INr 88045, Obj 7) s. Textbezug INr 88114, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88067,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht des Säulentempels von Pästum, 18 od 20 Meilen von Neapel entfernt, am Ufer / des Meeres im Meerbusen von Salern gelegen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert del. Blaschke sc.",
+  "scans": [
+    "alm_3102_88067_kzylofw574.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht des Säulentempels von Pästum, 18 od 20 Meilen von Neapel entfernt, am Ufer / des Meeres im Meerbusen von Salern gelegen",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e0cexbiw4pvhwja",
+      "agents": "6tdu2x32umi91tu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.101Z"
+    },
+    {
+      "id": "fkalat8spvyot9m",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.101Z"
+    }
+  ]
+}

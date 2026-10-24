@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Aus der Gegend von Cortona (Sammlung INr 111870, Obj 258) Italiänische Volkspoesie (Sammlung INr 111864, Obj 252)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "435",
+  "incipit_statement": "Wann du, mein Liebster, steigst zum Himmel auf, / Trag' ich mein Herz dir in der Hand entgegen.",
+  "language": [],
+  "musenalm_id": 111871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 259,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h74fxcqa0sj5rvb",
+      "agents": "ijwiphnikfuhyxf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.309Z"
+    }
+  ]
+}

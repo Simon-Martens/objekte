@@ -1,0 +1,45 @@
+{
+  "annotation": "Abendsterne. Sechs Skizzen (Sammlung INr 132938, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Ach! Herr Wimpole! Wie steht's mit Europa? Was macht der Czar? Was schreibt Ihr Freund aus China?",
+  "language": [],
+  "musenalm_id": 132939,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die schöne Choristin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Steinebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die schöne Choristin",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k3tz5fnmv18bgnf",
+      "agents": "lzi1zyn6aqla0ny",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.099Z"
+    }
+  ]
+}

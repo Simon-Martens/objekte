@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6. /) Illustration zu »Das Frauenhemd« von F. Kind INr 13924, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13899,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Scene aus der Erzählung: Das Frauenhemd von F. Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_220_13899_kdj9l86bfr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Scene aus der Erzählung: Das Frauenhemd von F. Kind",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n3odleqicxfl08h",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.499Z"
+    },
+    {
+      "id": "gxfusftq5vf0y8o",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.499Z"
+    }
+  ]
+}

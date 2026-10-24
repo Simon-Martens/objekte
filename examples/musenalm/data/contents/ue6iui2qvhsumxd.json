@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Noch von der Brust der Mutter heiß / Enteilet im verborgnen Gleis / Erschimmernd hin und wieder / Daß Bächlein fröhlich nieder.",
+  "language": [],
+  "musenalm_id": 53560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bächlein im Winter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. K. R. Tanner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Bächlein im Winter",
+  "updated": "2007-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "imdt756qc41jeud",
+      "agents": "lwav9yimjbjfzci",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.727Z"
+    }
+  ]
+}

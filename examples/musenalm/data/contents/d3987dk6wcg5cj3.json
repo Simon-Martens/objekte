@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 62138, Obj 96",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.217Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Wie selig die Mutter, erscheint ihr im / Sohn / Das Bild des Erwählten, der Zärtlichkeit / Lohn!",
+  "language": [],
+  "musenalm_id": 62139,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charlottens Mutterglück / (A. d. dänischen des Frankenau, u. / mit einer Mel. von Dr. Sörensen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Charlottens Mutterglück / (A. d. dänischen des Frankenau, u. / mit einer Mel. von Dr. Sörensen.)",
+  "updated": "2009-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x8qft3tsfufkdt4",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.129Z"
+    }
+  ]
+}

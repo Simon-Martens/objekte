@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 42",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "In dieses neuen Jahres Namen / Seyd schön willkommen, ihr Herrn und Damen! / Wir verzehren hier, soviel ist klar, / Das erste Abendessen im Jahr;",
+  "language": [],
+  "musenalm_id": 15325,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein schön kurzweilig Fastnachtsspiel / vom alten und neuen Jahrhundert. / Tragirt am ersten Januarii im Jahr nach der Geburt des Heilands 1801",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Inhumanus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein schön kurzweilig Fastnachtsspiel / vom alten und neuen Jahrhundert. / Tragirt am ersten Januarii im Jahr nach der Geburt des Heilands 1801",
+  "updated": "2001-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i46bgpl04ri5h7c",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.562Z"
+    }
+  ]
+}

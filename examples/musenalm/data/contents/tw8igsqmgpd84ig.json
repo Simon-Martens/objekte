@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am letzten Blatt der Suite /) Graphik im Kalendarium Oktober; paginiert 10. s. Textbezug INr 736672, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73659,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir sind die Deutsche Nation",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Wolf inv. del. Riephs. sc.",
+  "scans": [
+    "alm_915_73659_7ochc5bq6o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wir sind die Deutsche Nation",
+  "updated": "2008-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qjfpvlbx6a4l3uo",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.712Z"
+    },
+    {
+      "id": "e6covsuyofce2l7",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.712Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "lt. G-Verz : Allegorien auf die vier Jahreszeiten [Sommer]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66412,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (E. G. Krüger fec)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. G. Krüger fec",
+  "scans": [
+    "alm_135_66412_dk8bjf19pa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v2iut8xgb3sj2n4",
+      "agents": "mi3sfg9f1oc68es",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.293Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.293Z"
+    }
+  ]
+}

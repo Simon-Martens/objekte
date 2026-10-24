@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.186Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "370",
+  "incipit_statement": "An dieses Tages feierlichem Feste, / Erlaub' mir, daß ich vor dir erscheine,",
+  "language": [],
+  "musenalm_id": 94133,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Wiegenfeste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Marsano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Wiegenfeste",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hm8dbvnd0dk1sqb",
+      "agents": "rpi79icfm69ol8h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.658Z"
+    }
+  ]
+}

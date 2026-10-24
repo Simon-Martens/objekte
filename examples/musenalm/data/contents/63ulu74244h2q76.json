@@ -1,0 +1,45 @@
+{
+  "annotation": "Carl von Salerno. Ballade in zwey Gesängen (Sammlung INr 14288, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "In den Oster-Feyertagen / Leuchtete die Sonne mild / Auf das blühende Gefild",
+  "language": [],
+  "musenalm_id": 14290,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweyter Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marianne v. Neumann - Weißenthal, geborne v. Tiell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweyter Gesang",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fkcps1ck9r6p60v",
+      "agents": "blexso3sv1n2ckh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.441Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.441Z"
+    }
+  ]
+}

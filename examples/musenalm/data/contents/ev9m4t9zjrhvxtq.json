@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44260, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Noch einmal erklinget, ihr Gläser, / Durchglüht vom purpurnen Wein!",
+  "language": [],
+  "musenalm_id": 44282,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinfahrt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johanna Kinkel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rheinfahrt",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "81xj2dccfa9x8z0",
+      "agents": "0zrs73dju2yg4v3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.197Z"
+    }
+  ]
+}

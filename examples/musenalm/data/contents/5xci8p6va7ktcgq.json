@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Es darf der israelitischen Gemeinde zu Wien mit gerechtem Lobe nachgerühmt werden, daß fast von jeher Männer in ihrer Mitte walteten, welche sich die Errichtung und Vervollkommnung eigenthümlicher Wohlthätigkeitsanstalten angelegen seyn ließen.",
+  "language": [],
+  "musenalm_id": 118697,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber einige neuere / wohlthätige Veranstaltungen / innerhalb der / israelitischen Gemeinde zu Wien.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jopeph Wertheimer, Vertreter der hiesigen Gemeinde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber einige neuere / wohlthätige Veranstaltungen / innerhalb der / israelitischen Gemeinde zu Wien.",
+  "updated": "2017-06-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d67jvh9t8gxcqck",
+      "agents": "t40io73vfefta51",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.581Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.581Z"
+    }
+  ]
+}

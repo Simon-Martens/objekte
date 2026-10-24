@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Erfahrungen« von Luise, Fürstinn v. Neuwied INr 4567, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4568,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erfahrungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Fleischmann",
+  "scans": [
+    "alm_97_4568_kp5zdjyxiv.jpg",
+    "alm_97_4568_01_0oysrpmp3t.jpg",
+    "alm_97_4568_02_2u4ohg4e7s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erfahrungen",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ioi3mag3c0vq7vu",
+      "agents": "pkfbc939lebcr82",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.047Z"
+    }
+  ]
+}

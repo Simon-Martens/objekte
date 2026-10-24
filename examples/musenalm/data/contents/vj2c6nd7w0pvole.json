@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 116978, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Einst ritt mit seinen Leuten / Der Kaiser Max hinaus, / Des Waidwerk's sich zu freuen, / Im grünen Waldeshaus.",
+  "language": [],
+  "musenalm_id": 116979,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Kaiser Maxens Jagdritt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Kaiser Maxens Jagdritt",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j9nj5lfcnvv969h",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.607Z"
+    }
+  ]
+}

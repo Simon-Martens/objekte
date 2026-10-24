@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 132490, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Nein, unser Lottchen ist nicht todt, / Wie Du gesagt, Mama; / Es steht im lichten Morgenroth / Vor meinem Bettchen da.",
+  "language": [],
+  "musenalm_id": 132492,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das kranke Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. H. Mosenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das kranke Kind",
+  "updated": "2022-06-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "knj689oiet9qj51",
+      "agents": "2bx5rg1nixcv4pc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.093Z"
+    }
+  ]
+}

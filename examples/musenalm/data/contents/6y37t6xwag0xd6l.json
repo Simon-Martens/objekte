@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Bemerkungen aus dem Leben (Sammlung INr 48609, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Der Bildungs- und Entwickelungstrieb der geistigen Natur ist so sehr allem Gewordenen, Fertigen abhold,",
+  "language": [],
+  "musenalm_id": 48611,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bildungs- und Entwickelungstrieb der geistigen Natur ist so sehr allem Gewordenen, Fertigen abhold,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zo4knsdnmq8ctlo",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.552Z"
+    }
+  ]
+}

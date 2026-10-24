@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 78106, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Das Erste bringt das Herz, das Zweite zeigt die Seele,",
+  "language": [],
+  "musenalm_id": 78107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schleiermacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8vcvyn5ylurujtp",
+      "agents": "272r3k0zcaqt41m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.812Z"
+    }
+  ]
+}

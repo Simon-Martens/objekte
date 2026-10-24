@@ -1,0 +1,45 @@
+{
+  "annotation": "16. Briefe des Brahmanen (Sammlung INr 25495, Obj 26) Gedichte (Sammlung INr 25479, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Ich schreib' euch kurze Brief', ich sollte Briefchen sagen; / Doch Brief sagt selber kurz,",
+  "language": [],
+  "musenalm_id": 25504,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brief. 9.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Brief. 9.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fq4ea4e7ommidp8",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.259Z"
+    }
+  ]
+}

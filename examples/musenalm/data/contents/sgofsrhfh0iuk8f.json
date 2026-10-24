@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März; paginiert 3.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.101Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59328,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Southwark-Brücke in London",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Mauch del. W. Jury sc.",
+  "scans": [
+    "alm_893_59328_edhfxvm3jq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Southwark-Brücke in London",
+  "updated": "2008-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "troydwnmhdon857",
+      "agents": "4qmuru1kuzg7ngl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.701Z"
+    },
+    {
+      "id": "eyqakmqjsenz12w",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.701Z"
+    }
+  ]
+}

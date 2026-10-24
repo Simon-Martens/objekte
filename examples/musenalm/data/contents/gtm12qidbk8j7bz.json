@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) zweites Exemplar ohne Graphiken im Kalendarium mit varianter Titelgraphik s. Photo INr 75615",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75577,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Genius des Ruhms",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Carracci inv. Geyser sc.",
+  "scans": [
+    "alm_2141_75577_56qbfyx6z1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Genius des Ruhms",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iuhfbmdkf4s0l17",
+      "agents": "bqfhzpplxu9hy7t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.737Z"
+    },
+    {
+      "id": "wry74il74afe22h",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.737Z"
+    }
+  ]
+}

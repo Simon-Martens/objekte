@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Kindliches Vertrauen«von F. K. Lang INr 75953, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75954,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kindliches Vertrauen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Harder",
+  "scans": [
+    "alm_3666_75954_2tv1uztkhk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kindliches Vertrauen",
+  "updated": "2011-05-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "88awr874urke5se",
+      "agents": "cx1t1g6vij8mhnm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.694Z"
+    }
+  ]
+}

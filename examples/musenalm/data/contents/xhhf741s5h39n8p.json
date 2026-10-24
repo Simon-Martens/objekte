@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 30175, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "In einem romantischen Thale des Canton Waadt, das nach einem schauerlichen Eingange, von Süd nach Nord emporsteigt,",
+  "language": [],
+  "musenalm_id": 30174,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Wanderung nach Paris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederike Lohmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Wanderung nach Paris",
+  "updated": "2002-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h6ktepgewj2r0h2",
+      "agents": "o98cykqmxxu1sx9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.632Z"
+    }
+  ]
+}

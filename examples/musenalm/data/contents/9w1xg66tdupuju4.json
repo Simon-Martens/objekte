@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Scenen aus der Familie Ehrenberg« INr 48383, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.013Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48345,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter dem Schutz des deutschen Adlers segne / Sie der Sieg der deutschen Freyheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury inv. et fec.",
+  "scans": [
+    "alm_659_48345_moyfr865s9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Unter dem Schutz des deutschen Adlers segne / Sie der Sieg der deutschen Freyheit",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v8qu4lp0rpnazsa",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.539Z"
+    }
+  ]
+}

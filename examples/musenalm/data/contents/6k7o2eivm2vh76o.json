@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kal. Februar # Bez. am 1. Blatt der Suite /) s. Textbezug INr 120157, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120158,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2 / Die Sucht zu glänzen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Seb. Mansfeld del. et sc.",
+  "scans": [
+    "alm_4529_120158_vf52vmjqi9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "2 / Die Sucht zu glänzen",
+  "updated": "2018-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "atzlk5do1bdoz1u",
+      "agents": "ze1m2gdl2g6avu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.678Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.678Z"
+    }
+  ]
+}

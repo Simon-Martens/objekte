@@ -1,0 +1,45 @@
+{
+  "annotation": "Hafisklänge. An J. W. v. Göthe und Fr. Rückert (Sammlung INr 68056, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Auch in dem Gemüth, das ganz verschlossen / Sich der Welt, wo viel es litt, entzog,",
+  "language": [],
+  "musenalm_id": 68093,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auch in dem Gemüth, das ganz verschlossen / Sich der Welt, wo viel es litt, entzog,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rousseau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "04603nouwshdr68",
+      "agents": "xojpiwzkdga93tk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.249Z"
+    }
+  ]
+}

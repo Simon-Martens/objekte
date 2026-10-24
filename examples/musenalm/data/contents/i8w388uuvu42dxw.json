@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Gang nach Cöln« von Ag. INr 63327, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63334,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinische Sagen. / Der Gang durch Cöln I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Opitz del. Fleischmann sc.",
+  "scans": [
+    "alm_1038_63334_hwwpk41i4s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinische Sagen. / Der Gang durch Cöln I.",
+  "updated": "2009-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bls7hfx064sa0hk",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.278Z"
+    },
+    {
+      "id": "ovtnv4w06fwa7zf",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.278Z"
+    }
+  ]
+}

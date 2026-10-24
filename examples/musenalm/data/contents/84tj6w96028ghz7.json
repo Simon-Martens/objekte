@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ritter Horimir« von A. W. Griesel INr 91870, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seyd ihr gerecht, o Götter! / Und wenn mein Innres ihr erschaut, / So seyd izt meine Retter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bergler inv. C. Pluth sc.",
+  "scans": [
+    "alm_3725_91871_0ig7fo2wqk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seyd ihr gerecht, o Götter! / Und wenn mein Innres ihr erschaut, / So seyd izt meine Retter",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tyz2rvdccn0hmdx",
+      "agents": "v4tvr9ug3m50hef",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.233Z"
+    },
+    {
+      "id": "wplio1lfy16y8ls",
+      "agents": "0b3v8aygzuziz7g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.234Z"
+    }
+  ]
+}

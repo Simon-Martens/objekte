@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. s. Re 41 /) Zwischentitel. Es folgt: Gedicht in 6 Gesängen mit 5 Illustrationen INr 8713, 301, 8707-8017; Obj 4, 7-16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18553,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwestern von Lesbos",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. I.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwestern von Lesbos",
+  "updated": "2000-07-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hq3dllivpgonisl",
+      "agents": "g022cx9ysck37av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.457Z"
+    }
+  ]
+}

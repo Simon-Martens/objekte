@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64712, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64718,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Genesung #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Callcott Horsley pinx. D. J. Sluyter sculps.",
+  "scans": [
+    "alm_1083_64718_gp7izmjfse.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Genesung #",
+  "updated": "2009-06-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1872,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bprumlivr3lywdu",
+      "agents": "08c25dedm300lad",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.097Z"
+    },
+    {
+      "id": "vhpu2glopwjnbhl",
+      "agents": "lxkw0pi082wa1ak",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.097Z"
+    }
+  ]
+}

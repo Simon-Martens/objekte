@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: Verlag von J. D. Sauerländer] s. Textbezug INr 44620, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44615,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "KONRADIN VON SCHWABEN UND FRIEDRICH VON BADEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Munk pinx. C. Strunz sc.",
+  "scans": [
+    "alm_611_44615_37wt0gga1k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "KONRADIN VON SCHWABEN UND FRIEDRICH VON BADEN",
+  "updated": "2006-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lory5opgmnvater",
+      "agents": "oz8mk3tti676g7q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.332Z"
+    }
+  ]
+}

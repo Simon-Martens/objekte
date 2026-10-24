@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 92197, Obj 56",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.554Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Erinnerungen sind es, bloße einzelne Erinnerungen an Momente und Gegenstände, die mein Gedächtniß bewahrt hat, keine Erinnerungen eines Facultisten,",
+  "language": [],
+  "musenalm_id": 92196,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerungen von Prag, / gesammelt auf einer Reise von Wien / durch Österreich, Mähren und Böhmen / nach Carlsbad im Sommer 1816",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz Sartori",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerungen von Prag, / gesammelt auf einer Reise von Wien / durch Österreich, Mähren und Böhmen / nach Carlsbad im Sommer 1816",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6qxejvhlsycbgx7",
+      "agents": "swlf1imgk3sevcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.545Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Wandersänger kommt gezogen / Ueber Berge, über Wogen; / Thut dem Wandersänger auf,",
+  "language": [],
+  "musenalm_id": 65938,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 129,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wandersänger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Kurowski-Eichen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wandersänger",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rdnsy9j9croeh0d",
+      "agents": "prvw4acsenveets",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.249Z"
+    }
+  ]
+}

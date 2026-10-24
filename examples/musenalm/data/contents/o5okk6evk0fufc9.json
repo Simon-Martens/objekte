@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50870,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "im Kasten-Loch bey Trogen, Cant. Appenzell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conrad Gessner del. Heinrich Meyer sc.",
+  "scans": [
+    "alm_691_50870_xm91clrzqs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "im Kasten-Loch bey Trogen, Cant. Appenzell",
+  "updated": "2007-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9j3kj8vwlywn4sb",
+      "agents": "k94qbf18ch2c8vt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.819Z"
+    },
+    {
+      "id": "rckki9g9c4jgxwi",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.819Z"
+    }
+  ]
+}

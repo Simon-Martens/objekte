@@ -1,0 +1,45 @@
+{
+  "annotation": "Schlaf ein! Sonettenkranz (Sammlung INr 77665, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "365",
+  "incipit_statement": "Schalf ein, schlaf ein, Du lautes Weltgewühle! / Ich will hinaus in's Licht der Sterne treten;",
+  "language": [],
+  "musenalm_id": 77669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Sammlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Sammlung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pyihzqkcfseq02w",
+      "agents": "mkd957rgkmp3pvz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.835Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.835Z"
+    }
+  ]
+}

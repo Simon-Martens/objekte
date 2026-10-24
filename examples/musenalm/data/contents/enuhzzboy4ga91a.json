@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41585,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Perekopsche Pforte, nebst tatarischen Fuhrwerk mit Kameelen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geisler del. C. Frosch sc.",
+  "scans": [
+    "alm_546_41585_tsxz08r659.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Perekopsche Pforte, nebst tatarischen Fuhrwerk mit Kameelen",
+  "updated": "2005-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xoz5d4jsqnvtiwl",
+      "agents": "iojwntogak3m4db",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.931Z"
+    },
+    {
+      "id": "cmm608i9pye55oc",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.931Z"
+    }
+  ]
+}

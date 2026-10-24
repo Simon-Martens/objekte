@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 11; Gemälde aus einer Welt unschuldiger Menschen (Sammlung INr 2175, Obj 94)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Am Bache saß der kleine schöne Beno, / Und die noch schönre Minia.",
+  "language": [],
+  "musenalm_id": 2176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die beyden Kinder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "B. R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die beyden Kinder",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mhg2oqgfpcwbq7n",
+      "agents": "ewuwl9lvke5jtiz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.960Z"
+    }
+  ]
+}

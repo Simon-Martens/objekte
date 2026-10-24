@@ -1,0 +1,45 @@
+{
+  "annotation": "Scherzhafte Gedichte (Sammlung INr 42051, Obj 251)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "389",
+  "incipit_statement": "Drei Wandersleute sieht man hin / Die lange Straße wandern,",
+  "language": [],
+  "musenalm_id": 42072,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 272,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die drei Wanderer. / Idyll, aus den Weinleseliedern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die drei Wanderer. / Idyll, aus den Weinleseliedern",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zdguejrqkfoxxbt",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.038Z"
+    }
+  ]
+}

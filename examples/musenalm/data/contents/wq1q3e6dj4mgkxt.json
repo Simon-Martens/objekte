@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Reliques of Anc. Engl. Poetry. / Vol. III. Why for pale? & c.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Warum so blaß? / Im Purpur deiner Wangen / Erfuhrst du Chloens Haß;",
+  "language": [],
+  "musenalm_id": 36004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unerzwingbare Liebe. / Nach dem Engl.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werthes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unerzwingbare Liebe. / Nach dem Engl.",
+  "updated": "2003-08-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "36s4k379mpvpmji",
+      "agents": "2dkhavramcy8bv0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.858Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.858Z"
+    }
+  ]
+}

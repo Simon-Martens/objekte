@@ -1,0 +1,47 @@
+{
+  "annotation": "gest. Titel /) # Bez. und Titel der Vignette »Kaiser Maximilian I. auf der Falkenbeitze« s. Textbezug INr 67450, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67448,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SYLVAN / Jahrbuch / für / Forstmänner Jäger / und / Jagdfreunde / auf das Jahr 1824. / von / V. F. FISCHER. / Grossh. Badischem Forstrathe, / und / W. F. Freyherrn von der BORCH. / König. Bairischem Forstmeister und Kämmerer / Neue Folge 2ter Jahrgang / mit 8 Kupfern. / HEIDELBERG und LEIPZIG. / Verlag von Karl Groos",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kehrer",
+  "scans": [
+    "alm_1152_67448_bipwdmocve.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SYLVAN / Jahrbuch / für / Forstmänner Jäger / und / Jagdfreunde / auf das Jahr 1824. / von / V. F. FISCHER. / Grossh. Badischem Forstrathe, / und / W. F. Freyherrn von der BORCH. / König. Bairischem Forstmeister und Kämmerer / Neue Folge 2ter Jahrgang / mit 8 Kupfern. / HEIDELBERG und LEIPZIG. / Verlag von Karl Groos",
+  "updated": "2009-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rjz9hil6wvhfqi3",
+      "agents": "659oeugsapemrqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.275Z"
+    }
+  ]
+}

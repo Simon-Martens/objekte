@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-03T10:23:22.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Horch, welch Flüstern in den Zweigen, / Lispelnd sich die Blüthen neigen, / Und geheimnißvolle Klänge, / Aus der Blumen Lust-Gedränge / Leis und traulich mich umweh'n,",
+  "language": [],
+  "musenalm_id": 140496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wahlverwandschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Wolf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wahlverwandschaft",
+  "updated": "2026-09-08T09:00:35.935Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "pn8q6di5xdqo1cl",
+      "agents": "scp900xx95d632n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-03T10:26:14.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-08T09:00:35.936Z"
+    }
+  ]
+}

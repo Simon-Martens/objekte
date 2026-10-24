@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 10 /) Graphik im Kalendarium Oktober /) Illustration zu »Hamlet« v. W. Shakespeare /) s. G-Verz INr 69979, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69976,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sie senkten ihn in kalten Grund hinab, / V. Aufz. 12ter Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp.",
+  "scans": [
+    "alm_790_69976_i8fed0kl1k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sie senkten ihn in kalten Grund hinab, / V. Aufz. 12ter Auftr.",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z5srbaxz1gio848",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.435Z"
+    },
+    {
+      "id": "8foczdjczfh0m4s",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.435Z"
+    }
+  ]
+}

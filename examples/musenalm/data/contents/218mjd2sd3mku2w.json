@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Stammbuch der verewigten Gräfin Tina Brühl (Sammlung INr 20856, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.302Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "323",
+  "incipit_statement": "Warum siehst du Tina verdammt, den Sprudel zu / trinken? / Wohl hat sie es verdient an allen, die sie beschädigt,",
+  "language": [],
+  "musenalm_id": 20857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3a1ygjsg4r457gn",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.082Z"
+    }
+  ]
+}

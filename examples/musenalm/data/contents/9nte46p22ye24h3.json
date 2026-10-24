@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Kirche der heiligen Elisabeth, zu Marburg, und ihre Kunstdenkmäler« von Justi INr 97774, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97773,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ST. ELISABETH KIRCHE ZU MARBURG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moller gez. Eberhardt gest.",
+  "scans": [
+    "alm_3498_97773_sojptxh88a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ST. ELISABETH KIRCHE ZU MARBURG",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d6dfytl4z8xucv9",
+      "agents": "g1xs49e750xv2xw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.871Z"
+    }
+  ]
+}

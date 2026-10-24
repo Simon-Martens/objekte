@@ -1,0 +1,45 @@
+{
+  "annotation": "12 Scenen als Textbezüge zu den Graphiken INr 29863-29886, Obj 6-29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29862,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Freiwerber wider Willen / Ein Lustspiel in zwölf Scenen. / Mit zwölf Bildern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Freiwerber wider Willen / Ein Lustspiel in zwölf Scenen. / Mit zwölf Bildern",
+  "updated": "2002-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8a5etmq0i8xsfa9",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.371Z"
+    }
+  ]
+}

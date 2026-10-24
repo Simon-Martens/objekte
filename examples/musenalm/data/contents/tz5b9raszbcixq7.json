@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium August",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135531,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VICOMTE DE CHATEAUBRIAND / Pair von Frankreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Girodet-Trioson p. Laurens sc.",
+  "scans": [
+    "alm_2080_135531_2x0c25m9h3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "VICOMTE DE CHATEAUBRIAND / Pair von Frankreich",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y9ccqug29xlibg7",
+      "agents": "at82n7dnerg2qsg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.152Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.152Z"
+    }
+  ]
+}

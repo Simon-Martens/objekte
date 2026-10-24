@@ -1,0 +1,45 @@
+{
+  "annotation": "Reisedistichen (Sammlung INr 76986, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "358",
+  "incipit_statement": "Wo im Tempel des Ruhms unsterbliche Namen erglänzen / Strahlet auch Braunschweig hell!",
+  "language": [],
+  "musenalm_id": 76997,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Braunschweig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Baldamus D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Braunschweig",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jlvbbu12qjs6h8m",
+      "agents": "gvrm573djft0g9v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.640Z"
+    }
+  ]
+}

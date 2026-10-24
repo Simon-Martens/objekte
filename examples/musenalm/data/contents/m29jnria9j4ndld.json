@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik; Illustration zu »Bracebridge-Hall« von W. Irving; s. Textbezug INr 127660, Obj 6 /) über der Graphik: Irvings Werke Bd. 13. S. 54",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127656,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Julie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Fr. Stöber gest. in Stahl Wien",
+  "scans": [
+    "alm_586_127656_f29iqa9qx3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Julie",
+  "updated": "2006-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dzfth7zc6edii8z",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.950Z"
+    },
+    {
+      "id": "ia60we285hxotqc",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.950Z"
+    }
+  ]
+}

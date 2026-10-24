@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder vom See (Sammlung IN r80037, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Stolz und ernst senkt sich die Sonne nieder / Aus des Himmels dunkelblauer Höh',",
+  "language": [],
+  "musenalm_id": 80041,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Sonnenuntergang",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carlopago",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Sonnenuntergang",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5rdkr8ea9fk3zkk",
+      "agents": "xaj6m1llkx5hiyx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.952Z"
+    }
+  ]
+}

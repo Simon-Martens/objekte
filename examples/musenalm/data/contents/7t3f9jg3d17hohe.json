@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 30; mit einer Musikbeigabe s. INr 4070, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Freut euch des Lebens, / Weil noch das Lämpchen glüht; / Pflücket die Rose, / Eh' sie verblüht! / Man schafft so gern sich Sorg' und Müh', / Sucht Dornen auf und findet sie;",
+  "language": [],
+  "musenalm_id": 4069,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesellschaftslied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesellschaftslied",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mb1487i41ci900a",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.042Z"
+    }
+  ]
+}

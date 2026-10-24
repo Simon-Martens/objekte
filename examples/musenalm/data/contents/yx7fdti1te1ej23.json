@@ -1,0 +1,43 @@
+{
+  "annotation": "Frauenrosen. Als Erklärung der Stahlstiche (Sammlung INr 95389, Obj 6) s. Graphik INr 95396, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Du kleines Röschen, schüchtern aufgeblüht, / Du magst Dich nicht mit Deinen Schwestern messen,",
+  "language": [],
+  "musenalm_id": 95397,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosa parviflora. Kleinblumige rothe Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rosa parviflora. Kleinblumige rothe Rose",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xs7ijlmozbph9zn",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.386Z"
+    }
+  ]
+}

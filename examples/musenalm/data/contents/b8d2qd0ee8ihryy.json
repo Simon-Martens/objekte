@@ -1,0 +1,45 @@
+{
+  "annotation": "2. Sonette aus dem Bade (Sammlung INr 36909, Obj 34) /) Gedichte (Sammlung INr 36907, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "In meinem Traum stand vor mir lebensklar / Ein Knab', aus dessen Auge Funken springen,",
+  "language": [],
+  "musenalm_id": 36921,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aoupzjnvzdvtust",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.906Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 45211, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45210,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kloster Maulbronn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. C. Heideloff gest. v. Bauer",
+  "scans": [
+    "alm_617_45210_bc90rhnfnv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kloster Maulbronn",
+  "updated": "2006-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "avxr40s98mxl4lh",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.395Z"
+    }
+  ]
+}

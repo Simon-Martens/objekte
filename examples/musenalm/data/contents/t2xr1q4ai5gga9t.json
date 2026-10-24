@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Umschlaggraphiken recto INr 67364, Obj 1 und verso INr 67445, Obj 82",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Der Umschlag unseres Taschenbuches stellt wieder den Sylvan in seiner zweifachen Gestalt, als Waldpflanzer und als Faun, nach Zeichnungen von Montfaucan, dar.",
+  "language": [],
+  "musenalm_id": 67368,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Erklärung der Titelvignette und des Umschlags]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Erklärung der Titelvignette und des Umschlags]",
+  "updated": "2009-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q1dtk09qmkyx49z",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.297Z"
+    },
+    {
+      "id": "qkmwzvj8ybati84",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.297Z"
+    }
+  ]
+}

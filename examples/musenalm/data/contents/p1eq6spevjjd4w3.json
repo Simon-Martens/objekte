@@ -1,0 +1,45 @@
+{
+  "annotation": "$ Pseud. vermutl. Recke, Charlotte Elisabeth von der",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "265",
+  "incipit_statement": "Decke mich mit deinem ehernen Schilde / Standhaftigkeit! und du, Treue!",
+  "language": [],
+  "musenalm_id": 35476,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Waffengeräthe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elise",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Waffengeräthe",
+  "updated": "2003-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bsgi5bj79l0rpnr",
+      "agents": "w70q3jb7y9a6a6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.434Z"
+    }
+  ]
+}

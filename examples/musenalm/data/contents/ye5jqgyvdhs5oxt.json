@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 27369, Obj 96)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Höret, was sich in der Stadt / Löwenthal begeben hat: / Auf dem Marktplatz war, dem grauen, / Bis auf diese Zeit zu schauen",
+  "language": [],
+  "musenalm_id": 27374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Des Löwen Zunge. / Schwank / (Halbwahr)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Des Löwen Zunge. / Schwank / (Halbwahr)",
+  "updated": "2002-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fody218cjq09x41",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.237Z"
+    }
+  ]
+}

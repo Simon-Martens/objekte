@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Aufmunterung zur Freude« von Pöschmann INr 10744, Obj 99",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.804Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10745,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aufmunterung zur Freude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schuster",
+  "scans": [
+    "alm_203_10745_wl4kvj79e6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aufmunterung zur Freude",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jcdh734ula86ll6",
+      "agents": "jmqij5epj0ygg47",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.448Z"
+    }
+  ]
+}

@@ -89,7 +89,9 @@ pub fn navigation(editor: &Editor, workspace: &str) -> Result<String> {
             .and_then(|g| g["position"].as_i64())
             .unwrap_or(0);
         let all_links = ui["sidebarAllLinks"].as_str().unwrap_or("none");
-        let tree = if !c.child_collections().is_empty() {
+        let tree = if ui["sidebarTree"] == false {
+            String::new()
+        } else if !c.child_collections().is_empty() {
             crate::hierarchy::navigation_tree(editor, name, workspace, all_links == "all")?
         } else {
             tree_navigation(editor, name, all_links == "all")?

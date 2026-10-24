@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.528Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Wie fang ichs an, um mich empor zu schwingen, / Fragt einst ein Jüngling einen Greis.",
+  "language": [],
+  "musenalm_id": 92356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jüngling und der Greis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gellert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Jüngling und der Greis",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a9ev63072n6v1b7",
+      "agents": "ktano13bmefet8q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.403Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.403Z"
+    }
+  ]
+}

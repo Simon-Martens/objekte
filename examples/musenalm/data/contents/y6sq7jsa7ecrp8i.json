@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: S. 268. Aus den Allgem. Reisen 10 B.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41768,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mandarinen von Tunkin. / 1. Grosskanzler. 2. Kriegsmandarinen. 3. Gelehrte Mandarinen. / 4. Kanzler aller Gerichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_548_41768_nuu3m9uavk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mandarinen von Tunkin. / 1. Grosskanzler. 2. Kriegsmandarinen. 3. Gelehrte Mandarinen. / 4. Kanzler aller Gerichte",
+  "updated": "2005-12-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "at2nvpptto2bpnl",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.736Z"
+    }
+  ]
+}

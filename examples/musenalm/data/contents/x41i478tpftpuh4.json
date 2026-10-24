@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) paginiert 7. /) Illustration zu »Der Naturmensch oder Natur und Liebe« von Aug. Lafontaine /) s. Textbezug INr 84839, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.221Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 84838,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (L. Benedicti del. et sculp.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Benedicti del. et sculp.",
+  "scans": [
+    "alm_1638_84838_rhdqc0bc7s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gkvsnd51ai6irx1",
+      "agents": "s8ajwlx2p2z34bl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.043Z"
+    }
+  ]
+}

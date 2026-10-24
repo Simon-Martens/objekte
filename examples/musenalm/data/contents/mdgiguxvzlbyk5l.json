@@ -1,0 +1,58 @@
+{
+  "annotation": "am oberern rechten Rand: Byron's Werke. Illustration zu »Beppo« von George Gordon Byron s. Textbezug INr 43863, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43864,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beppo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach J. P. Davis R. Rahn sc. Zürich",
+  "scans": [
+    "alm_589_43864_b7ndf1owns.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Beppo",
+  "updated": "2006-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "luj4uil6rovzu26",
+      "agents": "mdjsdr51zewup62",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.371Z"
+    },
+    {
+      "id": "35u64xaq31q2usb",
+      "agents": "2qfnp8a93m1r2da",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.371Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.371Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vgl. »Anzeige« (INr 130732, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130698,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilh. Schröder-Devrient / K. sächs Hofsängerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schule sc",
+  "scans": [
+    "alm_2925_130698_72zfl5sqaa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilh. Schröder-Devrient / K. sächs Hofsängerin",
+  "updated": "2010-02-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ge1kyvj1wtdhas",
+      "agents": "ri87ed3zfsk183z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.075Z"
+    }
+  ]
+}

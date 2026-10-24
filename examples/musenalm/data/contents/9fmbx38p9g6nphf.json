@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September; paginiert 9. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich Wilhelm I.« von Fr. Wilken INr 58539, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58535,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich Wilhelm von Grumbkow",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. Bollinger sc.",
+  "scans": [
+    "alm_858_58535_ymzlbzo80n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich Wilhelm von Grumbkow",
+  "updated": "2008-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ejvcsp291f5ism2",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.690Z"
+    },
+    {
+      "id": "ence8916o8vlcop",
+      "agents": "xudps8vzrobe0d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.690Z"
+    }
+  ]
+}

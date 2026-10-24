@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Belastet / Die Zeit dich / Mit Sorgen, / So hoffe / und denke / an morgen.",
+  "language": [],
+  "musenalm_id": 107420,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachruf / an meinen Freund Alfred*** / am Bord des Tartanone: La Stella",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachruf / an meinen Freund Alfred*** / am Bord des Tartanone: La Stella",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3mq2uhn2nevoy06",
+      "agents": "476f745a62uynep",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.134Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.134Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus denen Gesängen zu dem Lustspiel des Goldoni, der Krieg (Sammlung INr 8278, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Nichts ist mir an der Stadt gelegen! / Mein Dorf ist mir die ganze Welt.",
+  "language": [],
+  "musenalm_id": 8280,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Jule, ein Bauernmädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Jule, ein Bauernmädchen",
+  "updated": "2000-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s12cuacy2hdk8vb",
+      "agents": "uxrssb0qlf0ghgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.340Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.340Z"
+    }
+  ]
+}

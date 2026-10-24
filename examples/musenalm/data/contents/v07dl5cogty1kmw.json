@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Die rechte Liebe« von G. A. H. Gramberg. INr 12362, Obj 89 (Photos 12363,01; 12363,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die rechte Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seydelmann",
+  "scans": [
+    "alm_210_12363_01_wk27cgk0la.jpg",
+    "alm_210_12363_02_huuki8v2am.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die rechte Liebe",
+  "updated": "2001-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n9qw7522lw1onle",
+      "agents": "u644r69fyeumay0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.344Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Zu N* ergieng ein Ruf, daß eine Luftmaschine / Zween Menschen in dem Flug zum Monde tragen sollt;",
+  "language": [],
+  "musenalm_id": 52524,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der französische Luftball",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der französische Luftball",
+  "updated": "2007-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nwojoua4u5wbbto",
+      "agents": "1mr5htila6mqzxe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.726Z"
+    }
+  ]
+}

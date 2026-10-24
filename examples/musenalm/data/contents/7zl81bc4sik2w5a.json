@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 52720, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Ich war ein Kind und habe / Die Tage des Lenzes verträumt!",
+  "language": [],
+  "musenalm_id": 52719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rückblick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Heß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rückblick",
+  "updated": "2007-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7edejzr6imziy58",
+      "agents": "wypkk5hdocbvvzj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.475Z"
+    }
+  ]
+}

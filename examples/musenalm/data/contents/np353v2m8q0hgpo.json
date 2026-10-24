@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Illustrationen s. Graphiken in: Taschenbuch zum geselligen Vergnügen 1805 INr 12287, 12288",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.172Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "In dem Lande der Wunder, von welchem uns die Dichter, ohne sich auf eine umständliche Beschreibung desselben einzulassen,",
+  "language": [],
+  "musenalm_id": 12151,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Papagai",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Papagai",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b172eh2oqhx657e",
+      "agents": "n7zgo9f1gh6x37x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.396Z"
+    }
+  ]
+}

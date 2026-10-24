@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Aschenbrödel« von A. v. Ungern-Sternberg INr 44222, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44223,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zu Sternberg's Aschenbrödel gezeichnet von Verfasser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "vom Verfasser",
+  "scans": [
+    "alm_595_44223_crxv8568j0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zu Sternberg's Aschenbrödel gezeichnet von Verfasser",
+  "updated": "2006-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1qugoa49wxdfa6e",
+      "agents": "323k0krc681l77m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.101Z"
+    }
+  ]
+}

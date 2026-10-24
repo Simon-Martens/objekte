@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.515Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Was so mächtig zieht bei Tages Neige / Weit ins Land hinaus mir die Gedanken?",
+  "language": [],
+  "musenalm_id": 26930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 179,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heimweh",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Breidenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heimweh",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ue56l3a6sbj9kvm",
+      "agents": "gp8p8te9t0lfqlc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.770Z"
+    }
+  ]
+}

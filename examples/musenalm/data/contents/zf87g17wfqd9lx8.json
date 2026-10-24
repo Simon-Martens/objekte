@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Luise« INr 46913, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46912,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Luise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Hausius",
+  "scans": [
+    "alm_633_46912_y5rqtpyhto.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Luise",
+  "updated": "2006-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8d2acveztygfgem",
+      "agents": "uf91zrt87qnsu6f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.502Z"
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+#[path = "byte_cache.rs"]
+mod byte_cache;
 #[path = "hierarchy.rs"]
 mod hierarchy;
 #[path = "listing.rs"]
@@ -6,11 +8,13 @@ mod listing;
 mod read_cache;
 #[path = "rename.rs"]
 mod rename;
-pub use rename::RenameResult;
+#[path = "search_cache.rs"]
+mod search_cache;
 use crate::{Collection, Config, Error, IdStrategy, Result, safe_name};
 pub use hierarchy::*;
 pub use listing::*;
 use pulldown_cmark::{Event, Parser, Tag};
+pub use rename::RenameResult;
 use serde::{Deserialize, Serialize};
 use serde_json::{Map, Value};
 use sha2::{Digest, Sha256};
@@ -67,6 +71,9 @@ pub struct Reference {
 pub struct Editor {
     config: Arc<Config>,
     read_cache: Arc<read_cache::ReadCache>,
+    // Request-local snapshots and dependency collection; never shared between queries.
+    search_snapshot: Option<Arc<search_cache::Snapshot>>,
+    read_dependencies: Option<Arc<Mutex<BTreeSet<(String, String)>>>>,
     validators: Arc<Validators>,
     locks: Arc<Mutex<HashMap<PathBuf, Arc<Mutex<()>>>>>,
     pub(crate) write_guard: Arc<Mutex<()>>,
@@ -103,6 +110,8 @@ impl Editor {
         Ok(Self {
             config: Arc::new(config),
             read_cache: Arc::new(read_cache::ReadCache::default()),
+            search_snapshot: None,
+            read_dependencies: None,
             validators: Arc::new(Validators {
                 project,
                 collections,
@@ -518,10 +527,18 @@ impl Editor {
     }
 
     pub fn get(&self, collection: &str, id: &str) -> Result<Document> {
+        if let Some(dependencies) = &self.read_dependencies {
+            dependencies
+                .lock()
+                .unwrap()
+                .insert((collection.into(), id.into()));
+        }
         if !self.validation_records.is_empty()
             && let Some(document) = self.validation_records.get(&(collection.into(), id.into()))
         {
-            return document.clone().ok_or_else(|| Error::NotFound(format!("record {id}")));
+            return document
+                .clone()
+                .ok_or_else(|| Error::NotFound(format!("record {id}")));
         }
         let path = self.find_path(collection, id)?;
         let doc = self.cached_document(collection, &path)?;
@@ -1032,6 +1049,9 @@ impl Editor {
 
     fn find_path(&self, collection: &str, id: &str) -> Result<PathBuf> {
         safe_name(id)?;
+        if let Some(snapshot) = &self.search_snapshot {
+            return snapshot.find_path(self, collection, id);
+        }
         let c = self.config.collection(collection)?;
         if matches!(c.id, IdStrategy::Filename) {
             let path = self

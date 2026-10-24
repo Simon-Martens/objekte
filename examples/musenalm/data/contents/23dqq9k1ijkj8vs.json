@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Mönch und die Nonne« von A. von Ungern-Sternberg INr 20762, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67903,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5.06,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mönch und die Nonne von Ungern-Sternberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Jos. Stöber sc. Viennae",
+  "scans": [
+    "alm_274_67903_jzus7j2rqi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Mönch und die Nonne von Ungern-Sternberg",
+  "updated": "2002-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8hmlh9hkw6nvn6d",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.423Z"
+    },
+    {
+      "id": "ab99tyqqnprodq3",
+      "agents": "yk9ibu96ud1308d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.423Z"
+    }
+  ]
+}

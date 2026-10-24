@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 5. Blatt der Suite /) Graphik im Kalendarium Januar; paginiert 3. /) Illustration zu »Die unglückliche Königinn Juana von Kastilien« INr 58439, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58428,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Juana von Kastilien. / S. 73",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. Meno Haas sc.",
+  "scans": [
+    "alm_847_58428_zjtj9ixb0i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Juana von Kastilien. / S. 73",
+  "updated": "2008-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hgdj8ttrkxxoukm",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.867Z"
+    },
+    {
+      "id": "n4e3g0vmela69z2",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.867Z"
+    }
+  ]
+}

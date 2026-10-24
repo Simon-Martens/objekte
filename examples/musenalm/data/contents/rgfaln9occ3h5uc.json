@@ -1,0 +1,56 @@
+{
+  "annotation": "Übersetzung von über 20 Strophen des Gedichts; der lateinische Text INr 66758, Obj 25 unter der Übersetzung; mit einer Einleitung INr 66756, Obj 25 /) X. Gedichte (Sammlung INr 66755, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.659Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Die du den dunkeln Forst durchirrst und die liebli- / chen Haine, / Sey uns, Diana! gegrüßt, Latonens unsterbliche / Tochter!",
+  "language": [],
+  "musenalm_id": 66757,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Cynegeticon] V. 86",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marcus Aurelius Olympius Nemesianus; [übers.] Bunsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Cynegeticon] V. 86",
+  "updated": "2009-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h0udv3jobqrw80t",
+      "agents": "fvrtye3xg8pzw6q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.323Z"
+    },
+    {
+      "id": "vwmfrbx4igkk555",
+      "agents": "d1cx5vxdeeve5kc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.323Z"
+    }
+  ]
+}

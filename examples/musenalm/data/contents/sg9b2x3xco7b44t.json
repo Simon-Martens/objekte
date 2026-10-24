@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 6. s. Textbezug INr 50976, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50959,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ruinen von Trostburg, im Cant. Bern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Heinr. Meyer f. ad nat.",
+  "scans": [
+    "alm_694_50959_33r4fqbd05.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ruinen von Trostburg, im Cant. Bern",
+  "updated": "2007-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kl374tb8y7vinvf",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.449Z"
+    }
+  ]
+}

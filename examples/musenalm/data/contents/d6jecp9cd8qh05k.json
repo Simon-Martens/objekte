@@ -1,0 +1,43 @@
+{
+  "annotation": "Frauenleben. Sonetten-Cyklus von Johann N. Vogl als Erklärung der Kupferstiche (Sammlung INr 94994, Obj 5) s. Graphik INr 98902, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Mutter sitzt an ihres Kindes Wiege, / Das Herz von namenloser Lust bewegt,",
+  "language": [],
+  "musenalm_id": 94903,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z1v3ohif0n94x5g",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.671Z"
+    }
+  ]
+}

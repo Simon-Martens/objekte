@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 69540, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "265",
+  "incipit_statement": "Orpheus bin ich selbst gewesen, / Als ich einstens unbedacht / Mir ein Liebchen auserlesen, / Das von Tanten streng bewacht.",
+  "language": [],
+  "musenalm_id": 69541,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Orpheus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Orpheus",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yrzhhxs68x9wk5v",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.057Z"
+    }
+  ]
+}

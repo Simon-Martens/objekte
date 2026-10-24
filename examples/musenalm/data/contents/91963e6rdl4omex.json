@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Sinesische Volkslieder aus dem Schi-king des Confucius (Sammlung INr 99733, Obj 137)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Den weiten Weg bin ich gegangen / Ihm nach, ihm nach; / Den Aermel konnt' ich nur erlangen,",
+  "language": [],
+  "musenalm_id": 99744,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. Vergebliche Beschwörung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Minneburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. Vergebliche Beschwörung",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cxzoa3x6tb2v3k7",
+      "agents": "ucy5ztqyrt5gvq8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.854Z"
+    }
+  ]
+}

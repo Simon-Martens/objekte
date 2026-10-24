@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. Graphik INr 72899, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Ich sage Euch nicht mehre von dieser großen Noth. / Die da erschlagen waren, die lassen wir liegen todt, / Hie hat die M#hr' ein Ende, - das ist der Nibelungen Lied.",
+  "language": [],
+  "musenalm_id": 72898,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herzog Kanut, / genannt der Heilige. / Sage",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. v. F.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herzog Kanut, / genannt der Heilige. / Sage",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ydq2zd0r294vc2",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.671Z"
+    }
+  ]
+}

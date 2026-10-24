@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Illustrationen s. Graphiken in: Taschenbuch zum geselligen Vergnügen 1807; INr 12907, 12908",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Und hiermit so sagte Hamed, der regierende Groß- Wessir, zu seinem regierten Kalihfen",
+  "language": [],
+  "musenalm_id": 12523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kalihf und der Schneider. / Eine Arabeske",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kretschmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kalihf und der Schneider. / Eine Arabeske",
+  "updated": "2001-03-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c3gdfx9iq468bge",
+      "agents": "r6akxiph7cy43x3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.321Z"
+    }
+  ]
+}

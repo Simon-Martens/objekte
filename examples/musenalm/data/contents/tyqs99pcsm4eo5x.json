@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Kennst du den Berg? Es strebt im schnellen Lauf / So oft mein Fuß zu seinem Gipfel auf,",
+  "language": [],
+  "musenalm_id": 101453,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herrmann Waldow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsucht",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zbemkgoum90ox2n",
+      "agents": "nicecucaceak00n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.022Z"
+    }
+  ]
+}

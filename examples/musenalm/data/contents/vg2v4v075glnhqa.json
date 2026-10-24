@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Bekanntlich ist die Nacht,welche vom letzten Tage des Aprils zum ersten des Wonnemonats führt, bestimmt, allerhand Spuk in ihrem Schooße zu bergen,",
+  "language": [],
+  "musenalm_id": 64475,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blumenfabrik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie Prinzessin zu Schleswig-Holstein-Augustenburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blumenfabrik",
+  "updated": "2009-06-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "39li38l29exm4p5",
+      "agents": "j6ap02fmf4tvt87",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.100Z"
+    }
+  ]
+}

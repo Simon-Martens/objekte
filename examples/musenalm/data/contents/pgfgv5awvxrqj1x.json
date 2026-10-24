@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.127Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Gott, dessen Weisheit, Macht und Güte / Die Welt in tausend Zungen preist,",
+  "language": [],
+  "musenalm_id": 4582,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne der Theophilanthropen. Aus dem Französischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. F. Nöldecke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymne der Theophilanthropen. Aus dem Französischen",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ol2nwt5a3d62o3p",
+      "agents": "hpbedqxtnbr9w3y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.048Z"
+    }
+  ]
+}

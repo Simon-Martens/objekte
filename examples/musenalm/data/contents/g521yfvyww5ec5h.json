@@ -1,0 +1,45 @@
+{
+  "annotation": "Historische Anekdoten und Schilderungen (Sammlung INr 87235, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "302",
+  "incipit_statement": "Als die Böhmen das östreichische Joch muthig abgeworfen, und sich einen eigenen König gegeben hatten, rückte der Befehlshaber des böhmischen Heeres, Graf von Thurn, mit 16000 Man in Österreich ein,",
+  "language": [],
+  "musenalm_id": 87237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Scene aus dem dreißigjährigen / Kriege",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. P. Wilmsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Scene aus dem dreißigjährigen / Kriege",
+  "updated": "2010-08-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cv9iqsn3t0oeheb",
+      "agents": "16tb3i8mxvamyxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.048Z"
+    }
+  ]
+}

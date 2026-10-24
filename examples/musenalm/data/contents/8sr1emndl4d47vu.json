@@ -1,0 +1,45 @@
+{
+  "annotation": "§2§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Wen Kindlein süßen Schlummers Ruh / Nicht in der Wiege findet,",
+  "language": [],
+  "musenalm_id": 20263,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied. / Mit Melodie von Carl Maria von Weber §2§",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Clotilde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied. / Mit Melodie von Carl Maria von Weber §2§",
+  "updated": "2001-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4dyztixet1b1dkn",
+      "agents": "j3qxc741zzed3s0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.851Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.851Z"
+    }
+  ]
+}

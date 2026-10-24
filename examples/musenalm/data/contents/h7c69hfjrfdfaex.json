@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Goetz von Berlichingen« von J. W. von Goethe s. Textbezug INr 40561, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40560,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Goetz von Berlichingen Ir. Act. / Maria, Du thust besser Karl, leb du einmal auf deinem Schloss",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+  "scans": [
+    "alm_528_40560_fs8du0lhf6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Goetz von Berlichingen Ir. Act. / Maria, Du thust besser Karl, leb du einmal auf deinem Schloss",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v5futhfq46t9iy0",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.800Z"
+    },
+    {
+      "id": "m77epc1h82svjia",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.800Z"
+    }
+  ]
+}

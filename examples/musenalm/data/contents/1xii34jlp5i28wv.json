@@ -1,0 +1,45 @@
+{
+  "annotation": "Parodie auf »Tröstung« (INr 130379, Obj 44)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Weine nicht! es ist vergebens, / Liebe Magd; kein Schmuck des Lebens / Ist ja mehr als Phantasei.",
+  "language": [],
+  "musenalm_id": 130380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIX. / Trost der Freundin beim Schlachten des / geliebten Sch.....s, / von / Röller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Röller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIX. / Trost der Freundin beim Schlachten des / geliebten Sch.....s, / von / Röller",
+  "updated": "2009-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z8rcx09zk6u7ezl",
+      "agents": "ruqpk5pzwdjeoju",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.068Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.068Z"
+    }
+  ]
+}

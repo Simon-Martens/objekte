@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Epigramme (Sammlung, INr 121721, Obj. 26); # Bezeichnung an der Sammlung",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Alles wird uns Genuß, so schön ist das Leben / gerundet, / Selbst der Tod, denn der Schlaf ist der genos- / sene Tod!",
+  "language": [],
+  "musenalm_id": 121832,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schlaf",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Hebbel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schlaf",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "byb5bprlt9ja53t",
+      "agents": "slo2tnoqzd1g9wn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.623Z"
+    }
+  ]
+}

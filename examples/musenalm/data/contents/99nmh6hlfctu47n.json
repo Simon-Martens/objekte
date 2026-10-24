@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 67841, Obj 72)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Alles ruhig betrachten! das fühlet der kritische Deutsche:",
+  "language": [],
+  "musenalm_id": 67843,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nil admirari",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Bueren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nil admirari",
+  "updated": "2009-08-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5llixwiofquht03",
+      "agents": "5y1y8nf1h7agmbv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.387Z"
+    }
+  ]
+}

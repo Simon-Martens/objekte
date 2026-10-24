@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumen (Sammlung INr 48975, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Wo des Schattens Fittig schwebet / Ob der Auen Sommerkleid, / Weinet in der Winterzeit,",
+  "language": [],
+  "musenalm_id": 48983,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Maienblume",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Floridan",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Maienblume",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zh8p9rjswg50t6l",
+      "agents": "5ppbwmws8645e1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.526Z"
+    }
+  ]
+}

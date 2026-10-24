@@ -1,0 +1,45 @@
+{
+  "annotation": "Blüten aus dem Reiche der Flora (Sammlung INr 82451, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "Sehet den Fingerhut mit dem viergetheilten Munde, / Wie er pranget,",
+  "language": [],
+  "musenalm_id": 84286,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der purpurne Fingerhut (Digitalis purpurea)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Muth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der purpurne Fingerhut (Digitalis purpurea)",
+  "updated": "2010-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y9kf9wd6grz74g5",
+      "agents": "cuv25mgj45dpxdp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.071Z"
+    }
+  ]
+}

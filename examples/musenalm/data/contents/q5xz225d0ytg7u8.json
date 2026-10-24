@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ueber Wiesen führen schmale Pfade, / An den Fuß der hohen Felsenwände,",
+  "language": [],
+  "musenalm_id": 18296,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sanct Elisabethen-Brunnen. / Eine Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie v. Imhof",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sanct Elisabethen-Brunnen. / Eine Legende",
+  "updated": "2001-10-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uku8z99quit2wun",
+      "agents": "g022cx9ysck37av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.403Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.403Z"
+    }
+  ]
+}

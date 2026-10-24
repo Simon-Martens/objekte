@@ -1,0 +1,45 @@
+{
+  "annotation": "Erstes Jahr (Sammlung 48661, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Ich wäre wohl fröhlich so gerne; / Doch kann ich recht fröhlich nicht seyn;",
+  "language": [],
+  "musenalm_id": 48668,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe mit Schmerzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe mit Schmerzen",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x1xxpqr795yjz1r",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.502Z"
+    }
+  ]
+}

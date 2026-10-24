@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachwort d. Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "373",
+  "incipit_statement": "Daß ich diesen historischen Calender jetzt mit der Zeitrechnung für das bevorstehende Jahr 1789 herausgebe, wird hoffentlich von den zahlreichen Gönnern und Liebhabern dieses Calenders keiner tadeln,",
+  "language": [],
+  "musenalm_id": 65805,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Daß ich diesen historischen Calender jetzt mit der Zeitrechnung für das bevorstehende Jahr 1789 herausgebe, wird hoffentlich von den zahlreichen Gönnern und Liebhabern dieses Calenders keiner tadeln,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Spener",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eqa9nv4qbg6s0vv",
+      "agents": "bw72wlunqvkv8tg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.300Z"
+    }
+  ]
+}

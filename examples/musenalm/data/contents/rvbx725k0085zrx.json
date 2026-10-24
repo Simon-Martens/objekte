@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.387Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58355,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.06,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hamburg von der Elbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rosenberg del. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_311_58355_umxwblg1hx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hamburg von der Elbe",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j45noj74fefn37f",
+      "agents": "j5a6ony3yu030e1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.730Z"
+    },
+    {
+      "id": "51q27713vvf6fic",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.731Z"
+    }
+  ]
+}

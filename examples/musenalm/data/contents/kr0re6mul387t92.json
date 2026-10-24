@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 130094, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Schweigen hüllet die Flur; der Zephyr säu- / selt; / Weiches Dunkel umfängt den Frühlingsgar- / ten",
+  "language": [],
+  "musenalm_id": 130097,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thecla",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rese",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Thecla",
+  "updated": "2009-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "asjjx739yt4hbgh",
+      "agents": "ckm5lh2oeabz6sp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.004Z"
+    }
+  ]
+}

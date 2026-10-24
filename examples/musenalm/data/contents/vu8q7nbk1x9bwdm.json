@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert II. /) Illustration zu »Phädon und Naide« von J. G. Jacobi. # Titel aus dem G-Verz INr 16616",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16554,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erster Aufzug. Dritter Auftritt. Naide und Eurydamas. S. 217 #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hegi del. et sc.",
+  "scans": [
+    "alm_260_16554_d6n1a4xjvs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erster Aufzug. Dritter Auftritt. Naide und Eurydamas. S. 217 #",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b3i6ca6o6pruh64",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.813Z"
+    }
+  ]
+}

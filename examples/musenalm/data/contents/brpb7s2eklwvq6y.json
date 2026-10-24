@@ -1,0 +1,45 @@
+{
+  "annotation": "unter der Graphik: Verlag von C. Fock in Leipzig /) Illustration zu »Die Nebenbuhlerinnen« von C. v. Wachsmann INr 110001, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109994,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stella",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. Carl Mayer in Nürnberg",
+  "scans": [
+    "alm_2239_109994_6ufq7dc1r0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Stella",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qwq08rsrxq7d1g8",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.258Z"
+    }
+  ]
+}

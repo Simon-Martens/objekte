@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 289. /) Illustration zu »Scenen aus der Familie Ehrenberg. Amalie Trudemann« INr 47208, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "288",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47210,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Angesicht des Todes feyert die Tugend, / ihren schönsten Triumph.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sc. 1793",
+  "scans": [
+    "alm_639_47210_mxxp7fnr9g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Im Angesicht des Todes feyert die Tugend, / ihren schönsten Triumph.",
+  "updated": "2006-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t4ihne1ajjnmoqz",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.373Z"
+    },
+    {
+      "id": "4ymmvvqu1sl3d3g",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.373Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.373Z"
+    }
+  ]
+}

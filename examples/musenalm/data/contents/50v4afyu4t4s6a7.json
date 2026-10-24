@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an den übrigen Blättern der Suite /) paginiert 8. s. Textbezug INr 60049, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "332",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Pohlen und Russen zu Warschau",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del.",
+  "scans": [
+    "alm_936_60048_qr3t64s61b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Pohlen und Russen zu Warschau",
+  "updated": "2008-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q6bm8d6vtqor0mz",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.073Z"
+    }
+  ]
+}

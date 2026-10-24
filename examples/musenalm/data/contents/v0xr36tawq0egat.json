@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "353",
+  "incipit_statement": "Hoch und weit und purpurprangend steht ein seiden / Zelt errichtet, / Und ein Katafalk darinnen ist von Fackelglanz um- / lichtet.",
+  "language": [],
+  "musenalm_id": 46667,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 210,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Attilas Grab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Friedrich Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Attilas Grab",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yb8z1vvcstqghrk",
+      "agents": "9kqncyvdpl96r3o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.435Z"
+    }
+  ]
+}

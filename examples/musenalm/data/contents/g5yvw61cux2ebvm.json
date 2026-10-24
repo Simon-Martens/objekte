@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 4. /) Graphik im Kalendarium April /) Illustration zu »Camille, oder Briefe zweier Mädchen aus unserm Zeitalter« übers.: J. F. Jünger, Leipzig (Dyk) 1786; s. Textbezug INr 70169, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70156,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lassen Sie mich nur machen. / B. II. S. 31",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del et sc.",
+  "scans": [
+    "alm_799_70156_atmx15dz4m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lassen Sie mich nur machen. / B. II. S. 31",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q6ak23vmgtfrz1s",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.315Z"
+    }
+  ]
+}

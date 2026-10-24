@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 100009, Obj 173)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.577Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "352",
+  "incipit_statement": "Des Maien liebster Aufenthalt / Ist doch der grüne Wald,",
+  "language": [],
+  "musenalm_id": 100014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 178,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Maililienpflücken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Osterwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Maililienpflücken",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cvg0bbjwqbsmdne",
+      "agents": "srb5p67tufd1pp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.894Z"
+    }
+  ]
+}

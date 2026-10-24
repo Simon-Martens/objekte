@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.045Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22764,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Burg Eltz an der Mosel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dom. Quaglio del. E. Aubert sc.",
+  "scans": [
+    "alm_303_22764_gif2lxcm5k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Burg Eltz an der Mosel",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s3zetkbzp7eg8zb",
+      "agents": "84udokklcf53ize",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.941Z"
+    },
+    {
+      "id": "4eygjubown3f0se",
+      "agents": "ya6nbtop6m03yer",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.941Z"
+    }
+  ]
+}

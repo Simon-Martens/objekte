@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Titelgraphik INr 81594, Obj 2 und Graphik INr 81597, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.695Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Die muntersten, lebensfrohen Gesichter belebten die Straßen Wiens, während in jedem Haushalt ein geschäftiges Treiben und rastlose Regsamkeit herrschte,",
+  "language": [],
+  "musenalm_id": 81617,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Traum und Wahrheit. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Steinebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Traum und Wahrheit. / Novelle",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h38v2u7egybrptg",
+      "agents": "lzi1zyn6aqla0ny",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.075Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.075Z"
+    }
+  ]
+}

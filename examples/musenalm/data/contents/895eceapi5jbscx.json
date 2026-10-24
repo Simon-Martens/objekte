@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.305Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Bald auf die schöne Christnacht, die mit so wunderbaren, heimlichen Lichtern in die kindliche, frommgläubige Seele strahlt, folgt die von Schauern der Zukunft reich umgebene Sylvesternacht.",
+  "language": [],
+  "musenalm_id": 86547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sylvester-Nacht. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Dornau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sylvester-Nacht. / Novelle",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "acnaq683d5h3xv1",
+      "agents": "15ch4q36f8n1et3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.278Z"
+    }
+  ]
+}

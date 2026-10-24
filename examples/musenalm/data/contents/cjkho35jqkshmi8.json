@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumen (Sammlung INr 27377, Obj 104)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Die Blumen sprechen zu der Nachtigall: / Was störst du unsern Schlaf um deine Rose",
+  "language": [],
+  "musenalm_id": 27381,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Trinius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Rose",
+  "updated": "2002-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b4k9glc30xbuwm1",
+      "agents": "r4o522ozdhhdj78",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.089Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.089Z"
+    }
+  ]
+}

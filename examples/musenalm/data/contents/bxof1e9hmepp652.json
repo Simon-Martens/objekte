@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) # Titel aus dem G-Verz (INr 21767, Obj 15) Illustration zu »Herrmann und Dorothea« von J. W. v. Goethe",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21757,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zug der Vertriebenen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner del. et sc.",
+  "scans": [
+    "alm_295_21757_2sgodf5f09.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zug der Vertriebenen #",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5at3tsiith12tze",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.000Z"
+    }
+  ]
+}

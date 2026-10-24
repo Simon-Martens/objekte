@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Illustration zu »Aspasia, die Freundin des Perikles« von F. Wähler INr 20742, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67898,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aspasia von F. Wähner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. F. Fleischmann sc.",
+  "scans": [
+    "alm_274_67898_qa10xwgmwe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aspasia von F. Wähner",
+  "updated": "2002-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tn2yi2pk7ly66y7",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.422Z"
+    },
+    {
+      "id": "9luoew8kh1ao5ke",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.422Z"
+    }
+  ]
+}

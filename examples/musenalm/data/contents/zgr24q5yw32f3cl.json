@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Brudermord (Sammlung INr 66370, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Zum ersten, eh' veronnen war ein Jahr, / Gesellt ein zweiter Sproß sich ihres Blutes;",
+  "language": [],
+  "musenalm_id": 66372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Kain und Abel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Schanz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Kain und Abel",
+  "updated": "2009-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w0drauxclam8iab",
+      "agents": "tpwve3h1enyv5eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.289Z"
+    }
+  ]
+}

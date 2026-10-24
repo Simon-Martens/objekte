@@ -1,0 +1,45 @@
+{
+  "annotation": "Stammbuchblätter (Sammlung INr 100376, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.005Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Werde, wenn auch spät, im Alter weise, / Rein von Seele, Herzen und Gemüth;",
+  "language": [],
+  "musenalm_id": 100380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl von Holtei",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nwlygkk7jq6cofi",
+      "agents": "zg6jbd5dfgl0cyy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.835Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.835Z"
+    }
+  ]
+}

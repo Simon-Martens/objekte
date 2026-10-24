@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthselkranz. Gewunden vom Herausgeber (Sammlung INr 86148, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "283",
+  "incipit_statement": "Wo findet sie das Herz, gebeugt von Leiden, / Die Seel', an der des Grames Siechthum zehrt?",
+  "language": [],
+  "musenalm_id": 86150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Buchstabenräthsel. / (Zweisylbig.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Buchstabenräthsel. / (Zweisylbig.)",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s4pqvbo9ebma7x9",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.991Z"
+    }
+  ]
+}

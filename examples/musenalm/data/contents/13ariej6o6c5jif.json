@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "403",
+  "incipit_statement": "Zu Nonnenwerth im Rheine erhebt sich der Gesang, / Der aus der Nonnen Munde allabendlich erklang,",
+  "language": [],
+  "musenalm_id": 112966,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nonnenwerth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nicolaus Delius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nonnenwerth",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f3v9amwyjxk1bpc",
+      "agents": "bxpc42dcojfrl4n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.280Z"
+    }
+  ]
+}

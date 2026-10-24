@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20917,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Barthel inv. et del. C. W. Schenk sc. Braunschweig)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Barthel inv. et del. C. W. Schenk sc. Braunschweig",
+  "scans": [
+    "alm_215_20917_c3mm7qzdmp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4kft1iezpaght1x",
+      "agents": "qfeh99dap41ww11",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.789Z"
+    },
+    {
+      "id": "gz6ynpfpe9aofcl",
+      "agents": "voq5dlml9870uhq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.789Z"
+    }
+  ]
+}

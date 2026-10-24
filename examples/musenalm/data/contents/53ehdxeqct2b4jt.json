@@ -1,0 +1,45 @@
+{
+  "annotation": "Fünf Sprüche eines Tages (Sammlung INr 19333, Obj 62) Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "408",
+  "incipit_statement": "Jedem Menschen für sein Leben / Ist ein Maas von Kraft gegeben,",
+  "language": [],
+  "musenalm_id": 1575,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2000-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2co7wjldbqr7z80",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.967Z"
+    }
+  ]
+}

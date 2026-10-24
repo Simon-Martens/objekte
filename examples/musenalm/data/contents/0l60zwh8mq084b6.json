@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Im Erker seines halbverfallnen Bergschlosses saß der graue Meister Zeno, und las mit großer Aufmerksamkeit in einigen Pergamentblättern.",
+  "language": [],
+  "musenalm_id": 76932,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Guido / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "van der Velde",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Guido / Erzählung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9dss4yjlir88f9m",
+      "agents": "yqgg57lsj4x0lyv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.748Z"
+    }
+  ]
+}

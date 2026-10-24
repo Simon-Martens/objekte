@@ -1,0 +1,58 @@
+{
+  "annotation": "über der Graphik: Donna Diana III. /) Bildliche Darstellungen zu dramatischen Werken vaterländischer Dichter. Dritte Lieferung (Sammlung INr 85571, Obj 5) Illustration zu »Donna Diana« von C. A. West d.i. A. Schreyvogel /) s. Textbezug INr 85583, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85582,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diana. Du fragst? Du selbst bist es, Tyrann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Perger del. Langer sc.",
+  "scans": [
+    "alm_1585_85582_opb2wpvakk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Diana. Du fragst? Du selbst bist es, Tyrann",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2aztpzu9xxm64eh",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.357Z"
+    },
+    {
+      "id": "pdqopwdjr7e8l4j",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.357Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.357Z"
+    }
+  ]
+}

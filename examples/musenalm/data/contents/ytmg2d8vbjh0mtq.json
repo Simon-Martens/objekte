@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.520Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Was tönst du Sang mit dumpfen Geisterlauten? / Was hüllt die Harfe schwarz ein Trauerflor?",
+  "language": [],
+  "musenalm_id": 54131,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schlacht bey St. Jacob / an der Birs. 1444",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Münch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schlacht bey St. Jacob / an der Birs. 1444",
+  "updated": "2008-01-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v4m584e3d5lqfgn",
+      "agents": "h05fi1l9hhcmfmt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.788Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.788Z"
+    }
+  ]
+}

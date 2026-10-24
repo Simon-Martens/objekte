@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) paginiert 4 /) Illustration zu »Der Graf von Eberstein« INr 56928, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Welch Blendwerk ohne gleichen! Ist / Hugo von Eberstein doppelt in der Welt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hörmann inv. P. J. Laminit sc.",
+  "scans": [
+    "alm_57_56930_w6828jzxcw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Welch Blendwerk ohne gleichen! Ist / Hugo von Eberstein doppelt in der Welt",
+  "updated": "2008-04-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i253i6z5p4v2gft",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.940Z"
+    }
+  ]
+}

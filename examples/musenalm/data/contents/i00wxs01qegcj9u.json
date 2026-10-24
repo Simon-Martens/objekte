@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium März; paginiert 3. Illustration zu »Gegenwärtiger Zustand von Ostindien« von M. C. Sprengel INr 59784, Obj 20 s.a. Textbezug INr 59788, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59770,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Nabob in seinem Garten, der / sich an der Music seiner Weiber ergötzt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et sc.",
+  "scans": [
+    "alm_926_59770_jkz8kjww4d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Nabob in seinem Garten, der / sich an der Music seiner Weiber ergötzt",
+  "updated": "2008-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "34v7w6qsxvvvp4p",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.872Z"
+    }
+  ]
+}

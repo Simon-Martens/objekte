@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Ueberzeugt, daß der Allmaächtige den Menschen einen freien Willen gegeben, scheinen uns die zu allen Zeiten und in allen Ländern gemachten Anstrengungen, die Meinungen durch körperliche Strafen, Geldbußen, oder Beraubung der bürgerlichen Rechte",
+  "language": [],
+  "musenalm_id": 70675,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was im Jahre 1786 geschah. / (Uebersetzung eines Akts der gesetzgebenden / Versammlung Virginiens, zur Sicherung / der Gewissensfreiheit.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Was im Jahre 1786 geschah. / (Uebersetzung eines Akts der gesetzgebenden / Versammlung Virginiens, zur Sicherung / der Gewissensfreiheit.)",
+  "updated": "2010-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "skgc011pju3hgsq",
+      "agents": "p9xocrmcb2o8pu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.700Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Sechs Darstellungen zu Bürger's Gedichten nach Zeichnungen von Opitz (Sammlung INr 73774, Obj 7) Illustration zu »Veit Ehrenwort« von G. A. Bürger; s. Gedichtauszug INr 73783, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73784,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Veit Ehrenwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Opiz del. G. Zumpe del.",
+  "scans": [
+    "alm_136_73784_4xzsbyrdwx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Veit Ehrenwort",
+  "updated": "2000-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jozvs3eizx6mn9a",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.536Z"
+    },
+    {
+      "id": "4us1ocafmn9jsmk",
+      "agents": "dkcgg2l4f1px9e7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.536Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.536Z"
+    }
+  ]
+}

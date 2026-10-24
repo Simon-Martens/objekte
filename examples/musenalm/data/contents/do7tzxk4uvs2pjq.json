@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Der Schönheit Königin mit gold'nem Diadem, / O welche Liebesgluth weckst du Jerusalem!",
+  "language": [],
+  "musenalm_id": 119221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Pilger nach Jerusalem",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Frankl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Pilger nach Jerusalem",
+  "updated": "2017-06-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ehrhbxoqlaoqe26",
+      "agents": "fjw259e60ifm3ie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.410Z"
+    }
+  ]
+}

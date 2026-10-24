@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "306",
+  "incipit_statement": "Lebten wir in jenen Tagen, Als die Ritter frei und frank / Minnepfand und Ehrendank",
+  "language": [],
+  "musenalm_id": 10797,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 152,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "99. / Als sie mir eine Schleife gegeben / hatte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "99. / Als sie mir eine Schleife gegeben / hatte",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1p1n1td2kzmn0pq",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.445Z"
+    }
+  ]
+}

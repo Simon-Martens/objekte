@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen zur Biographie",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "368",
+  "incipit_statement": "Würdiger Mann; mein Lehrer, so bist auch du mir / entrissen, / Und dein Pinsel erschafft keine Gefilde mir mehr!",
+  "language": [],
+  "musenalm_id": 53449,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heinrich Rieters Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heinrich Rieters Tod",
+  "updated": "2007-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mf153ges1fcgcg9",
+      "agents": "kq69ntdbn8wcwoq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.617Z"
+    }
+  ]
+}

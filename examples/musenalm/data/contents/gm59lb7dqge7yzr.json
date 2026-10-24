@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24836, Obj 117)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Ich hatte mir im Keller / Ein Stückfaß Muskateller / Für meinen Tisch gespart,",
+  "language": [],
+  "musenalm_id": 24840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Der Blitz im Keller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Der Blitz im Keller",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i6ubxe9awdtgpfe",
+      "agents": "dgebk50hujqbvc5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.897Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.897Z"
+    }
+  ]
+}

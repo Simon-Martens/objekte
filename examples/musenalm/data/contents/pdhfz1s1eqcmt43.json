@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25610, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.688Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Das Bild vom Spiegel rechts, dies frische Bübchen / Mit krausgelocktem, goldiggelbem Haar",
+  "language": [],
+  "musenalm_id": 25616,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 147,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Wandlungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Wandlungen",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r0cesz0k0bxeov6",
+      "agents": "snnpz92vgxnioxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.141Z"
+    }
+  ]
+}

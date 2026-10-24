@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Conrad und Margarete« von Fr. Stricker INr 29180, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29181,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus: Conrad und Margarete. / Eine Erzählung von Fr.Stricker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury sc.",
+  "scans": [
+    "alm_377_29181_n7zjzmm3o7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus: Conrad und Margarete. / Eine Erzählung von Fr.Stricker",
+  "updated": "2002-10-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1al5mokxefk8lfz",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.461Z"
+    },
+    {
+      "id": "170efxrtq7znc7h",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.461Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Traufhöhle bey Amfoldingen« INr 53054, Obj 82",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.477Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53053,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (S. Rösel del. F. Hegi sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Rösel del. F. Hegi sc.",
+  "scans": [
+    "alm_727_53053_xitr588fet.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-11-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "trphicvncc5rumv",
+      "agents": "fvvo7u8gqk8l3ze",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.704Z"
+    },
+    {
+      "id": "ybqvwv7aleoxymx",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.704Z"
+    }
+  ]
+}

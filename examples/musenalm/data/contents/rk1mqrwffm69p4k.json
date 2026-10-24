@@ -1,0 +1,56 @@
+{
+  "annotation": "kol. Titelgraphik /) Illustration zu »Unterricht für Damen, in der Kunst zu reiten« von C. E. S. von Tennecker INr 123904, Obj 9; s. a. Textbezug INr 123939, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123897,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schubert del. G. Boettger senior sc. Lips. 1797)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. G. Boettger senior sc. Lips. 1797",
+  "scans": [
+    "alm_1949_123897_x2hbadtzcp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s1ef7asvi5ngskb",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.855Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.855Z"
+    },
+    {
+      "id": "qs7wpv1rfzhz75p",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.855Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.855Z"
+    }
+  ]
+}

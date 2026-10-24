@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3. /) Graphik im Kalendarium März /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 78263, Obj 23 s.a. Textbezug INr 78269, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78247,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abfertigung des Doctors April als / derselbe dem K. Preuss. Gesandten zu Re- / gensburg, Freyherrn von Plotho, die Kay- / serliche Reichs-Acht notifizierte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. J. Penzel sc.",
+  "scans": [
+    "alm_928_78247_nsubps9rz7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abfertigung des Doctors April als / derselbe dem K. Preuss. Gesandten zu Re- / gensburg, Freyherrn von Plotho, die Kay- / serliche Reichs-Acht notifizierte",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "988ufsdbtobmok3",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.920Z"
+    },
+    {
+      "id": "4y0sqzgtrajzxi9",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.921Z"
+    }
+  ]
+}

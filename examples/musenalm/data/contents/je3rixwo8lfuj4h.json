@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "288",
+  "incipit_statement": "Eudamidas legt auf dem Sterbebette / So Kind als Mutter in der Freunde Hände,",
+  "language": [],
+  "musenalm_id": 63289,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vermächtniß an meine Freunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalia Schoppe, geb. Weise",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vermächtniß an meine Freunde",
+  "updated": "2009-04-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f7jnyrzakfiwxh7",
+      "agents": "2nm1hcqes98n5i9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.255Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.255Z"
+    }
+  ]
+}

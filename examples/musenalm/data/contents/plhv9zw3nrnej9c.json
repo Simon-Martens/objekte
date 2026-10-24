@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Ganz London sprach im Spätherbste des Jahres 1620 von der wundervollen Schönheit der Lady Mylford.",
+  "language": [],
+  "musenalm_id": 117799,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der silberne Knopf. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz Isidor Proschko",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der silberne Knopf. / Novelle",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xq5w2tjm44l5h03",
+      "agents": "agwsn5i724aiq5h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.612Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Welches Weib ist wohl das glücklichste auf der Welt? Diese Frage warf einer der jungen Edelleute am Hofe Heinrich's III. von Frankreich auf,",
+  "language": [],
+  "musenalm_id": 89643,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Irene von Chateauneuf. / Historische Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidoris Orientalis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Irene von Chateauneuf. / Historische Novelle",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "803uoy5ynv3rmoq",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.442Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.442Z"
+    }
+  ]
+}

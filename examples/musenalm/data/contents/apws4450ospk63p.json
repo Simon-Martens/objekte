@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "225",
+  "incipit_statement": "Ich soll meiner Freundin ärztlich sagen, wo das Uebel, das man üble Laune nennt, eigentlich im Menschen sitzt; ich soll Ihnen, so recht kunstgemäß, die Wurzeln dieses Uebels zeigen",
+  "language": [],
+  "musenalm_id": 48648,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Ueber / die üble Laune. / Brief eines Arztes",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Treumund Wellentreter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Ueber / die üble Laune. / Brief eines Arztes",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bfl0glx003kcgoe",
+      "agents": "0lth2adu21imy6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.600Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.600Z"
+    }
+  ]
+}

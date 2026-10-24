@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9 /) Photos 79485,01; 79485,02",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79485,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chor der Damascener aus dem Trauerspiel: die Damascener von Dr. Kuhn / in Musik gesetzt von Carl Blum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Blum",
+  "scans": [
+    "alm_436_79485_01_uzeiu88hhw.jpg",
+    "alm_436_79485_02_dn3mf96ni9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Chor der Damascener aus dem Trauerspiel: die Damascener von Dr. Kuhn / in Musik gesetzt von Carl Blum",
+  "updated": "2003-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nd0uiy44q940uyr",
+      "agents": "v8do49ob5395gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.629Z"
+    }
+  ]
+}

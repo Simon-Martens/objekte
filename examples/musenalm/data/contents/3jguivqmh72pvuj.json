@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der erste Schattenriß« von J. G. Jacobi INr 35, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der erste Schattenriß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Lips del. et sculp.",
+  "scans": [
+    "alm_25_95_ntt6y5v8qv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der erste Schattenriß",
+  "updated": "2001-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "763cdzcglh2636l",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.997Z"
+    }
+  ]
+}

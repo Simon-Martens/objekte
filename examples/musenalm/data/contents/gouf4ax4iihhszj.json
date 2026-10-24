@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Aus der Chorherrnschaar des frommen / Kirchenlehrers Augustin, / Der, bis seine Mutter ihn, / Ernstlich in die Zucht genommen, / Auch kein Mädchen von sich stieß,",
+  "language": [],
+  "musenalm_id": 76340,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der lockere Chorherr. / Nach dem Französischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der lockere Chorherr. / Nach dem Französischen",
+  "updated": "2003-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "31rs7yrnvuvwqod",
+      "agents": "y0pp926xdweonfb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.693Z"
+    }
+  ]
+}

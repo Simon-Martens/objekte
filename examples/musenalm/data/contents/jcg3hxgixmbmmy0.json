@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung vermischter Poesien (Sammlung INr 90145, Obj 63)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.897Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Ermüdet von der Nimphenjagd, / Das Köpfchen schwer von Syrakuserweine, / Entschlief einst Cypripor in einem Rosenhaine,",
+  "language": [],
+  "musenalm_id": 90146,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gewekte Amor. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schaz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gewekte Amor. / Eine Erzählung",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fs3xiu6xmdv1cfj",
+      "agents": "u9v2tmfqh5ow1lu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.156Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.156Z"
+    }
+  ]
+}

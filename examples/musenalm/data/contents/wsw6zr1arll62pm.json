@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) s. Textbezug INr 118652, Obj 76",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 118587,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Pariser Schandszene / vom 20. Juni",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weinrauch fec.",
+  "scans": [
+    "alm_3634_118587_k3au8hodtl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Pariser Schandszene / vom 20. Juni",
+  "updated": "2010-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lmdoa3xrs0rm6f7",
+      "agents": "nhcnwrqiq042uja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.588Z"
+    }
+  ]
+}

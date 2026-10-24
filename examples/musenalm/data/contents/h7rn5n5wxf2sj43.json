@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Zwar schnitt ich manchen Mädchennamen - / Dem Jüngling war es zu verzeihn -",
+  "language": [],
+  "musenalm_id": 257,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meine Geschwister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meine Geschwister",
+  "updated": "2001-06-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ghbqptpowz3gi9h",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.998Z"
+    }
+  ]
+}

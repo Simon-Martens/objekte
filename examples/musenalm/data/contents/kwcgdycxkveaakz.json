@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. L/R 30. Titelgraphik. Motiv: Metamorphose der Daphne",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30828,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (M. sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. sc.",
+  "scans": [
+    "alm_409_30828_y76yiqrqom.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "omwpih7wgwphe2p",
+      "agents": "7x793ydyq97csrl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.707Z"
+    }
+  ]
+}

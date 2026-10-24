@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "O großer Thaten große Amme, / Gewalt'ge Herrscherin der Welt, / Vom Himmel selbst dem deutschen Stamme / Zur treuen Hüterin bestellt!",
+  "language": [],
+  "musenalm_id": 45644,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Hohenstaufenkrone",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Friedrich von Schack",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Hohenstaufenkrone",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f5jlw6djrwj4fm7",
+      "agents": "4irsdlf9sfhpmc0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.512Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.512Z"
+    }
+  ]
+}

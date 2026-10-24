@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Gedicht INr 112467, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.865Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112465,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Titelgraphik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Stöber sc.",
+  "scans": [
+    "alm_2470_112465_70051lrzy5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Titelgraphik",
+  "updated": "2010-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2szvcenrgtt9s11",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.344Z"
+    }
+  ]
+}

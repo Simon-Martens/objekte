@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Der Kranz« von E. Ferrand d.i. Ed. Schulz INr 59521, Obj 40; # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59522,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kranz #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59522_68pxle9qai.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kranz #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6lv62y11sziyaz0",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.765Z"
+    }
+  ]
+}

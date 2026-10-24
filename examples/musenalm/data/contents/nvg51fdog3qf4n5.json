@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Schöne Thaten verdienen ein Denkmal, mag das Herz, das sich zur Ausführung derselben muthig fühlte, unterm Purpur oder unterm Bettlergewande schlagen, …",
+  "language": [],
+  "musenalm_id": 119728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der schöne Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Emmrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der schöne Tod",
+  "updated": "2012-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7icuqpy90ew8nms",
+      "agents": "4u0gkkgpmhgb9aq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.622Z"
+    }
+  ]
+}

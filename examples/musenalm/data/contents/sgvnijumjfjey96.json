@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Es ist wohl schwer, zu ziehen / Von denen, die uns lieb,",
+  "language": [],
+  "musenalm_id": 95142,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergessen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiazynth von Schulheim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vergessen",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mlllzpgsgfw520p",
+      "agents": "miy11spit4lljvz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.616Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.616Z"
+    }
+  ]
+}

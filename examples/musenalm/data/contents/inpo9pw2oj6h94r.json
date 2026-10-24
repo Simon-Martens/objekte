@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette und Epigramme (Sammlung INr 54771, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.085Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "353",
+  "incipit_statement": "Dir nur, Natur, hab' ich mein Herz erschlossen, / nur dir will mein Geheimniß ich vertrauen:",
+  "language": [],
+  "musenalm_id": 54773,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Varrath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Schnyder von Wartensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Varrath",
+  "updated": "2008-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pbtfp0ctpjbwaum",
+      "agents": "qn8g13ehspgkph8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.477Z"
+    }
+  ]
+}

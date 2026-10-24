@@ -1,0 +1,45 @@
+{
+  "annotation": "II. (Sammlung INr 86033, Obj 37) XI. Fragmente der Lehre für die Gegenwart und die kommenden Zeitalter (Sammlung IN 85023, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.347Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Der Jakobinism war furchtbarer, sobald er entartete, als je die Gesellschaft spanischer Inquisitoren.",
+  "language": [],
+  "musenalm_id": 86035,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Woltmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2013-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bapc1goparxoswj",
+      "agents": "s1uxwuwtfdr9if2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.055Z"
+    }
+  ]
+}

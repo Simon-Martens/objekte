@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Amor in der Vigne« von Wilhelm Müller INr 22596, Obj 109",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.502Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22496,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor in der Vigne von W. Müller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del W. Jury fec.",
+  "scans": [
+    "alm_301_22496_g9g2lghktm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amor in der Vigne von W. Müller",
+  "updated": "2002-03-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6ci90sty87bm94w",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.105Z"
+    },
+    {
+      "id": "m11tiz0vc9yg959",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.105Z"
+    }
+  ]
+}

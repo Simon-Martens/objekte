@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Spinnerin (Sammlung INr 40374, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Bertha bin ich von Montagna, / Wo den Ruhm der Aeltermütter / Jetzt die Mädchen noch bewahren,",
+  "language": [],
+  "musenalm_id": 40377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Markt zu Padua",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Pierre C. Grafen von Sermage",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Markt zu Padua",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2aad9eymx0mxts7",
+      "agents": "nf6hcprj7w45n4m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.195Z"
+    }
+  ]
+}

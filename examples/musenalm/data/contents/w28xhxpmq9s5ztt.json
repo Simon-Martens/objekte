@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Vertonung s. Musikbeigabe INr 47641, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Nichts rundum erforschen des Endlichen / Blicke, / Was höher, als Liebe, beglück' und entzücke,",
+  "language": [],
+  "musenalm_id": 47642,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe. / Nach einem alten deutschen Liede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe. / Nach einem alten deutschen Liede",
+  "updated": "2007-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "do2qgp6687no8av",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.518Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.518Z"
+    }
+  ]
+}

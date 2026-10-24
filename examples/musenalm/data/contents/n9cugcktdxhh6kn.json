@@ -1,0 +1,45 @@
+{
+  "annotation": "Satyrisken (Sammlung INr 65552, Obj 120) Gedichte (Sammlung INr 65534, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Warum soll ich mit den Lachenden lachen, / Mit den Klagenden klagen?",
+  "language": [],
+  "musenalm_id": 65564,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warum soll ich mit den Lachenden lachen, / Mit den Klagenden klagen?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Puchta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p739fpn22v0vcjd",
+      "agents": "yjnbioe01jyvf6s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.022Z"
+    }
+  ]
+}

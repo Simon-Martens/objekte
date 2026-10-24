@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthselkranz (Sammlung INr 94745, Obj 84) Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94744, Obj 83)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "378",
+  "incipit_statement": "Du wandelst gern in meinem kühlen Schatten, / In meinem grünen, frischen Lustgeheg,",
+  "language": [],
+  "musenalm_id": 94750,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. Homonyme",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adami",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. Homonyme",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "34sjaaiywxxbtto",
+      "agents": "h1jhs52naysyy4l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.472Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.472Z"
+    }
+  ]
+}

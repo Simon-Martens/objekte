@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug (Gedicht) INr 95280, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95275,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Adolf Theer gemalt Stahlstich v. C. Mahlknecht Druck v. Kaufmann)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Theer gemalt Stahlstich v. C. Mahlknecht Druck v. Kaufmann",
+  "scans": [
+    "alm_1881_95275_gtro9i507f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8z1uhkrda2wigdq",
+      "agents": "512hnx3l2hp6y3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.483Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.483Z"
+    },
+    {
+      "id": "onk4v2ymkg35vnb",
+      "agents": "z8rsr5de0jmn33o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.483Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.483Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "2 kol.Graphiken: C und D; s. Textbezug zu D: INr 101944, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.183Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 101955,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ideen transparenter Darstellungen bey häuslichen Festen.Tafel II. / D.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Th. Weber del. et sc.",
+  "scans": [
+    "alm_4163_101955_xg06a931tz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ideen transparenter Darstellungen bey häuslichen Festen.Tafel II. / D.",
+  "updated": "2014-12-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3guep7w2qq3mmck",
+      "agents": "h38sezk5a79h4rw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.957Z"
+    }
+  ]
+}

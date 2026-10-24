@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 7. /) Illustration zu »Die Weihnachtsfeier« von Gottwalt INr 26318, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36108,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Weihnachtsfeier von Gottwalt. S. 178",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Keller del. C. Barth sc.",
+  "scans": [
+    "alm_346_36108_b8hfhnmfxb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Weihnachtsfeier von Gottwalt. S. 178",
+  "updated": "2002-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vt9baxmxhisiyia",
+      "agents": "ak2qa5c9tflxdbf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.859Z"
+    }
+  ]
+}

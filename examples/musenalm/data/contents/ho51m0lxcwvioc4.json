@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Flüsse (Sammlung INr 51327, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Willst du mit Nutzen und Lust den breitesten der / Ströme beschiffen?",
+  "language": [],
+  "musenalm_id": 51330,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "ROSA MARIA",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leben",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cjjtfg8w09luv6l",
+      "agents": "7qd9korfk9bcwc9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.687Z"
+    }
+  ]
+}

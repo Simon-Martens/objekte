@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) mit einem einleitenden Gedicht s. INr 82141, Obj 9 /) mit zahlreichen Anmerkungen /) mit 3 Illustrationen s. Graphiken INr 82139, 82140, 82143; Obj 7, 8, 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.206Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Nurf fünf in Europa bekannten Thiergattungen, dem Edelhirsch, Damhirsch, Reh, Elenn- und Rennthier hat die Natur die gewis bewundernswürdige Eigenschaft verliehen, ihr Gehörne jährlich abzuwerfen, und ein neues aufsetzen zu können.",
+  "language": [],
+  "musenalm_id": 82142,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[I. Das Edelwild]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[I. Das Edelwild]",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g8rko7qsmscfp07",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.914Z"
+    }
+  ]
+}

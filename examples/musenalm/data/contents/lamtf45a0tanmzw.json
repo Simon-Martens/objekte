@@ -1,0 +1,43 @@
+{
+  "annotation": "Kunstliebhaberei in zwölf Bildern (Sammlung INr 29543, Obj 5) s. Graphik INr 29567, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.429Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der Brauherr, oft der Stadt Gelächter, / Hob in der Kunst sich mehr und mehr,",
+  "language": [],
+  "musenalm_id": 29566,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12.",
+  "updated": "2002-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ogvq4cqhyr4tv4j",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.383Z"
+    }
+  ]
+}

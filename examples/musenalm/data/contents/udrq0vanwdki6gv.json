@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Alte Liebe rostet nicht« INr 55392, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55385,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FELIX PLATER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hess fec. 1838 H. Meyer sc.",
+  "scans": [
+    "alm_748_55385_ivut46cbbe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FELIX PLATER",
+  "updated": "2008-02-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yoj4nezd9ry9913",
+      "agents": "pklgpi3o0ul4b99",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.791Z"
+    }
+  ]
+}

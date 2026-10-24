@@ -1,0 +1,45 @@
+{
+  "annotation": "Klagen (Sammlung INr 37120, Obj 245)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "397",
+  "incipit_statement": "Weh! wer machte jezt mich los / Aus dem Kasten, drin ich schlief?",
+  "language": [],
+  "musenalm_id": 37122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 246,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Auf der Reise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justinus Kerner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Auf der Reise",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "12ea5vbdi7veeq3",
+      "agents": "92oewhsfc44pa2v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.575Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "An der Graphik: pag. 157",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.951Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35260,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Liebe für Sie, habe ich ihm Kraehenaugen gegeben!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner sc. 1796 Schubert del.",
+  "scans": [
+    "alm_486_35260_zkj203e9aq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus Liebe für Sie, habe ich ihm Kraehenaugen gegeben!",
+  "updated": "2003-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kx3og5b64gbqyha",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.816Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.816Z"
+    },
+    {
+      "id": "ziyyy5e3x2ybbwf",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.816Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.816Z"
+    }
+  ]
+}

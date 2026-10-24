@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Motto / Endlos liegt die Welt vor deinen Blicken, / Und die Schifffahrt selbst ermißt sie kaum; [...] Schiller",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Es hefte der Mensch nicht seinen Glauben an Träume, sind sie doch nur dunkle Bilder des Tages, die aus dem Meere der Phantasie auftauchen",
+  "language": [],
+  "musenalm_id": 113694,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Träumenden. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Träumenden. / Novelle",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xj7g7q1wb23v9r0",
+      "agents": "xy1xe258ffgo9ok",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.265Z"
+    }
+  ]
+}

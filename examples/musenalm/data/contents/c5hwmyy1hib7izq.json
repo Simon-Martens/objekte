@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Blumen zum Feste« von Luise Brachmann INr 132155, Obj 17 /) Diese Graphik zuerst in: Taschenbuch der Liebe und Freundschaft  gewidmet 1818. »Sc. aus Die Blumen zum Feste. Romanze von Louise Brachmann« Bez.:  J. H. Ramberg del. W. Jury sculp. /) s. alm-381; INr 29504",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blumen zum Feste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leop. Beyer",
+  "scans": [
+    "alm_4835_132156_xm74gz79oj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Blumen zum Feste",
+  "updated": "2023-03-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "apt3cr6pab4wjgl",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.087Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.087Z"
+    }
+  ]
+}

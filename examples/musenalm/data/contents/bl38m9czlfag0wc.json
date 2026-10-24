@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "374",
+  "incipit_statement": "Es geht ein Alter im schlichten Gewand / Zu Wien im Freien einher,",
+  "language": [],
+  "musenalm_id": 93003,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Leichenbegleitung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Langenschwarz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Leichenbegleitung",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "syegs0qhblr0o57",
+      "agents": "1n4odlbwwwehc6e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.481Z"
+    }
+  ]
+}

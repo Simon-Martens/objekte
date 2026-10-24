@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 121853, Obj 107)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Pyrrhus der reisige Held, der Römerbesieger, der / zweite / Alexander benannt, weil er als Krieger ihm / glich, – / Weiser war er, als Philipps Sohn, der Perser- / bezwinger",
+  "language": [],
+  "musenalm_id": 121854,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gebet des Pyrrhus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Stahr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Gebet des Pyrrhus",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0ykx70wrfwxni1a",
+      "agents": "bb9z2ffyn7qc15x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.700Z"
+    }
+  ]
+}

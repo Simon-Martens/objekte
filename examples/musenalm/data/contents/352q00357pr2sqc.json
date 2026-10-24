@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung am 1. Blatt der Suite; paginiert 12. (Apostelfigur vom Sebaldusgrab) s. Textbezug INr 27162, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27161,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. Jacobus mayor",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "gez. u. gest. v. Albert Reindel",
+  "scans": [
+    "alm_351_27161_s7ke3c31hd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. Jacobus mayor",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vapuduufm3angii",
+      "agents": "2j4fmhpjuaqhaao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.375Z"
+    },
+    {
+      "id": "82g604y71otovfy",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.375Z"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "annotation": "Photos 42342,01-42342,05",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.508Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42342,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Inhaltsverzeichnis]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_559_42342_01_a4e9eene12.jpg",
+    "alm_559_42342_02_74dkdrog16.jpg",
+    "alm_559_42342_03_cr3mla2hbl.jpg",
+    "alm_559_42342_04_qmum156rn2.jpg",
+    "alm_559_42342_05_5to0pgmt4z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": []
+}

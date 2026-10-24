@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 116217, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Die Sonne verschwand, die Blumen schlossen ihre Kelche und die Lust war ganz von jenen süßen Düften erfüllt, welche die Gewächse aller Art an schönen Sommerabenden aushauchen.",
+  "language": [],
+  "musenalm_id": 116260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Noris. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Josephine von Rémekhazy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Noris. / Erzählung",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tzr3zxhyzcs14kd",
+      "agents": "jc0gro9nxm9tpb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.548Z"
+    }
+  ]
+}

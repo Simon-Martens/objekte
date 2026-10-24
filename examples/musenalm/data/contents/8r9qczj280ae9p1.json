@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.434Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "360",
+  "incipit_statement": "Und fragst du nach der goldnen Zeit / Und nach den goldnen Früchten?",
+  "language": [],
+  "musenalm_id": 53663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die goldne Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die goldne Zeit",
+  "updated": "2007-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uzwh5tc0xfgrson",
+      "agents": "ep2ivkqi4f7w9jh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.700Z"
+    }
+  ]
+}

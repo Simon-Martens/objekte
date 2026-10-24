@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44376, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Es zog ein fahrender Scholar / Des Wegs, da es schon finster war.",
+  "language": [],
+  "musenalm_id": 44413,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der fahrende Schüler. / (Elsäßische Sage.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Otte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der fahrende Schüler. / (Elsäßische Sage.)",
+  "updated": "2006-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2njbl51akm9jbwq",
+      "agents": "mi91o8cgnla64bt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.386Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.386Z"
+    }
+  ]
+}

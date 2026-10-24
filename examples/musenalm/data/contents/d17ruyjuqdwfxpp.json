@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bayern. Franken (Sammlung INr 99331, Obj 237)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "379",
+  "incipit_statement": "Leicht und leise schwebt die Schwalbe über rosenklaren / Gründen, / Lenz und Liebe wie ein Priester allem Volke zu ver- / künden;",
+  "language": [],
+  "musenalm_id": 99386,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 292,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwalbenflug",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwalbenflug",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oaxschjrxmcpul6",
+      "agents": "ozbm86woe020u89",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.973Z"
+    }
+  ]
+}

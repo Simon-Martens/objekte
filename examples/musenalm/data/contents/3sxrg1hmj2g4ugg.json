@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35149, Obj 118)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Des Wächters Ruf verkündet Mitternacht. / Am Friedhofs-Gatter hält ein Jüngling Wacht;",
+  "language": [],
+  "musenalm_id": 35153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Gräber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Gräber",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ats7wpag7bd4txe",
+      "agents": "snnpz92vgxnioxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.691Z"
+    }
+  ]
+}

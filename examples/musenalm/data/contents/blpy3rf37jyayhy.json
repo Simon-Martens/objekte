@@ -1,0 +1,45 @@
+{
+  "annotation": "Ein Beitrag (Sammlung INr 93893, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Als die Trennung sich nahte, da flog davon die Ge- / duld mir, / Mit geflügelter Hast, schneller als Flamme verfliegt.",
+  "language": [],
+  "musenalm_id": 93895,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als die Trennung sich nahte, da flog davon die Ge- / duld mir, / Mit geflügelter Hast, schneller als Flamme verfliegt.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "[übers.] Joseph v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7c2sfsqar93n5my",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.323Z"
+    }
+  ]
+}

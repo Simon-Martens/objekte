@@ -1,0 +1,43 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. Zehnte und letzte Lieferung (Sammlung INr 77261, Obj 5) s. Graphik INr 72274, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Aber ein schönerer Schmuck umgiebt euch die Schürze / des Wärters, / Wenn ihr, Löwen der Schlacht, Söhne des edelsten / Stamms, / Dient an des Kranken Bett,",
+  "language": [],
+  "musenalm_id": 77272,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Johanniter. / Erstes und zweites Blatt. / 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Johanniter. / Erstes und zweites Blatt. / 2.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dmgovlnclqd54ig",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.717Z"
+    }
+  ]
+}

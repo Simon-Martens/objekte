@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. VolksLieder der Franken die historische Wichtigkeit haben (Sammlung INr 9084, Obj 48) Mit einer Musikbeigabe s. INr 16745. Obj 50 /) Beilagen (Sammlung Inr 9080, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "342",
+  "incipit_statement": "Allons enfans de la patrie, / Le jour de gloire est arrivé;",
+  "language": [],
+  "musenalm_id": 9085,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Marche des Marseillais",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rouget de Lille",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Marche des Marseillais",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2s0bcho2rcvh19x",
+      "agents": "6awzqzeuszi4ulr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.428Z"
+    }
+  ]
+}

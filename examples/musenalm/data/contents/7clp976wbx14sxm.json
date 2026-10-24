@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 7. /) Graphik im Kalendarium Juli /) Illustration zu »Die Jäger« von A. W. Iffland. Textbezug INr 70122, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.689Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70108,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach lieber Gott! / III. Aufz. 7. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et fec.",
+  "scans": [
+    "alm_798_70108_jel7pq5jrg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ach lieber Gott! / III. Aufz. 7. Auftr.",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dij8tocwy8t74io",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.248Z"
+    }
+  ]
+}

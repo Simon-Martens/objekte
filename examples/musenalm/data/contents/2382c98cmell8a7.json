@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Elvire oder Der Sieg der Tugend und der Treue« INr 47650, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47651,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ehe sollst du mir das Leben, als mir meine Kin- / der rauben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Rosmaesler sc.",
+  "scans": [
+    "alm_649_47651_ntcxv9ix3c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ehe sollst du mir das Leben, als mir meine Kin- / der rauben",
+  "updated": "2007-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "30w40lnscq04q3u",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.510Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.510Z"
+    }
+  ]
+}

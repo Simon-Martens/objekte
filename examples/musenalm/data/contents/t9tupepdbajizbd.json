@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Tod zur Mutter« von J. J. O. INr 55531, Obj 147",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "334",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Disteli inv. D. Stähli sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Disteli inv. D. Stähli sculp.",
+  "scans": [
+    "alm_748_55532_7il55qndyi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-02-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "buy38jbl8vzsk09",
+      "agents": "yf0tgu146w1t5rh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.613Z"
+    }
+  ]
+}

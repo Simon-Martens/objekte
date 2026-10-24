@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung »Vierzeilige Räthsel« (INr 119996, Obj 21) /) # Pseudonym",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Die Erste im Wirbel für rastlose Seelen, / Die zweite und Dritte der Beste vom / Fach",
+  "language": [],
+  "musenalm_id": 120004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / (Dreisylbig.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / (Dreisylbig.)",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0lzqgcohb3w0oh1",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.662Z"
+    }
+  ]
+}

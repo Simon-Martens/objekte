@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 101500, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Du Ew'ger, den ich glaube, / Deß' Athem mich umweht, / Vernimm, was hier im Staube / Mein Mund von dir erfleht.",
+  "language": [],
+  "musenalm_id": 101501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Gebet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Waldow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Gebet",
+  "updated": "2013-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kdj5twhquwr5q76",
+      "agents": "nicecucaceak00n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.898Z"
+    }
+  ]
+}

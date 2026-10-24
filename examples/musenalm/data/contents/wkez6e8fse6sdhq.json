@@ -1,0 +1,58 @@
+{
+  "annotation": "s. vorstehenden Beitrag INr 80783, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80784,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Adolf Ritter von Tschabuschnigg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Stohl del. C. Kotterba sc.",
+  "scans": [
+    "alm_1799_80784_apy0plyct0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Adolf Ritter von Tschabuschnigg",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "unnzyykd70sc2cu",
+      "agents": "kqxhgybkrhi7uvo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.915Z"
+    },
+    {
+      "id": "0jtdefskwri2j6v",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.916Z"
+    }
+  ]
+}

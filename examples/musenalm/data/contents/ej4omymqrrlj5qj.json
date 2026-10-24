@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus Italien (Sammlung INr 99087, Obj 113)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "An der Veste Wall und Warten, / Die dich zügeln soll, Florenz, / Lehnt sich deines Fürsten Garten,",
+  "language": [],
+  "musenalm_id": 99093,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fort Belvedere",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fort Belvedere",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9a4zb7khl4cp7dk",
+      "agents": "7s5akx33j2gpr6y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.996Z"
+    }
+  ]
+}

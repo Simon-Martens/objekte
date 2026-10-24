@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Immer noch in trüber Schwermuth Schleier / Eingehüllt dein Aug' und thränennaß?",
+  "language": [],
+  "musenalm_id": 37536,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / An Emma",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. M. Dambeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / An Emma",
+  "updated": "2010-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zc7k1w72lh29f1q",
+      "agents": "ipn2nvswkmowzx4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.734Z"
+    }
+  ]
+}

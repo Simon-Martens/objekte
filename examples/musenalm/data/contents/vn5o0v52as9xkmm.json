@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Fabeln (INr 93540, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.187Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "Vom rauhen Nord umbrüllt, / Verschleyert und verhüllt / Ins Winterkleid der Flocken, / Lag ringsum Hain und Flur,",
+  "language": [],
+  "musenalm_id": 93541,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der vorschnelle Tausch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Dambeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der vorschnelle Tausch",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gn31pilccqe9f8k",
+      "agents": "ipn2nvswkmowzx4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.361Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.361Z"
+    }
+  ]
+}

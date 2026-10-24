@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.518Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48289,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauenzimmer / ALMANACH / zum / Nutzen und Vergnügen. / für das Jahr / 1813. / Leipzig / bey Adam Friedrich Böhme",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martin sc.",
+  "scans": [
+    "alm_658_48289_mb9knlghxa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauenzimmer / ALMANACH / zum / Nutzen und Vergnügen. / für das Jahr / 1813. / Leipzig / bey Adam Friedrich Böhme",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7lp3wgbrgiuqzhr",
+      "agents": "u3ev7bjxvo21hzz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.645Z"
+    }
+  ]
+}

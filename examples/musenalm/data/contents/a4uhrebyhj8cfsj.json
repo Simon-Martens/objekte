@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait. Illustration zu »Aus meinem Leben« von Heinrich von Cotta INr 68634, obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68628,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HEINR. COTTA, / Königl. Sächs. Oberforstrath, der Königl. Forst- / Academie und Forstvermessung Director, des / Königl. Sächs. Civil-Verdienst-Ordens Ritter / etcet.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Thomé del. 1818 G. Boettger sen. sc.",
+  "scans": [
+    "alm_1148_68628_s8trky2gvt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HEINR. COTTA, / Königl. Sächs. Oberforstrath, der Königl. Forst- / Academie und Forstvermessung Director, des / Königl. Sächs. Civil-Verdienst-Ordens Ritter / etcet.",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yc4cyq5kh3x8e5c",
+      "agents": "tokiblut079372q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.591Z"
+    },
+    {
+      "id": "7a3ahc8vhy9pnkt",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.591Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Schlaf ein! Sonettenkranz (Sammlung INr 77665, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.711Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "364",
+  "incipit_statement": "Schlaf ein, schlaf ein! - Kennst Du die Liedesweise, / Die in den ersten Schlummer Dich gewieget?",
+  "language": [],
+  "musenalm_id": 77667,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Der Mutter Wiegenlieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Der Mutter Wiegenlieder",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2hodt4chy5eue9z",
+      "agents": "mkd957rgkmp3pvz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.818Z"
+    }
+  ]
+}

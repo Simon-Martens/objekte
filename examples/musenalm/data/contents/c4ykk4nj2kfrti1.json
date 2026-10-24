@@ -1,0 +1,46 @@
+{
+  "annotation": "nummeriert 12; s. Textbezug INr 124969, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.188Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124957,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schandau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther del. et f.",
+  "scans": [
+    "alm_3698_124957_59ypopsq94.jpg",
+    "alm_4626_124957_crk7j8cl84.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schandau",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i4shcevj9py6gc5",
+      "agents": "k3qfb3024y59h2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.866Z"
+    }
+  ]
+}

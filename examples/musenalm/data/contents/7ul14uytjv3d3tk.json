@@ -1,0 +1,56 @@
+{
+  "annotation": "über der Graphik: S. 7. s. Textbezug (Gedicht) INr 131377, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131667,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (gez. v. Holbein gest. v. Auguste Hüssener)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Holbein gest. v. Auguste Hüssener",
+  "scans": [
+    "alm_4824_131667_7fzyhe7mr4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2022-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sj276gkq6bi85n2",
+      "agents": "szo3356ebdd17zv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.035Z"
+    },
+    {
+      "id": "37ievt6fdvuz8wj",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.035Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.035Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 7. /) Graphik im Kalendarium Oktober /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75867,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coligni's Kopf wird der Koenigin / Catherine gebracht. / Catherine réçoit la tète de Coligni",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del & sc.",
+  "scans": [
+    "alm_835_75867_pd3h4cae1h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coligni's Kopf wird der Koenigin / Catherine gebracht. / Catherine réçoit la tète de Coligni",
+  "updated": "2008-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d5pjd41mycp9263",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.664Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.664Z"
+    }
+  ]
+}

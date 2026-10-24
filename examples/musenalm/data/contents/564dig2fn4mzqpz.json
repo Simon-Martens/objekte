@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 131770, Obj 26 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131756, 131757; Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.291Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Einst ward ein Rebhuhn an- / geschossen, / Gehascht, in einen Hof geschlos- / sen,",
+  "language": [],
+  "musenalm_id": 131769,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Das Rebhuhn und die / Hähne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Das Rebhuhn und die / Hähne",
+  "updated": "2018-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "90ok6xriypap0o4",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.039Z"
+    }
+  ]
+}

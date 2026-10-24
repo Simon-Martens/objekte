@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Es war in Wien, nicht im neuen, sondern in dem ältern zum Theil noch mit den verschollenen Giebeldächern und dem südlich geschwätzigen Treiben vor den Hausthoren,",
+  "language": [],
+  "musenalm_id": 86574,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das böse Auge. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Alphons Hamböck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das böse Auge. / Novelle",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "flkwokunor44h6l",
+      "agents": "690p6l7d7zmbgvd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.283Z"
+    }
+  ]
+}

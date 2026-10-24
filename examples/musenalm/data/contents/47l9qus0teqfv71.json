@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Die meisten spanischen Festungen waren gefallen und die combinirten Heere nach Portugal zurückgedrängt,",
+  "language": [],
+  "musenalm_id": 27715,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schweizer in Valencia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Weichselbaumer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schweizer in Valencia",
+  "updated": "2002-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "utwb0wpf6abghld",
+      "agents": "youdizb7xdzn3qv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.210Z"
+    }
+  ]
+}

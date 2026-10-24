@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.352Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Endlich hab' ich würklich Dich gesehen, / Hohe Göttin der Erinnerung,",
+  "language": [],
+  "musenalm_id": 20645,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phantasie. / Zu dem Bilde der Erinnerung in dem Cabinet / der Frau Herzogin Dorothea von Curland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ulr. Frhrr. v. Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Phantasie. / Zu dem Bilde der Erinnerung in dem Cabinet / der Frau Herzogin Dorothea von Curland",
+  "updated": "2002-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "snqenxq55ev6350",
+      "agents": "e47w01a11l8gujn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.091Z"
+    }
+  ]
+}

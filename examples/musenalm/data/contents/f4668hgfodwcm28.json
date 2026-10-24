@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Poetische Kleinigkeiten (INr 125235, Obj 89)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.387Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "354",
+  "incipit_statement": "Ein Dorfpfarrer vom beredten Munde - / Sein Küster schalt ihn gar den zweyten Cicero,",
+  "language": [],
+  "musenalm_id": 125255,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der unbewegliche Bauer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dambeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der unbewegliche Bauer",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ojmavgqj64nfcxg",
+      "agents": "ipn2nvswkmowzx4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.877Z"
+    }
+  ]
+}

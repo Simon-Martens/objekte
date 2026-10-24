@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Ich liebe dich« INr 36387, Obj 48 durch den Verfasser (Photos 36428,01; 36428,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36428,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 3. Ich liebe dich!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lyser",
+  "scans": [
+    "alm_492_36428_01_532wg5uyad.jpg",
+    "alm_492_36428_02_6fn7mx3sc9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "No. 3. Ich liebe dich!",
+  "updated": "2003-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sls3aaa9z34dqz9",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.759Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.759Z"
+    }
+  ]
+}

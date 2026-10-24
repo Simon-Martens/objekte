@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 99069, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Daß Fremden er sein Land verbot, / That Recht der Fürst; Gefahr ja droht,",
+  "language": [],
+  "musenalm_id": 99077,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Ländchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. X. Schurz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Ländchen",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "19yz95vs3r9n52m",
+      "agents": "m6v439nrgynzyi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.934Z"
+    }
+  ]
+}

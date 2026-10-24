@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.109Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Die Franken, sie flieh'n aus der blutigen Schlacht - / Welch Schreckniß hat Helden zu Memmen gemacht.",
+  "language": [],
+  "musenalm_id": 46197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der Sporenschlacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "George Hesekiel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus der Sporenschlacht",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v91apbwktp237v0",
+      "agents": "v3swaugl78suots",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.162Z"
+    }
+  ]
+}

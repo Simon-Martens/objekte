@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 99069, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.880Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Kaum trat ich aus der Festung Thor / Ins freie Reich der Flur hervor; / So lachte schon im Rosenlicht / Die Sonne mir ins Angesicht;",
+  "language": [],
+  "musenalm_id": 99070,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgenlust",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. X. Schurz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Morgenlust",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8qz45mx94yxlza3",
+      "agents": "m6v439nrgynzyi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.933Z"
+    }
+  ]
+}

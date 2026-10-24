@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Zauberflöte« von W. A. Mozart s.a. Textbezug INr 75093, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75097,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE ZAUBERFLÖTE. / I. Act / Königin d. Nacht. Ich bin zu Gram und Leid erkohren, / Man raubte meine Tochter mir.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_2369_75097_c53kvkuiuj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE ZAUBERFLÖTE. / I. Act / Königin d. Nacht. Ich bin zu Gram und Leid erkohren, / Man raubte meine Tochter mir.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r0x7412qq3ucjc4",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.652Z"
+    },
+    {
+      "id": "9t10w2dmf9dm3b9",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.652Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5) Es folgen: 8 »Schilderungen« und 12 Gedichte »in freier Übersetzung« INr 91483-91502, Obj 7-26 /) mit einer Illustration s. Titelgraphik INr 91478, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Vater der Götter und Menschen, wie ihn die Alten sich als den Beherrscher des Himmels dachten, ist auf einer alten Gemme abgebildet aus seinem Thron sitzend,",
+  "language": [],
+  "musenalm_id": 91482,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jupiter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jupiter",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k5gg3jp9vwo47jk",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.393Z"
+    }
+  ]
+}

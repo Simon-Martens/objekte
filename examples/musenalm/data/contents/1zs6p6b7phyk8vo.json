@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August /) Illustration zu »Echte Freygebigkeit« von J. G. Seidl INr 89567, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.309Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89544,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Echte Freygebigkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. del. A. D. sc.",
+  "scans": [
+    "alm_3354_89544_kiu45t0oxn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Echte Freygebigkeit",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "60zg5mi4plyk96v",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.118Z"
+    },
+    {
+      "id": "xw0qdx1jzafpm6l",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.118Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.118Z"
+    }
+  ]
+}

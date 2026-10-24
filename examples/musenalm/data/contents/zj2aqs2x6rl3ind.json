@@ -1,0 +1,43 @@
+{
+  "annotation": "<div>Gedichte (Sammlung INr 140198)</div>",
+  "content_type": [],
+  "created": "2026-07-15T08:38:05.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Ich kannt' ihn nicht, ich sucht' ihn nicht, / Er war meines Vaters Gast,",
+  "language": [],
+  "musenalm_id": 140199,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Der Treulose. / Romanze. / (Nach Thomas Haynes Bayly.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Der Treulose. / Romanze. / (Nach Thomas Haynes Bayly.)",
+  "updated": "2026-07-15T11:00:50.417Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "7pt0ny6e8x35zuk",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-07-15T08:42:55.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-07-15T10:16:14.015Z"
+    }
+  ]
+}

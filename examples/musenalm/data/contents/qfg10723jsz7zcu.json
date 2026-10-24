@@ -1,0 +1,67 @@
+{
+  "annotation": "# vollst. Bez. und Titel aus dem G-Verz s. Textbezug INr 59397, Ob 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59371,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blücher #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rauch # Lüderitz del. et sculp L. Buchhorn dir.",
+  "scans": [
+    "alm_894_59371_fhfrrn3rh3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Blücher #",
+  "updated": "2008-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "elv9jgmw335koeo",
+      "agents": "fep8fdjaqu5b315",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.875Z"
+    },
+    {
+      "id": "9b9g8jn5l1exaak",
+      "agents": "nsczq7pz19u52r3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.875Z"
+    },
+    {
+      "id": "7jsr8ygscvyi9iv",
+      "agents": "z3xj5kkwhch6rva",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.875Z"
+    }
+  ]
+}

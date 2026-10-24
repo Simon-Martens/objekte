@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 76447, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.152Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Seit vierzehn Tagen schon hatte die Frau Amtsverwalterin in Altendorf Vorbereitungen zum Empfang ihrer Töchter getroffen.",
+  "language": [],
+  "musenalm_id": 76473,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Lottchen, / oder / die moderne Bildung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. D. Schmietgen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Lottchen, / oder / die moderne Bildung",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bhyqy9wx3dapmwj",
+      "agents": "b6kcmfff33vx9hs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.909Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Gedichte (Sammlung INr 32161, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Blicke zum Himmel! Wenn Träume verblühen, / Winde vom frevelnden Grame dich los,",
+  "language": [],
+  "musenalm_id": 32168,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Gubitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trost",
+  "updated": "2003-02-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9mujyrm1ucc3vjw",
+      "agents": "5riql8l2fq0wx5f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.674Z"
+    }
+  ]
+}

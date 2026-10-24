@@ -1,0 +1,58 @@
+{
+  "annotation": "kol. Uniformkupfer;  # vollst. Bez. s. Textbezug INr 65786, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65787,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ein Kosak",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki. # D. Berger sculp.",
+  "scans": [
+    "alm_1105_65787_j4553b618w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ein Kosak",
+  "updated": "2009-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2cjjpqb3cddts7z",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.182Z"
+    },
+    {
+      "id": "effnipqyr5omvkx",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.182Z"
+    }
+  ]
+}

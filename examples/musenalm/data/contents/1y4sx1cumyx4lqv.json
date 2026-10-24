@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert XVI. /) »National Schauspiel« (Sammlung INr 48135, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48151,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria Anna Gottlieb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48151_t9ob4efiue.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maria Anna Gottlieb",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dtwi05li9yidwu9",
+      "agents": "theiyy8sya8no7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.697Z"
+    }
+  ]
+}

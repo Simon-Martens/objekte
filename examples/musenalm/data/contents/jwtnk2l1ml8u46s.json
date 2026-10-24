@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Ich lieb' ein freyes Leben, / Der Menschheit höchstes Gut,",
+  "language": [],
+  "musenalm_id": 31244,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der edle Mann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Benedikt von Wagenmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der edle Mann",
+  "updated": "2003-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a2b0qzyvdphtucj",
+      "agents": "8sb3uethzl0myha",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.499Z"
+    }
+  ]
+}

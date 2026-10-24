@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten V. /) 5. Illustration zu »Die Bürgschaft« von Schiller INr 76034, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77038,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bürgschaft von Schiller. 5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmäsler sc.",
+  "scans": [
+    "alm_2396_77038_w4tksgcbe5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Bürgschaft von Schiller. 5.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y19ph88l9vb8mct",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.739Z"
+    }
+  ]
+}

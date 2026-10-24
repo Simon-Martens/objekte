@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69461,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Canton Bern / Nördlicher Theil",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. u. gest. v. J. Scheurmann",
+  "scans": [
+    "alm_721_69461_3e3n354tke.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der / Canton Bern / Nördlicher Theil",
+  "updated": "2007-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zimsaudcruy96gz",
+      "agents": "9ql0nfn99kgr5a3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.436Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.436Z"
+    }
+  ]
+}

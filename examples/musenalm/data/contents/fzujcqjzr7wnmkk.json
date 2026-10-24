@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Theologische Facultät römisch-katholischer Confession (Sammlung INr 71429, Obj 47) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "in die bewegten Kreise des Lebens ein. Bis dahin hatten die Anstalten, in deren Schooße er zum Priester gebildet werden sollte, für seinen Unterhalt gesorgt;",
+  "language": [],
+  "musenalm_id": 71431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[…und tritt der junge Mann als] Kaplan",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav v. Struve",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[…und tritt der junge Mann als] Kaplan",
+  "updated": "2010-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a7d5e5ihj1rk3bs",
+      "agents": "qwibej56fq45fjs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.511Z"
+    }
+  ]
+}

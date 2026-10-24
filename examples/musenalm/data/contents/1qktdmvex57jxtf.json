@@ -1,0 +1,56 @@
+{
+  "annotation": "Lieder von Rigas (Sammlung INr 131892, Obj 33) englische Übersetzung der hier nicht dargestellten griechischen Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Sparta, Sparta, why in slumbers / Lethargie dost thou lie? / Awake, and join thy numbers / With Athens old ally!",
+  "language": [],
+  "musenalm_id": 131895,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rigas [übers.:] Byron",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2013-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gol2ek77nc7vy28",
+      "agents": "m46r0k8xyml7u8e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.042Z"
+    },
+    {
+      "id": "71ox54l8krbo74g",
+      "agents": "z2vp1av7e4ucapr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.042Z"
+    }
+  ]
+}

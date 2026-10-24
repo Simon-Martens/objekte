@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40098, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "367",
+  "incipit_statement": "1776. In die alten Formen können wir nicht zurück, und dürfen wir auch nicht streben,",
+  "language": [],
+  "musenalm_id": 40159,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1776. In die alten Formen können wir nicht zurück, und dürfen wir auch nicht streben,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "loe7k6i6ihbnuho",
+      "agents": "02o1v7ogp6q644r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.871Z"
+    }
+  ]
+}

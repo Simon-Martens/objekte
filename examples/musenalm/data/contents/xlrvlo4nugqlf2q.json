@@ -1,0 +1,45 @@
+{
+  "annotation": "Promemoria (Sammlung INr 60611, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Wo um das Weib der Mode die Menge sich sam- / melt und buhlet,",
+  "language": [],
+  "musenalm_id": 60626,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "15.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "ROBERT",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "15.",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dv78nnmaf8dyz3x",
+      "agents": "shwrrrsohbx2ih5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.939Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.939Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29410, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.464Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Brust erhebt ein neues Leben / Beim Anblick frischer Blumenpracht;",
+  "language": [],
+  "musenalm_id": 29409,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. Brautschmuck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. Brautschmuck",
+  "updated": "2002-10-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "po7ni6srd4vatyj",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.272Z"
+    }
+  ]
+}

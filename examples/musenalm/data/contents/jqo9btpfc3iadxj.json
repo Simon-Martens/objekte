@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.357Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96047,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Curt Chistofle / Comte de Schwerin Feld- / Marechal-Gener. au S. de Pr. / Cette Statue est sur la Place de Guillaume à Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Berger sc.",
+  "scans": [
+    "alm_3974_96047_q1k8sh4i7o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Curt Chistofle / Comte de Schwerin Feld- / Marechal-Gener. au S. de Pr. / Cette Statue est sur la Place de Guillaume à Berlin",
+  "updated": "2013-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "21xxcgq7ho96ogm",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.685Z"
+    }
+  ]
+}

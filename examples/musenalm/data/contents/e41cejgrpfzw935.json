@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Nothburga« von F. A. E. Langbein INr 29780, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29781,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus Notburga, eine Romanze / von A. F. E. Langbein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_385_29781_u377qzxyaw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus Notburga, eine Romanze / von A. F. E. Langbein",
+  "updated": "2002-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dbdr9mpuxodstao",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.474Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.474Z"
+    },
+    {
+      "id": "927m8dhbpkfuzz2",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.474Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.474Z"
+    }
+  ]
+}

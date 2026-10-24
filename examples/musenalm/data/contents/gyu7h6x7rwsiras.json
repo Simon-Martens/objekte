@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 26648, Obj 72)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "Seht ihr die Pariserin dort von Vierzig schöner geworden, / Seit sie den Anspruch ließ, immer die Hübsche zu sein.",
+  "language": [],
+  "musenalm_id": 26651,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schöne und die Hübsche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schöne und die Hübsche",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qkt1mpudtpu50ah",
+      "agents": "v5ht3d6rw3do6ml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.175Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Sey willkommen, o holde Fürstentochter, / Hier in Albion! Sieh! Schon folgt der Sieg dir!",
+  "language": [],
+  "musenalm_id": 4074,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als die Prinzessinn von Wales in / England ankam. / (Aus dem Englischen.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dt.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als die Prinzessinn von Wales in / England ankam. / (Aus dem Englischen.)",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "20cyq1c5yz18gso",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.021Z"
+    }
+  ]
+}

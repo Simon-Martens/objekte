@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Byron möchte' ich Dich nennen, Du Übergewaltiger, machtvoll / Fährts Du im Sturme dahin, selber vom Sturme ein Stück!",
+  "language": [],
+  "musenalm_id": 57664,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lißt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lißt",
+  "updated": "2008-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5ddfmua2h4ozyli",
+      "agents": "id1mj19iathigp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.635Z"
+    }
+  ]
+}

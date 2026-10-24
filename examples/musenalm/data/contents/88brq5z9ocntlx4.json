@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) Illustration zu »Willhem V. der Beständige, Landgraf von Hessen-Kassel« von Justi INr 97990, Obj 13 /) s.a. Textbezug INr 97983, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.040Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97979,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WILHELM V. DER BESTÄNDIGE / Landgraf von Hessen Kassel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach P. Kilian C. Westermayr s.",
+  "scans": [
+    "alm_3502_97979_m2pqglwj1j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WILHELM V. DER BESTÄNDIGE / Landgraf von Hessen Kassel",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iga03bzn04x12tr",
+      "agents": "oirnh5z4wd3zal8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.640Z"
+    },
+    {
+      "id": "y7d6mn7q8kpw6nz",
+      "agents": "2d34emvmf13qf3h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.640Z"
+    }
+  ]
+}

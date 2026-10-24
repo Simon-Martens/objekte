@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden, Räthsel, Logogriphen etc (Sammlung INr 91998, Obj 143)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Man trift mich zwar in jedem Haus, / Doch immer seh' ich anders aus.",
+  "language": [],
+  "musenalm_id": 92005,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. W. Schießler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Räthsel",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wunsqxjcrv4z1o9",
+      "agents": "eips0ml7kk6xorw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.540Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25388, Obj 159)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Im Fliederbusch ein Vöglein saß / In der stillen schönen Maiennacht,",
+  "language": [],
+  "musenalm_id": 25391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 162,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Zwiegesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. Reinick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Zwiegesang",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5lrzro5t971de90",
+      "agents": "d5l254jtrkm9aci",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.256Z"
+    }
+  ]
+}

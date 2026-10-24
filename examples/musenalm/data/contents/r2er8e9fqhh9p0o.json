@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 11901, Obj 20) mit 2 Illustrationen s. Graphiken in: Taschenbuch zum geselligen Vergnügen 1804 INr 12056, 12057",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Der Graf von Dammartin war mit dem Pferde gestürzt, und gab nach wenigen Tagen seinen Geist auf.",
+  "language": [],
+  "musenalm_id": 11902,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Das Blümchen der Treue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Das Blümchen der Treue",
+  "updated": "2001-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "txmlpgvcdx15f7x",
+      "agents": "n7zgo9f1gh6x37x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.532Z"
+    }
+  ]
+}

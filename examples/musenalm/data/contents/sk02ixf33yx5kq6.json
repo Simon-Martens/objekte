@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "346",
+  "incipit_statement": "Müd' ist mein Auge; doch noch immer lärmen / Vor meinem Ohre wüste Lebensklänge,",
+  "language": [],
+  "musenalm_id": 46665,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 208,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Schlaf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Friedrich von Schack",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Schlaf",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gabvb9wvu4quvrk",
+      "agents": "4irsdlf9sfhpmc0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.435Z"
+    }
+  ]
+}

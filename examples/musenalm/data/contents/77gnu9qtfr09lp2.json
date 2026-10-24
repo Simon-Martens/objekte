@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert II. s. G-Verz INr 43220, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.183Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43206,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cleopatra",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guido Canlassi del. L. Schnell sc.",
+  "scans": [
+    "alm_566_43206_shgzy6qhfk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cleopatra",
+  "updated": "2006-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t4rbdh7q92bi38j",
+      "agents": "6bai8qnlgdscfy7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.380Z"
+    },
+    {
+      "id": "3ef7pnpmt3qnfwz",
+      "agents": "vbyfdjf3wft42hq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.380Z"
+    }
+  ]
+}

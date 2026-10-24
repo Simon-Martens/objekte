@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbst (Sammlung INr 23373, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Ich wollte neulich meinen Nachbar Mykon besuchen, um mit ihm etwas wegen unserer Abreise zur Stadt zu verabreden,",
+  "language": [],
+  "musenalm_id": 23376,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mykons Selbstgespräch / Infere Daphne pitos, carpent tua poma nepotes. / Virg. / Pfropfe, Daphnis, deine Bäume, deine Enkel werden sich deines Obstes freuen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlosser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mykons Selbstgespräch / Infere Daphne pitos, carpent tua poma nepotes. / Virg. / Pfropfe, Daphnis, deine Bäume, deine Enkel werden sich deines Obstes freuen",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ct840n29mzl5z3x",
+      "agents": "duknmoonx2qc6nr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.047Z"
+    }
+  ]
+}

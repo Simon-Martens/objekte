@@ -1,0 +1,36 @@
+{
+  "annotation": "Vertonung des Gedichts von Pfeffel INr 101110, Obj 49 /) Photos 101212,01-101212,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.972Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Singt, Brüder, beim spazierengehn",
+  "language": [],
+  "musenalm_id": 101212,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "N. 52.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baumbach",
+  "scans": [
+    "alm_1824_101212_01_iun7h73yzz.jpg",
+    "alm_1824_101212_02_1xm9nixfww.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "N. 52.",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": []
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Trinklied« von W. Wackernagel INr 54805, Obj 118",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54815,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied / von W. Wackernagel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theod. Fröhlich",
+  "scans": [
+    "alm_744_54815_0ph6lc7q67.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied / von W. Wackernagel",
+  "updated": "2008-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ppjfc1sci274u8b",
+      "agents": "2zdwvvsdgu1m59h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.900Z"
+    }
+  ]
+}

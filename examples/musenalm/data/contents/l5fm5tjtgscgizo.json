@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 11901, Obj 20) mit 2 Illustrationen s. Graphiken in: Taschenbuch zum geselligen Vergnügen 1803 INr 12060, 12061",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.800Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Fakir, der Sohn Abdulla, durchreiste ganz Asien, um Bemerkungen zu machen,",
+  "language": [],
+  "musenalm_id": 11906,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Liamande. / Ein Märchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Mahlmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Liamande. / Ein Märchen",
+  "updated": "2001-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ogs0hukx2qlb5e3",
+      "agents": "5uss88okhpw2gvm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.532Z"
+    }
+  ]
+}

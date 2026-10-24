@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 276 /) Illustration zu »Scenen aus der Familie Ehrenberg. Charlotte Benndorf» INr 73754, Obj 62",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.548Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73755,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beruhige dich! Das hat Gott gethan",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1799",
+  "scans": [
+    "alm_645_73755_pmmhl64bpq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Beruhige dich! Das hat Gott gethan",
+  "updated": "2007-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8op68t99alt974s",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.808Z"
+    },
+    {
+      "id": "3kdnetsy1qj1rej",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.808Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.808Z"
+    }
+  ]
+}

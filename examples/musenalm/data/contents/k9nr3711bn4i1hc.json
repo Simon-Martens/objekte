@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei kol. Illustrationen (INr 125870, 125871, Obj 10, 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Trabanten herein! / Die Königin ist umgekleidet und wird alsbald sich zeigen.",
+  "language": [],
+  "musenalm_id": 125869,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Christine von Schweden. / Drama in drei Aufzügen, / nach van der Velde, / von W. Vogel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "van der Welde [bearb.] W. Vogel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Christine von Schweden. / Drama in drei Aufzügen, / nach van der Velde, / von W. Vogel",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i9ir4blec0y27c6",
+      "agents": "ivka1dwr2c2vp86",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.784Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.784Z"
+    }
+  ]
+}

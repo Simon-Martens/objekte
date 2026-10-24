@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Tändeleien (Sammlung INr 29047, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.741Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "255",
+  "incipit_statement": "Euch lohnt ein Kranz, den euch die Muse wand, / Ein größ'rer Lohn, als Stern und Ordensband",
+  "language": [],
+  "musenalm_id": 29050,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Das Dilletanten-Concert zum Besten der Armen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bramigk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Das Dilletanten-Concert zum Besten der Armen",
+  "updated": "2002-10-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e8hus89c2hx78sp",
+      "agents": "9kyh61jrfw5dhw4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.016Z"
+    }
+  ]
+}

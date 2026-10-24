@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.306Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58376,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIEDRICH HEINRICH LUDEWIG / Printz von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reclam del. Berger sc.",
+  "scans": [
+    "alm_789_58376_0yo9c1j8ko.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIEDRICH HEINRICH LUDEWIG / Printz von Preussen",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ad0s2t590nl5ufq",
+      "agents": "yo6pcldjjp78ua8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.721Z"
+    },
+    {
+      "id": "br88lyl442pes4w",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.721Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "4. Umgebungen Roms (Sammlung INr 77319, Obj 34) Skizzen aus Italien (Sammlung INr 77307, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Freude gewährt Dir die Ehre des weiten unendlichen / Meeres,",
+  "language": [],
+  "musenalm_id": 77334,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fiumiccino",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fiumiccino",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8wz7vzp0qjnqo8j",
+      "agents": "6li7ibbf1vr3nv9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.516Z"
+    }
+  ]
+}

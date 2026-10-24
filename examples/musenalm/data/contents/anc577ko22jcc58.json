@@ -1,0 +1,56 @@
+{
+  "annotation": "graph.-typogarph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64663,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NEUE THALIA / Wien. / 1870. / MORITZ PERLES / Buch- und Kunstthandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl del. A. Dworak sc.",
+  "scans": [
+    "alm_1080_64663_23tm5x5kef.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NEUE THALIA / Wien. / 1870. / MORITZ PERLES / Buch- und Kunstthandlung",
+  "updated": "2009-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1870,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a1wl3yctgbi15xe",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.337Z"
+    },
+    {
+      "id": "0hvzsd8dmaxazbi",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.337Z"
+    }
+  ]
+}

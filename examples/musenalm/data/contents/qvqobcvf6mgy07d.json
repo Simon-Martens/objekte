@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70606,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Benevent. Gieb her die Krone, nimm das Geld! / Marschall. Nein! Diese nimm und end' als Held. / Der Corse. Weg mit dem Tod! ich greif' um's Geld!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmäsler jun sculp.",
+  "scans": [
+    "alm_2975_70606_qs159n7y92.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Benevent. Gieb her die Krone, nimm das Geld! / Marschall. Nein! Diese nimm und end' als Held. / Der Corse. Weg mit dem Tod! ich greif' um's Geld!",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u4ok4l12plyhiio",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.430Z"
+    }
+  ]
+}

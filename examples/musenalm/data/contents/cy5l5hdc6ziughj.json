@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "366",
+  "incipit_statement": "Groß ist Allah auf der Erde, / Größer dort im Paradies / Wo ich nun ihn schauen werde,",
+  "language": [],
+  "musenalm_id": 45886,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 293,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maurische Erbtheilung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Friedrich Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maurische Erbtheilung",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rk8t90j3dk57zvn",
+      "agents": "9kqncyvdpl96r3o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.513Z"
+    }
+  ]
+}

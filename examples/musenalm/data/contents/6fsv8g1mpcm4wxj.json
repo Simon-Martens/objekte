@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 7. Graphik im Kalendarium Mai /) Illustration zu »Die beiden Hauptleute« von Fouqué s. Textbezug INr 69002, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68983,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zurück, ihr Plünderer, oder / mein Dolch -",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. Meno Haas sc.",
+  "scans": [
+    "alm_851_68983_0b0albf2y1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zurück, ihr Plünderer, oder / mein Dolch -",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "levu8wnuclh4vsa",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.964Z"
+    },
+    {
+      "id": "zvce4mf5x5f4gz8",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.964Z"
+    }
+  ]
+}

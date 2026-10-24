@@ -1,0 +1,45 @@
+{
+  "annotation": "Scherz und Ernst in Sonetten (Sammlung INr 54643, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.583Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Der Frühling ist gekommen, hört' ich sagen; / und überall, wohin sein Fuß nur schreitet, / ist wieder allen Wesen Lust bereitet.",
+  "language": [],
+  "musenalm_id": 54657,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV. Der Frühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Schnyder von Wartensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV. Der Frühling",
+  "updated": "2008-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pq0bhds2drj1y1a",
+      "agents": "qn8g13ehspgkph8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.881Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.881Z"
+    }
+  ]
+}

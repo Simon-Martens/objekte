@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Sey mir nach langem Entbehren gegrüsst / o heilige Meerfluth",
+  "language": [],
+  "musenalm_id": 1263,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Terracina. / an Louise Fürstin von Dessau und Matthisson",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "FRIDERIKE BRUN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Terracina. / an Louise Fürstin von Dessau und Matthisson",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kw3zd858lshs2mm",
+      "agents": "38esu046kftupf5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.687Z"
+    }
+  ]
+}

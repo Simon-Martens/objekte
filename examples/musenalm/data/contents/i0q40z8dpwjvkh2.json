@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 131710, Obj 18) Übersetzung des nachstehenden franz. Gedichts INr 131719 , Obj 26 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131704, 131705; Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "So viel es möglich ist, muß man dem Nächsten dienen; / Oft kann ein Kleiner uns von / großem Nutzen seyn,",
+  "language": [],
+  "musenalm_id": 131717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Der Löwe und die Ratte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Der Löwe und die Ratte",
+  "updated": "2022-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qcdbqk3ogv4vyj9",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.038Z"
+    }
+  ]
+}

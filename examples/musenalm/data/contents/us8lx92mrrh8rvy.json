@@ -1,0 +1,47 @@
+{
+  "annotation": "Münze recto verso; Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68535, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68540,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (D. Berger sculps. 1783)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Berger sculps. 1783",
+  "scans": [
+    "alm_925_68540_3i0ycjsjcd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s2kpj3ckawu633o",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.247Z"
+    }
+  ]
+}

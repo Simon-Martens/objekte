@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Du, die erblüht in Prachtgeländen, / Die Sprache der Natur verstand, / Empfang aus deines Freundes Händen / Ein Sträuschen, wie das Herz es band!",
+  "language": [],
+  "musenalm_id": 84526,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 348,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Sträuschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß d. ä.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Sträuschen",
+  "updated": "2010-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0d7yk0dnjyknpe7",
+      "agents": "kq69ntdbn8wcwoq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.986Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Ächte Bischof« von Baggesen INr 6629, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6630,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER ÄCHTE BISCHOF",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz.",
+  "scans": [
+    "alm_129_6630_im0xuin6hr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER ÄCHTE BISCHOF",
+  "updated": "2000-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s93pvu366fiao58",
+      "agents": "oqecb466dne8cni",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.261Z"
+    }
+  ]
+}

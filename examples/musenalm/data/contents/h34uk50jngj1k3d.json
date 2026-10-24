@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Schicksalentscheidend über Tod und Leben / War deines neunten Jahres letzter Tag,",
+  "language": [],
+  "musenalm_id": 94102,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die Wiedergenesung / meiner Tochter Isabella an ihrem / zehnten Geburtstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. von Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die Wiedergenesung / meiner Tochter Isabella an ihrem / zehnten Geburtstage",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "exk94xbii1mmqxq",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.470Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.470Z"
+    }
+  ]
+}

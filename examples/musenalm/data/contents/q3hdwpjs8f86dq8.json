@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 29 Gedichten INr 100609-100637, Obj 272-300 /) Fortsetzung aus: Musenalmanach, Deutscher (Schad) 1857, alm-2304; INr 100308-100321",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.040Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "375",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100608,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 271,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Aus dem Klingenwald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Aus dem Klingenwald",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dqy0toqwog2neug",
+      "agents": "ozbm86woe020u89",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.947Z"
+    }
+  ]
+}

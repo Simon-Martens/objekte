@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86477, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86478,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In der Laube",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Theer inv. I. Krepp sc.",
+  "scans": [
+    "alm_1601_86478_qzv4q2ckpt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "In der Laube",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fmx9ybdyqg6iiet",
+      "agents": "512hnx3l2hp6y3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.224Z"
+    },
+    {
+      "id": "e830vmhycnitix3",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.224Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Anecdoten (Sammlung INr 69658, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.635Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Ein gewisser vornehmer Rechtsgelehrter, klein von Statur, wie weiland Zachäus, winzigen Angedenkens, fühlte ebenfalls Beruf, den stolzen Auerhahnen den Krieg anzukündigen.",
+  "language": [],
+  "musenalm_id": 69663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V.",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k1jpm0ovkjgycd1",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.321Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.321Z"
+    }
+  ]
+}

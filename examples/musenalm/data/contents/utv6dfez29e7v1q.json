@@ -1,0 +1,45 @@
+{
+  "annotation": "Todten-Opfer (Sammlung INr 15279, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.525Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Oft, wenn sich ihre reine Stimm' erschwungen, / Schüchtern und kühn, und Saiten drein gerauschet,",
+  "language": [],
+  "musenalm_id": 15285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Das Schwanenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Das Schwanenlied",
+  "updated": "2001-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "thymcr4zz9g7ny8",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.272Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium; Illustration zu »Benno« von Aug. Mahlmann INr 11336, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11327,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Benno",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. W. Böhm sc.",
+  "scans": [
+    "alm_207_11327_ng0tiqxvc6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Benno",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "37jf8ux80tqvi6b",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.607Z"
+    },
+    {
+      "id": "qg5qxozv9ohsn5h",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.607Z"
+    }
+  ]
+}

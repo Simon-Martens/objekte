@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderlieder (Sammlung INr 115528, Obj 93)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Laßt uns wandern in das Leben! / Ob die Pfades steil, ob eben?",
+  "language": [],
+  "musenalm_id": 115260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das Lied im Freyen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das Lied im Freyen",
+  "updated": "2014-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "unhrb33naa3t8nr",
+      "agents": "xy1xe258ffgo9ok",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.538Z"
+    }
+  ]
+}

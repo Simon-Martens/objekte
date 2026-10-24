@@ -1,0 +1,47 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.012Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92311,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mnemosyne / Taschenbuch / des / Andenkens. / Zweites Heft. / Berlin, 1818. / zum besten der Armen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Rhode del. C. Büscher sc.",
+  "scans": [
+    "alm_4077_92311_v2iy7wvvcl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mnemosyne / Taschenbuch / des / Andenkens. / Zweites Heft. / Berlin, 1818. / zum besten der Armen",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1csdhov3vsi8v6q",
+      "agents": "rookj8hzrynkcws",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.635Z"
+    }
+  ]
+}

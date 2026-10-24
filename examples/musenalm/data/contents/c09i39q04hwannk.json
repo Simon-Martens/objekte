@@ -1,0 +1,45 @@
+{
+  "annotation": "Gemälde aus dem häuslichen Leben (Sammlung INr 35264, Obj 15) mit einer Illustation s. Graphik in: Taschenbuch für häusliche und gesellschaftliche Freuden 1799 INr 35490",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Friedrich Hattersdorf hatte von der Natur einen zarten Körperbau, einen lebhaften Geist und ein für jeden Eindruck empfängliches Herz erhalten.",
+  "language": [],
+  "musenalm_id": 35265,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich Hattersdorfs Jugendgeschichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kayser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich Hattersdorfs Jugendgeschichte",
+  "updated": "2003-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "71q3cb4rzpnx9ve",
+      "agents": "hyp0si34pt4b3dd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.816Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.816Z"
+    }
+  ]
+}

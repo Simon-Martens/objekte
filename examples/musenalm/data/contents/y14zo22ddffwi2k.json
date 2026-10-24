@@ -1,0 +1,45 @@
+{
+  "annotation": "Eine weitere Fassung des Gedichts in: Musenalmanach, Schwäbischer 1782, INr 21400 /) s. a. Bürgers Gedicht »Die Weiber von Weinsberg« Musenalmanach (Hamburger) 1777, INr 5107",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Von Weinspergs Weibern hast du zwar, / O Bürger! einst gesungen,",
+  "language": [],
+  "musenalm_id": 5711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Weiber von Schorndorf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Weiber von Schorndorf",
+  "updated": "2000-10-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6qkan7914ih9o8r",
+      "agents": "wdbc0arxqqntge1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.029Z"
+    }
+  ]
+}

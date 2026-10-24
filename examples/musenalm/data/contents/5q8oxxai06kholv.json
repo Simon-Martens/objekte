@@ -1,0 +1,45 @@
+{
+  "annotation": "Maria. Ein Sonettenkranz (Sammlung INr 43070, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.537Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Wer auf dem stillen Friedhof sich ergehet / Und dort vielleicht das Grab von einem Lieben,",
+  "language": [],
+  "musenalm_id": 43088,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Georg Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17.",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0cq8kjtkmhf2fdh",
+      "agents": "g7ovzuyzi8c0g2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.312Z"
+    }
+  ]
+}

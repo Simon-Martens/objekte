@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Charaden (Sammlung INr 61848, Obj 80)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Ein Wort von drei Silben. Die erste: etwas, das aus den Eingeweiden einiger Thiere gemacht wird; die beiden andern: ein Fuhrwerk.",
+  "language": [],
+  "musenalm_id": 61858,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10.",
+  "updated": "2009-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "99iuvejgcqzjpyc",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.595Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.595Z"
+    }
+  ]
+}

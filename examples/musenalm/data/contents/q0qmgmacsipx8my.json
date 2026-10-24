@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Was ist die Liebe denn? Die Lieb' ist Schlaf, / Man träumt so süß von ihr; die Lieb' ist Kampf, [... ] Raupach: König Philipp",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.918Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Nach langer und tapferer Vertheidigung sah sich Herzog Johann von Burgund genöthigt, die Stadt Pontaise zu räumen, um sie den Engländern  zu überlassen.",
+  "language": [],
+  "musenalm_id": 117148,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Brücke von Montereau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Patuzzo",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Brücke von Montereau",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n3bmf2i2spmu1fm",
+      "agents": "onb8bft2jljf6eb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.614Z"
+    }
+  ]
+}

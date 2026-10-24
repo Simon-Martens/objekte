@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.134Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Ziehet fort, Graf Roger von Castrodardo, vollbringet den Ritterzug, den Ihr meinem Vater angelobtet,",
+  "language": [],
+  "musenalm_id": 14494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf Roger / »Fermossi al fin il cor qui balzo tauto.« / Pindemonte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Christ. Baron v. Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Graf Roger / »Fermossi al fin il cor qui balzo tauto.« / Pindemonte",
+  "updated": "2001-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s3jxk4cn27imdbw",
+      "agents": "id1mj19iathigp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.473Z"
+    }
+  ]
+}

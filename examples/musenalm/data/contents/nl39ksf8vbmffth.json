@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zum folgenden Beitrag INr 95613, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.211Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "In Indien, wo noch das sogenannte Kastensystem herrscht, gibt es ganze Menschenklassen, welche man für unrein und so verachtet hält, daß man sich in den Gesetzbüchern nicht einmal die Mühe nimmt, sie alle namentlich aufzuzählen.",
+  "language": [],
+  "musenalm_id": 95612,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Parias. / Skizze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Parias. / Skizze",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cuez6oottrx99kj",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.758Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.758Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanz-Vignetten (Sammlung INr 106425, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Heisa, ihr Fiedler, nicht faul! schon tönet der Mitter- / nacht Stunde,",
+  "language": [],
+  "musenalm_id": 106337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. Kehraus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. W. Schießler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. Kehraus",
+  "updated": "2015-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n5b4gm15mkja6ic",
+      "agents": "eips0ml7kk6xorw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.979Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.428Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Hinauf das Haupt und weine länger nicht / Und freue dich mit allen treuen Herzen",
+  "language": [],
+  "musenalm_id": 129874,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Winzerfest. / En Festspiel zum achtzehnten Oktober, / von Carl v. Holtei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl v. Holtei",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Winzerfest. / En Festspiel zum achtzehnten Oktober, / von Carl v. Holtei",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6pouf5c04t1zdq3",
+      "agents": "zg6jbd5dfgl0cyy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.050Z"
+    }
+  ]
+}

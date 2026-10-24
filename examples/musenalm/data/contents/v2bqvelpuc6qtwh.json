@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64272, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64280,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Telemach und Eucharis #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schopin pinxt. J. W. Baumann sculpt.",
+  "scans": [
+    "alm_1065_64280_byiutf7w7d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Telemach und Eucharis #",
+  "updated": "2009-05-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j90lpblqanwlj8n",
+      "agents": "rzeigvne9106dpe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.022Z"
+    },
+    {
+      "id": "xjpusznwaw4j1fr",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.022Z"
+    }
+  ]
+}

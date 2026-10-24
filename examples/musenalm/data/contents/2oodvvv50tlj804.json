@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59264,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ALEXANDRINE / Prinzessin von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Grahl pinx. Ludw. Meyer jun. sculp.",
+  "scans": [
+    "alm_892_59264_r04vn414ej.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ALEXANDRINE / Prinzessin von Preussen",
+  "updated": "2008-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zwmrp1lo2dnodhv",
+      "agents": "mhggpzqlqu5lt1m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.809Z"
+    },
+    {
+      "id": "b8ko3l7wsky4vm4",
+      "agents": "l5ef0nkmotzvzwh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.809Z"
+    }
+  ]
+}

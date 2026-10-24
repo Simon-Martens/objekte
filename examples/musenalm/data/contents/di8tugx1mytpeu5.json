@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64164, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.216Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64174,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Friede #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Landseer pinxt. J. W. Baumann sculpt. Mchn.",
+  "scans": [
+    "alm_1061_64174_w5o4gbdfzl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Friede #",
+  "updated": "2009-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kb3wc7dynuthus5",
+      "agents": "9b2uxqkf8x5d4i0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.362Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.362Z"
+    },
+    {
+      "id": "z07ks5pvsws6sa7",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.362Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.362Z"
+    }
+  ]
+}

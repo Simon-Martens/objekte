@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Thüringen. Sachsen. Preußen (Sammlung INr 99291, Obj 197)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.937Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Ich bin durch die Stadt gekommen, / Wo nun meine Liebe wohnt,",
+  "language": [],
+  "musenalm_id": 99304,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 210,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich bin durch die Stadt gekommen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philipp Engelhard Nathusius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ich bin durch die Stadt gekommen",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dpm77u69jnxlzxz",
+      "agents": "tr8mb3pxom078aa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.827Z"
+    }
+  ]
+}

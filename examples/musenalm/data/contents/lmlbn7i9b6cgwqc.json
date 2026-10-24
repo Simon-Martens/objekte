@@ -1,0 +1,58 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 9. s. Textbezug INr 49185, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.069Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 49166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Letzte stirbt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. C. Schule sc. 1801",
+  "scans": [
+    "alm_673_49166_hd032n4nv0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Letzte stirbt",
+  "updated": "2007-04-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7oln9kkjagluzwu",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.614Z"
+    },
+    {
+      "id": "ezmmgmh0ji3m71b",
+      "agents": "c0fepqesuedn747",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.614Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug u. Anmerkung INr 34190, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.398Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34197,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Waechter del. Autenrieth sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Waechter del. Autenrieth sc.",
+  "scans": [
+    "alm_474_34197_m7vjdrkqas.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nzy3ytumb0qpxj7",
+      "agents": "jgp8dgth3q9useg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.765Z"
+    },
+    {
+      "id": "wqge7i2ase7htlm",
+      "agents": "494d92fqsi62f1e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.765Z"
+    }
+  ]
+}

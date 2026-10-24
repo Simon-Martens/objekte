@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Tornister-Lieschen« INr 102805, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102807,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihre Exzellenz erlauben gnädigst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. Rieder del. Jos. Stöber sc. Viennae",
+  "scans": [
+    "alm_3371_102807_fd1swn86jn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ihre Exzellenz erlauben gnädigst",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1f89og1exohkzxt",
+      "agents": "djf4nkfvic4s191",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.938Z"
+    },
+    {
+      "id": "s6gpbludq87glg2",
+      "agents": "yk9ibu96ud1308d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.938Z"
+    }
+  ]
+}

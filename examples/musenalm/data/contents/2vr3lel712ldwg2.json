@@ -1,0 +1,56 @@
+{
+  "annotation": "Vorwort der Herausgeber",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.177Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Die bisherige Redaction der Iris fühlt sich verpflichtet der Lesewelt für die Güte zu danken, mit der die Iris aufgenommen worden.",
+  "language": [],
+  "musenalm_id": 57708,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Sigm. Saphir. Joh. Graf Mailáth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vlrjl8xj11dcv3u",
+      "agents": "ynz1wrh0mfk3t8y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.920Z"
+    },
+    {
+      "id": "ritkp4z6kyfsz1p",
+      "agents": "iggeurabfw5ya7h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.920Z"
+    }
+  ]
+}

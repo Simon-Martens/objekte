@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Tabelle INr 42375, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.248Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "Wir haben in den hier gelieferten Darstellungen absichtlich nur selten und gleichsam nur im Vorbeigehen der natürlichen Erzeugnisse jedes einzelnen Insel-Gebietes erwähnt,",
+  "language": [],
+  "musenalm_id": 42374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Naturhistorische Bemerkungen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Naturhistorische Bemerkungen",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "owv11092ixdce69",
+      "agents": "wa9sa5vspt41k6t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.388Z"
+    }
+  ]
+}

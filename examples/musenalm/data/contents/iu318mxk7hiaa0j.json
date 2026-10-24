@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 32130, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32129,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "REMBRANDTS MUTTER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rembrandt pt. F. John sc.",
+  "scans": [
+    "alm_238_32129_46k9ua22rl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "REMBRANDTS MUTTER",
+  "updated": "2001-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pxzyyt2a68vz0px",
+      "agents": "f6e5t5hil0gzo1m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.364Z"
+    },
+    {
+      "id": "2gds1yhu3n56gy8",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.364Z"
+    }
+  ]
+}

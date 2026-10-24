@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen, Balladen, Erzählungen (Sammlung INr 55641, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Was stehest, Königstöchterlein, / So maidlich auf der Wart",
+  "language": [],
+  "musenalm_id": 55644,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Notburga",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hensel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Notburga",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ele03fcicvr741u",
+      "agents": "902nw56856wz9rx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.799Z"
+    }
+  ]
+}

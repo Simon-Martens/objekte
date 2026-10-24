@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der wilde Torresmond« von F. L. Bührlen INr 48650, Obj 69",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48592,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (M. Retzsch del. Martin Esslinger in Zürich sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. Martin Esslinger in Zürich sculp.",
+  "scans": [
+    "alm_664_48592_d7tx7xgzkp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9xj748q46v14z8j",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.569Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.569Z"
+    },
+    {
+      "id": "9knr3kkhwosr8fd",
+      "agents": "zfprrqdgr3ky9ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.569Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.569Z"
+    }
+  ]
+}

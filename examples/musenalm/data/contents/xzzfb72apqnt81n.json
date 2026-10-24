@@ -1,0 +1,48 @@
+{
+  "annotation": "Anhang zu Beckers Taschenbuch 1809. enthaltend: Compositionen und Tänze, von Harder, Reichardt, Himmel  und Bergt (Anhang INr 61598, Obj 163) (Photos 61613,01; 61613,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61613,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 178,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Quadrille",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bergt",
+  "scans": [
+    "alm_216_61613_01_oq46witj46.jpg",
+    "alm_216_61613_02_uwc9gai74i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Quadrille",
+  "updated": "2001-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k46z5aknzton1oc",
+      "agents": "25ubfkw7g6ebn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.979Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "S'isch bal Mitternacht, e Todis-Stilli / wit unn breit 's ruscht nit au ne Käuzli hüt / dur d'Nacht.",
+  "language": [],
+  "musenalm_id": 15975,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die geistliche Braut",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lampadius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die geistliche Braut",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jsvuryipymdfwri",
+      "agents": "vp5lm2d8p5qmnx9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.556Z"
+    }
+  ]
+}

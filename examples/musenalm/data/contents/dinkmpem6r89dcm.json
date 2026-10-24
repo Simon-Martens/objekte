@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 34477, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34486,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "COTTAGE KITCHEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Witherington delt. J. Romney sculpt.",
+  "scans": [
+    "alm_479_34486_ql1tb016u6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "COTTAGE KITCHEN",
+  "updated": "2003-06-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6s7zm4o7rz8sy13",
+      "agents": "ri1n4fxt5v71dui",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.490Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.490Z"
+    },
+    {
+      "id": "14ecde62rivpl3w",
+      "agents": "lrv91ysphbdyf39",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.490Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.490Z"
+    }
+  ]
+}

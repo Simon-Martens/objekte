@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. und Titel s. Textbezug INr 83325, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.984Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Christus am Kreuz #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Van der Werff",
+  "scans": [
+    "alm_3076_83326_5ku4pud926.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Christus am Kreuz #",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7mwriaku07a7dtw",
+      "agents": "hox4bdppkgycitp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.027Z"
+    }
+  ]
+}

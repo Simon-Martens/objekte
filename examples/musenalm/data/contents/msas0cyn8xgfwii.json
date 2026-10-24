@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Herzog Huldreich und Beatrix« von A. von Chamisso INr 30278, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30279,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herzog Huldreich und Beatrix / von A. von Chamisso",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Linger jun. fec.",
+  "scans": [
+    "alm_395_30279_u3bytcyltp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herzog Huldreich und Beatrix / von A. von Chamisso",
+  "updated": "2002-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lxofnj288px78p0",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.590Z"
+    },
+    {
+      "id": "16s3c2gkbjjms45",
+      "agents": "fxi9ctds9dbqvlt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.590Z"
+    }
+  ]
+}

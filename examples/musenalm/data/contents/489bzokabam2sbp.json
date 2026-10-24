@@ -1,0 +1,47 @@
+{
+  "annotation": "kol. Uniformkupfer;  # Bez. s. Textbezug INr 65791, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein preußischer schwarzer Husar oder sogenannter Todtenkopf",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki.",
+  "scans": [
+    "alm_1105_65788_qepy7t0n8c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein preußischer schwarzer Husar oder sogenannter Todtenkopf",
+  "updated": "2009-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d2a8lu96fw20rie",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.183Z"
+    }
+  ]
+}

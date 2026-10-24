@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte an Schauspieler (Sammlung INr 111535, Obj 20) Gedichte (Sammlung INr 111526, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "Dir, der uns durch Gesang und Spiel / Als Wirth, als Kaled, und als Schlösser / Mit Recht so sehr gefiel, / Sey stets Thalie hold,",
+  "language": [],
+  "musenalm_id": 111544,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn Rathje",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn Rathje",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mwo040r0ulle9h0",
+      "agents": "jn3l1dg6imwx04v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.034Z"
+    }
+  ]
+}

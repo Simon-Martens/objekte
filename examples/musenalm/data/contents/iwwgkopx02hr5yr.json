@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einigen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Im 5ten Bändchen der Feierabende S. 128 theilte ich meinen Lesern die Correspondenz mit, betreffend den rühmlichen Versuch eines Vereins zu Bern, die beinahe ganz ausgerotteten Steinböcke in der Schweiz wieder anzuziehen.",
+  "language": [],
+  "musenalm_id": 109249,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXVIII. / Rühmliche Verdienste nützliche Thiergattungen zu / erhalten und zu verbreiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. W.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXVIII. / Rühmliche Verdienste nützliche Thiergattungen zu / erhalten und zu verbreiten",
+  "updated": "2015-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jn3vmc1s5kmferv",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.366Z"
+    }
+  ]
+}

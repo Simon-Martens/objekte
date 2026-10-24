@@ -1,0 +1,45 @@
+{
+  "annotation": "Diana (Sammlung INr 91538, Obj 62) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5) s. folgendes Gedicht INr 91540, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Als die Schwester des Apolls schimmert Diana am hellsten hervor, weil dieser seinen Glanz mit auf sie wirft,",
+  "language": [],
+  "musenalm_id": 91543,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diana die Göttin des Todes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Diana die Göttin des Todes",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2tb4h3dgmrn3pe2",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.397Z"
+    }
+  ]
+}

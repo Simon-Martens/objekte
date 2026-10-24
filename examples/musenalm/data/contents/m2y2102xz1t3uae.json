@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 9 /) Graphik im Kalendarium September /) Illustration zu »Hamlet« v. W. Shakespeare /) s. G-Verz INr 69979, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69975,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nichts, als dasz ich Euch zeigen will; / wie es mit einem König so weit kommen / kann, dasz er eine Reise durch die Gedärme eines Bettlers machen musz. / V. Aufz. 5ter Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp.",
+  "scans": [
+    "alm_790_69975_sa9odu0kaf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nichts, als dasz ich Euch zeigen will; / wie es mit einem König so weit kommen / kann, dasz er eine Reise durch die Gedärme eines Bettlers machen musz. / V. Aufz. 5ter Auftr.",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "05gs9rqxm70mjrj",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.434Z"
+    },
+    {
+      "id": "zk3bmhsbtop85e2",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.435Z"
+    }
+  ]
+}

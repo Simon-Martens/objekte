@@ -1,0 +1,45 @@
+{
+  "annotation": "Aesthetische Lückenbüßer (Sammlung INr 96534, Obj 85)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Welch Getümmel von jungen Leuten? / Stu- / denten. Sie kommen / Eben vom Hörsaal.",
+  "language": [],
+  "musenalm_id": 96541,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bundesgenossen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Bundesgenossen",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "92h9mwo4uvnyr7s",
+      "agents": "4g2r3ta4uzw1gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.639Z"
+    }
+  ]
+}

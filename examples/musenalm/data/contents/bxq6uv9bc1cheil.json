@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Gedichte (Sammlung INr 40686, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.100Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "494",
+  "incipit_statement": "Wie die Natur du verletztest, sie wird unerbittlich / bestrafen: / Körper, und Geist, und Sinn,",
+  "language": [],
+  "musenalm_id": 40689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Folge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto, Graf von Haugwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Folge",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rimavxdf2idwp8b",
+      "agents": "2i4oqqhryhrdin4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.985Z"
+    }
+  ]
+}

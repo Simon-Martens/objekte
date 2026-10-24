@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-02T10:35:59.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Ueberall ist die Kraft nur der Stab, an den sich die Schönheit lehnt, um sorglos ihre Blüthen zu entfalten,",
+  "language": [],
+  "musenalm_id": 140465,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phantasie an die Frauen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Th. Fechner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Phantasie an die Frauen",
+  "updated": "2026-09-02T10:38:47.952Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "9vg893zlejsdhaj",
+      "agents": "ar2zbmgzdwsvejf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-02T10:38:47.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-02T10:38:47.954Z"
+    }
+  ]
+}

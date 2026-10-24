@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 6. Illustration zu »Der feiwillige Jäger« von G. von Reinbeck INr 43432, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.521Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43419,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Freiwillige Jäger / von Reinbeck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Schwerdgeburth del. et sculp.",
+  "scans": [
+    "alm_571_43419_fo516ovuls.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Freiwillige Jäger / von Reinbeck",
+  "updated": "2006-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9eolrkp0cbcbiyz",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.084Z"
+    }
+  ]
+}

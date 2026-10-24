@@ -1,0 +1,45 @@
+{
+  "annotation": "Apollo (Sammlung INr 91527, Obj 51) Die zwölf himmlischen Götter (Sammlung INr 91481, Obj 5) s. folgendes Gedicht INr 91533, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Helios heißt unter den alten Göttern der Lenker des Sonnenwagens.",
+  "language": [],
+  "musenalm_id": 91532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Helios / oder der Sonnengott",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Philipp Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Helios / oder der Sonnengott",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6yb7bc9g6ho64pk",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.149Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Erstgebohrne des Chaos! erhabene Zeugen der Vorwelt! Zeitgenossen der Revolutionen,",
+  "language": [],
+  "musenalm_id": 16343,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Eumeniden in Maria / Einsiedeln / Ein psychologisches Gemählde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Ittner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Eumeniden in Maria / Einsiedeln / Ein psychologisches Gemählde",
+  "updated": "2001-07-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pagaklcee0k4c1t",
+      "agents": "imr7l7jckky4gjp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.631Z"
+    }
+  ]
+}

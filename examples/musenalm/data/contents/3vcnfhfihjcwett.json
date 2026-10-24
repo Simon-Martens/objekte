@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44179, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Herr Eberwin, der Landgraf im Thüringerwald, / Erharrte kaum der Stunde, da früh der Hahnruf schallt,",
+  "language": [],
+  "musenalm_id": 44193,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bild im Schnee",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Bild im Schnee",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "37yylyqsbh8sv50",
+      "agents": "dgebk50hujqbvc5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.197Z"
+    }
+  ]
+}

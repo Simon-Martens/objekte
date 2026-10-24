@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Januar /) s. Textbezug INr 82342, Obj 22 /) lt. G-Verz aus: Dodwell's Views in Greece",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.827Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82325,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erechteion, Parthenon, Propyleion",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mauch delineavit C. Frommel direxit",
+  "scans": [
+    "alm_868_82325_o5po3t07qc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erechteion, Parthenon, Propyleion",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sj3qr2l2jdjb0q0",
+      "agents": "4qmuru1kuzg7ngl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.083Z"
+    },
+    {
+      "id": "h2rvbajelx30xng",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.083Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.083Z"
+    }
+  ]
+}

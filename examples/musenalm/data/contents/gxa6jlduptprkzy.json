@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 48994, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.764Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "In der mondlos stillen Nacht / Stand er unter dem Altane, / Sang mit himmlisch süßer Stimme / Minnelieder zur Guitarre.",
+  "language": [],
+  "musenalm_id": 49007,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der nächtliche Ritter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Uhland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der nächtliche Ritter",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q282jqkjd2orrgr",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.452Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Frauen-Leben. Poetischer Kranz (Sammlung INr 48465, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Ach, ihr himmlisch-schönen Stunden! / ach, ich habe nun gefunden, / was ich suchte nicht erkannte,",
+  "language": [],
+  "musenalm_id": 48472,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Finden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "T. Wellentreter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Finden",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r9y931wdfinacfi",
+      "agents": "0lth2adu21imy6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.367Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug (Gedicht)  INr 121231, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.316Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121230,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friederike",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ad. Theer del. C. F. Merckel sc. Leipzig",
+  "scans": [
+    "alm_1923_121230_h6hca7foiy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friederike",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l7f7m2xl0ul59pi",
+      "agents": "512hnx3l2hp6y3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.573Z"
+    }
+  ]
+}

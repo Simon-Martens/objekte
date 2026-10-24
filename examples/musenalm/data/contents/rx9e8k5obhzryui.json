@@ -1,0 +1,45 @@
+{
+  "annotation": "Mancherlei für Manche (Sammlung INr 91749, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Wir streben nach dem Vebotenen. Das Erlaubte ist uns ein Wirkliches, das Verwehrte ein Poetisches.",
+  "language": [],
+  "musenalm_id": 91774,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir streben nach dem Vebotenen. Das Erlaubte ist uns ein Wirkliches, das Verwehrte ein Poetisches.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5h7mlk6c2r34f8x",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.370Z"
+    }
+  ]
+}

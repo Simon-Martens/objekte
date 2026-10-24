@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April /) Illustration zu »Eine Dichterin als Herzogin« von F. Schrank INr 89735, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.101Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89722,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Camila",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. J. Jung del.",
+  "scans": [
+    "alm_3362_89722_yfczjocf2s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Camila",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fdc52cb0qg5im91",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.466Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.466Z"
+    }
+  ]
+}

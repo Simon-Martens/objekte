@@ -1,0 +1,56 @@
+{
+  "annotation": "GUARINI (s. Zwischentitel INr 71291, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Wohl mocht' es einst ein kühner Witz erreichen, / In Lüften fremde Fitt'ge zu entfalten;",
+  "language": [],
+  "musenalm_id": 71295,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SONETT. / IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guarini; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SONETT. / IV.",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a5mbvq9fha7k7yd",
+      "agents": "sjkch1k7fhhouea",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.499Z"
+    },
+    {
+      "id": "hcnl5hh7x9zzffi",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.499Z"
+    }
+  ]
+}

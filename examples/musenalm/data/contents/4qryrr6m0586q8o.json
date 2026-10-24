@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Geselligkeit gewidmete Lieder. (Sammlung INr 50243, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Ich bin der wohlbekannte Sänger, / Der viel gereiste Rattenfänger, / Den diese altberühmte Stadt / Gewiß besonders nöthig hat.",
+  "language": [],
+  "musenalm_id": 50264,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rattenfänger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rattenfänger",
+  "updated": "2007-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b5umx556u0o5roa",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.639Z"
+    }
+  ]
+}

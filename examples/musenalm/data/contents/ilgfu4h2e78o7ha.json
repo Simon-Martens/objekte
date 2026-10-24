@@ -1,0 +1,45 @@
+{
+  "annotation": "Trinklieder (Sammlung INr 84800, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "Kommt, Brüder, trinket froh mit mir, / Seht, wie die Becher schäumen!",
+  "language": [],
+  "musenalm_id": 84812,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trinklied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trinklied",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0xl2e2kzke7auc9",
+      "agents": "epma680nee4q5et",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.219Z"
+    }
+  ]
+}

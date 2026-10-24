@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 133. /) Illustration zu »Mariane oder der vollendete Sieg der Liebe« INr 47429, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der hat kein Herz, der es nicht für häusliche Freuden hat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 97",
+  "scans": [
+    "alm_643_47434_1vhsk0e2q0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der hat kein Herz, der es nicht für häusliche Freuden hat",
+  "updated": "2007-01-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lf3jgtus05zif4q",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.616Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.616Z"
+    },
+    {
+      "id": "8x6vi8zdfg01p4r",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.616Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.616Z"
+    }
+  ]
+}

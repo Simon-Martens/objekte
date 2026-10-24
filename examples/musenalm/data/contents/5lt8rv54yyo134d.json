@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "331",
+  "incipit_statement": "Kaum noch geboren aus des Chaos Traum, / Traf eine Sonn ich an mit meiner Bahn,",
+  "language": [],
+  "musenalm_id": 59259,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der wiederkehrende Komet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Koreff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der wiederkehrende Komet",
+  "updated": "2008-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x5gz9nndsr9rgh1",
+      "agents": "v63rmmxw84k8ut2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.943Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. / Nüzliche Lehren (Sammlung INr 83569, Obj 18) mit weiteren Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.354Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Wenn du nach der Natur lebst, wirst du nie arm seyn, lebst du nach Meinungen, wirst du nie reich seyn.",
+  "language": [],
+  "musenalm_id": 83572,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Senecka",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Senecka",
+  "updated": "2012-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ilsex17b0vhzvcd",
+      "agents": "nz3ytz19v6fnz1k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.859Z"
+    }
+  ]
+}

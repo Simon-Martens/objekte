@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Des Dichters Aug', im schönen Wahnsinn rollend, / Blitzt auf zum Himmel, blitzt zur Erd' hinab, [...] Sommernachtstraum",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Anmuthig Thal, wie wunderbar / Besängst du meinen Sinn; / Du zauberst eine bunte Schaar / Gestalten vor mich hin.",
+  "language": [],
+  "musenalm_id": 44149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tochter der Luft. / Mährchen aus dem Wisper-Thale / in drei Gesängen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Genth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Tochter der Luft. / Mährchen aus dem Wisper-Thale / in drei Gesängen",
+  "updated": "2006-06-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l0rb9z14jtd6frn",
+      "agents": "5dmql3fb0aixt0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.232Z"
+    }
+  ]
+}

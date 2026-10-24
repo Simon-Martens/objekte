@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 99029, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Ein Rosenstock noch grün beblättert / Und purpurroth von Früchten klettert / Hier aus des Wintertages Schnee,",
+  "language": [],
+  "musenalm_id": 99034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rosenstock im Winter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rosenstock im Winter",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fq03zidws80hqdz",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.709Z"
+    }
+  ]
+}

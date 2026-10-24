@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 80070, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Die Börse war zu Ende. Eben trat der reiche Handelsherr Jakob Berends mit seinem Hauptmäkler, Herrn Faber, durch die enge Gitterthür hinaus auf den Börsenplatz",
+  "language": [],
+  "musenalm_id": 80096,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vetter Kirchhof. / Genre-Bild",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vetter Kirchhof. / Genre-Bild",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "038ju8kf70rkznl",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.875Z"
+    }
+  ]
+}

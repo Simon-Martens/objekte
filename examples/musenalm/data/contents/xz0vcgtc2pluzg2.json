@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Von seinen Thaten singen, das ist ein hoher Sang, / Von seines Schwertes Klingen, das ist ein lauter Klang,",
+  "language": [],
+  "musenalm_id": 68020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Lied von Maximilians Minne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Steinmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Lied von Maximilians Minne",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ta686fyxz2ghiqg",
+      "agents": "jxsklfwb6yipx9m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.246Z"
+    }
+  ]
+}

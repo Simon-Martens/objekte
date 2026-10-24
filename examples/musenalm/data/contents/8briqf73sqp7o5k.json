@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Mit einem Käse - wo gestohlen? / Am Rhein? - in Belgien? - in Poh- / len? / Aesop erzählt's, drum wohl in Griechen- / land",
+  "language": [],
+  "musenalm_id": 62142,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rabe und der Fuchs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. H. Reinwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rabe und der Fuchs",
+  "updated": "2009-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cfydtppw1s2wh36",
+      "agents": "n6qsoh59lz0ry1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.129Z"
+    }
+  ]
+}

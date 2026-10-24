@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Stimmt Bachus, diesem Ehrenmann, / Ihr Brüder, euer Loblied an;",
+  "language": [],
+  "musenalm_id": 31121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rundgesang des Bachus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Benedikt von Wagenmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rundgesang des Bachus",
+  "updated": "2003-01-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rcucknu63qk04ey",
+      "agents": "8sb3uethzl0myha",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.420Z"
+    }
+  ]
+}

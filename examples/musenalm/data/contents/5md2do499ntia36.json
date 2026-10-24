@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Lied einer jungen Mutter« von F. B. g. M. d. i. Friederike Brun INr 6190, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6191,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied einer jungen Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_121_6191_krr2sypsda.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lied einer jungen Mutter",
+  "updated": "2000-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qi4uiis6ynsomgj",
+      "agents": "oqecb466dne8cni",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.027Z"
+    }
+  ]
+}

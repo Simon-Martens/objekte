@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. vom Textbezug INr 54699, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.465Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54698,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Landenbergs Urfehde] #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von Disteli in Olten Gestochen von Martin Esslinger in Zürich",
+  "scans": [
+    "alm_744_54698_b2ajwu2og1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Landenbergs Urfehde] #",
+  "updated": "2008-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qcicah9tqv72w84",
+      "agents": "yf0tgu146w1t5rh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.935Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.935Z"
+    },
+    {
+      "id": "91khzwl9l97l3n9",
+      "agents": "zfprrqdgr3ky9ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.935Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.935Z"
+    }
+  ]
+}

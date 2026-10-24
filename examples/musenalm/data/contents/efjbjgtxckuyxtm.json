@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64093, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64101,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Columbus legt dem Prior seine Pläne zur Entdeckung Amerika's vor #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Baumann sc.",
+  "scans": [
+    "alm_1058_64101_3i8ftf9rmg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Columbus legt dem Prior seine Pläne zur Entdeckung Amerika's vor #",
+  "updated": "2009-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d927zd4pm35wpkl",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.142Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.142Z"
+    }
+  ]
+}

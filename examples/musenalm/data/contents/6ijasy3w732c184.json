@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.233Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Ihr Buhler um die Krone, / Was lärmt ihr, rief der Adler?",
+  "language": [],
+  "musenalm_id": 15990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Königswahl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mahler Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Königswahl",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uzmjglnpcmlercf",
+      "agents": "xudibmgptrwrx3w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.587Z"
+    }
+  ]
+}

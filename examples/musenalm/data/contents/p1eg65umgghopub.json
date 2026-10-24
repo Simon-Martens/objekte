@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Gräfin von Salisbury« von Fr. Laun d.i. F. A. Schulze INr 20839, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65164,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10.04,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gräfin von Salisbury",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. Hübner sc.",
+  "scans": [
+    "alm_275_65164_07otfq1r09.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Gräfin von Salisbury",
+  "updated": "2002-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "13wukqlo02m2ciq",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.720Z"
+    },
+    {
+      "id": "t169fsslpmonf7p",
+      "agents": "ia6scaqocfa01ut",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.720Z"
+    }
+  ]
+}

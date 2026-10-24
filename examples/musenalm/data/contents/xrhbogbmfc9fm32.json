@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Voltaire war einst einmal gar auf einen Verbrecher, der in Paris gehenkt wurde, eifersüchtig.",
+  "language": [],
+  "musenalm_id": 37293,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Voltaire war einst einmal gar auf einen Verbrecher, der in Paris gehenkt wurde, eifersüchtig.…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sherlock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2004-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sdvjkga8oibvjz3",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.879Z"
+    }
+  ]
+}

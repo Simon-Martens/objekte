@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. Zehnte und letzte Lieferung (Sammlung INr 77261, Obj 5) Illustration zu »Die Johanniter. Erstes Blatt« von Fr. Schiller INr 77271, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77273,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Johanniter v. Schiller 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. Schule sc.",
+  "scans": [
+    "alm_2401_77273_g5badwj7ie.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Johanniter v. Schiller 1.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eg5hbcchqxxzg27",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.717Z"
+    },
+    {
+      "id": "bvg4amqkoft2ebu",
+      "agents": "ri87ed3zfsk183z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.717Z"
+    }
+  ]
+}

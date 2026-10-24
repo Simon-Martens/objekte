@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25435, Obj 208)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "Wir saßen zusammen am Fenster / zur kalten Winterszeit,",
+  "language": [],
+  "musenalm_id": 25437,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 208,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Im Winter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lebrecht Dreves",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Im Winter",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mru7xd1k30tu1pi",
+      "agents": "hzbhrlqbi3mdmn5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.176Z"
+    }
+  ]
+}

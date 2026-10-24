@@ -1,0 +1,45 @@
+{
+  "annotation": "Von einer verschollenen Königsstadt. Bruchstück aus einem größern Gedichte (Sammlung INr 81247, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.527Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Fern auf der Straße in der Judenschenke / Geht es heut lustig her; das Völkchen singt / Daß es durch Au und Fluren weit erklingt",
+  "language": [],
+  "musenalm_id": 81248,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Judenschenke",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Der Dichter der »Parallelen«",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Judenschenke",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nenq7o7jdtlxie9",
+      "agents": "wm9mmfgzc6wy00i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.806Z"
+    }
+  ]
+}

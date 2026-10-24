@@ -1,0 +1,48 @@
+{
+  "annotation": "Tänze mit Musik herausgegeben von Herrn Lauchery Königl. Balletmeister und Solo-Tänzer (Sammlung INr 20571, Obj 110) (Photos 20581,01; 20581,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20581,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "La Nurmahal, V.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [
+    "alm_271_20581_01_j89plzk1tr.jpg",
+    "alm_271_20581_02_3sw3s8bocx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "La Nurmahal, V.",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2kynjn1uafikggx",
+      "agents": "czigb25jnrfsy98",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.838Z"
+    }
+  ]
+}

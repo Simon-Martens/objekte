@@ -1,0 +1,69 @@
+{
+  "annotation": "s. Textbezug INr 33882, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.904Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33881,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HERBST",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen del. C. W. Schenk sc.",
+  "scans": [
+    "alm_470_33881_1byxpqtbxk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HERBST",
+  "updated": "2003-05-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p5h4sd7tx3bphrn",
+      "agents": "wn0jpqwykk4f079",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.430Z"
+    },
+    {
+      "id": "srccuam5hkyvy93",
+      "agents": "8u98l2oorjap7pb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.430Z"
+    },
+    {
+      "id": "vqqoxvdonnngi2r",
+      "agents": "voq5dlml9870uhq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.430Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Vorschläge zu Garten-Gebäuden, von Herrn Hofarchitect Thouret. 2) Ein kleines Lust- und Jagd-Gebäude am Ufer eines Sees« INr 74679 Obj 64 /) # Titel vom Beitrag",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74685,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein kleines Lust- und Jagd-Gebäude am Ufer eines Sees #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Thouret 1801 Pillement fils",
+  "scans": [
+    "alm_3116_74685_2rwybjvnz5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein kleines Lust- und Jagd-Gebäude am Ufer eines Sees #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "en47c38bbck4w6s",
+      "agents": "zrmsqolvt94ydaa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.553Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.553Z"
+    },
+    {
+      "id": "yxq15lsf6wafr03",
+      "agents": "xj8txg9rglvytn5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.553Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.553Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am 5. Blatt der Suite /) Illustration zu »Vorschläge zu Garten-Gebäuden, von Herrn Hofarchitect Thouret.1) Ein türkisches Bad« INr 74679 Obj 64 /) ## Titel vom Beitrag",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74680,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein türkisches Bad ##",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "N. Thouret 1801 Pillement fils",
+  "scans": [
+    "alm_3116_74680_a3qojilu81.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein türkisches Bad ##",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dwdbc3to9nh3bub",
+      "agents": "zrmsqolvt94ydaa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.544Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.544Z"
+    },
+    {
+      "id": "qix0zm59evg6st3",
+      "agents": "xj8txg9rglvytn5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.544Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.544Z"
+    }
+  ]
+}

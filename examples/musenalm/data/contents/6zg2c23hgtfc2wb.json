@@ -1,0 +1,45 @@
+{
+  "annotation": "Liederspenden (Sammlung INr 114947, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Ich weiß einen Vater, bös und hart, / Mit vielen weinenden Kindern,",
+  "language": [],
+  "musenalm_id": 114957,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Vergleiche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Adami",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Vergleiche",
+  "updated": "2009-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hljp8mjx3v9kvk1",
+      "agents": "h1jhs52naysyy4l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.513Z"
+    }
+  ]
+}

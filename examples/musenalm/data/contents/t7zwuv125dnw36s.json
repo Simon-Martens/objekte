@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Die zu erkunden ihr kamt zu der goldenen Schwelle / des Phöbus, / Wer auf die Schwinge des Lieds lud den unend- / lichen Ruhm,",
+  "language": [],
+  "musenalm_id": 100083,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Orakel des Apollon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Rogge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Orakel des Apollon",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v39i71cglojrv2k",
+      "agents": "qg9jxudttjp2daq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.880Z"
+    }
+  ]
+}

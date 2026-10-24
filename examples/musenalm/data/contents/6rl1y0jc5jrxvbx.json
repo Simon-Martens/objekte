@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zur Rahmenerzählung »Das Wirtshaus im Spessart« von W. Hauff",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41623,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wirthshaus im Spessart",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Fohr del. H. Pinhas sc.",
+  "scans": [
+    "alm_551_41623_fcqmt5j73d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Wirthshaus im Spessart",
+  "updated": "2005-12-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qjo84fqk5gapi0t",
+      "agents": "0w2wp8jkpgtwflf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.972Z"
+    },
+    {
+      "id": "lb4wg14jmjl71tc",
+      "agents": "3nv26s8zqucnh8r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.972Z"
+    }
+  ]
+}

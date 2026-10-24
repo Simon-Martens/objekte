@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Es gehört zu dem Plane dieses Taschenbuchs, Biographieen aus verschiedenen Ständen zu geben; den Anfang soll eine der älteren machen, die noch an das hohenstauffische Zeitalter reicht. /) mit einer Beigabe s. INr 45214, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Wären die Anfänge der Wirtembergischen Geschichte wirklich so dunkel,als sie bis daher scheinen mußten, so werden wir doch für alles entschädigt durch das Licht, das auf einmal von der Mitte des XIII. Jahrhunderts in den Graven Ulrich und Eberhard aufgeht",
+  "language": [],
+  "musenalm_id": 45213,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grav Eberhard der Erlauchte, / von Wirtemberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Pfister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grav Eberhard der Erlauchte, / von Wirtemberg",
+  "updated": "2006-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m5gn7f0aj14qtov",
+      "agents": "hrkytlpebpsdn8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.491Z"
+    }
+  ]
+}

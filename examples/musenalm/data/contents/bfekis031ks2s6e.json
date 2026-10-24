@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juni /) s. Textbezug INr 87529, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87514,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schlange! die Schlange! / die ich in meinem Busen naehrte!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1792",
+  "scans": [
+    "alm_3929_87514_k0r8ppgw0b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Schlange! die Schlange! / die ich in meinem Busen naehrte!",
+  "updated": "2013-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ykaynzmgwt0ntnc",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.448Z"
+    },
+    {
+      "id": "442fyie9teou4we",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.448Z"
+    }
+  ]
+}

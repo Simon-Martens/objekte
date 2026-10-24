@@ -1,0 +1,56 @@
+{
+  "annotation": "s. gest. Titel INr 67054, Obj 3; s.a. Beitrag INr 67086, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.374Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Sogern wir in dem vorliegenden Jahrbuch nach unserem, im Jahr 1813 abgelegten Versprechen zur Abwechslung eine Naturmerkwürdigkeit, deren wir manche passende besitzen, durch die Titelvignette dargestellt hätten,",
+  "language": [],
+  "musenalm_id": 67056,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik-Verzeichnis"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der Titelvignette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der Titelvignette",
+  "updated": "2009-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ha7qo0a7h8giied",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.293Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.293Z"
+    },
+    {
+      "id": "xawdfpz1dqigkd4",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.293Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.293Z"
+    }
+  ]
+}

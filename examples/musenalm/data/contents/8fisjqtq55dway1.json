@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Ich hab' ein Kind, das will mir nicht gehorchen, / Mit deiner Zaubermacht / O Sänger! schläft' es ein,",
+  "language": [],
+  "musenalm_id": 1518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weinmärchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Otto Graf v. Loeben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Weinmärchen",
+  "updated": "2000-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "43xlhdqyi3t2q7h",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.738Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebeslieder. Nach dem Türkischen (Sammlung INr 42802, Obj 62)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Würfe die Göttergestalt der schlanken, erhab- / nen Cypresse / Kühn ihr dunkles Gewand ab von dem / gänzenden Leib,",
+  "language": [],
+  "musenalm_id": 42805,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Würfe die Göttergestalt der schlanken, erhab- / nen Cypresse / Kühn ihr dunkles Gewand ab von dem / gänzenden Leib,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vermehren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vn6gvjol76x3chk",
+      "agents": "nvdnek6niibgjex",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.806Z"
+    }
+  ]
+}

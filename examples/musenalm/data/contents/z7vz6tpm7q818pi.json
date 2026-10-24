@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einigen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.843Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Am 26ten August des Jahres 1801 starb in Wien der Erzherzog Max. Franz von Oesterreich im 55ten Jahre.",
+  "language": [],
+  "musenalm_id": 91069,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nekrolog",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwaldopler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nekrolog",
+  "updated": "2013-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9yj4tea75s767xl",
+      "agents": "lgm7bery1pehuzm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.331Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.331Z"
+    }
+  ]
+}

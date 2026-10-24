@@ -1,0 +1,58 @@
+{
+  "annotation": "Beigabe zu »Biographische Skizzen (Sammlung INr 77748, Obj 4) INr 77750, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77751,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARIE, HERZOGIN VON WÜRTEMBERG. / nach eigener plastischer Arbeit derselben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlick gez. Leipzig Carl Mayers Kunstanstalt Leipzig",
+  "scans": [
+    "alm_2412_77751_wcp1y178zj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARIE, HERZOGIN VON WÜRTEMBERG. / nach eigener plastischer Arbeit derselben",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y4nil6r9ci59qln",
+      "agents": "pnxa27ezgybb12n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.819Z"
+    },
+    {
+      "id": "57w5dzd27rdfvz1",
+      "agents": "dpsqkawi27iig9x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.819Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Scenen aus der Familie Ehrenberg« INr 48383, Obj 51",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48344,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Komm an meine Brust, Du bist des / Vaterlandes und unsrer würdig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Rosmäsler sc.",
+  "scans": [
+    "alm_659_48344_cyhzs1xdd5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Komm an meine Brust, Du bist des / Vaterlandes und unsrer würdig",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "78ydmyi8xhqgd8q",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.539Z"
+    }
+  ]
+}

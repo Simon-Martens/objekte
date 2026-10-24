@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 102334, Obj 140)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Es wogen in den Herzen der Menschen hin und her / Der Wünsche, ach so viele! wie Wellen in dem Meer,",
+  "language": [],
+  "musenalm_id": 102337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 143,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Schuld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Waldow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Schuld",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ep56ce7c91aw0zg",
+      "agents": "nicecucaceak00n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.504Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vier Silvester-Devisen (Sammlung INr 27811, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "447",
+  "incipit_statement": "Amanda! Du! so muß ich wohl Dich nennen! / Von allen Namen in der Frauen Reihn,",
+  "language": [],
+  "musenalm_id": 27813,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Amanda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Amanda",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "svdh71sw79p0cto",
+      "agents": "ijn3e3gugtz46hh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.379Z"
+    }
+  ]
+}

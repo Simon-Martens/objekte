@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: Atelier von. Grünewald & Cooke in Darmstadt] s. Textbezug INr 44073, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44074,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE ELFEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt v. C. Steinbrück Gest. v. [unleserlich]",
+  "scans": [
+    "alm_597_44074_ghtswe7udl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE ELFEN",
+  "updated": "2006-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nev8j3nbrfoiy08",
+      "agents": "3jqqmlof6ns4knk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.112Z"
+    }
+  ]
+}

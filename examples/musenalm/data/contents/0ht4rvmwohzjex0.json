@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 4 /) Illustration zu »Beschreibung des Gartens in Hohenheim. Zweite Fortsetzung. / Das Gärtner-Haus« von G. H. Rapp INr 74222, Obj 16 /) # Zuschreibung: Fischer S. 244",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.440Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74223,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gaertner Haus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3110_74223_jl5stxfuhq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Gaertner Haus",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ka2wm2tx898cn2v",
+      "agents": "d3csdnfdndi0txl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.453Z"
+    }
+  ]
+}

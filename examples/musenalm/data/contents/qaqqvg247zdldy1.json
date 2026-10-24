@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am 2. Blatt der Suite /) paginiert IV. /) kol. Illustration zu »Der Wanderfalk« von V. F. S. Fischer INr 67316, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67315,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Falco peregrinus (Lin.) Der Wanderfalk",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1150_67315_nh54rsmxzy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Falco peregrinus (Lin.) Der Wanderfalk",
+  "updated": "2009-10-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qtzfhbvego78r1l",
+      "agents": "93i1cvgb16cjfey",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.184Z"
+    },
+    {
+      "id": "suvfkfdm5ioievg",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.184Z"
+    }
+  ]
+}

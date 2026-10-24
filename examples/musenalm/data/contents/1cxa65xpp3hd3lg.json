@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 57868, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Gesetze sind für Schwache nur und Schlechte da; / Der Gute kennt nur ein Gesetz; das: gut zu sein.",
+  "language": [],
+  "musenalm_id": 57872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesetze sind für Schwache nur und Schlechte da; / Der Gute kennt nur ein Gesetz; das: gut zu sein.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-06-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6yi94kjmzxpqt0w",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.736Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Erklärung der Kupfer (Sammlung INr 60134, Obj 21) s. Graphik INr 60156, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.997Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "361",
+  "incipit_statement": "Stellt die Begebenheit der ersten Tage des Julius vor, wo durch das Feuer-Einwerfen der Franzosen ein Theil der Stadt in Brand gerieth,",
+  "language": [],
+  "musenalm_id": 60157,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / Das brennende Frankfurt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / Das brennende Frankfurt",
+  "updated": "2008-09-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8a9tnhcfym6f9nw",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.038Z"
+    }
+  ]
+}

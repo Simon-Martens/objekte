@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert I. s. Textbezug INr 43323, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43308,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Auerbacher Schloss",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fohr del. Haldenwang sc.",
+  "scans": [
+    "alm_568_43308_00iszv2t3d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Auerbacher Schloss",
+  "updated": "2006-04-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4v1pdouzyejly94",
+      "agents": "0w2wp8jkpgtwflf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.141Z"
+    },
+    {
+      "id": "5ht6gj0o7cf2r29",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.141Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.141Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 80935, Obj 7 /) Illustration zu »Der sechzehnte März« von Martha von der Höhe d.i. K. von Massow INr 80949, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80934,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Melanie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guet del. C. Kotterba sc.",
+  "scans": [
+    "alm_1803_80934_990amxrlfh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Melanie",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1wn08zifnadmp9k",
+      "agents": "0mmku7y5q5j4skd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.805Z"
+    },
+    {
+      "id": "52x7oyvybh0l57i",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.805Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.805Z"
+    }
+  ]
+}

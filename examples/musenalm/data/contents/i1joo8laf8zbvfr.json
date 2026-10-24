@@ -1,0 +1,45 @@
+{
+  "annotation": "Neunzehn Lyrische Gedichte (Sammlung INr 50315, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.580Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Hold liebkosende Lesberin, / Meines Flaccus Geschenk, goldene Laute du; / Ob ein Freund in der Abendstill', / Ob mein lächelndes Weib dich in den Arm / mir legt.",
+  "language": [],
+  "musenalm_id": 50323,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / An die Laute",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Heinrich Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / An die Laute",
+  "updated": "2007-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m73l5zmyheoviir",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.965Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Graphik im Kalendarium paginiert 4. Illustration zu »Die Söhne des Thales, erster Teil: Die Templer auf Cypern« s. Textbezug 32387, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32369,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Robert. / Weil Ihr es haben wollt, -",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Study del. D. Berger Sculps. 1807",
+  "scans": [
+    "alm_447_32369_nx9s94bk9i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Robert. / Weil Ihr es haben wollt, -",
+  "updated": "2003-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "txou6l0pzfmoncq",
+      "agents": "rcmptupq08d0ih1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.270Z"
+    },
+    {
+      "id": "xvu2su3ztp7adkn",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.270Z"
+    }
+  ]
+}

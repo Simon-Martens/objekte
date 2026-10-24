@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "396",
+  "incipit_statement": "Ach! wenn die Blumen singen könnten / Mit ihrem kleinen Rosenmund,",
+  "language": [],
+  "musenalm_id": 95267,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl v. Holtei",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingslied",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bls24ao8owv3uh7",
+      "agents": "zg6jbd5dfgl0cyy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.482Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Geistliche Lieder (Sammlung INr 55728, Obj 123)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Und hiermit Lied am Ende; / Nur dieses noch zum Schluß, / Daß ich an Euch mich wenden / Mit treuem Abschiedsgruß,",
+  "language": [],
+  "musenalm_id": 55741,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1ix3wxbe77lmysk",
+      "agents": "5dfik7lfhc9fltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.694Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den landschaftlichen Kupfern (Sammlung INr 20476, Obj 16) s. Graphik INr 20484, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Zu diesen Ansichten italiänischer Landhäuser ist der Umriß des japanischen Palastes zu Dresden hinzugegeben worden.",
+  "language": [],
+  "musenalm_id": 20480,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hase",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0y49sdgu0rifh81",
+      "agents": "lov7zjtttdvp66e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.736Z"
+    }
+  ]
+}

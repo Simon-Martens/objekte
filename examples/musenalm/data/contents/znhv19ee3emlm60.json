@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.595Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "So leb' denn wohl, du Liebling meiner Seele, / Auf ewig wohl, mein süßer Morgentraum;",
+  "language": [],
+  "musenalm_id": 133551,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das verlorne Kind. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Anschütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das verlorne Kind. / Ballade",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8768lnkn8qb5ysz",
+      "agents": "8cuyojyme38mdvw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.110Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XI. Erklärung der Kupfer (Sammlung INr 60185, Obj 21) s. Graphik INr 60193, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "306",
+  "incipit_statement": "Ein Schuldheiß, von den bewaffneten Bauern, wurde von den Neufranken gefangen nach Frankfurt gebracht,",
+  "language": [],
+  "musenalm_id": 60192,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Todesverachtung eines deutschen Schultheißen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Todesverachtung eines deutschen Schultheißen",
+  "updated": "2008-10-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fww9wgh9ugtuf2c",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.942Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der ersten Graphik der Suite /) Graphik im Kalendarium September; nummeriert 9. /) Illustration zu »Kabale und Liebe« von Fr. Schiller",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108044,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie weit kammst du mit ihr? / Ich drücke ab, oder bekenne. / IV. Aufz. 3. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv. et sc.",
+  "scans": [
+    "alm_2164_108044_dyi39jgm9j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wie weit kammst du mit ihr? / Ich drücke ab, oder bekenne. / IV. Aufz. 3. Auftr.",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7vihx3518enr25v",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.363Z"
+    }
+  ]
+}

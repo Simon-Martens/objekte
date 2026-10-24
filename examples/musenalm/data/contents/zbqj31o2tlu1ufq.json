@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Daß er sich adeln ließ, das will ich just / nicht tadeln; / Doch ließen sich nur auch nun seine Schrif- / ten adeln.",
+  "language": [],
+  "musenalm_id": 12800,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen neugebackenen hoch- / adelichen Schriftsteller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen neugebackenen hoch- / adelichen Schriftsteller",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z51gtgpdukdt8qh",
+      "agents": "h8teagsnwe3omy2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.508Z"
+    }
+  ]
+}

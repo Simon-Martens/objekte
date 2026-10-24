@@ -1,0 +1,45 @@
+{
+  "annotation": "Reihenfolge und Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64377, Obj 11) s. Graphik INr 64369, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "An des Haares dunklem Glanz / Einen duft'gen Blumenkranz, / Kannst Du, Schöne, mir gefallen,",
+  "language": [],
+  "musenalm_id": 64381,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Lose Flechten - lose Gedanken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Henninger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Lose Flechten - lose Gedanken",
+  "updated": "2009-05-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "79xu271mntzitbe",
+      "agents": "6fj9ilu2sqskj9p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.977Z"
+    }
+  ]
+}

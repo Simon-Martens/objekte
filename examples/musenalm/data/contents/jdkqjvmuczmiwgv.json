@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 4316, Obj 105",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Ich frage nichts nach Ruhm und Geld, / Auch nichts nach euch, ihr großen Zecher!",
+  "language": [],
+  "musenalm_id": 4315,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachahmung des Engländischen Liedes: / My Friend and Pitcher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. K. Kollmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachahmung des Engländischen Liedes: / My Friend and Pitcher",
+  "updated": "2000-09-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ssgfe4191udscav",
+      "agents": "7q5ermfkh0rchrc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.167Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.167Z"
+    }
+  ]
+}

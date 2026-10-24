@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Schön bist du, o Dryade! / Kraus ist dein seidenes Haar,",
+  "language": [],
+  "musenalm_id": 35659,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 180,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Dryade, eines siebenhährigen, zum ersten male blühenden / Pfirsichbäumchens im Garten der Frau / von la Roche zu Offenbach. / 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Dryade, eines siebenhährigen, zum ersten male blühenden / Pfirsichbäumchens im Garten der Frau / von la Roche zu Offenbach. / 1797",
+  "updated": "2003-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h4mvdpmp4m060p1",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.698Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.678Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Am Sommertage, licht und blau, Beym Morgenroth erwacht,",
+  "language": [],
+  "musenalm_id": 3585,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Spinnrad / Nach dem Englischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sartorius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Spinnrad / Nach dem Englischen",
+  "updated": "2000-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f6cwfd760yo6i8r",
+      "agents": "601y79rzgdevnp4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.130Z"
+    }
+  ]
+}

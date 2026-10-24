@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 71367, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Hexen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil inv. Et sc.",
+  "scans": [
+    "alm_3605_71368_qb9d1h1ivq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Hexen",
+  "updated": "2010-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1n08px7s3yxcj9w",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.396Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Träume (Sammlung INr 34564, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Die Madonna mit dem Kinde saß in einer Linde / Zweigen, / Die zu einer runden Laube über ihrem Haupt sich / wölbten.",
+  "language": [],
+  "musenalm_id": 34567,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria zur Linde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Menzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria zur Linde",
+  "updated": "2003-06-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ajj099mvpwk8bpo",
+      "agents": "6z5qy0vfiswoqx8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.976Z"
+    }
+  ]
+}

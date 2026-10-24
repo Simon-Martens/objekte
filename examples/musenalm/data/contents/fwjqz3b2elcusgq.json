@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Gedichte (Sammlung INr 57088, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Myron formte das Antlitz, die Schul- / tern Lysipp,",
+  "language": [],
+  "musenalm_id": 57090,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cicero's Bildsäule. / (nach Sarbiev.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "-u-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cicero's Bildsäule. / (nach Sarbiev.)",
+  "updated": "2008-04-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2mo1q6qofk4z7q4",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.020Z"
+    }
+  ]
+}

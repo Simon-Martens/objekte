@@ -1,0 +1,47 @@
+{
+  "annotation": "Tänze fürs Klavier 2 Menuetten, 2 Quadrillen, 6 Angloisen und 6 Walzer 1806 (Sammlung INr 12637, Obj 160)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.403Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12647,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 170,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Angloise 6",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vinzenz Mascheck",
+  "scans": [
+    "alm_212_12647_575c6cvcq1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Angloise 6",
+  "updated": "2001-03-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9n3g6s796cc593t",
+      "agents": "f5hnxd5mx1nzaii",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.493Z"
+    }
+  ]
+}

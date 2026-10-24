@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigramme (Sammlung INr 78100, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Schau dem entflohenen Glück nicht nach! In den Nacken / gezaubert / Wohnt aus der Gorgo Haupt ihm die versteinende Kraft.",
+  "language": [],
+  "musenalm_id": 78101,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erfahrung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schleiermacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erfahrung",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "robt0z5zuztpjyt",
+      "agents": "272r3k0zcaqt41m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.801Z"
+    }
+  ]
+}

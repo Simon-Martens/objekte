@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Goed VIII. 80, 154 /) Sonette, Octaven (Sammlung INr 71005, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Schönste! Du hast mir befohlen, / Dieses Thema zu glossiren;",
+  "language": [],
+  "musenalm_id": 71030,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glosse. / Süße Liebe denkt in Tönen, / Denn Gedanken stehn zu fern; / Nur in Tönen mag sie gern / Alles, was sie will, verschönen. / Tieck",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Spindelmann, der Recensent",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glosse. / Süße Liebe denkt in Tönen, / Denn Gedanken stehn zu fern; / Nur in Tönen mag sie gern / Alles, was sie will, verschönen. / Tieck",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mcw9jtnohy9ocz3",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.429Z"
+    }
+  ]
+}

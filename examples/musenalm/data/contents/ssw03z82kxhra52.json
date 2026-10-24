@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 29979, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.064Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Caspar Netscher pinx. Fr. Stöber sc. Viennae)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caspar Netscher pinx. Fr. Stöber sc. Viennae",
+  "scans": [
+    "alm_388_29978_mco9oe0558.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "blw782mfzrpkcad",
+      "agents": "a6958cr88ai02iu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.212Z"
+    },
+    {
+      "id": "6ypip4exv7ixqf8",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.213Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.213Z"
+    }
+  ]
+}

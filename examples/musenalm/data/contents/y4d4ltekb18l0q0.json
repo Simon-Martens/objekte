@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: Aura mihi et rigui placeant in vallibus amnes, / Flumina amen silvasque, inglorius / Virgil",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "O Silberbach, der vormal mich vergnügt, / Wann wirst du mir ein sanftes Schlaflied rauschen?",
+  "language": [],
+  "musenalm_id": 92316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsucht nach Ruhe. / 1744",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kleist",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsucht nach Ruhe. / 1744",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rk24cjn0dy7zg6u",
+      "agents": "8pyn3ffhglggkdl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.636Z"
+    }
+  ]
+}

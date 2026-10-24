@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 45633-45638, Obj 44-49",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45634,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder aus Granada. / (Aus einem größeren Cyklus.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Friedrich von Schack",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder aus Granada. / (Aus einem größeren Cyklus.)",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "melwpxxuopzakvo",
+      "agents": "4irsdlf9sfhpmc0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.531Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.531Z"
+    }
+  ]
+}

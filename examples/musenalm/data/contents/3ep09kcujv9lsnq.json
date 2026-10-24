@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. Am 1. Blatt der Suite /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg vom Jahr 1640 bis zum Jahre 1688. Churfürst Friedrich Willhelm der Große« INr 72294, Obj 19 /) s.a. Textbezug INr 72310, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72298,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. W. Meil del et sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil del et sc.",
+  "scans": [
+    "alm_2012_72298_r1u9akcjyg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hwxkb0rnbgjydrm",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.484Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.484Z"
+    }
+  ]
+}

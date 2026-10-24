@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zum Beitrag »Grillenthal« von K. G. Cramer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Es hat, ich weiß nicht mehr: wo? mich ein Herr Recensent darum in seinem Sinne gezüchtigt, daß ich, in meinen Schriften, so vieles - er meint sogar, wie ich mich erinnere, fast alles, auf Lebensgenuß zu reduzieren pflege.",
+  "language": [],
+  "musenalm_id": 48844,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede. / Kann man Lebensgenuß verstehn, und / säumen? Overbeck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Gottlob Cramer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede. / Kann man Lebensgenuß verstehn, und / säumen? Overbeck",
+  "updated": "2007-03-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8fit8bz82kupspl",
+      "agents": "amqten9820medl4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.698Z"
+    }
+  ]
+}

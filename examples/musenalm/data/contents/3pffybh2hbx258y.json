@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Wißt ihr Kinder! / Wie's einst dem schönen Phöbus gieng?",
+  "language": [],
+  "musenalm_id": 76352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phöbus und Daphne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Winkler von Mohrenfels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Phöbus und Daphne",
+  "updated": "2003-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pu33cbs91bp8ym3",
+      "agents": "z7sxko2rf1mce5f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.827Z"
+    }
+  ]
+}

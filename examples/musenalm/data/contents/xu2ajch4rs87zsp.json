@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) s. Widmung INr 117850-117852, Obj 6-8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117846,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elisabeth / Kaiserin von Oesterreich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Katzler del. C. F. Merckel sc. Leipzig",
+  "scans": [
+    "alm_3231_117846_x7l1z20sau.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Elisabeth / Kaiserin von Oesterreich",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q2stfboi33us7dq",
+      "agents": "he3qh02om9n8rxy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.532Z"
+    }
+  ]
+}

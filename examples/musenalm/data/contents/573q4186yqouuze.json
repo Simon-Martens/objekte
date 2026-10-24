@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 56422, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Du pflückest so schöne Blumen, / Du windest Kränze, mein Kind,",
+  "language": [],
+  "musenalm_id": 56430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sänger und die Hirtin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sänger und die Hirtin",
+  "updated": "2008-04-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yq3wvq105l7eqt6",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.005Z"
+    }
+  ]
+}

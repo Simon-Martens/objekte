@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zum Beitrag INr 64803, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Für ein humoristisches Taschenbuch etwas zu liefern, fällt wohl allen ernsten Geschäftsleuten schwer,",
+  "language": [],
+  "musenalm_id": 64802,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Ueber / die Erbfolge der Prinzessinnen / in den Staaten / des deutschen Bundes. / Vorwort",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hippolytus a Lapide, / Exprofessor Juris Publici",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Ueber / die Erbfolge der Prinzessinnen / in den Staaten / des deutschen Bundes. / Vorwort",
+  "updated": "2009-06-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o8mennsktga57wy",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.892Z"
+    }
+  ]
+}

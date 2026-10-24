@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zu: Bruchstücke aus Gottfrieds Crayon's Skizzenbuche (Sammlung INr 59287, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Die nachstehenden Bruchstücke sind aus einem sehr geistreichen, im J. 1819 zu New-York in Amerika erschienenen Werke entlehnt, welches unter dem Titel: The sketch-book of Geoffrey Crayon (Gottfr. Crayon's Skizzenbuch)",
+  "language": [],
+  "musenalm_id": 59288,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die nachstehenden Bruchstücke sind aus einem sehr geistreichen, im J. 1819 zu New-York in Amerika erschienenen Werke entlehnt, welches unter dem Titel: The sketch-book of Geoffrey Crayon (Gottfr. Crayon's Skizzenbuch)…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. H. Spiker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ddhd9izk9vreuxk",
+      "agents": "ifwkraj21mnbg9a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.065Z"
+    }
+  ]
+}

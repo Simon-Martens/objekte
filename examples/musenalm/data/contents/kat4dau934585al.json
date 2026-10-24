@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik »Der Paria von Michael Beer« von F. Rosmaesler nach Kolbe. Urania 1827 INr 9358",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Mein Kind! / Geliebtes Weib! schläft unser Knabe?",
+  "language": [],
+  "musenalm_id": 721,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Der Paria, Trauerspiel in einem Aufzuge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michael Beer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Der Paria, Trauerspiel in einem Aufzuge",
+  "updated": "2000-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u0f90hsurmr8vd0",
+      "agents": "xkku82ly65l51m3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.039Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Auch durch dieses Jahr weihte der Oesterreicher den Wissenschaften seine Pflege. So gewann die Rechtswissenschaft durch Schwerdlings 2ten Theil der praktischen Anwendung aller im geistlichen Fache ergangenen k.k. Verordnungen,",
+  "language": [],
+  "musenalm_id": 92578,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Literatur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Schwaldopler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Literatur",
+  "updated": "2013-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h6ksll23956vpyu",
+      "agents": "lgm7bery1pehuzm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.299Z"
+    }
+  ]
+}

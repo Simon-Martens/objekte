@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Grillen und Launen (Sammlung INr 100413, Obj 77) Der Wind im Walde. Drei Liederkränze (Sammlung INr 100406, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Im Winter wandelt er zu Eis / Und zwingt sie streng zu schweigen",
+  "language": [],
+  "musenalm_id": 100417,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Der Grämling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Storch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Der Grämling",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "stzrrfgqgrbdmnv",
+      "agents": "n05stp52kkm5on3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.123Z"
+    }
+  ]
+}

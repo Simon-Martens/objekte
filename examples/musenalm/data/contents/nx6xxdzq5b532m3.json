@@ -1,0 +1,47 @@
+{
+  "annotation": "Seite 41 der Beilage mit Vertonung zu »Herr Heiter« von Karl v. Holtei INr 108331, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109377,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3551_109377_83kncyqfns.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-04-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l9laimd0br56l55",
+      "agents": "9enp1bdvcfoj1ba",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.178Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.178Z"
+    }
+  ]
+}

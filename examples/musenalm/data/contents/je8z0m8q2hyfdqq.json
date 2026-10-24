@@ -1,0 +1,43 @@
+{
+  "annotation": "Zeichen der Zeit in acht Bildern (Sammlung INr 30297, Obj 4) s. Graphik INr 30298, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.202Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Was fragt die Liebe nach der Zeit, / Was fragt sie nach den Zeichen!",
+  "language": [],
+  "musenalm_id": 30299,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Luxus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Luxus",
+  "updated": "2002-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lk0ddedy4b3vcwd",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.069Z"
+    }
+  ]
+}

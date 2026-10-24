@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80097, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.548Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Wenn Ihr ein Land Euch denkt mit reichen Thalen, / D'rob sich ausspannt ein ewig blauer Himmel,",
+  "language": [],
+  "musenalm_id": 80100,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Grauenhaft",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carlopago",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Grauenhaft",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "avk1f0zu94g3soz",
+      "agents": "xaj6m1llkx5hiyx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.871Z"
+    }
+  ]
+}

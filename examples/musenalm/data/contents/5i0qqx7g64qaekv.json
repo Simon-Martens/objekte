@@ -1,0 +1,45 @@
+{
+  "annotation": "Winter (Sammlung INr 23293, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Du siehst, wie glanzhell steht in gethürmtem / Schnee / Sorakte, kaum noch unter der Flockenlast / Der Wald sich aufringt,",
+  "language": [],
+  "musenalm_id": 23300,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Thaliarchus. / (Horaz I. 9)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Thaliarchus. / (Horaz I. 9)",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t1umsxpa6lh3mff",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.797Z"
+    }
+  ]
+}

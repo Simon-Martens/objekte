@@ -1,0 +1,45 @@
+{
+  "annotation": "Akkorde (Sammlung INr 89526, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Hoch droben steckt er, in dem schwarzen / Schlund! / Ein Liedchen trällernd aus berußtem Mund;",
+  "language": [],
+  "musenalm_id": 89510,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Lord und der Halbgott",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Hannusch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Lord und der Halbgott",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0f9sq8nalc9pm78",
+      "agents": "1gx7z956tuv7ghs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.150Z"
+    }
+  ]
+}

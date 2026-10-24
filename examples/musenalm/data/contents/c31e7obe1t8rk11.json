@@ -1,0 +1,43 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 75670, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Herr Penzel ist als Kupferstecher bekannt genung. Ich bat meinen Freund, daß er auch sein Talent als Zeichner dem Vaterlande in diesem Werk bekannt machen sollte. Er gab meinen Bitten nach,",
+  "language": [],
+  "musenalm_id": 75672,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Monatskupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göschen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Monatskupfer",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fwt1zfrtt97ciyv",
+      "agents": "s7zezuvvsuyydzi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.728Z"
+    }
+  ]
+}

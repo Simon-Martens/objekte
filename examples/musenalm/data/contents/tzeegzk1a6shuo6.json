@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait /) s. Textbezug INr 93817, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93809,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ELEONORE / Infantin v. Portugal, Gemahlin Kaiser Friedrichs IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+  "scans": [
+    "alm_989_93809_p1uv5egk6x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ELEONORE / Infantin v. Portugal, Gemahlin Kaiser Friedrichs IV.",
+  "updated": "2009-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fzarptvq5yrt5wa",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.235Z"
+    },
+    {
+      "id": "4jzmhai3q1653p2",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.235Z"
+    }
+  ]
+}

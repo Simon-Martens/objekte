@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 65534, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Oftmals gieng es mir zu Herzen, / Wenn ich so bei Tische saß,",
+  "language": [],
+  "musenalm_id": 65537,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der melancholische Esser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Puchta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der melancholische Esser",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f07x50ly0zv41o4",
+      "agents": "yjnbioe01jyvf6s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.036Z"
+    }
+  ]
+}

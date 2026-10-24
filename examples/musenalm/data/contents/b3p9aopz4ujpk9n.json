@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.536Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Zeit entführt die Wahrheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Poussin Pinx. Fortier Sulp.",
+  "scans": [
+    "alm_476_43087_xs4iabpyc6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Zeit entführt die Wahrheit",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bpjol33pjkjntp8",
+      "agents": "o7lqwdeddlwmr62",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.312Z"
+    },
+    {
+      "id": "ria0fjuwspuud4m",
+      "agents": "vuxl65pc90019o7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.312Z"
+    }
+  ]
+}

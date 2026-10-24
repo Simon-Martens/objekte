@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 29991, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Nahe dem Ausflusse der wilden Tamina, die, bei dem heutigen Badeorte Pfeffers in der Landschaft Sargans, in grauenvoller Tiefe, vom Tageslicht nie beschienen fortrauscht",
+  "language": [],
+  "musenalm_id": 29990,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tamina",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederike Lohmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tamina",
+  "updated": "2002-11-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jxus5rj3b1iwkt8",
+      "agents": "o98cykqmxxu1sx9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.116Z"
+    }
+  ]
+}

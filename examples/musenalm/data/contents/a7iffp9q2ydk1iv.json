@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Pracht der Stephanskirche. Fünf Sonette. im März 1814. (Sammlung INr 14221, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Fürst aller Thürme, die durch Deutschlands Gauen / Um Rang und Ruhm, um Pracht und Dauer streiten,",
+  "language": [],
+  "musenalm_id": 14225,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Der ausgebaute Thurm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Der ausgebaute Thurm",
+  "updated": "2001-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x8np1ih8a2f0d5l",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.268Z"
+    }
+  ]
+}

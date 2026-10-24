@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. Fables de Lafontaine (Sammlung INr 131760, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 131768, Obj 24 /) mit 2 Illustrationen s. Graphiken im Kalendarium Nr 131754, 131755; Obj 10, 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "O Jupiter vernimm mein Fle- / hen! / Zwar gabst du der, die mich / verwandelt hat, / In deinem Hirne das Entste- / hen.",
+  "language": [],
+  "musenalm_id": 131767,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Spinne und die / Schwalbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Spinne und die / Schwalbe",
+  "updated": "2018-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n88zfrt6ovq7gt8",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.039Z"
+    }
+  ]
+}

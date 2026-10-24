@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Der mayliche Käfer ist wieder gekommen, / Das kleine, fühlende Mädchen nicht,",
+  "language": [],
+  "musenalm_id": 67,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER MAYKÄFER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "KlAMER SCHMIDT",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DER MAYKÄFER",
+  "updated": "2001-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "czin1ldpmsejj5n",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.964Z"
+    }
+  ]
+}

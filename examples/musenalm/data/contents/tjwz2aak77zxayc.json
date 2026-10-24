@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Die du im kühlen Felsen auf thauigem / Moose hier hausest,",
+  "language": [],
+  "musenalm_id": 266,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Opfer an einer Quelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Ittner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Opfer an einer Quelle",
+  "updated": "2001-06-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jkhg3xdkvar45f2",
+      "agents": "imr7l7jckky4gjp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.667Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Fortsetzung des 1. Teils im Taschenbuch für Damen 1817 s. INr 34038",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Vernimm also, was ich dir lieber bis in die spätesten Zeiten verborgen hätte. Die Gestalt, in der du mich im Kästchen erblicktest, ist mit wirklich angeboren und natürlich:",
+  "language": [],
+  "musenalm_id": 34198,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die neue Melusine. / (Schluß. Siehe den Jahrgang 1817.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die neue Melusine. / (Schluß. Siehe den Jahrgang 1817.)",
+  "updated": "2003-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s7dx8kpehcyyb4j",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.765Z"
+    }
+  ]
+}

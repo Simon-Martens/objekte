@@ -1,0 +1,46 @@
+{
+  "annotation": "Geschichten und Schwänke. Alten Chroniken nacherzählt (Sammlung INr 89565, Obj 35) mit einer Illustration s. Graphik im Kalendarium INr 89542, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.678Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Ein redlicher Landwirt, der sein mäßiges Auskommen hatte, lebte mit seiner Hausfrau und seiner einzigen Tochter, einem Muster von Liebreiz und Herzensgüte,",
+  "language": [],
+  "musenalm_id": 89566,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Richter seiner selbst. / (Othon. Melandri Jocoseria. Lichae Solmen- / sium. 1605. CLII .p. 162)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Richter seiner selbst. / (Othon. Melandri Jocoseria. Lichae Solmen- / sium. 1605. CLII .p. 162)",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r9jf57qzdyohm25",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.227Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "6 Angloisen 2 Quadrillen 2 Menuetten und 4 Walzer von Kapellmeister Vinzenz Mascheck in Prag (Sammlung INr 11736, Obj 172)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11747,
+  "musenalm_pagination": [
+    "3. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 185,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walz. 1",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vinzenz Mascheck",
+  "scans": [
+    "alm_205_11747_v9u0grx4ha.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Walz. 1",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iy8nsd3lbl0xqh9",
+      "agents": "f5hnxd5mx1nzaii",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.306Z"
+    }
+  ]
+}

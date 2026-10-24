@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zum Beitrag »Die väterliche Gewalt« von K. G. Prätzel INr 19876, Obj 60",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19829,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die väterliche Gewalt von Pretzel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. F. Fleischmann sc.",
+  "scans": [
+    "alm_267_19829_awgylc0b0z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die väterliche Gewalt von Pretzel",
+  "updated": "2001-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w7q6ci57y36s9h0",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.750Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.750Z"
+    },
+    {
+      "id": "dk14my99ix9go8p",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.751Z"
+    }
+  ]
+}

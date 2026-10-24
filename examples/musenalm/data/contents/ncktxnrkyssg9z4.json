@@ -1,0 +1,56 @@
+{
+  "annotation": "IX. Ausstellungen aus den Reisen und Abentheuern Von Jean Jaques Casanova de Seingalt. Nach dem in französischer Sprache geschriebenen Original-Manuscript bearbeitet von Wilhelm von Schütz (Sammlung INr 1637, Obj 147)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "341",
+  "incipit_statement": "Mein Empfehlungsschreiben an Haller stellte mich einem Mann von hohem Wuchs - er mochte sechs Zoll haben - gegenüber,",
+  "language": [],
+  "musenalm_id": 1870,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 152,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Casanova's Besuch bei Haller und Voltaire",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Jaques Casanova; Wilhelm von Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Casanova's Besuch bei Haller und Voltaire",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xa1ywkalkrn51m2",
+      "agents": "twsnbj8qnaadxfr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.122Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.122Z"
+    },
+    {
+      "id": "wv8bgiwv69475q8",
+      "agents": "j5e1jto7rj2ibw3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.122Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.122Z"
+    }
+  ]
+}

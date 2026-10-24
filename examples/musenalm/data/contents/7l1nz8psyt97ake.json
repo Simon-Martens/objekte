@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Beiträgen INr 131401, 131402, Obj 9, 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131400,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der Oper: Die Zauberin aus / Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perinet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus der Oper: Die Zauberin aus / Liebe",
+  "updated": "2016-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vs14q0q230rmf80",
+      "agents": "k0pr8qnl9uye038",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.033Z"
+    }
+  ]
+}

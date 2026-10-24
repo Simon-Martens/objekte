@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Buche der Weisheit des Mirza-Schaffy (Sammlung INr 45360, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Verbitt're dir das junge Leben nicht, / Verschmähe was dir Gott gegeben nicht!",
+  "language": [],
+  "musenalm_id": 45362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verbitt're dir das junge Leben nicht, / Verschmähe was dir Gott gegeben nicht!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Bodenstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xwzjmfp1ucfyecm",
+      "agents": "3bb8mhymqsjn5dk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.452Z"
+    }
+  ]
+}

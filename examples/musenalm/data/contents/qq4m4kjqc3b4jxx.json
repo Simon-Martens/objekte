@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Kleine Notitzen meistens in Betreff Graubündens (Sammlung INr 51238, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.481Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Eine für das Malerauge ungemein interessante bündnische Gegend ist das Misoxer Thal",
+  "language": [],
+  "musenalm_id": 51241,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die schönen Ruinen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die schönen Ruinen",
+  "updated": "2007-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5js2zl86nlrtg4e",
+      "agents": "2zqoqv8fdrs839t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.704Z"
+    }
+  ]
+}

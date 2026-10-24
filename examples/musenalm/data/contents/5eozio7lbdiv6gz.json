@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Gedichte (Sammlung INr 39313, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Tief unter der Brücke Bogen, / Da schäumen, da branden die Wogen,",
+  "language": [],
+  "musenalm_id": 39315,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Königskinder. / Nordisch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Königskinder. / Nordisch",
+  "updated": "2005-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vg2esadx7asoe7m",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.193Z"
+    }
+  ]
+}

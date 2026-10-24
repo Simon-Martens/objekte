@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Rattenfänger zu Hameln« von J. G. Seidl INr 89504, Obj 22 fehlt hier /) Die Graphik aus der Titelauflage: Taschenbuch für das Jahr 1842 Wien, bei Franz Riedl's sel. Wittwe & Sohn, k.k. Hofbuchbinder, Schottenhof No. 196",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rattenfänger zu Hameln",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. W. del. L. B. sc.",
+  "scans": [
+    "alm_3352_89505_mdgsc7vofy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Rattenfänger zu Hameln",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ynmm0u5o7ipe8kn",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.360Z"
+    }
+  ]
+}

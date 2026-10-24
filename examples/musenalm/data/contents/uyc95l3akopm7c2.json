@@ -1,0 +1,45 @@
+{
+  "annotation": "Gaben der flüchtigen Muse (Sammlung INr 56025, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Du mit mir Eine Seel', ein Leib: / Mein schönes, reines, eh'lich Weib,",
+  "language": [],
+  "musenalm_id": 56073,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gattin und die Buhlerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Robert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gattin und die Buhlerin",
+  "updated": "2008-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xn51whrspel5snh",
+      "agents": "shwrrrsohbx2ih5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.629Z"
+    }
+  ]
+}

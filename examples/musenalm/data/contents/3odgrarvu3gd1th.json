@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Durch die dunkelgrünen Wipfel des prachtvollen Fichtenhochwaldes, welcher, so weit das Auge gegen Norden reicht, über alle Hügel und Thäler sich ausbreitet,",
+  "language": [],
+  "musenalm_id": 64405,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der treue Hüter. / Eine Erzählung aus dem wendischen Volksleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Ziehen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der treue Hüter. / Eine Erzählung aus dem wendischen Volksleben",
+  "updated": "2009-05-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "88dbignk0jxfm79",
+      "agents": "n93zvl8q72c04nh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.095Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Ich will mich kühn in deine Tiefen wagen / Du schreckensvolles Zweifellabyrinth!",
+  "language": [],
+  "musenalm_id": 33213,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zweifler",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theone",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Zweifler",
+  "updated": "2003-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wj0hsmg3qpt31yf",
+      "agents": "easxd2ciuxkfl7o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.762Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.762Z"
+    }
+  ]
+}

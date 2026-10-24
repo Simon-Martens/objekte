@@ -1,0 +1,67 @@
+{
+  "annotation": "paginiert Tab. I. /) kol.  Illustration zu »Der Axis oder das bengalische Wild« von Reichsgraf von Mellin INr 66540, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.126Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66539,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cervus Axis Bengalischer Hirsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nahl. gez. Gebr. Susemihl gest.",
+  "scans": [
+    "alm_1137_66539_o14cwifn04.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cervus Axis Bengalischer Hirsch",
+  "updated": "2009-09-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qewekp7n9jq54a8",
+      "agents": "19dpt0c5iom2ho8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.355Z"
+    },
+    {
+      "id": "grtvxer7zcd5bdx",
+      "agents": "0krc3qfy4wkj0vx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.355Z"
+    },
+    {
+      "id": "xcet8vgc7lmqkv0",
+      "agents": "kno3jlnpudqvc0i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.355Z"
+    }
+  ]
+}

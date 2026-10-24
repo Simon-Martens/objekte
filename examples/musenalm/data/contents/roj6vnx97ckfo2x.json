@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Anekdote. Mayta Capac, vierter Ynca, und die Collaer. Ein Beyspiel für verirrte Unterthanen« INr 130037, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130038,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gnade des Ynca Mayta Capac, / gegen die Collaer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clar sc. 1790",
+  "scans": [
+    "alm_3055_130038_ju9ppevi1l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gnade des Ynca Mayta Capac, / gegen die Collaer",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gxlxx02oll5tfjy",
+      "agents": "cj6pzq84zp925pc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.055Z"
+    }
+  ]
+}

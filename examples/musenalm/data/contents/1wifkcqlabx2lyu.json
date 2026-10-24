@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Vorwort des Hrsg. (INr 125850, Obj 6) und einem Vorwort des Vf. (INr 125851, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "He! Anamiadl! Anamiadl! bst! bst! Anamiadl! / Hasd den nöd ghead main Muaringliadl?",
+  "language": [],
+  "musenalm_id": 125847,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "D’Schwoagerin / a Kumödigschbül / a so z’amagsödzd wia s’ in Esdraich röd’n doan / von / I. F. Castelli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "D’Schwoagerin / a Kumödigschbül / a so z’amagsödzd wia s’ in Esdraich röd’n doan / von / I. F. Castelli",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ehdho19edx7o3i6",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.766Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.766Z"
+    }
+  ]
+}

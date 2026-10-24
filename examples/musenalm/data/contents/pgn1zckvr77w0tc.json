@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Langsam rückt eine dichte Herbstnebelmasse im südlicheren Böhmerwalde hin und her; Dörfer, Höhen und Wälder sind davon umhüllt,",
+  "language": [],
+  "musenalm_id": 65332,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Kirchweihfest. / Novelle aus dem Volksleben der süd-westlichen Deutsch- / böhmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Rank",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Kirchweihfest. / Novelle aus dem Volksleben der süd-westlichen Deutsch- / böhmen",
+  "updated": "2009-07-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "heo4mfy5hhcplw4",
+      "agents": "h1rm6ctjxvxk0m6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.998Z"
+    }
+  ]
+}

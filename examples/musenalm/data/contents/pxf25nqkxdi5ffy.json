@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.475Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Das Reden hilft all' zu nichts, Jungfer Wernern, es wird nichts draus!",
+  "language": [],
+  "musenalm_id": 2054,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der lahme Hans. / Eine Dorfgeschichte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Martell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der lahme Hans. / Eine Dorfgeschichte",
+  "updated": "2000-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7oq83xl7by99kkl",
+      "agents": "zrsi43h33yxojuh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.636Z"
+    }
+  ]
+}

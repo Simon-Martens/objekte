@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite (INr 124017, Obj 2); Illustration zu »Der Schulmeister und seine Frau« (INr 124027, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124028,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Röschen. / Ja! wer von allen Dingen das Wie und Warum wüßte. / Der Schulmeister und seine Frau. 5te Scene #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G. Boettger sen. sc.",
+  "scans": [
+    "alm_1293_124028_15atesj1m1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Röschen. / Ja! wer von allen Dingen das Wie und Warum wüßte. / Der Schulmeister und seine Frau. 5te Scene #",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8dhkl5kwz8k65bh",
+      "agents": "hwl1l57k0tbbc1r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.746Z"
+    },
+    {
+      "id": "9t92eth0p7ur5y8",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.746Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.746Z"
+    }
+  ]
+}

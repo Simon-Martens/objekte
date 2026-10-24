@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer kol. Illustration (INr 124938, Obj 11); $ vermutl. Dartois de Bournonville, Francois-Victor-Armand  (vgl. Nouvelle Biographie Générale XIII, Sp. 135); # Bezeichnung aus dem Titel (INr 124929, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.639Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Ach, da wären wir endlich angelangt! / Sage mir nur, wo ist er denn? Crispin! Crispin! / Ich bin ja schon hier. / Immer lässest Du mich warten.",
+  "language": [],
+  "musenalm_id": 124937,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier Jahre darnach. / Drama in einem Aufzuge. (Als Fortsetzung der Heirath aus Vernunft.) / Nach Dartois, von F. A. von Kurländer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dartois $ [bearb.] F. A. Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vier Jahre darnach. / Drama in einem Aufzuge. (Als Fortsetzung der Heirath aus Vernunft.) / Nach Dartois, von F. A. von Kurländer",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bld3yj3e9mtk2lg",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.671Z"
+    }
+  ]
+}

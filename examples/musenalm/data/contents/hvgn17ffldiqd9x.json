@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Autorsqualen« von Franck (INr 125709, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kein Autor der Welt soll mich mehr verführen, ihm während / der ersten Darstellung seines Stückes Gesellschaft zu leisten!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmutzer del. M. Hofmann sc.",
+  "scans": [
+    "alm_2730_125710_ldtaegjp3m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kein Autor der Welt soll mich mehr verführen, ihm während / der ersten Darstellung seines Stückes Gesellschaft zu leisten!",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zdlh6h0kesetxtu",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.912Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 123362, Obj 8; # Bezeichnung aus den Vorworten bis Jg. 1806",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "125",
+  "incipit_statement": "Calpurn läßt mich rufen? – und so hastig? – Was will er von mir? – O es ist schwer, einem Manne zu gehorchen, den man nicht achtet.",
+  "language": [],
+  "musenalm_id": 123363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Claudius / Schauspiel in einem Akt. / (Gegründet auf eine wahre Anecdote aus der / Geschichte des Kaiser Claudius.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Claudius / Schauspiel in einem Akt. / (Gegründet auf eine wahre Anecdote aus der / Geschichte des Kaiser Claudius.)",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fcnakgv4107uzl6",
+      "agents": "sse24vstbh0jbtd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.806Z"
+    }
+  ]
+}

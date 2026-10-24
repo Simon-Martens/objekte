@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium. bezog. Monat.: Juni",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50428,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (G. V. Kininger del. J. Blaschke sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. V. Kininger del. J. Blaschke sc.",
+  "scans": [
+    "alm_10_50428_o9sf50fjmi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-06-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d646zpv1tw7nvgg",
+      "agents": "60p50kezhrh7h42",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.941Z"
+    },
+    {
+      "id": "742ykvuqds08ax6",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.941Z"
+    }
+  ]
+}

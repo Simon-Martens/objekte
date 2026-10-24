@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Ganz gehörest du doch nicht allein, o Cotta! Camil- / len:",
+  "language": [],
+  "musenalm_id": 128865,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cotta. / Aus dem Latein. des Owen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Friedr. Frhrr. v. Retzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Cotta. / Aus dem Latein. des Owen",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2niuh9694aybr7k",
+      "agents": "rszt46vfvzbfush",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.988Z"
+    }
+  ]
+}

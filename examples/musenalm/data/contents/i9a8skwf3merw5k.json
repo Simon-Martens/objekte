@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Es ist vorübergegangen, Daphne! das schwarze Gewitter; die schreckende Stimme des Donners schweigt.",
+  "language": [],
+  "musenalm_id": 92327,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Damon. Daphne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geßner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Damon. Daphne",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xduwwcwb9cyaszp",
+      "agents": "pua8u6y6ts6oo5o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.614Z"
+    }
+  ]
+}

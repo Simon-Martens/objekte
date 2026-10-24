@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Hier badeten bald in der Wiese Grün, / Bald in der Flut verschönertem Krystalle, / Bald in des Saatenhügels sanftem Falle, / Die Augen, die mich nach an Liebesbanden ziehn.",
+  "language": [],
+  "musenalm_id": 127549,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung / an / den Ufern der Alle bei F.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Stägemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung / an / den Ufern der Alle bei F.",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nspi6naeimtoid6",
+      "agents": "3otd6uv72ls66y4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.917Z"
+    }
+  ]
+}

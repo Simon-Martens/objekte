@@ -1,0 +1,45 @@
+{
+  "annotation": "Lukillios. Auf einen Magern (Sammlung INr 78435, Obj 90)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Der du dem nichtigen Schatten, der ungesehenen Luft / gleichst, / Wag' es doch nicht, o Freund, jemand entgegen zu / gehn;",
+  "language": [],
+  "musenalm_id": 78436,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Erichson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2011-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9iaj5aadkro2yfq",
+      "agents": "f1ndpqwlkilrcgf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.879Z"
+    }
+  ]
+}

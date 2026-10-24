@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Raphaels Tod« von S. INr 62635, Obj 90",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62635,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Raphael",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff gez. L. Portmann gest.",
+  "scans": [
+    "alm_1026_62635_ha9yrq06gy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Raphael",
+  "updated": "2009-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s0gyctrb5ya40y9",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.853Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.853Z"
+    },
+    {
+      "id": "6wlitxii1cq3o71",
+      "agents": "dtwggxcbl5w7fng",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.853Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.853Z"
+    }
+  ]
+}

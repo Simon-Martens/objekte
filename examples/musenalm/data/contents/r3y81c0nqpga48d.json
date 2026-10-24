@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Sonett von Treitschke INr 54990, Obj 1,05",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.125Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54981,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1.04,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE JUNGFRAU MIT DEM KINDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julio Romano p. F. John sc.",
+  "scans": [
+    "alm_223_54981_9qb37uqobj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE JUNGFRAU MIT DEM KINDE",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iiiq1bq5q7wdnvk",
+      "agents": "6tqk2ha5d097dh6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.916Z"
+    },
+    {
+      "id": "8rd334n9f2em07j",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.916Z"
+    }
+  ]
+}

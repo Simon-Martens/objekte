@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Gedicht s. INr 62562, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Es zogen einmal drei junge, muntre Gesellen von Mainz aus nach Schwaben, um das Land zu besehen und die Merkwürdigkeiten in den Städten und Klöstern,",
+  "language": [],
+  "musenalm_id": 62562,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wagen gewinnt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wagen gewinnt",
+  "updated": "2009-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5swhakh5qpl3lwk",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.088Z"
+    }
+  ]
+}

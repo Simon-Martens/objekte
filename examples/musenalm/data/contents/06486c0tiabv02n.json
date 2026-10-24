@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik; Illustration zu »Faust« von J. W. von Goethe s. Textbezug INr 40882, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40863,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faust 16s. Blatt / Ist gerettet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc",
+  "scans": [
+    "alm_533_40863_xmpjbugp84.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Faust 16s. Blatt / Ist gerettet",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hhcmuxc568fkcs8",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.174Z"
+    },
+    {
+      "id": "0mqa38vq3ob49vm",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.174Z"
+    }
+  ]
+}

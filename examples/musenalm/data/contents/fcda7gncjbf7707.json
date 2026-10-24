@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juli paginiert 8. /) Illustration zu »Macbeth« von W. Shakespeare übers. von G. A. Bürger",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70793,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Macbeth / Bürgers Schriften",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Laminit sc.",
+  "scans": [
+    "alm_3590_70793_5ju0gi71tm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Macbeth / Bürgers Schriften",
+  "updated": "2010-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w34ildmqpkbhn5k",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.521Z"
+    }
+  ]
+}

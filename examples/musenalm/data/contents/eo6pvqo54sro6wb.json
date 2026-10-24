@@ -1,0 +1,58 @@
+{
+  "annotation": "Historisch-malerische Reise durch Neapel und Sicilien. Wien, MDCCCVI. Bey J. V. Degen, Buchdrucker und Buchhändler (Sammlung INr 88045, Obj 7) s. Textbezug INr 88058, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erste Ansicht des Tempels des Jupiter-Serapis zu Pozzuoli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert del. J. Gerstner sc.",
+  "scans": [
+    "alm_3102_88059_rz8pkwdnpj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erste Ansicht des Tempels des Jupiter-Serapis zu Pozzuoli",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m8pu5ftpbtwchsd",
+      "agents": "6tdu2x32umi91tu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.050Z"
+    },
+    {
+      "id": "o0hdk8ee2ved4ub",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.050Z"
+    }
+  ]
+}

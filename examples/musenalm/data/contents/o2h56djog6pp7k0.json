@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "374",
+  "incipit_statement": "Daß ich wenig selbst gegeben, / Wird man's tadeln, wird man's loben?",
+  "language": [],
+  "musenalm_id": 76909,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Entschuldigung für den Herausgeber. / Sonnett",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theod. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Entschuldigung für den Herausgeber. / Sonnett",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h7ga4dzbfo9820c",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.684Z"
+    }
+  ]
+}

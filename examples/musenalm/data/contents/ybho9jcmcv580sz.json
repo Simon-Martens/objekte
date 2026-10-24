@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu » Rose und  Lilie« von Fr. Lohmann INr 122235, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 122232,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rose und Lilie, von Fr. Lohmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Leop. Beyer sc.",
+  "scans": [
+    "alm_3748_122232_xibyi4nide.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rose und Lilie, von Fr. Lohmann",
+  "updated": "2011-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zsfda9fuz95192l",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.673Z"
+    },
+    {
+      "id": "baw526y31rlwuxf",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.673Z"
+    }
+  ]
+}

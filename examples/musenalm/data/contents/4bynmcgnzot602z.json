@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Winter der grämliche Weißbart beherrschet nun wieder die / Fluren, / Schüttet vom eisigen Haupt stöbernde Flocken herab,",
+  "language": [],
+  "musenalm_id": 90809,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gegenüber. / (Aus den Blättern der Liebe.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ant. Alex. Graf v. Auersperg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gegenüber. / (Aus den Blättern der Liebe.)",
+  "updated": "2013-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "16cnrtovyvyhxn5",
+      "agents": "7s5akx33j2gpr6y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.207Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.207Z"
+    }
+  ]
+}

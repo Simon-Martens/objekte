@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 12. /) Graphik im Kalendarium Dezember. /) Illustration zu »Abriß der Begebenheiten des allgemeinen Krieges der spanischen Erbfolge« INr 75770, Obj 32; s.a. Textbezug INr 75762, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75754,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unterzeichnung des Friedens in Rastadt. / Villars zu Eugen: Wir sind keine Feinde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel fec. 1793. D. Chod. del.",
+  "scans": [
+    "alm_2140_75754_twcwggrhxt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Unterzeichnung des Friedens in Rastadt. / Villars zu Eugen: Wir sind keine Feinde",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xot03fpz3l56sfn",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.836Z"
+    },
+    {
+      "id": "6schov4knxs3wc7",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.836Z"
+    }
+  ]
+}

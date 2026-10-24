@@ -1,0 +1,45 @@
+{
+  "annotation": "Zweytes Jahr (Sammlung INr 52046, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Seit ich vor den Männern allen, / O du Theure! dir gefallen, / Konnt' ich gleich von dir die Flecken / Meines Herzens nicht verstecken,",
+  "language": [],
+  "musenalm_id": 52049,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe mit Thränen, / an Henrietten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe mit Thränen, / an Henrietten",
+  "updated": "2007-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "74f6vkyy2zs4boa",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.642Z"
+    }
+  ]
+}

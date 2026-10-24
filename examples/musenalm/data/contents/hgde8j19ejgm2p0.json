@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Unschuld« von F. Grillparzer INr 26100, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26092,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE UNSCHULD",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt v. Prof Waldmüller Stahlstich v. J. Passini",
+  "scans": [
+    "alm_341_26092_6q5n7qqyzn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE UNSCHULD",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cpmwrds359ty0fn",
+      "agents": "30mh43xegynue78",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.169Z"
+    },
+    {
+      "id": "om0jkpoqu97yeat",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.169Z"
+    }
+  ]
+}

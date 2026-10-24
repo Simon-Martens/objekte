@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-03T09:26:52.508Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Seht den Genuß, den sie verspricht, / Mit Schönheit sich verbinden;",
+  "language": [],
+  "musenalm_id": 140483,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was ich liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rupprecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Was ich liebe",
+  "updated": "2026-09-03T09:27:34.828Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "rvtz9yh0684zr8f",
+      "agents": "47jltbo11xjvoib",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-03T09:27:34.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-03T09:27:34.829Z"
+    }
+  ]
+}

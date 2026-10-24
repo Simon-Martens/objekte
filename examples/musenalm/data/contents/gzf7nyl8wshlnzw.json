@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Brummbär« von St. Schütze INr 20863, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65168,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10.08,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Brummbär v. St. Schütze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg sc. S. Langer sc.",
+  "scans": [
+    "alm_275_65168_emgkgjvbls.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Brummbär v. St. Schütze",
+  "updated": "2002-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "91fsgbn0dadhelk",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.910Z"
+    },
+    {
+      "id": "fuxfop7dxhlvl4p",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.910Z"
+    }
+  ]
+}

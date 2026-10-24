@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "377",
+  "incipit_statement": "Ein Mensch gemeinen Standes, Namens Barré, hatte seine Braut zu später Abendzeit in das Bologner Holz gelockt,",
+  "language": [],
+  "musenalm_id": 22346,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Marquise de la Pivardiere. / (Nach Richer's Causes célèbres.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. T. A. Hoffmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Marquise de la Pivardiere. / (Nach Richer's Causes célèbres.)",
+  "updated": "2002-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "58sgpcy1hp5faa2",
+      "agents": "hhytu0neum83euj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.867Z"
+    }
+  ]
+}

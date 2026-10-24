@@ -1,0 +1,45 @@
+{
+  "annotation": "unter der Graphik: Carlsruhe, im Kunst Verlag",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78095,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SCHROEDER-DEVRIENT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. A. Schuler sculp.",
+  "scans": [
+    "alm_2930_78095_tovjrx6cb6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SCHROEDER-DEVRIENT",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tw8e7rdxgmcvz94",
+      "agents": "v51vo0pn5wj1lc4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.800Z"
+    }
+  ]
+}

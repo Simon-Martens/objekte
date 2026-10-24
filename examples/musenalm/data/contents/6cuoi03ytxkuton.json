@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 82112, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82125,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die vier Apostel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt von Albrecht Dürer. Gestochen von F. Fleischmann",
+  "scans": [
+    "alm_3070_82125_6ysqaxg12w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die vier Apostel",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hvy44ljvwndzywn",
+      "agents": "o55olxrgmwwwrft",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.942Z"
+    },
+    {
+      "id": "kf6ims6cbqtavi6",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.943Z"
+    }
+  ]
+}

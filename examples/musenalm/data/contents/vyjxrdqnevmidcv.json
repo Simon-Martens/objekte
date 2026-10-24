@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "Als in den ersten Tagen des Märzmonats 1798 Eilboten über Eilboten von dem bedrängten Bern - nach Zürich, dem damaligen Vororte der Schweiz, abgesandt wurden,",
+  "language": [],
+  "musenalm_id": 54381,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Zug aus dem Leben eines vollendeten / Eidgenossen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Appenzeller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Zug aus dem Leben eines vollendeten / Eidgenossen",
+  "updated": "2008-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qqnpj6vn3rgfh73",
+      "agents": "m2qf0h1oufl2a4q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.659Z"
+    }
+  ]
+}

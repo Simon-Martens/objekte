@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 272. /) Illustration zu »Der schöne Abend« INr 47085, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wohl euch! Wer mit ruhiger Freude die Sonne / unter gehen sehen kann, der hat nie seinen Tag / verlohren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. D. Berger sculp. 1791",
+  "scans": [
+    "alm_637_47086_r3b5d3dyjc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wohl euch! Wer mit ruhiger Freude die Sonne / unter gehen sehen kann, der hat nie seinen Tag / verlohren",
+  "updated": "2006-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3zirkonnzqb0wnv",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.626Z"
+    },
+    {
+      "id": "cri15r4d9c5gsf3",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.626Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.626Z"
+    }
+  ]
+}

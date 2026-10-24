@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Zeitbilder und Zeitverse (Sammlung INr 64805, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.612Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Hesperien erglüht in Morgenröthe, / Wach werden der Vernunft und Wahrheit / Stimmen",
+  "language": [],
+  "musenalm_id": 64814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hülfe von unten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Cebes und Fr. Phosphorus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hülfe von unten",
+  "updated": "2009-06-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6jq5casv9fzl245",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.159Z"
+    }
+  ]
+}

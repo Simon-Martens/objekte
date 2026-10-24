@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebe in der Fremde. Liederkranz (Sammlung INr 86342, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.208Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Ein Tag noch meines kurzen Glückes, / Dann ziehst du über's Meer;",
+  "language": [],
+  "musenalm_id": 86348,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Dingelstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI.",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ajpkg5oll3bohtc",
+      "agents": "8xc9vhdufjuetwe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.269Z"
+    }
+  ]
+}

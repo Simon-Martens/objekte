@@ -1,0 +1,45 @@
+{
+  "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Die Vendéer von Nantes« von C. v. Wachsmann INr 110092, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.209Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110083,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Adele",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+  "scans": [
+    "alm_2244_110083_nvs8w89127.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Adele",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aeiqgzt0chkr9xm",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.304Z"
+    }
+  ]
+}

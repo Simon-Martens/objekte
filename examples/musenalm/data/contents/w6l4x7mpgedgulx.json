@@ -1,0 +1,45 @@
+{
+  "annotation": "Spiele (Sammlung INr 49247, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "Die Gesellschaft war am ersten Oktober zahlreicher als gewöhnlich; man wünschte ein Spiel, woran alle Theil nehmen konnten.",
+  "language": [],
+  "musenalm_id": 49306,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXII. / Das Abschlagen des Dritten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXII. / Das Abschlagen des Dritten",
+  "updated": "2007-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "84b9uvs0p3ft0lh",
+      "agents": "l2p9o0rcq31xal5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.300Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Vermischte Gedichte (Sammlung INr 104499, Obj 45) Gedichte (Sammlung INr 104466, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "'Sist ohne Muth und Tapferkeit / Mit Held und Männern aus; / Ein braver Ritter zieht in Streit / Nehm' Gott in Schutz sein Haus!",
+  "language": [],
+  "musenalm_id": 104503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kriegsgesang. / Götz von Berlichingen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Burrmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kriegsgesang. / Götz von Berlichingen",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6fhppj0olphp6ts",
+      "agents": "bzzrah5fx2452jq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.932Z"
+    }
+  ]
+}

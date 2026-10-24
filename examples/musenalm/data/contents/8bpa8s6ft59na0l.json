@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Sollt' ich nicht die Jugend lieben, / Mich des ew'gen Werdens freun?",
+  "language": [],
+  "musenalm_id": 22158,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf den Frühling des Jahres 1816 und / auf alle folgende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johannes Falk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf den Frühling des Jahres 1816 und / auf alle folgende",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s7pj2np44u94vxg",
+      "agents": "bjik5dzyzk4cu0g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.183Z"
+    }
+  ]
+}

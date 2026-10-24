@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1. Illustration zu » Geschichte Margarethe von Valois,  Königin von Navarra, und deren Tochter Johanna d'Albret, Königin von Navarra« von Cäcilie d.i. Amalie Henriette Caroline von Voigt INr 43537, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43521,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johanne d'Albret von Cäcilie / S. 54",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Keim gez. Jacob Lips sclps.",
+  "scans": [
+    "alm_574_43521_v9gyf9i866.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Johanne d'Albret von Cäcilie / S. 54",
+  "updated": "2006-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "grkb5sa4ig7585e",
+      "agents": "iwoqrcn7d9iuxfi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.279Z"
+    }
+  ]
+}

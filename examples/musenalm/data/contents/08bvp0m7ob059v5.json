@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Wie sind die Stunden so trüb, so trüb, / Bis die Strahlen der Sonne verglühten!",
+  "language": [],
+  "musenalm_id": 103324,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verstohlen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pauline Schanz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verstohlen",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q4ihyo4cak5at3b",
+      "agents": "a9ocixlq34hpcgc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.018Z"
+    }
+  ]
+}

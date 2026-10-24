@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Beschreibung des Gartens in Hohenheim. Vierte Fortsetzung und Beschluß / Der FeigenSaal« von G. H. Rapp INr 74370, Obj 18 /) # Zuschreibung: Fischer S. 308",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Feigensaal",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3112_74369_yaotb1uprm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Feigensaal",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tbjks7drwqjmx62",
+      "agents": "4b4lhy0iqevooje",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.698Z"
+    },
+    {
+      "id": "xikbbay5zaxllzk",
+      "agents": "z5nktfhns99sqss",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.699Z"
+    }
+  ]
+}

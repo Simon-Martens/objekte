@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Gen Westen geht der Flotte Lauf - / Hoiho! - nach Irlands Küste.",
+  "language": [],
+  "musenalm_id": 100147,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O'Neal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Marggraff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "O'Neal",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nrqik2l0l9yng4m",
+      "agents": "xpfslvhm6lhhpgp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.988Z"
+    }
+  ]
+}

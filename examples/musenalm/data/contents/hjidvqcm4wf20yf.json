@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schiller's Gedichten. Zehnte und letzte Lieferung (Sammlung INr 77261, Obj 5) Illustration zu »Die Johanniter. Zweites Blatt« von Fr. Schiller INr 77272, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77274,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Johanniter v. Schiller 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg Rosmäsler in München 1828",
+  "scans": [
+    "alm_2401_77274_r6s070y5zk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Johanniter v. Schiller 2.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1e85f5saduwm7u9",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.717Z"
+    },
+    {
+      "id": "nyhh0hbkat24ec6",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.717Z"
+    }
+  ]
+}

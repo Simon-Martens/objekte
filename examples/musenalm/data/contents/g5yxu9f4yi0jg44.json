@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) Modekupfer im Kalendarium Januar;  paginiert 1.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60841,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Berlinsche Moden. / 1. Chapeau paré. 2 Toque. 3. Toque parée. / 4 Chapeau demi paré. 5 La simple nature",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc. 95",
+  "scans": [
+    "alm_947_60841_9figah2a88.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Berlinsche Moden. / 1. Chapeau paré. 2 Toque. 3. Toque parée. / 4 Chapeau demi paré. 5 La simple nature",
+  "updated": "2008-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p2zd8cfdgs2po4y",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.815Z"
+    }
+  ]
+}

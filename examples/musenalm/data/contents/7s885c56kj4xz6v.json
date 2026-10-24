@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 61039, Obj 10) s. Graphik INr 61036, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Persiens abscheulicher Despot, hatte von Psammenitus, König von Aegipten, seine Tochter zur Ehe gefordert.",
+  "language": [],
+  "musenalm_id": 61043,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Kambises,",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Kambises,",
+  "updated": "2008-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "82ol9sarqersyg0",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.032Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.032Z"
+    }
+  ]
+}

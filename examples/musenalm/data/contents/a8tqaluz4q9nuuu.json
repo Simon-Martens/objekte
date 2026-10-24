@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>&nbsp;Die Monate. An die Frauen (Sammlung INr 140542)&nbsp;</div>",
+  "content_type": [],
+  "created": "2026-09-02T10:27:31.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Der Vogelsteller früh erwacht, / Ihr Vöglein, nehmet acht,",
+  "language": [],
+  "musenalm_id": 140461,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "September. / (Waage.) / Vogelstellerlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Gerhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "September. / (Waage.) / Vogelstellerlied",
+  "updated": "2026-09-02T10:34:57.021Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "kidyonpy6b99kok",
+      "agents": "c4v9nl7ztvkf3sf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-02T10:28:21.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-02T10:34:57.022Z"
+    }
+  ]
+}

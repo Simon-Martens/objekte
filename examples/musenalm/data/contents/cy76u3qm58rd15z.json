@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.695Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131386,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dramatisches Allerlei pag 246 u 247",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "TH [Hosemann, Theodor]",
+  "scans": [
+    "alm_4820_131386_vqndts6de2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dramatisches Allerlei pag 246 u 247",
+  "updated": "2022-10-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rpf6q9okk3d2gm9",
+      "agents": "n3ihb7ql4bfk9ih",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.010Z"
+    }
+  ]
+}

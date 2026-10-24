@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kabale und Liebe« von Fr. Schiller s. Textbezug INr 39988, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39987,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kabale und Liebe IIIr. Act 2te. Scene/ Hofmarschall. Mein Verstand steht still",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_523_39987_fgl0xjmcud.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kabale und Liebe IIIr. Act 2te. Scene/ Hofmarschall. Mein Verstand steht still",
+  "updated": "2005-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wgn9ump1nahwk23",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.121Z"
+    },
+    {
+      "id": "xgnk92kmg28uyw8",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.121Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.121Z"
+    }
+  ]
+}

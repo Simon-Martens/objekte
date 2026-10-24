@@ -1,0 +1,43 @@
+{
+  "annotation": "Blumendeutung. In sechs Gedichtchen. Als Erklärung der Stahlstiche (Sammlung INr 95025, Obj 5) s. Graphik INr 95034, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Keusch erblüht im Mondenschimmer, / Ragt die Lilje in die Lüfte",
+  "language": [],
+  "musenalm_id": 95033,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "82bq7d4tobc44eb",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.495Z"
+    }
+  ]
+}

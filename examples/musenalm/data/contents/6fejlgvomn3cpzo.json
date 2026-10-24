@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Ah! te mea si partem animae rapit / Maturior vis quid moror altea! / HORAT",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Der Fürstlich Waldeckische Oberjäger, Herr Müller, zu Nieder-Wildungen hatte vor enigen Jahren der Befehl erhalten,",
+  "language": [],
+  "musenalm_id": 66706,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVI. / Empfindung, nicht Empfindelei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Regierungsrath Bunsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVI. / Empfindung, nicht Empfindelei",
+  "updated": "2009-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bpvvyraky6ztqzs",
+      "agents": "d1cx5vxdeeve5kc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.176Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Mewlana Dschelaleddin Rumi (Sammlung INr 43100, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.368Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Ich bin das Sonnenstäubchen, ich bin der Son- / nenball. / Zum Stäubchen sag' ich: bleibe! und zu der Sonn': / entwall!",
+  "language": [],
+  "musenalm_id": 43124,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXIV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXIV.",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4qljlj5dtqo39gn",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.200Z"
+    }
+  ]
+}

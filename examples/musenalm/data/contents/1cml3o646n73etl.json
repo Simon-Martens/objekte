@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Gedichte (Sammlung INr 40429, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "347",
+  "incipit_statement": "Wohin, mein junger Freund, wo strebst du hin? / Zur Stadt der Eitelkeit, die kriecht und Freiheit / heuchelt,",
+  "language": [],
+  "musenalm_id": 40430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epistel / an einen Freund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epistel / an einen Freund",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gw9i9h2zu17cnk1",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.747Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.747Z"
+    }
+  ]
+}

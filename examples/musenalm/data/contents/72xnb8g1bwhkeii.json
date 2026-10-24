@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Wie glänzend ist der Ruhm, den Arria / erwarb, / Sie, die vol Heldenmut für ihren Gatten starb!",
+  "language": [],
+  "musenalm_id": 36235,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arria",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. E.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Arria",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ngn3jovqn5b9rh2",
+      "agents": "cnpmi5umijfxrao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.673Z"
+    }
+  ]
+}

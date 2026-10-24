@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60835,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Niederländer Bauernstube",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. F. C. ten Kate del. J. B. Tétar v. Elven sculps.",
+  "scans": [
+    "alm_946_60835_rwfkjr31kw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Niederländer Bauernstube",
+  "updated": "2008-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "so6oste0wschrbl",
+      "agents": "zlblv6jx9edmuqx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.756Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.756Z"
+    },
+    {
+      "id": "p5jgbtmjobf1pfy",
+      "agents": "7l66ckmup6wdhiw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.756Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.756Z"
+    }
+  ]
+}

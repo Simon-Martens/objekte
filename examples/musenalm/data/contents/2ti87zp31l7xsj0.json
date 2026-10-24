@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Frankreich (Sammlung INr 127686, Obj 31) dem Text vorangestellt: Ich muß dich nun vor allen Dingen / In lustige Gesellschaft bringen, / Damit du siehst, wie leicht sich's leben läßt. / Faust",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Die Hallen sind glänzend erleuchtet; in den Läden funkeln echte und falsche Edelsteine, glänzen die bunten Farben der kunstreichen Blumengewinde, und lachen lockende Augen,",
+  "language": [],
+  "musenalm_id": 127691,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Ein Abend im Palais Royal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Ein Abend im Palais Royal",
+  "updated": "2006-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mtd572koa6jc80g",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.873Z"
+    }
+  ]
+}

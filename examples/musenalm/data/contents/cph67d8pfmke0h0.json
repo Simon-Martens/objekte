@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "340",
+  "incipit_statement": "Leicht verwelklich sind die Freuden / Dieses armen Erdenlebens, / Gleich den Blumen auf der Haiden, / Gleich den Blumen in dem Kranz.",
+  "language": [],
+  "musenalm_id": 131213,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 133,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freudentodt. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freudentodt. / Romanze",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2v4iw44h5jp2ft9",
+      "agents": "wty417vt1e1tkcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.009Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38873, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Marsch! was klingen die Trompeten? / Marsch! klingt das nicht Todtenmarsch?",
+  "language": [],
+  "musenalm_id": 38875,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Des alten Soldaten letzer Ausmarsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. M. Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Des alten Soldaten letzer Ausmarsch",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h0fv5clbfgnr980",
+      "agents": "qab571spaxuq9fk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.053Z"
+    }
+  ]
+}

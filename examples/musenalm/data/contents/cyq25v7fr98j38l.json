@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.569Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "'S sind einist imme Dorf Huusvätter gsy, / Und, wie's es mängist gihd, an Schölme drunter;",
+  "language": [],
+  "musenalm_id": 52745,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gmein Sach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Häfliger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gmein Sach",
+  "updated": "2007-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ca2wdbqdk5x10ds",
+      "agents": "7xo2ew2y9bv15pw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.710Z"
+    }
+  ]
+}

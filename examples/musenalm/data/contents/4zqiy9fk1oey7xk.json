@@ -1,0 +1,45 @@
+{
+  "annotation": "9. Vermischte Gedichte (Sammlung INr 29962, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Ich nehme, Kästchen, dich in meine Hände / Du aber, klein Nadel, strebst sofort",
+  "language": [],
+  "musenalm_id": 29968,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Magnetnadel. / Unterwegs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. Kannegießer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Magnetnadel. / Unterwegs",
+  "updated": "2002-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2zf4kvr6fgt5uzn",
+      "agents": "vmqur31l5jqxgmx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.319Z"
+    }
+  ]
+}

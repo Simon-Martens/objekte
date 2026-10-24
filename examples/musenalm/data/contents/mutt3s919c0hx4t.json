@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96691, Obj 16) Übersetzung des folgenden franz. Gedichts s. INr 96693, Obj 18 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96679, 96680; Obj 4, 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.937Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Zwey Pilger gingen längs dem / Strande, / Und fanden, von der Fluth bespühlt, / Die schönste Auster in dem San- / de.",
+  "language": [],
+  "musenalm_id": 96692,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Auster und die Rei- / senden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Auster und die Rei- / senden",
+  "updated": "2014-05-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6y55tx5brfpm3xk",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.733Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium April; paginiert 4. /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg.  Friedrich II. Erste Abtheilung. 1740 bis 1756« INr 58301, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58286,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Conferenz mit dem Könige von Polen / wegen der Eroberung von Mähren. / S. 31",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki. J. D. Heidenreich sc. 1793",
+  "scans": [
+    "alm_829_58286_povoht1ik8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Conferenz mit dem Könige von Polen / wegen der Eroberung von Mähren. / S. 31",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r3x6k71v77aj3ym",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.833Z"
+    },
+    {
+      "id": "k31ony4ew0fuh9a",
+      "agents": "t7h2dhrrhx1xes3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.833Z"
+    }
+  ]
+}

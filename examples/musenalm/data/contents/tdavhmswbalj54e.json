@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium August /) Illustration zu »Ehre der Unschuld« von J. G. Seidl INr 95910, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95894,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ehre der Unschuld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clementine Ruß del. Jos. Jung sc.",
+  "scans": [
+    "alm_3350_95894_86axmxama2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ehre der Unschuld",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7jxj4dqzc018bw4",
+      "agents": "iexyvzdzwrb4rqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.365Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.365Z"
+    }
+  ]
+}

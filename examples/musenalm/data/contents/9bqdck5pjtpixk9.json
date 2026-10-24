@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller s. Textbezug INr 39421, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Braut von Messina / Das Leben ist der Güter höchstes nicht, / Der Uebel grösstes ist die Schuld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_518_39480_ste9ha5dbr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Braut von Messina / Das Leben ist der Güter höchstes nicht, / Der Uebel grösstes ist die Schuld",
+  "updated": "2005-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qhizc89m1fs6p56",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.970Z"
+    },
+    {
+      "id": "smckuy6v82fn3sp",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.970Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Es war im Früsommer des Jahres 1481, als zwei Reiter durch das Stubenthor in das vielthürmige Wien einritten, und jetzt, die Rosse zusammen nehmend, die Wollzeile dahin sprengten.",
+  "language": [],
+  "musenalm_id": 65334,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jaroslaw Boskowitz / Historische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Pfundheller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jaroslaw Boskowitz / Historische Novelle",
+  "updated": "2009-07-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u6fq6ke5n5498w5",
+      "agents": "t3dzgpy5a5tgvbo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.530Z"
+    }
+  ]
+}

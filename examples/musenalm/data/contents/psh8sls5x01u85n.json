@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80553, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Die Blumen lieb' ich sehr; / Drum ging ich zu Adelen,",
+  "language": [],
+  "musenalm_id": 80555,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Blumenkäufer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Roswitha",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Blumenkäufer",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2k00t5iiluag6bx",
+      "agents": "3xtuaei5ajd8iii",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.938Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.938Z"
+    }
+  ]
+}

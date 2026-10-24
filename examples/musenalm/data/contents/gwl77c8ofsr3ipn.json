@@ -1,0 +1,46 @@
+{
+  "annotation": "Rheinische Literaturbriefe (Sammlung INr 44199, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.534Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "Sieh Neapel und stirb, sagen die Italiener. Sieh den Rhein und lebe, könnte der Deutsche sagen.",
+  "language": [],
+  "musenalm_id": 44200,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Creizenach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eyqm2bufktg5uvy",
+      "agents": "lphx13gbei42kps",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.311Z"
+    }
+  ]
+}

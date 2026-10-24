@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1. /) Illustration zu »Der Ruf in die Stadt« von W. G. Becker in: Taschenbuch zum geselligen Vergnügen 1799 INr 11124",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11567,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ist nicht das Ganze beinahe zum Garten geworden? / S. Taschenbuch 1799 von W. G. Becker; der Ruf in die Stadt. p. 99",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Cl. Kohl sc.",
+  "scans": [
+    "alm_205_11567_fbupq9grtm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ist nicht das Ganze beinahe zum Garten geworden? / S. Taschenbuch 1799 von W. G. Becker; der Ruf in die Stadt. p. 99",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x2w1u29qdw1at8k",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.379Z"
+    },
+    {
+      "id": "ehhpakwfedswcop",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.379Z"
+    }
+  ]
+}

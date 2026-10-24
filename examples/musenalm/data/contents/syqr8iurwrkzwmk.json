@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium September; paginiert S. 80 /) Illustration zu Das Taufgeschenk« von J. G. Seidl INr 95600, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.050Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95586,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Taufgeschenk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Klieber del. Leopold Burckart scul.",
+  "scans": [
+    "alm_999_95586_cndprmpylg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Taufgeschenk",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zbpxna2wnk2mct8",
+      "agents": "zds1s3x9lwhe6jn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.641Z"
+    }
+  ]
+}

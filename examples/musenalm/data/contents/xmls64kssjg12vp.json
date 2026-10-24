@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 29980, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Die Natur in ihrer Kraft anzuschauen, ist von dem wohlthätigsten Einfluß.",
+  "language": [],
+  "musenalm_id": 29981,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Viehstück / von Klomp. / 15 Zoll Höhe, 12¼ Zoll Breite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Viehstück / von Klomp. / 15 Zoll Höhe, 12¼ Zoll Breite",
+  "updated": "2002-11-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iyonqkue5xva8p6",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.377Z"
+    }
+  ]
+}

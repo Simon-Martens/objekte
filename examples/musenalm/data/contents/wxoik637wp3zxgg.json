@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. aus dem G-Verz; paginiert 2. s. Textbezug INr 60318, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Napper Tandy's Gefangennahme zu / Hamburg",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert",
+  "scans": [
+    "alm_941_60316_borlzymb31.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Napper Tandy's Gefangennahme zu / Hamburg",
+  "updated": "2008-10-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "abq90552oxih6we",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.906Z"
+    }
+  ]
+}

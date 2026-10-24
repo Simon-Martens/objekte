@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Beitrag vorangestellt: 'Tis sweet beneath the heather-bell / To live in autumn brown [...] Leyde /) mit einer Illustration s. Graphik INr 111060, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.827Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "323",
+  "incipit_statement": "Der Sturm, welcher die Küsten von Argyleshire heimgesucht hatte, verzog sich. Noch rollten die Wogen, wie Berge gethürmt, durch den Sund von Mull und spritzten den weißen Schaum ihrer Brandung zu den Ufern empor,",
+  "language": [],
+  "musenalm_id": 111059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mac Dougal",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mac Dougal",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3yxv28lo6yjrb0f",
+      "agents": "hh3dab1czdktu2g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.230Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.230Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort des Herausgeber",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ich bitte die Herren Verfasser dieses fünften Jahrganges der Kleinen Romanen-Bibliothek, für die Güte, womit sie mich unterstützt haben, die Versicherung meiner Dankbarkeit anzunehmen.",
+  "language": [],
+  "musenalm_id": 112235,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede des Herausgebers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede des Herausgebers",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "en4ifktg0edttd4",
+      "agents": "11ylx5z0u965md8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.318Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.318Z"
+    }
+  ]
+}

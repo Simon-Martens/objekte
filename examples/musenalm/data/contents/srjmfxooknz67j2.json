@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Folko und Isula. Lieder eines Troubadours (Sammlung INr 29167, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.906Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Auf laub'ger Bahre trägt man mich von hinnen; / Ich fühle Blut von meiner Stirne rinnen,",
+  "language": [],
+  "musenalm_id": 29173,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Heimweg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Heimweg",
+  "updated": "2002-10-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lomcz64we5li284",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.925Z"
+    }
+  ]
+}

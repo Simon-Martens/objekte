@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouette paginiert X. /) »National Schauspiel« (Sammlung INr 48135, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.135Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48145,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz Brokmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_666_48145_npde6jhm7s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Franz Brokmann",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f7ep30yc4ur0ujq",
+      "agents": "theiyy8sya8no7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.545Z"
+    }
+  ]
+}

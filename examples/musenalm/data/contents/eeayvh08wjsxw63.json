@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.178Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Sir Edmund Jackson, ein reicher egoistischer Engländer, galt in seinem Vaterlande eben darum als Sonderling, weil er keiner war, und hatte England schon seit Jahren verlassen,",
+  "language": [],
+  "musenalm_id": 57710,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Verstand des Zufalls. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Bülow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Verstand des Zufalls. / Novelle",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wi29jydzd6nn33w",
+      "agents": "s80i7s99e9gsncg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.920Z"
+    }
+  ]
+}

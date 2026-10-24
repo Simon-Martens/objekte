@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 28000, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28002,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. Sebald macht aus Steinen Brod und aus Wasser Wein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pet. Vischer 1828 Alb. Reindel",
+  "scans": [
+    "alm_360_28002_dwb4wiop28.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. Sebald macht aus Steinen Brod und aus Wasser Wein",
+  "updated": "2002-08-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "68xo0ufj5a33sgq",
+      "agents": "2j4fmhpjuaqhaao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.157Z"
+    },
+    {
+      "id": "851hj6d24okah00",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.157Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.157Z"
+    }
+  ]
+}

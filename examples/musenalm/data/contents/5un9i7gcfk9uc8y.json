@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Eingewiegt von süßen Düften, / Sommernächtig milden Lüften, / Dante lag in Traumes Banden.",
+  "language": [],
+  "musenalm_id": 117840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedicht / Ein Traum des Dante",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Foglár",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedicht / Ein Traum des Dante",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xja9afa5h8lh8j9",
+      "agents": "j7plmb89f8s4m2q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.502Z"
+    }
+  ]
+}

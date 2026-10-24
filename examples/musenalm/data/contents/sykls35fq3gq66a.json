@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus der Oper: Die Zauberin aus Liebe (Sammlung INr 131400, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.074Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Gott grüß sie liebe Jungfer, / Sie ist's, das weiß ich eh',",
+  "language": [],
+  "musenalm_id": 131402,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aria. Philipp",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perinet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aria. Philipp",
+  "updated": "2016-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wsijsjlbgzmscac",
+      "agents": "k0pr8qnl9uye038",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.033Z"
+    }
+  ]
+}

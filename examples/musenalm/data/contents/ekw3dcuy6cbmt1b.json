@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Mai /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I.« von Fr. Wilken INr 67977, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.932Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67969,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sophie Louise / dritte Gemahlin Friedrich I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stürmer del. F. Berger sc.",
+  "scans": [
+    "alm_857_67969_gdmnezvzh8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sophie Louise / dritte Gemahlin Friedrich I.",
+  "updated": "2008-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5863isangkfejby",
+      "agents": "xsc8m0e0lt02y28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.344Z"
+    },
+    {
+      "id": "y9hxztokqssh5zm",
+      "agents": "sm92um6sdwljy4m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.345Z"
+    }
+  ]
+}

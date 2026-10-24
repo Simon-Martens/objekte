@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium August",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81140,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloss Wernigerode, am Harz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach der Natur gezeichnet v. S. Rösel. L. Schütze sc. in Dresden",
+  "scans": [
+    "alm_872_81140_gavt07v7yq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schloss Wernigerode, am Harz",
+  "updated": "2008-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qowv63pp1dsngo4",
+      "agents": "fvvo7u8gqk8l3ze",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.900Z"
+    },
+    {
+      "id": "ynqr7ivjm3z5udc",
+      "agents": "2a43eco4bvr5idy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.901Z"
+    }
+  ]
+}

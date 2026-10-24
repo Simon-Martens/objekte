@@ -1,0 +1,58 @@
+{
+  "annotation": "paginíert V /) kol. Illustration zu »Das rothe Feldhuhn« von v. Wildungen INr 69594, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69595,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rothe Feldhühner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen ad viv. pinx. G. B. sc.",
+  "scans": [
+    "alm_1132_69595_cz4k28un1u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rothe Feldhühner",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mbwk1ykyn6iel2c",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.427Z"
+    },
+    {
+      "id": "mr6upiqd8h2zcsq",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.427Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Mein Mädchen« von Buri INr 35903, Obj 109",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35904,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Abeille",
+  "scans": [
+    "alm_490_35904_r0gbh5m2ot.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mein Mädchen",
+  "updated": "2003-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tmf3e5uu8tr3axx",
+      "agents": "8ukpztpzormbk37",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.793Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Zur Liebe ward der bessre Mensch geboren. / Ihr habt der Liebe Schwur der Himmlischen / geschworen,",
+  "language": [],
+  "musenalm_id": 18172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe und Häuslichkeit. / An ein junges Ehepaar, im Aprill, / 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. F. Pockels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe und Häuslichkeit. / An ein junges Ehepaar, im Aprill, / 1801",
+  "updated": "2001-10-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cdwj03iezcps2hs",
+      "agents": "byawwvreucy8ohr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.554Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.554Z"
+    }
+  ]
+}

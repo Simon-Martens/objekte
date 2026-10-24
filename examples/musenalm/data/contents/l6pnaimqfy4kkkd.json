@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "In Merseburg, einer alten Stadt, / Die ein Schloß mit sieben Thürmen hat,",
+  "language": [],
+  "musenalm_id": 20367,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Legende / vom Bischofe zu Merseburg, von / seinem Fräulein und seinem Kater",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Legende / vom Bischofe zu Merseburg, von / seinem Fräulein und seinem Kater",
+  "updated": "2001-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9r09rvdpfvyyxix",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.983Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 6 Musikbeigaben  (einstimmige Melodien) auf den Seiten 46-48 der Beilage s. INr 109382-109384, Obj 60-62",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Ich habe sie überholt, hier will ich Posten fassen, hier muß sie dicht an mir vorüber, und ich werde doch endlich einmal Gelegenheit haben, ihr recht genau in das kleine, schnippische Gesichtchen zu schauen,",
+  "language": [],
+  "musenalm_id": 109333,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wiener in Paris. / Schauspiel in zwei Acten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wiener in Paris. / Schauspiel in zwei Acten",
+  "updated": "2010-04-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tr40evau7yvqspk",
+      "agents": "zg6jbd5dfgl0cyy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.313Z"
+    }
+  ]
+}

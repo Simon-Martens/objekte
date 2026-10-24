@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung s. INr 44507, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "391",
+  "incipit_statement": "In weiter Kammer schlief ich und die Brüder / Auf stillen Betten, die der Traum umspielet;",
+  "language": [],
+  "musenalm_id": 44508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Eingang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clemens Brentano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Eingang",
+  "updated": "2006-07-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v9bxwhwm3i6qfqt",
+      "agents": "yp673px8ri3kgep",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.376Z"
+    }
+  ]
+}

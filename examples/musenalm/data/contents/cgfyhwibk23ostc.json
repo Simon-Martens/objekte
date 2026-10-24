@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Laßt mir die Liebe, die mein Sinn erwählet! / Ich will euch nicht um eure Lust beneiden,",
+  "language": [],
+  "musenalm_id": 117124,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedicht / Laßt mir die Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Adolf Staufe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedicht / Laßt mir die Liebe",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mgnymycans6gjxk",
+      "agents": "c20sqr0btl58v5u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.640Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.640Z"
+    }
+  ]
+}

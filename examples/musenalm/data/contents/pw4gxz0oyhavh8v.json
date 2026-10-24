@@ -1,0 +1,45 @@
+{
+  "annotation": "Oesterreichische Volkssagen (Sammlung INr 129951, Obj 94)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Im Jahre des Heils siebenhundert ein und neunzig, in der dreizehnten Septembernacht, ward auf einer der Inseln des österreichischen Archipelagus,",
+  "language": [],
+  "musenalm_id": 129952,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Flammentelegraph",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Flammentelegraph",
+  "updated": "2022-03-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zx0i81ldvktjude",
+      "agents": "wzmgymh9fjau9gk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.027Z"
+    }
+  ]
+}

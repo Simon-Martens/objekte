@@ -1,0 +1,45 @@
+{
+  "annotation": "Deutsches Künstlerfest in Rom. (Sammlung INr 27473, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Mir ist ein stärker Werkzeug beigegeben, / Der widerspänst'gen Stoffe Trotz zu brechen.",
+  "language": [],
+  "musenalm_id": 27477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bildhauerei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bildhauerei",
+  "updated": "2002-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o340k6ur3daodv5",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.296Z"
+    }
+  ]
+}

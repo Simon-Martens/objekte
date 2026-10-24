@@ -1,0 +1,47 @@
+{
+  "annotation": "Bez. vom Titel /) kol. Graphik paginiert VI. s. Textbezug INr 70721, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70720,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. P. Lyser)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Lyser",
+  "scans": [
+    "alm_2248_70720_eaq8iiskp8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hxz7c47wuy56eo7",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.609Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.609Z"
+    }
+  ]
+}

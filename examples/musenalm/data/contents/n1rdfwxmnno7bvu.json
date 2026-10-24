@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Don Juan« von George Gordon Byron s. Textbezug INr 43956, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43955,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gulleyaz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Drawn by R. Hill Engraved by Charles Rolls",
+  "scans": [
+    "alm_592_43955_6gy57hd1wv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gulleyaz",
+  "updated": "2006-06-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c24qye1br7zzvh1",
+      "agents": "v9uxeb4p9b2c1mo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.276Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. B. Fischer: Der Verleger Johann Friedrich Cotta Chronologische Verlagsbibliographie 1787-1832 Aus den Quellen bearbeitet Marbach a. N. 2003. S. 308",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.622Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Wir eilten zum gothischen Haus, blikten von absichtlich hingepflanzten Blumen als Wegweiserinnen angezogen, durch ausgehauene Bäume noch einmal zum Floratempel,",
+  "language": [],
+  "musenalm_id": 74360,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beschreibung des gothischen Hauses im Parke / zu Wörlitz. / Aus dem handschriftlichen Tagebuche / eines Reisenden",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beschreibung des gothischen Hauses im Parke / zu Wörlitz. / Aus dem handschriftlichen Tagebuche / eines Reisenden",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q39uebkqbblht19",
+      "agents": "7cdnqd525rp9gi5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.614Z"
+    }
+  ]
+}

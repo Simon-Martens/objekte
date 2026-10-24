@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Der Weichselboden in Steyermark« von Dr. Franz Sartori INr 92193, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92194,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Weichselboden in Steyermark",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. S. Göbwart sc. 1816",
+  "scans": [
+    "alm_3060_92194_1bxckkzid2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Weichselboden in Steyermark",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qpvnuc175dgbcx8",
+      "agents": "noepczcbklm6eif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.545Z"
+    }
+  ]
+}

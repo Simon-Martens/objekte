@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium August paginiert 8. s. Textbezug INr 66290, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66276,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Christian Thomasius breitet die Herrschaft / der Vernunft in Deutschland aus, 1692",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del. & fec. 1797",
+  "scans": [
+    "alm_1123_66276_8a2s3kifjk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Christian Thomasius breitet die Herrschaft / der Vernunft in Deutschland aus, 1692",
+  "updated": "2009-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l5ijlgn52uxnelf",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.189Z"
+    }
+  ]
+}

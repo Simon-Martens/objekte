@@ -1,0 +1,45 @@
+{
+  "annotation": "Beilagen zum Taschenbuche für magische Unterhaltung (INr 84818, Obj 12) Es folgt: Sammlung von 7 Beiträgen INr 84921-84927, Obj 15-21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Auch der scharfsinnigste Beobachter bedarf für wesentliche Einsicht in die weniger oder rmehr entfernte Ursachen der Natur und Kunsterscheinungen einer rmöglichst geordneten Leitung.",
+  "language": [],
+  "musenalm_id": 84920,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachweisungen / über / Die wichtigsten, hierinn befindliche und / verwandte Gegenstände. / Für forschende Leser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachweisungen / über / Die wichtigsten, hierinn befindliche und / verwandte Gegenstände. / Für forschende Leser",
+  "updated": "2012-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dc1rs7nd06ope4v",
+      "agents": "n8i1nzykub0v7l7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.311Z"
+    }
+  ]
+}

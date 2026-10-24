@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Ueber den h. Ulrich vergl. Pfister, Gesch. von Schwaben, II. 16. 36. 38. 47. und 343",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Der liebe Herr Sankt Ulrich war von einem hohen und würdigen Gechlechte geboren; sein Vater war Hubaldus, Graf von Dillingen und seine Mutter, eine Edle von Faymingen aus Burgau;",
+  "language": [],
+  "musenalm_id": 45220,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Legende des heiligen Ulrichs. / (Gelebt im Anfang des zehnten Jahrhunderts.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Therese Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Legende des heiligen Ulrichs. / (Gelebt im Anfang des zehnten Jahrhunderts.)",
+  "updated": "2006-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bsfyarqlvx0jt81",
+      "agents": "6pw6iul8mmx44oj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.491Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83919,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friederike Amalie Agnes / Prinzessin von Anhalt-Dessau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. H. Beck gest. v. Auguste Hüssener",
+  "scans": [
+    "alm_878_83919_6gvl2v1q71.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friederike Amalie Agnes / Prinzessin von Anhalt-Dessau",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dfa2uw8qpiymipy",
+      "agents": "h6vkl5iyf4hrnx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.146Z"
+    },
+    {
+      "id": "kdhz7ykv7zo6mp4",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.146Z"
+    }
+  ]
+}

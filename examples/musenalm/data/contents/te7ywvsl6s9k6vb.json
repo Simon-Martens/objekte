@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Oberon (Titel aus dem I-Verz) s. Titelgraphik INr 75350, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Puck. / Es ist geschehen, mein König, hier erblickest / Den Ritter und den treuen Knappen Du.",
+  "language": [],
+  "musenalm_id": 75354,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / (Das Titelkupfer.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / (Das Titelkupfer.)",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b8wyz4k81o5oht0",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.552Z"
+    }
+  ]
+}

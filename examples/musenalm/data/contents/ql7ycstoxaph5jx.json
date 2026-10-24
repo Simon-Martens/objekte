@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Der freie Mann« von Pfeffel INr 6373, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.511Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der freie Mann. / Ein Volkslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. G. Schwenke",
+  "scans": [
+    "alm_124_6374_tad66ps4fc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der freie Mann. / Ein Volkslied",
+  "updated": "2000-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y0x23o1dpsotp43",
+      "agents": "ril08zfv8fsz27l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.745Z"
+    }
+  ]
+}

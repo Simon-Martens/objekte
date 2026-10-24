@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38930, Obj 118)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Jung Lochinvar kam aus dem Westen herauf, / Sein Roß ist im Lande das beste im Lauf,",
+  "language": [],
+  "musenalm_id": 38940,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Lochinvar. / (Nach Walter Scott.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Lochinvar. / (Nach Walter Scott.)",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wjstmckdavb0ys6",
+      "agents": "dii69uyjdj5ln7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.228Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.228Z"
+    }
+  ]
+}

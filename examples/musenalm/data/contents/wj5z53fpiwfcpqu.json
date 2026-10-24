@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge vermischten Inhalts 1793 (Sammlung 10185, Obj 110)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Auf steilen Felsenhöhen / prangt stolz der Freude Schloß, / und alle Menschen gehen",
+  "language": [],
+  "musenalm_id": 10208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIX. / Die Wege der Freude. / Mel. Genießt den Reiz des Lebens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIX. / Die Wege der Freude. / Mel. Genießt den Reiz des Lebens",
+  "updated": "2001-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "buuay249gbfpw4o",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.449Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Agrionien für das Jahr 1812 (Sammlung INr 39347, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "353",
+  "incipit_statement": "Mein Ganzes prangt mit Vögeln, Fischen / Und andern Dingen auf den Tischen.",
+  "language": [],
+  "musenalm_id": 39352,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Charade",
+  "updated": "2005-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aam2ce4g7s6ox0h",
+      "agents": "epma680nee4q5et",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.183Z"
+    }
+  ]
+}

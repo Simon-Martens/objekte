@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Sey gemeinen Verstands, es rettet hohe / Natur dich; / Aber kein hoher Verstand rettet gemeine / Natur.",
+  "language": [],
+  "musenalm_id": 16363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bildung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bildung",
+  "updated": "2001-07-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8gowdxvm6a2pm3f",
+      "agents": "q7zvyheam3iyblc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.785Z"
+    }
+  ]
+}

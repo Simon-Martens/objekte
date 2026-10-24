@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Im dunklen Lindengrunde / Da steht ein hohes Haus, / Da möchte' ich sein zur Stunde, / Da wär' mein Trauern aus.",
+  "language": [],
+  "musenalm_id": 46016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im dunklen Lindengrunde. / 1. / Das hohe Haus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conrad von Prittwitz und Gaffron",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Im dunklen Lindengrunde. / 1. / Das hohe Haus",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w9xjfwkqza73trz",
+      "agents": "lddqf86sm2shosm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.486Z"
+    }
+  ]
+}

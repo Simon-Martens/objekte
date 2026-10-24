@@ -1,0 +1,45 @@
+{
+  "annotation": "Schwermuth der Mondnacht (Sammlung INr 100103, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Wenn du nicht die Wange röthest / Bleich von ew'ger Herzensqual,",
+  "language": [],
+  "musenalm_id": 100107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Tödter Mondstrahl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Storch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Tödter Mondstrahl",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "elo52kazufp6uvb",
+      "agents": "n05stp52kkm5on3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.846Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.846Z"
+    }
+  ]
+}

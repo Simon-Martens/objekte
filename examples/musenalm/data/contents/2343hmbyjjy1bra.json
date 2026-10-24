@@ -1,0 +1,45 @@
+{
+  "annotation": "Friedr. Wilh. III., Kön. Luise und Alex. I. am Grabe Friedr. II. 1805",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28516,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die erhabene Freundschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. & sc.",
+  "scans": [
+    "alm_370_28516_llha49gev3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die erhabene Freundschaft",
+  "updated": "2002-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y69k4w10pigrgzg",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.143Z"
+    }
+  ]
+}

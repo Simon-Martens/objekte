@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Von neuen Zeiten, goldnen Tagen / Hört man jetzt Wunderdinge sagen: / Ein Völkerbund verbannt die Kriege, / Nur in der Liebe sucht man Siege,",
+  "language": [],
+  "musenalm_id": 53302,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied / am ersten April",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hanhart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied / am ersten April",
+  "updated": "2007-12-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i9n9mcd58wz3lqe",
+      "agents": "r7qty9urjd87rae",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.768Z"
+    }
+  ]
+}

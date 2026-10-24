@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Schloß Falkenstein« von J. R. Wysz d.J. INr 53891, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53889,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht vom Hauenstein gegen Ballstall und Falkenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Frey del. D. Burgdorfer sc.",
+  "scans": [
+    "alm_736_53889_zto6dmfg05.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht vom Hauenstein gegen Ballstall und Falkenstein",
+  "updated": "2008-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uzt007uqg2b3hgu",
+      "agents": "en0ptsusthk5jnk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.674Z"
+    },
+    {
+      "id": "ru28dx2eag2gbud",
+      "agents": "jl6b68q9vo9ytf5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.674Z"
+    }
+  ]
+}

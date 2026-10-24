@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Frauenehre« von A. Lindemann d.i. Fr. K. Lang /) s. Textbezug INr 95771, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95762,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Albert. / Aus Frauenehre v. Lindemann 1. Heft d. Musarion pag. 43",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner del. & sc. 1799",
+  "scans": [
+    "alm_3795_95762_w3g2g8j6kh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Albert. / Aus Frauenehre v. Lindemann 1. Heft d. Musarion pag. 43",
+  "updated": "2012-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bsq435qyloo6fjs",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.739Z"
+    }
+  ]
+}

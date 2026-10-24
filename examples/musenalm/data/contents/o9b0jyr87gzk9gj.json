@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.040Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Wildschäumend stürzt im Felsenbette / Der tolle Bergstrom sich herab,",
+  "language": [],
+  "musenalm_id": 66359,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus den Bergen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Floto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus den Bergen",
+  "updated": "2009-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tv9si8cr5nc6y6y",
+      "agents": "y5heh84p1ctihry",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.273Z"
+    }
+  ]
+}

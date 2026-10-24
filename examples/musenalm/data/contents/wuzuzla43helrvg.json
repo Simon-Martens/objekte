@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. s. Re 41 /) Die Schwestern von Lesbos (Sammlung INr 18553, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.018Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Ungesäumet betrat und still entschlossen / der Jüngling / Nun das innre Gemach",
+  "language": [],
+  "musenalm_id": 8711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sechster Gesang",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. I.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sechster Gesang",
+  "updated": "2000-07-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hgrqh903oxyhgc6",
+      "agents": "g022cx9ysck37av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.208Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.208Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 54921, Obj 81)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "283",
+  "incipit_statement": "Die dort lebten und entschliefen / In dem feuchten Schattenthal,",
+  "language": [],
+  "musenalm_id": 54962,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heiliger Berg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heiliger Berg",
+  "updated": "2008-02-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5u9lyuj8gqsnbqh",
+      "agents": "94rmjnpm6yfqwop",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.854Z"
+    }
+  ]
+}

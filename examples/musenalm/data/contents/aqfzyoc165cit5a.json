@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Don Carlos« von Fr. Schiller s. Textbezug INr 39174, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.126Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39173,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Don Karlos 1r. Act. 4r. Auftritt. / Marqis Posa. Hier ist er schon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Böhm sc.",
+  "scans": [
+    "alm_514_39173_q3kbuayi1e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Don Karlos 1r. Act. 4r. Auftritt. / Marqis Posa. Hier ist er schon",
+  "updated": "2005-07-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2s0sctod3960qio",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.734Z"
+    },
+    {
+      "id": "asfi85fh1cf7mne",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.734Z"
+    }
+  ]
+}

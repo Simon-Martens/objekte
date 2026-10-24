@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.834Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Ertöne froher Sänger Chor, / Steigt, Töne, rauschender empor,",
+  "language": [],
+  "musenalm_id": 31798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wettgesang / der Vergangenheit und der Zukunft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Winkler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wettgesang / der Vergangenheit und der Zukunft",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x5glm8gbcmo1yid",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.310Z"
+    }
+  ]
+}

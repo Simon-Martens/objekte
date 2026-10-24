@@ -1,0 +1,45 @@
+{
+  "annotation": "Ahnenbilder (Sammlung INr 20007, Obj 91) mit einer Illustration s. Graphik INr 19935, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "358",
+  "incipit_statement": "Sie hatte den Freiherrn von Rheinegg gekörnt / Mit den Reizen, in Jugend entfaltet,",
+  "language": [],
+  "musenalm_id": 20008,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Adelgunde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Arthur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Adelgunde",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7o5i356ral5humq",
+      "agents": "1tsjgk40ftnty4f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.923Z"
+    }
+  ]
+}

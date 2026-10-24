@@ -1,0 +1,58 @@
+{
+  "annotation": "Zweite Ausstellung von Scenen aus dem italienischen Volksleben (Sammlung INr 77536, Obj 9) s. Graphik INr 77542, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77543,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ROEMISCHE FISCHER FAMILIE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Toermer del. Wagner sc.",
+  "scans": [
+    "alm_2407_77543_fj5aucd914.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ROEMISCHE FISCHER FAMILIE",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "29rbkqnvv5f2j43",
+      "agents": "j8muurnc8i80bf2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.732Z"
+    },
+    {
+      "id": "o3pwiup5iehh6pq",
+      "agents": "zcahh3ez21pnltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.732Z"
+    }
+  ]
+}

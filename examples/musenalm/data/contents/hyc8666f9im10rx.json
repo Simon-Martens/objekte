@@ -1,0 +1,45 @@
+{
+  "annotation": "Alte Gedichte aus dem Spanischen (Sammlung INr 15300, Obj 86)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Da nun todt der Herr des Lebens, / Der mein Sohn, / sey der Tod das Ziel des Strebens, /Und mein Lohn.",
+  "language": [],
+  "musenalm_id": 15304,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "FR. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied",
+  "updated": "2001-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j57smfy1v9rnvj8",
+      "agents": "dz9l16q76ffup70",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.675Z"
+    }
+  ]
+}

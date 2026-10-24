@@ -1,0 +1,45 @@
+{
+  "annotation": "Mittesommernachtsklänge (Sammlung INr 45965, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Mit dem blauen Federhute / Schwenkt der Frühling durch die Lüfte",
+  "language": [],
+  "musenalm_id": 45966,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mit dem blauen Federhute / Schwenkt der Frühling durch die Lüfte…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolfgang Müller von Königswinter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m0vfrs0ulgb35dn",
+      "agents": "dii69uyjdj5ln7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.486Z"
+    }
+  ]
+}

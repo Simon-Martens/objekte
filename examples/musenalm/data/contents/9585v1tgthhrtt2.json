@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Des alten Löwen spott' ich nicht, / Seh' ich sein todtes Angesicht;",
+  "language": [],
+  "musenalm_id": 53783,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Napoleon / auf dem Sterbebette, mit dem Cruzifix auf der Brust, 14 Stun- / den nach seinem Tode gezeichnet von Capitain Marziat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Napoleon / auf dem Sterbebette, mit dem Cruzifix auf der Brust, 14 Stun- / den nach seinem Tode gezeichnet von Capitain Marziat",
+  "updated": "2008-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "luckxldd6qg7gkh",
+      "agents": "5xr1i06rwmguu38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.705Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.705Z"
+    }
+  ]
+}

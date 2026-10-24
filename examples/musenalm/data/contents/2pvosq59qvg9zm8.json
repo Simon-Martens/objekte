@@ -1,0 +1,45 @@
+{
+  "annotation": "Chodowieckis Illustration zum Gedicht erschien im Taschenbuch zum geselligen Vergnügen1796 INr 10646",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Edle Thaten guter Seelen / Zu erhöh'n, ist Harfnerpflicht:",
+  "language": [],
+  "musenalm_id": 17560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eginhard und Emma",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eginhard und Emma",
+  "updated": "2001-09-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "45k5rx23zxr8amn",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.691Z"
+    }
+  ]
+}

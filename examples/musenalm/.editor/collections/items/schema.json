@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "identifier": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "Original",
+          "Reproduktion",
+          "Mikrofiche",
+          "Digitalisat",
+          "URL"
+        ]
+      },
+      "default": []
+    },
+    "condition": {
+      "type": "string"
+    },
+    "scans": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "description": "Original filenames; the XML export does not contain the scan files."
+    },
+    "uri": {
+      "type": "string"
+    },
+    "created": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "annotation": {
+      "type": "string"
+    },
+    "edit_comment": {
+      "type": "string"
+    },
+    "edit_state": {
+      "type": "string",
+      "enum": [
+        "Unknown",
+        "ToDo",
+        "Seen",
+        "Partially Edited",
+        "Waiting",
+        "Review",
+        "Edited",
+        ""
+      ]
+    },
+    "public": {
+      "type": "boolean",
+      "default": false
+    },
+    "basis": {
+      "type": "boolean",
+      "default": false
+    },
+    "editor": {
+      "type": "string",
+      "description": "Original editor ID. User accounts were not included in the export."
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Durch jeden Sinneneindruck werden wir von uns selbst geschieden,",
+  "language": [],
+  "musenalm_id": 40276,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Durch jeden Sinneneindruck werden wir von uns selbst geschieden,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zmyg08mpoiv93on",
+      "agents": "02o1v7ogp6q644r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.983Z"
+    }
+  ]
+}

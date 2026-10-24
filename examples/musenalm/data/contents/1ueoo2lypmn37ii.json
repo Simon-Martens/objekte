@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Der Graf von Petersborough - ein englischer Herr, der sich durch seine militarischen Talente, seine persönliche Tapferkeit und seine Liebe zu den Künsten,",
+  "language": [],
+  "musenalm_id": 37289,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein sonderbarer Charakterzug",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wieland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein sonderbarer Charakterzug",
+  "updated": "2004-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7twmda6oi8fjxvn",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.019Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "Soll mit duftendem Kranz' der Gott / der Liebe dich krönen:",
+  "language": [],
+  "musenalm_id": 82947,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Glück der Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Jos. Pfeiffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Glück der Liebe",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mcaeoygst6ofers",
+      "agents": "56d4anfaubc9l80",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.027Z"
+    }
+  ]
+}

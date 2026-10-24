@@ -1,0 +1,45 @@
+{
+  "annotation": "Blätter aus dem Süden (Sammlung INr 116989, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Bin Dir weit, doch denk' ich Dein, / Seh' Dich trauernd und allein;",
+  "language": [],
+  "musenalm_id": 116992,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Erinnerung. / Nach A. Barbereschi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Erinnerung. / Nach A. Barbereschi",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yl8knytu0vzixf4",
+      "agents": "ett5544anganpff",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.558Z"
+    }
+  ]
+}

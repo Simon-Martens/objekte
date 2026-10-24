@@ -1,0 +1,45 @@
+{
+  "annotation": "Ernst- und scherzhafte Erklärung der Kupfer (Sammlung INr 129263, Obj 9) s. Graphik INr 128269, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Der Frühling schwand! Mit heißer Glut / Kehrte der Sommer zur Erde nieder;",
+  "language": [],
+  "musenalm_id": 129268,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drittes Blatt / aus dem Leben eines Amors. / (Kupfer-Erklärung.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Christian Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drittes Blatt / aus dem Leben eines Amors. / (Kupfer-Erklärung.)",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qf0wnph8aqk4x9w",
+      "agents": "zx4hokgptxl8kwz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.008Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.008Z"
+    }
+  ]
+}

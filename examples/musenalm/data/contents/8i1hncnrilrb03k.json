@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthsel (Sammlung INr 41395, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "386",
+  "incipit_statement": "Oft muß ich schwere Lasten tragen, / Wohl ganze Häuser gar,",
+  "language": [],
+  "musenalm_id": 41398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qhzjcbqhxpv0fib",
+      "agents": "utw4utrm977hsx5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.945Z"
+    }
+  ]
+}

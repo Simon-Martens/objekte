@@ -1,0 +1,45 @@
+{
+  "annotation": "Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "345",
+  "incipit_statement": "In den schönsten Künsten und Wissenschaften hat man nach dem Kriege neue Hoffnungen gefaßt.",
+  "language": [],
+  "musenalm_id": 98433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In den schönsten Künsten und Wissenschaften hat man nach dem Kriege neue Hoffnungen gefaßt.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p9jc2b5ynm5qnvo",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.817Z"
+    }
+  ]
+}

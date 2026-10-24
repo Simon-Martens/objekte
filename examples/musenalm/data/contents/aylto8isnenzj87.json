@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung s. INr 73412, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Die Geschichte im Allgemeinen, wie die Kunstgeschichte insbesondere, lehren in vielen Fällen, daß die schönsten und reichsten Anlagen nicht die ihnen entsprechenden Früchte hervorbringen, wenn sie nicht von einem tüchtigen Charakter gestützt und getragen",
+  "language": [],
+  "musenalm_id": 73413,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Carl Friedrich Schinkel als Mensch und als Künstler]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. G. F. Waagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Carl Friedrich Schinkel als Mensch und als Künstler]",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "71e19uh09rqwi4h",
+      "agents": "0cuzofsjnkusg5v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.524Z"
+    }
+  ]
+}

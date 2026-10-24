@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed V, 167",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.381Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Ewig starr an Deinem Mund zu hangen, / Wer enträzelt dieses Wutverlangen?",
+  "language": [],
+  "musenalm_id": 41716,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Geheimniß der Reminiszenz. / An Laura",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Y.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Geheimniß der Reminiszenz. / An Laura",
+  "updated": "2005-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "elkiv73d7l1j48b",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.202Z"
+    }
+  ]
+}

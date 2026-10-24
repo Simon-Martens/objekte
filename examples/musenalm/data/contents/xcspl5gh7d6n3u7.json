@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zur vorstehenden Anekdote INr 118785, Obj 71",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 118786,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir sind complet!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del. Leop. Beyer sc.",
+  "scans": [
+    "alm_2700_118786_gxx71vvpnb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wir sind complet!",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r0xjqcb1kxs2veb",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.571Z"
+    },
+    {
+      "id": "7so48oxvvkfpd0r",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.571Z"
+    }
+  ]
+}

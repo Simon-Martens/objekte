@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "I woaß 's nit, was má zeitweis is: / Es gibt ma-r-in die Uhr'n án' Riß,",
+  "language": [],
+  "musenalm_id": 117226,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "'S schlechti G'hör",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Scheyrer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "'S schlechti G'hör",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "40zy021ndsg1gju",
+      "agents": "ffr90h140nkavcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.526Z"
+    }
+  ]
+}

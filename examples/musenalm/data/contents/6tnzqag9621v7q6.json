@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinische Sagen (Sammlung INr 63131, Obj 7) mit einer Illustration s. Graphik INr 63139, 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Auf Flörsheims Burg, am linken Strand / Des Rheins, im Morgenlicht, / Das Fräulein an dem Fenster stand, / Mit trübem Angesicht.",
+  "language": [],
+  "musenalm_id": 63133,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. Das Fräulein von Flörsheim",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. Das Fräulein von Flörsheim",
+  "updated": "2009-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f3wruuuv6p2yply",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.113Z"
+    }
+  ]
+}

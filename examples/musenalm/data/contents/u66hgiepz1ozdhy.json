@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Ein Birnbaum und ein Dornstrauch hatten zufälligerweise an der Landstraße neben einander Wurzel geschlagen.",
+  "language": [],
+  "musenalm_id": 35591,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Birnbaum und der Dornstrauch. / Nach Mancini Rivernois",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kayser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Birnbaum und der Dornstrauch. / Nach Mancini Rivernois",
+  "updated": "2003-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "to401kdzjvebh91",
+      "agents": "hyp0si34pt4b3dd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.647Z"
+    }
+  ]
+}

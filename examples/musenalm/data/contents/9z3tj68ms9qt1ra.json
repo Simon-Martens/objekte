@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64120, Obj 11 /) Illustration zu »Paul und Virginie« von Jacques Henri Bernardin de Saint-Pierre",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.420Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64127,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Paul und Virginie (badend.) #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Baumann sct. Mchn.",
+  "scans": [
+    "alm_1059_64127_9gdgld71ag.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Paul und Virginie (badend.) #",
+  "updated": "2009-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ktpu9y5xwvclb1r",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.225Z"
+    }
+  ]
+}

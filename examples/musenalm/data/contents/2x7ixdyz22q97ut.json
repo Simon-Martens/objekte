@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert IV. /) # Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13451,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MELPOMENE",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottschick sc.",
+  "scans": [
+    "alm_217_13451_632iy2fuyq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MELPOMENE",
+  "updated": "2001-04-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g06h6ww08cfjx8k",
+      "agents": "anvuxewtojf01i3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.440Z"
+    }
+  ]
+}

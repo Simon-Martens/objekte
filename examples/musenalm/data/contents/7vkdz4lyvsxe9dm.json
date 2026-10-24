@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Hülle nur in düstre Schleier, / Falber Sichelmond, dich ein,",
+  "language": [],
+  "musenalm_id": 42621,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 155,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alkanzor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Veit",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alkanzor",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2jza88ngwbbtx45",
+      "agents": "5fdnbj9xwyjpym9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.274Z"
+    }
+  ]
+}

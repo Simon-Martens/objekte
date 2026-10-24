@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Seht, seht, Oheim, rief eine Stimme, nun könnt Ihr sie genau betrachten, sie schreitet eben, vom Felde herwärts, gegen die Stadt, ihren gewöhnlichen Weg - gleich wird sie da sein!",
+  "language": [],
+  "musenalm_id": 95042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wahnsinnige von Freiberg. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emanuel Straube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wahnsinnige von Freiberg. / Novelle",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tw4hxhlezcz1m70",
+      "agents": "osmeoxw3ivqw3j5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.346Z"
+    }
+  ]
+}

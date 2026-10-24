@@ -1,0 +1,45 @@
+{
+  "annotation": "Huldigung den Frauen (Sammlung INr 95037, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Sie wandelt langsam ihren Pfad, / Da stehet sie sinnend still,",
+  "language": [],
+  "musenalm_id": 95041,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Matrone",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Liber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Matrone",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d6xx7whrbrcv931",
+      "agents": "zfc98s6qn3u27oa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.346Z"
+    }
+  ]
+}

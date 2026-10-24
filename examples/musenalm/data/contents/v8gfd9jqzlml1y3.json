@@ -1,0 +1,56 @@
+{
+  "annotation": "lt. G-Verz. Illustration zu »Die Thäler zu Hohenbergen; oder: die Menschen, wie sie sind.« von Fr. Schlenkert s. Textbezug 65421, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65413,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schenau del. C. F. Stölzel sc. 1800)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schenau del. C. F. Stölzel sc. 1800",
+  "scans": [
+    "alm_1103_65413_eup9enr93q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-07-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fpo6ysebq9x16gw",
+      "agents": "0hfa1bhqyn0q95c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.294Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.294Z"
+    },
+    {
+      "id": "6q4s44qptvqs7oj",
+      "agents": "e5dzzklohvjx1fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.294Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.294Z"
+    }
+  ]
+}

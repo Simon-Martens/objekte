@@ -1,0 +1,45 @@
+{
+  "annotation": "Umrißgraphik nach einer Skulptur von Canova; s. Textbezug INr 19057, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9345,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amor und Psyche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Schröter jun. sc.",
+  "scans": [
+    "alm_49_9345_r9vzmvtg2e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Amor und Psyche",
+  "updated": "2000-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xram6yofc9hceuc",
+      "agents": "nks9aoyh19lpabu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.421Z"
+    }
+  ]
+}

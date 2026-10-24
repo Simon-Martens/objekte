@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Dämon! Häßlicher Dämon, kaum aus- / treiblich / Für die Formuln des nostrum doctum Corpus,",
+  "language": [],
+  "musenalm_id": 3943,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An das Podagra. / Als das unwahre Gerücht gieng, einer / unserer ersten Dichter habe das Podagra",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An das Podagra. / Als das unwahre Gerücht gieng, einer / unserer ersten Dichter habe das Podagra",
+  "updated": "2000-09-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "73fcc5rd8heq2ts",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.679Z"
+    }
+  ]
+}

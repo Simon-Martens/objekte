@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "202",
+  "incipit_statement": "Ehmals war ich bestimmt, das Grab einer / Toten zu decken;",
+  "language": [],
+  "musenalm_id": 4166,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen Leichenstein, den man in einem / Lustgehölze zum Kaffehtische umgeschaffen / hatte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Fernow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen Leichenstein, den man in einem / Lustgehölze zum Kaffehtische umgeschaffen / hatte",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lg7zp02dcmm6eep",
+      "agents": "29znr1cu0wo4ctf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.205Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.205Z"
+    }
+  ]
+}

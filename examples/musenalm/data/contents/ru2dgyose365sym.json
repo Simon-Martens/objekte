@@ -1,0 +1,45 @@
+{
+  "annotation": "Hypochondrische Splitter (Sammlung INr 121390, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Das Individuum wird gebildet, erzogen von Außen hinein passiv;",
+  "language": [],
+  "musenalm_id": 121401,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Individuum wird gebildet, erzogen von Außen hinein passiv;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Gräffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5tc0x8vq8nhp4lm",
+      "agents": "cjjmyv8q19tuj7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.728Z"
+    }
+  ]
+}

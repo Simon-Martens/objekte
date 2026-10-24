@@ -1,0 +1,45 @@
+{
+  "annotation": "Theegespräche (Sammlung INr 126610, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Ich weiß es wohl, sagte Günther, daß es in neuen Romanen Mode geworden, die farblose Sentimentalität oder Nervenschwäche der Theezirkel zu parodieren, seitdem in Tieck's Zerbino, und dort sehr an seinem Platze, ein Pröbchen davon erschienen ist.",
+  "language": [],
+  "musenalm_id": 126611,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Isidorus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2020-12-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hkytjrckpcusn53",
+      "agents": "lqm1xxbbqsqcgwa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.838Z"
+    }
+  ]
+}

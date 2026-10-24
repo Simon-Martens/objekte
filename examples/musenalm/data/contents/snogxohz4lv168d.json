@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 22134, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Auf der höchsten Alpen Höh' / Ueber'm Schnee / Ist eine grüne Aue,",
+  "language": [],
+  "musenalm_id": 22145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Das Paradies der Thiere",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F.G. Wetzel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Das Paradies der Thiere",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ja5qbqlp2senioe",
+      "agents": "s6vrgm9x7setd1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.184Z"
+    }
+  ]
+}

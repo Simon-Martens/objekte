@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Du bist verschwunden, goldne Ju- / gendzeit; / Schon fangen meine Locken an zu bleichen!",
+  "language": [],
+  "musenalm_id": 96443,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schrbr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Klage",
+  "updated": "2014-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wksoqqq87wa4c0u",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.603Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.603Z"
+    }
+  ]
+}

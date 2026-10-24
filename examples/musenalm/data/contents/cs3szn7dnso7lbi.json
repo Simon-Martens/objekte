@@ -1,0 +1,58 @@
+{
+  "annotation": "Illlustration zu »Länder- und Völkerkunde. Kleines Sittengemälde der Koossa« INr 48281, Obj 44",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.914Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48280,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaffer und Kafferin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rösel del. J. F. Schröter sc. Lipsia",
+  "scans": [
+    "alm_657_48280_1tnt6z9zgp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kaffer und Kafferin",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qxk5zavi7lupucd",
+      "agents": "fvvo7u8gqk8l3ze",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.139Z"
+    },
+    {
+      "id": "az8abezimofccz9",
+      "agents": "nks9aoyh19lpabu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.139Z"
+    }
+  ]
+}

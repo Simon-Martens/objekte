@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Januar (zus. Bezeichnung: Gedr. v. Altmayer)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73398,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HOHENSCHWANGAU",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Biermann Gest. v. Hasse",
+  "scans": [
+    "alm_879_73398_lnn9hfziy5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HOHENSCHWANGAU",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uaeisc8l6j63j3x",
+      "agents": "ulca7kvs9vkm8e6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.767Z"
+    },
+    {
+      "id": "xp4w0pe6nv55ai4",
+      "agents": "h7uaqdezzsr8nde",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.767Z"
+    }
+  ]
+}

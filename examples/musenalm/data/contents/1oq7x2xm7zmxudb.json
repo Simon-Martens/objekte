@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Die Poesie begrüßt heut diese Räume, / Die oftmals schon mit ihrem Kranze / Die Säulen hier geschmückt,",
+  "language": [],
+  "musenalm_id": 24644,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 222,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / zur / Aufführung von Goethes Faust an / Goethe's Geburtstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / zur / Aufführung von Goethes Faust an / Goethe's Geburtstage",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xu3ovcq2rg11sp7",
+      "agents": "lu281a3pqqlvbj5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.998Z"
+    }
+  ]
+}

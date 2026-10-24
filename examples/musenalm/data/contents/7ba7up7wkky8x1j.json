@@ -1,0 +1,45 @@
+{
+  "annotation": "mit kleiner Graphik über dem Gedicht",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Schweigend, in der Abenddämmrung Schleier, / Ruht die Flur, das Lied der Haine stirbt;",
+  "language": [],
+  "musenalm_id": 5920,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie, / in den Ruinen eines alten Berg- / schlosses geschrieben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Matthisson",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie, / in den Ruinen eines alten Berg- / schlosses geschrieben",
+  "updated": "2000-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v1havg8tyz60rzn",
+      "agents": "z3510nlbg6hd1qt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.060Z"
+    }
+  ]
+}

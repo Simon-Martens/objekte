@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44260, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.773Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "O Glück! in Liebesmelodieen / Zu singen süß von Lieb' und Leid;",
+  "language": [],
+  "musenalm_id": 44277,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dichterglück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelheid von Stolterfoth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dichterglück",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "umcpy2oomgtqr8o",
+      "agents": "3jhgiv1hh1vm2en",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.246Z"
+    }
+  ]
+}

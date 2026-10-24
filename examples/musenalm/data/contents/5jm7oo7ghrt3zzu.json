@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 10. /) Graphik im Kalendarium Oktober /) Illustration zu »Mode Thorheiten«, hier zu »Labré« aus: Berlinische Monathsschrift 1785 März, S. 281 /) s. Textbezug INr 70222, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70208,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Labre, le nouveau Seint. / Labre, der neueste Heilige. / ibid. 1785. März S. 281",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Clar et Henne sc.",
+  "scans": [
+    "alm_800_70208_23i1efis7g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Labre, le nouveau Seint. / Labre, der neueste Heilige. / ibid. 1785. März S. 281",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lc5gwagcm98gthn",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.629Z"
+    },
+    {
+      "id": "atdzlg6a3r5teso",
+      "agents": "cj6pzq84zp925pc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.629Z"
+    },
+    {
+      "id": "xy0fityhfc59g0o",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.629Z"
+    }
+  ]
+}

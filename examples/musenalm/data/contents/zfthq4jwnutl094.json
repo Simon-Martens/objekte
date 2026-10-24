@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 4. /) Graphik im Kalendarium April /) Illustration zu »Mode Thorheiten«, hier zu »Ziehen« aus: Berlinische Monathsschrift 1783 Dezember, S. 526 /) s. Textbezug INr 70216, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.777Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70202,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ziehen meditant dans son Jardin / Ziehen in Bertrachtungen vertieft / ibid. 1783 Dec. S. 526",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Clar et Henne sc.",
+  "scans": [
+    "alm_800_70202_4h01pkruhm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ziehen meditant dans son Jardin / Ziehen in Bertrachtungen vertieft / ibid. 1783 Dec. S. 526",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l1i3eb2bs384uht",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.627Z"
+    },
+    {
+      "id": "yyz8iyc34cjbvn4",
+      "agents": "cj6pzq84zp925pc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.627Z"
+    },
+    {
+      "id": "xygzf74bhz3o363",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.627Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.627Z"
+    }
+  ]
+}

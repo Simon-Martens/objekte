@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 41996, Obj 197)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Was bringt den höchsten Ruhm? Der Sieg! / Was ist zum Siege nöthig? Der Krieg!",
+  "language": [],
+  "musenalm_id": 41997,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 198,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Höchster Ruhm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Streckfuss",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Höchster Ruhm",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hg41g7b8rrbmqv0",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.934Z"
+    }
+  ]
+}

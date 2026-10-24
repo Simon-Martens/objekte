@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 130051, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.537Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Wenn an dem Tage der Prüfung der Ewi- / ge Rechenschaft fordert, / Sagen will ich alsdann ihm das vertre- / tende Wort:",
+  "language": [],
+  "musenalm_id": 130071,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gast an den Wirth. / Nach Nedschali",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gast an den Wirth. / Nach Nedschali",
+  "updated": "2009-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1gr7pgbz87fxer4",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.002Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Vgl. Graphik »Rebecca« (INr 130057, Obj 2)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.567Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Her form was exquisitely symmetrical, and was shewn to advantage by a sort of eastern dress, which she wore according to the fashion of her nation.",
+  "language": [],
+  "musenalm_id": 130059,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rebecca",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Scott",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rebecca",
+  "updated": "2022-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3r7mi1o9nt02ndv",
+      "agents": "c17qisiv8omysnu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.056Z"
+    }
+  ]
+}

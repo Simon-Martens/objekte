@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 17. /) # Titel aus dem G-Verz; s. Textbezug »Ostia« Alm-1188, INr 68865",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.370Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68891,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ostia von der Meeres Seite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. R. Roma 1810",
+  "scans": [
+    "alm_1858_68891_m0sq86dbsq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ostia von der Meeres Seite",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3c1sdppgdkeuoyg",
+      "agents": "xeh43apdx4986px",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.596Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.596Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Havamal, oder Odins Sittensprüche aus Sämunds Edda (Sammlung INr 27049, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "255",
+  "incipit_statement": "Eins doch ist mir bekannt, was nicht vergeht.",
+  "language": [],
+  "musenalm_id": 27058,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eins doch ist mir bekannt, was nicht vergeht.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k25gcdokf2i2rin",
+      "agents": "v5ht3d6rw3do6ml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.212Z"
+    }
+  ]
+}

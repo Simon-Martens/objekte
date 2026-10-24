@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik pagniert I. /) Illustration zu »Phädon und Naide« von J. G. Jacobi /) # Titel aus dem G-Verz INr 16616",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16539,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erster Aufzug. Erster Auftritt. Phädon und Naide. S. 198 #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hegi del. et sc.",
+  "scans": [
+    "alm_260_16539_for2d7okse.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erster Aufzug. Erster Auftritt. Phädon und Naide. S. 198 #",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jnmji3eoa71t86q",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.545Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.545Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Aus dem G-Verz: Auf Tab. VIII sind ebenfalls Muster für Wäsche /) graph. Anleitung paginiert VIII.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48958,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Anleitung"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "#",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto. fec. 2te Jah. G.",
+  "scans": [
+    "alm_670_48958_p63ssuypzw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "#",
+  "updated": "2007-04-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k1z6xdfp4fgynvd",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.587Z"
+    }
+  ]
+}

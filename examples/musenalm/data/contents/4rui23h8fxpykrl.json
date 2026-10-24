@@ -1,0 +1,45 @@
+{
+  "annotation": "Ein Dutzend (Sammlung INr 57626, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Um sklavenmäßig nicht mein Schicksal zu erfüllen, / Verwandl' ich sein Gebot in meinem eig'nen Willen.",
+  "language": [],
+  "musenalm_id": 57629,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2008-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vtwceuehy04yirf",
+      "agents": "rpx0m3s76l0s5s5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.725Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.725Z"
+    }
+  ]
+}

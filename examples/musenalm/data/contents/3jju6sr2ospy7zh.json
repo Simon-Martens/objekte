@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Als Weisen preist manch' ein asket'scher Thor, / Wem faul das Leben scheint, gleich dumpfen Moor.",
+  "language": [],
+  "musenalm_id": 117363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedicht / Preis des Lebens. / Ein Ghasel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermannsthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedicht / Preis des Lebens. / Ein Ghasel",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rob0q2fq61zo75t",
+      "agents": "rxn9x0k5ac10jd7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.529Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.529Z"
+    }
+  ]
+}

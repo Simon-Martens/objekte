@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.580Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Minna! still und heilig sinkt der Morgen / Zu dir nieder, wo dein junges Herz / Ueber dieser Erde kleine Sorgen / Kraft- und muthvoll strebet himmelwärts;",
+  "language": [],
+  "musenalm_id": 37448,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / An Minna / an ihrem Confirmationstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. M. Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / An Minna / an ihrem Confirmationstage",
+  "updated": "2005-03-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vvep2kjh21ghaez",
+      "agents": "9g2bjngyi7jp8ga",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.521Z"
+    }
+  ]
+}

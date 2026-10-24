@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "385",
+  "incipit_statement": "Aus nächtlich dunkler Erde tiefstem Grunde, / seh ich geheim das Schreckliche geboren:",
+  "language": [],
+  "musenalm_id": 56364,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Hexen im Macbeth. / (nach Reichardts Musik zu Bürgers Bearbeitung / desselben.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amadeus Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Hexen im Macbeth. / (nach Reichardts Musik zu Bürgers Bearbeitung / desselben.)",
+  "updated": "2008-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uh6twujxtr1zht0",
+      "agents": "67zaqw1ahn1z54k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.971Z"
+    }
+  ]
+}

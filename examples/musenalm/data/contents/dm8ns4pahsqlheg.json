@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Nachlaß (Sammlung INr 37714, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ernst ist das Thema, ernst die Glossen, / Wenn man im Spiegelbilde sieht:",
+  "language": [],
+  "musenalm_id": 37715,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Ultra-Schwabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Ultra-Schwabe",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vgpbsf66esqln6p",
+      "agents": "snnpz92vgxnioxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.966Z"
+    }
+  ]
+}

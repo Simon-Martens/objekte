@@ -1,0 +1,45 @@
+{
+  "annotation": "Rösleins Leben und Tod (Sammlung INr 28008, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.738Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "70",
+  "incipit_statement": "Siehst du die zarte Blume / Mit dem verschämten Roth,",
+  "language": [],
+  "musenalm_id": 28009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ottfried",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2002-08-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vim11d7qwj2h7v4",
+      "agents": "ghfvaaekglh8k97",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.307Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.307Z"
+    }
+  ]
+}

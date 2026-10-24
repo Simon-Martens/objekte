@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93854,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BERLIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H.A.",
+  "scans": [
+    "alm_4087_93854_3w3706lspa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BERLIN",
+  "updated": "2014-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yhhey4ca8ubp030",
+      "agents": "wvzx8yp0t9tqzmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.237Z"
+    }
+  ]
+}

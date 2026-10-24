@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Daß unser junges Frauenzimmer / Mit bloßem Busen geht, wie? das befremdet dich?",
+  "language": [],
+  "musenalm_id": 11455,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "71. / Anthologische Bemerkung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Einem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "71. / Anthologische Bemerkung",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pmkx1vnzij13fdj",
+      "agents": "cnpmi5umijfxrao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.515Z"
+    }
+  ]
+}

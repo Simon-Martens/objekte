@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 5 Gedichten INr 63160-63164, Obj 36-40",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63159,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Allemannische Lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hofmann v. Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Allemannische Lieder",
+  "updated": "2009-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cg0xyo2ma51ps18",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.159Z"
+    }
+  ]
+}

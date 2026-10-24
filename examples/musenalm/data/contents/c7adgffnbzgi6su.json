@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Nonne von Gnadenzell« von C. Spindler /) s.a. Textbezug INr 104328, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104327,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE NONNE VON GNADENZELL. / I. Band. Pag 143",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zeichnung v. Fellner Stahlstich v. Leop. Beyer",
+  "scans": [
+    "alm_3408_104327_gjnkbkumj1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE NONNE VON GNADENZELL. / I. Band. Pag 143",
+  "updated": "2010-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o4m4exfq5apffav",
+      "agents": "9z4h7ka6ovxy0ac",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.088Z"
+    },
+    {
+      "id": "diuld96z4r3bz68",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.088Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.088Z"
+    }
+  ]
+}

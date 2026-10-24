@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Vorschläge zu schönen BrunnenVerzierungen. Von Herrn Hofbildhauer Isopi« von G. H. Rapp INr 74180, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Isopi inv. del. et sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Isopi inv. del. et sculp.",
+  "scans": [
+    "alm_3109_74182_x758y6gkjw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xng98v4qi792bvw",
+      "agents": "wal6qjr1bhcbnqq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.546Z"
+    }
+  ]
+}

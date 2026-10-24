@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik zus. Bezeichnung: gedruckt bei F. Grünewald in Darmstadt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "2666",
+  "language": [],
+  "musenalm_id": 30533,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe und Freundschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sonderland del. Leop. Beyer sc. Vienna",
+  "scans": [
+    "alm_402_30533_67yg5k9glb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Liebe und Freundschaft",
+  "updated": "2002-11-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ypir6c631of7yyv",
+      "agents": "qy6yej73pl7anzc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.677Z"
+    },
+    {
+      "id": "gatkjrsgio8an8j",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.677Z"
+    }
+  ]
+}

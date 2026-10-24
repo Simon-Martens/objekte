@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Soll ich von deinem Tode singen? / O Mariane! welch ein Lied,",
+  "language": [],
+  "musenalm_id": 92441,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Mariane",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Mariane",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h00byitowvmxjhn",
+      "agents": "uzv4rkvjn6nevu9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.477Z"
+    }
+  ]
+}

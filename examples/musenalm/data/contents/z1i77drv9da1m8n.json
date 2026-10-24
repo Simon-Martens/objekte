@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 4. /) # Bezeichnung aus dem G-Verz s. Textbezug INr 18708, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9148,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bein Haus bei Murten. / (3. März 1798.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_198_9148_vf8tizj3m0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Bein Haus bei Murten. / (3. März 1798.)",
+  "updated": "2001-01-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bi9c2x5o9o83kkh",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.024Z"
+    }
+  ]
+}

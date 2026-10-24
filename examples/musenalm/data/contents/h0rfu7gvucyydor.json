@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Endlich, endlich! / Wonne, da bist du, / Uferlos, unbegränzt, / Hehres, gewaltiges, / Göttliches Meer!",
+  "language": [],
+  "musenalm_id": 14735,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Seemannssohn / beym ersten Anblick des Meeres. / Meinem Neffen, C. de W., gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Therese von Artner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Seemannssohn / beym ersten Anblick des Meeres. / Meinem Neffen, C. de W., gewidmet",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jdxt4b14dxjau3x",
+      "agents": "easxd2ciuxkfl7o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.559Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.559Z"
+    }
+  ]
+}

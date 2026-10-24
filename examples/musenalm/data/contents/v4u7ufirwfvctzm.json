@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Natur und Kunst, o Ringulph, schenkten dir / Zwei Meisterwerke hoher Art;",
+  "language": [],
+  "musenalm_id": 6457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen antiken Ring, / den der Barde Ringulph an seinem / Finger trägt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Thomas v. Schönfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen antiken Ring, / den der Barde Ringulph an seinem / Finger trägt",
+  "updated": "2000-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wwr9zzqowokvng0",
+      "agents": "g2mjz3npda4fz9f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.994Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Schilderung des Ottomanischen Reiches (Sammlung INr 88127, Obj 7) s. Textbezug INr 88137, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88136,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Moschee des Sultans Ahmed",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Gerstner sc.",
+  "scans": [
+    "alm_3103_88136_j1l2ng9z4s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Moschee des Sultans Ahmed",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ys5v4jnfaw5ets",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.029Z"
+    }
+  ]
+}

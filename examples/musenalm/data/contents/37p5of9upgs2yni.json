@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert III. Illustration zu »Die gerettete Häuslichkeit, oder: der wiedergewonnene Gatte« INr 48322, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.521Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48292,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Ihr Gewissen! Hat sie etwa die Schuld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert d. F. Bolt s. 1812",
+  "scans": [
+    "alm_658_48292_p18rj13qq4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auf Ihr Gewissen! Hat sie etwa die Schuld",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "on96rjezo1k59b0",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.645Z"
+    },
+    {
+      "id": "tut5y7fv8ei629z",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.645Z"
+    }
+  ]
+}

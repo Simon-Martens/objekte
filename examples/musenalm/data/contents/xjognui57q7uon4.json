@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Aglaja floh jüngst vom Parnass. / Die Schwestern hielt Apoll zurück.",
+  "language": [],
+  "musenalm_id": 18033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als die Gemahlinn des Herzogs / Karl Eugenius von Würtem-/ berg nebst dem Herzoge den / Verfasser in Helmstädt / besuchten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Beireis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als die Gemahlinn des Herzogs / Karl Eugenius von Würtem-/ berg nebst dem Herzoge den / Verfasser in Helmstädt / besuchten",
+  "updated": "2001-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mf7fphtp3dblkda",
+      "agents": "6nxjmhgni8lbkyk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.586Z"
+    }
+  ]
+}

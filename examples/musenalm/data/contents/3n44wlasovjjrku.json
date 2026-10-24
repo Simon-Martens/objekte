@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Graf Wolf von Hohenkrähen. Ballade« von F. W. A. Schmidt (von Werneuchen) INr 48771, Obj 118; als Stecher wird im Vorwort des Verlegers fälschlich J. F. Bolt angegeben",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50088,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Er lacht' ihm in's sterbende, bleiche Gesicht / Fahr hin dann zur Hölle, du lüsterner Wicht / Beladen mit schreienden Sünden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. E. Henne sc.",
+  "scans": [
+    "alm_665_50088_cueyksf9ve.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Er lacht' ihm in's sterbende, bleiche Gesicht / Fahr hin dann zur Hölle, du lüsterner Wicht / Beladen mit schreienden Sünden",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ftl7wdcho6p6c2e",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.654Z"
+    },
+    {
+      "id": "gzc2w8iw2exywk2",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.654Z"
+    }
+  ]
+}

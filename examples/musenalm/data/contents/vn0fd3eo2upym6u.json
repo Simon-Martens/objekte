@@ -1,0 +1,45 @@
+{
+  "annotation": "Maria. Ein Sonettenkranz (Sammlung INr 34398, Obj 121)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "291",
+  "incipit_statement": "Doch will ich gegen Göttliches nicht klagen! / Ihr Reiz stand wohl zu hoch für dieses Leben,",
+  "language": [],
+  "musenalm_id": 34412,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Georg Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV.",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h8a8gu14h34gwnc",
+      "agents": "g7ovzuyzi8c0g2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.435Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.435Z"
+    }
+  ]
+}

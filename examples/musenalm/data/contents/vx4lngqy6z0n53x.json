@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 87249, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.553Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87242,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LUISE, / regierende Königin von Preussen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dehne del. Scheffner sculp.",
+  "scans": [
+    "alm_3804_87242_bif3a9wdnj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LUISE, / regierende Königin von Preussen",
+  "updated": "2012-05-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "srp84aqp4ejqx2f",
+      "agents": "6rzapybwgjp62qo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.135Z"
+    },
+    {
+      "id": "gwl141fwsjabk3x",
+      "agents": "zt0jhvowqybc2d2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.135Z"
+    }
+  ]
+}

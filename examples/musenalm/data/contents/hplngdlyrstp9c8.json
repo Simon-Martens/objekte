@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Collectaneen-Buch« von J. G. Jacobi INr 16053, Obj 24; s. INr 36529, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heinrich IV. Freude bey der Geburt des Dauphins",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner sc. 1805 Usteri del.",
+  "scans": [
+    "alm_29_16055_t4nmfikskt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Heinrich IV. Freude bey der Geburt des Dauphins",
+  "updated": "2001-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "edzqdkeb4944tkn",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.699Z"
+    },
+    {
+      "id": "zfrejou4f7kd2mj",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.700Z"
+    }
+  ]
+}

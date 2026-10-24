@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Charaden (Sammlung INr 22845, Obj 90) Räthsel, Charaden und Logogryphen (Sammlung INr 22840, Obj 85)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "379",
+  "incipit_statement": "Wenn die Natur im neuen Schmucke prangt / Und was erstorben lag, sich nun erhebt,",
+  "language": [],
+  "musenalm_id": 22848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6283vagvrv6m120",
+      "agents": "utw4utrm977hsx5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.971Z"
+    }
+  ]
+}

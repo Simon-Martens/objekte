@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Von einem Frostschauer der veränderlichen Hofluft angeweht, fuhr etwas enrhumirt davon der Minister, Graf Asten, vom Schlosse in sein Hotel zurück.",
+  "language": [],
+  "musenalm_id": 44422,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blaue Blumen. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julie von Großmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Blaue Blumen. / Novelle",
+  "updated": "2006-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dy18o6lr56tngco",
+      "agents": "pg4xeyhd29oq3nl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.387Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.387Z"
+    }
+  ]
+}

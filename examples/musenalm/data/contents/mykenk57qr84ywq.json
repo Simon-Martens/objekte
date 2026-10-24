@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnenblumen. Sonette Gedichtet im zwanzigsten Lebensjahre des Verfassers (Sammlung INr 20947, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "382",
+  "incipit_statement": "Siehst du die zarten Halme auf den Auen, / Bald von der Rosse schwerem Huf zertreten,",
+  "language": [],
+  "musenalm_id": 20951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Schenk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2002-01-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "upce0y3n8m49pvx",
+      "agents": "v42buu0bbkquom4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.549Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.549Z"
+    }
+  ]
+}

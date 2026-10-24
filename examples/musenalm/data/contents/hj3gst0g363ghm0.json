@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Gedichte und Epigramme (Sammlung INr 28456, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Wer mag ihn nachempfinden, / Des Mannes herben Schmerz,",
+  "language": [],
+  "musenalm_id": 28460,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Wehmuth. / 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Wehmuth. / 1803",
+  "updated": "2002-10-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dhavp82n7i1w97g",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.539Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.539Z"
+    }
+  ]
+}

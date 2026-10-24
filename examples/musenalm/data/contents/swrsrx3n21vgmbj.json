@@ -1,0 +1,45 @@
+{
+  "annotation": "Portrait paginiert 1; s. Textbezug INr 58302, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58296,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "J. E. Duhan de / Fandun",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. sc.",
+  "scans": [
+    "alm_829_58296_jc9ut3v5xu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "J. E. Duhan de / Fandun",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ems5ca2qmr2mtln",
+      "agents": "pxcq3jg95iqk4au",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.753Z"
+    }
+  ]
+}

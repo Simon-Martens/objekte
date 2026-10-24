@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.308Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135759,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HEINRICH VON ORLÉANS / Herzog von Aumale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Winterhalter p. Carl Mayer sc.",
+  "scans": [
+    "alm_2098_135759_moq4jtkkdn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HEINRICH VON ORLÉANS / Herzog von Aumale",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l9vv0ao9gdh9eww",
+      "agents": "5znl5epkyru3c10",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.154Z"
+    },
+    {
+      "id": "4jotxt61r5mc5nn",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.154Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.154Z"
+    }
+  ]
+}

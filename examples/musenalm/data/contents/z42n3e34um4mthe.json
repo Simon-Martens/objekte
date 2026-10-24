@@ -1,0 +1,46 @@
+{
+  "annotation": "Vertonung des Gedichts»Abendlied zweier Freundinnen« von J. H. Voss /) Photos 115560,01; 115560,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der schöne Tag, o Freundin sinkt, ihm folgt ein schöner Abend,",
+  "language": [],
+  "musenalm_id": 115560,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendlied zweier Freudinnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. A. Weber",
+  "scans": [
+    "alm_1340_115560_01_yf0vg12na7.jpg",
+    "alm_1340_115560_02_7hwi5imraq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abendlied zweier Freudinnen",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x2rwf4r2bnhujlt",
+      "agents": "u71n4xfm3r4625l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.487Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.487Z"
+    }
+  ]
+}

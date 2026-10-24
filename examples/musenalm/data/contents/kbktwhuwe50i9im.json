@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 130121, Obj 66) Gedicht in 8 Mdrigalen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Fernhin gekehrt, stand sie auf hohem Söller, / Die Prunk- und Flitterlose / Am vollen Busen bergend eine Rose.",
+  "language": [],
+  "musenalm_id": 130133,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fernando's Erinnerungen. / Madrigale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fernando's Erinnerungen. / Madrigale",
+  "updated": "2009-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ggsszbbx3ruww0a",
+      "agents": "4g2r3ta4uzw1gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.058Z"
+    }
+  ]
+}

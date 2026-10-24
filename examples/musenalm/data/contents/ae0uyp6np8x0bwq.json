@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 34306, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Diese Welt mit zwey Gesichtern, / Die gar oft ihr schlimmes macht",
+  "language": [],
+  "musenalm_id": 34311,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Diese Welt mit zwey Gesichtern, / Die gar oft ihr schlimmes macht…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4z3ry9lbxshw2jq",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.671Z"
+    }
+  ]
+}

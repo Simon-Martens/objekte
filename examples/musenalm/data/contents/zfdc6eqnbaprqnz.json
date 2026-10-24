@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Reif im Haupthaar, den Bart voller Eis, / taumelt der / Alte Winter anitzt aus der benachteten / Höle Grönlands hervor,",
+  "language": [],
+  "musenalm_id": 852,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Winter. / An Herrn P. Br.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Vß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Winter. / An Herrn P. Br.",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zvp90kl4v0kyt6b",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.790Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.790Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Parodie auf »Das Blümlein Wunderschön« von Goethe (INr 130285, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.707Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Ich kenn ein Essen Wundersüß, / Das äß ich zu allen Zeiten. / Ich bestellte mir’s jede Woche gewiß, / Doch kann’s hier Niemand bereiten.",
+  "language": [],
+  "musenalm_id": 130286,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Das Leibgericht, / oder / Das Essen Wundersüß’, / von / Röller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Röller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Das Leibgericht, / oder / Das Essen Wundersüß’, / von / Röller",
+  "updated": "2009-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c0pkn6roh6jb26n",
+      "agents": "ruqpk5pzwdjeoju",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.063Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.063Z"
+    }
+  ]
+}

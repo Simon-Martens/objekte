@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Modekupfer im Kalendarium Oktober; nummeriert X. /) s. Textbezug INr 109570, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109556,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Berndt. sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Berndt. sc.",
+  "scans": [
+    "alm_4127_109556_dzopg58cm3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2014-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l77i8t73oybx7vq",
+      "agents": "bx8i783pcmvy7uu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.179Z"
+    }
+  ]
+}

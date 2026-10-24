@@ -1,0 +1,45 @@
+{
+  "annotation": "vollst. Bez. aus dem I-Verz /) mit einem einleitenden Brief als Vorwort",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93148,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Politische Briefe über die Schweiz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junius Verfasser der neuen Politik",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Politische Briefe über die Schweiz",
+  "updated": "2014-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dj8rxoxbzny2kib",
+      "agents": "pwqzkwx0matdkik",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.280Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Wie paßt sich die schwirrende / Tanz Melodie / Für meine sanft girrende / Grab Elegie?",
+  "language": [],
+  "musenalm_id": 123013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegische Romanze. / Bei Selmars, des lieblichen Tänzers, schleunigem Hin- / sturz. Allen eroberungssüchtigen Schönen, und allen / verzweifelten Stutzern zur Lehre und Warnung ge- / sungen. / 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herklots",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegische Romanze. / Bei Selmars, des lieblichen Tänzers, schleunigem Hin- / sturz. Allen eroberungssüchtigen Schönen, und allen / verzweifelten Stutzern zur Lehre und Warnung ge- / sungen. / 1783",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rhqzp5gnqpze1dc",
+      "agents": "j34hzsrw81cdjdh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.812Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Ischarioth Krall's Lehren und Thaten in 30 episch-didaktischen Lectionen (Sammlung INr 97309, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.373Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Demnach hübsch Geld ist zusammen gekommen, / So bin ich von Enthusiasmus entglommen, / euch vorzutragen die neue Lehr',",
+  "language": [],
+  "musenalm_id": 97312,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweite Lection",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ischarioth Krall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweite Lection",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "614emrwq2bqdhte",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.772Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 44321, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44318,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER VOGELABRICHTENDE SCHUHFLICKER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Michold del. W. Otto & Hirchenhein sc.",
+  "scans": [
+    "alm_602_44318_pxxp9tfevf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER VOGELABRICHTENDE SCHUHFLICKER",
+  "updated": "2006-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aaxgqgfamnlga4f",
+      "agents": "gkwgr9c4p62s5bo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.194Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Gedicht (Sammlung INr 75106, Obj 17) Anm. am Objekt: Gesprochen von einer Verehrerin des Unsterblichen, in einer Gesellschaft von Musikfreunden zu Berlin, am 5. December 1824, vor Aufführung des Requiems.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "In Salzburg war ein Wunderknabe, / Dem seine Muse früh erschien. / Beschenkt mit ihrer Himmelsgabe, / Schwand jedes Spielwerks Reiz für ihn.",
+  "language": [],
+  "musenalm_id": 75107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zu Mozart's Todtenfeier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. E. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zu Mozart's Todtenfeier",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m5kunq3u1zrab1b",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.748Z"
+    }
+  ]
+}

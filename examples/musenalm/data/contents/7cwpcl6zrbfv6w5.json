@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der schlafende Räuber« von v. Sartorius INr 41291, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41281,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der schlafende Räuber. / S. 263",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt von Robert Gez. von Erhard Gest. von Schwerdgeburth",
+  "scans": [
+    "alm_482_41281_g4giin2jnn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der schlafende Räuber. / S. 263",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7hx056qwu8larap",
+      "agents": "1iq3f8ed71ls2hd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.339Z"
+    },
+    {
+      "id": "lyz05lpzl1vcebn",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.339Z"
+    }
+  ]
+}

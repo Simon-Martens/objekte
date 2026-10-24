@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Junker Harold« von George Gordon Byron INr 43938, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.286Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43939,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IANTHE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weber sc.",
+  "scans": [
+    "alm_591_43939_mq1nq0cknz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "IANTHE",
+  "updated": "2006-06-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cci19pd18v2chg1",
+      "agents": "0tfckyxltbezg39",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.190Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.190Z"
+    }
+  ]
+}

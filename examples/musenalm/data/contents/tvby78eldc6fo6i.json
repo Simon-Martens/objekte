@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 8. /) s. Textbezug INr 79263, Obj 45 /) Nachstich aus: Revolutions-Almanach 1793; alm-934",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "288",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die braven Dragoner von la Tour / und die brabanter Patrioten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Kohl sc.",
+  "scans": [
+    "alm_2490_79260_ionpfkx9ur.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die braven Dragoner von la Tour / und die brabanter Patrioten",
+  "updated": "2012-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ebhuax46uc6i94x",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.877Z"
+    }
+  ]
+}

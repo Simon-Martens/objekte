@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Was weilst du hier in der öden Wüste? / Sprach eine Pappel, schlank und hoch,",
+  "language": [],
+  "musenalm_id": 14565,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Pappel und der Epheu",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Therese v. Artner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Pappel und der Epheu",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sys4nmrkdhoveiu",
+      "agents": "easxd2ciuxkfl7o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.514Z"
+    }
+  ]
+}

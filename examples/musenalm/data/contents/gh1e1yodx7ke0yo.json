@@ -1,0 +1,46 @@
+{
+  "annotation": "Vorwort d Hrsg",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Menmosyne fährt fort, die reizendsten Blumen aus den bessern Perioden unserer Literatur zu sammeln, und übergiebt dem Leser hiermit das zweite und letzte Heft des Jahrzwanzigs von 1740-1760",
+  "language": [],
+  "musenalm_id": 92313,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Leser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B..ski",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Leser",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jpt9uhyoos06chk",
+      "agents": "3c4z57eb6rjd4gw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.635Z"
+    }
+  ]
+}

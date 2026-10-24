@@ -1,0 +1,45 @@
+{
+  "annotation": "West-Oestlicher Divan. Versammelt von Goethe. In den Jahren 1814-1815 ( Sammlung INr 34025, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Daß Araber an ihrem Theil / Die Weite froh durchziehen, / Hat Allah zu gemeinem Heil / Der Gnaden vier verliehen.",
+  "language": [],
+  "musenalm_id": 34027,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Vier Gnaden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Vier Gnaden",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kaap1wtzwubb5wy",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.665Z"
+    }
+  ]
+}

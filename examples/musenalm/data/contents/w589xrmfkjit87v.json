@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.183Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Geheimnißvoll erscheinen heut die Sterne, / Vom blauen Himmel glänzt ein freundlich Licht,",
+  "language": [],
+  "musenalm_id": 125409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Jahreszeiten. / Ein Prolog",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Eckschläger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Jahreszeiten. / Ein Prolog",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c1ofdbj11uld2hm",
+      "agents": "kpihlt5yngw0oju",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.810Z"
+    }
+  ]
+}

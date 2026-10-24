@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwischentitel. Es folgen: Einleitung INr 71425, Obj 43, 5 Sammlungen mit 26 Beiträgen, INr 71426-71456, Obj 44-74, abschließender Beitrag INr 71457, Obj 75",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.796Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71424,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Lebensbilder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav v. Struve",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Lebensbilder",
+  "updated": "2010-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xs27a11aiv1efyh",
+      "agents": "qwibej56fq45fjs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.477Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.477Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 48872, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.076Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48873,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ermordung des h. Petrus von Mailand",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. Tizian. Gest. von Ant. Karcher Mannh. 1801",
+  "scans": [
+    "alm_668_48873_hl6uchh5n3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ermordung des h. Petrus von Mailand",
+  "updated": "2007-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wz7428nj12pgv0z",
+      "agents": "vqhcqw2tvjlzto9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.279Z"
+    },
+    {
+      "id": "7sf6gpqd66lz6w6",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.279Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.279Z"
+    }
+  ]
+}

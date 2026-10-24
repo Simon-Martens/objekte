@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium. lt. G-Verz: Illustration zu »Das Madonnenbild« von J. G. Hoche INr 28299, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.751Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28279,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nur einen Kuß, du Himmlische!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thursten del. Ridley sculp.",
+  "scans": [
+    "alm_362_28279_jkiugrwpl8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nur einen Kuß, du Himmlische!",
+  "updated": "2002-10-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gg9nkba2uqiv529",
+      "agents": "ugmifjvouem3pfh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.546Z"
+    },
+    {
+      "id": "5iuyxyphrfn67d1",
+      "agents": "01vck2fus4d9d65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.546Z"
+    }
+  ]
+}

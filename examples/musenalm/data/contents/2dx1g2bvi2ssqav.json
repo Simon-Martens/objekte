@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An den Mai« von Tiedge INr 4777, Obj 93",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4781,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Mai",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. C. Bornhardt",
+  "scans": [
+    "alm_101_4781_pyh1fgtd4k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An den Mai",
+  "updated": "2000-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wgkek28dc0a4llq",
+      "agents": "dqs6x3olnlvcco1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.007Z"
+    }
+  ]
+}

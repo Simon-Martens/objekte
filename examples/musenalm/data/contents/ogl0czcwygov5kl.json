@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Preußen (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Die Sonne senkte sich gemach, / Ein Sternlein zog der Sonne nach,",
+  "language": [],
+  "musenalm_id": 99484,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf der Wanderschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Reinick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf der Wanderschaft",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kxywhrpqq5ki43k",
+      "agents": "d5l254jtrkm9aci",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.987Z"
+    }
+  ]
+}

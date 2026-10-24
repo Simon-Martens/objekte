@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 42080, Obj 280)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.501Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "409",
+  "incipit_statement": "Auf Guineas Ozeane / Treibt ein Schiff mit wirren Segeln,",
+  "language": [],
+  "musenalm_id": 42082,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 282,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das Negerschiff",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kopisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das Negerschiff",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z4in0iz9bq0rrno",
+      "agents": "aq3u8k3couckqq1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.213Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.213Z"
+    }
+  ]
+}

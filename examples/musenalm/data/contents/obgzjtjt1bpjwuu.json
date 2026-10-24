@@ -1,0 +1,45 @@
+{
+  "annotation": "Elegien. Nach Minna's Tod (Sammlung INr 91989, Obj 134)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "O! sie ist ja nicht todt, sie ruht nur im freundli- / chen Schlummer / wie ihr Bettchen ihr sonst gerne der Frommen / gewährt.",
+  "language": [],
+  "musenalm_id": 91991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. Schneider",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zm7g7cwvx803hbs",
+      "agents": "p0usds5em1danm0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.347Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.347Z"
+    }
+  ]
+}

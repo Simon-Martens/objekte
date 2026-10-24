@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 57620, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Wallach'sche Maid, genügt Dir nicht die Zierde, / Die Dir Natur verschwenderisch verlieh'n?",
+  "language": [],
+  "musenalm_id": 57619,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Flora, / das / wallachische Blumenmädchen. / Gedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Levitschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Flora, / das / wallachische Blumenmädchen. / Gedicht",
+  "updated": "2008-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yphpdsgpqliuaaf",
+      "agents": "e22fzyl0voj5sux",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.696Z"
+    }
+  ]
+}

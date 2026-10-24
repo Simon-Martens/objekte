@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Hüll' in deinen Schattenmantel, / Hüll', o Dämmerung, mich ein!",
+  "language": [],
+  "musenalm_id": 3752,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / die Dämmerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Bouterwek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / die Dämmerung",
+  "updated": "2000-09-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gkut9wm3nip5q19",
+      "agents": "27lkhlbux1m8s5c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.162Z"
+    }
+  ]
+}

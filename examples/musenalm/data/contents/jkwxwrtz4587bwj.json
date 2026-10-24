@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 90440, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.259Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Sie sagen, daß die Welt in Krämpfen liege, / Und solle länger sie zusammenhalten,",
+  "language": [],
+  "musenalm_id": 90442,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Vis mechanica",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. M. Enk. (Mölk.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Vis mechanica",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "isp6cj8rpx2r5fp",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.274Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Noch bebst du, Jordan, für die arme Welt; / Noch fürchtest du, daß der beschweifte Held,",
+  "language": [],
+  "musenalm_id": 6313,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Jordan, / über den Kometen im Jahr 1743. / Nach dem Französischen Friedrichs II. / (S. Oeuvres du Philosophe de Sans-Souci. / à Potsdam, 1760. Tom. II. pag. 66.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klamer Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Jordan, / über den Kometen im Jahr 1743. / Nach dem Französischen Friedrichs II. / (S. Oeuvres du Philosophe de Sans-Souci. / à Potsdam, 1760. Tom. II. pag. 66.)",
+  "updated": "2000-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qgwko1mf65ug7ag",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.208Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.208Z"
+    }
+  ]
+}

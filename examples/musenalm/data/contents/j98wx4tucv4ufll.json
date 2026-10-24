@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Unmöglichkeit« von L. Brachmann INr 20159, Obj 80",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20094,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Unmöglichkeit von Louise Brachmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Schwerdtgeburthsc.",
+  "scans": [
+    "alm_269_20094_s9pw4r2hbh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Unmöglichkeit von Louise Brachmann",
+  "updated": "2001-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qt3aapf2e7ntybh",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.947Z"
+    },
+    {
+      "id": "oiyjkhc210hn2ca",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.947Z"
+    }
+  ]
+}

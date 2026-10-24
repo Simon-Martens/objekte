@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait  # Titel aus dem G-Verz s. Textbezug INr 63766, Obj 6 /) zus. Bezeichnung: Druck v.  Lange",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.168Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63762,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herzogin von Orleans #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ed. Schuler sculp",
+  "scans": [
+    "alm_1047_63762_saxu0vrr0g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herzogin von Orleans #",
+  "updated": "2009-04-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2mqlmfy36g6kkim",
+      "agents": "hk6k9w6jym7fe8o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.053Z"
+    }
+  ]
+}

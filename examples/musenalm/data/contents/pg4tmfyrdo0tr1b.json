@@ -1,0 +1,43 @@
+{
+  "annotation": "Die frühe Liebschaft INr 29320, Obj 5 s. Graphik INr 29322, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.465Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Zur Zeit, als die Müller noch für Spitzbuben galten, also doch in der christlichen Zeitrechnung - lebte im sächsischen Erzgebirge ein Müller,",
+  "language": [],
+  "musenalm_id": 29321,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-10-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9dvz9146bfumk7p",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.501Z"
+    }
+  ]
+}

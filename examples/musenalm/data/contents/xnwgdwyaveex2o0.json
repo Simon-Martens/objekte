@@ -1,0 +1,45 @@
+{
+  "annotation": "Bonaccia (Sammlung INr 103115, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Meine frühe Jugend, begann Nicolo, verging wie in einem Rosengarten,. Mein Vater ist der reichste Mann auf Lesbos,",
+  "language": [],
+  "musenalm_id": 103121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebe im Lazareth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebe im Lazareth",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wdgq8w0pb12yvye",
+      "agents": "jo3symqxy3hqpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.070Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.070Z"
+    }
+  ]
+}

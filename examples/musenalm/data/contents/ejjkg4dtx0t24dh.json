@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Der Mond scheint bleich, an dem Meeresstrand / Sitzt die alte Fischersfrau,",
+  "language": [],
+  "musenalm_id": 100099,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die alte Fischersfrau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günter Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die alte Fischersfrau",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7gf5nx0r3rdk9a9",
+      "agents": "o11zrg5nk396fgh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.028Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bayern. Franken (Sammlung INr 99331, Obj 237) §4§ SS 337/338 fehlen; Titel aus dem I-Verz.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 99334,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 240,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Altdeutsch 2. §§§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Friedrich Daumer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Altdeutsch 2. §§§",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1r4ho0z0lb77uhd",
+      "agents": "t36jhwo4crudqp3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.829Z"
+    }
+  ]
+}

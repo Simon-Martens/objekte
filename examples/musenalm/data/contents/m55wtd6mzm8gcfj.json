@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s.Graphik INr 93862, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "Wie? bei dieser Tagesgluth? / Das wahrlich thäte sehr dem zarten Körper gut!",
+  "language": [],
+  "musenalm_id": 93903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eigensinn und Schicksal. / Dramatisches Gedicht in zwei Aufzügen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eigensinn und Schicksal. / Dramatisches Gedicht in zwei Aufzügen",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9ptflcn2bt6bgzs",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.324Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.324Z"
+    }
+  ]
+}

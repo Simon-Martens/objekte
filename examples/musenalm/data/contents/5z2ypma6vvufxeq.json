@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Um zu sein, wie sich's gebührt, / Freunde, muß man trinken;",
+  "language": [],
+  "musenalm_id": 6579,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rauschlied. / Nach dem Dänischen von Baggesen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baggesen und Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rauschlied. / Nach dem Dänischen von Baggesen",
+  "updated": "2000-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jjtf6xd7w80vmq4",
+      "agents": "jq74p3fe1dijn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.250Z"
+    },
+    {
+      "id": "bmfou89mzyg3oi8",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.250Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Aphorismen (Sammlung INr 86936, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.186Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Einsam ragst du, meerumschlossen, / Stolzer Fels, die Stirn im Licht,",
+  "language": [],
+  "musenalm_id": 86938,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einsam ragst du, meerumschlossen, / Stolzer Fels, die Stirn im Licht,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. v. Metzerich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "br194egtwh47wjt",
+      "agents": "em3dkpa48ys3kzf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.175Z"
+    }
+  ]
+}

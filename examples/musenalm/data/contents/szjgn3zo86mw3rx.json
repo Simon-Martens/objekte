@@ -1,0 +1,69 @@
+{
+  "annotation": "## Titel s. »Der Garten der Tuilerien in Paris. Mit Kupfern, nach den Zeichnungen der Hn. F. und L. Catel / Das Hufeisen. (Fünftes Kupfer: Prospect von der Terrasse des  Quai gegen das achtekte Bassin und die gegenüberliegende Terrasse.) INr 74455, Obj 23 /)  # Zuschreibung: Fischer S. 364",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74454,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prospect von der Terrasse des Quai gegen das achtekte Bassin und die gegenüberliegende Terrasse ##",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. und L. Catel",
+  "scans": [
+    "alm_3114_74454_it4idrl99u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Prospect von der Terrasse des Quai gegen das achtekte Bassin und die gegenüberliegende Terrasse ##",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mvfnt65cjgsr6b1",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.276Z"
+    },
+    {
+      "id": "5g1d2ofi5hw8fai",
+      "agents": "u6cqibk97sma4dm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.276Z"
+    },
+    {
+      "id": "kk1c89xtok390p0",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.276Z"
+    }
+  ]
+}

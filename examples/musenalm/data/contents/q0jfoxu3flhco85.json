@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Wir und Sie« von Klopstock in: Musenalmanach (Göttinger) 1773 INr 870; s. Anm. dort",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.577Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2090,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 143,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir und Sie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter Gluck",
+  "scans": [
+    "alm_75_2090_k8k9vxyb77.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wir und Sie",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5x6zjsp5djydxa8",
+      "agents": "bcx2c0r10adpoyu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.965Z"
+    }
+  ]
+}

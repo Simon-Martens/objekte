@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Fragmente aus dem Tagebuche einer Reise aus dem Oberhaßle nach Engelberg« von M. INr 52722, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52724,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (F. N. König ft.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. N. König ft.",
+  "scans": [
+    "alm_724_52724_5934oxk5zx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z6lb85k0pdlr08b",
+      "agents": "grbttvgkqnprgwf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.875Z"
+    }
+  ]
+}

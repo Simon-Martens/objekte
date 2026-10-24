@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Dich, Arbeit, froh ich segnen will! / Für Alles bist du gut!",
+  "language": [],
+  "musenalm_id": 46072,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 176,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bei der Arbeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cäsar von Lengerke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bei der Arbeit",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2o17au6jdxaaeom",
+      "agents": "bpu3kgvz2f2gjrs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.390Z"
+    }
+  ]
+}

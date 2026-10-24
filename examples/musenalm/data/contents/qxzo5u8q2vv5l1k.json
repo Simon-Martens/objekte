@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Seit den in Schulphorta zusammen erlebten Knabenjahren waren Adalbert und Euchar Freunde, dennoch hatten beide nur den heitern Jugendsinn mit einander gemein.",
+  "language": [],
+  "musenalm_id": 94444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Geisterbanner. / (Der Stoff dem Dänischen zum Theil entlehnt.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Kruse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Geisterbanner. / (Der Stoff dem Dänischen zum Theil entlehnt.)",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gxwfa6vmjchsf72",
+      "agents": "jfhywk4cbxcodws",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.430Z"
+    }
+  ]
+}

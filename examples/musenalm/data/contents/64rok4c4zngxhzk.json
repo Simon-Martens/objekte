@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64384, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64372,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charlotte Corday #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Scheffer pinxt. W. Baumann schulpt.",
+  "scans": [
+    "alm_1070_64372_ila4mr3xdp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Charlotte Corday #",
+  "updated": "2009-05-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1862,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "an9bfzwh07fz57n",
+      "agents": "hcy1msq1xh9vgg9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.055Z"
+    },
+    {
+      "id": "r2wexr0pyhen3d2",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.056Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.056Z"
+    }
+  ]
+}

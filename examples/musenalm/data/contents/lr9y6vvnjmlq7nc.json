@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Blenden willst du mich, Freundinn!...O dann / entlasse den Spiegel, / Den du so eilig zwischen den Grazienfingern umher- / drehst,",
+  "language": [],
+  "musenalm_id": 93086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Minna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. St.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Minna",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zhphvcp9f52ccrq",
+      "agents": "pnennqhmzrv3ms6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.493Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.493Z"
+    }
+  ]
+}

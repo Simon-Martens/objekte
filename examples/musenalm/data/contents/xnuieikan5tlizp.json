@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Letzte Blätter aus F. H. Jacobi's Nachlaß (Sammlung INr 40254, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Die Würde und Größe des Menschen besteht darin, daß er eine Wahrheit annehmen kann, die gleichsam außer ihm ist,",
+  "language": [],
+  "musenalm_id": 40271,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Würde und Größe des Menschen besteht darin, daß er eine Wahrheit annehmen kann, die gleichsam außer ihm ist,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kjy7r3tgwbqtoff",
+      "agents": "02o1v7ogp6q644r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.983Z"
+    }
+  ]
+}

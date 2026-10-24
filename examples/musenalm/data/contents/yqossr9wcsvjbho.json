@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57371,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seiner / geliebten Gattin / Therese / geweiht / vom / Verfasser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Verfasser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Seiner / geliebten Gattin / Therese / geweiht / vom / Verfasser",
+  "updated": "2008-04-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b2u3cjlx20e2iv9",
+      "agents": "exegl4z6k8jnby0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.709Z"
+    }
+  ]
+}

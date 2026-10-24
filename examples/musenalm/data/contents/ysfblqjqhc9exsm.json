@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwei spanische Königinnen (Sammlung INr 85838, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Vor allen übrigen spanischen Königinnen lebt Donna Isabella in der Geschichte der spanischen Monarchie; und das mit Recht, weil diese Monarchie aus ihrem Verstande hervorging, wenn sie gleich nicht die eigentliche Schöpferin derselben war.",
+  "language": [],
+  "musenalm_id": 85839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die Königin Donna Isabella, / Gemahlin / Ferdinands des Fünften",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Buchholz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die Königin Donna Isabella, / Gemahlin / Ferdinands des Fünften",
+  "updated": "2003-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ju5cl5znumrsbf",
+      "agents": "7zon2137dp4tnal",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.036Z"
+    }
+  ]
+}

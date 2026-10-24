@@ -1,0 +1,45 @@
+{
+  "annotation": "(§§ 1-4) der Beitrag wird fortgesetzt in: Kalender, Helvetischer 1791, INr 50880 und in: Kalender, Helvetischer 1792; INr 50900",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Die weil du, mein lieber Sohn Felix! und nicht nur du, sondern auch verschiedene berühmte und gelehrte Männer, welche ehemals meine Mitschüler gewesen sind, schon mehrmals begehrt, ich soll mein Leben beschreiben von Jugend an,",
+  "language": [],
+  "musenalm_id": 50859,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thomas Platters / Jugendgeschichte. / (Von ihm selbst beschrieben, und für die / neuere Lesewelt genießbar gemacht.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thomas Platter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Thomas Platters / Jugendgeschichte. / (Von ihm selbst beschrieben, und für die / neuere Lesewelt genießbar gemacht.)",
+  "updated": "2007-07-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d8d178vcwapgzkj",
+      "agents": "1b0yvtrxx4e6f2e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.720Z"
+    }
+  ]
+}

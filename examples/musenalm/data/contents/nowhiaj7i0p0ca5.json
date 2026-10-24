@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht INr 31554, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Betrogne Thörinnen! Ihr schaudert vor der / Bahre, / Und eilt mit Männern froh in's stille Brautgemach",
+  "language": [],
+  "musenalm_id": 31553,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Endreime. / 1. / Die Männerfeindinn an die Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Maisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Endreime. / 1. / Die Männerfeindinn an die Mädchen",
+  "updated": "2003-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rsy7skxptiul5u5",
+      "agents": "ibdeh1gpf166351",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.432Z"
+    }
+  ]
+}

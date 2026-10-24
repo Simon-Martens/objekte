@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 112642, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Ein milder Abend lag verklärt auf der Flur. Die sanft gewölbten Höhen glühten im Zauberlichte",
+  "language": [],
+  "musenalm_id": 112647,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Kind der Viper. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Kind der Viper. / Novelle",
+  "updated": "2010-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dlc7a6aegrcp8b8",
+      "agents": "hh3dab1czdktu2g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.492Z"
+    }
+  ]
+}

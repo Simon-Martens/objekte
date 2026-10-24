@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38996, Obj 184)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.619Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Vor Geist und Hexe nicht allein: / Vor falscher Freude Heuchelschein,",
+  "language": [],
+  "musenalm_id": 39000,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 188,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Emma Kerner. / Zum Eingang ihres Stammbuchs, das die Form eines / Kreuzes hatte. / Weinsberg 1837",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Mörike",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Emma Kerner. / Zum Eingang ihres Stammbuchs, das die Form eines / Kreuzes hatte. / Weinsberg 1837",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u6n5hpo6fq7p4mb",
+      "agents": "sazh274fui35fcn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.927Z"
+    }
+  ]
+}

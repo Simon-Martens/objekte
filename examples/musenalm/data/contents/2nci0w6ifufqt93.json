@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: aus Du Halde und Blumenbachs Abbildungen natürlicher Gegenstände d.i.: Halde, Jean-Baptiste Du: Description geographique, historique, chronologique, politique [...] de la Chine Paris: P.G. Lemercier, 1735. 4 vols. und: Blumenbach, Johann Friedrich : Abbildungen naturhistorischer Gegenstände, 1796",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41601,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chinesischer Fischer Vogel, (Pelecanus Sinensis) nebst dessen Fischfang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_547_41601_ys509bylta.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Chinesischer Fischer Vogel, (Pelecanus Sinensis) nebst dessen Fischfang",
+  "updated": "2005-12-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "puz9a011riybkao",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.931Z"
+    }
+  ]
+}

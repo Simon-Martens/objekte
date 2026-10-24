@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Des Krieges letzter Wille« von C. Haffner INr 115852, Obj 98",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115762,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Kriegers letzter Wille. / Zur Ballade von Karl Haffner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Decker inv. et del. A. Winkler sc.",
+  "scans": [
+    "alm_3208_115762_x1xnu2hvij.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des Kriegers letzter Wille. / Zur Ballade von Karl Haffner",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z2tdkn2yjtg753a",
+      "agents": "vfryk9lf23r0kke",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.455Z"
+    }
+  ]
+}

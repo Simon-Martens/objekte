@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80652, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Verwaiste Kinder tragen eine Waise; / Verwaiste Kinder wandeln hinter'm Sarg;",
+  "language": [],
+  "musenalm_id": 80653,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Des Waisenkindes Begräbniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Des Waisenkindes Begräbniß",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ds5j22vv6eeg259",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.994Z"
+    }
+  ]
+}

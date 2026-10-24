@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 34601, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Funfzig Jahre sind vorüber / Wie gemischte Tage flohn; / Funfzig Jahre sind hinüber / In das ernst Vergangne schon.",
+  "language": [],
+  "musenalm_id": 34603,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem würdigen / Bruderfeste / Johanni, / 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. v. Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem würdigen / Bruderfeste / Johanni, / 1830",
+  "updated": "2003-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3kw0brc8o0yby5o",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.768Z"
+    }
+  ]
+}

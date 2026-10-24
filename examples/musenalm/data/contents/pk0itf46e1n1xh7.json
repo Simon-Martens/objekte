@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 201 /) Illustration zu »Der Schleyer« INr 73728, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich ihr nicht folgen? Ein Blick von ihr, wiegt alle / Gesetze auf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sculp. 1799",
+  "scans": [
+    "alm_645_73729_q6vfxkots4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich ihr nicht folgen? Ein Blick von ihr, wiegt alle / Gesetze auf",
+  "updated": "2007-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nxbxr1ehaf6ljpe",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.531Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.531Z"
+    },
+    {
+      "id": "n942yua4m7x76n4",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.532Z"
+    }
+  ]
+}

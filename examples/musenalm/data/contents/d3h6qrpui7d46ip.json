@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer kol. Illustration s. Graphik INr 123640, Obj 8; # Bezeichnung aus den Jg. bis 1806",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Da bin ich wieder auf meinem Lieblingsplätzchen. Wie ein heimkehrender Hausvater werd’ ich empfangen von allen meinen Kindern, von Träumen. Wünschen und Hoffnungen, die ich hier im Grase spielend zurück gelassen.",
+  "language": [],
+  "musenalm_id": 123639,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der arme Minnesinger. / Schauspiel in einem Akt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der arme Minnesinger. / Schauspiel in einem Akt",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hrtllwiztbwgepr",
+      "agents": "sse24vstbh0jbtd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.845Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Hoch steht in den Sommertagen / Manches Herz; das meine nicht.",
+  "language": [],
+  "musenalm_id": 118180,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach Hildebold von Schwanegey",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Münhchausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach Hildebold von Schwanegey",
+  "updated": "2010-02-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7mwpmid09pro6k3",
+      "agents": "wfk4mi4tbts3zzx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.476Z"
+    }
+  ]
+}

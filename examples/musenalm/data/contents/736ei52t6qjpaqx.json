@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 10. /) Illustration zu »Züge und Bruchstücke aus der Geschichte älterer und neuerer Revolutionen« INr 79231, Obj 13; /) sa.. Textbezug INr 79265, Obj 47 /) Nachstich aus: Revolutions-Almanach 1793; alm-934",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79268,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cromwell in Gefahr von der Hand einer / Dame zu sterben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Mansfeld sc.",
+  "scans": [
+    "alm_2490_79268_tyckaje3dj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cromwell in Gefahr von der Hand einer / Dame zu sterben",
+  "updated": "2012-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "moqt6p038wuooke",
+      "agents": "x056xs6zlyqcn0t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.952Z"
+    }
+  ]
+}

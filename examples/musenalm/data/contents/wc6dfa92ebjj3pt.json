@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Ein süßer Jüngling wandelt hold / In Himmels Heiligthumen …",
+  "language": [],
+  "musenalm_id": 119880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Osterlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Frhr. v. d. Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Osterlied",
+  "updated": "2018-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g7lo2rnvlasw6jo",
+      "agents": "7pclzh61bvgdvvq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.555Z"
+    }
+  ]
+}

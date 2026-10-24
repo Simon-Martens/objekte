@@ -1,0 +1,43 @@
+{
+  "annotation": "Die Freude des Wiedersehens, in vier Bildern (Sammlung INr 30445, Obj 4) s. Graphik INr 30452, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Geschichte vom Bernauer Bier, die sich in Berlin zugetragen, hat sich unter dem Volke allmählich zu einem Schwank ausgebildet,",
+  "language": [],
+  "musenalm_id": 30453,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rückkehr aus dem Kriege",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stephan Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rückkehr aus dem Kriege",
+  "updated": "2002-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gb59k3ff9lax2ya",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.578Z"
+    }
+  ]
+}

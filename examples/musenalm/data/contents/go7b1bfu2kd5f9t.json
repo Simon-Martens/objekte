@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 124431, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Abscheulicher Tyrann, nicht den Shawl? Ich lasse mich scheiden!",
+  "language": [],
+  "musenalm_id": 124445,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Übergänge. / Gespräch zwischen Mann und Frau. / (Auch von unten herauf lesbar.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Gräffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Übergänge. / Gespräch zwischen Mann und Frau. / (Auch von unten herauf lesbar.)",
+  "updated": "2009-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y2bwj7z1z2eujb7",
+      "agents": "cjjmyv8q19tuj7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.802Z"
+    }
+  ]
+}

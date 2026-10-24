@@ -1,0 +1,45 @@
+{
+  "annotation": "Fußnote an der Bezeichnung mit Bemerkungen zur Herkunft dieses und der folgenden Gedichte, gezeichnet D. H.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.823Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Aurikel, mit den frommen Augen, / Wie schaust zum Himmel du hinein, / Als wollest ganz du in dich saugen / Das Himmelblau, den Sonnenschein.",
+  "language": [],
+  "musenalm_id": 121662,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aurikel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Robert Reinick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aurikel",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ym2x94952j96g32",
+      "agents": "d5l254jtrkm9aci",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.794Z"
+    }
+  ]
+}

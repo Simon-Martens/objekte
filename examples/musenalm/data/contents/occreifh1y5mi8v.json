@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge vermischten Inhalts 1791 (Sammlung INr 9401, Obj 189)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Brüder, laßt uns lustig seyn, / Weil der Frühling währet!",
+  "language": [],
+  "musenalm_id": 9416,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 204,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XV. / Die kurze Jugendlust. / Mel. Gaudeamus igitur etc.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XV. / Die kurze Jugendlust. / Mel. Gaudeamus igitur etc.",
+  "updated": "2001-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a1ivn8j2gb3pjvz",
+      "agents": "1x3kwfc2xz7cw22",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.339Z"
+    }
+  ]
+}

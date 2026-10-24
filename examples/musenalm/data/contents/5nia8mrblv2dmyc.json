@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zu »II. Wanderung durch den Markt des Ruhmes« INr 73790, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Dem Gedicht vorangestellt: Vorwort: Das nachstehende Gedicht ist das dritte Buch eines Gedichtes unter dem Titel: »Wanderungen durch den Markt des Lebens« in vier Büchern.",
+  "language": [],
+  "musenalm_id": 73789,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort:",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. A. Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort:",
+  "updated": "2000-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h8rzvljjko0nuhz",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.538Z"
+    }
+  ]
+}

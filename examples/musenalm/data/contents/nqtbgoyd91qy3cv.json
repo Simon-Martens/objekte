@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Die Briten nehmen's im Gedicht oft / ohne Wahl / Aus der Natur; bald wird's Gemäld und / bald Gemal:",
+  "language": [],
+  "musenalm_id": 773,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Antwort auf einandermal",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Antwort auf einandermal",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ioc9obb7zc85bw1",
+      "agents": "ckd4l48jtgsgmor",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.845Z"
+    }
+  ]
+}

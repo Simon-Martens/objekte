@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait (zus. Bezeichnung: Gedr. v. Altmayer)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.856Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73395,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARIA / Kronprinzessin von Baiern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt v. C. Begas Gestochen von G. Lüderitz",
+  "scans": [
+    "alm_879_73395_t8dxzczqwe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARIA / Kronprinzessin von Baiern",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rp47m59ynzys717",
+      "agents": "p2wbs7ivhx2i5bf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.767Z"
+    },
+    {
+      "id": "rrocs81p0ngtxxe",
+      "agents": "nsczq7pz19u52r3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.767Z"
+    }
+  ]
+}

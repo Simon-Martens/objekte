@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.417Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "O Cypria, bethränte Rosenkränze / Bring' ich dir dar; / Sieh her auf mich,",
+  "language": [],
+  "musenalm_id": 5217,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glyce an die Venus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brückner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glyce an die Venus",
+  "updated": "2000-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q8hn6r5m75j7z2b",
+      "agents": "ewuwl9lvke5jtiz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.093Z"
+    }
+  ]
+}

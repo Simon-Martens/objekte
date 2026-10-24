@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag in 10 Briefen. Mit einem Vorwort von J. V. Adrian INr 43876, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Ich habe Euch diese Nacht in aller Eile von meiner glücklichen Ankunft in Toulon, über Lyon, Vienne, Avignon, Aix und Marseille Nachricht gegeben und ein paar Worte über die Art meiner Reise gesagt.",
+  "language": [],
+  "musenalm_id": 43877,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Briefe in die Heimath]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Eduard Schulz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Briefe in die Heimath]",
+  "updated": "2006-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lu892xgd56lbhx3",
+      "agents": "emw15s08v7a9iad",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.287Z"
+    }
+  ]
+}

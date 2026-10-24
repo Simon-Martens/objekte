@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Sieh', was regt sich im Dorf? Aus der Thüre des / stattlichen Hauses / Trippeln heraus in die Stille zwei festlich gekleidete / Frauen;",
+  "language": [],
+  "musenalm_id": 88217,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Taufmahlzeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Staub",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Taufmahlzeit",
+  "updated": "2013-04-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c2cu4toefti2t01",
+      "agents": "51bbzv9i5oo6wa1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.182Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.182Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Die Römer hatten ein uraltes und sehr strenges Gesetz, welches den Weibern die Enthaltsamkeit vom Weine zur Pflicht machte.",
+  "language": [],
+  "musenalm_id": 26225,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber die Enthaltsamkeit der römischen / Weiber vom Weine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schrbr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber die Enthaltsamkeit der römischen / Weiber vom Weine",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9gnqkumn4vj1ce5",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.978Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.978Z"
+    }
+  ]
+}

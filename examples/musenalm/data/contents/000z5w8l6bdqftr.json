@@ -1,0 +1,45 @@
+{
+  "annotation": "jedem Kapitel ist ein Gedicht verangestellt: Hier Incipit des Prosateils des ersten Kapitels",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "Wie um einen Tisch in Raphaels Gemälde, der Disputa, wunderlche Männer aus allen Zeiten sitzen; so saßen in dem Casino zur Abendfreiheit am Tisch um die monströse Lampe noch wunderlichere Gestalten.",
+  "language": [],
+  "musenalm_id": 106563,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Das / große deutsche Musifest. / Novelle]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leopold Schefer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Das / große deutsche Musifest. / Novelle]",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zbhbjfnahmow14p",
+      "agents": "rlu2d4ml9zlhov2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.135Z"
+    }
+  ]
+}

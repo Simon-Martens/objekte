@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.423Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Triumph! Sie fliehn nach langer Gegenwehr, / Aus ihrem Lager weggestürmet,",
+  "language": [],
+  "musenalm_id": 31535,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Deutschland. / Bey Gelegenheit der letzten Oesterreichischen / Siege",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Alxinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Deutschland. / Bey Gelegenheit der letzten Oesterreichischen / Siege",
+  "updated": "2003-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wgo9lsdck5rlodj",
+      "agents": "3v0kb6a8a8y5rhb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.496Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.496Z"
+    }
+  ]
+}

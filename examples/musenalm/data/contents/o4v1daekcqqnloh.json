@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64711, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64717,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wahrsagerin #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. van Mieris pinx. D. J. Slyuter sculps.",
+  "scans": [
+    "alm_1083_64717_y1lp41g7kk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Wahrsagerin #",
+  "updated": "2009-06-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1872,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3n3v3vfnz3vwkya",
+      "agents": "r7w9sdck3ktf0df",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.096Z"
+    },
+    {
+      "id": "jnjuovfkvmhsbxv",
+      "agents": "lxkw0pi082wa1ak",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.096Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 6. /) Illustration zu »Die Advokaten« von A. W. Iffland s. Textbezug INr 61889, Obj 121",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61891,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So geben Sie mir den christlichen bruder- / und liebes Kuss / pag. 99",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Professor Heß in Düsseldorf",
+  "scans": [
+    "alm_1013_61891_me29qof2xd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "So geben Sie mir den christlichen bruder- / und liebes Kuss / pag. 99",
+  "updated": "2009-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "obls3bpm38lmsqp",
+      "agents": "dvhp1mfxgvurunq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.976Z"
+    }
+  ]
+}

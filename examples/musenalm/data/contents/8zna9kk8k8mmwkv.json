@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel s. Textbezug INr 48866, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.688Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48867,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der H. Levite Laurenz, in seiner Hingebung #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Peint par le Sueur W. Böhm sc.",
+  "scans": [
+    "alm_668_48867_jwpfh78ntt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der H. Levite Laurenz, in seiner Hingebung #",
+  "updated": "2007-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9gogywrqwfaxqby",
+      "agents": "rgscrveej5a4mer",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.594Z"
+    },
+    {
+      "id": "teg98w3kttex972",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.594Z"
+    }
+  ]
+}

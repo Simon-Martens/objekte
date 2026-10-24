@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62438,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. N. Peroux del. Steindruck v. J. Susenbeth)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. N. Peroux del. Steindruck v. J. Susenbeth",
+  "scans": [
+    "alm_1025_62438_h4y95u3v5u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cq4krzk6lli5zg9",
+      "agents": "47qewoncojtfn7g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.984Z"
+    },
+    {
+      "id": "3bffxr8bag5f2le",
+      "agents": "pdkj9dewoleh8b2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.984Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.984Z"
+    }
+  ]
+}

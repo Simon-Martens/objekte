@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinischer Dichter-Salon (Sammlung INr 44179, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Als Knabe hatt' ich manchen kühnen Traum: / Der Blüthenbaum, / Der über mich die schweren Zweige senkte,",
+  "language": [],
+  "musenalm_id": 44187,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Traum und Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Genth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Traum und Leben",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y1lu7fc4c6sn2ux",
+      "agents": "5dmql3fb0aixt0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.458Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.458Z"
+    }
+  ]
+}

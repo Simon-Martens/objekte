@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte und prosaische Aufsätze (Sammlung INr 10094, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.387Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Mit der Dummheit geht's wie mit dem übelriechenden Athem, niemand leidet weniger dabei, als dem es eigen ist.",
+  "language": [],
+  "musenalm_id": 10159,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mit der Dummheit geht's wie mit dem übelriechenden Athem, niemand leidet weniger dabei, als dem es eigen ist.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. v. Wallenrodt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tazo0o80uxu02ne",
+      "agents": "hcd8t0hxbx8bldt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.089Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.089Z"
+    }
+  ]
+}

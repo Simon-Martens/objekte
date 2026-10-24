@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Walter Scott's Werken. Sechste Lieferung. Robin der Rothe. -Der Alterthümler. - Die Presbyterianer. - St. Ronansbrunnen. Das Herz von Midlothian (Sammlung INr 43754, Obj 5) s. Graphik INr 43764, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.500Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Der junge Heinrich Morton von Millnwood war Sieger im Vogelschießen und bewirthete seine Bekannten bei Niklas Blane,",
+  "language": [],
+  "musenalm_id": 43763,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Die Presbyterianer] 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Die Presbyterianer] 2.",
+  "updated": "2006-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bsvtijiifbodc7g",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.406Z"
+    }
+  ]
+}

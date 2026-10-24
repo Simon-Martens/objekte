@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.632Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Wandelbar sind uns're Tage, / Heute Lust und morgen Klage,",
+  "language": [],
+  "musenalm_id": 83280,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedanken über die Leiden dieser Welt, / beim Tode eines hoffnungsvollen Kindes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Maus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedanken über die Leiden dieser Welt, / beim Tode eines hoffnungsvollen Kindes",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1ljtgpks44lm1i8",
+      "agents": "53w7kjcrm8k37r9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.009Z"
+    }
+  ]
+}

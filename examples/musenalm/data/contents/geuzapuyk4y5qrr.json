@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 34285, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.628Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34286,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Atala's Begräbniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Girodet pinx. Lambert soulp.",
+  "scans": [
+    "alm_477_34286_4iwk7nd2d1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Atala's Begräbniß",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ehez9pbexv6o5bk",
+      "agents": "at82n7dnerg2qsg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.527Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.527Z"
+    }
+  ]
+}

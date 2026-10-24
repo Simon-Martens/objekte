@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Nähe des Geliebten« von Goethe INr 882, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nähe des Geliebten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Fr. Reichardt",
+  "scans": [
+    "alm_31_7496_xz6fg6gh68.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nähe des Geliebten",
+  "updated": "2000-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tw1w64qtfsai3rw",
+      "agents": "it8ptc76fbrkd73",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.245Z"
+    }
+  ]
+}

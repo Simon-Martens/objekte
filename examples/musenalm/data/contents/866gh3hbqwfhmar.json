@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Dezember; paginiert 6. mit Erläuterung im G-Verz INr 58442, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58437,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was ist des Lebens Herlichkeit! / Wie bald ist sie verschwunden!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. Riep. sc.",
+  "scans": [
+    "alm_847_58437_96a1mcsknq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Was ist des Lebens Herlichkeit! / Wie bald ist sie verschwunden!",
+  "updated": "2008-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ba957rqbsdf5d67",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.902Z"
+    },
+    {
+      "id": "vdwdwos1bod2j27",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.902Z"
+    }
+  ]
+}

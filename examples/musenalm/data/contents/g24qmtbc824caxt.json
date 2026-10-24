@@ -1,0 +1,45 @@
+{
+  "annotation": "7. Gedichte von Langbein, Schütze und Tiedge (Sammlung INr 29956, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.886Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Hoch rauscht der Wald; mich dünket klagt die Eiche / Daß mich mein Volk verläßt;",
+  "language": [],
+  "musenalm_id": 29958,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Allerdeutschenfest. / (Mel. Bekränzt mit Laub etc)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Allerdeutschenfest. / (Mel. Bekränzt mit Laub etc)",
+  "updated": "2002-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zz0yir0pwvo93ee",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.319Z"
+    }
+  ]
+}

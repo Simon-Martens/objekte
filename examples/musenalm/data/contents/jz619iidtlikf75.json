@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123875, Obj 1); Illustration zu »Die Rosenmädgen« von Kotzebue (INr 123880, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Hanns. / Hat dir ein schönes Augen-Paar / Den Himmel prophezeit, / Dann lockt es dich, dann zieht es dich, / Und wärst du Meilen-weit. / Die Rosenmädchen. 1rAct. 3te Scene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1287_123881_f099okb8us.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "III. / Hanns. / Hat dir ein schönes Augen-Paar / Den Himmel prophezeit, / Dann lockt es dich, dann zieht es dich, / Und wärst du Meilen-weit. / Die Rosenmädchen. 1rAct. 3te Scene",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9kqphjdtul5um5z",
+      "agents": "hwl1l57k0tbbc1r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.854Z"
+    },
+    {
+      "id": "4ztqksw9t57kagj",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.854Z"
+    }
+  ]
+}

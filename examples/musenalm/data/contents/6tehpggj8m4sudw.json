@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Graphik INr 114225, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.857Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Der rosenwangige Adonis jagte, / Als Phöbus eben der bethränten Schönen / Sein letztes Lebewohl am Himmel sagte,",
+  "language": [],
+  "musenalm_id": 114307,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Venus und Adonis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakspear [übers.] Andr. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Venus und Adonis",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b215e4kkxcln585",
+      "agents": "confomdodiakpla",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.287Z"
+    },
+    {
+      "id": "uoum4wdqmu9i1pj",
+      "agents": "w54qzevkgviemdi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.287Z"
+    }
+  ]
+}

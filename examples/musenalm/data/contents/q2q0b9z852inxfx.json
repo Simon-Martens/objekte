@@ -1,0 +1,45 @@
+{
+  "annotation": "Sieben Fabeln von Lessing. In Verse gebracht (Sammlung INr 122889, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "In einer Nacht, worin der Nordwind rasete, / Ward ein erhabner Eichbaum umgestürzt.",
+  "language": [],
+  "musenalm_id": 122896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Eiche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Eiche",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cou478czvj1u6xg",
+      "agents": "uxrssb0qlf0ghgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.825Z"
+    }
+  ]
+}

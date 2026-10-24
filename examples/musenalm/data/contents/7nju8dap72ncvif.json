@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "O zürnet nicht, daß nmeine Hand die Krone / Von euch, ihr Blumen, nahm dahin,",
+  "language": [],
+  "musenalm_id": 106064,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Garten meines Freundes H. / (bey Gelegenheit als ich für Mathilde eine Rose pflückte.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. X. Told",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Garten meines Freundes H. / (bey Gelegenheit als ich für Mathilde eine Rose pflückte.)",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ezfm2l6mc0b82af",
+      "agents": "tglq0d4pyb420do",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.215Z"
+    }
+  ]
+}

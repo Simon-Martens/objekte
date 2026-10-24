@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik; lt. G-Verz: aus Perons Reisen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.503Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42339,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NABA LEBA. / König von Solor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Bolt fc.",
+  "scans": [
+    "alm_559_42339_c41e5qt4mn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NABA LEBA. / König von Solor",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "30gpl8lwawz6mnv",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.309Z"
+    }
+  ]
+}

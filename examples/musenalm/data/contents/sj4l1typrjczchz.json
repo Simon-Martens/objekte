@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedankenkerne (Sammlung INr 71821, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.657Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Alles, was die Menschen im Großen und im Kleinen je zur Ausführung brachten, das lag einmal in seinem Kerne verschlossen.",
+  "language": [],
+  "musenalm_id": 71836,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alles, was die Menschen im Großen und im Kleinen je zur Ausführung brachten, das lag einmal in seinem Kerne verschlossen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0y3pxr8tmirz7ms",
+      "agents": "o2pvd0n9c0ulrf4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.402Z"
+    }
+  ]
+}

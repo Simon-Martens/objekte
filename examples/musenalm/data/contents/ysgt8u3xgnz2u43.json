@@ -1,0 +1,45 @@
+{
+  "annotation": "Stickerei (Sammlung INr 76164, Obj 62) mit einer graph. Stickanleitung s. INr 76167, Obj 65",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Wegen des lautern feinen Gewebes zieht sich aller Musselin in der Stickerey.",
+  "language": [],
+  "musenalm_id": 76168,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Zugsticken in Musselin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Zugsticken in Musselin",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2hbqqg05f491jrm",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.920Z"
+    }
+  ]
+}

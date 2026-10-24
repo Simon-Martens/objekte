@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Godwi oder Das steinerne Bild der Mutter« von Cl. Brentanos. Textbezug INr 31993, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.192Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 31994,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ottilie / aus Godwi, oder: das steinerne Bild der Mutter. / 1 ter Theil pag. 137",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury sculp.",
+  "scans": [
+    "alm_366_31994_egyurschem.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ottilie / aus Godwi, oder: das steinerne Bild der Mutter. / 1 ter Theil pag. 137",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zns0rb7tea7xifd",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.358Z"
+    },
+    {
+      "id": "t50x8fktaz1qu5o",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.358Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.358Z"
+    }
+  ]
+}

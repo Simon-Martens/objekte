@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Scene aus Byrons Gedichten: Don Juan - The Island - Mazeppa « INr 63517, Obj 8 s. Gedicht »Die Insel« INr 63663, Obj 1,03",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63524,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Insel #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Richter pinx. F. Fleischmann sc. Mchn",
+  "scans": [
+    "alm_1043_63524_0fijos0dyz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Insel #",
+  "updated": "2009-04-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hzmzwrqfaszlwvt",
+      "agents": "2p87lmr62wiucvw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.174Z"
+    },
+    {
+      "id": "z80m3ks7t9baazs",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.174Z"
+    }
+  ]
+}

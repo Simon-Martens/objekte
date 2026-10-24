@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 32",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.525Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Den Vater Adam zu verführen, / Braucht Satan bloß sein eigen Weib",
+  "language": [],
+  "musenalm_id": 5592,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lehre an Satan",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-ff-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lehre an Satan",
+  "updated": "2000-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o008h2cfvj8z2nd",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.355Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.355Z"
+    }
+  ]
+}

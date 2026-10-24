@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait recto",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73856,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PHILIPPINE CHARLOTTE / Duchesse regnante de Brunsvic / et de Lunebourg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Wolffgang sc. A. V.",
+  "scans": [
+    "alm_2509_73856_ujqersjwj7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PHILIPPINE CHARLOTTE / Duchesse regnante de Brunsvic / et de Lunebourg",
+  "updated": "2010-02-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1753,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yd7lih02uy2xd2g",
+      "agents": "t0skl0zuoovbyqo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.623Z"
+    }
+  ]
+}

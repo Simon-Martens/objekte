@@ -1,0 +1,56 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 66873, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Wozu noch diese Frage, darf der kundige Leser sagen, nachdem Dianens Geweihte der ältern und neuern Zeit -Graf von Mellin ausgenommen - für die Rehbrunft im December,",
+  "language": [],
+  "musenalm_id": 66878,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Wie lange geht die Rehgeiß hoch / beschlagen?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Wie lange geht die Rehgeiß hoch / beschlagen?",
+  "updated": "2009-09-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vv483gu2ykqeku2",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.143Z"
+    },
+    {
+      "id": "5y2utltjv4wfmh5",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.144Z"
+    }
+  ]
+}

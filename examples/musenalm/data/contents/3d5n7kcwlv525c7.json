@@ -1,0 +1,45 @@
+{
+  "annotation": "Lineamente zu Schauspieler-Bildnissen (Sammlung INr 115686, Obj 94)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Iffland suchte lange eine junge Schauspielerin für seine Bühne sich zu erziehen,",
+  "language": [],
+  "musenalm_id": 115688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Historische Notizen über Mad. Krelinger- / Stich in Berlin, / Geborne Auguste Düring",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. G. Saphir",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Historische Notizen über Mad. Krelinger- / Stich in Berlin, / Geborne Auguste Düring",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e5l3pn0mq4vqwgc",
+      "agents": "31iymrx6tazubtp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.531Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.531Z"
+    }
+  ]
+}

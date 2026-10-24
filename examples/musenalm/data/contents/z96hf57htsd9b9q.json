@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Wolken entstürzet herab des Schnees Ge- / stöber; der Hagel, / So wie des Donners Gewalt, zeuget der / leuchtende Bliz.",
+  "language": [],
+  "musenalm_id": 78761,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von Solon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Schleiermacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Von Solon",
+  "updated": "2009-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dycv24hvo8xfaea",
+      "agents": "272r3k0zcaqt41m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.843Z"
+    }
+  ]
+}

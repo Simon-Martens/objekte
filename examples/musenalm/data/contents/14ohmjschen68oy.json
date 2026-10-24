@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Welchen Flaccus pflanzte, Falerner Weinstock, / Hat das Pabstthum lange vertilgt,",
+  "language": [],
+  "musenalm_id": 42527,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Freund. / (Nebst Champagner)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Stägemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Freund. / (Nebst Champagner)",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5fqc0ujb8itodk4",
+      "agents": "3otd6uv72ls66y4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.266Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.265Z"
+    }
+  ]
+}

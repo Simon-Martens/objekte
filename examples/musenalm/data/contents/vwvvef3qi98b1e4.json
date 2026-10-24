@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Die Monate. An die Frauen (Sammlung INr 140542)</div>",
+  "content_type": [],
+  "created": "2026-09-02T09:47:45.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Klarinett' und Flöten, / Pauken und Trompeten, / Grüßet mir das Jahr!",
+  "language": [],
+  "musenalm_id": 140453,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Januar. / (Wassermann.) / Balllied.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Gerhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Januar. / (Wassermann.) / Balllied.)",
+  "updated": "2026-09-02T10:19:52.161Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "pn13cv88w2y8iat",
+      "agents": "c4v9nl7ztvkf3sf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-02T09:50:28.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-02T10:19:52.161Z"
+    }
+  ]
+}

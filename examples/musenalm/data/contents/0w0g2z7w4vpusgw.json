@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der fünf Landschaften (Sammlung INr 76761, Obj 29) s. Graphik INr 76740, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.886Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "267",
+  "incipit_statement": "Dieß schöne Dorf, ohngefähr eine Stunde von Leipzig gelegen, hat durch die Völkerschlacht des Jahres 1813, welche besonders in dessen Umgebung am heftigsten und entscheidensten wüthete, eine weltgeschichtliche Berühmtheit,",
+  "language": [],
+  "musenalm_id": 76763,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Wachau",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Wachau",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jclyps5g32zlewg",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.831Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.831Z"
+    }
+  ]
+}

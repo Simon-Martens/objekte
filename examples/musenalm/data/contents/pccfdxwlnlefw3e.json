@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Herr von Eisenfest an seinen Arzt, derzeit im Bade zu Ischl. Lieber Doctor! Sie glaubten wohl, mich recht hart dafür zu bestrafen, daß ich durchaus keine Lust hatte, mich in Ischl pöckeln und dünsten zu lassen,",
+  "language": [],
+  "musenalm_id": 94325,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Herrn / Inspectors Achilles von Eisenfest / Staubferien. / Humoristische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stierle- Holzmeister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Herrn / Inspectors Achilles von Eisenfest / Staubferien. / Humoristische Erzählung",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "alutlnvaeylu5bq",
+      "agents": "5dlgex4wmvni1qx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.455Z"
+    }
+  ]
+}

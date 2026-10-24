@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95663,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IGN. AUR. FESSLER. / Geb. am 18.Mai, 1736",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Darbes pinx.",
+  "scans": [
+    "alm_620_95663_6vvdi7bgqd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "IGN. AUR. FESSLER. / Geb. am 18.Mai, 1736",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5iscbqqw2zaom8e",
+      "agents": "71piu0y3djsn7ch",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.552Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.552Z"
+    }
+  ]
+}

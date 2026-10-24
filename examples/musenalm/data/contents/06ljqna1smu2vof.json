@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 99898-99900, Obj 62-64",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 99897,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Karls des Großen Tod und Grabmal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Krais",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Karls des Großen Tod und Grabmal",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hwdfcmao3w6zcyz",
+      "agents": "22cv6r139qaf9gy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.953Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "Der Schöpfer hat so freundlich dich versehen / Mit reicher Gaben wundervoller Pracht,",
+  "language": [],
+  "musenalm_id": 94298,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schätze. / (An eine Künstlerinn.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Löwe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schätze. / (An eine Künstlerinn.)",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uz1ejy72pgb0g1l",
+      "agents": "6opc5xq453lnr5a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.582Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.582Z"
+    }
+  ]
+}

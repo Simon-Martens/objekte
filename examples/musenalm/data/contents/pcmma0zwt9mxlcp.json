@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.709Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Willst du hier in diesem Gründen / Freude sonder Ekel finden,",
+  "language": [],
+  "musenalm_id": 48790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schäferlehren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ch. Boie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schäferlehren",
+  "updated": "2007-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jx9jnaef84izops",
+      "agents": "n4kki21smc12tdq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.520Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.520Z"
+    }
+  ]
+}

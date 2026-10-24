@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel u. Bez. aus dem G-Verz /) Titelportrait s.Textbezug INr 63447, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.286Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63443,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alexandine Victoire, Kronprinzessin von England #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fowler pinx. Fleischmann sc.",
+  "scans": [
+    "alm_1041_63443_jd1l3shr5o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Alexandine Victoire, Kronprinzessin von England #",
+  "updated": "2009-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wwjdzqhyac1y1my",
+      "agents": "hm4y8adyarbtaty",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.134Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.134Z"
+    },
+    {
+      "id": "cxxohc75j5sexal",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.135Z"
+    }
+  ]
+}

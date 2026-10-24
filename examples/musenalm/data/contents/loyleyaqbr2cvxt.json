@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Die todte Liebe« von J. Langer INr 94707, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94664,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Brocky inv. I. Krepp gest. in Stahl)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Brocky inv. I. Krepp gest. in Stahl",
+  "scans": [
+    "alm_1873_94664_ph0c99dbit.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vao31seg33bgfrc",
+      "agents": "dvo42rs2utb12ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.364Z"
+    },
+    {
+      "id": "yw60dg86ex7rvkn",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.364Z"
+    }
+  ]
+}

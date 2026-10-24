@@ -1,0 +1,45 @@
+{
+  "annotation": "Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "Ein Hauptaugenmerk ist auf die Religion gerichtet. Während einige tausend Bibeln an arme Christen und entfernte Heiden vertheilt werden,",
+  "language": [],
+  "musenalm_id": 98432,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Hauptaugenmerk ist auf die Religion gerichtet. Während einige tausend Bibeln an arme Christen und entfernte Heiden vertheilt werden,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vbox2nyka3863rk",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.817Z"
+    }
+  ]
+}

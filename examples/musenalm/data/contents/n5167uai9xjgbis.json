@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 70518, Obj 10) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 705322, Obj 14 /) mit einem beigegebenen Gedicht s. INr 70523, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Mit dankbarer Rührung hat der Mensch anzuerkennen das unschätzbare Geschenk, das ihm die gütige Vorsehung mittelst eines Geschöpfes darbot, welches sich ganz eignet, allen Ständen im bürgerlichen Vereine die nützlichsten Dienste zu leisten;",
+  "language": [],
+  "musenalm_id": 70521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Der große Pudel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Der große Pudel",
+  "updated": "2009-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "znygwqmw8vd0y4n",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.390Z"
+    }
+  ]
+}

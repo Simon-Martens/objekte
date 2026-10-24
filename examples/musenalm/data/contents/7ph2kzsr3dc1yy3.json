@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Am Geburtstage« von J. H. Voß INr 6776, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6777,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AM GEBURTSTAGE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_130_6777_ze9cj68693.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AM GEBURTSTAGE",
+  "updated": "2000-11-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7mn8v0ani99tqrs",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.201Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.201Z"
+    }
+  ]
+}

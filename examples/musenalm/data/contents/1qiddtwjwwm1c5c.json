@@ -1,0 +1,45 @@
+{
+  "annotation": "Sagen aus dem Süden von Irland (Sammlung INr 43989, Obj 16) Dem Text vorangestellt:  Zum Brautbett ist das Grab mir ja bestimmt. / Shakspeare",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Von der Westküste Irelands zog sich ein romantisches Thal in das Land; nur wenige Landleute wohnten in diesem Thale,",
+  "language": [],
+  "musenalm_id": 43992,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Feen-Brunnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Feen-Brunnen",
+  "updated": "2006-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7izvlriql86op1t",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.760Z"
+    }
+  ]
+}

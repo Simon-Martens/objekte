@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Gedicht INr 82579, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82575,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Perger del. Stöber sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del. Stöber sc.",
+  "scans": [
+    "alm_3724_82575_z2p9h0n5uj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y6laica5nrnupjz",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.903Z"
+    },
+    {
+      "id": "uv0uquuj7o499c5",
+      "agents": "yk9ibu96ud1308d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.903Z"
+    }
+  ]
+}

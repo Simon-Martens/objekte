@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Graf Boëmund von Peyersperg« von C. B. von Miltitz INr 72082, Obj 5 /) # Bezeichnung S sc. = liegendes S mit Schwert",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72081,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Graf Boëmund",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "H. Rambg. del S. sc.",
+  "scans": [
+    "alm_3620_72081_w30vp1jbzu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Graf Boëmund",
+  "updated": "2010-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7nfy3igq53x6tc8",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.583Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.583Z"
+    }
+  ]
+}

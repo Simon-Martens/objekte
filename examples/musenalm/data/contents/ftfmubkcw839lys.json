@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Sonette an die Entfremdete (Sammlung INr 90509, Obj 105)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Ach! sie ist todt! - Die Freunde wagen / Die blasse Leiche mir nur nicht zu zeigen,",
+  "language": [],
+  "musenalm_id": 90510,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter C. Gottfried von Leitner. (Graz.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n64abxe48a4gng1",
+      "agents": "kzo5zf1o5a1ke0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.175Z"
+    }
+  ]
+}

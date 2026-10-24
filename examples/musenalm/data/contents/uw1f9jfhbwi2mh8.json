@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Die Pflanze liebt eine leichte sandige Erde, aber keinen zu großen Topf, und wenn sie im Wachsen begriffen ist, viel Wasser.",
+  "language": [],
+  "musenalm_id": 79840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Behandlungsart / des / Arum bicolor. Ait",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wendland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Behandlungsart / des / Arum bicolor. Ait",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4j65q3dict74016",
+      "agents": "92x4wy4cu8wsssh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.782Z"
+    }
+  ]
+}

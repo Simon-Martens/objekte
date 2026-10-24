@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Auf dem Oestreichischen Dampfschiffe Ludovico hatten wir vom Piräus aus, die Überfahrt nach den Dardanellen und in das Marmora Meer in Zeit von sechs Tagen und sieben Nächten zurückgelegt,",
+  "language": [],
+  "musenalm_id": 59737,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein erster Morgen in Constantinopel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Ritter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein erster Morgen in Constantinopel",
+  "updated": "2008-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3oq5rihmpx8q2hr",
+      "agents": "wdbytwydwlmkyu9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.909Z"
+    }
+  ]
+}

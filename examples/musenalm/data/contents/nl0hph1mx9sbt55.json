@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 32",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Du drängst dich stets an den Urban, / Und glaubst, sein Ruhm käm dir zu statten.",
+  "language": [],
+  "musenalm_id": 5285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An -",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. P.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An -",
+  "updated": "2000-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gfvb0ah2mand64e",
+      "agents": "jsx11n3en45yzmt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.936Z"
+    }
+  ]
+}

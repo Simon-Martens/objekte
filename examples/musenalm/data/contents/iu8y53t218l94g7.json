@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Franken (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Sei mir gegrüßt, du stille Rose, / In deiner düstern Einsamkeit!",
+  "language": [],
+  "musenalm_id": 99440,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Waldrose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Scherer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Waldrose",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oioaq41biqpb7qk",
+      "agents": "ksktvxfvp5rsora",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.721Z"
+    }
+  ]
+}

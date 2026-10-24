@@ -1,0 +1,45 @@
+{
+  "annotation": "Hafisklänge. An J. W. v. Göthe und Fr. Rückert (Sammlung INr 68056, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Schlägt der Winter kalt an deine Fenstern, / Schaffe dir im Innern milden Frühling,",
+  "language": [],
+  "musenalm_id": 68073,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schlägt der Winter kalt an deine Fenstern, / Schaffe dir im Innern milden Frühling,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rousseau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "opdmq717e7ozkyv",
+      "agents": "xojpiwzkdga93tk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.079Z"
+    }
+  ]
+}

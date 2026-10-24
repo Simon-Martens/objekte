@@ -1,0 +1,45 @@
+{
+  "annotation": "Barbarazweig (Sammlung INr 26444, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.026Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "347",
+  "incipit_statement": "Nun geschwinde mit deinem Zweig, und gehe, / Muse Barbara, hin zu meinem Truchseß,",
+  "language": [],
+  "musenalm_id": 26448,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Freimund Reimar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fmlkxcyjska2nte",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.447Z"
+    }
+  ]
+}

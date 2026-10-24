@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Oberon« von K. M. v. Weber / Th. Hell /) s. Textbezug INr  75357, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.695Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75365,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OBERON. / II. Aufz. 5. Sc. / Abdallah. Stirb! / Rezia. Gnade! Gnade!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. et del. W. Jury fec.",
+  "scans": [
+    "alm_2372_75365_mm2gcm9wlz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OBERON. / II. Aufz. 5. Sc. / Abdallah. Stirb! / Rezia. Gnade! Gnade!",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cm7j0qz2jo4cg9m",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.687Z"
+    },
+    {
+      "id": "s7mgoq69cchx4wz",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.687Z"
+    }
+  ]
+}

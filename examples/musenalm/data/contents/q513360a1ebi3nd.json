@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. vom Titel /) Einleitendes Gedicht, s. Titelgraphik INr 73822, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.748Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wer wagt es, in das schauerliche Dunkel / des heil'gen Eichenhaines einzudringen?",
+  "language": [],
+  "musenalm_id": 73850,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer wagt es, in das schauerliche Dunkel / des heil'gen Eichenhaines einzudringen?…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kuh58dtcyuh8t8g",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.623Z"
+    }
+  ]
+}

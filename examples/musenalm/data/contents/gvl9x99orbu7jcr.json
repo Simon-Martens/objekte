@@ -1,0 +1,56 @@
+{
+  "annotation": "paginert VI. /) Illustration zu »Wohlthun trägt Zinsen« INr 79091, Obj 14 /) # Bez. aus der Vorrede des Hrsg",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79087,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich bitte, nehmen Sie, hier ist / Uhr Geld und alles. / S. 131",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Usteri; P. J. Laminit",
+  "scans": [
+    "alm_2199_79087_e3xm7g0kax.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich bitte, nehmen Sie, hier ist / Uhr Geld und alles. / S. 131",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b7egfm84c7cf9ty",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.814Z"
+    },
+    {
+      "id": "x73ymfi0zg62jr4",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.814Z"
+    }
+  ]
+}

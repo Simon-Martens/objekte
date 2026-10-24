@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "In tiefe Röthe eingetaucht, / Kenn' ich ein holdes Lippenpaar;",
+  "language": [],
+  "musenalm_id": 85496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Einseitige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mayrhofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Einseitige",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "twswtyu6yrsder9",
+      "agents": "z2a77hujndvxeug",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.177Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an der Titelgraphik /) Illustration zu »Neptun« von K. Ph. Moritz INr 91519, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.938Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91520,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Carstens del. D. Berger sc. 1791)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carstens del. D. Berger sc. 1791",
+  "scans": [
+    "alm_4074_91520_rjv3b5h38g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-10-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pjw9ni0gbm7undb",
+      "agents": "g3hedbg3ghoqo3o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.245Z"
+    },
+    {
+      "id": "lacrpuf0ng4wra9",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.245Z"
+    }
+  ]
+}

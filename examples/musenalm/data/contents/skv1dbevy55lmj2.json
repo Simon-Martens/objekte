@@ -1,0 +1,45 @@
+{
+  "annotation": "Pseud.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.167Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Wann Nacht, ausbreitend ihre schwarzen Schleier / Verlöscht des muntern, lauten Tages Spuren,",
+  "language": [],
+  "musenalm_id": 51379,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonett",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "MATHILDE",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sonett",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g9hazrovfjy6h05",
+      "agents": "2omaqukxwrs4fqe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.760Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.760Z"
+    }
+  ]
+}

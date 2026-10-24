@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 4 /) kol. Illustration zu »IX. Naturgeschichte des Greifadlers« INr 89332, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89333,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (G. G. Endner sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. G. Endner sc.",
+  "scans": [
+    "alm_1115_89333_zz8k22gidp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-08-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pto33kuurnqz289",
+      "agents": "lyz2x127nyb2cxs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.094Z"
+    }
+  ]
+}

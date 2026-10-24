@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert III. /) Illustration zu »Athenais« von Karl von Rotteck INr 16628, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16631,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Schulthess del. F. Hegi sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Schulthess del. F. Hegi sculp.",
+  "scans": [
+    "alm_261_16631_wnqwuehi8q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hsdgk0iedwvjlh8",
+      "agents": "30nc77wgxlaegzc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.524Z"
+    },
+    {
+      "id": "2vpywseaiv3m4aq",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.524Z"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "Vertonung des Gedichts »Lebenslied« [2.] von E. M. Arndt INr 48886, Obj 29. Photos 48885,01; 48885,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.803Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48885,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebenslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bergt",
+  "scans": [
+    "alm_668_48885_01_2prhflpk5c.jpg",
+    "alm_668_48885_02_jtve2x0lrk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lebenslied",
+  "updated": "2007-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j8e70y3j5ql65uy",
+      "agents": "25ubfkw7g6ebn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.533Z"
+    }
+  ]
+}

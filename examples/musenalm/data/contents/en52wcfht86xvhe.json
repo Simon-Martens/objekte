@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Wallenstein« von Fr. Schiller; s. Textbezug INr 125396, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.173Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125397,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wallenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Lips sculps.",
+  "scans": [
+    "alm_1855_125397_ckduooq1wq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wallenstein",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "imuwnbxl4jwp0jj",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.810Z"
+    }
+  ]
+}

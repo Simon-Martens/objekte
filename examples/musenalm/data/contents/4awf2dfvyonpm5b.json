@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Bemerkungen, Anekdoten und Einfälle (Sammlung INr 10491, Obj 17) Prosaische Aufsätze (Sammlung INr 23175, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.533Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "In Melchior Kysels Kupferbibel, die den Titel führt: Icones biblicae Veteris et Novi Testamenti, Augspurg 1679, 4.",
+  "language": [],
+  "musenalm_id": 10501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Eine alte Glosse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martyni-Laguna",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Eine alte Glosse",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t4u5bmohlfsbdox",
+      "agents": "l6hj99jvi2k960l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.274Z"
+    }
+  ]
+}

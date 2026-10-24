@@ -1,0 +1,45 @@
+{
+  "annotation": "Lehren aus Geometrie (Sammlung INr 96585, Obj 136)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Nach dem Runden abwärts mir der Stufen die / nächste.",
+  "language": [],
+  "musenalm_id": 96590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Polygon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Vagedes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Polygon",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5x822rqnukpybqw",
+      "agents": "vwjpew1dybbkwm8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.401Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) mit einer Illustration s. kol. Graphik in Kalendarium INr 123902, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Die Tauben gehören zwar unter die bekanntesten Vögel, und zwar unter diejenigen, welche man in allen Welttheilen antrifft,",
+  "language": [],
+  "musenalm_id": 123937,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Merkwürdigkeiten / aus der / Naturgeschichte der Tauben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Merkwürdigkeiten / aus der / Naturgeschichte der Tauben",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dytvl39coh44rvi",
+      "agents": "pt1hiqrxpeom0l4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.855Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.855Z"
+    }
+  ]
+}

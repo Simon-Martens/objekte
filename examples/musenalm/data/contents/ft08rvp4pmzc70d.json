@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Scheidende, feindliche Höhe! / Warum verbirgst du das Thal?",
+  "language": [],
+  "musenalm_id": 2884,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach / dem Abschiede",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S-rff.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach / dem Abschiede",
+  "updated": "2000-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d7icqq9em879ufr",
+      "agents": "73xknlldquars2a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.101Z"
+    }
+  ]
+}

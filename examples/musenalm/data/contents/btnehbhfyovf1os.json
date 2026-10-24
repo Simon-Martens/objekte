@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 19337, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9248,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Lebensreise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz del. Johannot sc.",
+  "scans": [
+    "alm_41_9248_o6j2mw76fo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Lebensreise",
+  "updated": "2000-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3wz2wt4jbz2j2us",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.397Z"
+    },
+    {
+      "id": "a4p8m2zu90ibvtw",
+      "agents": "bsajhv0eykdh6le",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.397Z"
+    }
+  ]
+}

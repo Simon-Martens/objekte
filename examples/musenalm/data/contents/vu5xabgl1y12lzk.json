@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90209,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carl Fürst von Lichtenstein / K.K. General der Cavallerie / und Stadt Comendant / in Wien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Adam fecit",
+  "scans": [
+    "alm_2209_90209_qr3ov5r39t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Carl Fürst von Lichtenstein / K.K. General der Cavallerie / und Stadt Comendant / in Wien",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lwfap0ywicqau74",
+      "agents": "v31c77tq4slj851",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.137Z"
+    }
+  ]
+}

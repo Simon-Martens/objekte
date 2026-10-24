@@ -1,0 +1,56 @@
+{
+  "annotation": "CAMOENS (s. Zwischentitel INr 71332, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.127Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Wahrheit, Vernunft, Lieb' und Verdienst gereichen / Jedem Gemüth zur Ruh und muth'gem Streben;",
+  "language": [],
+  "musenalm_id": 71334,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SONETT. / I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Camoens; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SONETT. / I.",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lyj338wne4c21y0",
+      "agents": "k7u16ib34tg2ui1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.429Z"
+    },
+    {
+      "id": "fg3q1k64q5lr81u",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.429Z"
+    }
+  ]
+}

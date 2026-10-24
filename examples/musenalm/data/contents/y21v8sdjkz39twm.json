@@ -1,0 +1,56 @@
+{
+  "annotation": "Topographie (Sammlung INr 67073, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "So wie die Kunstliebhaber und Künstler oft an dem trivialsten Orte, wo er es am wenigsten vermuthete, einen großen Kunstschatz unter Gerümpel oder Spielwaaren hervorzieht und sich seines Fundes freut,",
+  "language": [],
+  "musenalm_id": 67074,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So wie die Kunstliebhaber und Künstler oft an dem trivialsten Orte, wo er es am wenigsten vermuthete, einen großen Kunstschatz unter Gerümpel oder Spielwaaren hervorzieht und sich seines Fundes freut,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7fij9at1ik33of4",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.096Z"
+    },
+    {
+      "id": "1i6mg7ho0vmtz5j",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.096Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.096Z"
+    }
+  ]
+}

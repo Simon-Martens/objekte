@@ -1,0 +1,43 @@
+{
+  "annotation": "der Verlagsmitteilung INr 32739, Obj 51 beigegeben",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.744Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ein junger Mönch aus Portugall / Kam einst nach Madras. Gut und bieder",
+  "language": [],
+  "musenalm_id": 32740,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mönch in Madras. / An meinen Freund Perrier in Grenoble",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mönch in Madras. / An meinen Freund Perrier in Grenoble",
+  "updated": "2003-04-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l7era0br9o56fua",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.308Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Tab. 5. /) kol. Illustration zu »Die weiße Tauchente« von L. C. E. H. F. von Wildungen INr 66600, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66601,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mergus Albellus. Weisse Tauchendte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. v. Wildungen ad. viv. pinx. G. B. sc.",
+  "scans": [
+    "alm_1138_66601_u6aa4i9xfq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mergus Albellus. Weisse Tauchendte",
+  "updated": "2009-09-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lomhvkgoewzs735",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.171Z"
+    },
+    {
+      "id": "6qtvd5tviwlesv9",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.171Z"
+    }
+  ]
+}

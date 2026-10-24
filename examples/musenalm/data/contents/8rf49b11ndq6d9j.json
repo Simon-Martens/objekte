@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "184",
+  "incipit_statement": "Sie fliehet fort! es ist um mich geschehen! / Ein weiter Raum trennt Lalagen von mir.",
+  "language": [],
+  "musenalm_id": 92466,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amynt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kleist",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amynt",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k5hrxpp7o3w8sod",
+      "agents": "8pyn3ffhglggkdl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.439Z"
+    }
+  ]
+}

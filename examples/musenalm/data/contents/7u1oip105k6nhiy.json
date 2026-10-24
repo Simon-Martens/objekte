@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Er hieng sich auf, weil Jungfer Lobesan / Ihn nicht zum Manne nehmen wollen;",
+  "language": [],
+  "musenalm_id": 8558,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als ein Narr sich um eine Närrinn erhieng",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göckingh",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als ein Narr sich um eine Närrinn erhieng",
+  "updated": "2000-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wna4s309jozdlsm",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.307Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.307Z"
+    }
+  ]
+}

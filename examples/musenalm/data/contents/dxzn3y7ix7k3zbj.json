@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "So trennen wir uns doch, du gute alte Lise! / Fürwahr für mich ein harter Fall!",
+  "language": [],
+  "musenalm_id": 11813,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "35. / Als er seinen alten Polaken an seinen / Freund und Collegen den Subconr. / B. überließ",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sangerhausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "35. / Als er seinen alten Polaken an seinen / Freund und Collegen den Subconr. / B. überließ",
+  "updated": "2001-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sx53d36h5kdfzmx",
+      "agents": "9ffesqccgj8nyl5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.503Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.503Z"
+    }
+  ]
+}

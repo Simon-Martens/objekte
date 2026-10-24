@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem G-Verz /) kol. Trachtenkupfer  im Kalendarium [Dezember] Illustration zu »Kurze geographische Darstellung des Cantons Luzern« INr 51682, Obj 11 /) s.a. Textbezug INr 51703, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51680,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cant. Luzern / Ein Entlibuchermädchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. N. König",
+  "scans": [
+    "alm_704_51680_qtmup2lev8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cant. Luzern / Ein Entlibuchermädchen",
+  "updated": "2007-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mth9up06jamme3u",
+      "agents": "grbttvgkqnprgwf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.648Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.648Z"
+    }
+  ]
+}

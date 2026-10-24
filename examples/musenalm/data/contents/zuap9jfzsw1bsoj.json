@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43404,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emil Prinz von Hessen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Schnell sc.",
+  "scans": [
+    "alm_571_43404_7nfxm26dyn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Emil Prinz von Hessen",
+  "updated": "2006-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b6v2y1vn77gqovf",
+      "agents": "vbyfdjf3wft42hq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.323Z"
+    }
+  ]
+}

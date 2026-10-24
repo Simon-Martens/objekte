@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Uralte Riesenzeiten / Der Helden Wunderstreiten / Schlang all die Oed' hinab.",
+  "language": [],
+  "musenalm_id": 71118,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesang",
+  "updated": "2010-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dx7lg2u7xha38p1",
+      "agents": "dz9l16q76ffup70",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.604Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.604Z"
+    }
+  ]
+}

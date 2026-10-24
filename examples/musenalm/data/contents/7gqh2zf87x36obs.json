@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Briefen Immermmanns mit einer Einleitung Hitzigs INr 59695-59697, Obj 40-42",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59694,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Briefe von Immermann. / Nach eingeholter Genehmigung der Wittwe / mitgetheilt / von J. E. Hitzig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. E. Hitzig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Briefe von Immermann. / Nach eingeholter Genehmigung der Wittwe / mitgetheilt / von J. E. Hitzig",
+  "updated": "2008-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iradta18ofmnf6i",
+      "agents": "71r5znq7rvy3qhx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.910Z"
+    }
+  ]
+}

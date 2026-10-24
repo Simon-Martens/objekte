@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Reise in die Sächsische Schweitz« von A. v. Tromlitz d.i. K. A. F. v. Witzleben INr 59377, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59378,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heiliger Gott! was muss ich erblicken. / Die Reise in die Sächsische Schweitz. S. 97",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. del. Berger sc.",
+  "scans": [
+    "alm_894_59378_bdc7wuljx6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Heiliger Gott! was muss ich erblicken. / Die Reise in die Sächsische Schweitz. S. 97",
+  "updated": "2008-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nlqr8n7f5inyprz",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.019Z"
+    },
+    {
+      "id": "dyyimfwohissq0h",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.019Z"
+    }
+  ]
+}

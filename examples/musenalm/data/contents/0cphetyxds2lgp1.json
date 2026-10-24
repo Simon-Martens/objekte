@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Velten, der Vogler sitzt hinter der Hecke. / Weit sind die Netze gespannt;",
+  "language": [],
+  "musenalm_id": 90814,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Vogelsteller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. X. Told",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Vogelsteller",
+  "updated": "2013-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cohkfqi8leuugff",
+      "agents": "tglq0d4pyb420do",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.135Z"
+    }
+  ]
+}

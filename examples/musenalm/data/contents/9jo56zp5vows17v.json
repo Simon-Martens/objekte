@@ -1,0 +1,45 @@
+{
+  "annotation": "Rabbinische Legenden (Sammlung INr 14397, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.709Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Nach den Tagen der Zerstörung Jerualems begab sich Rabbi Josah, der Sohn Abiud des Gerechten, auf die Landstraße.",
+  "language": [],
+  "musenalm_id": 14399,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Josah und Elias",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Josah und Elias",
+  "updated": "2001-04-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0lxfkobedlotgg4",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.801Z"
+    }
+  ]
+}

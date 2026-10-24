@@ -1,0 +1,45 @@
+{
+  "annotation": "Aphorismen (Sammlung INr 23885, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.691Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Die meisten philosophischen System gleichen den Häusern gewisser moderner Baukünstler",
+  "language": [],
+  "musenalm_id": 23896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die meisten philosophischen System gleichen den Häusern gewisser moderner Baukünstler…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6hkk1tbb9vox3m6",
+      "agents": "pnennqhmzrv3ms6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.798Z"
+    }
+  ]
+}

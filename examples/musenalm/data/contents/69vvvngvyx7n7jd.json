@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bayern. Franken (Sammlung INr 99331, Obj 237)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "403",
+  "incipit_statement": "Lieblich blüht der Tag, im Lenz erwacht, / Lieb mit ihren Sternen geht die Nacht;",
+  "language": [],
+  "musenalm_id": 99402,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 308,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Seligste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Scheurlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Seligste",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ttbvp5vi6jj0r2x",
+      "agents": "kddiuy2wa4u1map",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.970Z"
+    }
+  ]
+}

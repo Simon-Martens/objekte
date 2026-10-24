@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Die Erstürmung von Solavers« von J. U. v. Salis INr 53517, Obj 47 /) unter der Graphik: Alpenrosen 10. Jahrg.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.589Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53472,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erstürmung von Solavers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Volmar del. J. Lips sculp.",
+  "scans": [
+    "alm_732_53472_h6w5536gsn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Erstürmung von Solavers",
+  "updated": "2007-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "de4r6u53yytocdf",
+      "agents": "5rfe1xu4i476kzq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.648Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.648Z"
+    },
+    {
+      "id": "65x11kg4ua64pzd",
+      "agents": "iwoqrcn7d9iuxfi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.648Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.648Z"
+    }
+  ]
+}

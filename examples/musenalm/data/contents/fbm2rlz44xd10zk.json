@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.799Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Nach langer tiefer Grübelei / Bekenn' ich Dir zu meiner Schande,",
+  "language": [],
+  "musenalm_id": 6322,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / J. K. H. die v. H. v. B. / als sie dem Verfasser einige französische / Charaden zum Errathen zuge- / schickt hatte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Ebert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / J. K. H. die v. H. v. B. / als sie dem Verfasser einige französische / Charaden zum Errathen zuge- / schickt hatte",
+  "updated": "2000-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zw2t7kd2cj1ja6q",
+      "agents": "6bfutz0x9ote9sz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.153Z"
+    }
+  ]
+}

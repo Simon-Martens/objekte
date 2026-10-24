@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.670Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "In einem der engsten Seitengäßchen der großen deutschen Handelsstadt N., in einem Hause von sehr bescheidenem Aussehen, war eine kleine ärmliche Dachstube zu finden.",
+  "language": [],
+  "musenalm_id": 55516,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der vermeßne Wunsch. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alfred Hartmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der vermeßne Wunsch. / Novelle",
+  "updated": "2008-02-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hx2w40t7ts7sgle",
+      "agents": "e9krjababkucs78",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.651Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.651Z"
+    }
+  ]
+}

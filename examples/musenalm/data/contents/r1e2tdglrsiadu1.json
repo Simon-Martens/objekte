@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Freudiges, freundlich im Herzen gehägt, / Nicht von verrathenden Lippen geregt,",
+  "language": [],
+  "musenalm_id": 18246,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verheimlichung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lappe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verheimlichung",
+  "updated": "2001-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tad3msaxxp49gor",
+      "agents": "h8h7559ermyma3h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.888Z"
+    }
+  ]
+}

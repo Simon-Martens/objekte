@@ -1,0 +1,56 @@
+{
+  "annotation": "Umschlaggraphik r. # wie Jgg 1823 u. 1824; INr 14724, 14779",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16720,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schnorr del. Pasini sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. Pasini sc.",
+  "scans": [
+    "alm_232_16720_xo905y5jso.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mf0pflkhbrtsb5k",
+      "agents": "7yfzgmx3iovs38k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.757Z"
+    },
+    {
+      "id": "8gommdo2346b0u7",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.757Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.757Z"
+    }
+  ]
+}

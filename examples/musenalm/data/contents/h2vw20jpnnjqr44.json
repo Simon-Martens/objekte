@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 25148, Obj 170)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "Sparsam muß man auf einmal / Blumen sich zum Strauße fassen",
+  "language": [],
+  "musenalm_id": 25168,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 190,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Die ausgegebenen Lieder. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Die ausgegebenen Lieder. / 1.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oyxkzkyup7myx70",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.368Z"
+    }
+  ]
+}

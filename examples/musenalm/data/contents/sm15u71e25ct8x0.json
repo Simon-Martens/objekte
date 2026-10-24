@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Freundschaft, im weitern Sinne, ist jede treue Zuneigung von Menschen zu Menschen, die einander gefallen, und sich gern und vertrauensvoll miteinander unterhalten;",
+  "language": [],
+  "musenalm_id": 52183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freunde und Freundschaft. / (Aus der Handschrift des verstorbenen Lavater)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lavater",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freunde und Freundschaft. / (Aus der Handschrift des verstorbenen Lavater)",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "70g6yfrxmhwoi6p",
+      "agents": "adxjhf2nm1jjsuh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.504Z"
+    }
+  ]
+}

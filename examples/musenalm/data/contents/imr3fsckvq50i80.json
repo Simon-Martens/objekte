@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Gedicht INr 111226, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111225,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ueberraschung #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Bles pinx. D. J. Sluyter sculps.",
+  "scans": [
+    "alm_3454_111225_70478chwe4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Ueberraschung #",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nw3tyylk9d01ume",
+      "agents": "r03ginlx54pqp8z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.425Z"
+    },
+    {
+      "id": "8gsj13sco943efq",
+      "agents": "p3hijooo9pslzw2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.425Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.942Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Eine kleine Biographie von unserm verewigten großen Posselt, von ihm, der dies Taschenbuch beynahe jedes Jahr mit Beyträgen, die immer erhabene Beyspiele von Weiber-Größe enthielten,",
+  "language": [],
+  "musenalm_id": 23729,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kurze Biographie / von / D. Ernst Ludwig Posselt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelmine Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kurze Biographie / von / D. Ernst Ludwig Posselt",
+  "updated": "2002-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3isxqumtf9w3f89",
+      "agents": "ibdeh1gpf166351",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.039Z"
+    }
+  ]
+}

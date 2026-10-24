@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105347,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GLUCK",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Liebe sc.",
+  "scans": [
+    "alm_3261_105347_pd36h20igz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GLUCK",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z4md7f3viupyhps",
+      "agents": "v0k80momy67j3zt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.086Z"
+    }
+  ]
+}

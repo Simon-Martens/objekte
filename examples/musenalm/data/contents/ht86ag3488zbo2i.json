@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den Stahlstichen gestochen von Ed. Schuler, Fleischmann und Roßmäsler (Sammlung INr 63765, Obj 5) s. Graphik Nr 63777, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Der Fischer treibt mit starken Händen / Sein schnelles Schiff den See hinan;",
+  "language": [],
+  "musenalm_id": 63771,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. Die Rache",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Ed.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. Die Rache",
+  "updated": "2009-04-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v6qg0hh3xlkksnb",
+      "agents": "2k8x09vp5cub27j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.051Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 36989, Obj 114)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Wenn der Mond an blauem Himmel mitternächtlich / aufgegangen, / Und die Wellen leise murmeln, wie von Schlaf und / Traum befangen,",
+  "language": [],
+  "musenalm_id": 36991,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die badende Königinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. E. Prutz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die badende Königinn",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wbdet75pe07142j",
+      "agents": "fxxm37a191ki2vr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.427Z"
+    }
+  ]
+}

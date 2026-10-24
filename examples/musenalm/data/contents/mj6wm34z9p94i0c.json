@@ -1,0 +1,45 @@
+{
+  "annotation": "dem Beitrag beigegeben: Gedicht INr 37292, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Ein französischer Herr, der sich im Jahre 1781 zu London aufhielt, fand im Pantheon einem öffentlichen berühmten Lustorte, den Mantel einer Dame,",
+  "language": [],
+  "musenalm_id": 37291,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gefundene Damenmantel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der gefundene Damenmantel",
+  "updated": "2004-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2pez9a7x18da8uf",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.019Z"
+    }
+  ]
+}

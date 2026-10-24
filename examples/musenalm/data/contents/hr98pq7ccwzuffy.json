@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. an Blatt 9 /) Graphik im Kalendarium Oktober; paginiert 10. Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Anfange des siebzehnten Jahrhunderts« von Fr. Wilken INr 58497, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.456Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58494,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Joachim Friedrich / Kurfürst",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. Jügel sc.",
+  "scans": [
+    "alm_855_58494_a50qiurg9i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Joachim Friedrich / Kurfürst",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5mkzythag6lnfi8",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.950Z"
+    },
+    {
+      "id": "bs7uooqpwj9judt",
+      "agents": "flivu8hnh9tq1va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.950Z"
+    }
+  ]
+}

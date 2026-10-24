@@ -1,0 +1,67 @@
+{
+  "annotation": "# Titel aus dem G-Verz /) Graphik im Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50310,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der heilige Grimvaldus #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gem. von And. Sacchi. gezeichnet von Franz Catel in Paris. gestochen von L. Petit in Paris",
+  "scans": [
+    "alm_8_50310_ll3fjon806.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der heilige Grimvaldus #",
+  "updated": "2007-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ojvl6zk9tk6vy3q",
+      "agents": "vpivv8isp3apyeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.986Z"
+    },
+    {
+      "id": "jwh3wp1btfdwrsi",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.986Z"
+    },
+    {
+      "id": "t9qu4ifp8cz4mck",
+      "agents": "uu0vfq42hoxym34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.986Z"
+    }
+  ]
+}

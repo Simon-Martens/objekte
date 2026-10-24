@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131921,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LOUISE  und FRIEDERIKE, / Prinzessinnen von Preussen, / geb. Prinzessinnen v. Mecklenburg-Strelitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. Tielker Gest. v. An. Karcher 94",
+  "scans": [
+    "alm_1946_131921_cpmof96jw8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LOUISE  und FRIEDERIKE, / Prinzessinnen von Preussen, / geb. Prinzessinnen v. Mecklenburg-Strelitz",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ub5c417a9fzozeh",
+      "agents": "6v0egx96xm2jq5f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.080Z"
+    },
+    {
+      "id": "3v9x3uqlwhdndja",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.080Z"
+    }
+  ]
+}

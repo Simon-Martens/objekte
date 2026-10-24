@@ -1,0 +1,45 @@
+{
+  "annotation": "Elegien. Nach Minna's Tod (Sammlung INr 91989, Obj 134)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.042Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "262",
+  "incipit_statement": "Wenn sie stürbe! - so dachte' ich mir oft - ich / müßte verzweifeln, / nimmer zu tragen vermöcht' ich den zermalmen- / den Schlag;",
+  "language": [],
+  "musenalm_id": 91993,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. Schneider",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bzxpfbvst3yi1t0",
+      "agents": "p0usds5em1danm0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.462Z"
+    }
+  ]
+}

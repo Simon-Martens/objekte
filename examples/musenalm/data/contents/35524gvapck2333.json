@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 5108, Obj 44; s.a. K. F. v. Reichardts Gedicht »Die Weiber von Schorndorf« Musenalmanach (Hamburger) 1783 INr 5711, ebenfalls abgedruckt in Musenalmanach, Schwäbischer 1782 INr 21400",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Wer sagt mir an, wo Weinsberg liegt? / Soll seyn ein wackres Städchen;",
+  "language": [],
+  "musenalm_id": 5107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Weiber von Weinsberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Weiber von Weinsberg",
+  "updated": "2000-10-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4u50mf8vboybihv",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.163Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.163Z"
+    }
+  ]
+}

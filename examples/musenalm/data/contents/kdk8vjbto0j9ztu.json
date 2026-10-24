@@ -1,0 +1,47 @@
+{
+  "annotation": "Unterlegung des Triumphlieds aus Händels »Judas Maccabäus« mit dem »Wechselgesang der Deutschen« aus der Kantate »Der vierzehnte Julius 1790« von Ebeling INr 6316, Obj 61",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.246Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6317,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wechselgesang und Chor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hendel",
+  "scans": [
+    "alm_123_6317_vfjemwyoph.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wechselgesang und Chor",
+  "updated": "2000-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hfiwxw09xukq4tk",
+      "agents": "sxa4t7qc7dgswcb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.246Z"
+    }
+  ]
+}

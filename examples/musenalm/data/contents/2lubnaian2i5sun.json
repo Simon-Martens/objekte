@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 20622, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.530Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20626,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach Claude le Lorrain",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gest. v. J. G. A. Frenzel",
+  "scans": [
+    "alm_273_20626_x91o3yewfd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nach Claude le Lorrain",
+  "updated": "2002-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l537mht5rtcrbo4",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.882Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.882Z"
+    }
+  ]
+}

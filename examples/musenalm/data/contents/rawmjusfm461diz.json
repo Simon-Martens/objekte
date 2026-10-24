@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.104Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Zwei junge Leute, mögen sie Hartmann und Willibald genannt werden, hatte von Kindheit auf ein gleicher Sinn verbunden.",
+  "language": [],
+  "musenalm_id": 43565,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Räuber. / Abentheuer zweier Freunde auf einem Schlosse / in Böhmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. T. A. Hoffmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Räuber. / Abentheuer zweier Freunde auf einem Schlosse / in Böhmen",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "55qjmx3rkbh3yan",
+      "agents": "hhytu0neum83euj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.159Z"
+    }
+  ]
+}

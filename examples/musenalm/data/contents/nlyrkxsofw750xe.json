@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Agrionien für das Jahr 1828. gesammelt von Th. Hell (Sammlung INr 40837, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "452",
+  "incipit_statement": "Ein Wörtchen mein' ich, so winzig klein, / Es ist nicht viel größer, als Ja oder Nein.",
+  "language": [],
+  "musenalm_id": 40858,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "21. / Räthsel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Richard Roos",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "21. / Räthsel",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j8xa41j8tnsgi7z",
+      "agents": "bmrndjx591terfe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.941Z"
+    }
+  ]
+}

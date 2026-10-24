@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 67. /) Illustration zu »Die Bettlerkirche« von Fr. Krug von Nidda INr 43584, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43585,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bettlerkirche, von Fr. Krug von Nidda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff A. Dalbon sculp.",
+  "scans": [
+    "alm_578_43585_kkrbh43rio.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Bettlerkirche, von Fr. Krug von Nidda",
+  "updated": "2006-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bomb8jf1umbzs3y",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.309Z"
+    },
+    {
+      "id": "wu2ouobcn0lr7j2",
+      "agents": "42w3wulg3fl03j4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.309Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.309Z"
+    }
+  ]
+}

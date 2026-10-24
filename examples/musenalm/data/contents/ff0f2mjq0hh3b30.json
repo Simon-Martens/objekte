@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Wenn dürr wie ein Skelett, die alte Thais sich / Mit Farben bunt und jugendlich",
+  "language": [],
+  "musenalm_id": 11785,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Die Alte im Putz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. v. Köpken",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Die Alte im Putz",
+  "updated": "2001-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "41pzbmanv6pvt83",
+      "agents": "5z7qom88v60ghpp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.439Z"
+    }
+  ]
+}

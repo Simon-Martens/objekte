@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Ja, Kamerad, die alte, große Zeit / Kehrt nicht zurück mit ihrer Herrlichkeit,",
+  "language": [],
+  "musenalm_id": 111772,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 159,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Stückchen vom alten Ziethen. / (Nach einer Sage aus der Altmark.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Sturm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Stückchen vom alten Ziethen. / (Nach einer Sage aus der Altmark.)",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q0lrx28pyhj4qp6",
+      "agents": "thvjtwgntimiqn7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.440Z"
+    }
+  ]
+}

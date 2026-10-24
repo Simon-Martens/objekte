@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Meine vier Alter« von Friedr. Hegrad INr 35006, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35005,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine vier Alter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schenk",
+  "scans": [
+    "alm_411_35005_32lgbu2c7t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Meine vier Alter",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "58eepmbx98m8892",
+      "agents": "emgqr8c55x5afv4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.063Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.063Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Donnergerolle und Blitze aus der Ferne (Sammlung INr 46166, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Sei's! Ich stelle mir gern nach Martin Luther den / Glauben, / Bin ja von Adams Geschlecht, wenig des Guten in / mir;",
+  "language": [],
+  "musenalm_id": 46171,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Moritz Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7aagssx67wxd9tf",
+      "agents": "qab571spaxuq9fk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.226Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.226Z"
+    }
+  ]
+}

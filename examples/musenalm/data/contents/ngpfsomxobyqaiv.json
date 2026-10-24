@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählungen am Meer (Sammlung INr 127773, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Als Eduard geschlossen und den Dank der Gesellschaft mit der lobenswerthen Bescheidenheit, die alten Seemännern eigen ist, hingenommen hatte,",
+  "language": [],
+  "musenalm_id": 127776,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abentheuer eines Schauspieldichters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abentheuer eines Schauspieldichters",
+  "updated": "2006-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jbsl6oo9s8qpbhp",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.958Z"
+    }
+  ]
+}

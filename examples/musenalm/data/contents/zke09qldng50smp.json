@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 3. /) Graphik im Kalendarium März /) s. Textbezug INr 88286, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88256,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Empfindung / Sentiment",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki sculps.",
+  "scans": [
+    "alm_154_88256_mbapbcunsi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Empfindung / Sentiment",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bonb5gpfnj62yyk",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.258Z"
+    }
+  ]
+}

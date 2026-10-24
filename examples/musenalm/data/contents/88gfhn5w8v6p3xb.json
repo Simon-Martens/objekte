@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette, Octaven (Sammlung INr 71005, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Oft, wenn ich einen langen Tag verloren / Mit sehnsuchtsvollem Harren, eitlem Hoffen,",
+  "language": [],
+  "musenalm_id": 71010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorzeichen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorzeichen",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ebtfmx4c6lu8btr",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.312Z"
+    }
+  ]
+}

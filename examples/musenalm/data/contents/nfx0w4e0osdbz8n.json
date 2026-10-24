@@ -1,0 +1,45 @@
+{
+  "annotation": "Einundzwanzig Liebeslieder (Sammlung INr 23589, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.119Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Es schneit und eist den ganzenTag, / Der Frost umfängt mich scharf und blank!",
+  "language": [],
+  "musenalm_id": 23605,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XV.",
+  "updated": "2002-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "il922f4toqk5uig",
+      "agents": "3pzkf5igvpvswjd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.057Z"
+    }
+  ]
+}

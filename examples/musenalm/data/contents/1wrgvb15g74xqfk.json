@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Spielen nennt ihr das, ihr Menschen? / Spiele, / Wenn die Kunst von Geistesmacht gelenkt",
+  "language": [],
+  "musenalm_id": 41164,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach Voglers Orgelconcert./ Berlin, 1788",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Bouterwek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nach Voglers Orgelconcert./ Berlin, 1788",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lf3ztpyr5bw5qvq",
+      "agents": "27lkhlbux1m8s5c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.274Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das Wildfangrecht« von Bernd von Guseck d.i. C. G. von Berneck INr 111035, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Stahlstich v. M. Hofmann)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stahlstich v. M. Hofmann",
+  "scans": [
+    "alm_3478_111039_vsuqpt16wv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uqqmk039a7eh0sj",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.372Z"
+    }
+  ]
+}

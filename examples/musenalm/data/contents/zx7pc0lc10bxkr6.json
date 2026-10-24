@@ -1,0 +1,45 @@
+{
+  "annotation": "Rheinische Sagen (Sammlung INr 62973, Obj 8) s. Graphik INr 62980, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Zu Rüdesheim, auf hohem Schloß, / Im lieblichen Gefilde, / Haus't Ritter Brömser; kühn zu Roß, / Den Greif im blanken Schilde,",
+  "language": [],
+  "musenalm_id": 62975,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. Ritter Brömser von Rüdesheim",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. Ritter Brömser von Rüdesheim",
+  "updated": "2009-03-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9naf7oxhgosumdo",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.176Z"
+    }
+  ]
+}

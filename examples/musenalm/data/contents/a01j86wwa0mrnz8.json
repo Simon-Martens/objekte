@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) Anm. am Objekt: Ein noch jetzt besuchter Gesundbrunnen bei Söderköping in Ostgotland. /) mit Anm. /) mit einer Illustration s. Graphik INr 72903, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Hoch im Norden, wo des Glaubens Strahlen, / Ringend mit des Heidenthumes Nacht, / Mühsam sich durch schwere Nebel stahlen, / Düster webend um der Vorwelt Schacht;",
+  "language": [],
+  "musenalm_id": 72902,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Heilquelle der heiligen Ragnill. / Legende",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Heilquelle der heiligen Ragnill. / Legende",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j9p983xctz9udcx",
+      "agents": "g022cx9ysck37av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.421Z"
+    }
+  ]
+}

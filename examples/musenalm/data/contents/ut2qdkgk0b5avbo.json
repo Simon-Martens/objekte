@@ -1,0 +1,45 @@
+{
+  "annotation": "Tändeleien (Sammlung INr 29585, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "316",
+  "incipit_statement": "Theilnehmend weißt du aus der Seele / Den Gram zu locken, und mit Zaubersinn / Ihn zu beschwören, holde Trösterin!",
+  "language": [],
+  "musenalm_id": 29586,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Guido an Ninon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Luise Brachmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Guido an Ninon",
+  "updated": "2002-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "27da1xsfgy058s0",
+      "agents": "t2bhwjntezhy9hb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.474Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.474Z"
+    }
+  ]
+}

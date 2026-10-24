@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Wohl der Liebe Schiffer bin ich, / Und auf ihren tiefen Fluthen / Muß ich wanken, sonder Hoffen,",
+  "language": [],
+  "musenalm_id": 62705,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schiffer und die Liebe./ Nach Cervantes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Freyh. v. d. Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schiffer und die Liebe./ Nach Cervantes",
+  "updated": "2009-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0qnxv344pk2axnk",
+      "agents": "7pclzh61bvgdvvq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.254Z"
+    }
+  ]
+}

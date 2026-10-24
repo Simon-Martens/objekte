@@ -1,0 +1,45 @@
+{
+  "annotation": "auflösung",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.176Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Warum ist Junker Veit, / Der Possenereisser, heut",
+  "language": [],
+  "musenalm_id": 36296,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 148.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auflösung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auflösung",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zh7zmmn56pht7e6",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.872Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.872Z"
+    }
+  ]
+}

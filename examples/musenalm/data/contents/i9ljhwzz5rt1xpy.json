@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 58055, Obj 22) mit einer Illustration s. Graphik INr 58058, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Du mußt die Blume würzen, Hassan, / Wie sich's für einen Gjaur gebührt;",
+  "language": [],
+  "musenalm_id": 58057,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Haremsrose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Haremsrose",
+  "updated": "2008-06-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "54rz5vxnm5k442r",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.866Z"
+    }
+  ]
+}

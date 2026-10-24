@@ -1,0 +1,45 @@
+{
+  "annotation": "V. 1. Phantasien 2. Die Reise nach den Alpen. Romanze 3. An die künftige Geliebte 4. An Floret (Sammlung INr 31947, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Endlich ist der Tag gekommen! / Blicke freudig in das Feld,",
+  "language": [],
+  "musenalm_id": 31949,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Reise nach den Alpen. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Reise nach den Alpen. / Romanze",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nhjxo7l47sxzz99",
+      "agents": "wty417vt1e1tkcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.566Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.566Z"
+    }
+  ]
+}

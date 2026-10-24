@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 23547, Obj 72) Lieder eines Autodidakten (Sammlung INr 23528, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "So manchmal irre werd' ich an der Stunde, / An Tag und Jahr, ach an der ganzen Zeit!",
+  "language": [],
+  "musenalm_id": 23550,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Wirklichkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Wirklichkeit",
+  "updated": "2002-05-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9w6x57ezd2j1nh2",
+      "agents": "3pzkf5igvpvswjd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.181Z"
+    }
+  ]
+}

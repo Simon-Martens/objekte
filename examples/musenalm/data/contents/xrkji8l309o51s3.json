@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Nach Silius Italicus; VIII. 1) Laodamia; 2) Hannibals Schwur (Sammlung INr 39414, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Des Manns vom Römerhassenden Geschlechte, / Des Mannes mit der thatenschwangern Rechte,",
+  "language": [],
+  "musenalm_id": 39416,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hannibals Schwur #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hannibals Schwur #",
+  "updated": "2005-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w9m8q1z3zrwljyd",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.177Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.177Z"
+    }
+  ]
+}

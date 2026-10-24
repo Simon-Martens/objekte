@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Vier Tage des römischen Carnevals« von H. Demuth INr 22200, Obj 89",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22245,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier Tage des römischen Carnevals. 2s. Bl.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. W. Jury sc.",
+  "scans": [
+    "alm_298_22245_hn07dqoszd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vier Tage des römischen Carnevals. 2s. Bl.",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nnqubne3jhd9n3n",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.054Z"
+    },
+    {
+      "id": "l1b0c9pt2563cpq",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.054Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.054Z"
+    }
+  ]
+}

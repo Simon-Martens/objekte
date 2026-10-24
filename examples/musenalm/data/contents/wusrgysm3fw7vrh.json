@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1. /) Graphik im Kalendarium Januar /) Illustration zu »Don Carlos« von Fr. Schiller /) s. Textbezug im Kalendarium INr 90098, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90099,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hör an -erstarre - doch erwiedere nichts / Ich liebe meine Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ch. Sambach del. Cl. Kohl sc.",
+  "scans": [
+    "alm_1703_90099_f1l8elsulz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hör an -erstarre - doch erwiedere nichts / Ich liebe meine Mutter",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kk7xrh6ua718n3w",
+      "agents": "nroqcxxwwrnp5ol",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.273Z"
+    },
+    {
+      "id": "p8u1kjkrz3jfsld",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.273Z"
+    }
+  ]
+}

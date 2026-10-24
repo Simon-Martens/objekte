@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Selbst die Götter und Göttinnen / Haben eines Schicksals Macht er- / kannt;",
+  "language": [],
+  "musenalm_id": 4942,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / kranke Amor. / Bey Gelegenheit eines Gemäldes / von Herrn B. Rode zu Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / kranke Amor. / Bey Gelegenheit eines Gemäldes / von Herrn B. Rode zu Berlin",
+  "updated": "2000-10-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tn0aj81xigjvyfo",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.913Z"
+    }
+  ]
+}

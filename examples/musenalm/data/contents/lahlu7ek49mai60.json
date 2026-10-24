@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Freiwerber wider Willen. Ein Lustspiel in zwölf Scenen (INr 29862, Obj 5) s. Graphik INr 29872, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Ja, durch die Blum', ich weiß, ich kenne sein Verlangen. / Ein Officier ist schwer in's Ehenetz zu fangen.",
+  "language": [],
+  "musenalm_id": 29871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fünfte Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fünfte Scene",
+  "updated": "2002-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qygspoutk0wxaq2",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.372Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.372Z"
+    }
+  ]
+}

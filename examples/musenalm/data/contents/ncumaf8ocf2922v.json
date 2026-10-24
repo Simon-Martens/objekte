@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 19473, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.788Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "In Trauerkleidern reich versammelt standen / Die Brüder um das Haus des Meisters her,",
+  "language": [],
+  "musenalm_id": 19503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schwur. / Eine Volkssage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. M. Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schwur. / Eine Volkssage",
+  "updated": "2001-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8jpns5v9093ogm7",
+      "agents": "q7zvyheam3iyblc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.811Z"
+    }
+  ]
+}

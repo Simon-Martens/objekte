@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 67455, Obj 9) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 67462, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Als der Stifter dieses Taschenbuches, der verstorbene Oberforstmeister von Wildungen, im Jahr 1797 das exotische rothe Fedlhuhn oder Roth-Huhn in seinem Neujahrsgeschenke beschrieben hat,",
+  "language": [],
+  "musenalm_id": 67463,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Das Steinhuhn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Das Steinhuhn",
+  "updated": "2009-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bsrmdzgr06julud",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.467Z"
+    }
+  ]
+}

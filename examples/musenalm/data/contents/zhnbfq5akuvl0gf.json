@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Hebt nicht das Herz sich höher der entgegen / Aus deren Blick die holde Jugend lacht,",
+  "language": [],
+  "musenalm_id": 1326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die weiblichen Erscheinungen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die weiblichen Erscheinungen",
+  "updated": "2000-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y3jn3nybnbde8pg",
+      "agents": "stasese2l43xq94",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.711Z"
+    }
+  ]
+}

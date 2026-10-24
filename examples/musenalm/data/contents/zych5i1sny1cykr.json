@@ -1,0 +1,45 @@
+{
+  "annotation": "# dem Text vorangestellt: Non ego te meis / Chartis inornatum fileri. [...] Hor. L. IV. Od. 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.509Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Getrieben von der alten Reimsucht, / Irrst du umher, und brummst voll Angst,",
+  "language": [],
+  "musenalm_id": 2280,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwergereimte Ode. / An Reimbold #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwergereimte Ode. / An Reimbold #",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jp4lfpnvx5idxs5",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.744Z"
+    }
+  ]
+}

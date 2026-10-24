@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Nicht Phantasie hat hier den düstern Pinsel / in bittre Wehmuth, herben Scherz getaucht; […]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Herr Stewart! rief mein Führer durch das weltberühmte Greenwich Hospital einem Manne zu, der mit bleicher Kummermiene ganz hinten im weiten Saale, sinnend vor einem Tischchen saß",
+  "language": [],
+  "musenalm_id": 77048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Nautilus. / Ein Nachtstück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Weisflog",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Nautilus. / Ein Nachtstück",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nf3xo6315q6ik5m",
+      "agents": "iv41ps6uccpba1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.685Z"
+    }
+  ]
+}

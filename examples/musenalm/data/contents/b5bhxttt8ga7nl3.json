@@ -1,0 +1,56 @@
+{
+  "annotation": "# s. Textbezug (Gedicht) INr 64170, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64179,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Märtyrer #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leloir pinxt. J. W. Baumann sct. Mchn",
+  "scans": [
+    "alm_1061_64179_r0wbth9yd4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Märtyrer #",
+  "updated": "2009-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hozwjqe50lnemew",
+      "agents": "v7f0dr13o2zaqho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.363Z"
+    },
+    {
+      "id": "ivp9kxgi0mv3wxl",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.363Z"
+    }
+  ]
+}

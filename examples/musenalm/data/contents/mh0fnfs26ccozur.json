@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Taschenbuch für Liebe und Freundschaft. Eine Historie in 8 Kapiteln, mit 8 Bildern (Sammlung INr 30155, Obj 5) s. Graphik INr 30161, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.574Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "So streng meine Pathin jede Erklärung zurückwies, so schien doch Emma von ihrem Vorurtheil zurückzukommen.",
+  "language": [],
+  "musenalm_id": 30162,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Viertes Kapitel. / Glaube ihm ja nicht!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Spindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Viertes Kapitel. / Glaube ihm ja nicht!",
+  "updated": "2002-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mypjuidos7slqqe",
+      "agents": "jo3symqxy3hqpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.521Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.521Z"
+    }
+  ]
+}

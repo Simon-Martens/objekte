@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 4. /) Illustration zu »Zeichnungen von schönen Gefäßen, kleinen Altären und Monumenten. Zum Gebrauch bei Gartenverzierungen. Von Antonio Isopi« von G. H. Rapp INr 74134, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74137,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Isopi inv. del., et sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Isopi inv. del., et sculp.",
+  "scans": [
+    "alm_3108_74137_gelai9c6x8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yd85obg5vhm0zx6",
+      "agents": "wal6qjr1bhcbnqq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.619Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.619Z"
+    }
+  ]
+}

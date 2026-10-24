@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.058Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Er, der sonst in Seidenstoff gegangen, / Ist mit Lumpen jetzt behangen!",
+  "language": [],
+  "musenalm_id": 90329,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen verarmten Verschwender",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Lackner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen verarmten Verschwender",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dp3r8yroxvv7ka1",
+      "agents": "2o8begoqx16dfrq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.099Z"
+    }
+  ]
+}

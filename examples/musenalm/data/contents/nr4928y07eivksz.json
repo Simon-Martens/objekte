@@ -1,0 +1,45 @@
+{
+  "annotation": "Sylbenräthsel. Ein dreysilbig Wort (Sammlung INr 53136, Obj 67)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Das, was ich bin, fühlt nur das Auge, / Mein Leben von dem Licht ich sauge.",
+  "language": [],
+  "musenalm_id": 53138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Einsylbig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Schellenberg, geb. Bidermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Einsylbig",
+  "updated": "2007-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6th6nnhrfnnlxxa",
+      "agents": "ggwis02ewpvjchs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.617Z"
+    }
+  ]
+}

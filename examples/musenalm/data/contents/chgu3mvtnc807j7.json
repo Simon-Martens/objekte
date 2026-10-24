@@ -1,0 +1,45 @@
+{
+  "annotation": "# [sic]:  falsche Bezeichnung, falscher Titel. Das Gedicht erschien zuerst in: Musenalmanach (Schiller) 1797; INr 37938 /) Mit einer Vertonung s. Musikbeigabe INr 47415, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "In einem Thal bey armen Hirten / Erschien mit jedem neuen Jahr, / Sobald die ersten Lerchen schwirrten, / Ein Mädchen schön und wunderbar.",
+  "language": [],
+  "musenalm_id": 47414,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen in der Fremde #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen in der Fremde #",
+  "updated": "2007-01-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9hv3e2mgw9s8puz",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.615Z"
+    }
+  ]
+}

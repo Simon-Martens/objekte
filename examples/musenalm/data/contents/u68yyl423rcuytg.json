@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Weg Furie, die du mit Höllenflüchen / Hoch über mir die Fackel schwingst,",
+  "language": [],
+  "musenalm_id": 107677,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Eifersucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schäffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Eifersucht",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zfuz8i8dljs1gnb",
+      "agents": "qarykxsvenapvz2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.183Z"
+    }
+  ]
+}

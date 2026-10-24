@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Zauberflöte« von W. A. Mozart s.a. Textbezug INr 75093, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75095,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE ZAUBERFLÖTE. / I. Act / Tamino. Ach rettet, schützet mich!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_2369_75095_io1lhbf2e7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE ZAUBERFLÖTE. / I. Act / Tamino. Ach rettet, schützet mich!",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3pj6o9jc2onpk4q",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.651Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.651Z"
+    },
+    {
+      "id": "y33tfjr1dimgll3",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.651Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.651Z"
+    }
+  ]
+}

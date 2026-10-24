@@ -1,0 +1,47 @@
+{
+  "annotation": "Ludwigsburg und dessen Umgebungen (Sammlung INr 21594, Obj 6) Illustration zu »Neue Anlagen« von C. B. INr 21595, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der untere See mit der Insel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lehrer del. P. J. Laminit sc.",
+  "scans": [
+    "alm_290_21596_mx4rfekr1s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der untere See mit der Insel",
+  "updated": "2002-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a11xyh1li8vd1fa",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.866Z"
+    }
+  ]
+}

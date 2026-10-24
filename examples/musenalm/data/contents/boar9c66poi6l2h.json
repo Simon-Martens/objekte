@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 102309, Obj 116)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.014Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Schwer liegt die Ruh auf Berg und Thal / Des ich steh' so allein;",
+  "language": [],
+  "musenalm_id": 102331,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "22. / Schwer liegt die Ruh auf Berg und Thal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Drobisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "22. / Schwer liegt die Ruh auf Berg und Thal",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v5gs1j4hmlgdcn8",
+      "agents": "qf0rumqvyhc5lnw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.457Z"
+    }
+  ]
+}

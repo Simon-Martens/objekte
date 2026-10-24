@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert II /) kol. Illustration zu »Die Sumpfotter« von v. Wildungen INr 69680, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69681,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mustela Lutreola. Sumpfotter. Störz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Comes a Mellin ad viv. pinx.",
+  "scans": [
+    "alm_1134_69681_23yu56dlvg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mustela Lutreola. Sumpfotter. Störz",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "46di2406zwv1cdw",
+      "agents": "aauh6wvabz0cll5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.492Z"
+    },
+    {
+      "id": "k2hxvuxx7x3itd0",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.492Z"
+    }
+  ]
+}

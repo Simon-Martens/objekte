@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 94880, Obj 60)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "Das Höchste sehen und es nicht berlangen, / Hat mich der Geist der heil'gen Kunst gelehrt,",
+  "language": [],
+  "musenalm_id": 94882,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Höchster Besitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Schober",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Höchster Besitz",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "byxvzx7v1vbe48w",
+      "agents": "demesi9ujep1ia6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.670Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug 69676, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69673,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Kehrer del. G. Boettger senior sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Kehrer del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1134_69673_1aebd4qt1p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ovpv3vcikhu22ok",
+      "agents": "659oeugsapemrqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.492Z"
+    },
+    {
+      "id": "4fh9kr89i755e7p",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.492Z"
+    }
+  ]
+}

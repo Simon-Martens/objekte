@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "Sie seuft, sie zittert und erblaßt, / Und ihr Geheimniß will die Brust zersprengen;",
+  "language": [],
+  "musenalm_id": 42688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 221,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sophia Schröder als Phädra",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dan. Leßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sophia Schröder als Phädra",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dttwb0k6yzrakrs",
+      "agents": "be4im3j6k51346r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.100Z"
+    }
+  ]
+}

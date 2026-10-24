@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24770, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Nicht mehr in Waldesschauern / An jäher Klüfte Rand,",
+  "language": [],
+  "musenalm_id": 24774,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Kriegslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freiherr von Eichendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Kriegslied",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yaiui0847fwc7dp",
+      "agents": "h99uxdryiugeh6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.153Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleinigkeiten (Sammlung INr 102074, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.390Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Der Hauptmann P. rauchte leidenschaftlich gern Tabak, auch besaß er eine zahlreiche Sammlung vorzüglicher Pfeifen.",
+  "language": [],
+  "musenalm_id": 102075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Das zerbrochene Steckenpferd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Stein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Das zerbrochene Steckenpferd",
+  "updated": "2014-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6x84b58jkhjru83",
+      "agents": "qo7557wamnqn28n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.094Z"
+    }
+  ]
+}

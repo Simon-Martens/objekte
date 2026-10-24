@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 29339, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.990Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29940,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (N. Berghem pinx. W. Jury fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Berghem pinx. W. Jury fec.",
+  "scans": [
+    "alm_387_29940_6hqlbr82ub.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2qa0b4cexfmffc8",
+      "agents": "9a313ypmn6fzfj6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.440Z"
+    },
+    {
+      "id": "h76b9xlfp1nxu0c",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.440Z"
+    }
+  ]
+}

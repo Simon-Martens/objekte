@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphikim Kalendarium Mai; paginiert 5. /) s. Textbezug INr 96031, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.288Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96018,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arretierung der Prinzessin von Oranien zu Go- / werwelse Sluis am 29. Juni 1787",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki fe.",
+  "scans": [
+    "alm_3961_96018_35h1b6uybm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Arretierung der Prinzessin von Oranien zu Go- / werwelse Sluis am 29. Juni 1787",
+  "updated": "2013-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lar7p9y1xpacu1s",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.765Z"
+    }
+  ]
+}

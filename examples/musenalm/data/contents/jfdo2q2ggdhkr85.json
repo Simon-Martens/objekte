@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer. Aus Tiecks Genoveva (Sammlung INr 66249, Obj 6) s. Graphik INr 66257, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Hier ist die Stätte, laßt uns stille stehn. / Wie schauerlich und einsam ist der Platz!",
+  "language": [],
+  "musenalm_id": 66256,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Ebendaselbst S. 158. u. 189. / (Felsenthal.) / Genoveva mit dem Kinde, geführt von Benno und Grimoald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Ebendaselbst S. 158. u. 189. / (Felsenthal.) / Genoveva mit dem Kinde, geführt von Benno und Grimoald",
+  "updated": "2009-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rmx6mpugtavgtlx",
+      "agents": "lu281a3pqqlvbj5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.193Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chloe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wood pinxt. Leop. Beyer sc.",
+  "scans": [
+    "alm_1775_90855_1apqgk82wi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Chloe",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jo4pvy22vdhw871",
+      "agents": "uaycc1jcy2aky7g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.267Z"
+    },
+    {
+      "id": "xqf12oihd61ivxt",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.267Z"
+    }
+  ]
+}

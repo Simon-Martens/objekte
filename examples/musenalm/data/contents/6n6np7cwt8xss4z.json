@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumen auf Wilhelm Geiling's Grab Gestorben 1791, im vierten Jahre, an den grausamsten Pestpocken (Sammlung INr 18028, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "O, wie so duldsam lag der Engel in der / Wiege! Wie sprach sein Herz den Dank, wenn man / ihm Hülfe both!",
+  "language": [],
+  "musenalm_id": 18030,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2001-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yffvu71mxpikqy1",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.673Z"
+    }
+  ]
+}

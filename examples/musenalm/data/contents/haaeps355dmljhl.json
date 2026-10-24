@@ -1,0 +1,45 @@
+{
+  "annotation": "Balladen (Sammlung INr 116972, Obj 21) mit einer Illustration s. Graphik INr 116960, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Neigt euer Ohr jetzt meinem Sang, / Ihr schönen Frau'n, ihr edlen Herrn, / Wer recht des Midleids Süße kennt, / Verzeiht das Reu'gen Sünde gern.",
+  "language": [],
+  "musenalm_id": 116973,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Büßerin. / (Altenglische Ballade.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Johann Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Büßerin. / (Altenglische Ballade.)",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nrffzh6io5wr49s",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.607Z"
+    }
+  ]
+}

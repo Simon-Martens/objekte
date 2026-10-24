@@ -1,0 +1,45 @@
+{
+  "annotation": "Logogryphen, Charaden und Räthsel (Sammlung INr 13844, Obj 115)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "375",
+  "incipit_statement": "Die ersten gedeihn auf des Ackers Mitte; / Mit gleich und ungleich wechselt die dritte;",
+  "language": [],
+  "musenalm_id": 13875,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 146,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "31. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "31. / Charade",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "se2obr9rmim0o1v",
+      "agents": "epma680nee4q5et",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.413Z"
+    }
+  ]
+}

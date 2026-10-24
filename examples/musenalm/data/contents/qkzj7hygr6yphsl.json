@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Vorwort des Herausgebers /) Leben Götzens von Berlichingen (Sammlung INr 21686) Graphik im Kalendarium paginiert 2.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21687,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Göz bringt in einem Alter von 15 / Jahren die Leiche seines in Lin- / dau verstorbenen Vetters sicher / nach Schönthal",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner",
+  "scans": [
+    "alm_292_21687_6pvvi5pwyd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Göz bringt in einem Alter von 15 / Jahren die Leiche seines in Lin- / dau verstorbenen Vetters sicher / nach Schönthal",
+  "updated": "2002-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gyf670su1z8gh2m",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.025Z"
+    }
+  ]
+}

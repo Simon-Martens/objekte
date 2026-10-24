@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed V, 166",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Glük zur Genesung, Herr Pandolff; / Frißt doch kein Wolf den andern Wolf.",
+  "language": [],
+  "musenalm_id": 41703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Doktor Pandolff",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "U.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Doktor Pandolff",
+  "updated": "2005-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ogbytt8lovsip5v",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.908Z"
+    }
+  ]
+}

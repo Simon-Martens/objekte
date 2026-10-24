@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. ADB XXVII, 292 /) Beschreibung des Gartens in Hohenheim. Fortsetzung (Sammlung INr 74159, Obj 9) mit einer Illustration s. Graphik INr 74164, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Ein schönes steinernes Gebäude, über dessen Porticus diese Inschrift in grossen metallenen Buchstaben pranget, und das auf seinem Gibel eine Bildsäule der Themis träget,",
+  "language": [],
+  "musenalm_id": 74163,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Rathhaus. / S. P. Q. R. / LEGVM CVSTODIA / PATRIAE FVLCRVM",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Rathhaus. / S. P. Q. R. / LEGVM CVSTODIA / PATRIAE FVLCRVM",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nm5h4u4a1y6qdmy",
+      "agents": "0qzneijgjsm86gl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.705Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.705Z"
+    }
+  ]
+}

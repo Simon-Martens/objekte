@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "283",
+  "incipit_statement": "In dem sonst stillen Hause, das hinter der Kirche lag, war heute mehr als sonst Geräusch, und in den untern Zimmern ein lebhaftes Hin- und Wiederlaufen.",
+  "language": [],
+  "musenalm_id": 75345,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Der Gelehrte. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Der Gelehrte. / Novelle",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u6c6y7rl87hp7vl",
+      "agents": "lu281a3pqqlvbj5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.660Z"
+    }
+  ]
+}

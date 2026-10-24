@@ -1,0 +1,45 @@
+{
+  "annotation": "# Aus dem G-Verz: Auf Tab. IX. endlich befinden sich kleine Muster zu steppen /) graph. Anleitung paginiert VIIII.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48959,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Anleitung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "#",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto. fec. 2te Jah. G.",
+  "scans": [
+    "alm_670_48959_uaiz1nieqf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "#",
+  "updated": "2007-04-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d4q9c5hmtz29gnd",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.690Z"
+    }
+  ]
+}

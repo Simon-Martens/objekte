@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52423,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Le / Canton de Genève 1817",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. v. Escher del. J. Scheurmann sc.",
+  "scans": [
+    "alm_717_52423_idp27et19z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Le / Canton de Genève 1817",
+  "updated": "2007-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5dhgf8dqdm4gh64",
+      "agents": "9ql0nfn99kgr5a3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.877Z"
+    }
+  ]
+}

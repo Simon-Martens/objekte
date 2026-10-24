@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37796, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Wie gerne wiegt' ich sorgenschwer / Mein Haupt in Grabesschlummer;",
+  "language": [],
+  "musenalm_id": 37798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Sehnsucht nach dem Tode. / (nach Th. Moore.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Peter von Bohlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Sehnsucht nach dem Tode. / (nach Th. Moore.)",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r5d6aiq4tbzlfsj",
+      "agents": "o1k9lrnsvxd479f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.623Z"
+    }
+  ]
+}

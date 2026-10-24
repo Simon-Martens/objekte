@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.589Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Ich lag in sichrer, sichrer Huth, / Die Fenster grün verhangen,",
+  "language": [],
+  "musenalm_id": 86503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fiebertraum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Renn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fiebertraum",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jh17yi5xfam05hj",
+      "agents": "qnb96innln6psir",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.410Z"
+    }
+  ]
+}

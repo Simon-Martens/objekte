@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. vom Titel; paginiert 4. /) s. Textbezug INr 42156, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42155,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Desaixs Tod (14. Juni.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_196_42155_ma00fdugij.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Desaixs Tod (14. Juni.)",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bmdgkq8kncfj3il",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.799Z"
+    }
+  ]
+}

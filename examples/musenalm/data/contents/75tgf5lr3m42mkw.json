@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "O so sey denn tausendmal willkommen, / Blüte, die die zarte Lieb' geknikt!",
+  "language": [],
+  "musenalm_id": 70942,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als Ida an Oskar eine weiße Blume ge- / sendet hatte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Amalia",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als Ida an Oskar eine weiße Blume ge- / sendet hatte",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q6les8ab524crsb",
+      "agents": "2nm1hcqes98n5i9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.543Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.543Z"
+    }
+  ]
+}

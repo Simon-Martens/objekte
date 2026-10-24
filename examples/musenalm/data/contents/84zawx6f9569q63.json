@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Nein, das ist einzig, liebe Tante, Sie einmal in der Stadt! Sagen Sie mir nur, wer das über Sie vermocht hat.",
+  "language": [],
+  "musenalm_id": 54826,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Onkel und Neffe. / Lustspiel in zwei Aufzügen nach dem Französischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. W. Foerster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Onkel und Neffe. / Lustspiel in zwei Aufzügen nach dem Französischen",
+  "updated": "2008-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g016uu77cnypobi",
+      "agents": "cvj1hp70xlt5hpm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.498Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.498Z"
+    }
+  ]
+}

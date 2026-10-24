@@ -1,0 +1,56 @@
+{
+  "annotation": "Übersetzung des nicht dargestellten griechischen Gedichts /) Anm. am Objekt: Von Korai in dessen Ausgabe des Onesander (Paris 1822) in Neugriechische übergetragen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "325",
+  "incipit_statement": "Wer eine tugendliche That, ihr Freunde, will / vollbringen, / Dem kann's im Kampf fürs Vaterland im Vorder- / glied gelingen,",
+  "language": [],
+  "musenalm_id": 131912,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Uebersetzung / des / Kriegsgesangs des Tyrtöäus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Korai [übers.:] Mebold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Uebersetzung / des / Kriegsgesangs des Tyrtöäus",
+  "updated": "2013-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ip5qsy7jofw5bvk",
+      "agents": "0uhp7mhuqbxz74j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.044Z"
+    },
+    {
+      "id": "oquvgmmywl8c6nv",
+      "agents": "y3vcu2p4zhikm7w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.044Z"
+    }
+  ]
+}

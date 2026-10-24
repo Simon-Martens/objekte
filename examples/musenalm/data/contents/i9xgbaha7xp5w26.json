@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 66857, Obj 11) mit zahlreichen Anmerkungen /) s. Illustrationen INr 66866, 66867; Obj 20, 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.498Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Das große Heer von Insekten, welches die Waldbäume bewohnt, unter denen viele sich von den Theilen derselben nähren und dadurch Schaden und Verwüstungen anrichten,",
+  "language": [],
+  "musenalm_id": 66864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Die Gallwespen. Cynipes, Lin.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. P. Laurop",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Die Gallwespen. Cynipes, Lin.",
+  "updated": "2009-09-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5n5g7ks9gd4rxly",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.385Z"
+    }
+  ]
+}

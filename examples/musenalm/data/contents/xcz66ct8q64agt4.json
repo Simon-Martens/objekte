@@ -1,0 +1,50 @@
+{
+  "annotation": "Vertonung des Gedichts »Morgengruß. An Serena« von Arthur vom Nordstern d.i. G. A. E. v. Nostitz-Jänkendorf INr 13928, Obj 41 (Photos 61718,01-61718,04) /) Anhang zu Beckers Taschenbuch 1813 enthaltend: Compositionen und Tänze, von Bergt, A. Harder, Methfeßel und Zelter (Sammlung INr 61716, Obj 168)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61718,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 170,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgengruß. / An Serena",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_220_61718_01_sian102zic.jpg",
+    "alm_220_61718_02_82sbnsessz.jpg",
+    "alm_220_61718_03_a5ptktqik7.jpg",
+    "alm_220_61718_04_94wn6mgqht.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Morgengruß. / An Serena",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "27kwjxb82k62mse",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.969Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 4. /) s. INr 18633, Obj 15 # Bezeichnung vom Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18632,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Franken erstürmen den Berg- / Gipfel der Bernhards Alpe. ( 24. April)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_192_18632_0h1spxeoml.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Franken erstürmen den Berg- / Gipfel der Bernhards Alpe. ( 24. April)",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gnz44hgagbde1rx",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.860Z"
+    }
+  ]
+}

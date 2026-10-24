@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 10 Gedichten INr 64603-64612, Obj 23-32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Aehnlich, wie man erwa bei'm Besteigen eines hohen Berges zuweilen auf einzelnen besonders dazu geeigneten Punkten Rast macht und den zurückgelegten Weg mit einem gewissen prüfenden Wohlbehagen übersieht,",
+  "language": [],
+  "musenalm_id": 64577,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein bretonischer Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Leuthold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein bretonischer Dichter",
+  "updated": "2009-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u0v9o8ums76gf54",
+      "agents": "87b0ropx1b7ybuw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.132Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.132Z"
+    }
+  ]
+}

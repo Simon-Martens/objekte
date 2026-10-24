@@ -1,0 +1,46 @@
+{
+  "annotation": "IV. Aus dem Tagebuche eines alten Müßiggängers (Sammlung INr 48555, Obj 38) mit einer Illustration s. Graphik in: Frauenzimmer-Almanach 1820, INr 48589",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.491Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "Besucht mich Jemand in meinem ländlichen Sorgenfrey, Jemand, dem ich abmerke, er bekenne sich gleichfalls zum Terenzischen: homo sum:",
+  "language": [],
+  "musenalm_id": 48558,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Mieze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Mieze",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nx0dpz0w7zjmhu2",
+      "agents": "2wsoz27ytrsps8l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.581Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.581Z"
+    }
+  ]
+}

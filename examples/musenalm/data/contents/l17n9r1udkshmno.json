@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Reizender Flüchtling! Wo dein Fuß auch hinirrt, / Schwebet Sappho's Gedank' um dich.",
+  "language": [],
+  "musenalm_id": 88597,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Phaon. / Eine neu entdeckte Ode der Sappho",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Uebersetzt von Joh. Rud. Wys dem ältern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Phaon. / Eine neu entdeckte Ode der Sappho",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rxsp2pkck7s595x",
+      "agents": "0a2uboxh0795aiu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.158Z"
+    },
+    {
+      "id": "q6lzlw3kes89jkt",
+      "agents": "kq69ntdbn8wcwoq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.158Z"
+    }
+  ]
+}

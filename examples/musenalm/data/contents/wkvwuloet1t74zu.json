@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Seit einigen Jahren ist der Anbau der Erdmandeln (Cyperus esculentus L.) im Grossen sehr empfohlen, und der mannigfaltige Nuzen dieses Gewächses so lebhaft erhoben worden,",
+  "language": [],
+  "musenalm_id": 74702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erdmandeln",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Römer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Erdmandeln",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y5pobq67njmzkje",
+      "agents": "isv9wrpng7dwls4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.648Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.648Z"
+    }
+  ]
+}

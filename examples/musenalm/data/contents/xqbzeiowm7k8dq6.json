@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Vieler Trug bethört das Leben, / Groß ist eitler Wünsche Macht.",
+  "language": [],
+  "musenalm_id": 47896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebensansicht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Heinroth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebensansicht",
+  "updated": "2007-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v4x13ruv6bh4woc",
+      "agents": "0lth2adu21imy6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.535Z"
+    }
+  ]
+}

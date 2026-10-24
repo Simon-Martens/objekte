@@ -1,0 +1,45 @@
+{
+  "annotation": "Ein Brief aus London. Zur Erklärung der Stahlstiche (Sammlung INr 44000, Obj 4) s. Graphik INr 44003, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Der Name schon hat etwas Erquickendes, Entzückendes! Abendruhe! Ein leiser, süßer Schauer fliegt mir über den Nacken",
+  "language": [],
+  "musenalm_id": 44004,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Abendruhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Abendruhe",
+  "updated": "2006-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m80q43jl70huga3",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.490Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.490Z"
+    }
+  ]
+}

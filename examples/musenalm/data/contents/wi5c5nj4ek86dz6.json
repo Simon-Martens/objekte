@@ -1,0 +1,58 @@
+{
+  "annotation": "Graphik im Kalendarium November",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.774Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92865,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CHISTIS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hillner pinx. Meno Haas sc. Berlin 1794",
+  "scans": [
+    "alm_3123_92865_ubj2vf0oow.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CHISTIS",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z0s6dd9kci4383a",
+      "agents": "sjryrwpw74yqnj4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.149Z"
+    },
+    {
+      "id": "my25fvo6lgnpjhu",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.150Z"
+    }
+  ]
+}

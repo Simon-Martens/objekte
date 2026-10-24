@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung an den übrigen Blättern der Suite. Illustration zu »Das Collectaneen-Buch« von J. G. Jacobi INr 16053, Obj 24; s. INr 36532, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 16056,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heinrich IV. und der Herzog von Mayenne",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_29_16056_axe2lnpi91.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Heinrich IV. und der Herzog von Mayenne",
+  "updated": "2001-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uyo0ff32kqlam9e",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.700Z"
+    },
+    {
+      "id": "emw1pk24xnoduwg",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.700Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Einst zog ein junger Ritter, in's Leben frisch hinaus, / Und vor sich eine Dame zu treuen Minne aus!",
+  "language": [],
+  "musenalm_id": 90782,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Fortuna-Ritter. / (Romanze statt der Widmung.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frz. Xav. Told",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Fortuna-Ritter. / (Romanze statt der Widmung.)",
+  "updated": "2013-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uk0w152kjwlid2c",
+      "agents": "tglq0d4pyb420do",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.244Z"
+    }
+  ]
+}

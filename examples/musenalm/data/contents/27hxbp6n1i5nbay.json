@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.235Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Hülle dich in dichte Schleyer, / Borge hellen Heuchelschein, / Laß der Erdenfürsten Feyer / Deines Wegs Begleiter seyn:",
+  "language": [],
+  "musenalm_id": 14803,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Allsehende. / Jesus Sirach. Cap. 17. / Vers. 13. / Ihr Wesen ist immer / vor ihm, und nichts verborgen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Allsehende. / Jesus Sirach. Cap. 17. / Vers. 13. / Ihr Wesen ist immer / vor ihm, und nichts verborgen",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "21vnxu2zokvwyyk",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.588Z"
+    }
+  ]
+}

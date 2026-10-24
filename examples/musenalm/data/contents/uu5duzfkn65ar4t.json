@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 13 Gedichten INr 39424-39436, Obj 40-52",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.100Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "451",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39423,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XIV. Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Fr. Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XIV. Gedichte",
+  "updated": "2005-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j4hi6qc8st06vk7",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.158Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.158Z"
+    }
+  ]
+}

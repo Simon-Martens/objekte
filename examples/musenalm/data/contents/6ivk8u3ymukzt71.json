@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 18; s. Ludwig Christoph Heinrich Hölty's Sämtliche Werke, kritisch und chronologisch herausgegeben von Wilhelm Michael. Weimar 1914. Bd. 1, S. 229",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.179Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Kein Mädchen kann mein Herz bestricken; / Kein Augenpaar, / Aus welchem tausend Engel blicken;",
+  "language": [],
+  "musenalm_id": 753,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Misogyn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Misogyn",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8cj9h8d977sw3m1",
+      "agents": "zddol7mg2ooigi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.713Z"
+    }
+  ]
+}

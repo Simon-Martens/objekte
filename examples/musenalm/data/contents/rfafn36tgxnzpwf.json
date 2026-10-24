@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 68840, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68827,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Michelangelo Buonarota",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Jagemann del. Romae S. v. K. sc.",
+  "scans": [
+    "alm_1188_68827_0hcv369l4m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Michelangelo Buonarota",
+  "updated": "2009-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lwoa03ohiy9d5c0",
+      "agents": "sfft0bwua7oooyo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.424Z"
+    }
+  ]
+}

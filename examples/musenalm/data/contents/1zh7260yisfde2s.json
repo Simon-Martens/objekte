@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "361",
+  "incipit_statement": "Wenn du mich liebst, wenn du mich liebst, / O sag' es aus Barmherzigkeit: / Erheb' durch dieses Zauberwort / Mich einmal aus dem alten Leid.",
+  "language": [],
+  "musenalm_id": 45881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 288,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aline von Schlichtkrull",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bm82x6cgrhq5xzk",
+      "agents": "kpbvco18xzch2xq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.513Z"
+    }
+  ]
+}

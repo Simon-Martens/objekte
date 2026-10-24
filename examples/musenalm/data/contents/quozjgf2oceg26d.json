@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r. /) # Die Bezeichnung abweichend von: Dorn: Meil Bibliographie 600",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82225,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. W. M.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. M.",
+  "scans": [
+    "alm_3854_82225_96ekcfe86k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2eac8qeosptn1of",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.840Z"
+    }
+  ]
+}

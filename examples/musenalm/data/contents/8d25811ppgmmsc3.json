@@ -1,0 +1,58 @@
+{
+  "annotation": "s. folgende Seite INr 80188, Obj 7 /)  Illustration zu »Die Blutrosen von Cordova« von L. Tarnowski INr 80198, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.917Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80187,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Donna Uracca",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guichard del. C. Kotterba sc.",
+  "scans": [
+    "alm_1697_80187_6vpbd15xiz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Donna Uracca",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0cv98saeanskkf3",
+      "agents": "np5yamd62n06ynt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.892Z"
+    },
+    {
+      "id": "uxl2996lkcumnya",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.892Z"
+    }
+  ]
+}

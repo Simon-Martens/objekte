@@ -1,0 +1,45 @@
+{
+  "annotation": "Dritter von 4 Beiträgen verschiedener Autoren zum Tode L. v. Beethovens INr 15087-15090, Obj 23-26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.219Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Abgestreift das Band der Grüfte, / Noch erschreckt, sich findend kaum, / Flog die Seele durch den Raum",
+  "language": [],
+  "musenalm_id": 15089,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Beethoven",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Beethoven",
+  "updated": "2001-05-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7dz7jr23q5ub9s2",
+      "agents": "jf5q6ykf9ux52yq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.715Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Sonst! Drei Reliquien aus besserer Zeit (Sammlung INr 30611, Obj 11) Gedichte (Sammlung INr 30610, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.459Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Ich weiß nicht, soll ich Dich dem Mond vergleichen, / Der aus den Liebes-Augen, sanft verweint,",
+  "language": [],
+  "musenalm_id": 30612,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Dingelstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2002-11-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "as8by3fzhilhbv7",
+      "agents": "8xc9vhdufjuetwe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.500Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.500Z"
+    }
+  ]
+}

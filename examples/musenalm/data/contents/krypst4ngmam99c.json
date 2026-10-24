@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Mein Lieb? ist eine Quelle / Durchsichtig bis zum Grund,",
+  "language": [],
+  "musenalm_id": 46474,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer ist mein Lieb?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conrad von Prittwitz und Gaffron",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wer ist mein Lieb?",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9yrokcepi938tct",
+      "agents": "lddqf86sm2shosm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.623Z"
+    }
+  ]
+}

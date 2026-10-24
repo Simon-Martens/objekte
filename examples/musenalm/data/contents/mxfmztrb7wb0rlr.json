@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 41 /) mit einer Musikbeigabe s. INr 8691, Obj 97",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Als vom Schlummer leis beschlichen / Sich die Augenwimper schloss,",
+  "language": [],
+  "musenalm_id": 1182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Traum",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Traum",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3lvc0bl7x3abnfi",
+      "agents": "g022cx9ysck37av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.708Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.708Z"
+    }
+  ]
+}

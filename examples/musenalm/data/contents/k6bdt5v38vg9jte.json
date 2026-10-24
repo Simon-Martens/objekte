@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Eveline von Waldau war in ihrem sechszehenten Jahr ebenso schön und blühend als eitel im Selbstbewußtsein ihrer Reize.",
+  "language": [],
+  "musenalm_id": 26506,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schuld und Buße",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fanny",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schuld und Buße",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "00adqs8yqt0ws22",
+      "agents": "oaar9957opo6yl4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.011Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.011Z"
+    }
+  ]
+}

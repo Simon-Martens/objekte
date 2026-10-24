@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachwort zur Gedichtsammlung »Das Buch Ben hammelech wehannasir. II. Anthologie« INr 109641, Obj 50 ff",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "340",
+  "incipit_statement": "Auch in der Pflanzenkunde geht die Anatomie der Physiologie, wie das Blatt der Blüthe und Frucht, voran.",
+  "language": [],
+  "musenalm_id": 109663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachschrift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Steinschneider",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachschrift",
+  "updated": "2016-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6kph52h4onqoc2d",
+      "agents": "m2giuxep8j2hqeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.270Z"
+    }
+  ]
+}

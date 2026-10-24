@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.622Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Wann dir nun wird der ew'ge Morgen tagen, / Was wirst du thun?",
+  "language": [],
+  "musenalm_id": 66048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die ew'ge Ruhe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pustkuchen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die ew'ge Ruhe",
+  "updated": "2009-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ng2xaastn87famp",
+      "agents": "byx9v0k40wsil7f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.161Z"
+    }
+  ]
+}

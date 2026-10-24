@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Wir haben Kalender für Damen, Kammerjungfern und Stubenmädchen; Kalender für Handwerker, Künstler, Bauern;",
+  "language": [],
+  "musenalm_id": 15169,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theuerste Grabennymphen!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Verleger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Theuerste Grabennymphen!",
+  "updated": "2001-05-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bldeakbaosk27fa",
+      "agents": "vnh3lwvt81shntt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.634Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.634Z"
+    }
+  ]
+}

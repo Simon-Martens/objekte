@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123432, Obj 2); Illustration zu »Die Seeschlacht und die Meerkatze« von Kotzebue (INr 123436, Obj 5); $ vermutlich Johann Christian Ernst Müller (vgl. T/B 25, S. 222)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.174Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Sei der Mann immerhin von Eisen und Stahl, / Das Schmollen macht ihn mürbe. / Die Seeschlacht und die Meerkatze. Scene 4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. C. Müller sc. # $",
+  "scans": [
+    "alm_4482_123435_083s5z7r2s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "5. / Sei der Mann immerhin von Eisen und Stahl, / Das Schmollen macht ihn mürbe. / Die Seeschlacht und die Meerkatze. Scene 4.",
+  "updated": "2018-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "emc6hu1xn5f3aoc",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.754Z"
+    }
+  ]
+}

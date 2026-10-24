@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Sonnett von Treitschke INr 68578, Obj 3,05",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68577,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.04,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIDO",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Füger pt. F. John sc.",
+  "scans": [
+    "alm_227_68577_hgajib3ok2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIDO",
+  "updated": "2001-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "50g5ujws95ad4xi",
+      "agents": "1wu4h08v9ndrssx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.636Z"
+    },
+    {
+      "id": "qegvqjfdi47w98b",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.636Z"
+    }
+  ]
+}

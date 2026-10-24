@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. 1. Die Blume. 2. Am Abend auf dem See. 3. An den Geheimen Rath von Göthe. 4. An Jenny (Sammlung INr 31956, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Fort, hinaus aus diesem Erdgewimmel, / Wo der Sturm die schönste Knospe bricht;",
+  "language": [],
+  "musenalm_id": 31960,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. An Jenny",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. An Jenny",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "to3d4aikzgmdzru",
+      "agents": "vd3inw12z8a6gd2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.250Z"
+    }
+  ]
+}

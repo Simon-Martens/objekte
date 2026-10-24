@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Bemerkungen aus dem Leben (Sammlung INr 48609, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.624Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Daß die Natur stets auf Ausgleichung dringe, sieht man auch an manchen Formen des Zusammenlebens der Menschen.",
+  "language": [],
+  "musenalm_id": 48626,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Daß die Natur stets auf Ausgleichung dringe, sieht man auch an manchen Formen des Zusammenlebens der Menschen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Bührlen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "swhs5tq7yrhmm32",
+      "agents": "mkvi75e7anbiiw5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.515Z"
+    }
+  ]
+}

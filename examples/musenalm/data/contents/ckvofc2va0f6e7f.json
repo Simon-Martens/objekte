@@ -1,0 +1,45 @@
+{
+  "annotation": "Burlesken (Sammlung INr 100578, Obj 242)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.586Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "In B...en um die Mitternacht / Ein Wagen rollt' mit selt'ner Fracht",
+  "language": [],
+  "musenalm_id": 100580,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 244,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Gesicht des Pietisten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ignaz Hub",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Gesicht des Pietisten",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3r54q793z9vpq1q",
+      "agents": "szz6mzfzlpcduar",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.989Z"
+    }
+  ]
+}

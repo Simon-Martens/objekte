@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 12. /) Graphik im Kalendarium Dezember /) Illustration zu »Kurzgefaßte Geschichte der Deutschen seit der Erwählung Rudolfs von Habsburg bis zum Tode Karls des Fünften oder seit der Wiederherstellung des deutschen Königthums bis zum Religionsfrieden 1273-1558« INr 79209, Obj 31 /) s.a. Textbezug INr 79208, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79194,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kurfürst Johann Friedrich v. Sachsen u. der / Herzog Ernst v. Braunschweig hören ihr Todes- / urtheil standhaft an 1548",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del & fec. 1796",
+  "scans": [
+    "alm_1122_79194_taxxk3lxwx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kurfürst Johann Friedrich v. Sachsen u. der / Herzog Ernst v. Braunschweig hören ihr Todes- / urtheil standhaft an 1548",
+  "updated": "2009-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wjbg0i5amb3qrvg",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.828Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Xenien auf einen großen Todten (Sammlung INr 84130, Obj 125)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Helena läßt dich nicht los, du kühner, ver- / schmachtender Korse!",
+  "language": [],
+  "musenalm_id": 84149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Helena läßt dich nicht los, du kühner, ver- / schmachtender Korse!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "idm3r74at9gte03",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.094Z"
+    }
+  ]
+}

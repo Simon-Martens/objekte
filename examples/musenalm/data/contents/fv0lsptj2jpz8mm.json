@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.545Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Es war im December 1790 als ich bey der Familie M** in T** einige der angenehmsten Wochen meines Lebens zubrachte.",
+  "language": [],
+  "musenalm_id": 52831,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mehlsack",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Appenzeller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mehlsack",
+  "updated": "2007-11-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5zs9yk3l3xw4h0u",
+      "agents": "m2qf0h1oufl2a4q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.880Z"
+    }
+  ]
+}

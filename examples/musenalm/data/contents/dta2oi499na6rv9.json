@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 128168, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Auf einer anmuthigen Anhöhe, mit Linden bepflanzt, lag Theodor Lindau, und sah vor sich ein reitzendes Thal,",
+  "language": [],
+  "musenalm_id": 128194,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVII. Theodor Lindau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Glatz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVII. Theodor Lindau",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h17eiznycaigdzf",
+      "agents": "qxcj6iktsu2xp76",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.979Z"
+    }
+  ]
+}

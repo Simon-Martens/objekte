@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Die Stadt, so die Fürstin der Hanse man hieß / Die man Lübeck, die freie, die thürmige pries,",
+  "language": [],
+  "musenalm_id": 46641,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 184,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Becher. / Lübische Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Esmarch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Becher. / Lübische Sage",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8i0u86g11olyimm",
+      "agents": "5ogdr710lym1c42",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.139Z"
+    }
+  ]
+}

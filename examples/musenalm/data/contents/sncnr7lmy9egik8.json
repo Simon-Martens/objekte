@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Hah seht mit heuchlerischen Zügen / Prinz Bombax, der der Mädchen Schre- / ken war!",
+  "language": [],
+  "musenalm_id": 21508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bombax",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Armbruster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bombax",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d483tbdvij1b08u",
+      "agents": "at81kdy5mbfogcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.786Z"
+    }
+  ]
+}

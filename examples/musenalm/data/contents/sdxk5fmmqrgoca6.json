@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zum Beitrag »Die Unvermählte« von Arth. vom Nordstern d. i. A. v. Nostiz-Jänkendorff INr 19858, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19832,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Unvermählte v. Arth. v. Nordstern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Schwerdtgeburth sc.",
+  "scans": [
+    "alm_267_19832_p2bxc1qpv4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Unvermählte v. Arth. v. Nordstern",
+  "updated": "2001-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ykjub6d5efz7mo7",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.649Z"
+    },
+    {
+      "id": "bvaj4k8g95146yv",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.649Z"
+    }
+  ]
+}

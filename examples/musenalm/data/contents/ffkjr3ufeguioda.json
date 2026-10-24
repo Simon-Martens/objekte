@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik in: Taschenbuch für häusliche und gesellschaftliche Freuden 1797; alm-486; INr 35253",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Getreuer Rappe, spute dich, / Die Freundschaft harret mein:",
+  "language": [],
+  "musenalm_id": 95787,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freundes Willkomm. / Nach dem eben so unterschriebenen Kupfer in C.Langs / Alm. für 1797",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Lindemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freundes Willkomm. / Nach dem eben so unterschriebenen Kupfer in C.Langs / Alm. für 1797",
+  "updated": "2012-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3e9uih7hb80jbaz",
+      "agents": "0vejvx9ns82bwxr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.675Z"
+    }
+  ]
+}

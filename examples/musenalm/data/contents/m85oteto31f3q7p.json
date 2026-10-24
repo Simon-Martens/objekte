@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Gedächtnißfeyer Arnolds von Winkelrieden den 9ten Julius 1786, in Stanz in Unterwalden« INr 79230, Obj 12 /) s. Textbezug INr 79250, Obj 32 /) Nachstich aus: Revolutions-Almanach 1793; alm-934",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.816Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "276",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79248,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arnold von Winkelried zertrennt des Adels Ord- / nung und macht den Seinen eine Gasse. 1386",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Mansfeld sc.",
+  "scans": [
+    "alm_2490_79248_ny9w02d6kv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Arnold von Winkelried zertrennt des Adels Ord- / nung und macht den Seinen eine Gasse. 1386",
+  "updated": "2012-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7cd7vh74wbe0vey",
+      "agents": "x056xs6zlyqcn0t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.415Z"
+    }
+  ]
+}

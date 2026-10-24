@@ -1,0 +1,45 @@
+{
+  "annotation": "Rahmenerzählung",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Es zog einmal eine große Caravane durch die Wüste. Auf der ungeheuren Ebene, wo man nichts als Sand und Himmel sieht, hörte man schon in weiter Ferne die Glocken der Cameele und die silbernen Röllchen der Pferde,",
+  "language": [],
+  "musenalm_id": 41629,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Caravane",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Caravane",
+  "updated": "2005-12-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jn02abhqp2tlxmj",
+      "agents": "ntl4yryhhmz1v3s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.133Z"
+    }
+  ]
+}

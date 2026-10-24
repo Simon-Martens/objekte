@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug INr 61043, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61036,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kambises #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Kininger del. Cl. Kohl sc. Viennae 1796",
+  "scans": [
+    "alm_952_61036_n80xx5uea5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kambises #",
+  "updated": "2008-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vltght4jb4p4ft9",
+      "agents": "60p50kezhrh7h42",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.031Z"
+    },
+    {
+      "id": "c4pg2bjnz6n5s9n",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.032Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.032Z"
+    }
+  ]
+}

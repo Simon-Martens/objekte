@@ -1,0 +1,56 @@
+{
+  "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96745, Obj 16) Übersetzung des vorstehenden franz. Gedichts INr 96750, Obj 21 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96737, Obj 96738; Obj 8, 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Ein alter Haushahn hielt auf / einer Scheune Wache; / Da kommt ein Fuchs mit schnel- / lem Schritt,",
+  "language": [],
+  "musenalm_id": 96751,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Hahn und der Fuchs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine [übers.] Hagedorn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Hahn und der Fuchs",
+  "updated": "2014-05-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ugto30rvf1jyxt1",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.739Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.739Z"
+    },
+    {
+      "id": "pepijqkh7hguju8",
+      "agents": "b9k8fa9bjxcqs84",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.740Z"
+    }
+  ]
+}

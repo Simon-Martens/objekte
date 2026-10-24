@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 4. s. Textbezug INr 32103, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32090,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Affenliebe und Tigerwuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Rmbg. del. H. Grape sc.",
+  "scans": [
+    "alm_433_32090_fwflv72tkd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Affenliebe und Tigerwuth",
+  "updated": "2003-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k1mh118fstqqi79",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.505Z"
+    },
+    {
+      "id": "5yfq9bv1oe2h7zp",
+      "agents": "t2z8lq4qwm3oov7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.505Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.505Z"
+    }
+  ]
+}

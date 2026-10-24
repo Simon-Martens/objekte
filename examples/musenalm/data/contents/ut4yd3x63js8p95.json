@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Blumen! Kinder uns'rer Mutter Erde, / Licht und Wärme wecken wir dem - Werde!",
+  "language": [],
+  "musenalm_id": 48006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Blumen Schlaf",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Christ. Westphalen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Blumen Schlaf",
+  "updated": "2007-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "orc3waqb009f6os",
+      "agents": "jxzegmwnprfq0ub",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.264Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.264Z"
+    }
+  ]
+}

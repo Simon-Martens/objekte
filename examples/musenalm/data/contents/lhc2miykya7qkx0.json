@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VII (Sammlung INr 77129, Obj 5) s. Graphik INr 77143, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Wie einst mit flehendem Verlangen / Pygmalion den Stein umschloß,",
+  "language": [],
+  "musenalm_id": 77142,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ideale. / 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ideale. / 1.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mi85x901k81l8la",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.709Z"
+    }
+  ]
+}

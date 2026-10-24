@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel s. Gedicht INr 54859, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54860,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Heuschrecken-Predigt] #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Disteli del. Buser sc.",
+  "scans": [
+    "alm_745_54860_43zqrqo21e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Heuschrecken-Predigt] #",
+  "updated": "2008-02-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yhspqm7acrcstm3",
+      "agents": "yf0tgu146w1t5rh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.749Z"
+    },
+    {
+      "id": "7jz3hiypmie8k8x",
+      "agents": "gpua5gdwasv89sy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.749Z"
+    }
+  ]
+}

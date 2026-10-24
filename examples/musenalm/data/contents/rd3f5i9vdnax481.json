@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung aus dem Vorwort (INr 127378, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "284",
+  "incipit_statement": "Hätte wohl gar sehr gebeten, / es wär’ erlaubt hier einzutreten, / Helle Lichter, blanke Frauen, / Mag ich arg zu gerne schauen.",
+  "language": [],
+  "musenalm_id": 127523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Zigeunerin",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie May",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine Zigeunerin",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0mhv4cwjoxk4kcd",
+      "agents": "lonqcs6pn486ebs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.943Z"
+    }
+  ]
+}

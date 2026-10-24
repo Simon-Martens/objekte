@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März; paginiert 3. Illustration zu »Die Ahnfrau« von Fr. Grillparzer; Wien 1817 /) s. Textbezug INr 59208, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.556Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59195,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sieh den Brautschmuck, den ich bringe! / die Ahnfrau. Abthl. 5. S. 5",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. M.",
+  "scans": [
+    "alm_890_59195_f4y9ctqrbc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sieh den Brautschmuck, den ich bringe! / die Ahnfrau. Abthl. 5. S. 5",
+  "updated": "2008-08-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t8zfpdqfk55zsbp",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.645Z"
+    },
+    {
+      "id": "hmzqlppf30jb8d3",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.645Z"
+    }
+  ]
+}

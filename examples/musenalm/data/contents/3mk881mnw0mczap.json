@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April /) s. folgenden Textbezug INr 82704, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82703,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (A. Berka inv. sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Berka inv. sc.",
+  "scans": [
+    "alm_3817_82703_o8t6do6slf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2012-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f8dbbwpccwwzztt",
+      "agents": "jlkwrxo4vggz8uy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.122Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.122Z"
+    }
+  ]
+}

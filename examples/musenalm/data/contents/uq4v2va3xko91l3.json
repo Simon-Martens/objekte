@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Jungfrau von Orleans« von Fr. Schiller s. Textbezug INr 31979, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 31980,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lionel und Johanna / Johanna: Tödte mich und fliehe. / Die Jungfrau von Orleans von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury sculp. 1802",
+  "scans": [
+    "alm_366_31980_pon9zgzppk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lionel und Johanna / Johanna: Tödte mich und fliehe. / Die Jungfrau von Orleans von Schiller",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "boua2rnkfcfva2t",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.564Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.564Z"
+    },
+    {
+      "id": "acfdv9uxxao5plw",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.564Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.564Z"
+    }
+  ]
+}

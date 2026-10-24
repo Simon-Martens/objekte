@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.179Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "345",
+  "incipit_statement": "Im Zimmer des Mädchens ertönet ein Lied, / Ein Lied, so zaubrisch linde,",
+  "language": [],
+  "musenalm_id": 100007,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 171,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die rufendenStimmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Apollonius von Maltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die rufendenStimmen",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wnu2gm5i32acx1k",
+      "agents": "enmi0t9mog462m5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.858Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.858Z"
+    }
+  ]
+}

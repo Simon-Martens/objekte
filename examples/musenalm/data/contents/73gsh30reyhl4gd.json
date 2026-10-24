@@ -1,0 +1,45 @@
+{
+  "annotation": "Verona illustrata. An eine schöne Veroneserinn. Im Mai 1831 (Sammlung INr 133579, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Wir wandelten Abends zusammen / Die brausende Etsch entlang,",
+  "language": [],
+  "musenalm_id": 133587,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Die Tiroler Berge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Halirsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Die Tiroler Berge",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zbumw53kzpyzqj3",
+      "agents": "98q4i55rpu2zkyi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.029Z"
+    }
+  ]
+}

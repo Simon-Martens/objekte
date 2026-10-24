@@ -1,0 +1,45 @@
+{
+  "annotation": "Jagdgedichte (Sammlung INr 130814, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Wie von Thürmen allem / Ringsum die Glocken hallen; - / Ein feierlicher Ruf!",
+  "language": [],
+  "musenalm_id": 130816,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Morgenlied eines Jägers am Sonntage auf / dem Weg in den Wald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Morgenlied eines Jägers am Sonntage auf / dem Weg in den Wald",
+  "updated": "2022-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "41j8afwtca5k6ck",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.053Z"
+    }
+  ]
+}

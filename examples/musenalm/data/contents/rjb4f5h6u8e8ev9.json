@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 3. /) Illustration zu »Erfindungen und Vorschläge  zu Garten-Gebäuden« INr 74396, Obj 44 /) # Titel aus dem Beitrag",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74399,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Badhaus #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Thouret inv. Duttenhofer sc.",
+  "scans": [
+    "alm_3112_74399_cluh0lhacl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Badhaus #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7x7cqk2ieb3j0p8",
+      "agents": "zrmsqolvt94ydaa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.513Z"
+    },
+    {
+      "id": "ldoyai5ml91b2as",
+      "agents": "2wfa45xu4b0q4dp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.513Z"
+    }
+  ]
+}

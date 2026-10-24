@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: La verité, toute la verité, rien que la verité",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Es giebt Menschen, die nichts mit der Zeit gemein haben, in der sie geboren wurden, denen ihr Vaterland fremd bleibt, die dort ihre Heimath erblicken, wo die Idee, der sie sich zugeschworen, empordämmert, sei's auch durch Kämpfe und Stürme.",
+  "language": [],
+  "musenalm_id": 57989,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Merced",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Merced",
+  "updated": "2008-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q2cifx4gd1r8xrj",
+      "agents": "rpx0m3s76l0s5s5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.761Z"
+    }
+  ]
+}

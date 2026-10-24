@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von Gedichten INr 21184, 21185; Obj 78, 79 # Anm. am Objekt mit Hinweis auf C. G. Geijer u. A. Afzelius: Sammlung alter schwedischer Volklieder, 1814",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "404",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwei Romanzen, / übersetzt aus dem Schwedischen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie v. Helwig, geb. v. Imhoff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zwei Romanzen, / übersetzt aus dem Schwedischen #",
+  "updated": "2002-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fgijol4dei8vtip",
+      "agents": "g022cx9ysck37av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.922Z"
+    }
+  ]
+}

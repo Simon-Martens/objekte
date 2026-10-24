@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Göthe's Werken. Erste Lieferung. Gedichte (Sammlung INr 40237, Obj 6) s. Graphik INr 40249, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Kannst du, schöne Pächtrin ohne Gleichen, / Unter dieser breiten Schattenlinde, / Wo ich Wandrer kurze Ruhe finde,",
+  "language": [],
+  "musenalm_id": 40248,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Wandrer und Pächterin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Wandrer und Pächterin",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4x1s2algzszudoq",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.749Z"
+    }
+  ]
+}

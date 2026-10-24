@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Ludwig Christoph Heinrich Hölty's Sämtliche Werke, kritisch und chronologisch herausgegeben von Wilhelm Michael. Weimar 1914. Bd. 1. S. 130; s. Re 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Der Schnee zerrinnt, / Der May beginnt; Die Blüthen keimen",
+  "language": [],
+  "musenalm_id": 2395,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingslied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "P.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingslied",
+  "updated": "2000-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3usjzkpt06uufiv",
+      "agents": "zddol7mg2ooigi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.025Z"
+    }
+  ]
+}

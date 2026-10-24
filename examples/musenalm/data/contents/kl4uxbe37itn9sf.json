@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Vorwort (INr 128570, Obj 2)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Willkommen heiß ich Euch, Ihr Gäste! / Bei unserm frohen Kinderfeste, Und wenn es Euch dabei gefällt, Ist’s um uns Alle wohl bestellt.",
+  "language": [],
+  "musenalm_id": 128572,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Ein Prolog. / Für die Eröffnung einer kleinen festlichen / Vorstellung gedichtet",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Moritz Thieme",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Ein Prolog. / Für die Eröffnung einer kleinen festlichen / Vorstellung gedichtet",
+  "updated": "2009-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ee3x149kmzydzll",
+      "agents": "l4w058wzote60qs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.991Z"
+    }
+  ]
+}

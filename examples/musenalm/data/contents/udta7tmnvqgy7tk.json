@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Einleitung und 5 Gedichten s. Anm. INr 55727, Obj 116 /) Lieder (Sammlung INr 55658; Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "Ich bin geboren am 20 Mai 1318 zu Polsnich an der Lahn, das ist ein Hof, der gehört zum Kloster Arnstein, darin ich getauft wurde Johannes.",
+  "language": [],
+  "musenalm_id": 55749,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chronika des fahrenden Schülers / Johannes Lauenburger. / von Polsnich an der Lahn. / Dies Buch ist mir werth und lieb, / Wer es mir stiehlt, der ist ein Dieb.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Brentano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Chronika des fahrenden Schülers / Johannes Lauenburger. / von Polsnich an der Lahn. / Dies Buch ist mir werth und lieb, / Wer es mir stiehlt, der ist ein Dieb.",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "96rqq69vtefsuvm",
+      "agents": "yp673px8ri3kgep",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.824Z"
+    }
+  ]
+}

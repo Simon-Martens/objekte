@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu » Die Belagerung von Eberstein« von K. Geib INr 63137, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63143,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Opitz del. Weber sc.",
+  "scans": [
+    "alm_1034_63143_k07tv9bnvy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+  "updated": "2009-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8d6w38dln1o0pth",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.115Z"
+    },
+    {
+      "id": "hn4liyrzgyt4cw5",
+      "agents": "g7nwy8gxkm3sfp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.116Z"
+    }
+  ]
+}

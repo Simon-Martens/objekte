@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert S. 185 /) Illustration zu »Dö B'stellung« von J. G. Seidl INr 93044, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.081Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93012,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwoa Bild'ln von der Alm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Rieder del. G. Leybold sc.",
+  "scans": [
+    "alm_1588_93012_015yy803ah.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zwoa Bild'ln von der Alm",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mya1rsg8bhkinc3",
+      "agents": "djf4nkfvic4s191",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.642Z"
+    },
+    {
+      "id": "cfs233tpmjhdla0",
+      "agents": "zefb5ir07ld7tkj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.642Z"
+    }
+  ]
+}

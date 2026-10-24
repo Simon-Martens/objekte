@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Heran! Kommt' heran um den schimmernden Tisch, / Wen die Börse beschwert, wessen Hoffnung ist frisch:",
+  "language": [],
+  "musenalm_id": 83851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spielerlied. / 1811",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Farmer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Spielerlied. / 1811",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s2k4kqn4hm1y0no",
+      "agents": "byuhkknqr79s51g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.108Z"
+    }
+  ]
+}

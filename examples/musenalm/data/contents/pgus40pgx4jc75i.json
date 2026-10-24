@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Empfindungen im Walde. Fortsetzung (Sammlung INr 67501, Obj 56) VII. Gedichte (Sammlung INr 67500, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Auf munter zum Spiele, / In waldiger Kühle / Ist's lieblich zu seyn;",
+  "language": [],
+  "musenalm_id": 67503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. / Die Kinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. / Die Kinder",
+  "updated": "2009-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wrugc3j6he43crn",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.427Z"
+    }
+  ]
+}

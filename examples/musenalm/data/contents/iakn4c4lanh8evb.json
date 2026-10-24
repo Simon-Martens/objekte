@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 96812, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Unter jenem luftigen Bogen am nördlichsten Seitenthore der Hügelstadt Assisi, malte der Meister Andrea, den man auch den Ingegno nennt, auf dem nassen Mauerberufe.",
+  "language": [],
+  "musenalm_id": 96818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lehr und Wanderjahre / des / Raphael Santi von Urbino. / Maler-Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Fr. v. Rumohr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lehr und Wanderjahre / des / Raphael Santi von Urbino. / Maler-Novelle",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3n8cntfxdshig5l",
+      "agents": "t3pl2h42coo65p3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.467Z"
+    }
+  ]
+}

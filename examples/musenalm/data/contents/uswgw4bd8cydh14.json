@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 10. /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 65757, Obj 7; s. Textbezug INr 65779, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65780,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "der König auf der Wahlstadt von Liegnitz, / und der Flügelmann des damahligen Bernburgi- / schen Regiments - am 15. August 1760",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Ch. del. E. H. sc.",
+  "scans": [
+    "alm_1105_65780_7uusi6yxbs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "der König auf der Wahlstadt von Liegnitz, / und der Flügelmann des damahligen Bernburgi- / schen Regiments - am 15. August 1760",
+  "updated": "2009-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mg7fmo22qkrk1ne",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.018Z"
+    },
+    {
+      "id": "ce6xi61vr81g093",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.018Z"
+    }
+  ]
+}

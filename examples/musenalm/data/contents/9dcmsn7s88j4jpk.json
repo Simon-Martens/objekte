@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Der Buchhändler Kurt, wie oft er's schon / bereute, / Daß er Luzien, die Erzpoetinn freyte!",
+  "language": [],
+  "musenalm_id": 31859,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der unglückliche Buchhändler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weiser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der unglückliche Buchhändler",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g30cgmsuapn8fej",
+      "agents": "teyd4hg5cxxyi5t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.469Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.469Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Traurender Wandrer, / Blick' in der Hoffnung / Magischen Spiegel!",
+  "language": [],
+  "musenalm_id": 1280,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weissagung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "MATTHISSON",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Weissagung",
+  "updated": "2000-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "my48b67e7wyugq8",
+      "agents": "z3510nlbg6hd1qt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.688Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Gedichte auf Schauspieler /) Gedichte (Sammlung INr 104874, Obj 27) (Sammlung INr 104859, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.170Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "45",
+  "incipit_statement": "Schlängst Du nun mich mit Deiner Lilienhand / Das sanftgeflammte Rosenband; / So wollt ich nimmer mich von Dir entfernen.",
+  "language": [],
+  "musenalm_id": 104880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Minna Brandes. / (als Lucinde im Orakel. ) 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wagenseil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Minna Brandes. / (als Lucinde im Orakel. ) 1779",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9sme0qdrgk8dlyr",
+      "agents": "hjzso88gvqk6ag5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.021Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.021Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Hast dir wohl das Köpfchen recht zerbrochen, / Welche Macht mir binde Fuß und Hand,",
+  "language": [],
+  "musenalm_id": 3048,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn B-r 1783",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rt.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn B-r 1783",
+  "updated": "2000-09-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ifs9k3c6jjmawky",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.743Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.743Z"
+    }
+  ]
+}

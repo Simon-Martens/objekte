@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Zeichen der Ehe. Lustpiel in drey Aufzügen« von A. v. Steigentesch INr 48965, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48962,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (V. Grüner inv. et sculps.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Grüner inv. et sculps.",
+  "scans": [
+    "alm_671_48962_c7pp72r04l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wc1up3ibh71lsf1",
+      "agents": "mwvtf64bmzwstck",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.690Z"
+    }
+  ]
+}

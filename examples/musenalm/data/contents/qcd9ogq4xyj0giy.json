@@ -1,0 +1,45 @@
+{
+  "annotation": "Philanthropisten-Wäldchen (Sammlung INr 34085, Obj 83)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.518Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Niemand ist weniger dem verheerenden Blitze ähnlich, als ein landverderbender Fürst-Eroberer;",
+  "language": [],
+  "musenalm_id": 34094,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Ungleichniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Friedrich Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Ungleichniß",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8yb6no2m8ukw2v8",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.392Z"
+    }
+  ]
+}

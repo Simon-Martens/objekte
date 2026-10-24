@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Preciosa« von K. M. v. Weber / P. A. Wolff; s. Textbezug INr 75319, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75315,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "PRECIOSA. / I. Aufz. 5. Sc. / Preciosa. Da plötzlich hehr und mild. / Naht ihr des Freundes Bild.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_2371_75315_ag2grj8tbr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "PRECIOSA. / I. Aufz. 5. Sc. / Preciosa. Da plötzlich hehr und mild. / Naht ihr des Freundes Bild.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "psnfp5jbkre94df",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.813Z"
+    },
+    {
+      "id": "x7wu44qzvzk22ts",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.813Z"
+    }
+  ]
+}

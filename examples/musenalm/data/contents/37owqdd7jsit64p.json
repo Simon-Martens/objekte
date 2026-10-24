@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Durch Adam ging das Paradies verloren, / Dem jungen Geist gefiel kein friedlich Leben.",
+  "language": [],
+  "musenalm_id": 31864,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Vogel als Milton, / Im Singspiel gleichen Namens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Vogel als Milton, / Im Singspiel gleichen Namens",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8j1odc9i89as8j2",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.690Z"
+    }
+  ]
+}

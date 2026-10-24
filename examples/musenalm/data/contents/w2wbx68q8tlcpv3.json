@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Januar",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58853,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Friedrich Wilhelm Gestüt zu Neustadt an der Dosse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "n. d. Nat. gez. v. J. M. Mauch gest. v. J. G. Martini Rudolstadt",
+  "scans": [
+    "alm_865_58853_x2kf5b6kub.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Friedrich Wilhelm Gestüt zu Neustadt an der Dosse",
+  "updated": "2008-07-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qnio1c4319yodv6",
+      "agents": "4qmuru1kuzg7ngl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.697Z"
+    },
+    {
+      "id": "nanc7vc89exl4d4",
+      "agents": "bix4netz2kpq0qd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.697Z"
+    }
+  ]
+}

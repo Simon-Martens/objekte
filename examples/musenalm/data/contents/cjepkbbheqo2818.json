@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 52586, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "das heißt, ich wollte die Natur in ihrer majestätischen Pracht, die Menschen in ihrer herzlichen Einfalt sehen, und ging bald rechts, wo das eine, bald wieder links, wo das andre mir winkte.",
+  "language": [],
+  "musenalm_id": 52642,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mittag auf dem Lande. / Fragment, / aus dem Tagebuch eines Reisenden. / (Siehe das Titelkupfer.) / Ich reiste, wie man reisen soll, / Im Schweizer Hirtenland;",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß 2.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mittag auf dem Lande. / Fragment, / aus dem Tagebuch eines Reisenden. / (Siehe das Titelkupfer.) / Ich reiste, wie man reisen soll, / Im Schweizer Hirtenland;",
+  "updated": "2007-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q9lrinf87solyod",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.629Z"
+    }
+  ]
+}

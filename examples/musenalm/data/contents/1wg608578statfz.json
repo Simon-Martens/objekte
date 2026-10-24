@@ -1,0 +1,45 @@
+{
+  "annotation": "Lyrisches und Episches (Sammlung INr 81352, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Zum alten Fritz ins Zelt einst trat, / Gewehr in Balance, ein braver Soldat",
+  "language": [],
+  "musenalm_id": 81357,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die Sackuhr",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Verfasser der »Parallelen«",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die Sackuhr",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g8yexh4pc3mz7sh",
+      "agents": "wm9mmfgzc6wy00i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.933Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte, Charaden und Räthsel (Sammlung INr 20961, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "401",
+  "incipit_statement": "An dem einsamen Gestade, / Das die kühle Welle tränkt,",
+  "language": [],
+  "musenalm_id": 20963,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Meeresstrande",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baron Ungern Sternberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Meeresstrande",
+  "updated": "2002-01-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rmqqtj6bzf8l07m",
+      "agents": "323k0krc681l77m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.079Z"
+    }
+  ]
+}

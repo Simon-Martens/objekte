@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Wer sündigte zuerst? wars Eva? wars der / Mann? / Er ganz gewiß.",
+  "language": [],
+  "musenalm_id": 6358,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Adam und Eva",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Nicolay",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Adam und Eva",
+  "updated": "2000-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i8ueqrvpnc3gd42",
+      "agents": "km5yxdev9efbrvi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.263Z"
+    }
+  ]
+}

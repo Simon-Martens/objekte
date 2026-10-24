@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.020Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Wie aus dem Felsen sich die Quelle / Rasch in das freie Leben gießt",
+  "language": [],
+  "musenalm_id": 20511,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das improvisatorische Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ulr. Freiherr v. Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das improvisatorische Lied",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "349j3ntfxkjhxfb",
+      "agents": "e47w01a11l8gujn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.687Z"
+    }
+  ]
+}

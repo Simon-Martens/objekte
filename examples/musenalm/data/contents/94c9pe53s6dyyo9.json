@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.428Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Der Beduine Rabek besaß das schönste Pferd, / Die herrlichste der Stuten, wohl viel des Goldes werth.",
+  "language": [],
+  "musenalm_id": 104132,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rabek und Daher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. G. Neumann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rabek und Daher",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s4yoc8k03n55pi4",
+      "agents": "u56d09jffk0z5ur",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.159Z"
+    }
+  ]
+}

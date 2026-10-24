@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Gedichte (Sammlung INr 40429, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "352",
+  "incipit_statement": "Was stürmt in unbewachten Seelen, / Wie nennt sich diese wilde Kraft,",
+  "language": [],
+  "musenalm_id": 40431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leidenschaft und Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leidenschaft und Liebe",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g6vblyjuqjvk1mg",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.748Z"
+    }
+  ]
+}

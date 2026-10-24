@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 49156, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Man hatte am ersten März schon mancherley gespielt, da vergieng den ältern Kindern die Lust,",
+  "language": [],
+  "musenalm_id": 49180,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Viertes Kupfer. / Das entlaufene Pferd, ein geographisches Spiel für kleinere Spieler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Viertes Kupfer. / Das entlaufene Pferd, ein geographisches Spiel für kleinere Spieler",
+  "updated": "2007-04-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "thmmu335eufl046",
+      "agents": "l2p9o0rcq31xal5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.410Z"
+    }
+  ]
+}

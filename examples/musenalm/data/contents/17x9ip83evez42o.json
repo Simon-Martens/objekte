@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.908Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Ein Fakir ging auf dem Feld dahin, indem er seine Nasenspitze betrachtete. Plötzlich hörte er den Donner unter seinen Füßen rollen,",
+  "language": [],
+  "musenalm_id": 113856,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wahrheit. / Ein indisches Mährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F.Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wahrheit. / Ein indisches Mährchen",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "09d7pg7xn1jazpz",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.479Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.479Z"
+    }
+  ]
+}

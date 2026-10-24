@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juni; nummeriert 5. /) # Bez. an den übrigen Graphiken der Suite /) Illustration zu »Die fischenden Kinder« von H. Kletke INr 131854, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.314Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131845,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Auguste Hüssener sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener sc.",
+  "scans": [
+    "alm_4833_131845_tnrhsunbxr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2023-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w1f8qscgcwng6qn",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.040Z"
+    }
+  ]
+}

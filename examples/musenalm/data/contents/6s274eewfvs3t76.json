@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanzlieder (Sammlung INr 82276, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Komm mit, o Schöne, komm mit mir zum Tanze / Tanzen gehört zum festlichen Tag,",
+  "language": [],
+  "musenalm_id": 82285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wechsel-Lied zum Tanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wechsel-Lied zum Tanze",
+  "updated": "2012-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jjkhbthx6fixzam",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.057Z"
+    }
+  ]
+}

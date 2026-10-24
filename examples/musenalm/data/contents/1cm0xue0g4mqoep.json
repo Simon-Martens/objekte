@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem G-Verz /) Graphik (Portrait) zum Kalendarium",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104722,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BORCHERS",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rosenberg",
+  "scans": [
+    "alm_3251_104722_37rc5y2fgg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BORCHERS",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3xmj3xhvqewq5r4",
+      "agents": "sc75l2sfocgeelr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.867Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.867Z"
+    }
+  ]
+}

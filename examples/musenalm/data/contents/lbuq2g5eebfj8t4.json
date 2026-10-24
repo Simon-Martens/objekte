@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed V, 166",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.511Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Willkommen schöner Jüngling! / Du Wonne der Natur!",
+  "language": [],
+  "musenalm_id": 41704,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Frühling",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Frühling",
+  "updated": "2005-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dhoa34dwid6hkb7",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.908Z"
+    }
+  ]
+}

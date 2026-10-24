@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 112712, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Des Liedes Töne sind verklungen, / Verstummt die junge Sängerin, / Durchzittert von Erinnerungen / Schweigt tief bewegt die Sultanin.",
+  "language": [],
+  "musenalm_id": 112713,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sultanin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. Heller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sultanin",
+  "updated": "2010-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nlfxomcgwjhv01d",
+      "agents": "piabqusdjzazh86",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.313Z"
+    }
+  ]
+}

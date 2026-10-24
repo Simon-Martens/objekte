@@ -1,0 +1,46 @@
+{
+  "annotation": "VIII. Fünf Briefe (Sammlung INr 40829, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "395",
+  "incipit_statement": "O was hätt' ich dir, lieber Miller, alles zu schreiben, wenn ich dir berichten wollte, durch wieviel Nacht und Dunkel, über was für Dornen und Felsentrümmer mich die Hand der Vorsehung seitdem geführt hat.",
+  "language": [],
+  "musenalm_id": 40830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubart, der Vater",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "thh59j27ox5ipdd",
+      "agents": "e0jidz7fwbzecy6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.722Z"
+    }
+  ]
+}

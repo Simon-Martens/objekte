@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.533Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Man wird deine gute Meynung erkennen; man wird eine gewisse Gutmüthigkeit in dir entdecken und achten;",
+  "language": [],
+  "musenalm_id": 73428,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Bemühe dich zu gefallen: und du kannst darauf rechnen, daß dein Bemühen nie ganz vergeblich seyn werde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. Hezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Bemühe dich zu gefallen: und du kannst darauf rechnen, daß dein Bemühen nie ganz vergeblich seyn werde",
+  "updated": "2011-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "80dk02l5t7o2ui9",
+      "agents": "c8k6z31g33p9467",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.308Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bayern. Franken (Sammlung INr 99331, Obj 237)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "398",
+  "incipit_statement": "Du kommst gezogen wie der Morgen zieht, / Du wallst in Klarheit als ein Ton im Lied;",
+  "language": [],
+  "musenalm_id": 99398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 304,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du kommst gezogen wie der Morgen zieht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Scheurlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Du kommst gezogen wie der Morgen zieht",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q2dxlkfjk72o3lb",
+      "agents": "kddiuy2wa4u1map",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.873Z"
+    }
+  ]
+}

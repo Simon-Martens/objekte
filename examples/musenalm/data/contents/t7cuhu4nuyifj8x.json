@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juni (Neustich) nummeriert 12. s. Textbezug INr 135135, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135170,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gaeta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Hossel sculp.",
+  "scans": [
+    "alm_2059_135170_4ly76ntqi5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gaeta",
+  "updated": "2010-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qblesoqg7mb1kqh",
+      "agents": "t4wlsbli26ob7y0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.137Z"
+    }
+  ]
+}

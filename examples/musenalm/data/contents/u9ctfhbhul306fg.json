@@ -1,0 +1,46 @@
+{
+  "annotation": "Mit einem Kommentar Ramlers",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Mahle, wie ich dich belehre, / Mir Bathyllen, meinen Liebling.",
+  "language": [],
+  "musenalm_id": 4313,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied",
+    "Prosa"
+  ],
+  "numbering": 102,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Mahler seines Bathyllus. / Die neun und zwanzigste Ode Anakreons",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Mahler seines Bathyllus. / Die neun und zwanzigste Ode Anakreons",
+  "updated": "2000-09-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3bfwcl5g77vgbld",
+      "agents": "uxrssb0qlf0ghgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.124Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.124Z"
+    }
+  ]
+}

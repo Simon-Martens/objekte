@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24493, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.229Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Kindlich an des Felsens Schwelle / Perlt die kleine Silberquelle,",
+  "language": [],
+  "musenalm_id": 24495,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die vertrocknete Quelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Heyden",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die vertrocknete Quelle",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yxyol9p6a75fg05",
+      "agents": "y4sojkg698u6ihg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.241Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Fluch des Dichters« INr 94675, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.192Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94760,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Brocky del. C. Mahlknecht sc. Viennae)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Brocky del. C. Mahlknecht sc. Viennae",
+  "scans": [
+    "alm_1873_94760_mzwn2x24zr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3d1pcdxbh4rhn29",
+      "agents": "dvo42rs2utb12ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.660Z"
+    },
+    {
+      "id": "38i1xl27s63yk71",
+      "agents": "z8rsr5de0jmn33o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.660Z"
+    }
+  ]
+}

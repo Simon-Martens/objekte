@@ -1,0 +1,45 @@
+{
+  "annotation": "Das Gedicht beschließt den Beitrag: »XI. Warum das Holz noch immer nicht  wohlfeiler?« von v. Wildungen INr 66809, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Immer mag von Erz und Stein / Stolzer Helden Grabmal seyn, / Die die Welt bezwangen; / Meiner Asche, längs verweht, / Soll ein Wald, von mir gesä't, / Einst zum Ruhm noch prangen.",
+  "language": [],
+  "musenalm_id": 66811,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Immer mag von Erz und Stein / Stolzer Helden Grabmal seyn, / Die die Welt bezwangen; / Meiner Asche, längs verweht, / Soll ein Wald, von mir gesä't, / Einst zum Ruhm noch prangen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ilnzkof2nfvon5t",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.256Z"
+    }
+  ]
+}

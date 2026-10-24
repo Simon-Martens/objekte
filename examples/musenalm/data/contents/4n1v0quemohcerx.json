@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium Dezember",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135934,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carl Fürst Fugger-Babenhausen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Au. Th. Weger sc. Leipzig",
+  "scans": [
+    "alm_3864_135934_xy9kqvdgu2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Carl Fürst Fugger-Babenhausen",
+  "updated": "2012-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1894,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sjb11dd1kpzy7ed",
+      "agents": "rikdy6r8rigq41t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.156Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.156Z"
+    }
+  ]
+}

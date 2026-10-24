@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Faust« von J. W. von Goethe s. Textbezug INr 40873, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40872,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faust 11s. Blatt. / Gretchen. Versprich mir Heinrich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Jh. Blaschke",
+  "scans": [
+    "alm_533_40872_a457pgt2u6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Faust 11s. Blatt. / Gretchen. Versprich mir Heinrich",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9uykrgy8evgwxy9",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.175Z"
+    },
+    {
+      "id": "nrxq17qq98vqdbc",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.175Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.175Z"
+    }
+  ]
+}

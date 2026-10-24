@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.895Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Muse, wann singst du mir in deine goldne Cyther / Das wonnevolle, reiche Land,",
+  "language": [],
+  "musenalm_id": 88314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An mein Vaterland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mastalier",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An mein Vaterland",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "efbveresdebmj5f",
+      "agents": "f2jay1ec3g5rdgn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.242Z"
+    }
+  ]
+}

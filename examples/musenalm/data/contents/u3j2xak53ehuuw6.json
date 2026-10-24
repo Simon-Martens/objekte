@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Bacchus, der geliebte Knabe, / Winket mit dem Rebenkranz, / Daß ich an dem Thyrsus-Stabe / Schweife zu Olympus Glanz.",
+  "language": [],
+  "musenalm_id": 100224,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bacchus, der geliebte Knabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Freiherr von Leutrum-Ertingen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bacchus, der geliebte Knabe",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u3u6xmhmep52tsr",
+      "agents": "sjdkhvhq60b5nsf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.991Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.991Z"
+    }
+  ]
+}

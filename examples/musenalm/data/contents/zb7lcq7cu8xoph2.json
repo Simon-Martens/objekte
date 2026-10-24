@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Halb Geistlicher und halb Soldat, / Schwingt Clermont sich ins Feld,",
+  "language": [],
+  "musenalm_id": 75237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf den Grafen von Clermont, / der im siebenjährigen Kriege die Französische / Armee einige Zeit kommandirte. / (Nach dem Französischen.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Rahmel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf den Grafen von Clermont, / der im siebenjährigen Kriege die Französische / Armee einige Zeit kommandirte. / (Nach dem Französischen.)",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9kvwio3xi77c9bm",
+      "agents": "apv8utbqro872oi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.639Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.639Z"
+    }
+  ]
+}

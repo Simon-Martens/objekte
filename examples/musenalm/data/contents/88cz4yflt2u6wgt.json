@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.197Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Das Königsthum, liebe Freundinn, war gestürzt. Brutus wünschte eine rein republikanische Regierungsform einzuführen.",
+  "language": [],
+  "musenalm_id": 135393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Roms Schicksale, / in / Briefen an ein Frauenzimmer. (Fortsetzung)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Carl Unger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Roms Schicksale, / in / Briefen an ein Frauenzimmer. (Fortsetzung)",
+  "updated": "2025-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nbnjmuzf5t1pcpb",
+      "agents": "14s4e7sp59idp02",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.148Z"
+    }
+  ]
+}

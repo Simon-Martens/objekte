@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Illustration zu<em> Der Zwerg Nase</em> INr 140791</div>",
+  "content_type": [],
+  "created": "2026-10-22T09:40:47.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Zwerg Nase",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steindr. v. C. W. Medau in Leitmeritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Zwerg Nase",
+  "updated": "2026-10-22T09:42:32.887Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "akpi2q6n56mxkol",
+      "agents": "cgmvj1ypmw4qftg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-22T09:42:02.711Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-10-22T09:42:32.888Z"
+    }
+  ]
+}

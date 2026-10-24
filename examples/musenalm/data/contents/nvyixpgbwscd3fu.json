@@ -1,0 +1,45 @@
+{
+  "annotation": "unter der Graphik: Verlag von C. Focke in Leipzig /) Illustration zu »Mutter Carey's Hühnchen« von C. v. Wachsmann INr 110053 Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.416Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110049,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Emmy",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stahlstich v. Carl Mayer's Kunst-Anstalt in Nürnberg",
+  "scans": [
+    "alm_2242_110049_e1pxx8r3l5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Emmy",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mkyn35bk2e8t744",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.377Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.377Z"
+    }
+  ]
+}

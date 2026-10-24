@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 98299-98304, Obj 170-175",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.432Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98298,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 169,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieder der Liebe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Halm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lieder der Liebe",
+  "updated": "2014-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4prb2ixx7y2zp6y",
+      "agents": "g5bo98tjkpy8a15",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.780Z"
+    }
+  ]
+}

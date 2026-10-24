@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober (zus. Bezeichnung: Gedr. v. Altmayer)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.873Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73404,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS MONUMENT ZU IGEL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Biermann Gest. v. Hasse",
+  "scans": [
+    "alm_879_73404_d2zdml6qe4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS MONUMENT ZU IGEL",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y4ze1suznz890a5",
+      "agents": "ulca7kvs9vkm8e6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.768Z"
+    },
+    {
+      "id": "90ypi4e0iqz197z",
+      "agents": "h7uaqdezzsr8nde",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.768Z"
+    }
+  ]
+}

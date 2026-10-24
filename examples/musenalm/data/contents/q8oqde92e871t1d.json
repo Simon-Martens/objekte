@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 20165, Obj 86) §5§ bez. Musikbeigabe fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.486Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "399",
+  "incipit_statement": "Fischer harrt am Brückenbogen / Ach so lange Zeit:",
+  "language": [],
+  "musenalm_id": 20170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Widerschein. / Mit Musik von Franz Schubert in Wien §5§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr Franz von Schlechta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Widerschein. / Mit Musik von Franz Schubert in Wien §5§",
+  "updated": "2001-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9tu2idpioo55yn8",
+      "agents": "x1uz1klk4dlr9er",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.987Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.987Z"
+    }
+  ]
+}

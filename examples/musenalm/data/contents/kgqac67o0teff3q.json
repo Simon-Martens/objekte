@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15014,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihrer Majestät / der Königin von Baiern / Therese, Luise, Charlotte, / etc / Ehrfurchtsvoll gewidmet / vom Verleger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "vom Verleger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihrer Majestät / der Königin von Baiern / Therese, Luise, Charlotte, / etc / Ehrfurchtsvoll gewidmet / vom Verleger",
+  "updated": "2001-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e5w5bs8fujywed7",
+      "agents": "i5hrikz4qdzavwx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.732Z"
+    }
+  ]
+}

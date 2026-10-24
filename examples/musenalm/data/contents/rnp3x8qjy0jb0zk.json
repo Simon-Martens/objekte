@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 116121, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.815Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "Fern vom theuren Vaterlande / Schlägt dein Herz von dir erfüllt,",
+  "language": [],
+  "musenalm_id": 116122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der Verbannte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Josephine v. Remekhazy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der Verbannte",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3vjm3pghtvbrm4b",
+      "agents": "jc0gro9nxm9tpb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.404Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.404Z"
+    }
+  ]
+}

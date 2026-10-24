@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung INr 32356, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Solch ein zephyrleichtes Leben, / Solcher Anmuth Gang und Schweben",
+  "language": [],
+  "musenalm_id": 32357,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Ida Brun",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Ida Brun",
+  "updated": "2003-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "96ug1t3w9zg731m",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.405Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Mai; paginiert 5. Illustration zu »Uebersicht der Kriegsjahre 1813. 1814.1815.« von E. H. A. v. Pfuel INr 58481, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.449Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58473,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Napoleons Flucht von Leipzig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf del. et sc.",
+  "scans": [
+    "alm_852_58473_dpp5y5x2a0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Napoleons Flucht von Leipzig",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wzvw5z6ljgwiozn",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.740Z"
+    }
+  ]
+}

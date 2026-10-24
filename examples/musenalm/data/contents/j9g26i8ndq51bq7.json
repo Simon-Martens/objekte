@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Die Frauenburg in Steyermark« von Fr. Sartori INr 92189, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92144,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Frauenburg in Steyermark",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. S. Göbwart sc. 1816",
+  "scans": [
+    "alm_3060_92144_yd8lsfjefj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Frauenburg in Steyermark",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e9sw7o2capzb49u",
+      "agents": "noepczcbklm6eif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.557Z"
+    }
+  ]
+}

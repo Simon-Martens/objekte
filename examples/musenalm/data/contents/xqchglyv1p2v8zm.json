@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert IV. /) # Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13975,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BACCHANTE",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottschick",
+  "scans": [
+    "alm_220_13975_wlr4o2jmvn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BACCHANTE",
+  "updated": "2001-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rvt5h22wgjtrlnb",
+      "agents": "anvuxewtojf01i3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.519Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.047Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Ein heimlich Fest im Schlummer zu begehen, / Wenn sanft ein Hauch gelöst der Sinne Banden,",
+  "language": [],
+  "musenalm_id": 51362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stanze",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "ANTHROPOS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stanze",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "llv5e49peoakz6m",
+      "agents": "v63rmmxw84k8ut2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.613Z"
+    }
+  ]
+}

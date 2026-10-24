@@ -1,0 +1,56 @@
+{
+  "annotation": "# Anm. am Objekt: Diese Ballade ist, mit mehreren, auf ähnliche Art hergestellten Arbeiten meines Freundes Hölty, für die neue rechtmäßige Ausgabe seiner Gedichte bestimmt.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Zween fromme Wunderthäter, / Von Ost bis West bekannt, / Durchwanderten, mit Ablaß / Bepackt, das Schwabenland;",
+  "language": [],
+  "musenalm_id": 18128,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Töffel und Käthe. / Ballade #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hölty und Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Töffel und Käthe. / Ballade #",
+  "updated": "2001-10-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xdgimodp8zkfshe",
+      "agents": "zddol7mg2ooigi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.950Z"
+    },
+    {
+      "id": "lbewttrla1u9vyn",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.950Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September paginiert 5. /) Illustration zu »Theseus« von W. G. Becker INr 10372, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62167,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theseus und Pyrithous entführen / die Helene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki. Cl. Kohl V.",
+  "scans": [
+    "alm_133_62167_3ngycdec8t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Theseus und Pyrithous entführen / die Helene",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xcql9ctzxj1pgsr",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.845Z"
+    },
+    {
+      "id": "2xncsctcv41ednb",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.845Z"
+    }
+  ]
+}

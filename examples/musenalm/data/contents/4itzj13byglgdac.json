@@ -1,0 +1,45 @@
+{
+  "annotation": "Pferdearzneikunst (Sammlung INr 113022, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "236",
+  "incipit_statement": "Das Englisiren gehört ursprünglich zu den Betrügereien, oder zu den Pferde-Verschönerungskünsten der Pferdehändler, und wurde in den ältesten Zeiten nur von ihnen allein ausgeübt.",
+  "language": [],
+  "musenalm_id": 113027,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Ueber / die Entstehung des Englisirens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seifert von Tennecker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Ueber / die Entstehung des Englisirens",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mtrtys18vxbd9t1",
+      "agents": "ngfhgg967qz5l80",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.237Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebesgrüße (Sammlung INr 103642, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Mit der Sonne bin ich erstanden / Im glühenden Tageslauf, / Da schlugen eben die Blumen / Ihre Augen zum Himmel auf.",
+  "language": [],
+  "musenalm_id": 103644,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Rollett",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nzbb8lbuxuxjy21",
+      "agents": "httczwoxxn80r7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.205Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.205Z"
+    }
+  ]
+}

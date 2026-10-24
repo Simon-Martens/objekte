@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Sind deiner Muse Kinder das, was du selber bist, / So haben in der Wiege sie Grazien geküßt.",
+  "language": [],
+  "musenalm_id": 10467,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "46. / An die Frau Majorin von Bademer / geborne von Franklin. / Den 26. October 1787",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. L. v. K. geb. K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "46. / An die Frau Majorin von Bademer / geborne von Franklin. / Den 26. October 1787",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ui6j98ewfmwbeu",
+      "agents": "rqw69nb9cfocqm3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.269Z"
+    }
+  ]
+}

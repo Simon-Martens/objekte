@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammmlung INr 14557, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Was schaust du, Jüngling! nach dem dunklen Strande, / Der jenseits sich erhebt im Dämmerlicht?",
+  "language": [],
+  "musenalm_id": 14561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Bey Ernst Schulze's Tode",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Raimund Walther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Bey Ernst Schulze's Tode",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o3qqho2wwb372x4",
+      "agents": "6nwmu2j1m8xu6n4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.612Z"
+    }
+  ]
+}

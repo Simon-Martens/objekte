@@ -1,0 +1,45 @@
+{
+  "annotation": "Ysopblätter (Sammlung INr 116193, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Ada, Königin von Karien, hatte sichs in den Kopf gesetzt, Alexander der Große müsse ein Feinschmecker sein.",
+  "language": [],
+  "musenalm_id": 116192,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der beste Koch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der beste Koch",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y4s0oamavw00fnw",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.525Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.525Z"
+    }
+  ]
+}

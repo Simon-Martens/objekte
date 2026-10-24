@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58115,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Charlotte Auguste Mathilde / reg. Herzogin von Wirtemberg / geb. Kronprinzessin v. Grosbrittanien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D'Argent sc.",
+  "scans": [
+    "alm_776_58115_g9qxjwk9ee.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Charlotte Auguste Mathilde / reg. Herzogin von Wirtemberg / geb. Kronprinzessin v. Grosbrittanien",
+  "updated": "2008-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0bipx3y9z8wo9jn",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.958Z"
+    }
+  ]
+}

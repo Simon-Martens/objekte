@@ -1,0 +1,45 @@
+{
+  "annotation": "Scherz und Ernst in Sonetten (Sammlung INr 54643, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Viel Herrliches hab' ich an Dir erschaut, / drum bin ich ganz und gar auf Dich versessen,",
+  "language": [],
+  "musenalm_id": 54647,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Bedenken. / An Ursula",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Xaver Schnyder von Wartensee",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Bedenken. / An Ursula",
+  "updated": "2008-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5kosqwegrjmldw2",
+      "agents": "qn8g13ehspgkph8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.881Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.881Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu»Don Carlos« von Fr. Schiller s. Textbezug INr 39182, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39181,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Don Karlos. 4ter Act. 7ter Auftritt. / Meine Züge, sind sie die seinigen nicht auch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. T. Bolt sc. 1809",
+  "scans": [
+    "alm_514_39181_bzrgfnhaky.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Don Karlos. 4ter Act. 7ter Auftritt. / Meine Züge, sind sie die seinigen nicht auch",
+  "updated": "2005-07-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zcuxh6wjydf2vtk",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.904Z"
+    },
+    {
+      "id": "6fbuwgvqif6bbis",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.904Z"
+    }
+  ]
+}

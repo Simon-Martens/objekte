@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. an den übrigen Blättern der Suite /) Graphik im Kalendarium Juni; paginiert 6. Illustration zu »Heinrich IV.« von W. Shakespeare s. Textbezug INr 59639, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59640,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tretet beiseit ihr Grossen. / Schakspeare's Heinrich d. vierte. A. 2. Sc. 4.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L.Wolf del. F. W. Meyer sc.",
+  "scans": [
+    "alm_922_59640_qecp3glwly.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Tretet beiseit ihr Grossen. / Schakspeare's Heinrich d. vierte. A. 2. Sc. 4.",
+  "updated": "2008-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cb10al35y8tvkpv",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.986Z"
+    },
+    {
+      "id": "mj8pikzb49kjv7c",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.986Z"
+    }
+  ]
+}

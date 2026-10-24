@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Thüringen. Sachsen. Preußen (Sammlung INr 99291, Obj 197)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "285",
+  "incipit_statement": "Hoch am Himmel stand die Sonne / Gleich einem Engel / Mit goldenen Flügeln",
+  "language": [],
+  "musenalm_id": 99307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 213,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wartburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise Otto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wartburg",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ue98207eiscoau9",
+      "agents": "wdljo1hy3zp7qgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.884Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.884Z"
+    }
+  ]
+}

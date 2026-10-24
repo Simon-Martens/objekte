@@ -1,0 +1,45 @@
+{
+  "annotation": "Andeutungen zur Erklärung der Kupfer (Sammlung INr 106339, Obj 91) in der »Lösung der Andeutungen« (INr 106360, Obj 112): 10. Welton und Natur; s. Graphik INr 106265, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "302",
+  "incipit_statement": "Du Janusköpfchen einer holden Frau, / Willst Du durch Neckerei mich irre leiten?",
+  "language": [],
+  "musenalm_id": 106349,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 101,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10.",
+  "updated": "2015-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "76wcz3001iwqa4o",
+      "agents": "eips0ml7kk6xorw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.148Z"
+    }
+  ]
+}

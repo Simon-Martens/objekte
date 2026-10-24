@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Reichthum hast du überley, / aber kein Vergnügen:",
+  "language": [],
+  "musenalm_id": 31092,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen jungen Mann, der ein altes sehr reiches Weib heurathete",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perinet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen jungen Mann, der ein altes sehr reiches Weib heurathete",
+  "updated": "2003-01-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x2arlzmqanhyc6n",
+      "agents": "k0pr8qnl9uye038",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.179Z"
+    }
+  ]
+}

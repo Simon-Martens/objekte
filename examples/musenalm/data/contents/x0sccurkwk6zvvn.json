@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Lied vom Weine« von Fr. Kuhn INr 19676, Obj 97 (Photos 19703,01-19703,03)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied vom Weine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Methfessel",
+  "scans": [
+    "alm_265_19703_01_slbvoj0qf4.jpg",
+    "alm_265_19703_02_14zc8op9mt.jpg",
+    "alm_265_19703_03_bmfus6b4kx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lied vom Weine",
+  "updated": "2001-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wdi4q88255ageya",
+      "agents": "b0s74m54xi13z2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.702Z"
+    }
+  ]
+}

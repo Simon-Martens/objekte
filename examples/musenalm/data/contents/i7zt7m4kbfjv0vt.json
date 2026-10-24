@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Lieder (INr 125211, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.382Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Muthig, vorwärts, immer weiter / Hin zum abendrothen Strand!",
+  "language": [],
+  "musenalm_id": 125215,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pilgerlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Jeiteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pilgerlied",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c64gep6qydeete9",
+      "agents": "xk1o4h9hiuycys6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.875Z"
+    }
+  ]
+}

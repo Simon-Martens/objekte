@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Holder Sänger, in der Buche Zweigen / Bau'test deine kleine Wohnung du,",
+  "language": [],
+  "musenalm_id": 84075,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Grasmücke",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Augusta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Grasmücke",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eqsf1dr8y79f5s7",
+      "agents": "ipaex4pw2qxiq5n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.561Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.561Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.445Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "304",
+  "incipit_statement": "Dem neugebohrnen Lenz zu Ehren / Begiengen einst die Vögel allzumal / Im Wald ein großes Fest.",
+  "language": [],
+  "musenalm_id": 82976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kukuk und der Wiedehopf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Krummacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kukuk und der Wiedehopf",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "znrlq5v0bxmoep3",
+      "agents": "n32rrka2qx8adlb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.060Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.060Z"
+    }
+  ]
+}

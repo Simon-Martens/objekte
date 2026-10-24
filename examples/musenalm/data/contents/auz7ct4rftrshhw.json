@@ -1,0 +1,47 @@
+{
+  "annotation": "Vierte Aufstellung von Volksscenen (Sammlung INr 77638, Obj 8) s. Textbezug (Gedicht) INr 77641, Obj 11 /) unter der Graphik: Druck v. Carl Mayer Nbg.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77642,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ESELRITT IN DER CAMPAGNA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lindau gem. Lami in Stahl gest.",
+  "scans": [
+    "alm_2409_77642_viknrceixg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ESELRITT IN DER CAMPAGNA",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2b7an3nz2jkf2ab",
+      "agents": "lbjc9wym039t07j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.550Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.550Z"
+    }
+  ]
+}

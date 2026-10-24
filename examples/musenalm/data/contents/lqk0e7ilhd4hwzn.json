@@ -1,0 +1,45 @@
+{
+  "annotation": "Gemüthserhebungen aus Stellen der heiligen Schrift (Sammlung INr 14774, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "260",
+  "incipit_statement": "Unerforschlich sind die Wege, / Ew'ger! die du mit uns gehst,",
+  "language": [],
+  "musenalm_id": 14775,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Denn wer hat des Herrn Sinn erkannt, oder wer ist sein / Rathgeber gewesen? Ep. an die Römer XI. 34",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Denn wer hat des Herrn Sinn erkannt, oder wer ist sein / Rathgeber gewesen? Ep. an die Römer XI. 34",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6kl8841ft24qcr9",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.530Z"
+    }
+  ]
+}

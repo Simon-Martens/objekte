@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Die scheue, liebliche Gemse, diese schlankleibige, schönäugige und sanfte Gazelle unsrer Alpen, hat sich in Folge zu großer Nachstellungen in der letzten Zeit immer seltener gezeigt,",
+  "language": [],
+  "musenalm_id": 95412,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Deutsche in Frankreich. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Moshammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Deutsche in Frankreich. / Novelle",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ruh8k4pcv42t5p9",
+      "agents": "hsujjp5smywjyiq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.422Z"
+    }
+  ]
+}

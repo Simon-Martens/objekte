@@ -1,0 +1,45 @@
+{
+  "annotation": "Historische Aufsätze (Sammlung INr 43536, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.964Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Mahomett II., welcher durch die Eroberung von Kostantinopel das griechische Kaiserthum vollends zerstörte, starb im Jahr 1481, und hinterließ zwei Söhne, Bajazet und Zizim.",
+  "language": [],
+  "musenalm_id": 43538,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Schicksale des unglücklichen Prinzen Zizim",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Beauregard Pandin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Schicksale des unglücklichen Prinzen Zizim",
+  "updated": "2006-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h0myhsvn8h22qt3",
+      "agents": "9mav4omm7dqt3ib",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.267Z"
+    }
+  ]
+}

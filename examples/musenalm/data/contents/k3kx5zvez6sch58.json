@@ -1,0 +1,45 @@
+{
+  "annotation": "An die Wolken (Sammlung INr 42017, Obj 218)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "326",
+  "incipit_statement": "Nun, ihr da oben, so trübe? / Ihr macht ja ein Gesicht,",
+  "language": [],
+  "musenalm_id": 42020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 221,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Wanderer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Zeising",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Wanderer",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8vbhynf2w1j2h3z",
+      "agents": "s5kqm22xcf4do3c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.934Z"
+    }
+  ]
+}

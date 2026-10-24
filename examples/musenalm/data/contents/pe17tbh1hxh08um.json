@@ -1,0 +1,45 @@
+{
+  "annotation": "6. Die Büste. Drey Sonette (Sammlung INr 14515, Obj 38) /) Erinnerungen aus Italien (Sammlung INr 14508, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.404Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "In schmutz'ger Werkstatt ist es aufgestellet / Die ganz jedoch dem Zweck ist angemessen,",
+  "language": [],
+  "musenalm_id": 14518,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "c.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Z. Werner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "c.",
+  "updated": "2001-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qc0wg3390l0ycq5",
+      "agents": "g7f1xv6d8kkyhx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.745Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.745Z"
+    }
+  ]
+}

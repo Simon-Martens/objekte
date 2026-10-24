@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Den Armen hienieden, welche keine Ansprüche, keine Freuden, keine Wünsche - selbst keine Hoffnungen mehr haben; den Unglücklichen, denen die Sonne der Freude schon vor ihrem Werden unterging,",
+  "language": [],
+  "musenalm_id": 118514,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Blickes Mord",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Blickes Mord",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yile6vv72encfm3",
+      "agents": "c1znfhi5uhuknon",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.576Z"
+    }
+  ]
+}

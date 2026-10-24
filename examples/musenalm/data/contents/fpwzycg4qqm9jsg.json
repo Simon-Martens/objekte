@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Dies Ew. Hochfürstli. Durchlaucht geheiligte Opfer besteht aus Blumen, die größtentheils auf Höchstdero Lande gewachsen sind.",
+  "language": [],
+  "musenalm_id": 93165,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dies Ew. Hochfürstli. Durchlaucht geheiligte Opfer besteht aus Blumen, die größtentheils auf Höchstdero Lande gewachsen sind.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unterthänigst treu gehorsamster H. A. Fr. v. Eschstruth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wht47yarl2b3y60",
+      "agents": "wyoix05eehnfe9p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.558Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.177Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "325",
+  "incipit_statement": "Im Lenze, wenn Alles ergrünet geschwind, / Die Blüthen zersprengen die Hülle,",
+  "language": [],
+  "musenalm_id": 99996,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 160,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Weinstock",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Weinstock",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4wnaupx0p0b1fkd",
+      "agents": "utgjxyadq6s0v86",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.857Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Oesterreich (Sammlung INr 99313, Obj 219)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "Hat mir's Jemand bloß erzählt, / Daß von süßem Weh beseelt / Einst die Nachtigallen schlugen,",
+  "language": [],
+  "musenalm_id": 99325,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 232,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hat mir's Jemand bloß erzählt?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nepomuck Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hat mir's Jemand bloß erzählt?",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i6cp8hox36unn0i",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.815Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.815Z"
+    }
+  ]
+}

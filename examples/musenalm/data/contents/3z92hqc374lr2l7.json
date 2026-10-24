@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel s. Textbezug INr 27992, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27990,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauentaschenbuch / für das Jahr / 1830, / herausgegeben / von / Georg Döring. / Nürnberg / bei Joh. Leonh. Schrag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. C. Geißler; Fr. Fleischmann; Huttula sc.",
+  "scans": [
+    "alm_360_27990_8za8tiopxh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1830, / herausgegeben / von / Georg Döring. / Nürnberg / bei Joh. Leonh. Schrag",
+  "updated": "2002-08-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jj59zjzw50vzhkj",
+      "agents": "1v07c6j6mxrdvwn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.345Z"
+    },
+    {
+      "id": "53g9krr44fy9tx9",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.346Z"
+    }
+  ]
+}

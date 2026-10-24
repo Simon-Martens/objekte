@@ -1,0 +1,45 @@
+{
+  "annotation": "Vier Frühlingslieder (Sammlung INr 22873, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Wollt euch nicht so schnell belauben, / Wälder, und mir wieder rauben / Diesen lieben Sonnenschein,",
+  "language": [],
+  "musenalm_id": 22875,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Kinderfrühling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Kinderfrühling",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qsio6u0ggjw2jtx",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.951Z"
+    }
+  ]
+}

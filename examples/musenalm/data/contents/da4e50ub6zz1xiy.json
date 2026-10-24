@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 94171, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.443Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94170,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Adelinda",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hyrtl sc.",
+  "scans": [
+    "alm_1867_94170_wxh6ws8vjz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Adelinda",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "av9taxe55epa194",
+      "agents": "7fkjjz07df1ajfj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.537Z"
+    }
+  ]
+}

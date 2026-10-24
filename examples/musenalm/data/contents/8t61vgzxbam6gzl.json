@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Charaden (Sammlung INr 22363, Obj 107) Räthsel und Charaden (Sammlung INr 22351, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "448",
+  "incipit_statement": "Die Erste ist ein Held / Doch ritt sie nie ins Feld;",
+  "language": [],
+  "musenalm_id": 22367,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2002-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "esvkhxf117u7a2d",
+      "agents": "u04oy46tu9dlk6x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.637Z"
+    }
+  ]
+}

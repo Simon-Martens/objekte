@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 94731, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.329Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "359",
+  "incipit_statement": "Habt ihr Lina's Grab gesehen, / Lina's, meiner süßen Braut,",
+  "language": [],
+  "musenalm_id": 94732,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k8xg5ixyo1m9ztk",
+      "agents": "xy1xe258ffgo9ok",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.379Z"
+    }
+  ]
+}

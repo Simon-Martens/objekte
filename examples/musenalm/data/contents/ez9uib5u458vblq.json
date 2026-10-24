@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Zauberflöte. Der Dorfbarbier. Fidelio. Beitrag zur musikalischen Kunstgeschichte (Sammlung INr 69536, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Von meinem heitern Namensbruder und seinem eben so ergetzlichen Herrn, der Krone der medizinischen Wissenschaft, will ich erzählen, begann der zweite Freund.",
+  "language": [],
+  "musenalm_id": 69538,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dorfbarbier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dorfbarbier",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5nhtmcc2mrj7cha",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.057Z"
+    }
+  ]
+}

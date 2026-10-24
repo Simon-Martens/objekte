@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Schwaben (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Glutroth haucht das Herz der Rosen, / Und die Lilien träumen keusch;",
+  "language": [],
+  "musenalm_id": 99557,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 136,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Einsame",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Einsame",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w0407dedjy3zqxu",
+      "agents": "wuncq1n9k4kudbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.445Z"
+    }
+  ]
+}

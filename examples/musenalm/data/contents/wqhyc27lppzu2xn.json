@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.100Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Das ist das Nichts der Ding' auf Erden, / Daß Wirklichkeit dem Herzen nimmer gnügt,",
+  "language": [],
+  "musenalm_id": 83788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vanitas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Lautsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vanitas",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "njnt8mr2p3p42yp",
+      "agents": "lddxtb72o5kmwcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.975Z"
+    }
+  ]
+}

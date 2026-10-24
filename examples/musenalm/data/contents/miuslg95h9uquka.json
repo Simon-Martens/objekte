@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an den übrigen Graphiken des Taschenbuchs /) Illustration zu »Das arme Kind« von H. Clauren d.i. C. G. S. Heun INr 93723, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.416Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das verlorene Kind. / Erzählung von H. Clauren",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. C. del. Leop. Beyer sc.",
+  "scans": [
+    "alm_1862_93703_exg926n68v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das verlorene Kind. / Erzählung von H. Clauren",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5d9qc27qhe27aw0",
+      "agents": "7yfzgmx3iovs38k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.523Z"
+    },
+    {
+      "id": "7ndeuhkm9ru8wl5",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.523Z"
+    }
+  ]
+}

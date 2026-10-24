@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Der Mann, den wir in der Ueberschrift genannt haben und der wohl verdient, daß wir die Aufmerksamkeit unserer Leser auf ihn lenken, war ein Portugiese,",
+  "language": [],
+  "musenalm_id": 119178,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Don Ayrez Vanz / Leibarzt und Astrolog Johann III. von Portugal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. M. Kayserling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Don Ayrez Vanz / Leibarzt und Astrolog Johann III. von Portugal",
+  "updated": "2017-07-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7yzla0memyu6wof",
+      "agents": "8r834edaix12otf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.598Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.598Z"
+    }
+  ]
+}

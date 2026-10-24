@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Es ist schlimmer als es wahr« von Calderon s. Textbezug INr 27751, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27748,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Calderon's Lustspiel: / Es ist schlimmer als es war.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Schnorr del. A. Dalbon sc.",
+  "scans": [
+    "alm_356_27748_nu11tcyw4r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus Calderon's Lustspiel: / Es ist schlimmer als es war.",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jw0izi3rggvduyv",
+      "agents": "7yfzgmx3iovs38k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.220Z"
+    },
+    {
+      "id": "s02f02c63v8ubha",
+      "agents": "42w3wulg3fl03j4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.220Z"
+    }
+  ]
+}

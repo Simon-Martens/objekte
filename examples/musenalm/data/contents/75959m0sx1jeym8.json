@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag aus: Taschenbuch zum geselligen Vergnügen 1828 (2: Gleditsch)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "O Hamburg, alte Hafenstadt, / Mit vielen Gassen krumm und eng, / Voll Schmerz, Geschrey und Volksgedräng,",
+  "language": [],
+  "musenalm_id": 126014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Waisengrün",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Waisengrün",
+  "updated": "2019-05-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kkfpx3naajf8yz5",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.871Z"
+    }
+  ]
+}

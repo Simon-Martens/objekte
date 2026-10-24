@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Edmund an Fanny« von v. Schmidt-Phiseldeck INr 4433, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Edmund an Fanny",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grönland",
+  "scans": [
+    "alm_95_4434_jeb4biws1h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Edmund an Fanny",
+  "updated": "2000-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tk2zhkczaajvra1",
+      "agents": "t4tgiy2ivvm5rbd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.135Z"
+    }
+  ]
+}

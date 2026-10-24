@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 112527, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Wenn man in Neapel, auf dem Wege vom Toledo zum Hafen hinab, die Ecke der Straße umbiegt, in der das große Theater von St. Carlo liegt, so tritt man auf einen weiten, freien und von Bäumen beschatteten Platz hinaus,",
+  "language": [],
+  "musenalm_id": 112526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tausendkünstler. Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. v. Lüdemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tausendkünstler. Novelle",
+  "updated": "2010-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nj6mksm1kbdz6aw",
+      "agents": "jqanokpcqaenxu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.427Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.427Z"
+    }
+  ]
+}

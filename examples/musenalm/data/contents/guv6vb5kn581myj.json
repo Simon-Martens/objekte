@@ -1,0 +1,45 @@
+{
+  "annotation": "Neunzehn Lyrische Gedichte (Sammlung INr 50315, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "Im grünen Thal ein Hüttchen lag, / Am Quell mit feuchtem Moose;",
+  "language": [],
+  "musenalm_id": 50317,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Der Ruhesiz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Heinrich Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Der Ruhesiz",
+  "updated": "2007-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zg66ruibijls2yv",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.319Z"
+    }
+  ]
+}

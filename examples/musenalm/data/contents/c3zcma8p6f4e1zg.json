@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Bey dem spärlichen Licht, das der gestirnte Himmel verbreitete, ritt Don Ubaldo de Peralta, ein Edler aus Navarra,",
+  "language": [],
+  "musenalm_id": 14744,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die unschuldigen Verbrecher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmine von Chezy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die unschuldigen Verbrecher",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ri8unrj5ozdvfr8",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.738Z"
+    }
+  ]
+}

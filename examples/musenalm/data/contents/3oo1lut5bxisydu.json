@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Erhebt den Herrn, ihr weiten Himmelskreise! / Ihr Erden singt, ihr Sonnen flammt sein Lob!",
+  "language": [],
+  "musenalm_id": 18871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne / aus einer Festkantate",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Küttner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymne / aus einer Festkantate",
+  "updated": "2001-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7zv9qufu14i1bn2",
+      "agents": "h461np79qaxx2wu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.452Z"
+    }
+  ]
+}

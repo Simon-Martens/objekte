@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 63683, Obj 39)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Seyd nicht grausam, ihr Männer des Lichts! Ihr hauet den Wald um / Welcher dem Wanderer voreinst labenden Schatten verlieh.",
+  "language": [],
+  "musenalm_id": 63689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Manchen Aufklärern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Manchen Aufklärern",
+  "updated": "2009-04-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v94jwbwqvaq0ybd",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.214Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.214Z"
+    }
+  ]
+}

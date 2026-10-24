@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Sinnenliebe« von Bürger INr 3800, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 3801,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sinnenliebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Queck",
+  "scans": [
+    "alm_90_3801_4oj2pj2bc0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sinnenliebe",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0g451523hhxf52i",
+      "agents": "9ayonyltogbumpo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.998Z"
+    }
+  ]
+}

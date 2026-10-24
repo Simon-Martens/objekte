@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "All mein Denken, all mein Sinnen, / All mein Hoffen und mein Lieben,",
+  "language": [],
+  "musenalm_id": 26341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsucht nach Erlösung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Giesebrecht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsucht nach Erlösung",
+  "updated": "2002-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bo7836q03ik8pq6",
+      "agents": "g4m6uyvtmaggql5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.044Z"
+    }
+  ]
+}

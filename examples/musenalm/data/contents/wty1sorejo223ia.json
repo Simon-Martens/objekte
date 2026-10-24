@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebensbeschreibung Carl Marie de la Condamines",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Die Neubegierde, dieser schätzbare Vorläufer des tiefern Forschens, ist unstreitig eine der ersten Quellen der wichtigsten Entdeckungen und wichtigsten Unternehmungen,",
+  "language": [],
+  "musenalm_id": 41251,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Biographie / Condamine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Biographie / Condamine",
+  "updated": "2005-11-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mb3sidw0oq6eccb",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.727Z"
+    }
+  ]
+}

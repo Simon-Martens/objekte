@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 21 /) s. Textbezug INr 59932, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59931,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Constitutionelle Freiheit des Pouvoir exécu- / tif d. 20 Junius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S d. R. sc.",
+  "scans": [
+    "alm_934_59931_hqj525p104.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Constitutionelle Freiheit des Pouvoir exécu- / tif d. 20 Junius",
+  "updated": "2008-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "029sz5xrb4l8b26",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.967Z"
+    },
+    {
+      "id": "plmm6wil2wrydds",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.967Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.967Z"
+    }
+  ]
+}

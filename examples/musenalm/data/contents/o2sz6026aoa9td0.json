@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 24890, Obj 175)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Singen soll ich, was ich weiß / Hier aus diesem schönen Kreis?",
+  "language": [],
+  "musenalm_id": 24893,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 178,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / List",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Albert Graf von Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / List",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bxb1r2ifeciztsp",
+      "agents": "23ylvw2tykdsah6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.841Z"
+    }
+  ]
+}

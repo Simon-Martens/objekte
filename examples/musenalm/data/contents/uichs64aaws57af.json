@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 6. /) s. INr 18635, Obj 17 # Bezeichnung vom Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18637,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seeschlacht auf der Höhe von / Quessant. (1. Juni)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_192_18637_8eu6s6c914.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seeschlacht auf der Höhe von / Quessant. (1. Juni)",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zuciq0j6s7mhunc",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.712Z"
+    }
+  ]
+}

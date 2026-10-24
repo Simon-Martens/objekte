@@ -1,0 +1,45 @@
+{
+  "annotation": "Oesterreichische Volkslieder (Sammlung INr 20486, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.524Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Ich weiß eine schöne Glocke, die hat einen muntern / Klang: / Und weiß wohl ein schmuckes Mädel, das hat / einen muntern Gang.",
+  "language": [],
+  "musenalm_id": 20488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w67zn4hgx2tga5b",
+      "agents": "2wsoz27ytrsps8l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.880Z"
+    }
+  ]
+}

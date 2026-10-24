@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.501Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Der Schüler warf die Pinsel hin / Und schloß sich ein mit trübem Sinn.",
+  "language": [],
+  "musenalm_id": 68044,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schüler. / Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Kreuser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schüler. / Legende",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9vyj3mmibm1ls1t",
+      "agents": "nwzqfwyixmokyap",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.231Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.231Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr13187, Obj 120)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "367",
+  "incipit_statement": "Als Nettchen noch zu ihrer Schwestern Neide / Die heiße Sehsucht jedes Mannes war,",
+  "language": [],
+  "musenalm_id": 13193,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Noeller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "37y5e3ssucqjve1",
+      "agents": "jwuw6kcpwyx8ojz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.322Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.322Z"
+    }
+  ]
+}

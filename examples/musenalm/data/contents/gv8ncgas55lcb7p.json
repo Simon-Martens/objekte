@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Warum siehst du nicht ohne Neid / In deiner Unschuld Silberkleid",
+  "language": [],
+  "musenalm_id": 4971,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die weisse Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmitt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die weisse Rose",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kjratloic1lhruk",
+      "agents": "57y4of9yk0759mz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.976Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.976Z"
+    }
+  ]
+}

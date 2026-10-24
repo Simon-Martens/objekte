@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.049Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Mit der Morgenröthe frühem Schimmer / Mußt du bald den Pfad der Trennung gehen!",
+  "language": [],
+  "musenalm_id": 4384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 173,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Sidonie. / In ihrer Todeskrankeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Ch. Pape",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Sidonie. / In ihrer Todeskrankeit",
+  "updated": "2000-09-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "69xzbgaqw1nq09y",
+      "agents": "2glx0j2o180tzfm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.216Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.216Z"
+    }
+  ]
+}

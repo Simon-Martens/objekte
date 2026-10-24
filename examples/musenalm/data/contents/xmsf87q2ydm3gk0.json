@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Titelgraphik INr 54334,Obj 2; s. Graphik INr 54360, Obj 28 /) mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.605Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Im Land' bey Stans vor alter Zeit; / Ein Wurm verderbte Vieh und Leut;",
+  "language": [],
+  "musenalm_id": 54361,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Struthan von Winkelried",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jakob Schnerr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Struthan von Winkelried",
+  "updated": "2008-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "19tb9qtic4dbbxa",
+      "agents": "cec33a809o0wki1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.886Z"
+    }
+  ]
+}

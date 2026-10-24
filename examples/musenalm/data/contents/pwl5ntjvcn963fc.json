@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 72145, Obj 20)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.846Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Tra ri ra / Die Singe-Zeit ist da, / Gesang aus muntern Kehlen / Darf nie beim Mahl uns fehlen",
+  "language": [],
+  "musenalm_id": 72151,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Traller-Leidchen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Treumund Wellentreter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Traller-Leidchen",
+  "updated": "2010-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nkn509b9syc10ru",
+      "agents": "0lth2adu21imy6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.698Z"
+    }
+  ]
+}

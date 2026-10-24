@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz. nach Symes  [Reise nach Butan] d.i.: Symes, Michael: An Account of an Embassy to the Kingdom of Ava sent by the Governor-General of India, in the year 1795 London: W. Bulmer & Co., 1800 First Edition. Quarto. XXIV, 504, pp. 2 large folding maps, 26 plates, including the eight botanical plates.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41780,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kettenbrücke unweit Chouka ( Tschuka)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frenzel sculps. Dresdae",
+  "scans": [
+    "alm_553_41780_j61i2azclf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Kettenbrücke unweit Chouka ( Tschuka)",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uotn6wk7cs3fzjx",
+      "agents": "0x7ug5u1e4vyv1o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.222Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.222Z"
+    }
+  ]
+}

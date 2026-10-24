@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Es liegt unläugbar ein großer Reiz im Aufsuchen des Schönen, wo immer man dies findet; und im Hervorziehen desselben aus dem Dunkel der Vergangenheit an das Licht der Gegenwart.",
+  "language": [],
+  "musenalm_id": 117070,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwert und Kreuz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clara von Massow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwert und Kreuz",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cq4n1iujrpvm45w",
+      "agents": "gsh6emx95anxaro",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.574Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.574Z"
+    }
+  ]
+}

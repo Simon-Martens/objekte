@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Gedichte (Sammlung INr 40521, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "475",
+  "incipit_statement": "Wo liegt das Land, in dessen Frühlingsauen / Ein dauernd Glück dem müden Wand'rer blüht?",
+  "language": [],
+  "musenalm_id": 40522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wo?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Graf von Sermage",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wo?",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wqxut5h4rx2rauf",
+      "agents": "nf6hcprj7w45n4m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.092Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.092Z"
+    }
+  ]
+}

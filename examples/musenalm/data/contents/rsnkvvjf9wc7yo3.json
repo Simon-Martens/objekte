@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 30053, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.700Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Ein treues Herz bleibt stark in Muth und Hoffen, / Wird auch vom Sturm der Freuden Saat getroffen,",
+  "language": [],
+  "musenalm_id": 30055,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das treue Herz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das treue Herz",
+  "updated": "2002-11-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5ra8p112t4114tr",
+      "agents": "mkd957rgkmp3pvz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.535Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.535Z"
+    }
+  ]
+}

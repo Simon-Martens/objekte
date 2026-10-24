@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumenlese aus deutschen Dichtern des siebenzehnten Jahrhunderts (Sammlung INr 131276, Obj 195) # Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "467",
+  "incipit_statement": "Hat Delia nicht Gold und Schätze, / So hat sie doch, was mir gefällt,",
+  "language": [],
+  "musenalm_id": 131305,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 224,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergnügsamkeit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Opitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vergnügsamkeit",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jywonfr8slepoqr",
+      "agents": "tbjfsz6p9q8bcrh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.029Z"
+    }
+  ]
+}

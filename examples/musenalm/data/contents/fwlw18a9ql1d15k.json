@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Vertröstung« INr 87417, Obj 48",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.358Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87418,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GETRÖSTUNG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Comp. v. W. Riem",
+  "scans": [
+    "alm_1092_87418_b9cubu6q3i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GETRÖSTUNG",
+  "updated": "2009-07-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wn84jw0b03tycs7",
+      "agents": "uoz96fdvbrhaw9f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.195Z"
+    }
+  ]
+}

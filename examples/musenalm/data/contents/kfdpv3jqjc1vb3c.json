@@ -1,0 +1,45 @@
+{
+  "annotation": "Milada's Lieder an Milorad. Aus dem Altböhmischen (Sammlung INr 95054, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Lerche, sprich, wo weilt mein Lieber? / Flogst du nicht an ihm vorüber?",
+  "language": [],
+  "musenalm_id": 95055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Rain",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c3enhkgmp1s9zkp",
+      "agents": "ut3gc8g2lomjo63",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.346Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Durch die Straßen eng und gebogen / Rennt einsam ein bleicher Mann,",
+  "language": [],
+  "musenalm_id": 94694,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Verschollene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tschabuschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Verschollene",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pgv7r25a6ldpkhu",
+      "agents": "snndqassjoh7vf0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.518Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.518Z"
+    }
+  ]
+}

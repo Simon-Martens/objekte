@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Februar /) s. Textbezug INr 116396, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.376Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116382,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Goldfinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'A. sc.",
+  "scans": [
+    "alm_3121_116382_8i0s3493dm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Goldfinder",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "803wh8mmqq7f9e4",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.506Z"
+    }
+  ]
+}

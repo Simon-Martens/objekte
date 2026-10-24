@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 99337-99340, Obj 243-246 /) VI. Bayern. Franken (Sammlung INr 99331, Obj 237)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.978Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "340",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 99336,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 242,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Ungarisch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Friedrich Daumer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Ungarisch",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "16eeiid73rbmi8j",
+      "agents": "t36jhwo4crudqp3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.829Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Nicht jeder kann von heil'gem Eifer glühn: / Drum keinen Nimbus zwar, doch Freude den Xaveren,",
+  "language": [],
+  "musenalm_id": 16395,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Herrn Magistratsrath / Xaver Schnetzler, / welcher sich vor Kurzem vermählt hatte, / an seinem Namenstage, den 3. Decem- / ber 1808",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Herrn Magistratsrath / Xaver Schnetzler, / welcher sich vor Kurzem vermählt hatte, / an seinem Namenstage, den 3. Decem- / ber 1808",
+  "updated": "2001-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aedwfebxo9i0o75",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.669Z"
+    }
+  ]
+}

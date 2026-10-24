@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.725Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Narziß war noch im Alter zarter Knaben, / Wie es im ersten Lenz der Jugend strahlt,",
+  "language": [],
+  "musenalm_id": 22330,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Narziß / von Bojardo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Rudolf Hermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Narziß / von Bojardo",
+  "updated": "2002-02-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "03nnrl3uyzwrx04",
+      "agents": "kvqo68p64ik630m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.150Z"
+    }
+  ]
+}

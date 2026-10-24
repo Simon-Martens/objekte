@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25397, Obj 168)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.006Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "O Welt, bin dein Kind nicht von Hause, / Du hast mir nichts geschenkt.",
+  "language": [],
+  "musenalm_id": 25408,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 179,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Sängerglück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Freiherr von Eichendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Sängerglück",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rx3h52angrpa1gk",
+      "agents": "h99uxdryiugeh6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.344Z"
+    }
+  ]
+}

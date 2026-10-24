@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Epigramme (Sammlung, INr 121721, Obj. 26); # Bezeichnung an der Sammlung",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Freunde, ihr wollt die Natur nachahmend erreichen? / O Thorheit!",
+  "language": [],
+  "musenalm_id": 121745,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Princip der Naturnachahmung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Hebbel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Princip der Naturnachahmung",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3kxxivqm9mhte2l",
+      "agents": "slo2tnoqzd1g9wn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.792Z"
+    }
+  ]
+}

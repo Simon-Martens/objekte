@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Plan s. Tafel INr 69672, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.814Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Dieser Ofen ist im Lichten ein Parallelepipedum, welches 36 Zoll Pariser Maas lang - 26 Zoll hoch, und 12 Zoll breit ist.",
+  "language": [],
+  "musenalm_id": 69646,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beschreibung / eines holzsparenden und zugleich Kochofens, / welcher sehr dauerhaft, bequem, einfach und / möglichst wohlfeil ist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Forstmeister Hartig zu Hungen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beschreibung / eines holzsparenden und zugleich Kochofens, / welcher sehr dauerhaft, bequem, einfach und / möglichst wohlfeil ist",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "drmcizqzua7p5eg",
+      "agents": "hgrjbmc4usfwpzd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.481Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.481Z"
+    }
+  ]
+}

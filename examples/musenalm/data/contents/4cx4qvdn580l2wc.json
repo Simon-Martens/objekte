@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 25 Beiträgen INr 26052-26076, Obj 46-70",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.565Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebesaphorismen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Hermannsthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebesaphorismen",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s2e0g6rmzjcs2n2",
+      "agents": "rxn9x0k5ac10jd7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.282Z"
+    }
+  ]
+}

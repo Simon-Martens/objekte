@@ -1,0 +1,45 @@
+{
+  "annotation": "Windmüller-Lieder (Sammlung INr 98549, Obj 37) Romanzen (Sammlung INr 98542, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Die Mühle, die dreht ihre Flügel, / Der Wind, der sauset darin:",
+  "language": [],
+  "musenalm_id": 98551,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adalbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "enw7pl5hab50qyr",
+      "agents": "3emdj29jey7pglq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.489Z"
+    }
+  ]
+}

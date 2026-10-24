@@ -1,0 +1,45 @@
+{
+  "annotation": "3. Epigramme (Sammlung INr 28861, Obj 27) /) III. Gedichte (Sammlung INr 28855, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "93",
+  "incipit_statement": "Bald war untergegangen das Licht; in den Abendgewölken / Zitterte leis' abwärts goldner Strahlen Gewühl.",
+  "language": [],
+  "musenalm_id": 28862,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. Varnhagen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lrg4su17wm0y9mt",
+      "agents": "ep8tm0egvn3ld0y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.306Z"
+    }
+  ]
+}

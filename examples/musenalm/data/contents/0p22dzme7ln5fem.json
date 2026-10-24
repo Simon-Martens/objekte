@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Apologen, Anekdoten und Einfälle (Sammlung INr 11588, Obj 24) Prosaische Aufsätze (Sammlung INr 11583, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Eine Krähe saß auf einem todten Pfau und bemühte sich, ihm die glänzenden schönfarbigen Federn auszuhacken.",
+  "language": [],
+  "musenalm_id": 11594,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Die Krähe und der todte Pfau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Die Krähe und der todte Pfau",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r916n86p5b080ao",
+      "agents": "scmt2snhwdglbs9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.320Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Gartennachrichten (Sammlung INr 15706, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "254",
+  "incipit_statement": "Ich werde diesen Sommer ein Handbuch der Fruchtbaumzucht herausgeben, das eine Sammlung der bewährtesten Grundsätze und Erfahrungen",
+  "language": [],
+  "musenalm_id": 15733,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ankündigung eines Handbuchs der / Fruchtbaumschule",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. C. L. Hirschfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ankündigung eines Handbuchs der / Fruchtbaumschule",
+  "updated": "2001-05-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l8ez5unsal9bxt3",
+      "agents": "aeds1phnefxrmnb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.472Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.472Z"
+    }
+  ]
+}

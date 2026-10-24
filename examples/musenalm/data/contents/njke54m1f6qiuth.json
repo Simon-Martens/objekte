@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Als Jupiter der unbewohnten Erde / Die Menschen und die Thiere schuf, / Bestimmt er jeglichem den künftigen Beruf,",
+  "language": [],
+  "musenalm_id": 92342,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jupiter, die Thiere, und der Mensch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hagedorn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jupiter, die Thiere, und der Mensch",
+  "updated": "2013-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zge4muo3a5oh9me",
+      "agents": "b9k8fa9bjxcqs84",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.402Z"
+    }
+  ]
+}

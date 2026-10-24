@@ -1,0 +1,56 @@
+{
+  "annotation": "Kupfer zu Romeo und Julia, erläutert durch Beifügung der dargestellten Scenen nach der Uebersetzung von J. H. Voß (Sammlung INr 19321, Obj 11) s. Graphik INr 9270, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "That Sünde die unwerthe Hand an dir, / O Heiligbild, gern büß' ich denVerdruß:",
+  "language": [],
+  "musenalm_id": 19322,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erster Aufzug, fünfte Scene. / (Ein Saal in Kapulets Hause.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakespeare; [übers.] J. H. Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erster Aufzug, fünfte Scene. / (Ein Saal in Kapulets Hause.)",
+  "updated": "2000-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o6k4p68yuadotcd",
+      "agents": "confomdodiakpla",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.911Z"
+    },
+    {
+      "id": "7lbklr2ungscmrs",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.911Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.911Z"
+    }
+  ]
+}

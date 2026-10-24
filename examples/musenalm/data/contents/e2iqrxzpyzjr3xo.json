@@ -1,0 +1,45 @@
+{
+  "annotation": "Einige Beilagen (Sammlung INr 9182, Obj 29) mit einer Illustration s. INr 9193, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "Ein Flügel des Pallasts von Saint-Cloud war in der Geschwindigkeit für die gesezgebenden Räthe eingerichtet worden.",
+  "language": [],
+  "musenalm_id": 9183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Bonaparte zu St. Cloud, im Rath der / Fünfhundert. ( 10. Nov.) / (S. Allg. Zeit. vom 25. Nov. 1799.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Bonaparte zu St. Cloud, im Rath der / Fünfhundert. ( 10. Nov.) / (S. Allg. Zeit. vom 25. Nov. 1799.)",
+  "updated": "2001-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xryscx3dap6uwop",
+      "agents": "b68wiq4xeilaqf3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.522Z"
+    }
+  ]
+}

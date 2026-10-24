@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die grosmütige Art, mit der Eure Hochfürstliche Durchlaucht den ersten Jahrgang dieser Samlung aufzunemen und mich zur Fortsezung zu ermuntern geruheten, hat den Eifer belebt, mit dem ich zu meinem Vorsatz eile,",
+  "language": [],
+  "musenalm_id": 93239,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Durchlauchtigster Erb-Prinz; / Gnädigster Fürst und Herr!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unterthänigster Hans Adolf Fr. von Eschstruth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Durchlauchtigster Erb-Prinz; / Gnädigster Fürst und Herr!",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v7by8spqq0web3b",
+      "agents": "wyoix05eehnfe9p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.298Z"
+    }
+  ]
+}

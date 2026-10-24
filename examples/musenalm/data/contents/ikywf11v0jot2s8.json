@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Vor vielen hundert Jahren trieb einmal ein Hirt, Leibeigener des Grundherrn von Columbacs seine Heerden heimwärts,",
+  "language": [],
+  "musenalm_id": 115774,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Drache von Columbaes. / Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Straube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Drache von Columbaes. / Legende",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hoi4mwu929axjpc",
+      "agents": "osmeoxw3ivqw3j5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.515Z"
+    }
+  ]
+}

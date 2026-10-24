@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder vom Spielmann (Sammlung INr 85721, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "267",
+  "incipit_statement": "Am Ufer des Jordans, auf Bergesrand, / Da stand einst der göttliche Mann,",
+  "language": [],
+  "musenalm_id": 85725,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. M. Rappaport",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "irjnbvdy0ulsreq",
+      "agents": "q2uuw6ut96sk0lt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.107Z"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "annotation": "[unter der Graphik. J. G. Sauerländer's Verlag in Frankfurt] s. Textbezug INr 44555, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44556,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS SCHWEIZERMÄDCHEN AM GRABE IHRES VATERS. / (Nach Pestalozzi's Lienhard und Gertrud.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Fellner Figur v. C. Barth Landschaft von E. Grünewald gest.",
+  "scans": [
+    "alm_608_44556_sbku5ecv2b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS SCHWEIZERMÄDCHEN AM GRABE IHRES VATERS. / (Nach Pestalozzi's Lienhard und Gertrud.)",
+  "updated": "2006-07-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g2ye7gh1gk5x84u",
+      "agents": "9z4h7ka6ovxy0ac",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.431Z"
+    },
+    {
+      "id": "vrtecvcjyzr875w",
+      "agents": "ak2qa5c9tflxdbf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.432Z"
+    },
+    {
+      "id": "0ooc8o4m3oeurgj",
+      "agents": "1ih3q5zwi5sbzkz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.432Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.432Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vue du Pont Serrieres près de Neuchatel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Lory fils del. F. Hegi sc.",
+  "scans": [
+    "alm_718_52431_jhx98jki8d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vue du Pont Serrieres près de Neuchatel",
+  "updated": "2007-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "befz920u4vc1xqy",
+      "agents": "apfgolbsarcaim2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.519Z"
+    },
+    {
+      "id": "o09jffmwd9bimr4",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.519Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.519Z"
+    }
+  ]
+}

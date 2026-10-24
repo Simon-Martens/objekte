@@ -1,0 +1,45 @@
+{
+  "annotation": "Variationen (Sammlung INr 36351, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "Meister Abraham! rief Julie erschüttert - Meister Abraham, was sagt Ihr? der Prinz in Neapel?",
+  "language": [],
+  "musenalm_id": 36356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Kommt euch ein Mann entgegen, / Mit Mantel, Mask' und Degen, / Am Hute eine Feder; [...] / Don Juan",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Luca fa presto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Kommt euch ein Mann entgegen, / Mit Mantel, Mask' und Degen, / Am Hute eine Feder; [...] / Don Juan",
+  "updated": "2003-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xvkvls6xswr036l",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.963Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.963Z"
+    }
+  ]
+}

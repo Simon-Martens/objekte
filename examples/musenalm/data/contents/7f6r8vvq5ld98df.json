@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60788,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OLGA NICOLAJEWNA / Grossfürstin von Russland",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Fr. Krüger gest. v. Auguste Hüssener",
+  "scans": [
+    "alm_875_60788_2c8q1z8xhc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OLGA NICOLAJEWNA / Grossfürstin von Russland",
+  "updated": "2008-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pur2sw7gy60ooix",
+      "agents": "dp1i9gllz2qxsbz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.824Z"
+    },
+    {
+      "id": "v1iezjpn589k2f3",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.824Z"
+    }
+  ]
+}

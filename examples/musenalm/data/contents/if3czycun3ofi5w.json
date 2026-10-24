@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 11. (Apostelfigur vom Sebaldusgrab Nürnberg) s. Textbezug INr 26773, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26774,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S: Simon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Erfunden und in Erz gegossen von Peter Fischer, gez. und gest. von Albt. Reindel",
+  "scans": [
+    "alm_349_26774_b40j42krp3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S: Simon",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5gr4264ngy3hodn",
+      "agents": "2j4fmhpjuaqhaao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.283Z"
+    },
+    {
+      "id": "qbbtf82hstlalek",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.283Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Agrionien für das Jahr 1815 (Sammlung INr 39576, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.466Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "446",
+  "incipit_statement": "Einmal bin ich Menschen gleich / Angethan mit Schmuck und Bändern,",
+  "language": [],
+  "musenalm_id": 39579,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Homonyme",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Homonyme",
+  "updated": "2005-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8m9glp8u8l7x2ne",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.208Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.208Z"
+    }
+  ]
+}

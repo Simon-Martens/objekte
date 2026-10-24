@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35149, Obj 118)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.756Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Gekauert vor dem erz'nen Fußgestelle, / Auf dem das Bild des vierten Heinrichs steht,",
+  "language": [],
+  "musenalm_id": 35152,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Bettlerin von Pont-neuf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freiherr Gaudy",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Bettlerin von Pont-neuf",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8y749i0ixil11kr",
+      "agents": "snnpz92vgxnioxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.691Z"
+    }
+  ]
+}

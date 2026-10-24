@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 5. # Titel aus dem G-Verz INr 15411, Obj 86",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15333,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Specht del. Thoenert sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Specht del. Thoenert sc.",
+  "scans": [
+    "alm_244_15333_h4y8x8bs4u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6pt3s3606cq6dda",
+      "agents": "knrhgn52aqjwh89",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.708Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.708Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "zus. Bezeichnung: Druck und Papier v. Lange in Darmst. /) Illustration zu El ultimo sospiro del moro. (Der letzte Seufzer des Mauren.) von C. von Wachsmann INr 30505, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.524Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30504,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "El ultimo Sospiro del Moro. / von C. Wachsmann.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sonderland del. Ed. Schuler sculp.",
+  "scans": [
+    "alm_401_30504_5tvm8tuzve.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "El ultimo Sospiro del Moro. / von C. Wachsmann.",
+  "updated": "2002-11-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2eislhcq9wtwjku",
+      "agents": "qy6yej73pl7anzc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.663Z"
+    },
+    {
+      "id": "j9i6gciskc3dg24",
+      "agents": "hk6k9w6jym7fe8o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.663Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82334,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ruine des Klosters Marienberg an der Mosel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lasinsky delin. C. Frommel direx.",
+  "scans": [
+    "alm_868_82334_e3t4gesvv0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ruine des Klosters Marienberg an der Mosel",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cv516kgtjw9ym63",
+      "agents": "rvw5lmkfyfm128i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.084Z"
+    },
+    {
+      "id": "xmw4eju2ai2kqcy",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.084Z"
+    }
+  ]
+}

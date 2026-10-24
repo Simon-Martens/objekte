@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Edles Weib, und geliebtes, was auch der Ruf dir / verkündet, / Wie er aus fremden Land traurige Mähr' dir gebracht,",
+  "language": [],
+  "musenalm_id": 65818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ernst Graf von Gleichen an sein / deutsches Eheweib. / Heroide",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ernst Graf von Gleichen an sein / deutsches Eheweib. / Heroide",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2kbjalvmwfa5xlu",
+      "agents": "whg5xn8e9tsvu69",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.186Z"
+    }
+  ]
+}

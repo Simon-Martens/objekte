@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Beiträgen INr 83570-83573, Obj 19-22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.819Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83569,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Nüzliche Lehren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Nüzliche Lehren",
+  "updated": "2012-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rd6l9aqd967j1oz",
+      "agents": "nz3ytz19v6fnz1k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.954Z"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 103858, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.296Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103857,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE BAUERNSTUBE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Bega pinx. S. v. Perger del. F. Geisselr sculp.",
+  "scans": [
+    "alm_1928_103857_2a3mltjd6y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE BAUERNSTUBE",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l583gvq03g168xe",
+      "agents": "9nyewvsw6roldwu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.155Z"
+    },
+    {
+      "id": "pfghwlwc61lz1as",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.155Z"
+    },
+    {
+      "id": "y4n6s2c66402rp2",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.155Z"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "annotation": "Vertonung des Gedichts »Das Grab« von A. Mahlmann INr 12990, Obj 92 (Photos 12989,01-12989,04)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12989,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Grab",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Harder",
+  "scans": [
+    "alm_214_12989_01_7uw4dy2dwc.jpg",
+    "alm_214_12989_02_okzwcobpj6.jpg",
+    "alm_214_12989_03_66umkp665c.jpg",
+    "alm_214_12989_04_fzcb4hvbwc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Grab",
+  "updated": "2001-03-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "djo6dgmfmzvyxlh",
+      "agents": "cx1t1g6vij8mhnm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.596Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.596Z"
+    }
+  ]
+}

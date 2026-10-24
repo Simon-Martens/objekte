@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. s. Titelblatt /) 4 Kapitel INr 60892-60895, Obj 24-27 /) Deutschland ein historisches Gemaelde (Sammlung INr 60887, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60891,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dritte Periode / (Jahr 887-1056.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dritte Periode / (Jahr 887-1056.)",
+  "updated": "2008-11-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "odvlctxa97s4tsm",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.069Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.069Z"
+    }
+  ]
+}

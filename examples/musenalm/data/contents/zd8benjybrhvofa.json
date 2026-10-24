@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.797Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Bav schwört bey Ottons Kopf; warum / nicht bey dem Seinen?",
+  "language": [],
+  "musenalm_id": 38443,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Antiquar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Clodius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Antiquar",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4lpps7ph9bwyvr6",
+      "agents": "7qisyncyozjhj09",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.697Z"
+    }
+  ]
+}

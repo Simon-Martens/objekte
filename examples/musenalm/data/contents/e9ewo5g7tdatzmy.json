@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. zu »Herrant von Wildon«: Er lebte im Anfange des 13. Jahrhunderts",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "An einem heißen Sommertag / Der Kater auf dem Dache lag,",
+  "language": [],
+  "musenalm_id": 80045,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der hoffärtige Kater. / Nach Herrant von Wildon #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der hoffärtige Kater. / Nach Herrant von Wildon #",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8zo8ltb2synggo5",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.952Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.952Z"
+    }
+  ]
+}

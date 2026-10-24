@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.782Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Wie lieblich blinkt des Mondes Schein / Durch's offne Fenster her,",
+  "language": [],
+  "musenalm_id": 31021,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Vorabend meines Hochzeit- / Tages",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Perinet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Vorabend meines Hochzeit- / Tages",
+  "updated": "2003-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5l4iqbr6qapgn4g",
+      "agents": "k0pr8qnl9uye038",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.553Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.553Z"
+    }
+  ]
+}

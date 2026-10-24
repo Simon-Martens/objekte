@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "345",
+  "incipit_statement": "Glück zu! Glück zu! Nach vollen funfzig Jahren / Bist du wie sonst geliebt!",
+  "language": [],
+  "musenalm_id": 37362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "76. / An den Montags-Club bei dessen funfzig-/ jähriger Jubelfeier. / Berlin, den 16. April 1798",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goekingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "76. / An den Montags-Club bei dessen funfzig-/ jähriger Jubelfeier. / Berlin, den 16. April 1798",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "53667bobaewrk4j",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.148Z"
+    }
+  ]
+}

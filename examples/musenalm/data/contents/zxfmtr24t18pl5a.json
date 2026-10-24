@@ -1,0 +1,45 @@
+{
+  "annotation": "Tafellieder (Sammlung INr 792334, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Guckt nicht in Wasserquellen / Ihr lustigen Gesellen, / Guckt lieber in den Wein!",
+  "language": [],
+  "musenalm_id": 79336,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Warnung vor dem Wasser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Warnung vor dem Wasser",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oovynk9a3eru56p",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.998Z"
+    }
+  ]
+}

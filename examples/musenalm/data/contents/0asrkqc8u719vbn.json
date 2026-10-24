@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr Textbezug 19339, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.177Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9250,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Reisenden aus Herkommen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz del. E. G. Krüger sc.",
+  "scans": [
+    "alm_41_9250_e4hfuby362.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Reisenden aus Herkommen",
+  "updated": "2000-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rpxc8m38mdezvhv",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.397Z"
+    },
+    {
+      "id": "gljb8h436hjgk09",
+      "agents": "mi3sfg9f1oc68es",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.397Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.397Z"
+    }
+  ]
+}

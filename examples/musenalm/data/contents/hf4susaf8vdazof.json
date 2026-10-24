@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert I. s. Textbezug INr 43480, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43490,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sonneberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Merck gez. Haldenwang gest.",
+  "scans": [
+    "alm_573_43490_7dcf7m740u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sonneberg",
+  "updated": "2006-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yu0njkod8mljwdr",
+      "agents": "0ub52c1r9o49z3w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.334Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.334Z"
+    },
+    {
+      "id": "kuwouk7pzl4iyt5",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.334Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.334Z"
+    }
+  ]
+}

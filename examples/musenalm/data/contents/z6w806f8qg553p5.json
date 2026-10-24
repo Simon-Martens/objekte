@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Urgeist! Unendlicher! Wesen der Wesen! / Du, dessen Mittelpunkt allenthalben, / Dessen Gränzlinie nirgends ist!",
+  "language": [],
+  "musenalm_id": 101369,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Allgegenwärtigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. Buri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Allgegenwärtigen",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "74grfvud8noax6d",
+      "agents": "g8prxnhm5z8oc6o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.109Z"
+    }
+  ]
+}

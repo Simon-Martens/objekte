@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Eisenknapp und Waldborn« von K .G. Prätzel in: Taschenbuch zum geselligen Vergnügen 1819 (2) INr 21174",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22250,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Edgars Traum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg; H. C. Müller",
+  "scans": [
+    "alm_298_22250_em21wh6yjs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Edgars Traum",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qzz8cvx5sm3v89n",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.055Z"
+    }
+  ]
+}

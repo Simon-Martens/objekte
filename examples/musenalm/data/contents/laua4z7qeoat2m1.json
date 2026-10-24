@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kabale und Liebe« von Fr. Schiller s. Textbezug INr 39990, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39989,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kabale und Liebe IIItr. Act, 6te. Scene / Louise. Nehmen Sie, mein Herr! / Es ist mein ehrlicher Name",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_523_39989_71l9ro3bon.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kabale und Liebe IIItr. Act, 6te. Scene / Louise. Nehmen Sie, mein Herr! / Es ist mein ehrlicher Name",
+  "updated": "2005-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8i9ptrkzmfo3l51",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.813Z"
+    },
+    {
+      "id": "d54wnppabldhvvi",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.813Z"
+    }
+  ]
+}

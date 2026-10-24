@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.511Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9014,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "J. G. JACOBI",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fratrel pinx. Geyser sc.",
+  "scans": [
+    "alm_181_9014_01cp8pcm3a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "J. G. JACOBI",
+  "updated": "2026-06-23T09:01:04.890Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mo1005akuos076e",
+      "agents": "5za3c30qx0jwyn1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.271Z"
+    },
+    {
+      "id": "l5nv2ph31any77v",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.271Z"
+    }
+  ]
+}

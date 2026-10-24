@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel [unter der Graphik: J. D. Sauerländer's Verlag]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44613,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1858 / Rheinisches / Taschenbuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. J. B. Zwecker W. J. Cooke sc.",
+  "scans": [
+    "alm_611_44613_krt9lxzqvh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1858 / Rheinisches / Taschenbuch",
+  "updated": "2006-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sgpbo5bw6gpshci",
+      "agents": "usgtr6dipvre26m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.332Z"
+    },
+    {
+      "id": "18shwar94jebm1n",
+      "agents": "uohs1l6y8ng1p96",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.332Z"
+    }
+  ]
+}

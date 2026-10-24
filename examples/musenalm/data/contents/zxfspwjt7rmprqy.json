@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Julius paginiert 4. /) Illustration zu »Theseus« von W. G. Becker INr 10372, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.169Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62166,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theseus verlaesst Ariadne auf der Insel / Naxos",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki. Cl. Kohl V.",
+  "scans": [
+    "alm_133_62166_ooq2dg5uwa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Theseus verlaesst Ariadne auf der Insel / Naxos",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "peprfwgbfnccfhj",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.845Z"
+    },
+    {
+      "id": "6xwxr2ox4tzojc4",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.845Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Pl. 5. /) Illustration zu »Kurzgefaßte Geschichte der französischen Revolution« von J. P. Rabaut de St. Etienne  [übers.: unbezeichnet] INr 79988, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79992,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bundesfeyer der Franken. / den 14ten Julius 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Moreau del. d'Argent sc.",
+  "scans": [
+    "alm_3775_79992_k1lar7exkk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bundesfeyer der Franken. / den 14ten Julius 1790",
+  "updated": "2012-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4bz12ypvomthsvn",
+      "agents": "6v2mea0laepybs2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.807Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.807Z"
+    },
+    {
+      "id": "v2okc5q12v2eztg",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.807Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.807Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Blumenballaden (Sammlung INr 84801, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Schneeglöcklein, o Schneeglöcklein, / In den Auen läutest du,",
+  "language": [],
+  "musenalm_id": 94802,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Viola",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Schober",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Viola",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7p90opea8n9hemj",
+      "agents": "demesi9ujep1ia6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.369Z"
+    }
+  ]
+}

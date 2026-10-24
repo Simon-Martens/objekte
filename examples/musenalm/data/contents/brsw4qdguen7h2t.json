@@ -1,0 +1,45 @@
+{
+  "annotation": "Stammbuchblätter (Sammlung INr 125582, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.688Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "Aufwärts führt des Menschen Thun und / Streben, / Will er aufwärts, muß er kräftig wagen,",
+  "language": [],
+  "musenalm_id": 125594,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. G. Puff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12.",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "33xdhhmr8mizn3d",
+      "agents": "z276kpo6m8d5nvd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.902Z"
+    }
+  ]
+}

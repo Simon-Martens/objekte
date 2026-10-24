@@ -1,0 +1,45 @@
+{
+  "annotation": "3. Spazierritt (Sammlung INr 38848, Obj 36) Gedichte (Sammlung INr 38842, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.054Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Die Sonne sinkt, schon wird es düster, / Und lange Schatten wirft der Wald,",
+  "language": [],
+  "musenalm_id": 38851,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Graf von Württemberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nek1lhc13c8yk4v",
+      "agents": "c5uqr1fmm5o5hnx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.155Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7732,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Heinrich Voß / Geboren am 20. Febr, 1751",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gröger del. 1801",
+  "scans": [
+    "alm_99_7732_6p6ut4if28.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Johann Heinrich Voß / Geboren am 20. Febr, 1751",
+  "updated": "2001-10-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aqxwvl10il3msm6",
+      "agents": "sqosy7xlx2dl57w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.278Z"
+    }
+  ]
+}

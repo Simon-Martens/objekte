@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 35390, Obj 15) mit einer Illustration s. Graphik INr 35386, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Es war Winter und Abends um 6. Uhr. Wir brannten noch kein Licht. Die helle Flamme des Ofenfeuers spielte an der Wand und erleuchtete den Hintergrund meines Zimmers.",
+  "language": [],
+  "musenalm_id": 35393,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Torstendahl. / Aus Friedrich Hattersdorfs Tagebuch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kayser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Torstendahl. / Aus Friedrich Hattersdorfs Tagebuch",
+  "updated": "2003-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ymczwfirfzsujpj",
+      "agents": "hyp0si34pt4b3dd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.533Z"
+    }
+  ]
+}

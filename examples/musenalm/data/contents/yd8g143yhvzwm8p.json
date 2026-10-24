@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Beitrag INr 46520, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "134",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hohenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horstig del. Darnstedt sc.",
+  "scans": [
+    "alm_630_46521_n16nqvmgd2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Hohenstein",
+  "updated": "2006-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cmh71ygc6xd0y47",
+      "agents": "o2pvd0n9c0ulrf4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.598Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.598Z"
+    },
+    {
+      "id": "1dc34u3fed3fy3h",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.598Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.598Z"
+    }
+  ]
+}

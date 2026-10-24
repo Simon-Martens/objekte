@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 49158, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Der erste April lockte die Tannenberger Jugend heute zum ersten Mal ins Freye.",
+  "language": [],
+  "musenalm_id": 49181,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fünftes Kupfer. / Die Wurfscheibe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fünftes Kupfer. / Die Wurfscheibe",
+  "updated": "2007-04-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "71uuv3folhwz8gq",
+      "agents": "l2p9o0rcq31xal5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.410Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.410Z"
+    }
+  ]
+}

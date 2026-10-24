@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Rosen« von Kotzebue (INr 123679, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123678,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Willst du eine Freude recht genießen, / So thu zuvor, was dir gebührt. / Die Rosen, Scene 4",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. H. Müller sc.",
+  "scans": [
+    "alm_1281_123678_3ku16ju20k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1. / Willst du eine Freude recht genießen, / So thu zuvor, was dir gebührt. / Die Rosen, Scene 4",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "asj01pws67173p0",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.817Z"
+    }
+  ]
+}

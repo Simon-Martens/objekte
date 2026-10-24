@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "Der Meister hat das Liebesmahl gehalten / Mit Heißverlangen an des Todes Schwelle",
+  "language": [],
+  "musenalm_id": 66052,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fußwaschung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Fußwaschung",
+  "updated": "2009-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fe72xc3cgblthm3",
+      "agents": "whg5xn8e9tsvu69",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.349Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.349Z"
+    }
+  ]
+}

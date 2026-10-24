@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Ich habe die Ehre den Freunden der Dichtkunst hiemit den ersten Gesang meiner freine Uebersezzung von Boileaus Pult, aus meinen jüngern Jahren, und den Stunden meiner ersten fröhlicheren Musse zur Prüfung vorzulegen [...] /) mit weiteren Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Zank und Hader und Kampf von der Pröbste / Größtem gekämpfet, / Der mit geweihter Faust, und herkulischer / Knochenstärke / Endlich und endlich ein Pult an die Stirne / des Chores emporhub,",
+  "language": [],
+  "musenalm_id": 68720,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Chorpult. / Eine freie Uebersezzung aus Boileau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Boileau; [übers.] L. Hübner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Chorpult. / Eine freie Uebersezzung aus Boileau",
+  "updated": "2010-01-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7nzfh4eu402uoj1",
+      "agents": "0b9nelfb23buwgh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.448Z"
+    }
+  ]
+}

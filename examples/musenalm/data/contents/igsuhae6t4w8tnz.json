@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert II. /) über der Graphik: Sylvan 1824 /) kol. Illustration zu »Der Parforcehund« von v. d. Borch INr 67458, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Parforce Hunde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Klein del. Nürnb. G. Boettger senior sc.",
+  "scans": [
+    "alm_1152_67459_yuiyl2yx19.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Parforce Hunde",
+  "updated": "2009-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2q56f9njxu37ilk",
+      "agents": "0ub57ews0fgevuy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.460Z"
+    },
+    {
+      "id": "sm17rszgrd9okwg",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.460Z"
+    }
+  ]
+}

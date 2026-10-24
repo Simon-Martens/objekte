@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Im Hüttchen war es still und warm, / Der Jäger lag in Liebchens Arm;",
+  "language": [],
+  "musenalm_id": 72116,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der wilde Jäger. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Sondershausen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der wilde Jäger. / Romanze",
+  "updated": "2010-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0x5027ji4q48fqd",
+      "agents": "36njivcmrbhn7t6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.703Z"
+    }
+  ]
+}

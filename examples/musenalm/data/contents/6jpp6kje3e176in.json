@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Auf blaßer, seelenvoller Schwinge / Bebt meine Hymne auf zu dir,",
+  "language": [],
+  "musenalm_id": 31615,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AN DIE WEHMUTH",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max Fischel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AN DIE WEHMUTH",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cfht0fcqo5r6neb",
+      "agents": "9fm6ody20z4gtke",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.376Z"
+    }
+  ]
+}

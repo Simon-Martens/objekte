@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Graphik INr 78174, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "In der ganzen Schweiz, so wie auch auswärts, wird der Unterwaldner mit der ehrenvollen Benennung des Frommen bezeichnet,",
+  "language": [],
+  "musenalm_id": 78173,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Neuhofer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dvsh8dfwplpuyhy",
+      "agents": "n8qx3uzpvdlhykc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.852Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.852Z"
+    }
+  ]
+}

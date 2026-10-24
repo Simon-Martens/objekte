@@ -1,0 +1,56 @@
+{
+  "annotation": "BALLATEN AUS DEM DECAMERON (Sammlung INr 71272, Obj 59) /) BOCCACCIO (s. Zwischentitel INr 71271, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Ich bin von meiner Schönheit so gefangen, / Dass andre Liebe nimmer / Mich kümmern wird, noch regen mein Verlangen.",
+  "language": [],
+  "musenalm_id": 71273,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / EMILIA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Boccaccio; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / EMILIA",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lxp090g23ip72qz",
+      "agents": "6fk9lntrk75vzyf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.556Z"
+    },
+    {
+      "id": "swr7rbf6ru26s8f",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.556Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.556Z"
+    }
+  ]
+}

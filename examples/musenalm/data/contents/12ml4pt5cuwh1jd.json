@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Man vergesse nur nicht, daß dieß Epigramm 1795, als 10 Jahre vor der Erscheinung des vollendeten Faust von Göthe gedichtet ist. [...] /) X. Neunzehn ungedruckte Epigramme (Sammlung INr 39645, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "353",
+  "incipit_statement": "Was man erzählt von Doktor Faust / Ist weiter nichts als Lug der Möncherei; #",
+  "language": [],
+  "musenalm_id": 39663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18. / Der alte und neue Faust",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klopstock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18. / Der alte und neue Faust",
+  "updated": "2005-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2e0svmnpf7pulai",
+      "agents": "ckd4l48jtgsgmor",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.929Z"
+    }
+  ]
+}

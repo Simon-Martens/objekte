@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Du stilles Dorf, in dessen Schoos / Ein foher Sommer mir verfloß,",
+  "language": [],
+  "musenalm_id": 61992,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Dörfchen bei C.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dorothee Spangenberg. geb. Wehrs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Dörfchen bei C.",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bi1jwg1gu3d7nrr",
+      "agents": "u7poegszzbmufqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.768Z"
+    }
+  ]
+}

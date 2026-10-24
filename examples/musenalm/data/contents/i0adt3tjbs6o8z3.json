@@ -1,0 +1,45 @@
+{
+  "annotation": "Die schöne Kellnerin und ihre Gäste (Sammlung INr 27893, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "362",
+  "incipit_statement": "Will ich in die Kirche gehn, / Bleib' ich bei dem Keller stehn.",
+  "language": [],
+  "musenalm_id": 27896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Kirchgang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Kirchgang",
+  "updated": "2002-08-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bvnvzbckb6qhlwy",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.374Z"
+    }
+  ]
+}

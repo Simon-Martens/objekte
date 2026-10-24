@@ -1,0 +1,45 @@
+{
+  "annotation": "Anzeigen (Sammlung INr 98434, Obj 65) Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.982Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "351",
+  "incipit_statement": "Der Rector an der Paulsschule hat einen altdeutschen Schuh gefunden.",
+  "language": [],
+  "musenalm_id": 98438,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gefunden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gefunden",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dpbohysjz2nbxrs",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.831Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.831Z"
+    }
+  ]
+}

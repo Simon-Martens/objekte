@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.160Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Was ich Ihnen heute erzählen will, gehört nicht in das Gebiet jener Romane, wo der Dolch die Hindernisse löst,",
+  "language": [],
+  "musenalm_id": 85717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Lehrstunde. / Novellette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. Gerle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Lehrstunde. / Novellette",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ryyqdafy9swhjh",
+      "agents": "1g5ju8pfs3rggmg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.107Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.107Z"
+    }
+  ]
+}

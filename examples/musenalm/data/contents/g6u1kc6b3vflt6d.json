@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.559Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Die ihr die tönenden Sphären beschwingt / Zum labyrinthischen Tanze,",
+  "language": [],
+  "musenalm_id": 4565,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne an die Tonkunst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Smart von Ludwig Theob. Kosegarten",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymne an die Tonkunst",
+  "updated": "2000-10-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v956gi1xkbo1ee1",
+      "agents": "nz3ytz19v6fnz1k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.113Z"
+    }
+  ]
+}

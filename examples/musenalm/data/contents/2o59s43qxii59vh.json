@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 27758, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27762,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Clodwig von Frankreich / In Stein gearbeitet von Schonhofer / im Jahre 1361",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schonhofer; A. R.",
+  "scans": [
+    "alm_356_27762_61oxt3359t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Clodwig von Frankreich / In Stein gearbeitet von Schonhofer / im Jahre 1361",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8fj5c2vrfowejze",
+      "agents": "2cs55gmjk0f1klo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.179Z"
+    },
+    {
+      "id": "94b0cv4hltmra6g",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.179Z"
+    }
+  ]
+}

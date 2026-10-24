@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite (INr 123988, Obj 2); Illustration zu »Florette« von Deinhardstein (INr 123992, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 123993,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Florette. / Seht hier die Blume an, sie hat geblüht: / Die Liebe blüht auch nur einmal, meine ist verwelckt. / Florette. 10r Auftritt.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Junge del. G Boettger senior sc.",
+  "scans": [
+    "alm_1290_123993_ac6ecao2o9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "II. / Florette. / Seht hier die Blume an, sie hat geblüht: / Die Liebe blüht auch nur einmal, meine ist verwelckt. / Florette. 10r Auftritt.",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tvc9u60t60jxkwf",
+      "agents": "hwl1l57k0tbbc1r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.827Z"
+    },
+    {
+      "id": "79bmt3m1wdxnyqz",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.827Z"
+    }
+  ]
+}

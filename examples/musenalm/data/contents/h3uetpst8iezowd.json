@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Warum sollt' ich mich nicht freun? / Nenn' ich doch mein Röschen mein!",
+  "language": [],
+  "musenalm_id": 2205,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 125,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Morgen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "I.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Morgen",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d5wa2776sa1jiga",
+      "agents": "majfhkazcb1ylfy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.812Z"
+    }
+  ]
+}

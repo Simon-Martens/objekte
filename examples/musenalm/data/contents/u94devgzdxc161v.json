@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Du, dem das Erst' und Letzte meiner Lieder / Geweiht ist, wolltest deinen ältlichen / Horaz, der oft genug besehn, / Beklatscht auch ward,",
+  "language": [],
+  "musenalm_id": 128879,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Freund meiner Muse. / Nach dem Eingang der 1. Epistel des Horaz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Blumauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Freund meiner Muse. / Nach dem Eingang der 1. Epistel des Horaz",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pla10mbgm2klsur",
+      "agents": "p56m9esfl91y36d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.989Z"
+    }
+  ]
+}

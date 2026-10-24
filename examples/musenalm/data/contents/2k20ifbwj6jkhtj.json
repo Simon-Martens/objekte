@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-09T08:43:51.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "Nimm deinen Pfeil zurück, er brachte mir nur / Schmerzen, / Obgleich er mir Glückseligkeit versprach",
+  "language": [],
+  "musenalm_id": 140525,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Eros",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz v. Schober",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Eros",
+  "updated": "2026-09-09T08:45:15.729Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "c4k6mptt3n5snfl",
+      "agents": "demesi9ujep1ia6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-09T08:45:10.482Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-09T08:45:15.731Z"
+    }
+  ]
+}

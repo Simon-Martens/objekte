@@ -1,0 +1,67 @@
+{
+  "annotation": "paginiert 2. /) s. Textbezug INr 88162, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.239Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88173,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Italiän. Schule / Perin del Vaga",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perin de Vaga . F. H. Müller gez. Martin Esslinger gest. Zürich",
+  "scans": [
+    "alm_575_88173_c5xfa61w4c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Italiän. Schule / Perin del Vaga",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sycni5ieq3xs2rs",
+      "agents": "btgq674jbm0tymd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.113Z"
+    },
+    {
+      "id": "86057672tsoa1vv",
+      "agents": "j12p4vv4qgvdxl0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.113Z"
+    },
+    {
+      "id": "sh24wk3wce0kswb",
+      "agents": "zfprrqdgr3ky9ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.113Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.113Z"
+    }
+  ]
+}

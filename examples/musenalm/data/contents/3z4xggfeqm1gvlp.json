@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "246",
+  "incipit_statement": "Die schönste, fettste Thierhaut sahn / Zwei Hund' in einem Strome schwimmen.",
+  "language": [],
+  "musenalm_id": 4553,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Hunde und die Thierhaut. / 1794",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Hunde und die Thierhaut. / 1794",
+  "updated": "2000-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zazyl64sso6aq8a",
+      "agents": "n6qsoh59lz0ry1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.183Z"
+    }
+  ]
+}

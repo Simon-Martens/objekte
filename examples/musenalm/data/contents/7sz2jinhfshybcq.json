@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium April; nummeriert 4.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107095,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwölf Bücher, tief in Staub verschanzt, / Ein leerer Kopf, ein voller Wanst, [...]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv & sc.",
+  "scans": [
+    "alm_2157_107095_a0ca30i3no.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zwölf Bücher, tief in Staub verschanzt, / Ein leerer Kopf, ein voller Wanst, [...]",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7cdjhpheptbb4go",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.243Z"
+    }
+  ]
+}

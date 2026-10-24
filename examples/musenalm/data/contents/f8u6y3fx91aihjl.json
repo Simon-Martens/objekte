@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Du hast des Herzens Eingang grün verhangen, / Das ließ mich hoffen, einst hineinzuschauen,",
+  "language": [],
+  "musenalm_id": 94618,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grün und Roth. / (Sonett.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Laube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grün und Roth. / (Sonett.)",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ufm1tqprprgdgzq",
+      "agents": "vdvhd92g7pfd9hy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.389Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.389Z"
+    }
+  ]
+}

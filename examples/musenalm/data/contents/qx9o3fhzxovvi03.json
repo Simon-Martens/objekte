@@ -1,0 +1,49 @@
+{
+  "annotation": "Vorwort des Herausgebers /) Photos 54821,01-54821,03",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Wenn man die so häufigen Klagen der Bühnen über den Mangel an neuen Stücken und Beschränkung des Repertoirs hört, so muß es scheinen, als gäben die Sammlungen von Bühnenspiele, welche für das stets zunehmende Bedürfniß sorgen, für den eigentlichen Zweck",
+  "language": [],
+  "musenalm_id": 54821,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. W. Foerster",
+  "scans": [
+    "alm_17_54821_01_hj5xd3krmt.jpg",
+    "alm_17_54821_02_93uaos6o6h.jpg",
+    "alm_17_54821_03_7zp7un6o94.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2008-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "huokb9o4z0iqctn",
+      "agents": "cvj1hp70xlt5hpm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.498Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.498Z"
+    }
+  ]
+}

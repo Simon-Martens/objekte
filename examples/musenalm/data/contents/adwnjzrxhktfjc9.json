@@ -1,0 +1,56 @@
+{
+  "annotation": "DANTE (s. Zwischentitel INr 71217, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Ihr Pilger, die ihr in Gedanken gehet, / Vielleicht an etwas, das euch nicht vorhanden:",
+  "language": [],
+  "musenalm_id": 71221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SONETT. / II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dante; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "SONETT. / II.",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h492a6ur35658ju",
+      "agents": "4kx0nhbz4zjda3r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.413Z"
+    },
+    {
+      "id": "7xm31b8qltsw9bw",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.413Z"
+    }
+  ]
+}

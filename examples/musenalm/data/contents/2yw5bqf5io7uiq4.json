@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Bilder und Scenen aus den Jugendjahren der Königin Maria Stuart« von A. v. Tromlitz d.i. K. A. F. v. Witzleben; INr 110976, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "256",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110977,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria Stuart",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender gez. Dav. Weiss gest. in Stahl Wien",
+  "scans": [
+    "alm_3475_110977_hs5uxfv8n6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Maria Stuart",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nst4y0zj7h0ej7h",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.271Z"
+    },
+    {
+      "id": "n46cjdxbghyezpx",
+      "agents": "yf7uqcfkp0nwlnb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.271Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.271Z"
+    }
+  ]
+}

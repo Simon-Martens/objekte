@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Vorschriften für und Bemerkungen über Leckermäuler (Sammlung INr 50494, Obj 28) Mannigfaltigkeiten zur Belehrung und Belustigung der Leckermäuler (Sammlung INr 50493, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "251",
+  "incipit_statement": "Ein reiches und wohlzugerichtetes Mittagsessen mit der gehörigen Mus' und Bequemlichkeit einzunehmen, braucht man gerade fünf Stunden.",
+  "language": [],
+  "musenalm_id": 50533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein reiches und wohlzugerichtetes Mittagsessen mit der gehörigen Mus' und Bequemlichkeit einzunehmen, braucht man gerade fünf Stunden.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grimod de la Reyniere; [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-07-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fty88dqmbzs31zb",
+      "agents": "ndyaxges5n0jd1z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.933Z"
+    }
+  ]
+}

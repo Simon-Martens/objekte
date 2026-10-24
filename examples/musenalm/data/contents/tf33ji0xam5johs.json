@@ -1,0 +1,58 @@
+{
+  "annotation": "<div>&nbsp;Illustration zu »Oberon« von K. M. v. Weber / J. R. Planché, Th. Hell /) s. Textbezug INr &nbsp; 149338</div>",
+  "content_type": [],
+  "created": "2026-08-11T10:34:53.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140337,
+  "musenalm_pagination": [
+    "2. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OBERON. / II. Aufz. 1. Sc. / Huon. Stirb ungläubiger Verräther!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+  "scans": [
+    "alm_2373_140337_2pooozaz79.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OBERON. / II. Aufz. 1. Sc. / Huon. Stirb ungläubiger Verräther!",
+  "updated": "2026-08-12T10:42:11.532Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "9xjwsnygp14by5w",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-11T10:36:59.914Z",
+      "edit_comment": "",
+      "type": "Zeichner:in",
+      "uncertain": false,
+      "updated": "2026-08-12T10:42:11.531Z"
+    },
+    {
+      "id": "ev9blugruebmljw",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-11T10:37:15.061Z",
+      "edit_comment": "",
+      "type": "Kupferstecher:in",
+      "uncertain": false,
+      "updated": "2026-08-12T10:42:11.531Z"
+    }
+  ]
+}

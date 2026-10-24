@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Tanz im Walde« von E. Raupach INr 29997, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29998,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tanz im Walde. Romanze von Ernst Raupach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_388_29998_s4jjq2wmva.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Tanz im Walde. Romanze von Ernst Raupach",
+  "updated": "2002-11-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7mkx6qqfomgxbt3",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.211Z"
+    },
+    {
+      "id": "cl125a0obbudckt",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.211Z"
+    }
+  ]
+}

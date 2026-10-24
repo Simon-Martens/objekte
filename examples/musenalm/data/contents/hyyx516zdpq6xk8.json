@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Einfälle (Sammlung INr 37544, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "52",
+  "incipit_statement": "Hat dir ein Mißgeschick des Lebens Freuden ver- / bittert,",
+  "language": [],
+  "musenalm_id": 37548,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hat dir ein Mißgeschick des Lebens Freuden ver- / bittert,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerning",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ibn8ela40q86nc1",
+      "agents": "ka1wm9mc4kl7y0b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.436Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.436Z"
+    }
+  ]
+}

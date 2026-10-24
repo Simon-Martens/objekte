@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollständige Bezeichnung aus dem G-Verz /) Illustration zu »König Lear« von W. Shakespeare; s. Textbezug INr 19107, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9323,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "König Lear. / 5. Aufzug 3. Scene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz; Adam",
+  "scans": [
+    "alm_45_9323_nxkkmun0ku.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "König Lear. / 5. Aufzug 3. Scene",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kmrzo7ek3igl5yb",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.368Z"
+    },
+    {
+      "id": "2oqtwd5umuho1eb",
+      "agents": "pwu0ag06fns429a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.369Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke aus der Weisheit der Brahmanen",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "314",
+  "incipit_statement": "Vernimm zum Scherz , o Scherz, o Sohn, den Trost, den sich erkor / Ein Araber dafür, daß er sein Roß verlor.",
+  "language": [],
+  "musenalm_id": 30529,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Trost fürs verlorene Roß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Trost fürs verlorene Roß",
+  "updated": "2002-11-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nmzzxctax4pbax7",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.677Z"
+    }
+  ]
+}

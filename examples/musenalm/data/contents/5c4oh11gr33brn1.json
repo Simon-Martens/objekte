@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 34292, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34291,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bélisaire",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "David pinxt. Lambert sculp.",
+  "scans": [
+    "alm_477_34291_km0vawtrk9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bélisaire",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6krs4bdi9wxjfpq",
+      "agents": "0n71y8hs79tvb3k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.215Z"
+    }
+  ]
+}

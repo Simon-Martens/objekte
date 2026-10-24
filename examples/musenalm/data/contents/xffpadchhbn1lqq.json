@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 41852, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Hört mich, Kleingläubige! wie vormals im Gefilde / Der Marne bei Chalons die Sünderin Brunhilde / Durch Knechte binden ließ mit ihrem grauen Haar / An einen wilden Hengst,",
+  "language": [],
+  "musenalm_id": 41856,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Anno Domini.........?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Freiligrath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Anno Domini.........?",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1wrfn8i4mngi7je",
+      "agents": "vmnuom11udo0f3y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.281Z"
+    }
+  ]
+}

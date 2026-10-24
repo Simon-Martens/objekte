@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Maskerade auf dem Papier (Sammlung INr 128308, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Tänze muß man sich betrachten, / Was sie deutend zeigen an;",
+  "language": [],
+  "musenalm_id": 128310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweites Lied. / Die Tänze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kuhn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweites Lied. / Die Tänze",
+  "updated": "2011-08-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7cu8ouhqnjzvigq",
+      "agents": "ijn3e3gugtz46hh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.982Z"
+    }
+  ]
+}

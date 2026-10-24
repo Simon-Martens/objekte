@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Perkun der Donnergott der alten Slaven« INr 110250, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110252,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Perkun der Donnergott der alten Slaven. / Rück-Seite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Stegemann gest. v. Gottschick",
+  "scans": [
+    "alm_3744_110252_4t93a3km5m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Perkun der Donnergott der alten Slaven. / Rück-Seite",
+  "updated": "2011-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "agaecf0b4kjye48",
+      "agents": "fs9ih0plp87z7ir",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.468Z"
+    },
+    {
+      "id": "rhrayw1c0etzbg1",
+      "agents": "anvuxewtojf01i3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.468Z"
+    }
+  ]
+}

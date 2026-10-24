@@ -1,0 +1,56 @@
+{
+  "annotation": "Anmerkungen der Herausgeber",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "397",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54491,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bemerkung und Entschuldigungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Herausg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bemerkung und Entschuldigungen",
+  "updated": "2008-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4fhlf17y780x0lm",
+      "agents": "0v61flsplw084qp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.542Z"
+    },
+    {
+      "id": "2lntfw7rxq266oy",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.543Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.543Z"
+    }
+  ]
+}

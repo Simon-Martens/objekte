@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. und Titel aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Der eigentliche Gründer der holländischen Macht in Indien ist Jan Peterszen Koen (Kuhn), der im J. 1619 den Grund zu Batavia legte",
+  "language": [],
+  "musenalm_id": 42303,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zustand der holländischen Besitzungen #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zustand der holländischen Besitzungen #",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vihnsv0mzmqyhxa",
+      "agents": "q5rzjlx40lnqx6r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.278Z"
+    }
+  ]
+}

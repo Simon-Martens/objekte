@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "368",
+  "incipit_statement": "Der Baurath Colomann Vesthaber war eine lange, steife, hagere Gestalt.",
+  "language": [],
+  "musenalm_id": 27985,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Verwaisten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Mosengeil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Verwaisten",
+  "updated": "2002-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6axnvd25wsznvp5",
+      "agents": "on9jq8q7af8kfmj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.416Z"
+    }
+  ]
+}

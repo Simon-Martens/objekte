@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24416, Obj 196)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "297",
+  "incipit_statement": "Ein Räthsel ist der Grund, auf dem die Seele baut, / Der Himmel ist das Ziel, zu dem sie aufwärts schaut,",
+  "language": [],
+  "musenalm_id": 24418,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 198,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Zu einem allegorischen Bilde von M. Retzsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Wendt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Zu einem allegorischen Bilde von M. Retzsch",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "adan8wyypbye2d1",
+      "agents": "67zaqw1ahn1z54k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.201Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.201Z"
+    }
+  ]
+}

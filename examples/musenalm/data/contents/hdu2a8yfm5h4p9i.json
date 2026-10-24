@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Atelier v. Grünewald & Cooke] s. Textbezug INr 44063, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44064,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE BEIDEN MARIEN AM GRABE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ph. Veit pinx. T. S. Engleheart sc.",
+  "scans": [
+    "alm_597_44064_1347q8l2kc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE BEIDEN MARIEN AM GRABE",
+  "updated": "2006-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pkgytn8pndx0s2n",
+      "agents": "mf70dksjeqdse8p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.394Z"
+    },
+    {
+      "id": "bqwqj6qb6fv9ncy",
+      "agents": "8w6n9g0x6dcpwhp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.394Z"
+    }
+  ]
+}

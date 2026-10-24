@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.348Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Freudig durch alle germanischen Gauen, / Hoch in den Alpen und ferne am Belt, / Klang es im Jubelton: Ehret die Frauen.",
+  "language": [],
+  "musenalm_id": 95110,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Frauen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. L.Schleifer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Frauen",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "otlfwk8su1milkw",
+      "agents": "90zse4ajt2jiztn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.489Z"
+    }
+  ]
+}

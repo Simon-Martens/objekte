@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung an 6 Graphiken der Suite. Graphik im Kalendarium paginiert No 1 s. Textbezug INr 32580, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32445,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Kraus del.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kraus del.",
+  "scans": [
+    "alm_450_32445_ytqe0u309e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uw4qahunnmlzk5y",
+      "agents": "vvn2bsy8p7l2qv3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.566Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.566Z"
+    },
+    {
+      "id": "dve95ga223di0c8",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.566Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.566Z"
+    }
+  ]
+}

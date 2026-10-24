@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachlass von Gotter (Sammlung INr 15996, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Schön, wie ihres Bundes Morgenröthe, / Sey ihr Glück - ein langer Sommertag!",
+  "language": [],
+  "musenalm_id": 32,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Impromptü auf ein junges Ehepaar, an / ihrem Hochzeitsballe, / am 16. September 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "GOTTER",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Impromptü auf ein junges Ehepaar, an / ihrem Hochzeitsballe, / am 16. September 1791",
+  "updated": "2001-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ca0j8x1guc4c1ze",
+      "agents": "hu6ba8zv7wtaxe9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.795Z"
+    }
+  ]
+}

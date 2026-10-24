@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.196Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Was stehet besser an dem freien Sange, / Als Liebesglück, als schwere Liebesqual?",
+  "language": [],
+  "musenalm_id": 128327,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Propertina di Rossi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Holtei",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Propertina di Rossi",
+  "updated": "2011-08-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1evaef8qn7j19ib",
+      "agents": "zg6jbd5dfgl0cyy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.983Z"
+    }
+  ]
+}

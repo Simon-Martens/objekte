@@ -1,0 +1,45 @@
+{
+  "annotation": "Volkslieder aus Krain (Sammlung INr 25703, Obj 234)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.650Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Dort liegt vor mir ein Pfad gebahnt, / Der führt tief in das Türkenland;",
+  "language": [],
+  "musenalm_id": 25704,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 235,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Gregors Schwester Alenka",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Gregors Schwester Alenka",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lkvy1yvma4pcep2",
+      "agents": "7s5akx33j2gpr6y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.899Z"
+    }
+  ]
+}

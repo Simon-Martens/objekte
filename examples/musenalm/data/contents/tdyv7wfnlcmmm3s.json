@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.121Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "O Freundschaft! Freude du des Lebens! / Du Ziel des edelsten Bestrebens!",
+  "language": [],
+  "musenalm_id": 10440,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20. / Die Freundschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lavater",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20. / Die Freundschaft",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6pt1uib2tarn0ew",
+      "agents": "adxjhf2nm1jjsuh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.232Z"
+    }
+  ]
+}

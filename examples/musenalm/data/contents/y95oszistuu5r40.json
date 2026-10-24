@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Hospital zum heiligen Geist. / von der Königsbrücke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Haldenwang",
+  "scans": [
+    "alm_3069_82087_lv71h46ixu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Hospital zum heiligen Geist. / von der Königsbrücke",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j9y4shaxgpzcgnc",
+      "agents": "xo0woto4ruw1tjl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.839Z"
+    },
+    {
+      "id": "ksxlr41o9t82mhw",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.839Z"
+    }
+  ]
+}

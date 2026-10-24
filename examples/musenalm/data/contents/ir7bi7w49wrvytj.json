@@ -1,0 +1,45 @@
+{
+  "annotation": "Alte Lieder (Sammlung INr 69557, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "343",
+  "incipit_statement": "Er hat zwei klare Aeuglein, / Und einen rothen Mund,",
+  "language": [],
+  "musenalm_id": 69558,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Kaltenbaeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "prztf1x1zdjamsf",
+      "agents": "7m5oiveg3vhjbtb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.951Z"
+    }
+  ]
+}

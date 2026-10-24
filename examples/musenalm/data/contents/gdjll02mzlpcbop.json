@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Schatzgräber« von J. W. von Goethe INr 40362, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.866Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40361,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schatzgräber",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Stölzel d. j. sc.",
+  "scans": [
+    "alm_526_40361_vac36o33v6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Schatzgräber",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ezhzhv201pwnnbw",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.133Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.133Z"
+    },
+    {
+      "id": "4i9uao81cqgytmr",
+      "agents": "faptm77901k6u4a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.134Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.134Z"
+    }
+  ]
+}

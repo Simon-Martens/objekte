@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Sind aus den klangerfüllten Sphären / Drey Engel auf die Welt gesandt, / Um neuen Wohllaut uns zu lehren;",
+  "language": [],
+  "musenalm_id": 8210,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die kleine musikalische Familie / des Herrn Schröter / Il piacer conduca il Coro, / L'innocenza il canto inspira, / E s'abbracciano fra loro / L'innocenza, ed il piacer. / METASTASIO",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eschenburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die kleine musikalische Familie / des Herrn Schröter / Il piacer conduca il Coro, / L'innocenza il canto inspira, / E s'abbracciano fra loro / L'innocenza, ed il piacer. / METASTASIO",
+  "updated": "2000-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "autph4tbyqyioa5",
+      "agents": "zjm0wp8bizr6m9i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.914Z"
+    }
+  ]
+}

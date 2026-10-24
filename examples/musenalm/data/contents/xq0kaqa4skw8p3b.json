@@ -1,0 +1,45 @@
+{
+  "annotation": "Dich ruft meine Seele (Sammlung INr 121174, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Wie Colon einst durch Meereswogen / Hinlenkte seinen schwanken Kahn, / Von der Begeistrung fortgezogen / Zum unbekannten Ziel hinan:",
+  "language": [],
+  "musenalm_id": 121175,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Patuzzi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vzzl4jk9tr1015k",
+      "agents": "onb8bft2jljf6eb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.731Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.731Z"
+    }
+  ]
+}

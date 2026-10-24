@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 131915, 131916, Obj 56, 57",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "354",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131914,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Teutsche Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mebold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Teutsche Gedichte",
+  "updated": "2013-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vwi712cgtix63mv",
+      "agents": "y3vcu2p4zhikm7w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.045Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.045Z"
+    }
+  ]
+}

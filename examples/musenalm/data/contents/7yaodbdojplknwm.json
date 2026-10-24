@@ -1,0 +1,46 @@
+{
+  "annotation": "Rheinische Literaturbriefe (Sammlung INr 44199, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.529Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "413",
+  "incipit_statement": "Frauenlob's Ruhm ist für Mainz ein bloße Zufälligkeit; eine wirkliche, tief eingreifende Wirkung auf deutsche Verhältnisse",
+  "language": [],
+  "musenalm_id": 44206,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Creizenach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII.",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lfit7ef9ai5hc2x",
+      "agents": "lphx13gbei42kps",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.409Z"
+    }
+  ]
+}

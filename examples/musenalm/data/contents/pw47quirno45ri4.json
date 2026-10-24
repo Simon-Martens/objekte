@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 116854, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.783Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "An der Jugend hellem Morgen, / Wenn das Herz so voll und weit, / Ueberträgt es seine Träume / Spielend in die Wirklichkeit.",
+  "language": [],
+  "musenalm_id": 116855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Traumjugend und Jugendtraum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Traumjugend und Jugendtraum",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vmdxh2c8n99he5o",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.541Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 90015, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90014,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CUPIDO",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guido Reni pt. F. John sc.",
+  "scans": [
+    "alm_229_90014_3gnojqoedz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CUPIDO",
+  "updated": "2001-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t55s9ngojejpv9b",
+      "agents": "azlvdz0ge43hlgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.280Z"
+    },
+    {
+      "id": "qtcg8b7654hqohz",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.280Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.280Z"
+    }
+  ]
+}

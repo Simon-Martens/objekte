@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus der Vorrede (INr 123049, Obj 2); Einleitung zu »Cleopatra« von Kotzebue (INr 123054, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Parodien oder Travestirungen gewähren oft die fröhlichste Unterhaltung.",
+  "language": [],
+  "musenalm_id": 123079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anmerkung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anmerkung",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v5su8j38fcp7mtz",
+      "agents": "sse24vstbh0jbtd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.806Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.806Z"
+    }
+  ]
+}

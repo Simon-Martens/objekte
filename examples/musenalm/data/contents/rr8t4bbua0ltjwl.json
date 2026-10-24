@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Nektartropfen« von J. W. von Goethe INr 40480, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.493Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40479,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Nectartropfen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. Schwerdgeburth sc.",
+  "scans": [
+    "alm_527_40479_dxiqcrafa4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Nectartropfen",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ffrcpiqze4zeqem",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.080Z"
+    },
+    {
+      "id": "766aqxgxh8wdufj",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.080Z"
+    }
+  ]
+}

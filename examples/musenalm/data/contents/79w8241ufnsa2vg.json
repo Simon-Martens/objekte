@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Der Liebesbund« von W. Gerhard INr 22196, Obj 85 /) Musik zu dem Taschenbuch zum geselligen Vergnügen auf das Jahr 1820 (Sammlung INr 22229, Obj 118) (Photos 22230,01; 22230,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.619Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22230,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebesbund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Kanne",
+  "scans": [
+    "alm_298_22230_01_dgw3tw7ygj.jpg",
+    "alm_298_22230_02_iro562b163.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebesbund",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dzatjmsme72njty",
+      "agents": "lfya0d0pv8esiqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.898Z"
+    }
+  ]
+}

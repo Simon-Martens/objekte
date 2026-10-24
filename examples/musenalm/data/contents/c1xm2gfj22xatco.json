@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Schön ist's,wenn die Nachtigall / Flötet, und der Widerhall / In zwei losgeriss'nen Herzen / Wecket längstvergess'ne Schmerzen.",
+  "language": [],
+  "musenalm_id": 56453,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verschiedene Stimmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Sauter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verschiedene Stimmen",
+  "updated": "2008-04-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j1kdc9qkfu5hhl2",
+      "agents": "g0tj5b3gu209p0h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.006Z"
+    }
+  ]
+}

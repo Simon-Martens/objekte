@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Bastard« von C. Spindler; s. Textbezug INr 103114, Obj 16 /) Unter der Graphik: Carlsruhe durch Kunst-Verlag W. Creuzbauer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.790Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103113,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER BASTARD. / 2ter Band 4tes Capitel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fellner del. E. Schuler sc.",
+  "scans": [
+    "alm_3409_103113_zopzprhbrm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER BASTARD. / 2ter Band 4tes Capitel",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c23z0qfiqw3vpcb",
+      "agents": "9z4h7ka6ovxy0ac",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.061Z"
+    },
+    {
+      "id": "kv2rb0rdie7qbw3",
+      "agents": "hk6k9w6jym7fe8o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.062Z"
+    }
+  ]
+}

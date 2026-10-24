@@ -1,0 +1,45 @@
+{
+  "annotation": "An Friederich von La Motte Fouqué. Siehe dessen Gedicht in den Alpenrosen 1824, S. 303 Zwey Sonnette (Sammlung INr 54382, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.633Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "271",
+  "incipit_statement": "Du reines Täubchen, kehre treu nun wieder, und überschwebe fernhin Land und Fluth!",
+  "language": [],
+  "musenalm_id": 54384,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. von Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2008-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lj40kkr8d7gzfke",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.800Z"
+    }
+  ]
+}

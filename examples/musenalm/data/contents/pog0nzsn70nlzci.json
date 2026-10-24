@@ -1,0 +1,46 @@
+{
+  "annotation": "Gallerie aus Scott's Werken. Vierte Lieferung. Das Kloster. - Der Abt. - Der Seeräuber. - Die Braut von Lammermoor. - Marmion (Sammlung INr 43692, Obj 5) s. Graphik INr 43694, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Das reiche Kloster St. Maria von Kennaquhair in Schottland hatte in den frühern Kämpfen dieses Landes gegen Elisabeth viele seiner wehrhaften Lehnsbauern, unter ihnen den wackeren Simon Glendinning, Erbpächter von Glendearg, verloren.",
+  "language": [],
+  "musenalm_id": 43693,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Das Kloster",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Das Kloster",
+  "updated": "2006-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gov69qtzi1xp53r",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.193Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.193Z"
+    }
+  ]
+}

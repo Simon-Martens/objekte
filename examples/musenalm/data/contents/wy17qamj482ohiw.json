@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik im Kalendarium März /) # Titel s.Textbezug INr 85053, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85040,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "zweisitziges offenes Fuhrwerk, das zuerst in Brüssel verfertigt wurde #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'A. f.",
+  "scans": [
+    "alm_3122_85040_iul03fxlep.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "zweisitziges offenes Fuhrwerk, das zuerst in Brüssel verfertigt wurde #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7he0i57tnlvhtwc",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.990Z"
+    }
+  ]
+}

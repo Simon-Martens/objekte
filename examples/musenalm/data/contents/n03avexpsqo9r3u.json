@@ -1,0 +1,45 @@
+{
+  "annotation": "Nro. 3. Polymeter (Sammlung INr 28555, Obj 45) I. Meine Miscellen (Sammlung INr 28523, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Der blinde Orion, so sagte das Orakel wahr, wird sehend,",
+  "language": [],
+  "musenalm_id": 28564,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Trost der Wahrheitsforscher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Fr. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Trost der Wahrheitsforscher",
+  "updated": "2002-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lwv5xsygqigng3v",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.396Z"
+    }
+  ]
+}

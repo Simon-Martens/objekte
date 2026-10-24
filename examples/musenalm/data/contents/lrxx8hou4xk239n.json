@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.699Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Bey der heil'gen Sternenhelle, / Gleit' ich auf der dunkeln Welle,",
+  "language": [],
+  "musenalm_id": 21893,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf dem See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf dem See",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y3cdob2y6pdw0ss",
+      "agents": "wty417vt1e1tkcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.010Z"
+    }
+  ]
+}

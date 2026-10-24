@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Es ist jetzt ein Jahr verflossen, seit der stattliche Tieger uns unter deiner Leitung dem lieben Schottland zuführte, und mit Beschämung erinnere ich mich nun, daß ich Dir damals  das Versprechen gab,",
+  "language": [],
+  "musenalm_id": 118015,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Roman in einem Briefe. / Francis Paddy an Capitän Smith",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippine Hemerlein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Roman in einem Briefe. / Francis Paddy an Capitän Smith",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1866,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ezcvzqilzvp2yb6",
+      "agents": "hef56e732k1ylun",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.572Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.572Z"
+    }
+  ]
+}

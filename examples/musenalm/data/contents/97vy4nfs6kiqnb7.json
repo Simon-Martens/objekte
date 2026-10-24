@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung in der FN S. 123; laut der FN ist der Text im Original französisch.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.415Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "EH! oh! eh! mon Dieu! Qu’au-je fait pour mériter ces souffrances cruelles?",
+  "language": [],
+  "musenalm_id": 133210,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIALOGUE / ENTRE / LA GOUTTE ET FRANKLIN",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franklin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DIALOGUE / ENTRE / LA GOUTTE ET FRANKLIN",
+  "updated": "2017-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ducqbwx21k4jgq",
+      "agents": "co0vtlzce51j4la",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.103Z"
+    }
+  ]
+}

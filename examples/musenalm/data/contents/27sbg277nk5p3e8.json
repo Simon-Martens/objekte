@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Graphik im Kalendarium September</div>",
+  "content_type": [],
+  "created": "2026-07-14T10:26:35.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140191,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Iffland's Gartenhaus bei Berlin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kotterba sc.",
+  "scans": [
+    "alm_1905_140191_8divs9oyai.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Iffland's Gartenhaus bei Berlin",
+  "updated": "2026-07-15T11:00:50.414Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "zvtj7v5035u7yuo",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-07-14T10:27:32.116Z",
+      "edit_comment": "",
+      "type": "Kupferstecher:in",
+      "uncertain": false,
+      "updated": "2026-07-15T10:49:41.860Z"
+    }
+  ]
+}

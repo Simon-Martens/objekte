@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Gewaltsamer Aendrer der Dinge / Hier unter dem Sternengezelt, / Der mit der gigantischen Schwinge / Zerwühlte die Reiche der Welt:",
+  "language": [],
+  "musenalm_id": 61929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Abschied vom achtzehnten Jahrhundert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. F. H. Reinwald",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein Abschied vom achtzehnten Jahrhundert",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q6zav942y0wp4w9",
+      "agents": "n6qsoh59lz0ry1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.016Z"
+    }
+  ]
+}

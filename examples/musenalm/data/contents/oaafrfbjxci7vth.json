@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Weh mir, so ruft er, daß ich je geschwärmt! / Das hat man nun von solchem wüsten Leben! Fr. Freiherr v. Gaudy",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Jugend, sagst Du? Du bist niemals jung gewesen! Ein altes Kind und dann geich ein Mann! Dazwischen Nichts! Aber Armgard, ich habe in Heidelberg studirt - damit allein bist du widerlegt.",
+  "language": [],
+  "musenalm_id": 103664,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Temeritas. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Temeritas. / Novelle",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6bh2h7yqy6lz0kr",
+      "agents": "hh3dab1czdktu2g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.941Z"
+    }
+  ]
+}

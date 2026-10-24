@@ -1,0 +1,45 @@
+{
+  "annotation": "# Aus dem G-Verz: Tab. V. stellt die neuen Arten Geldbeutel dar /) kolorierte graph. Anleitung paginiert V.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.638Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48953,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Anleitung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "#",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Netto. fe. 2te Jah. G.",
+  "scans": [
+    "alm_670_48953_pepbelt2ar.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "#",
+  "updated": "2007-04-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fxom5lqurlgsxqz",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.650Z"
+    }
+  ]
+}

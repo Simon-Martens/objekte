@@ -1,0 +1,38 @@
+{
+  "annotation": "Gesänge (Sammlung INr 41075, Obj 100) Vertonung des Gedichts »Lied« von Karl Winkler INr 41080, Obj 105. Photos 41079,01-41079,04",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41079,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 104,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (Werner)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werner",
+  "scans": [
+    "alm_537_41079_01_6gqq7dnztj.jpg",
+    "alm_537_41079_02_oxiii1ax4h.jpg",
+    "alm_537_41079_03_trz910r9k4.jpg",
+    "alm_537_41079_04_sk3l2m4uly.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-10-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": []
+}

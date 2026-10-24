@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium . Illustration zu »Bruno, der verlorne Sohn« von Fr. Horn INr 43504, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43487,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bruno der verlohrne Sohn von Fr. Horn. / S. 234",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Lips inv. & scs.",
+  "scans": [
+    "alm_573_43487_quh1x08j4e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bruno der verlohrne Sohn von Fr. Horn. / S. 234",
+  "updated": "2006-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3q10md2t1bkbflu",
+      "agents": "iwoqrcn7d9iuxfi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.334Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.334Z"
+    }
+  ]
+}

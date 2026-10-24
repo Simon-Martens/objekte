@@ -1,0 +1,58 @@
+{
+  "annotation": "kol. Illustration zu »Der virginsische Hirsch« von V. Fr. St. Fischer INr 79932, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 128635,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cervus Virginianus. Der virginische Hirsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steinkopf del.G. Boettger senior sc.",
+  "scans": [
+    "alm_1147_128635_s5g44jt5my.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cervus Virginianus. Der virginische Hirsch",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f82mjlaf1w3oat1",
+      "agents": "sqtw3zg1u8ixd3n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.966Z"
+    },
+    {
+      "id": "lfbdysnw3yxa03w",
+      "agents": "iypyb8g8bxed1eq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.966Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.966Z"
+    }
+  ]
+}

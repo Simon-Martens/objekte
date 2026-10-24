@@ -1,0 +1,45 @@
+{
+  "annotation": "Miszellen (Sammlung INr 61839, Obj 71)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "Vor ein paar Jahren führte mich das Ungefehr auf dem Berlinischen, nach Cleve bestimmten, Postwagen mit einem Landgeistlichen, einem Fähndrich und einem jungen, in Kopenhagen getauften, Neger zusammen.",
+  "language": [],
+  "musenalm_id": 61846,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7) Der biblische Spruch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. A.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7) Der biblische Spruch",
+  "updated": "2009-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mrlcz2tbk3g8h9b",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.062Z"
+    }
+  ]
+}

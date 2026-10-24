@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Umschlaggraphiken INr 89339, 89341",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.187Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Die auf beiden Seiten des Umschlags angebrachten Ideen sind wohl ohne Erklärung verständlich.",
+  "language": [],
+  "musenalm_id": 18648,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die auf beiden Seiten des Umschlags angebrachten Ideen sind wohl ohne Erklärung verständlich.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mv93skue7m2gyac",
+      "agents": "b68wiq4xeilaqf3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.476Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.476Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.307Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Unter den großen Männern des Alterthums war Moses einer der größten.",
+  "language": [],
+  "musenalm_id": 84728,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXIII. Moses",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Salzmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXIII. Moses",
+  "updated": "2010-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bk08jumxawgb0pc",
+      "agents": "zta4jxuxzdm872n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.191Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.191Z"
+    }
+  ]
+}

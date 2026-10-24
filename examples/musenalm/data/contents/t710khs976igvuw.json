@@ -1,0 +1,45 @@
+{
+  "annotation": "Vertonung des Gedichts »Mein Traum« von A. v. Helvig INr 1182, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8691,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein Traum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zumsteeg",
+  "scans": [
+    "alm_33_8691_7egb35nanx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mein Traum",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yobxnd8m0764q5d",
+      "agents": "hbhvbvw4lv57yvj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.303Z"
+    }
+  ]
+}

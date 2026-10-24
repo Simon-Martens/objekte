@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kabale und Liebe« von Fr. Schiller s. Textbezug INr 39984, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39983,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kabale und Liebe IIr. Act 2te. Scene. / Lady. Weg mit diesen Steinen - sie blitzen / Höllenflammen in mein Herz!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_523_39983_j8dxmz31d5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kabale und Liebe IIr. Act 2te. Scene. / Lady. Weg mit diesen Steinen - sie blitzen / Höllenflammen in mein Herz!",
+  "updated": "2005-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2si1nmobabktq2a",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.176Z"
+    },
+    {
+      "id": "4m9hjicf1i7mr73",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.176Z"
+    }
+  ]
+}

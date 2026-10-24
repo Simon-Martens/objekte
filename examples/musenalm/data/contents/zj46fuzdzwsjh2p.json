@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Wanderlieder. Die Winterreise. In 12 Liedern (Sammlung INr 1701, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Manche Thrän' aus meinen Augen / Ist gefallen in den Schnee;",
+  "language": [],
+  "musenalm_id": 1702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. Wasserfluth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. Wasserfluth",
+  "updated": "2000-08-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s5dzm98yhk5n5vm",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.823Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.823Z"
+    }
+  ]
+}

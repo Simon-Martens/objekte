@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Treue« von Karl Reinhard INr 4464, Obj 68",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 4465,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Treue",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Forkel",
+  "scans": [
+    "alm_95_4465_nhp4vl3e1a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Treue",
+  "updated": "2000-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3scmm3ddw2pknai",
+      "agents": "xzypb9tyvvvrc9s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.955Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.955Z"
+    }
+  ]
+}

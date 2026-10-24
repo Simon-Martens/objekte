@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.027Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Da bin ich denn nun, im Hafen des Friedens bei dir Maria, Cujus animam gementem",
+  "language": [],
+  "musenalm_id": 27810,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Biographische Spittelfreuden / des abgesetzten Privatschreibers Jeremias / Kätzlein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Weißflog",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Biographische Spittelfreuden / des abgesetzten Privatschreibers Jeremias / Kätzlein",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bw2zu59px051urs",
+      "agents": "iv41ps6uccpba1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.449Z"
+    }
+  ]
+}

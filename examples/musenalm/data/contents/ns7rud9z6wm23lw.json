@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Das Brauthemde« von J. N. Vogl INr 113215, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 113186,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS BRAUTHEMDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steinrucker del. Leop. Beyer sc.",
+  "scans": [
+    "alm_1781_113186_65fq78al6t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS BRAUTHEMDE",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0394c0jgfalqoov",
+      "agents": "cewh4sz4est07ap",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.409Z"
+    },
+    {
+      "id": "q3ayhq94x83qtfa",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.409Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.521Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Alles, was Montur der Freude / Trägt, das packe sich von mir!",
+  "language": [],
+  "musenalm_id": 2999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als / eine von ihm gereizte Biene / Hannchen auf den Mund stach",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. L-n.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Als / eine von ihm gereizte Biene / Hannchen auf den Mund stach",
+  "updated": "2000-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1hq7xijrqnsp41h",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.958Z"
+    }
+  ]
+}

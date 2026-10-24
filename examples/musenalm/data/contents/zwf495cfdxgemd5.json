@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.975Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Ihr Mädchen, wenn ihr wissen wollt, / Wie ihr Verführung fliehen sollt; / So kommt; ich will euch unterrichten,",
+  "language": [],
+  "musenalm_id": 131007,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mädchenschule",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lorenz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mädchenschule",
+  "updated": "2003-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2401nw8g6p493v3",
+      "agents": "0b9nelfb23buwgh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.079Z"
+    }
+  ]
+}

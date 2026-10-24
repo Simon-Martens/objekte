@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Holde Güt! es senkt ein heiß' Verlangen / Deinen Kelch in Nord und Sonnenbrand;",
+  "language": [],
+  "musenalm_id": 112636,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elise v. Hohenhausen geb. v. Ochs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Rose",
+  "updated": "2010-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0esi9seavw8kqhw",
+      "agents": "egwykz1ou8cu8sz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.494Z"
+    }
+  ]
+}

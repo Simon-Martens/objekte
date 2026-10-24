@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VI. 147, 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.674Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Es lenket mit Gewalt mein Sinn sich immer / Auf irdschen Glanz, auf königliche Pracht;",
+  "language": [],
+  "musenalm_id": 51267,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Edelsteine",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "VON EINER UNGENANNTEN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Edelsteine",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ipr6xeosuue4hu0",
+      "agents": "t59v9lajt8yljq5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.803Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Hold wuchs die Schaar der Kinder auf, / Die reich ein Haus erfreut,",
+  "language": [],
+  "musenalm_id": 63432,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gräber eines Hauses. / (Nach Felicia Hamans.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carol. Stille",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Gräber eines Hauses. / (Nach Felicia Hamans.)",
+  "updated": "2009-04-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7lv2y4vk0monru1",
+      "agents": "4rkhkr2si8r091f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.930Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.930Z"
+    }
+  ]
+}

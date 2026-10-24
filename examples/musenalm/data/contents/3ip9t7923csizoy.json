@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz; s. Textbezug INr 63515, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63519,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lord Byron in seinem neunzehnten Jahr #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Saunders pinx. F. Fleischmann sc. Mchn",
+  "scans": [
+    "alm_1043_63519_7ie2pfro4s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lord Byron in seinem neunzehnten Jahr #",
+  "updated": "2009-04-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rim41031b55fqc0",
+      "agents": "di9dux79v40ugav",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.173Z"
+    },
+    {
+      "id": "b8e2zbjjzrkhk0k",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.173Z"
+    }
+  ]
+}

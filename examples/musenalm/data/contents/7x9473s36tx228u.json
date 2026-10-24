@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 22009, Obj 173)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.123Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Siehe, die leuchtende Fackel der Sonn' erzeuget / mein Erstes,",
+  "language": [],
+  "musenalm_id": 22011,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 175,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Siehe, die leuchtende Fackel der Sonn' erzeuget / mein Erstes,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1pxll62cp631smm",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.058Z"
+    }
+  ]
+}

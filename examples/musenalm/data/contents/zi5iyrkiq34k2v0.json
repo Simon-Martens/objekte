@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen des Autors",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Nicht im Buchstaben Rang / Töne mein Jammergesang;",
+  "language": [],
+  "musenalm_id": 770,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vou-ti bey Tsin-nas Grabe. / Eine Elegie im chinesischen / Geschmack. / Humani ninil alienum. Terent",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Unzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vou-ti bey Tsin-nas Grabe. / Eine Elegie im chinesischen / Geschmack. / Humani ninil alienum. Terent",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m7a3u89yam2d9th",
+      "agents": "72ib6ghxkur1aqm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.633Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.633Z"
+    }
+  ]
+}

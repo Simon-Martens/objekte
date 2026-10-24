@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Franken (Anm. am Objekt:Vgl. über ihn »Curiositäten« etc. Bd. II. - Bader's »Badische Geschichte«, - Klüber's »Umgebungen von Baden« etc",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Seht dort auf steilem Bergesgrat / Die Yburg, waldumschlossen!",
+  "language": [],
+  "musenalm_id": 99438,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fortunat von Baden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ignaz Hub",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fortunat von Baden",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3q9e3j3jc6lmogp",
+      "agents": "szz6mzfzlpcduar",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.721Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Es lachte draußen Lenz, und Lenz war innen, / Dem Dichtermuthe freudiges Behagen, / Des Frühlings Phanatsie'n im Spiel zu haschen,",
+  "language": [],
+  "musenalm_id": 68161,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 178,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dichter und der Teut. / Ein Traum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. v. Blomberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dichter und der Teut. / Ein Traum",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "85g5ofc7spljob5",
+      "agents": "fdfc4bqyqsoaxaf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.329Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.329Z"
+    }
+  ]
+}

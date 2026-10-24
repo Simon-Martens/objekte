@@ -1,0 +1,56 @@
+{
+  "annotation": "paginert V. /) Illustration zu »Wohlthun trägt Zinsen« INr 79091, Obj 14 /) # Bez. aus der Vorrede des Hrsg",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79086,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hier in dieser Hütte wohnt mein / zweiter Vater. / S. 122",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Usteri; P. J. Laminit",
+  "scans": [
+    "alm_2199_79086_u49uh693ld.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hier in dieser Hütte wohnt mein / zweiter Vater. / S. 122",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yycki33th5uq9sf",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.814Z"
+    },
+    {
+      "id": "284g1ehgd6fs090",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.814Z"
+    }
+  ]
+}

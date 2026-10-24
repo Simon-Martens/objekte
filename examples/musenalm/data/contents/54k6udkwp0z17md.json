@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Einige Vorschläge zu Gebäuden für die GartenLandschaft« INr 74244, Obj 38 /) # Titel aus dem Text /) # Zuschreibung: Fischer S. 244",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74245,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Landhaus #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3110_74245_1uiitqz3gy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Landhaus #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "shxvr00y2uty977",
+      "agents": "wal6qjr1bhcbnqq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.569Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.569Z"
+    }
+  ]
+}

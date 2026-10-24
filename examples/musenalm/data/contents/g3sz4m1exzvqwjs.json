@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an Blatt  IX. /) Graphik im Kalendarium November; nummeriert XI. /) Blatt beschnitten mit Textverlust /) s. Textbezug INr 108704, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.719Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108691,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Henriette Maria von Frankreich. Gemahlin / Carl I. Königs von England, verzeiht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Schweyer sc. Ffurt.",
+  "scans": [
+    "alm_2177_108691_x2wzffs3rw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Henriette Maria von Frankreich. Gemahlin / Carl I. Königs von England, verzeiht",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1e5fbrafawd7oji",
+      "agents": "34mbwja0g419wmu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.337Z"
+    }
+  ]
+}

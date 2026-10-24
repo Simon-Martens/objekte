@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an der Graphik (Portrait) INr 91204, Obj 16 /) Graphik (Portrait) im Kalendarium /) Illustration zu »Die Geschichte der Bartholomäusnacht oder die Bluthochzeit zu Paris (Beschluß) INr 91205, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91201,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prinz Ludewig von Conde / Louis de Bourbon Prince de Conde I.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas",
+  "scans": [
+    "alm_4019_91201_cl4lnq6qkt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Prinz Ludewig von Conde / Louis de Bourbon Prince de Conde I.",
+  "updated": "2013-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u2uqk90jlz9jy2a",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.385Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.385Z"
+    }
+  ]
+}

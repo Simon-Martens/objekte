@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. und Titel aus dem G-Verz und den Beiträgen INr 82913, 82929; Obj 4, 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jupiter und Antiope #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anton van Dyk. Prof. Heß",
+  "scans": [
+    "alm_3072_82930_zfkvk6tc6y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jupiter und Antiope #",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e9lzxk6p7e0i4sg",
+      "agents": "yfpqp089ikjb1ej",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.995Z"
+    },
+    {
+      "id": "krm315z9896vt6b",
+      "agents": "dvhp1mfxgvurunq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.995Z"
+    }
+  ]
+}

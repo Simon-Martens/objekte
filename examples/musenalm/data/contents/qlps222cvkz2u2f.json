@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Für Draudel nichts so lieblich schallt, / Als wie der Schlag der Axt im Wald.",
+  "language": [],
+  "musenalm_id": 45653,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Holzknechts Liebste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Nepomuk Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Holzknechts Liebste",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l976chuwcm03960",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.452Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.452Z"
+    }
+  ]
+}

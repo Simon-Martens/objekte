@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 30277, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.832Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Unter der Regierung der Kaiserin Catharina von Rußland, befehligte ein Mann als Gouverneur die Provinz Tobolsk,",
+  "language": [],
+  "musenalm_id": 30276,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rache und Versöhnung. / Nach einer wahren Begebenheit erzählt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Borromäus von Miltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rache und Versöhnung. / Nach einer wahren Begebenheit erzählt",
+  "updated": "2002-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0cajlz1pe7kxld5",
+      "agents": "e36ydmk4x9m4umt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.561Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.561Z"
+    }
+  ]
+}

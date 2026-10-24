@@ -1,0 +1,45 @@
+{
+  "annotation": "Palindrome (Sammlung INr 41322, Obj 51) Logogryphen, Palindrome, Homonymen (Sammlung INr 41319, Obj 48) Worträthsel (Sammlung INr 41314, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.279Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "404",
+  "incipit_statement": "Vorwärts auf und ab ich steige / Auf der Wiese frischem Grün;",
+  "language": [],
+  "musenalm_id": 41324,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "atfdm0odn4ekze2",
+      "agents": "03ne3lu95zmw8rf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.636Z"
+    }
+  ]
+}

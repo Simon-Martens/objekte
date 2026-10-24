@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43097,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Toilette der Venus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Albane Pinx. Fortier Sculp.",
+  "scans": [
+    "alm_476_43097_ag8548whbe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Toilette der Venus",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q9bpem5qd6ukfoo",
+      "agents": "73a941cxu2bon3w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.388Z"
+    },
+    {
+      "id": "0eivat8obw1tnhi",
+      "agents": "vuxl65pc90019o7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.388Z"
+    }
+  ]
+}

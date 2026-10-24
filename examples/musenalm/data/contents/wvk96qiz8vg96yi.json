@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Nimm mich auf in deine Schatten, / Heut, wie immer, stiller Wald!",
+  "language": [],
+  "musenalm_id": 67281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Förster [1.; 2.]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Förster [1.; 2.]",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f9gul7bcqkfbpr4",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.339Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.339Z"
+    }
+  ]
+}

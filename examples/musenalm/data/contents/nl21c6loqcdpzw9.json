@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Liebesreime aus den Inseln des Archipelagus. Nach dem Neugriechischen (Sammlung INr 27816, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "459",
+  "incipit_statement": "Möge dessen böse Zunge stets mit Blasen sein geplagt, / Der dir, daß ich treulos wäre, selber treulos hat gesagt!",
+  "language": [],
+  "musenalm_id": 27836,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Möge dessen böse Zunge stets mit Blasen sein geplagt, / Der dir, daß ich treulos wäre, selber treulos hat gesagt!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ona8q1flrlw7s3",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.449Z"
+    }
+  ]
+}

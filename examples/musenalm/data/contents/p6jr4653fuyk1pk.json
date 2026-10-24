@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium November",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.009Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90183,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spallatro",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schindler del. Langer sc.",
+  "scans": [
+    "alm_3723_90183_vhqzduvnay.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Spallatro",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "844vdlqk8jptjqc",
+      "agents": "b015htf5wn6svli",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.344Z"
+    },
+    {
+      "id": "wq7bgeynivgatfr",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.344Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.344Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.728Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "In dem reizenden Rheinthale zwischen Koblenz und Godesberg, nahe bei dem Städtchen Oberwinter,",
+  "language": [],
+  "musenalm_id": 26229,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rolandseck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rolandseck",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "twbzmgozqj3s6eq",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.014Z"
+    }
+  ]
+}

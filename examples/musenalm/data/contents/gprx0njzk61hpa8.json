@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. aus dem Vrwrt d Vrlgr /) Illustration zu »Graf Wolf von Hohenkrähen. Ballade« von F. W. A. Schmidt (von Werneuchen) INr 48771, Obj 118",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50086,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spiel' auf dann und singe! rief spöttlich der Graf, / Dem Bettler entgegen, und mach es recht brav! / Spiel' auf dann und singe zur Leier",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki del. Bolt sc.",
+  "scans": [
+    "alm_665_50086_n2jzz4kfo4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Spiel' auf dann und singe! rief spöttlich der Graf, / Dem Bettler entgegen, und mach es recht brav! / Spiel' auf dann und singe zur Leier",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ga46zlazgzzsb3e",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.653Z"
+    },
+    {
+      "id": "kf8fzcn0m6il3rv",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.653Z"
+    }
+  ]
+}

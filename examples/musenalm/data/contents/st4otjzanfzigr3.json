@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Auge und Herz« von I. F. Castelli INr 80493, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80453,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Caroline. / Zur Novelle von I. F. Castelli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dubufe pinx. C. Kotterba sc.",
+  "scans": [
+    "alm_1793_80453_ji8dl8vw72.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Caroline. / Zur Novelle von I. F. Castelli",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xkz2ogaq9sxopjm",
+      "agents": "wj47pwtq98busru",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.917Z"
+    },
+    {
+      "id": "fcu3wx72z43mvix",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.917Z"
+    }
+  ]
+}

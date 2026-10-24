@@ -1,0 +1,45 @@
+{
+  "annotation": "Montamiata. Aus den toskanischen Liedern mitgetheilt (Sammlung INr 80960, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Ich schiffte über's Meer. Da kam die Kunde, / Daß treulos sich mein Lieb von mir gewendet;",
+  "language": [],
+  "musenalm_id": 80967,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Siegfried Kapper",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII.",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5qptlo1wy2yqm0r",
+      "agents": "gy712kukgmbne1v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.082Z"
+    }
+  ]
+}

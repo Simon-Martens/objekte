@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Helvetius durchreiset nah und ferne / So manches Land, damit er Menschenkenntniß lerne,",
+  "language": [],
+  "musenalm_id": 10947,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "34. / Menschenkenntniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "34. / Menschenkenntniß",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9368a3w6pb54oft",
+      "agents": "b4ycj3ue3as52r2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.186Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Tändeleien (Sammlung INr 29047, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.644Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "Hier unter diesem Leichenstein / Schweigt ewig Frau von Kunigunde,",
+  "language": [],
+  "musenalm_id": 29055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Grabschrift",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Müchler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Grabschrift",
+  "updated": "2002-10-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ohjo5xgl1z1k7bm",
+      "agents": "cqrs6fj7ecvzmh8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.297Z"
+    }
+  ]
+}

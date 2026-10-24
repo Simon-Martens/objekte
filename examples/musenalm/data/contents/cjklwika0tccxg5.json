@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 27442, Obj 169)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.619Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "453",
+  "incipit_statement": "Gürtet, Wimpel, ihr auch dunkel / Wann die Liebste Sehnsucht zwingt,",
+  "language": [],
+  "musenalm_id": 27444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 171,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das Sinnenpaar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das Sinnenpaar",
+  "updated": "2002-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6jocizbrd6ibeyu",
+      "agents": "j5e1jto7rj2ibw3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.526Z"
+    }
+  ]
+}

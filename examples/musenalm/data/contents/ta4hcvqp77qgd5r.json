@@ -1,0 +1,45 @@
+{
+  "annotation": "Aussprüche, Bemerkungen, Sittensprüche und Maximen, dem einsamen Nachdenken gewidmet (Sammlung INr 119771, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.281Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "250",
+  "incipit_statement": "Reich an Freuden ist das Leben, / Und des Vollgenusses werth;",
+  "language": [],
+  "musenalm_id": 119779,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reich an Freuden ist das Leben, / Und des Vollgenusses werth;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Conz.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zq73eo4fhd1gqve",
+      "agents": "2hig42wpgako8md",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.641Z"
+    }
+  ]
+}

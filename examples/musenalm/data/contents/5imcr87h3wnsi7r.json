@@ -1,0 +1,45 @@
+{
+  "annotation": "Wort und Sylbenräthsel (Sammlung INr 14471, Obj 70)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "266",
+  "incipit_statement": "Mein Ganzes ist der Schauplatz großer Thaten, / Von Hoffnung, Ruhm und Wechselglück umschwebt;",
+  "language": [],
+  "musenalm_id": 14474,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. J. Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2001-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "22f0lgp26tlpckn",
+      "agents": "t3zz4r3fvdi80ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.656Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.656Z"
+    }
+  ]
+}

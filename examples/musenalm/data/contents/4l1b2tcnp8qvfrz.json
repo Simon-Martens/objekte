@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Legenden (Sammlung INr 57824, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "In einem Nonnenkloster einer ansehnlichen Stadt Spaniens lebte eine junge geistliche Schwester, Namens Dona Luisa, die eben so ausgezeichnet durch ihre Tugenden, wie durch ihre seltene Schönheit war.",
+  "language": [],
+  "musenalm_id": 57826,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die ungetreue Gottesbraut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard von Bülow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die ungetreue Gottesbraut",
+  "updated": "2008-06-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t64ebwrtae4y5v8",
+      "agents": "s80i7s99e9gsncg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.841Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.635Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "An einem schönen Sommerabend des so und so vielten Jahres der Gnade wanderten zwei junge Männer, als Gefährten nebeneinanergehend, aber tief schweigend und noch tiefer in Gedanken versunken,",
+  "language": [],
+  "musenalm_id": 116735,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das blinde Nannerl. / Reise-Fragment",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Spindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das blinde Nannerl. / Reise-Fragment",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1vig8js8ox0fy9g",
+      "agents": "jo3symqxy3hqpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.457Z"
+    }
+  ]
+}

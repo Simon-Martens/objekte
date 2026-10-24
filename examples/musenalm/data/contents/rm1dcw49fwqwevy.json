@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Ich will den Frühling noch genießen, / Der wieder auf der Erde blüht,",
+  "language": [],
+  "musenalm_id": 79118,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frühlingsgesang des Alters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Madam Karschinn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Frühlingsgesang des Alters",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j2unk5rleg10xuh",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.880Z"
+    }
+  ]
+}

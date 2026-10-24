@@ -1,0 +1,47 @@
+{
+  "annotation": "<div>Illustration zu <em>Die Uniform I. Akt, 14. Scene </em>INr 140693</div>",
+  "content_type": [],
+  "created": "2026-10-08T08:58:37.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140694,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik] Unterzeichnet: Weinrauch fec.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weinrauch fec.",
+  "scans": [
+    "alm_1846_140694_3ahhng1ze1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-10-13T10:02:23.991Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "y0flebb8et4hlm6",
+      "agents": "nhcnwrqiq042uja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-08T09:07:28.046Z",
+      "edit_comment": "",
+      "type": "Zeichner:in",
+      "uncertain": false,
+      "updated": "2026-10-13T10:02:23.990Z"
+    }
+  ]
+}

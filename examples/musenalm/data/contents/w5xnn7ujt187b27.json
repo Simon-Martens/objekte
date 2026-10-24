@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 4. /) s. Textbezug INr 43348, Obj 10 # vollst. Bezeichnung nach: Haldenwang, Hasso von: Christian Haldenwang Kupferstecher (1770-1831) Frankfurt 1997 S. 524, 525",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43357,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Süd- und Westseite des heidelberger Schlosses",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Haldenwang sc.",
+  "scans": [
+    "alm_569_43357_sco70yojw1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Süd- und Westseite des heidelberger Schlosses",
+  "updated": "2006-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gg5elgutakbyprg",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.224Z"
+    }
+  ]
+}

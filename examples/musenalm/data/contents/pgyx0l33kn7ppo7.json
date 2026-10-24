@@ -1,0 +1,58 @@
+{
+  "annotation": "Textbezug unklar",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90817,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theola",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Decker del. M. Hofmann sc.",
+  "scans": [
+    "alm_4011_90817_8omj7uk8jp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Theola",
+  "updated": "2013-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9zpftcnunjv3pkd",
+      "agents": "80ynrlk6xwlunry",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.135Z"
+    },
+    {
+      "id": "b2d7zxfjggaygco",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.135Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.135Z"
+    }
+  ]
+}

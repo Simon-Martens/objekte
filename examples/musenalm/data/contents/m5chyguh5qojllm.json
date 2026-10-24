@@ -1,0 +1,45 @@
+{
+  "annotation": "West-Oestlicher Divan. Versammelt von Goethe. In den Jahren 1814-1815 ( Sammlung INr 34025, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "Was ist schwer zu verbergen? Das Feuer! / Denn bey Tage verräth's der Rauch,",
+  "language": [],
+  "musenalm_id": 34028,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Drey Fragen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Drey Fragen",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ygdh181zui23067",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.665Z"
+    }
+  ]
+}

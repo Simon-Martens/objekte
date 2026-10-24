@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik /) Illustration zu »Johanna Lavil« von A. von Tromlitz d.i. K. A. F. v. Witzleben INr 110789, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110786,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Lavil",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leop. Beyer sc.",
+  "scans": [
+    "alm_3464_110786_jro1xxjos4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Johann Lavil",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v6pol8pyuqifz7i",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.050Z"
+    }
+  ]
+}

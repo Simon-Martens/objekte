@@ -1,0 +1,47 @@
+{
+  "annotation": "kol. Graphik /) paginiert IV. /) s. Textbezug INr 85124, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85123,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Berggold del. ad viv. Hoppe sc. 1798)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Berggold del. ad viv. Hoppe sc. 1798",
+  "scans": [
+    "alm_2250_85123_dbuc4imyu5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rhk5lhfe43kxf4z",
+      "agents": "qfv1293iysdb1xb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.313Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.816Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Wann der liebe Weinerfinder, / Noah, seine Reben schnitt, / Brachten ihm die guten Kinder",
+  "language": [],
+  "musenalm_id": 10979,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "66. / Das Winzerkäppchen. / Rundgesang für eine meißnische Weinlese. / Mel. Alles fühlt der Liebe etc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zschiedrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "66. / Das Winzerkäppchen. / Rundgesang für eine meißnische Weinlese. / Mel. Alles fühlt der Liebe etc",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ativs1jhhf1w14l",
+      "agents": "sg73x8kcyc2ixxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.534Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.534Z"
+    }
+  ]
+}

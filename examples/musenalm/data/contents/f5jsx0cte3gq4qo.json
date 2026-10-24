@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Räuber« von Fr. Schiller s. Textbezug INr 39618, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "C. Moor Es ist aus!",
+  "language": [],
+  "musenalm_id": 39619,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Räuber Vr. Act 2te. Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Fr. Bolt sc.",
+  "scans": [
+    "alm_520_39619_5q18yjgejp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Räuber Vr. Act 2te. Scene",
+  "updated": "2005-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ceowsz3lgtquf4w",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.988Z"
+    },
+    {
+      "id": "1plp62nezfii02s",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.988Z"
+    }
+  ]
+}

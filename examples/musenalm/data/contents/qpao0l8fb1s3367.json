@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert D. /) # Bez. vom Beitrag /) Beigabe zu »Das Stricken« von J. F. Netto INr 76469, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76471,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Anleitung"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[graph. Anleitung (J. F. Netto)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Netto",
+  "scans": [
+    "alm_3704_76471_1pejk3msv6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dms5nx4wlknit5k",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.909Z"
+    }
+  ]
+}

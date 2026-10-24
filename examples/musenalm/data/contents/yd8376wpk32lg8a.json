@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "O Busenfreundinn, die ich zuerst verkannt, / Dann lieb gewonnen, die du mir nun hinfort",
+  "language": [],
+  "musenalm_id": 18011,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Tobakspfeife",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Pp.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Tobakspfeife",
+  "updated": "2001-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b4begf94p6p88k9",
+      "agents": "2glx0j2o180tzfm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.892Z"
+    }
+  ]
+}

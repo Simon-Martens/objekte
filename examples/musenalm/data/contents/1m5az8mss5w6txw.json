@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.106Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Was Tochter mein! sieh'st du so bleich? / Was athmest du so tief und schwer?",
+  "language": [],
+  "musenalm_id": 90545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Das gefeyte Schwert. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. A. Moshammer. (Wien.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Das gefeyte Schwert. / Ballade",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2xtx3h3361e5z8l",
+      "agents": "hsujjp5smywjyiq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.263Z"
+    }
+  ]
+}

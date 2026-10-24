@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Liebe Mädchen, oft saht Ihr in Bildern / Amorn, mit dem lächelnden Gesicht;",
+  "language": [],
+  "musenalm_id": 17340,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Liebesgötter. / 1778",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippine Gatterer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Liebesgötter. / 1778",
+  "updated": "2001-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "khrrfkzdmllo9zo",
+      "agents": "e50fn3dat2tsaev",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.734Z"
+    }
+  ]
+}

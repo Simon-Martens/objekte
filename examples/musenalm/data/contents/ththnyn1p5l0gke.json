@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge vermischten Inhalts 1793 (Sammlung 10185, Obj 110)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.405Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Wer ist denn er mit seinem Band und Sterne / In der Karosse da,",
+  "language": [],
+  "musenalm_id": 10190,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Michel zu einem vornehmen Herrn. / Mel. Bekränzt mit Laub den Liebevollen etc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. W. geb. Fr. v. K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Michel zu einem vornehmen Herrn. / Mel. Bekränzt mit Laub den Liebevollen etc",
+  "updated": "2001-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yjiz6a6l0bnhcof",
+      "agents": "s4juege4ex7zyzj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.413Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: Verl. v. J. D. Sauerländer] s. Textbezug INr 44610, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44605,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dr. Franz Trautmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gest. von L. Sichling",
+  "scans": [
+    "alm_610_44605_apdcc13o2b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dr. Franz Trautmann",
+  "updated": "2006-08-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "naxvd0esc019pyp",
+      "agents": "4h5l66xotmujbik",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.454Z"
+    }
+  ]
+}

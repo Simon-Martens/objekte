@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den landschaftlichen Kupfern (Sammlung INr 20476, Obj 16) s. Graphik INr 20483, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.524Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Zwei und siebenzig italienische Meilen von Rom ab, und vier und sechzig von Neapel",
+  "language": [],
+  "musenalm_id": 20479,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Cicero's Landhaus zu Arpinum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Hase",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Cicero's Landhaus zu Arpinum",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "485q0dd9ztnar8w",
+      "agents": "lov7zjtttdvp66e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.880Z"
+    }
+  ]
+}

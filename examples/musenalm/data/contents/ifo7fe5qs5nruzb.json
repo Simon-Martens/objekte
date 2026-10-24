@@ -1,0 +1,45 @@
+{
+  "annotation": "Ostersonette (Sammlung INr 100460, Obj 124)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Der Abend sinkt auf frühlingsreiche Auen / Und Veilchendüfte ihm entgegen wallen,",
+  "language": [],
+  "musenalm_id": 100462,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Ostersamstag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Luise Otto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Ostersamstag",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dbsgyg8dcsur0j2",
+      "agents": "wdljo1hy3zp7qgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.826Z"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "Erster Abschnitt. Regeln für Reisende (Sammlung INr 97392, Obj 6) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Mache dir einen Plan von deiner ganzen Reise, die du unternehmen willst; in diesem Plan muß alles aufgenommen seyn, was sich sowohl auf die Länge des Aufenthalts in jedem Orte, als auch auf die zu besehenden Merkwürdigkeiten bezieht.",
+  "language": [],
+  "musenalm_id": 97393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Allgemeine Regeln für Reisende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. G. Christian Fick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Allgemeine Regeln für Reisende",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2l15rjve6lxq7av",
+      "agents": "5ok91qz211t27y7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.631Z"
+    }
+  ]
+}

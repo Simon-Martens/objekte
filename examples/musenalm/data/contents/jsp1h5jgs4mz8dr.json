@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Forst- und Jagd-Anekdoten (Sammlung INr 120252, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Ein mir noch unbekanntes Pröbchen von alten Jägeraberglauben fand ich neulich in einem Buche, betitelt: Neu vermehrter Heldenschatz von Johann Stracio,",
+  "language": [],
+  "musenalm_id": 120259,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fa1dtehy6rab3q0",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.585Z"
+    }
+  ]
+}

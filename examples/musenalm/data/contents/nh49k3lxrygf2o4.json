@@ -1,0 +1,45 @@
+{
+  "annotation": "Sprüche des armen Richards (Sammlung INr 15786, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Die Armuth raubt dem Menschen oft Geist und Tugend. Ein leerer Sack kann nicht aufrecht stehen.",
+  "language": [],
+  "musenalm_id": 115819,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Armuth raubt dem Menschen oft Geist und Tugend. Ein leerer Sack kann nicht aufrecht stehen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "00whan2w8u0wo7u",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.513Z"
+    }
+  ]
+}

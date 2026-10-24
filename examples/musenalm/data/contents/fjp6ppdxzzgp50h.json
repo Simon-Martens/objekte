@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Riese, mit der Eichenkrone, / Mit der Tanne dunkelm Kranz, / Blick', in deinem Götterglanz, / Huldvoll von dem Wolkenthrone!",
+  "language": [],
+  "musenalm_id": 55835,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem Vogesus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem Vogesus",
+  "updated": "2008-03-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ksimvmyg506dcc3",
+      "agents": "pnennqhmzrv3ms6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.517Z"
+    }
+  ]
+}

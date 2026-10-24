@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Blaue Augen, schwarze Augen / Sind zur Liebe uns gegeben, / Und aus ihrem Lichte saugen / Wir der Liebe süßes Leben.",
+  "language": [],
+  "musenalm_id": 116321,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus den Papieren / eines Landsknechtes. / Blaue und schwarze Augen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fürst Friedrich von Schwarzenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus den Papieren / eines Landsknechtes. / Blaue und schwarze Augen",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s08v72btwt329yr",
+      "agents": "i4dbqkjouxbrnw0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.617Z"
+    }
+  ]
+}

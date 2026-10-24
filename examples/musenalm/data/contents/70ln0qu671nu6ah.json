@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. vom Titel /) Graphik im Kalendarium März /) Illustration zu »Das höchste Opfer« INr 114354, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.346Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114340,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Klodilde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Blaschke",
+  "scans": [
+    "alm_4341_114340_ow9s0yzzzb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Klodilde",
+  "updated": "2016-10-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c0xlymylnbbc87o",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.444Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.444Z"
+    }
+  ]
+}

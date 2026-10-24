@@ -1,0 +1,45 @@
+{
+  "annotation": "An Friederich von La Motte Fouqué. Siehe dessen Gedicht in den Alpenrosen 1824, S. 303 Zwey Sonnette (Sammlung INr 54382, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Ich saß auf meiner heimathlichen Laube, / Da sank aus Lichtgewölk ein Blatt herab,",
+  "language": [],
+  "musenalm_id": 54383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. von Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2008-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qws2f0pvd7eyn71",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.659Z"
+    }
+  ]
+}

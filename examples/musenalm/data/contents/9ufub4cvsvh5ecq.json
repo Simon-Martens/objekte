@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.350Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Wer nicht liebt Wein, Weiber und Gesang, / Der bleibt ein Narr sein Lebelang.",
+  "language": [],
+  "musenalm_id": 5141,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesundheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. M. Luther",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesundheit",
+  "updated": "2000-10-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w1qta5064wtvy21",
+      "agents": "60x0fj7vzerrc38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.079Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.079Z"
+    }
+  ]
+}

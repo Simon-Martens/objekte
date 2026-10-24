@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) Graphik im Kalendarium Januar /) Illustration zu »König Ludwig der Heilige, auf dem Kreuzzuge nach Ägypten« INr 68974, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68961,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied von der Königinn Mutter. / S. 65",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. W. F. B.",
+  "scans": [
+    "alm_845_68961_0irchbij9u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abschied von der Königinn Mutter. / S. 65",
+  "updated": "2008-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a05cliq23rpxzgo",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.234Z"
+    },
+    {
+      "id": "ao35q3mcys4ekd7",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.234Z"
+    }
+  ]
+}

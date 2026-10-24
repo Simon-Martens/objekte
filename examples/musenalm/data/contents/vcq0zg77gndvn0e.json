@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.715Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "Schwinge, schwinge, traute Lerche, / Von der Wiese Blumenflor",
+  "language": [],
+  "musenalm_id": 77371,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Lerche",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theopania",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Lerche",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dtnu6p28y8o4bhf",
+      "agents": "192fn6i1iovaai8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.877Z"
+    }
+  ]
+}

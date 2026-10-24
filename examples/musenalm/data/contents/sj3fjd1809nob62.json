@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 67474, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.103Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Im Spätjahr 1816 kaufte ich aus der Königl. Menagerie zu Stuttgart eine alte Gemsgeis mit einem etwa 3 bis 4 Monate alten Gemsbocke, welcher noch an seiner Mutter säugte.",
+  "language": [],
+  "musenalm_id": 67481,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Beiträge / zur / Naturgeschichte des Gemswildes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm v. Tessin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Beiträge / zur / Naturgeschichte des Gemswildes",
+  "updated": "2009-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cxzqr9mc2vg47ad",
+      "agents": "m8m3atgu5bjw6bv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.048Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.048Z"
+    }
+  ]
+}

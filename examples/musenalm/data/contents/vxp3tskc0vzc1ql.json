@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Das Wirtshaus im Spessart« von W. Hauff INr 41617, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41613,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wirthshaus im Spessart",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Fohr del. L. Troendlin sc.",
+  "scans": [
+    "alm_551_41613_oyimo5shgm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Wirthshaus im Spessart",
+  "updated": "2005-12-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3li8olqknxbvjlt",
+      "agents": "0w2wp8jkpgtwflf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.286Z"
+    },
+    {
+      "id": "46nkw4ffek743sp",
+      "agents": "rlovoimfbdu2klu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.286Z"
+    }
+  ]
+}

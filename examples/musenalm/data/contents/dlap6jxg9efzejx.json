@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 28057, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.540Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28056,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wiedertäufer #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naecke del. Buser sc. Aarau",
+  "scans": [
+    "alm_361_28056_mmw6s08fpg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Wiedertäufer #",
+  "updated": "2002-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "14zth6ih1e68ubb",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.282Z"
+    },
+    {
+      "id": "cn45k5pocckgcp4",
+      "agents": "gpua5gdwasv89sy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.282Z"
+    }
+  ]
+}

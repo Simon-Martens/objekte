@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 94903, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.249Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94902,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Gez. von Mayer. Stahlstich von Bogner u. Mahlknecht in Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. von Mayer. Stahlstich von Bogner u. Mahlknecht in Wien",
+  "scans": [
+    "alm_1876_94902_5m2fc9elv5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jjaeyr793caewmp",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.671Z"
+    },
+    {
+      "id": "aizab90bb4od21v",
+      "agents": "p0di0vtr4p5pck5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.671Z"
+    },
+    {
+      "id": "puwcmzswybqxjw2",
+      "agents": "z8rsr5de0jmn33o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.671Z"
+    }
+  ]
+}

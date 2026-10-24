@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert II. s. Textbezug INr 43445, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43455,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Baden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Primavesi sc. Haldenwang sc.",
+  "scans": [
+    "alm_572_43455_qqpxetd9sj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Baden",
+  "updated": "2006-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rltzikkdq1an5mr",
+      "agents": "mhmtsup4s0l1ugt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.989Z"
+    },
+    {
+      "id": "6u1rr7a6rjnol1p",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.989Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.989Z"
+    }
+  ]
+}

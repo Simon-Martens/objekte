@@ -1,0 +1,45 @@
+{
+  "annotation": "Beschreibungen von Gärten INr 15531, Obj 36;",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Pour embellir les champs simples dans leurs / attraits, / Gardez vous d'insulter la Nature à grands frais.",
+  "language": [],
+  "musenalm_id": 15532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Les Jardins",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Delille",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Les Jardins",
+  "updated": "2001-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lqg6b1a2fzkl699",
+      "agents": "09t7wv6778so4bo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.592Z"
+    }
+  ]
+}

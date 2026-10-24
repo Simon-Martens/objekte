@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel aus dem G-Verz s. Textbezug INr 34013, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.537Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Czaar Peter auf dem Ladoga-See #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steube pinxt. Forssell sculpt.",
+  "scans": [
+    "alm_472_34012_u00aet20uh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Czaar Peter auf dem Ladoga-See #",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ti6ev24qb9i3nwh",
+      "agents": "3aem7a5l4b7l07o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.777Z"
+    },
+    {
+      "id": "1vqnnn42jjwyhen",
+      "agents": "vn5l930p5j41o40",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.777Z"
+    }
+  ]
+}

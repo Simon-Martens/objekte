@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. an Blatt 6 der Suite /) Modekupfer; nummeriert 2.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108327,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Riep. f.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Riep. f.",
+  "scans": [
+    "alm_2168_108327_j1il2nwktm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s55kzb4hneacv0q",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.222Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.222Z"
+    }
+  ]
+}

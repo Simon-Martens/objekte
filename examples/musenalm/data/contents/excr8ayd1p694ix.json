@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Negersclavinn« von L. Halirsch INr 25924, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25916,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE NEGERSCLAVINN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Fendi pinx. J. Passini sc. Vienna",
+  "scans": [
+    "alm_343_25916_4jchd9o5gv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE NEGERSCLAVINN",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q4i49crmf10aj7c",
+      "agents": "aj12jgcexyaf6b2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.201Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.201Z"
+    },
+    {
+      "id": "q840hai0fdina4g",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.201Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.201Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen und Lieder ( Sammlung INr 2765, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Sie saß auf ihrem hohen Throne, / Den Zepter in der weißen Hand,",
+  "language": [],
+  "musenalm_id": 27766,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1) Die Königin und der Schäferknabe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1) Die Königin und der Schäferknabe",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "34ezcbh1pb9evgt",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.179Z"
+    }
+  ]
+}

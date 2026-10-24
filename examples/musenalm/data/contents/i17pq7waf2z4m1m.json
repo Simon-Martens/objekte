@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2375,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Karl Wilh. Ramler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Lichtensteger sc. 1774",
+  "scans": [
+    "alm_76_2375_up36jnab17.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Karl Wilh. Ramler",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s8n1pgnrwgawdxs",
+      "agents": "fit1wiumqffvi8r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.875Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.875Z"
+    }
+  ]
+}

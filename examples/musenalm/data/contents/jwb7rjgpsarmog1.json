@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: J. D. Sauerländer's Verlag] s. Textbezug INr 44445, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44446,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NASCHENDE KINDER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gem. v. Wieschebrink gest. v. Bakenberg",
+  "scans": [
+    "alm_604_44446_i00qj8m968.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NASCHENDE KINDER",
+  "updated": "2006-07-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "el0otx9frxfmnvu",
+      "agents": "rd622wc3de99i90",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.391Z"
+    },
+    {
+      "id": "s3qtfkqpmwqdn13",
+      "agents": "8x02yubdd9ru1dh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.391Z"
+    }
+  ]
+}

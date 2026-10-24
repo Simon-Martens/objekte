@@ -1,0 +1,45 @@
+{
+  "annotation": "mit kleiner Graphik über dem Gedicht s. INr 38309, Obj 17; /) auch in: Almanach der deutschen Musen 1770 (1. Aufl.), S. 171; Alm-2200, INr 79126; und in: Almanach der deutschen Musen 1770 (2. Aufl.), S. 175; Alm-175, INr 8018",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.925Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Herauf, o Sonne! Lange schon harret / dir / Der Bard' entgegen, welchen der Hah- / nenruf",
+  "language": [],
+  "musenalm_id": 38310,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesang / auf die Reise / Joseph des Zweyten, / Im May 1769",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Denis aus der S. J. Lehrer am K. K. Theresiano zu Wien",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesang / auf die Reise / Joseph des Zweyten, / Im May 1769",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kdyh8tre1rlv71i",
+      "agents": "fon9iiilzs9ke5a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.712Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juni; nummeriert IV. /) Illustration zu »Die Sonnenjungfrau«",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105565,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was bedeutet dies Grab? / IV. Aufz. I. Auftr.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Liebe sc.",
+  "scans": [
+    "alm_3264_105565_471hvuxb4g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Was bedeutet dies Grab? / IV. Aufz. I. Auftr.",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eq4d03ma9rvnzhx",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.108Z"
+    },
+    {
+      "id": "3i69fg22joi9ssi",
+      "agents": "v0k80momy67j3zt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.108Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Februar; Illustration zu »Die Kirmse zu Wallendorf« INr 132966, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.308Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132960,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der Kirmse zu Wallendorf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Berka inv. et sc. Wien",
+  "scans": [
+    "alm_4864_132960_j90sm7uack.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus der Kirmse zu Wallendorf",
+  "updated": "2024-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nvro2mazbosx1k8",
+      "agents": "jlkwrxo4vggz8uy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.100Z"
+    }
+  ]
+}

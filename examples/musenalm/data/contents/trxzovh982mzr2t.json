@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Als ich die Geschichte der französischen Revolution niederschrieb, boten sich mir mancherlei Betrachtungen dar, von denen ich aber um den Gang der Erzehlung nicht zu unterbrechen, und dieselbe nicht zu weit auszudehnen, keinen Gebrauch machen durfte.",
+  "language": [],
+  "musenalm_id": 79996,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Politische Betrachtungen / über / die gegenwärtigen Zeitläufte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Rabaut [übers. unbezeichnet]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Politische Betrachtungen / über / die gegenwärtigen Zeitläufte",
+  "updated": "2012-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ll6djgxakqjimuk",
+      "agents": "w8exdxoc346p0be",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.922Z"
+    }
+  ]
+}

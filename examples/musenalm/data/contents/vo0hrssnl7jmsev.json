@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.472Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Zwar hat Dich, jugendlicher Greis! / Mein Auge nie gesehen,",
+  "language": [],
+  "musenalm_id": 24009,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Geburtstage eines Forstmeisters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "GOTTLIEB HILLER",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Geburtstage eines Forstmeisters",
+  "updated": "2002-05-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aa3t5xcn2miht4d",
+      "agents": "j10c06e00qtlcav",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.102Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "'# Pseud. XIII. Agrionien für das Jahr 1819. gesammelt von Theodor Hell (Sammlung INr 40033, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "473",
+  "incipit_statement": "Die ersten Drei sind gut Latein, / Und doch versteht sie jeder Schreiber,",
+  "language": [],
+  "musenalm_id": 40034,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Sylbenräthsel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Richard Roos",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Sylbenräthsel",
+  "updated": "2005-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cjpwf80m1wpo0ph",
+      "agents": "bmrndjx591terfe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.916Z"
+    }
+  ]
+}

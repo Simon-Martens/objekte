@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 76967, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76968,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Säulengang im sogenannten Soldatenquartier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Veith fec.",
+  "scans": [
+    "alm_2394_76968_s7m0mhqxsx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Säulengang im sogenannten Soldatenquartier",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pz89813jhycldd1",
+      "agents": "agad4ahnieynhoj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.859Z"
+    }
+  ]
+}

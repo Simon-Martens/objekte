@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 86605, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "Es soll der Mensch sich, wie geschrieben steht, / Nicht eher austhun, bis er schlafen geht.",
+  "language": [],
+  "musenalm_id": 86607,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Das Schlangenhalsband",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Das Schlangenhalsband",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l93mt5e3ejqdex2",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.319Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.319Z"
+    }
+  ]
+}

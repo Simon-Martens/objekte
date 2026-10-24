@@ -1,0 +1,45 @@
+{
+  "annotation": "Klänge aus Petrarca (Sammlung INr 87116, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Es kommt der Blumenjüngling Lenz gegangen; / Doch sieht er mich an tiefer Wunde kranken.",
+  "language": [],
+  "musenalm_id": 87119,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Lautsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2013-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bg0c9grnd375en1",
+      "agents": "lddxtb72o5kmwcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.204Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.204Z"
+    }
+  ]
+}

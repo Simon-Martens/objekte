@@ -1,0 +1,43 @@
+{
+  "annotation": "Die verheimlichte Schöne. Ein erzählendes Gedicht in zwölf Balladen (Sammlung INr 29749, Obj 5) s. Graphik INr 29761, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.709Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Das ist sie nicht! so ruft er laut, / Und - dumpfem Schmerz ergeben",
+  "language": [],
+  "musenalm_id": 29760,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sechste Ballade. / Licht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sechste Ballade. / Licht",
+  "updated": "2002-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nm367iaq46qd3fq",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.413Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Die Geheimnisse von Paris« von Eugene Sue # Titel s. Textbezug INr 64038, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64034,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rigolette #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Baumann sc.",
+  "scans": [
+    "alm_1056_64034_fchpi8rj0q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rigolette #",
+  "updated": "2009-05-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9mgrmzrlgwwl77e",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.296Z"
+    }
+  ]
+}

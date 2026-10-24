@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 130121, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Mit Nadel, Zwirn und Fingerhut / Kam früh die schöne Nähterin, / Im Auge stillverborg'ne Glut,",
+  "language": [],
+  "musenalm_id": 130122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Knaben Geständiß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Knaben Geständiß",
+  "updated": "2009-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qb5elh1ecsvhxzs",
+      "agents": "4g2r3ta4uzw1gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.057Z"
+    }
+  ]
+}

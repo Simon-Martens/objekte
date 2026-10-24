@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Andeutungen zur Geschichte des Carnevals, in Briefen an eine Dame (Sammlung INr 106271, Obj 23) Carnevals-Spenden (Sammlung INr 106269, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Sie sind keine Gelehrte und verzichten gern, ich weiß es, auf den Ruhm, in Herrn von Schindler's Lexikon deutscher Schriftstellerinnen auch nur eine halbe Seite in Anspruch zu nehmen;",
+  "language": [],
+  "musenalm_id": 106272,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber das Geschichtliche des Festes im Allgemeinen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Professor Julius Max Schottky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber das Geschichtliche des Festes im Allgemeinen",
+  "updated": "2015-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6yih26nztrwm2tx",
+      "agents": "b094mbhv0wi49rz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.901Z"
+    }
+  ]
+}

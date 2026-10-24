@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 12 Gedichten INr 125583-125594, Obj 26-37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125582,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stammbuchblätter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "R. G. Puff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stammbuchblätter",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o3zuy7xnrp1ctzk",
+      "agents": "z276kpo6m8d5nvd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.902Z"
+    }
+  ]
+}

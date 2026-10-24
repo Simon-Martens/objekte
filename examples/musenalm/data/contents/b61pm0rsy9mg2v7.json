@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 111142, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.864Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Vater, nimm das Kind der Schmerzen gnädig auf in Deine Hut, / Allerbarmer, Dir vertrauet eine Mutter all' ihr Gut!",
+  "language": [],
+  "musenalm_id": 111143,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter Mosis",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter Mosis",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6hs62l6fcks47sb",
+      "agents": "hh3dab1czdktu2g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.474Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.474Z"
+    }
+  ]
+}

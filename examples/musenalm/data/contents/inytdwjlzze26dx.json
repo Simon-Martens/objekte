@@ -1,0 +1,56 @@
+{
+  "annotation": "Einer (Sammlung INr 38158, Obj 227)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Alle Freude des Dichters, ein gutes Gedicht / zu erschaffen,",
+  "language": [],
+  "musenalm_id": 38168,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 237,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alle Freude des Dichters, ein gutes Gedicht / zu erschaffen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. und S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v2um2eqfo4k4k0s",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.830Z"
+    },
+    {
+      "id": "xrmvlun2w0xw5xs",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.830Z"
+    }
+  ]
+}

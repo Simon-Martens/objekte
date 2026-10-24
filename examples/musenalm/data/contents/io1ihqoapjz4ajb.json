@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Von Jahrtausend zu Jahrtausend fluthet das Meer an den klippigen Ufern der Normandie fluthet das Meer an den klippigen Ufern der Normandie vorüber.",
+  "language": [],
+  "musenalm_id": 75051,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Die / Ruinen von Tancarville. / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Baronin de la Motte Fouque, geb. von Briest",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Die / Ruinen von Tancarville. / Eine Erzählung",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "akznzpxittdlacl",
+      "agents": "t59v9lajt8yljq5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.722Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Zur Entwerfung der Zeichnungen zu diesem Almanach, nach der Natur, reiste ich letzten Herbst nach Zürich.",
+  "language": [],
+  "musenalm_id": 51650,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reise / von Interlacken nach Zürich, / und von da durch die kleinen Cantone / wieder zurück, im Oktober 1801",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. N. K. **",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reise / von Interlacken nach Zürich, / und von da durch die kleinen Cantone / wieder zurück, im Oktober 1801",
+  "updated": "2007-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "femiv0nd4s5vh5m",
+      "agents": "grbttvgkqnprgwf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.573Z"
+    }
+  ]
+}

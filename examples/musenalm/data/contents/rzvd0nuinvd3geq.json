@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.013Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Keiner der Jünglinge meines Heimats / Liebt sein Vaterland heisser,",
+  "language": [],
+  "musenalm_id": 36047,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vaterlandsode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hartmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vaterlandsode",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kuyq75b4i320apg",
+      "agents": "kguhc4kb9u0c03l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.589Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.589Z"
+    }
+  ]
+}

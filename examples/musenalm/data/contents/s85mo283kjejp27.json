@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 15063, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15017,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CIRKASSIERINN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Domenichino p. Fr. John sc.",
+  "scans": [
+    "alm_234_15017_usgbmibh1s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CIRKASSIERINN",
+  "updated": "2001-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h6gvk8tx79vg7uv",
+      "agents": "ke8b3zzq6e79hhk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.635Z"
+    },
+    {
+      "id": "ud10ckqfopcm0nr",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.635Z"
+    }
+  ]
+}

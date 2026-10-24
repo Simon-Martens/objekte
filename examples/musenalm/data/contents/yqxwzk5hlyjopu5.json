@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 1. /) Graphik im Kalendarium Mai /) Illustration zu »Kaiser Friedrich der Zweite aus dem Hause der Hohenstaufen« INr 68953, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.142Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68947,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kaiser Friedrich II und der / Landgraff von Thüringen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury fec.",
+  "scans": [
+    "alm_843_68947_j7xlmrz1wc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kaiser Friedrich II und der / Landgraff von Thüringen",
+  "updated": "2008-07-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "01707ud1hq3xxmg",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.277Z"
+    }
+  ]
+}

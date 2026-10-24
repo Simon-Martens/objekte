@@ -1,0 +1,45 @@
+{
+  "annotation": "Blätter aus dem Süden (Sammlung INr 86950, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Ein hartes Los, bei Gott! - des Adlers Schwingen / An sich zu fühlen, stark genug und mächtig,",
+  "language": [],
+  "musenalm_id": 86954,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Geheimniß. / (Nach Emanuele Celesia.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Geheimniß. / (Nach Emanuele Celesia.)",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kz6bidzo1y8gisc",
+      "agents": "ett5544anganpff",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.222Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.222Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. a. folgende Verlagsmitteilung INr 20750, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "So! Violino primo: Mamsell Cäcilie! Violino secondo: der Herr Hofrath! / Viola: Die Madam Franziska!",
+  "language": [],
+  "musenalm_id": 20749,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Quartettchen im Hause. / Lustspiel in einem Act",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. Contessa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Quartettchen im Hause. / Lustspiel in einem Act",
+  "updated": "2002-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0q8yxhl9zp547d9",
+      "agents": "jho0bsnjm9w01d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.638Z"
+    }
+  ]
+}

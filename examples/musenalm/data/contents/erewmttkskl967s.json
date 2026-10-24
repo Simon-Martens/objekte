@@ -1,0 +1,69 @@
+{
+  "annotation": "s. Textbezug INr 33879, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33880,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SOMMER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen del. C. W. Schenk sc.",
+  "scans": [
+    "alm_470_33880_wguyli2djz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SOMMER",
+  "updated": "2003-05-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l8ro3bg5s33fyji",
+      "agents": "wn0jpqwykk4f079",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.430Z"
+    },
+    {
+      "id": "dl9388m4d7n1wta",
+      "agents": "8u98l2oorjap7pb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.430Z"
+    },
+    {
+      "id": "j2abspvmt3cr2z8",
+      "agents": "voq5dlml9870uhq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.430Z"
+    }
+  ]
+}

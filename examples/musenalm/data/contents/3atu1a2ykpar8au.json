@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu: »Meine Villa. Phantasie« von Catel INr 74720, Obj 29 /) # Bez.und Titel vom Beitrag",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.787Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74723,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Treppe #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Catel",
+  "scans": [
+    "alm_3117_74723_vxyrvnspao.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Treppe #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7qudzo1vatw6ykd",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.763Z"
+    }
+  ]
+}

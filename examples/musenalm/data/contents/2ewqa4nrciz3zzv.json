@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bez. aus dem G-Verz /) paginiert 1. Illustration zu »Die Mutter« INr 59569, Obj 87 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59568,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Daege # Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59568_yhu9hlfpmm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6h11xlp2q0w9rwv",
+      "agents": "h8a9pgq8srgfh71",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.020Z"
+    },
+    {
+      "id": "z034ekp4u5qgej4",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.020Z"
+    }
+  ]
+}

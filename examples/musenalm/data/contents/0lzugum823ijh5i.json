@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Es ist ein harter Dag, so ein Wihnachts heil’ger Abend!",
+  "language": [],
+  "musenalm_id": 127561,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Weihnachts-Präsente / Lokaler Gelegenheits-Scherz in 1 Akt, / von / Louis Angely",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louis Angely",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Weihnachts-Präsente / Lokaler Gelegenheits-Scherz in 1 Akt, / von / Louis Angely",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "adnhpc4250igaf3",
+      "agents": "uu6xiaa96mzeg53",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.945Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "169",
+  "incipit_statement": "Viel seliger scheint Geben als Empfangen, / Weil unser bess'res Daseyn wir erweiten,",
+  "language": [],
+  "musenalm_id": 91098,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Doppelte Liebe-Seligkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Carové",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Doppelte Liebe-Seligkeit",
+  "updated": "2013-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kehqfn9azgxd7p5",
+      "agents": "9zdfy29sj074b5x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.412Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.412Z"
+    }
+  ]
+}

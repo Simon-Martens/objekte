@@ -1,0 +1,45 @@
+{
+  "annotation": "Anekdoten und Charakterzüge aus dem franz. Kriege (Sammlung INr 61834, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Die Avantgarde drang unter dem Befehl des Generals N. gleich nach dem Rheinübergang, in unsre Gebirge vor, um sie von den Kaiserlichen zu säubern.",
+  "language": [],
+  "musenalm_id": 61838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Muthwillen und Leichtfertigkeit ist noch immer ein Hauptzug im Charakter der freien Franzosen.Sie verleugnen ihn selten. Hier ein kleiner, aber redender Beweis davon.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ebenders.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Muthwillen und Leichtfertigkeit ist noch immer ein Hauptzug im Charakter der freien Franzosen.Sie verleugnen ihn selten. Hier ein kleiner, aber redender Beweis davon.",
+  "updated": "2009-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "epf65d104qzmzgm",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.851Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.851Z"
+    }
+  ]
+}

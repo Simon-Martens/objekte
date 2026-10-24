@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachdichtung von Psalm 19 s. a. Nachdichtung INr 34997, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Die Herrlichkeit des Höchsten erzählen uns / Die Himmel. Ihre Spannung verkündet uns / Die Arbeit seiner Hände.",
+  "language": [],
+  "musenalm_id": 34996,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der XVIII. Psalm. / Nach dem hebr. Grundtexte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Denis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der XVIII. Psalm. / Nach dem hebr. Grundtexte",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gengq65gb4v9xr2",
+      "agents": "fon9iiilzs9ke5a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.734Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.734Z"
+    }
+  ]
+}

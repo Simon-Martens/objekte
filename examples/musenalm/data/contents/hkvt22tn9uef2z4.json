@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 4. /) Illustration zu »Lohn des Edelmuths. Eine orientalische Geschichte« INr 92897, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.958Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92898,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sey unser Beherscher - und Retter / des Vaterlandes!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Matthaei J. Blaschke sc.",
+  "scans": [
+    "alm_4082_92898_a1azk238eu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sey unser Beherscher - und Retter / des Vaterlandes!",
+  "updated": "2013-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uf5938oap2gcfdv",
+      "agents": "k01z45djkjhmx1a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.247Z"
+    },
+    {
+      "id": "st4h3dep7635u0u",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.247Z"
+    }
+  ]
+}

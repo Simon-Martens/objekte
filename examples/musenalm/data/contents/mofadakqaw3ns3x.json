@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert II. /) Illustration zu »Gustav III. König von Schweden« INr 59831, Obj 33 s.a. Textbezug INr 59809, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59811,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Brief ist ohne Nahmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc. 1793",
+  "scans": [
+    "alm_932_59811_lb8xlukaii.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Brief ist ohne Nahmen",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aqh2ij11po9rl72",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.012Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.012Z"
+    },
+    {
+      "id": "k7ffnsu107n95ne",
+      "agents": "c0fepqesuedn747",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.012Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.012Z"
+    }
+  ]
+}

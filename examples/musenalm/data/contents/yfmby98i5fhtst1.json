@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.913Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Bey Geisenheim am Rheine / Da ist ein dunkler Wald, / D'rin früh im Morgenscheine / Ein rosig Mägdlein wallt.",
+  "language": [],
+  "musenalm_id": 119576,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gottes-Noth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Freyh. v. Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gottes-Noth",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o62lb8s8wl9h9i8",
+      "agents": "otquhrfmf15x6tw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.613Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.613Z"
+    }
+  ]
+}

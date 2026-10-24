@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Dies Band von meinem blonden Haar / Soll deine Liebe mir erproben. / Byron",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.309Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Seitdem der glänzende Joachim Murat im rauschenden Fluge seines Ruhmes, als Großherzog von Berg in Düsseldorf einen üppigen Hof gehalten, wo der großherzogliche Sessel ihm als Stufe diente, um sich auf Neapels Königsthron zu schwingen,",
+  "language": [],
+  "musenalm_id": 63952,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ausgestoßene. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Walter Tesche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ausgestoßene. / Novelle",
+  "updated": "2009-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hgmmrbqt4nkldsp",
+      "agents": "ayxe6k12ru1cyko",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.925Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.925Z"
+    }
+  ]
+}

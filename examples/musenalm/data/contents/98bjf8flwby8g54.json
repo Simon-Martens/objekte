@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2077,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Berthold Auerbach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jul. Hübner gem. Alb. Teichel gest.",
+  "scans": [
+    "alm_73_2077_k9uqejgsko.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Berthold Auerbach",
+  "updated": "2000-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nnvjw1enbfqjm6p",
+      "agents": "b4t3w3z6pvp3b6q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.719Z"
+    },
+    {
+      "id": "k1kulq82cl8hxx2",
+      "agents": "filrbdi16sdmhwd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.719Z"
+    }
+  ]
+}

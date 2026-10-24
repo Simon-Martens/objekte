@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59427,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rudelsburg an der Saale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Rösel. G. Cooke fect.",
+  "scans": [
+    "alm_896_59427_m72tyl4yhw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Rudelsburg an der Saale",
+  "updated": "2008-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "suxikp4896i5zwh",
+      "agents": "fvvo7u8gqk8l3ze",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.685Z"
+    },
+    {
+      "id": "5vjzlq9kjm2xykh",
+      "agents": "a7m5750fz1o3qqp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.685Z"
+    }
+  ]
+}

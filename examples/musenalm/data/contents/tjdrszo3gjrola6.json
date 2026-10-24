@@ -1,0 +1,67 @@
+{
+  "annotation": "Miscellen (Sammlung INr 52658, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Die Schweizerische Litteratur, die von Alters her eine kleine Provinz der Deutschen machte, und selbst in die Französische schlug, ist im Ganzen nicht so fruchtbar an Neuigkeiten,",
+  "language": [],
+  "musenalm_id": 52665,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Schweizerische Litteratur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Schweizerische Litteratur",
+  "updated": "2007-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jti82n2fvvrudlm",
+      "agents": "0v61flsplw084qp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.467Z"
+    },
+    {
+      "id": "p4yxcjiwyx65ixf",
+      "agents": "k4ji2bliezq9pwr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.467Z"
+    },
+    {
+      "id": "ssjrdbpjnxvirlj",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.467Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.467Z"
+    }
+  ]
+}

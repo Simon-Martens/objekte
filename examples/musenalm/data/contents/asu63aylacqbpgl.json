@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: Verl. v. L. D. Sauerländer. Druck v. W. Maas] s. Textbezug INr 44169, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44170,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER SPANISCHE SPION",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem v. H. Rustige Gest. v. W. Otto",
+  "scans": [
+    "alm_600_44170_imdtbbv94b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER SPANISCHE SPION",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "49ltiwtodm3sf5l",
+      "agents": "uqsdu0nifidzvmw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.395Z"
+    }
+  ]
+}

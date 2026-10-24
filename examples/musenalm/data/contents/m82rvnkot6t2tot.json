@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 8. /) Illustration zu »Schön Irsa« von Fouqué s. Textbezug INr 26989, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26986,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schön Irsa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Schnorr del. M. Eßlinger",
+  "scans": [
+    "alm_350_26986_8qga5b3ln6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schön Irsa",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cmujnxpa52jesed",
+      "agents": "7yfzgmx3iovs38k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.273Z"
+    },
+    {
+      "id": "whlwe02jhtzdnbo",
+      "agents": "zfprrqdgr3ky9ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.273Z"
+    }
+  ]
+}

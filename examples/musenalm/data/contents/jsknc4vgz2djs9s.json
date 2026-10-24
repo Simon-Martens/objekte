@@ -1,0 +1,45 @@
+{
+  "annotation": "Funken (Sammlung INr 91961, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.470Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Es giebt Menschen, die den Johanniswürmchen gleichen: sie glänzen wie diese - in der Entfernung.",
+  "language": [],
+  "musenalm_id": 91979,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "20.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ig. Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "20.",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l6tl7z22o5d2fye",
+      "agents": "ink6oi00gx0e0hw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.394Z"
+    }
+  ]
+}

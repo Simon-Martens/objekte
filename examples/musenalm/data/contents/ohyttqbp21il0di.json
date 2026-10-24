@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium August; nummeriert 8. /) Illustration zu »Virgils Aeneis, travestirt« von J. A. Blumauer /) s. G-Verz INr 108348, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.668Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108337,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Allein ihr schlaft schon, seh' ich wohl, / Verschnupft ist auch mein Spaniol / Drum gute Nacht für heute. / III. / B. 125 S.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki f.",
+  "scans": [
+    "alm_2168_108337_d2237hx54l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Allein ihr schlaft schon, seh' ich wohl, / Verschnupft ist auch mein Spaniol / Drum gute Nacht für heute. / III. / B. 125 S.",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xb6vugs0zipr6me",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.223Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.223Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XV. Tändeleien (Sammlung INr 29202, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "296",
+  "incipit_statement": "Die Zeiten des Wahns sind vorbei, / Mein Herz kehrt dem Eigner zurück;",
+  "language": [],
+  "musenalm_id": 29207,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Befeiung. / Nach dem Englischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Henriette Schubart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Befeiung. / Nach dem Englischen",
+  "updated": "2002-10-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n1tq45l0kqmjzu8",
+      "agents": "od6meihhmql1c8r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.642Z"
+    }
+  ]
+}

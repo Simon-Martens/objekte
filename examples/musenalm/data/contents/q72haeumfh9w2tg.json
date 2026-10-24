@@ -1,0 +1,46 @@
+{
+  "annotation": "Vertonung des Gedichts »Empfindungen am Freundschaftssitze zu Karlsbad, auf einen Felsen geschrieben.« von Elisa d. i. Charlotte Elisabeth von der Recke INr 10974, Obj 117 (Photos 10975,01; 10975,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.813Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10975,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 118,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Empfindungen am Freundschaftssitze / zu Carlsbad, / auf einen Felsen geschrieben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_204_10975_01_bsmzhim8rq.jpg",
+    "alm_204_10975_02_nrcxb3vews.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Empfindungen am Freundschaftssitze / zu Carlsbad, / auf einen Felsen geschrieben",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6sru5xepev0or15",
+      "agents": "ubitdekwc4vpg28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.534Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.534Z"
+    }
+  ]
+}

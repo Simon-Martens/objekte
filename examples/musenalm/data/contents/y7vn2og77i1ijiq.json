@@ -1,0 +1,48 @@
+{
+  "annotation": "6 Angloisen, 2 Menuetten, 2 Quadrillen und 6 Walzer von Vinzenz Mascheck Kapellmeister in Prag (Sammlung INr 12035, Obj 156) (Photos 12045,01; 12045,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12045,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 163,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Menuetto 2",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vinzenz Mascheck",
+  "scans": [
+    "alm_209_12045_01_cjj9vqfcmm.jpg",
+    "alm_209_12045_02_3tse5neuc2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Menuetto 2",
+  "updated": "2001-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2wberzia2vlmtv7",
+      "agents": "f5hnxd5mx1nzaii",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.455Z"
+    }
+  ]
+}

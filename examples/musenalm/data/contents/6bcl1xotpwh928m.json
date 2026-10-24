@@ -1,0 +1,45 @@
+{
+  "annotation": "Prosaische Aufsätze (Sammlung INr 11121, Obj 16) mit 8 Illustrationen von Chodowiecki s. Graphiken in: Taschenbuch zum geselligen Vergnügen 1799, INr 11567-11570; 11572-11575",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.108Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Wer seine Welt um sich her nicht selbst zu bilden vermag, und sich darin kein Gebäude häuslichen Glücks zu errichten versteht, wird nie eine wahre Zufriedenheit fühlen.",
+  "language": [],
+  "musenalm_id": 11124,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Der Ruf in die Stadt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. G. Becker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Der Ruf in die Stadt",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "svyhyu78whdzt0x",
+      "agents": "n7zgo9f1gh6x37x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.316Z"
+    }
+  ]
+}

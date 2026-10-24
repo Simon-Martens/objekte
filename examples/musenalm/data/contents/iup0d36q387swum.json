@@ -1,0 +1,45 @@
+{
+  "annotation": "Sizilianische Lieder (Sammlung INr 24356, Obj 136)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Wandle die Gärten, die blühenden, hin am Fuße des / Aetna,",
+  "language": [],
+  "musenalm_id": 24358,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 138,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweites Lied / Die Felsen der Cyclopen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Waiblinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweites Lied / Die Felsen der Cyclopen",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vzxh297d5hfwh2z",
+      "agents": "6li7ibbf1vr3nv9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.936Z"
+    }
+  ]
+}

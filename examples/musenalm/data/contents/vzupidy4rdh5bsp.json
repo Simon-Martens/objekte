@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "403",
+  "incipit_statement": "Das Schloß Coroaze, auf der Höhe des Pech-David bei Toulouse, hinter einem Kranz von hohen Ahorn und immergrünen Eichen halb verborgen,",
+  "language": [],
+  "musenalm_id": 1914,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Clara von Cossuergue. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Lüdemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Clara von Cossuergue. / Novelle",
+  "updated": "2000-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "deag4ihvab1tk5i",
+      "agents": "jqanokpcqaenxu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.106Z"
+    }
+  ]
+}

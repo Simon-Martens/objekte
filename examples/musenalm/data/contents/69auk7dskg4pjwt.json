@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Sonnette (INr 93519, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Nehmt des Gefühls lebend'gen Ausdruck hin! / Mein schönstes Leben waren meine Lieder;",
+  "language": [],
+  "musenalm_id": 93521,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meine Leser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. J. C. Graf v. Sermage",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meine Leser",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j5l5pp3hx1cgnzx",
+      "agents": "nf6hcprj7w45n4m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.591Z"
+    }
+  ]
+}

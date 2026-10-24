@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.617Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "311",
+  "incipit_statement": "Die Hoffnung, schön, wie unter Rosen / Ein jugendlicher Morgentraum",
+  "language": [],
+  "musenalm_id": 20752,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Macht der Gewohnheit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Tiedge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Macht der Gewohnheit",
+  "updated": "2002-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bspsenynkpvi3b1",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.638Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.638Z"
+    }
+  ]
+}

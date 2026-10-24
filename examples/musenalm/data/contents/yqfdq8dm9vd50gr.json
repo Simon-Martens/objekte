@@ -1,0 +1,45 @@
+{
+  "annotation": "Spanische Lieder (Sammlung INr 45410, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Ich fuhr über Meer, / Ich zog über Land, / Das Glück das fand / Ich nimmermehr.",
+  "language": [],
+  "musenalm_id": 45419,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Las tierras corri",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Las tierras corri",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hntflhkej7twkr4",
+      "agents": "ijwiphnikfuhyxf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.514Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.514Z"
+    }
+  ]
+}

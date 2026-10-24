@@ -1,0 +1,45 @@
+{
+  "annotation": "Geschichten eines Hundertjährigen (Sammlung INr 103517, Obj 12) mit einer Illustration s. Graphik INr 103524, Ob 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Wenn ich Euch sage, daß zwischen den Franzosen unter der Kaiserin Maria Theresia und denen der unter der Republik ein großer himmelweiter Unterschied gewesen, so habe ich erst noch gar nichts gesagt.",
+  "language": [],
+  "musenalm_id": 103525,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schneider-Eulogi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schneider-Eulogi",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5626hx76e49dqnu",
+      "agents": "jo3symqxy3hqpd5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.162Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium Februar /) Illustration zu »Gibraltar: bis zum Frieden von 1783, nach der letzten Belagerung« INr 58461, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.444Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58451,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elliot",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reynolds pinx. London. M. Haas sc.",
+  "scans": [
+    "alm_848_58451_9q6ody0lmp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Elliot",
+  "updated": "2008-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2jlv9drq1l5mfzv",
+      "agents": "nkv0hibv5ktznwo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.949Z"
+    },
+    {
+      "id": "m0ywb5i8ok741vp",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.949Z"
+    }
+  ]
+}

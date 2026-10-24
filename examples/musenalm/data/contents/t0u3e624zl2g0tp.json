@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 29621, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.162Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In der Straße St. Honoree war das kleine Haus gelegen, welches Magdaleine von Scuderi, bekannt durch ihre anmuthigen Verse",
+  "language": [],
+  "musenalm_id": 29620,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Das Fräulein von Scuderi. / Erzählung aus dem Zeitalter Ludwig des Vierzehnten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. T. Hoffmann Verfasser der Phantasiestücke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Das Fräulein von Scuderi. / Erzählung aus dem Zeitalter Ludwig des Vierzehnten",
+  "updated": "2002-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sl2c17vpwfx0mj1",
+      "agents": "hhytu0neum83euj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.468Z"
+    }
+  ]
+}

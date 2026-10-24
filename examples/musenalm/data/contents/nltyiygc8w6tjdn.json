@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Nichts für ungut« von Th. Hell d.i. K. G. T. Winkler INr 76836, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.435Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76822,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nichts für ungut v. Th. Hell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg del. W. Jury fec.",
+  "scans": [
+    "alm_2391_76822_ux0hgs7i7i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nichts für ungut v. Th. Hell",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3eqbxqw4li519h1",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.674Z"
+    },
+    {
+      "id": "0kz3h4motlmea0u",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.674Z"
+    }
+  ]
+}

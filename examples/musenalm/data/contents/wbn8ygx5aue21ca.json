@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. aus dem Vorwort /) Gallerie zu den Opern Zweite Lieferung. Don Juan (Sammlung INr 775060, Obj 8) s. Graphik INr 75075, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.771Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Juan (ergriffen von Verzweiflung) / Ha! welche Schlünde öffnen sich!",
+  "language": [],
+  "musenalm_id": 75074,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / (Don Juan's Strafgericht.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hofrath Friedrich Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / (Don Juan's Strafgericht.)",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uv2ip49g83doz9c",
+      "agents": "6vt7odw80pm5iio",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.548Z"
+    },
+    {
+      "id": "yh0dab6gbkfvmzm",
+      "agents": "2wsoz27ytrsps8l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.548Z"
+    }
+  ]
+}

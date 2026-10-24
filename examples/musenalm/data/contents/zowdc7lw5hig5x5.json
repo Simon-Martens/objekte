@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 119301,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reichs-Prälatur Kaisersheim",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Quaglio del. E. Aubert sc.",
+  "scans": [
+    "alm_4448_119301_e6z3rojpq5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Reichs-Prälatur Kaisersheim",
+  "updated": "2017-07-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1iz3byqjhyisx1g",
+      "agents": "84udokklcf53ize",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.686Z"
+    },
+    {
+      "id": "es8jpguypd09gpp",
+      "agents": "ya6nbtop6m03yer",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.686Z"
+    }
+  ]
+}

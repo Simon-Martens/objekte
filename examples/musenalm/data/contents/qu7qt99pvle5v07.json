@@ -1,0 +1,46 @@
+{
+  "annotation": "paginiert 1-2 /) Vertonung des Gedichts »Für Maria« von R. Burns /) am Objekt: Beytrag für den Orpheus 1842; Gedr. b. M. R. Toma in Wien /) Photos 56543,01-56543,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Himmelsbothe, Strahl der Sterne, der ob schöner Unschuld wacht.",
+  "language": [],
+  "musenalm_id": 56543,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FÜR MARIA / Gedicht von Robert Burns. / Musik von Anton Hackel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton Hackel",
+  "scans": [
+    "alm_759_56543_01_v9af05rtvn.jpg",
+    "alm_759_56543_02_puuavp0iby.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FÜR MARIA / Gedicht von Robert Burns. / Musik von Anton Hackel",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qpnd6q3calhvp6s",
+      "agents": "q7itjhi9ow1folm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.818Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "5. Drey Frühlingsbilder (Sammlung INr 14190, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.693Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Schön ist der Lenz, wenn er das Blatt entfaltet, / Und die belaubten Äste breiter steckt;",
+  "language": [],
+  "musenalm_id": 14191,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die Blumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Müllner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die Blumen",
+  "updated": "2001-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "70awzv2gthozb4y",
+      "agents": "fy9yit4uuer2yhm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.646Z"
+    }
+  ]
+}

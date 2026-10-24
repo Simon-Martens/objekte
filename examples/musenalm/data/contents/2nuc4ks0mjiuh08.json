@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "363",
+  "incipit_statement": "Das Schicksal hat geäfft mich bis zur Stunde, / Und wird's, ich merk' es, thun zu jeder Zeit;",
+  "language": [],
+  "musenalm_id": 95089,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Papillote",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Ritter von Leitner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Papillote",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nheskig2838g5qk",
+      "agents": "kzo5zf1o5a1ke0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.789Z"
+    }
+  ]
+}

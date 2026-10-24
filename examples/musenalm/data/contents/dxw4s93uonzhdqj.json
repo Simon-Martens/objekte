@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Bräutigams Ständchen« von Kretschmann INr 13134, Obj 68 /) Anhang zu Beckers Taschenbuch 1808 (Sammlung INr 61535, Obj 146) (Photos 61543,01; 61543,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.437Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61543,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 154,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bräutigams Ständchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Bergt",
+  "scans": [
+    "alm_215_61543_01_lprbwm4y1a.jpg",
+    "alm_215_61543_02_g4tvn77j2r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bräutigams Ständchen",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "04y5jpfdvjd8vmq",
+      "agents": "25ubfkw7g6ebn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.144Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.144Z"
+    }
+  ]
+}

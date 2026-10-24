@@ -1,0 +1,45 @@
+{
+  "annotation": "Umgebungen von Carlsbad (Sammlung INr 92162, Obj 19) s. beigegebenes Gedicht INr 92186, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Wer glaubt, in Carlsbad bloß von Gebirgen eingeschlossen zu seyn, würde sehr irren, denn ein Ausflug in die Ebene nach dem Schlösschen Dalwitz wird ihn eines Bessern belehren.",
+  "language": [],
+  "musenalm_id": 92185,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Achter Spatziergang. / Dalwitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz Sartori",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Achter Spatziergang. / Dalwitz",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f0x7ozxmze2tkzw",
+      "agents": "swlf1imgk3sevcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.375Z"
+    }
+  ]
+}

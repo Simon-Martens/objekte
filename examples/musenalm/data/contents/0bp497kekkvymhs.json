@@ -1,0 +1,45 @@
+{
+  "annotation": "Den Gedichten des Almanachs vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Ohne Liebe, ohne Dichtung / Ist das Leben ohne Schwung,",
+  "language": [],
+  "musenalm_id": 41803,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe und Dichtung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "König Ludwig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe und Dichtung",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cb21on8w8kxjojr",
+      "agents": "0lj8fztokin6ffi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.288Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.288Z"
+    }
+  ]
+}

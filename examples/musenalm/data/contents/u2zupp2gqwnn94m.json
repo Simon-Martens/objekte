@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Briefe griechischer Frauen über Frauensitte (Sammlung INr 40587, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "Ich habe gehört, daß Dein Mann die Thorheit begeht, eine Buhlerin zu halten;",
+  "language": [],
+  "musenalm_id": 40590,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Theano an Nikostrata. / Warnung vor Eifersucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig August Kähler [übers.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Theano an Nikostrata. / Warnung vor Eifersucht",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oaaswka7x71pipz",
+      "agents": "rplcedkwg5rqz7n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.209Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.209Z"
+    }
+  ]
+}

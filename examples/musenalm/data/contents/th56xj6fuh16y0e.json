@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Rinaldo am mildesten Morgen im May / Stand hoch auf des Hauses Altan.",
+  "language": [],
+  "musenalm_id": 52903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schloß und die Hütte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hottinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schloß und die Hütte",
+  "updated": "2007-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "psfnk99cewccawp",
+      "agents": "9dyqyb46cpqyd97",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.631Z"
+    }
+  ]
+}

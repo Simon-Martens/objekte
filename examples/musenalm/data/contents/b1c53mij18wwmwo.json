@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik; Illustration zu »Faust« von J. W. v. Goethe s. Textbezug INr 9218, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9229,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Faust. Scene im Garten. / Faust und Margarethe, vorübergehend Mephistopheles u. Marthe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_39_9229_djc0jkusq1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Faust. Scene im Garten. / Faust und Margarethe, vorübergehend Mephistopheles u. Marthe",
+  "updated": "2000-08-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "umpz60cp3mehxss",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.391Z"
+    },
+    {
+      "id": "23zu8ssu8ceyk8n",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.391Z"
+    }
+  ]
+}

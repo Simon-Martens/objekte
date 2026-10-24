@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Eduard Friedleb« von Hugo Thomasius INr 91736, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.121Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91742,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Heideloff del. Dalbon sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. Dalbon sc.",
+  "scans": [
+    "alm_2876_91742_2dznxew37d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x175m3fyhmekqev",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.265Z"
+    },
+    {
+      "id": "gd2dcnz1v9ixnl1",
+      "agents": "42w3wulg3fl03j4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.265Z"
+    }
+  ]
+}

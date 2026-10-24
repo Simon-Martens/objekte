@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Auswahl aus Luthers freundschaftlichen Briefen, von den Jahren 1517-1546 (Sammlung INr 48445, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.754Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Möchte wol gern wissen, wer am meisten meine Kanzel besteige, und ob Amsdorf noch schlafe und müssig sey?",
+  "language": [],
+  "musenalm_id": 48449,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Philipp Melanchton. / (Vom Jahr 1521, von der Wartburg.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Euer Martinus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Philipp Melanchton. / (Vom Jahr 1521, von der Wartburg.)",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2a1qmo37q3md4ff",
+      "agents": "60x0fj7vzerrc38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.451Z"
+    }
+  ]
+}

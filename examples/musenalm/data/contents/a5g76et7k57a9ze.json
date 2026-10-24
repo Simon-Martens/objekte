@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Ansichten wirklich bestehender Garten Parthien. Nach Franz Catel INr 814542, Obj 15; s. Textbezug INr 81445, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81443,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Park bey Weimar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aus der Erinnerung gezeichnet und geäzt von Franz Catel",
+  "scans": [
+    "alm_3113_81443_awa0xjh6bc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Im Park bey Weimar",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "he7qxidobahy2su",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.016Z"
+    }
+  ]
+}

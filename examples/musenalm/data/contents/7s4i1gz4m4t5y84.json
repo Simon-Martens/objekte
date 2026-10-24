@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Die ihr in zerstreuten Reimen / Jener Seufzer Wohlklang hört,",
+  "language": [],
+  "musenalm_id": 8858,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Petrarchs erstes Sonnet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Unzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Petrarchs erstes Sonnet",
+  "updated": "2001-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "44ouy0jy7l0xl2e",
+      "agents": "72ib6ghxkur1aqm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.312Z"
+    }
+  ]
+}

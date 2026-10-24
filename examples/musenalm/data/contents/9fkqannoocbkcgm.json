@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Februar; nummeriert 2. /) Illustration zu »Otto von Wittelsbach«",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105085,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hier gab er mir die Hand und sagte / Bleibt mein Freund, und ihr könnt / mein Sohn werden! / Ir. Aufz. 10r. Auft.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Riepenhausen del. & sc.",
+  "scans": [
+    "alm_3257_105085_g6piz7eb06.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hier gab er mir die Hand und sagte / Bleibt mein Freund, und ihr könnt / mein Sohn werden! / Ir. Aufz. 10r. Auft.",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y32r2k8t2cno7p7",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.992Z"
+    }
+  ]
+}

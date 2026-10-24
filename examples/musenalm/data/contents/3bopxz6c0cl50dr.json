@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium; # Bez. am 1. Blatt der Suite /) Illustration zu »Der Liebesbrief« INr 120808, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.845Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120796,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebesbrief",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Maillard del. Cl. Kohl. sc.",
+  "scans": [
+    "alm_3285_120796_p8g03ifo1q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebesbrief",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "298i9wtrsu6jejj",
+      "agents": "jqx789ngxccpl2l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.680Z"
+    },
+    {
+      "id": "v693gi8o44sngwb",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.680Z"
+    }
+  ]
+}

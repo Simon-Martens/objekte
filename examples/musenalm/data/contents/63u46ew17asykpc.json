@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-03T09:38:41.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Einsam auf des Lebens Pfaden / Wird die Reise doppelt schwer",
+  "language": [],
+  "musenalm_id": 140487,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eins und Zwei",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Richard Roos",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eins und Zwei",
+  "updated": "2026-09-10T10:28:31.949Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "763vncvtr15cxgc",
+      "agents": "bmrndjx591terfe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-10T09:57:45.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-10T10:28:31.950Z"
+    }
+  ]
+}

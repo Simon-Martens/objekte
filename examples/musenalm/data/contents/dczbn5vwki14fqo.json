@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug INr 69052, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.940Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69047,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Portrait einer Römerin #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riedel del. Roma C. Barth sculps. Francofurti a/m",
+  "scans": [
+    "alm_2655_69047_z4uzjdgzxr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Portrait einer Römerin #",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6xpyst9uxsip6l4",
+      "agents": "kmgjs8katc6rqpu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.491Z"
+    },
+    {
+      "id": "281gxbz6qwsa95l",
+      "agents": "ak2qa5c9tflxdbf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.491Z"
+    }
+  ]
+}

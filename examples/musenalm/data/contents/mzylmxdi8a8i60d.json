@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Stand ein Kirchlein auf der Höhe, / Fast bedeckt vom Dünensand;",
+  "language": [],
+  "musenalm_id": 127734,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Strandbild",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Brunold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Strandbild",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "59zvksx71i2rcx7",
+      "agents": "5m7tegabhm1qw46",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.953Z"
+    }
+  ]
+}

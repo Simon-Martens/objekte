@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Agrionien für das Jahr 1824, gesammelt von Theodor Hell (Sammlung INr 40605, Obj 54",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "435",
+  "incipit_statement": "Sechs Sylben, Freundchen, sind's, die ich / Mir zur Charade auserwähle.",
+  "language": [],
+  "musenalm_id": 40622,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Hold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17. / Charade",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k7ku7cfwi37wxcf",
+      "agents": "utw4utrm977hsx5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.151Z"
+    }
+  ]
+}

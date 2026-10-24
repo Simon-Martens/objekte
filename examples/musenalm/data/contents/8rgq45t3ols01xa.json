@@ -1,0 +1,54 @@
+{
+  "annotation": "Tabellen zur Bemerkung der Festtage des häuslichen Glücks und des gesellschaftlichen Lebens (Sammlung INr 87881, Obj 56)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87950,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JANUAR",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Maillard del. J. Gerstner sc.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "JANUAR",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s4kbwrl5kr359jr",
+      "agents": "jqx789ngxccpl2l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.238Z"
+    },
+    {
+      "id": "wfnrxl80jawlfvb",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.238Z"
+    }
+  ]
+}

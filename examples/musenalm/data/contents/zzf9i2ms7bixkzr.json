@@ -1,0 +1,50 @@
+{
+  "annotation": "1. Vertonung des Gedichts »Liebestraum« von Harries INr 75969, Obj 34 /) Photos 75969,01-75969,04",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75969,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebestraum. / Zur ersten, zweyten, vierten und fünften Strophe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Harder",
+  "scans": [
+    "alm_3666_75969_01_i408lbbz8x.jpg",
+    "alm_3666_75969_02_olxmu1eipp.jpg",
+    "alm_3666_75969_03_kw62t2wo94.jpg",
+    "alm_3666_75969_04_el16teqf4p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Liebestraum. / Zur ersten, zweyten, vierten und fünften Strophe",
+  "updated": "2011-05-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zvwf2wwpb9tw9m0",
+      "agents": "cx1t1g6vij8mhnm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.858Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.858Z"
+    }
+  ]
+}

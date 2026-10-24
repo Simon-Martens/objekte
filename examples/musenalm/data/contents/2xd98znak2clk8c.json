@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 11510, Obj 193)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "394",
+  "incipit_statement": "Ich bin ein Sohn der mächtigen Natur, / Voll Stärk' und Kraft, begabt mit einer Donner- / stimme,",
+  "language": [],
+  "musenalm_id": 11522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 205,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lebrecht Nöller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12.",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xc3ujiazr0td6x8",
+      "agents": "jwuw6kcpwyx8ojz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.475Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Stehgreifsepigrammen nach Aufgaben im Pfänderspiele (Sammlung INr 4173, Obj 118)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.947Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Fort mit den künstlichen Jasminen, Rosen, / Nelken! / O wähle dir dafür die Kinder der Natur!",
+  "language": [],
+  "musenalm_id": 4174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Dem Fräulein H. zugleich etwas Artiges / und Unartiges über das Italienische / Sträußchen an ihrem Busen zu sagen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Dem Fräulein H. zugleich etwas Artiges / und Unartiges über das Italienische / Sträußchen an ihrem Busen zu sagen",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4tu30mz1a4vw3j1",
+      "agents": "t3zz4r3fvdi80ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.011Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.011Z"
+    }
+  ]
+}

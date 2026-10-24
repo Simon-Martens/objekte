@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik zum Kalendarium; nummeriert 8.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108553,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die katolische Religion wird zu Grabe getra- / gen. Verbrennung der heil. Geräthe. Abschwörung / des Priesterthums, etc",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1794",
+  "scans": [
+    "alm_2173_108553_ys9pao49dn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die katolische Religion wird zu Grabe getra- / gen. Verbrennung der heil. Geräthe. Abschwörung / des Priesterthums, etc",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5eodhch3uj9hrk1",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.393Z"
+    },
+    {
+      "id": "lzb95202uxu18yh",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.393Z"
+    }
+  ]
+}

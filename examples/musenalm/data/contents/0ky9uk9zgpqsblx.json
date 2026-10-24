@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Kapitel von: Zur Geschichte von Berlin und seinen Bewohnern unter der Regierung des Königs Friedrich I. (INr 67977, Obj 16) mit 13 Illustrationen s. Titelgraphik INr 67962, Obj 1 und 12 Graphiken im Kalendarium INr 67965-67976, Obj 4-15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "In der Zeit der glänzenden Regierung des großen Churfürsten war der Churstaat von Brandenburg in die Reihe der größern Europäischen Mächte getreten, welche über die Welthändel entschieden;",
+  "language": [],
+  "musenalm_id": 67978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Berlin in den Jahren 1688-1700",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Wilken",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Berlin in den Jahren 1688-1700",
+  "updated": "2008-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "neq9momcmbfzz5m",
+      "agents": "du7c0gijdnu6wop",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.329Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.329Z"
+    }
+  ]
+}

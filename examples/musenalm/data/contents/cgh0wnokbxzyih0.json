@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 88225, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.245Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Arm in Arm und Kron' an Krone steht der Eichen- / Wald verschlungen; / Heut' hat er bei guter Laune mir sein altes Lied ge- / sungen.",
+  "language": [],
+  "musenalm_id": 88226,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Waldesrauschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Waldesrauschen",
+  "updated": "2013-04-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "va8d50iz9gutx1f",
+      "agents": "3pzkf5igvpvswjd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.183Z"
+    }
+  ]
+}

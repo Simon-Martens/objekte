@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Tagebuch (Sammlung INr 14976, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.475Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Hat dir ein Stoß von ungefähr / Dein Kartenhaus zerrüttet; / Gott sey gedankt, es war nicht schwer",
+  "language": [],
+  "musenalm_id": 14983,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Spruch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Spruch",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0fw6bz7kib7r2z4",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.623Z"
+    }
+  ]
+}

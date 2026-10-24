@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die heilige Regiswindis« von K. Geib INr 63184, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63190,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinische Sagen. / Romanzen von C. Geib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Weber Nbg. sc.",
+  "scans": [
+    "alm_1035_63190_3zifzsadt3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinische Sagen. / Romanzen von C. Geib",
+  "updated": "2009-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cgn7tjq3b7z2ilp",
+      "agents": "g7nwy8gxkm3sfp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.103Z"
+    }
+  ]
+}

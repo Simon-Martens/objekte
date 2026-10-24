@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Talisman. Nordische Sage (Sammlung INr 86489, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.971Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Herr Tyr und seine Kämpen all' / Sie steh'n vor hohem Mauerwall,",
+  "language": [],
+  "musenalm_id": 86494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kampf. / 5.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Rain",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Kampf. / 5.",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ebriwg0amosyz9o",
+      "agents": "ut3gc8g2lomjo63",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.251Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.251Z"
+    }
+  ]
+}

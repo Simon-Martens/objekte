@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Liebesreime aus den Inseln des Archipelagus. Nach dem Neugriechischen (Sammlung INr 27816, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.205Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "458",
+  "incipit_statement": "Als du klein warst, liebt' ich dich, / Als du groß wardst, fopptest mich,",
+  "language": [],
+  "musenalm_id": 27830,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Als du klein warst, liebt' ich dich, / Als du groß wardst, fopptest mich,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "utqqvdzqk1ubfpx",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.360Z"
+    }
+  ]
+}

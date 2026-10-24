@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug u. Anmerkung INr 34190, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.383Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34191,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Auf Stein v. Weng in Stuttgart)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Auf Stein v. Weng in Stuttgart",
+  "scans": [
+    "alm_474_34191_qqnks87zhc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pd4rdt2lhl702cs",
+      "agents": "c038hjhgajehut0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.764Z"
+    }
+  ]
+}

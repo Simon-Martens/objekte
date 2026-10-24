@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Die sieben Hügel« von Fr. Brun geb. Münter INr 6620, Obj 87",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.673Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6621,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die sieben Hügel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. P. Schulz",
+  "scans": [
+    "alm_126_6621_hhrd74bdts.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die sieben Hügel",
+  "updated": "2000-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3p7lptihm2e1wax",
+      "agents": "oqecb466dne8cni",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.130Z"
+    }
+  ]
+}

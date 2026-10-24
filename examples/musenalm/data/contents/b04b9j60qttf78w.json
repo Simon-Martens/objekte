@@ -1,0 +1,45 @@
+{
+  "annotation": "Arabesken (Sammlung INr 14613, Obj 68)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Offen zeigt' ich mein Herz, und gab es den Freunden; vertraulich / Schloß ich dem Nächsten mich an,",
+  "language": [],
+  "musenalm_id": 14615,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Offen zeigt' ich mein Herz, und gab es den Freunden; vertraulich / Schloß ich dem Nächsten mich an,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Chr. Baron v. Zedlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "366aer60w2kumlu",
+      "agents": "id1mj19iathigp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.782Z"
+    }
+  ]
+}

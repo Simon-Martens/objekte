@@ -1,0 +1,45 @@
+{
+  "annotation": "Winter (Sammlung INr 23268, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Schon im Jahr 1793 hat der Canton Schwyz den Walzer, als einen gar nicht schönen, dazu unanständigen und ungesunden Tanz, in seinem Lande verboten.",
+  "language": [],
+  "musenalm_id": 23270,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Der Walzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Der Walzer",
+  "updated": "2002-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fs87jua8kj40dvx",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.244Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.244Z"
+    }
+  ]
+}

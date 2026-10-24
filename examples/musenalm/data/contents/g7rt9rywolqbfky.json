@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Kampf mit dem Drachen« von Fr. Schiller s. Textbezug INr 39116, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39115,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kampf mit dem Drachen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury scp.",
+  "scans": [
+    "alm_513_39115_4dr00sr2cx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kampf mit dem Drachen",
+  "updated": "2005-07-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ngfgs7ri5nddk4",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.878Z"
+    },
+    {
+      "id": "nap9myp0iaye56y",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.878Z"
+    }
+  ]
+}

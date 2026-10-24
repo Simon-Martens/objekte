@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Wieder einen, den das Glück zum Narren / Hatte, weil er ehrlich war und gut,",
+  "language": [],
+  "musenalm_id": 52525,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am eilften Novemberabend. / 1782",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Armbruster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am eilften Novemberabend. / 1782",
+  "updated": "2007-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m2ytg61ucqorg1c",
+      "agents": "at81kdy5mbfogcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.726Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.726Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "kol. Illustration zu »Der Bethlehemitische Kindermord. Dramatisch-komische Situationen aus dem Künstlerleben« von L. Geyer INr 87816, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87817,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "der bethlehemitische Kindermord. / Act I. Scene II. / Klaus (in Weimar Herr Durand.) / Wer nicht den Muth besitzt, das Höchste zu erstreben, / Verdient als Klexer nur, als Künstler nicht zu leben.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach dem Leben gez. v. Lorzing C. Erner sculps.",
+  "scans": [
+    "alm_3098_87817_53alvcx6di.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "der bethlehemitische Kindermord. / Act I. Scene II. / Klaus (in Weimar Herr Durand.) / Wer nicht den Muth besitzt, das Höchste zu erstreben, / Verdient als Klexer nur, als Künstler nicht zu leben.",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aznos9y8bcm94zy",
+      "agents": "gdudpjchutsxbuk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.105Z"
+    },
+    {
+      "id": "scou920ifd4li0u",
+      "agents": "lqxou8fr5xvpxi6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.105Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert 11.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7888,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coëffures de Leipsic / 1. Chapeau francois. 2. Naiveté. 3. Chapeau / de Paille teinte. 4. Innocente",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thoenert fec.",
+  "scans": [
+    "alm_149_7888_jlhkgud5xa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coëffures de Leipsic / 1. Chapeau francois. 2. Naiveté. 3. Chapeau / de Paille teinte. 4. Innocente",
+  "updated": "2000-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v0f6wqut1vbp8gd",
+      "agents": "knrhgn52aqjwh89",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.149Z"
+    }
+  ]
+}

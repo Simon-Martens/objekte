@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Goethe's Werken. Achte Lieferung. Faust. Erste Hälfte. (Sammlung INr 40807, Obj 12) s. Graphik INr 40804, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Alle, indem sie die Propfen ziehen, und jedem der verlangte / Wein im Glase läuft.",
+  "language": [],
+  "musenalm_id": 40813,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Fünfter Aufzug. / ZweiterAuftritt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Fünfter Aufzug. / ZweiterAuftritt",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rnjxt6zffmdvpuf",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.337Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Stufenleiter des Weibes. Sonettenkranz (Sammlung INr 80835, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "Wer nennt mir Schön'res als die Morgenröthe / Der ersten Liebe auf der Jungfrau Wangen?",
+  "language": [],
+  "musenalm_id": 80838,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Braut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Braut",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f1te247hs6dqp3x",
+      "agents": "mkd957rgkmp3pvz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.878Z"
+    }
+  ]
+}

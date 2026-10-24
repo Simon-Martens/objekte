@@ -1,0 +1,45 @@
+{
+  "annotation": "Todte Liebe (Sammlung INr 95116, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.818Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Blüten, die im Herbste starben, / Ruft der neue Lenz an's Licht;",
+  "language": [],
+  "musenalm_id": 95117,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. L. Baltekron",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b8gk1ck8h2i0kkz",
+      "agents": "oqavxmzabvmo0s1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.326Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.326Z"
+    }
+  ]
+}

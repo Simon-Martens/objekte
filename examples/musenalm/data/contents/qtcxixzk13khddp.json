@@ -1,0 +1,53 @@
+{
+  "annotation": "Photos 114858,01-114858,07",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114859,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ADAGIO",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Reuling, k.k. Hofoperntheater-Kapellmeister",
+  "scans": [
+    "alm_3836_114859_01_n464q4mivw.jpg",
+    "alm_3836_114859_02_vlpqjptue5.jpg",
+    "alm_3836_114859_03_8f25xf18e4.jpg",
+    "alm_3836_114859_04_jbi9k5pyvt.jpg",
+    "alm_3836_114859_05_7zi627ynhc.jpg",
+    "alm_3836_114859_06_r9imnepg7n.jpg",
+    "alm_3836_114859_07_fciydvo1w1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ADAGIO",
+  "updated": "2012-06-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ygfdut8zz8v2wa3",
+      "agents": "xtiwvrgc1mzxgw9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.509Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.509Z"
+    }
+  ]
+}

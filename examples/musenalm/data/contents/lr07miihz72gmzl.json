@@ -1,0 +1,45 @@
+{
+  "annotation": "Elegien (Sammlung INr 91888, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Alles im Strahl' Apolls eilt schnell zur goldenen / Reise, / Schließt sich die Blume, so trägt sie den / Saamen im Schoos",
+  "language": [],
+  "musenalm_id": 91897,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bellvoglio",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qv2c7zfl2t02gzu",
+      "agents": "eips0ml7kk6xorw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.367Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.367Z"
+    }
+  ]
+}

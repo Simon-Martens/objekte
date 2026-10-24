@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "In der Abenddämmrung sanftem Kühle, / In des Morgenthaues Lebensduft, / Unter Vögelsang und Zephyrspiele / Welch Entzücken spenden Erd' ind Luft!",
+  "language": [],
+  "musenalm_id": 90337,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wonne der Liebe. / Sonnet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schisling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wonne der Liebe. / Sonnet",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kqxvrrd3j0zruzu",
+      "agents": "moul223tty3k549",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.099Z"
+    }
+  ]
+}

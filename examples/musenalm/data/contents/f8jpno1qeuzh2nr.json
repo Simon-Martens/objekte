@@ -1,0 +1,41 @@
+{
+  "annotation": "s. Photos 121665,01–121665,06",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121665,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Inhaltsverzeichnis"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Inhalt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_2301_121665_01_5qm40n0zqx.jpg",
+    "alm_2301_121665_02_jjox98pl11.jpg",
+    "alm_2301_121665_03_6nvi9a1trq.jpg",
+    "alm_2301_121665_04_t08ue1ls8o.jpg",
+    "alm_2301_121665_05_uj898ato9y.jpg",
+    "alm_2301_121665_06_4y7am60cvx.jpg",
+    "alm_2301_121665_07_m4834oqgje.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Inhalt",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": []
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an den übrigen Blättern der Suite /) paginiert 2. s. Textbezug INr 60037, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60036,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Bauerknabe und die Kartoffeln",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del.",
+  "scans": [
+    "alm_936_60036_9rjw2m2phm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Bauerknabe und die Kartoffeln",
+  "updated": "2008-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6nwg4a2u8grasol",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.979Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.979Z"
+    }
+  ]
+}

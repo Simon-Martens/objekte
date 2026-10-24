@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 41973, Obj 174)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.548Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "267",
+  "incipit_statement": "Die Schwalben, alle Schwalben / Beim Hirten sind sie gern;",
+  "language": [],
+  "musenalm_id": 41976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 177,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Im Herbste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Mosen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Im Herbste",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "agoozr6t11fznaz",
+      "agents": "ya686aytqngnsyo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.218Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.218Z"
+    }
+  ]
+}

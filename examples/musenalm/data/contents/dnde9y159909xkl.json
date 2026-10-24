@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.215Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Es sind herrliche Schätze der alten und neuen Kunst aufgehäuft. Es finden sich reiche Bibliotheken, eine Akademie, eine Universität.",
+  "language": [],
+  "musenalm_id": 44980,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Deutschland] [Eigenthümliches einzelner Länder und Städte.] München",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Deutschland] [Eigenthümliches einzelner Länder und Städte.] München",
+  "updated": "2006-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "28oa3uhu57jd8vd",
+      "agents": "b96jiypecb45ptj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.384Z"
+    }
+  ]
+}

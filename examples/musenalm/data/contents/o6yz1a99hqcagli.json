@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Der Neid mit gifterfülltem Munde / Wagt einen Biß / Auf die Vollkommenheit.",
+  "language": [],
+  "musenalm_id": 83688,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf / einen Beurtheiler des Verbesseres der / Lieder der Deutschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anne Louise Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf / einen Beurtheiler des Verbesseres der / Lieder der Deutschen",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "26kwxlq2lwsnqfs",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.119Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.119Z"
+    }
+  ]
+}

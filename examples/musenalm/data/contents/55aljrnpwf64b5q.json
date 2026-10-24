@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder des Schmerzes (Sammlung INr 94370, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "O Liebe, wie mit Sonnenschein, / Durchwärmtest du mich ganz,",
+  "language": [],
+  "musenalm_id": 94377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Egon Ebert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "alvpp1tucpm3lq6",
+      "agents": "8gvoxfhtianvore",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.578Z"
+    }
+  ]
+}

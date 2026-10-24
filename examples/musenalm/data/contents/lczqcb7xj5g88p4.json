@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik # Titel s. Textbezug (Gedicht) INr 64348, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64344,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Baldreit in Baden #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt von J. Götzenberger gestochen von E. Wagner",
+  "scans": [
+    "alm_1069_64344_zup7ffudq6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Baldreit in Baden #",
+  "updated": "2009-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "93kl7h0jsrdttfm",
+      "agents": "k52j0ci4hisa6dc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.049Z"
+    }
+  ]
+}

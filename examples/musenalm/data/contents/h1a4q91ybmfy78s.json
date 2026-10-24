@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Mein kleiner Sohn, genannt Journal, / Der sich durch äußern Reiz empfahl, / Starb an der Schwindsucht in verwichner / Nacht.",
+  "language": [],
+  "musenalm_id": 78689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todesanzeige. / (Bei'm plözlichen Hinscheiden eines / bekannten Journals)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Weppen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todesanzeige. / (Bei'm plözlichen Hinscheiden eines / bekannten Journals)",
+  "updated": "2009-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yy055vzd30x4yiz",
+      "agents": "wx8h2mpbw2hmdqp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.699Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juli",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85778,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schloss Grunenwald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Mauch del. Engraved by Cook",
+  "scans": [
+    "alm_895_85778_167arizbis.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schloss Grunenwald",
+  "updated": "2008-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r5mg2pdqhl60nk0",
+      "agents": "4qmuru1kuzg7ngl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.242Z"
+    },
+    {
+      "id": "hki4zvkpuczhkh4",
+      "agents": "a7m5750fz1o3qqp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.242Z"
+    }
+  ]
+}

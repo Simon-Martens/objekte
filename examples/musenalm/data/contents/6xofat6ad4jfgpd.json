@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "O Wanderlust! / Ein Lied, ein Lied aus frischer Brust,",
+  "language": [],
+  "musenalm_id": 46224,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Joseph Freiherrn von Eichendorff. / (Im April 1853.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jégor von Sivers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Joseph Freiherrn von Eichendorff. / (Im April 1853.)",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rkydhtde3dok66v",
+      "agents": "gpow9s19ygz3th4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.223Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.223Z"
+    }
+  ]
+}

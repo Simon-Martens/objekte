@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus besserer Zeit! Fragmente (Sammlung INr 104133, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.734Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "316",
+  "incipit_statement": "Ich weiß nicht, soll ich dich dem Mond vergleichen, / Der aus den Liebes-Augen, sanft verweint,",
+  "language": [],
+  "musenalm_id": 104136,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Dingelstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9v2ti9gbpdha6xo",
+      "agents": "8xc9vhdufjuetwe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.115Z"
+    }
+  ]
+}

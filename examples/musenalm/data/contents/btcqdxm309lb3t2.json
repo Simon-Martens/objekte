@@ -1,0 +1,56 @@
+{
+  "annotation": "lllustration zu »Polydor von Caravagio« von Theodor Hell d.i. K. G. Th. Winkler INr 121766, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121756,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Polydor von Caravaggio von Theod. Hell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke del. G. Rist sc.",
+  "scans": [
+    "alm_2388_121756_nvl5c1lgi3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Polydor von Caravaggio von Theod. Hell",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bheuxtk8k559ycg",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.792Z"
+    },
+    {
+      "id": "4vfsicbq8tnmt81",
+      "agents": "b508kdfhrvb4cbp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.792Z"
+    }
+  ]
+}

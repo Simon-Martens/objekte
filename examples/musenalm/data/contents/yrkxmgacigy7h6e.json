@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.447Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Sonst, wenn der Feind des Waldes, der Herbst geschli- / chen kam / Und recht auf Räuberweise das Laub den Bäumen nahm,",
+  "language": [],
+  "musenalm_id": 94401,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lehrerinn Nymfe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lehrerinn Nymfe",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g2cz5afc9oj5y80",
+      "agents": "cr0uh3kmaadt1st",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.391Z"
+    }
+  ]
+}

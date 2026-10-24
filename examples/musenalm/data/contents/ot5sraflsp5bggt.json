@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "Daß du hier nur auf der Reise, / Liebes Herze, denk' daran.",
+  "language": [],
+  "musenalm_id": 99968,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Geist und die Frau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Louise von Plönnies",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Geist und die Frau",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ak6dub7wk76ye7b",
+      "agents": "x92gop17wjmkkw4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.023Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.023Z"
+    }
+  ]
+}

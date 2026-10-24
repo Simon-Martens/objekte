@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthsel und Charaden (Sammlung INr 20174, Obj 95)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "406",
+  "incipit_statement": "Die Erste lang / So macht's dir bang, / Bleicht dir die Wang',",
+  "language": [],
+  "musenalm_id": 20176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Homonyme",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Homonyme",
+  "updated": "2001-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mo9vuos3t2l9zvd",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.840Z"
+    }
+  ]
+}

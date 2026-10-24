@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Hehr bist du von Gestalt, bist reich an Witz / Verstande; / Du flohst, der Freyheit hold, von je des Hy- / mens Bande;",
+  "language": [],
+  "musenalm_id": 96347,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aufein Fräulein mit modischem / Helmhute",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Stein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aufein Fräulein mit modischem / Helmhute",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n2u30p2a1njf6eh",
+      "agents": "x9u4n2qst16e030",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.803Z"
+    }
+  ]
+}

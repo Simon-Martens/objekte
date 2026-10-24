@@ -1,0 +1,45 @@
+{
+  "annotation": "Denksteine (Sammlung INr 74951, Obj 7) III. Dichtungen (Sammlung INr 74950, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.781Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "248",
+  "incipit_statement": "Ludwig, Du hast es gewollt, das Gute mit lieben- / dem Sinne, / Doch der Höflinge Schaar hemmte die strebende / Kraft,",
+  "language": [],
+  "musenalm_id": 74954,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ludwig XVI",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ehrenfried Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ludwig XVI",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xuj5e5bb939fk23",
+      "agents": "pnennqhmzrv3ms6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.335Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.335Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.954Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Die Familie hatte sich in dem Schatten der uralten Nußbäume versammlet, die am äußersten Ende des Gartens einen freyen, runden Platz, wie die Säulen eines Tempels, umgaben.",
+  "language": [],
+  "musenalm_id": 48608,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Bruno",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jakobs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Bruno",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8idpeek87yvyd5c",
+      "agents": "ll7waoj43h6ojrc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.345Z"
+    }
+  ]
+}

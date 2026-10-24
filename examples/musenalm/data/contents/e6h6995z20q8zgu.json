@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Hexe die ich meine« von *** INr 2776, Obj 14; s. Anm. dort",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.238Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2777,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Hexe, die ich meine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. C. Dreßler",
+  "scans": [
+    "alm_80_2777_tz6hbezh6w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Hexe, die ich meine",
+  "updated": "2000-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jsla87c12cbyukw",
+      "agents": "1anhey70qa9n5qm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.716Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.716Z"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "annotation": "Illustration zu »Der Waldgänger« von A. Stifter INr 58071, Obj 6 /) unter der Graphik: Verlag von Gustav Heckenast in Pesth. Druck v. F. Kargl.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58072,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Waldgänger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. J. N. Geiger del. J. Axmann et F. Zastiéra sc.",
+  "scans": [
+    "alm_774_58072_h774atlcog.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Waldgänger",
+  "updated": "2008-06-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e3e68dmaipmpnv0",
+      "agents": "3lqsa16o80o69t8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.826Z"
+    },
+    {
+      "id": "zgds07yej4mecrp",
+      "agents": "eb0uid8s7k1f7eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.826Z"
+    },
+    {
+      "id": "o663coo1rfes334",
+      "agents": "ocng47uzapri3n3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.826Z"
+    }
+  ]
+}

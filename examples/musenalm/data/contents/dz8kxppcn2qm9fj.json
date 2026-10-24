@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Schwaben (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.910Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Männer sterben, haben keine Zähren! / Ja, und hätte nie geweint ein Mann, / Diese Thräne wird mich nicht entehren,",
+  "language": [],
+  "musenalm_id": 99558,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Verbannte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Verbannte",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7t43jdz36gpats7",
+      "agents": "wuncq1n9k4kudbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.445Z"
+    }
+  ]
+}

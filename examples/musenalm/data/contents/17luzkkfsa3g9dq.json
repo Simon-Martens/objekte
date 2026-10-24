@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.400Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "O Gott, deß starke Rechte / Beginn und Ende hält, / Du brachst entzwei die alte / Und schufest neu die Welt.",
+  "language": [],
+  "musenalm_id": 55105,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der ewige Jude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der ewige Jude",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g5u8b1g8gmw8322",
+      "agents": "ana89fnya97gfjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.772Z"
+    }
+  ]
+}

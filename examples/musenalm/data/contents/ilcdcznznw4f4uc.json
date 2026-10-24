@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Leben und Thaten des Freiherrn Quinctius Heymeran von Flaming« von A. H. J. Lafontaine /) s. Textbezug INr 82192, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82191,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du sollst noch glücklich werden. / Fleming Th. IV. S. 277",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E.Henne fec.",
+  "scans": [
+    "alm_3855_82191_kiu6ww8dw6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Du sollst noch glücklich werden. / Fleming Th. IV. S. 277",
+  "updated": "2012-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1xshv9pxc2v8a03",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.840Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.840Z"
+    }
+  ]
+}

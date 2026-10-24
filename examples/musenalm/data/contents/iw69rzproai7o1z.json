@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Schnitterlied« von G. J. Kuhn INr 54379, Obj 47 am Objekt: Kommponirt für die Alpenrosen von Ferd. Huber",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schnitterlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Huber",
+  "scans": [
+    "alm_740_54380_njcgzj94gm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schnitterlied",
+  "updated": "2008-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qdmfnmmklftpxx0",
+      "agents": "sotbd7eujnrv6f6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.728Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.728Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "244",
+  "incipit_statement": "Die Nacht war dunkel, die zwölfte Stunde nahe; stille war's im ganzen Hause. In der Stube kniete ein Mann vor einem Kruzifix und betete.",
+  "language": [],
+  "musenalm_id": 44477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die kleinen Herrscher. / Ein Bild aus dem Polizeistaat vor dem März 1848",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Josef Rank",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die kleinen Herrscher. / Ein Bild aus dem Polizeistaat vor dem März 1848",
+  "updated": "2006-07-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3wd795rlc6qiypf",
+      "agents": "h1rm6ctjxvxk0m6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.168Z"
+    }
+  ]
+}

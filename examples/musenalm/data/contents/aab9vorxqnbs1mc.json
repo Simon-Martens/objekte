@@ -1,0 +1,45 @@
+{
+  "annotation": "# Psezd.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.230Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Erblickt Ihr noch nichts? / Noch immer nichts! - Beim Himmel! ich wollte unsern Feinden lieber Aug' in Auge, das Schwert in der Hand, gegenüber stehen,",
+  "language": [],
+  "musenalm_id": 135442,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria Stuart's erste Gefangenschaft. / Drama in vier Aufzügen, / nach Walter Scott",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lembert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria Stuart's erste Gefangenschaft. / Drama in vier Aufzügen, / nach Walter Scott",
+  "updated": "2025-06-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nwftpf3rbdabtur",
+      "agents": "uylk38bu9ebsams",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.148Z"
+    }
+  ]
+}

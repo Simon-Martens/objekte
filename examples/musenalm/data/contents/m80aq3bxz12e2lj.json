@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.785Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Der Geist allein ist Zeit und Raum entbunden, / Er selbst legt sich des Zwanges Fessel an,",
+  "language": [],
+  "musenalm_id": 123304,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Schleyermacher",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kochen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Schleyermacher",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yjw5qx2t6y6f0ty",
+      "agents": "fyntyt5h3n204i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.677Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik (Portrait) INr 77533, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.361Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Der Stahlstich, welcher die Züge dieser reizenden Fürstin darstellt, ist nach dem herrlichen Originalgemälde Rafael's",
+  "language": [],
+  "musenalm_id": 77534,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johanna von Aragonien",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Johanna von Aragonien",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yrhifdeaonubvo6",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.732Z"
+    }
+  ]
+}

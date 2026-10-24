@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 86181, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Ein Opfer weihte, was er auch begann, / Der Grieche seinen Göttern, daß ihr Sinn / Sich huldvoll seinem Thun erweisen möchte.",
+  "language": [],
+  "musenalm_id": 86182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Opfer weihte, was er auch begann, / Der Grieche seinen Göttern, daß ihr Sinn / Sich huldvoll seinem Thun erweisen möchte.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nnv7u5e3nwdikl7",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.142Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.142Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juli (Neustich) nummeriert 10. # Bez. an den übrigen Graphiken der Suite, s. Textbezug INr 135156, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135171,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sternwarte zu Paris. / L'Observatoire à Paris",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Hossel sculp.",
+  "scans": [
+    "alm_2059_135171_90gzv1owtm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sternwarte zu Paris. / L'Observatoire à Paris",
+  "updated": "2010-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a6qfwozx38yt1gg",
+      "agents": "t4wlsbli26ob7y0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.138Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.138Z"
+    }
+  ]
+}

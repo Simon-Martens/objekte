@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Siehe kleine Balladen und Lieder, komponiert von J. R. Zumsteeg, Leipzig bei Breitkopf und Hertel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.688Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Mädchen und Jünglinge, Männer und Frauen / Sind hier im traulichen Kreise zu schauen.",
+  "language": [],
+  "musenalm_id": 35901,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rundgesang #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rundgesang #",
+  "updated": "2003-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "63f7pzynyucmuo4",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.793Z"
+    }
+  ]
+}

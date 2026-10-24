@@ -1,0 +1,58 @@
+{
+  "annotation": "Zweite Ausstellung von Scenen aus dem italienischen Volksleben (Sammlung INr 77536, Obj 9) s. Textbezug (Gedicht) INr 77544, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77545,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Loggia auf der Insel Procida",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Törmer, Stahlstich von Fr. Geißler",
+  "scans": [
+    "alm_2407_77545_voz04ju488.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Loggia auf der Insel Procida",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9a30nqs8m4f98pr",
+      "agents": "j8muurnc8i80bf2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.733Z"
+    },
+    {
+      "id": "mes5hj9hxz2nf75",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.733Z"
+    }
+  ]
+}

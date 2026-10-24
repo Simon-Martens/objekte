@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium März; paginiert 3. /) Illustration zu »Fortsetzung der Geschichte der Mark Brandenburg. Friedrich II. Erste Abtheilung. 1740 bis 1756« INr 58301, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.011Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110548,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Huldigung zu Breslau am / 7. November 1741. S. 28",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et. sculp.",
+  "scans": [
+    "alm_4301_110548_ffwklozopw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Huldigung zu Breslau am / 7. November 1741. S. 28",
+  "updated": "2016-03-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5t519i46yk7zwgs",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.238Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.985Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Fragt ihr, woher mir so oft liebathmende Blätter beschert seyn, / Und wie dem Volke so sanft dring' in die Lippe mein Buch?",
+  "language": [],
+  "musenalm_id": 15926,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Mäcenas. / (Properz B. II.1.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Mäcenas. / (Properz B. II.1.)",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6ecrl7wacfknpjk",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.560Z"
+    }
+  ]
+}

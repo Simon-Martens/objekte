@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.345Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Fern tönt aus der Waldkapelle / Der Abendglocke Schall;",
+  "language": [],
+  "musenalm_id": 98153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. An die Sonne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Gottfried Neumann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. An die Sonne",
+  "updated": "2014-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hnsg01ilnnjxkii",
+      "agents": "u56d09jffk0z5ur",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.975Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Das Gewitter« von C. G. Leitner INr 26101, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26093,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS GEWITTER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. Waldmüller pinx. J. Passini sculp.",
+  "scans": [
+    "alm_341_26093_6rvj530w1m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DAS GEWITTER",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2tlncl0l3pckuze",
+      "agents": "30mh43xegynue78",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.169Z"
+    },
+    {
+      "id": "5p59dwlwy04jfwd",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.169Z"
+    }
+  ]
+}

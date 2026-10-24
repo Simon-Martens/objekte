@@ -1,0 +1,47 @@
+{
+  "annotation": "mit kleiner Graphik über dem Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Weil Tugend nicht, noch Geistesgabe, Den Eigensinn des Schicksals rührt,",
+  "language": [],
+  "musenalm_id": 5007,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Freundschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gotter",
+  "scans": [
+    "alm_103_5007_1feqzicdgc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Freundschaft",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iu379wxrnzmmog5",
+      "agents": "hu6ba8zv7wtaxe9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.194Z"
+    }
+  ]
+}

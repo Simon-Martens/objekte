@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Es pochet so ängstlich, es seufzet und klagt, / Als wäre ein Schatz hier verscharret,",
+  "language": [],
+  "musenalm_id": 94110,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der früh begrabene Lieblingstraum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max Karl Baldamus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der früh begrabene Lieblingstraum",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cw0xkpm17ss31k0",
+      "agents": "gvrm573djft0g9v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.680Z"
+    }
+  ]
+}

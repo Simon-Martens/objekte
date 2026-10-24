@@ -1,0 +1,45 @@
+{
+  "annotation": "Toiletten-Blätter für Clothilde (Sammlung INr 115227, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "165",
+  "incipit_statement": "Der Morgen des ersten Maytages begrüßt Sie, holde Clothilde, schon wieder in dem traulichen blauen Cabinete Ihres stillen, ländlichen Gartenhauses,",
+  "language": [],
+  "musenalm_id": 115228,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der erste May",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der erste May",
+  "updated": "2014-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pcob3z6zg7y02pi",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.488Z"
+    }
+  ]
+}

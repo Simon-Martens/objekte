@@ -1,0 +1,45 @@
+{
+  "annotation": "Satyrisken (Sammlung INr 65552, Obj 120) Gedichte (Sammlung INr 65534, Obj 102)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Wie gaukelts doch von Wand zu Wand, / Wie spielts in Bild und Wort;",
+  "language": [],
+  "musenalm_id": 65554,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie gaukelts doch von Wand zu Wand, / Wie spielts in Bild und Wort;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Puchta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3z3oyuheimz4rc9",
+      "agents": "yjnbioe01jyvf6s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.995Z"
+    }
+  ]
+}

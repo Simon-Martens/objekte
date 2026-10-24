@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Wie viel, im Reich des Geistes gar, / Hängt ab von Ort und Zeit,",
+  "language": [],
+  "musenalm_id": 117790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedicht / Gründlichkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Grillparzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedicht / Gründlichkeit",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nmweuueuhi0n54p",
+      "agents": "jf5q6ykf9ux52yq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.663Z"
+    }
+  ]
+}

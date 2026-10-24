@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden (Sammlung INr 22009, Obj 173)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.122Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Willst du die ersten zwey errathen? Sie sind dir / nicht ferne,",
+  "language": [],
+  "musenalm_id": 22010,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 174,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Willst du die ersten zwey errathen? Sie sind dir / nicht ferne,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vjlpkcmp1a1q6kr",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.058Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.058Z"
+    }
+  ]
+}

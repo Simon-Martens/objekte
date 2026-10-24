@@ -1,0 +1,45 @@
+{
+  "annotation": "Reise-Briefe, geschrieben im Herbste 1839 (Sammlung INr 44043, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "387",
+  "incipit_statement": "Ich schreibe dir heute zum letzten Male von Venedig aus. Morgen früh werden Simone und sein Bruder mich nach Fusina rudern,",
+  "language": [],
+  "musenalm_id": 44053,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zehnter Brief. / Venedig im September",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zehnter Brief. / Venedig im September",
+  "updated": "2006-06-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2k8g1dj3jnqkmxa",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.946Z"
+    }
+  ]
+}

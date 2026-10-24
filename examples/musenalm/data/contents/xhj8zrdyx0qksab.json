@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80613, Obj 45) # falsche Zählung: 3 für 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Klagst du schon, zaghafter Dichter, / Der den ersten Flug gewagt,",
+  "language": [],
+  "musenalm_id": 80617,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Unverzagt. / (An einen jungen Freund) #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Unverzagt. / (An einen jungen Freund) #",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m8j2g9kcr2yoznb",
+      "agents": "6qn9afrpxniwvx7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.727Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.727Z"
+    }
+  ]
+}

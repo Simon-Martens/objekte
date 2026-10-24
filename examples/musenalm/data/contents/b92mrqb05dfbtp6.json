@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 104711,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. G. BRÜCKNER / als Göz von Berlichingen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosenberg del. Geyser sc.",
+  "scans": [
+    "alm_3251_104711_rkrx84qxcz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "I. G. BRÜCKNER / als Göz von Berlichingen",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bfmxaij4s0ula69",
+      "agents": "sc75l2sfocgeelr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.219Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.219Z"
+    },
+    {
+      "id": "88pzqhd73gybkvx",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.220Z"
+    }
+  ]
+}

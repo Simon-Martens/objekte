@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bindefehler: Titel fälschlich nach S. 90",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.263Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Wenn in der Welt- und Menschheitsgeschichte eine Umwälzung des Bestehenden beginnt, pflegte man den Einzelnen, der die Nothwendigkeit derselben zuerst ausspricht, als den Schöpfer der neuen Epoche zu betrachten,",
+  "language": [],
+  "musenalm_id": 103630,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Domherr #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Verfasserin der Clementine und Jenny",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Domherr #",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lyvy5t5qi40uf5d",
+      "agents": "0t6dbu1zb45y9g0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.153Z"
+    }
+  ]
+}

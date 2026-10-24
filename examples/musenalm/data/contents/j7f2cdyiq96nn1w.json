@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 94169, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94168,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schnitterin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bl. Höfel sc. Wr. Neustadt",
+  "scans": [
+    "alm_1867_94168_7zrbnpyopc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Schnitterin",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "156w29xsthyxpck",
+      "agents": "y1qct7tl0hidcy2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.247Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Viertes Jahr (Sammlung INr 48699, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Wie er sitzt, der kleine Mucker! / So verdrießlich und so stumm, / Sieht nicht mal nach seinem Zucker / Nicht nach seinem Hanf sich um ,",
+  "language": [],
+  "musenalm_id": 48702,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Finken im Käfich, / der nicht längst gefangen war",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Finken im Käfich, / der nicht längst gefangen war",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r8y1e5rum74dmln",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.222Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.222Z"
+    }
+  ]
+}

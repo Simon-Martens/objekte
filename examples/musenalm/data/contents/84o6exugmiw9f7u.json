@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Längst verklang in mir das Lied; / Denn mein Liebstes muß ich missen,",
+  "language": [],
+  "musenalm_id": 14309,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sänger und die Nachtigall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Al. Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sänger und die Nachtigall",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hu5lqnb955tl00h",
+      "agents": "xk1o4h9hiuycys6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.297Z"
+    }
+  ]
+}

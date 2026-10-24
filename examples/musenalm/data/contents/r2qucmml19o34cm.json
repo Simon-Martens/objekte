@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 29943, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.993Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29944,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (A. Elzheimer pinx. W. Jury fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Elzheimer pinx. W. Jury fec.",
+  "scans": [
+    "alm_387_29944_sb9ssx4cdn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bksvc2qnyrotbdy",
+      "agents": "mozmrzb06oqaln6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.440Z"
+    },
+    {
+      "id": "q7x2shxiinzdwqf",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.440Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.440Z"
+    }
+  ]
+}

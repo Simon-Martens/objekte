@@ -1,0 +1,45 @@
+{
+  "annotation": "Vaterländische Sonette (Sammlung INr 23554, Obj 79) Sonette (Sammlung INr 23547, Obj 72) Lieder eines Autodidakten (Sammlung INr 23528, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Ihr nennt uns Träumer, Schwindler, junge Thoren, / Wenn ehrlich wir nach Licht und Wahrheit streben:",
+  "language": [],
+  "musenalm_id": 23560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Den christlichen Griesgrämlern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Den christlichen Griesgrämlern",
+  "updated": "2002-05-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8e60md41es3ll67",
+      "agents": "3pzkf5igvpvswjd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.222Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.222Z"
+    }
+  ]
+}

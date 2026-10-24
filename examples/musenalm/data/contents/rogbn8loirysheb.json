@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.093Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Wenn von dem Glauben du hörst in der Weis- / heit neueren Schulen / Unverständiges Gespräch: lerne nur dieses / daraus,",
+  "language": [],
+  "musenalm_id": 78719,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verständigung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Schleiermacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verständigung",
+  "updated": "2009-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "502wqdarlt6ohzr",
+      "agents": "272r3k0zcaqt41m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.842Z"
+    }
+  ]
+}

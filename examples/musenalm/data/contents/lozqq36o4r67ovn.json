@@ -1,0 +1,45 @@
+{
+  "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Hell und klar entspringt diese Quelle aus einem kalkartigen Gesteine, welches die Sprudelschale heißt.",
+  "language": [],
+  "musenalm_id": 92150,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "b) Sprudel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz Sartori",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "b) Sprudel",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rp7eumh0mhf9rjr",
+      "agents": "swlf1imgk3sevcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.362Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.362Z"
+    }
+  ]
+}

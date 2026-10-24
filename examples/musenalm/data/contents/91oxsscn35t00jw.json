@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25587, Obj 118)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.159Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Ich möchte jeden Stab / Zum grünen Zweige wandeln,",
+  "language": [],
+  "musenalm_id": 25588,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 119,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Dichters Wunsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Wihl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Dichters Wunsch",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yjwf3iyx6ra9v6c",
+      "agents": "z9zzha2tz10lf47",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.062Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.062Z"
+    }
+  ]
+}

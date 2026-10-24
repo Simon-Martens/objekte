@@ -1,0 +1,45 @@
+{
+  "annotation": "Fortsetzung  von »Das Chorpult. (Nach Boileau) Erster Gesang« in: Salzburger Musenalmanach 1787, S. 38; alm-1759, INr 68720, Obj 10 /) mit Anmm",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "75",
+  "incipit_statement": "Mittler Weile schwingt sich der Wunder- / werke Verkünder, / Vogel an Eile des Flugs, ein Ungeheuer / am Rumpfe,",
+  "language": [],
+  "musenalm_id": 131014,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Chorpult / Zweyter Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Hübner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Chorpult / Zweyter Gesang",
+  "updated": "2003-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mc75qxg7t23ojam",
+      "agents": "0b9nelfb23buwgh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.080Z"
+    }
+  ]
+}

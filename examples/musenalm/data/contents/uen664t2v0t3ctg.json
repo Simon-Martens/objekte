@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert No II /) # Titel s. Textbezug INr 79903, Obj 47",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79863,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein alter Thurm #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Klinsky erf. J. A. Darnstedt sc.",
+  "scans": [
+    "alm_2840_79863_yb5j37nd1t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein alter Thurm #",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nb8qkd0eoau62hx",
+      "agents": "jluxmeayxx3ga35",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.973Z"
+    },
+    {
+      "id": "l7g255cf123qjbd",
+      "agents": "gigh2wbcx0ni1j2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.973Z"
+    }
+  ]
+}

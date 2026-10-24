@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Drittes Jahrhundert der Kirchengeschichte« INr 127528, Obj 3 /) nummeriert 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.273Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127529,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Natalius ab Angelo Fla- / gellatus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Monsorno inv. J. Blaschke sc.",
+  "scans": [
+    "alm_4771_127529_pp19fvlnle.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Natalius ab Angelo Fla- / gellatus",
+  "updated": "2021-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s8e8690r2yym4yv",
+      "agents": "h37i7hdd1a10o2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.943Z"
+    },
+    {
+      "id": "62754jhhtbmjn0p",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.943Z"
+    }
+  ]
+}

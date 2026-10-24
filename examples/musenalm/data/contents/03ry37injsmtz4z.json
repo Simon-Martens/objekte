@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am 3. u. 5. Blatt der Suite /)  Illustration zu »FRÉDÉRIC GUILLAUME LE GRAND, Electeur« INr 70401, Obj 18 s.a. Textbezug INr 70418, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70407,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. W. Meil del. et sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil del. et sc.",
+  "scans": [
+    "alm_827_70407_v42qec1n8y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l4bicy12yi1c0ss",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.608Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.608Z"
+    }
+  ]
+}

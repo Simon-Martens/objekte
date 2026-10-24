@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Wenn der Flecken an dir sich unrein spiegelt im Stahle, / Und dir das blanke Metall selber beflecket erscheint:",
+  "language": [],
+  "musenalm_id": 15872,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unverschuldetes Mistrauen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Knebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unverschuldetes Mistrauen",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iwxkdo0trd73ios",
+      "agents": "ymo6fj9vzc9ufg1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.885Z"
+    }
+  ]
+}

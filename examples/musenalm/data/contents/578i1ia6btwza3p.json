@@ -1,0 +1,56 @@
+{
+  "annotation": "Übersetzung des vorstehenden Epitaphs",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Die ganze Natur und ihr Grundgesez lag / tief in Nacht verhüllt. / Gott sagt': Es werde Newton! Siehe, alles ward / mit Licht erfüllt!",
+  "language": [],
+  "musenalm_id": 75200,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Uebersezung der berühmten Grabschrift des grossen POPE auf den grossen NEWTON]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pope [übers.] Kausch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Uebersezung der berühmten Grabschrift des grossen POPE auf den grossen NEWTON]",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iut5oh2tfmy8fjm",
+      "agents": "3avan8jtjd825y2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.057Z"
+    },
+    {
+      "id": "nh9p104fcatb3wm",
+      "agents": "5jdwcyiwfdtu44o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.057Z"
+    }
+  ]
+}

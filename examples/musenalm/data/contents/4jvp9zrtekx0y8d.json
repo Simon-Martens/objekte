@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus Frankreich (Sammlung INr 127686, Obj 31) dem Text vorangestellt: Vom hohen Berg herab, in's weite Meer, / Was soll für mich ein Reichthum der Natur [..] Goethe",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.360Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Rasch ging's durch die Weiler La Madelaine und La Chapelette. Ich eilte zu Fuß die Anhöhe hinauf - tagelang hätte ich auf dieser Höhe verweilen mögen.",
+  "language": [],
+  "musenalm_id": 127689,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Montreuil",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Montreuil",
+  "updated": "2006-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aoixmm5izf8475s",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.873Z"
+    }
+  ]
+}

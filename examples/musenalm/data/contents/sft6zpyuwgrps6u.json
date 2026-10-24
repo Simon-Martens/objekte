@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 3.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.663Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61408,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (V. Grüner inv. fecit)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. Grüner inv. fecit",
+  "scans": [
+    "alm_967_61408_adg7brbqiv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dqnfuxo5ln0gwsy",
+      "agents": "mwvtf64bmzwstck",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.085Z"
+    }
+  ]
+}

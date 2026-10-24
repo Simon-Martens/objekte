@@ -1,0 +1,47 @@
+{
+  "annotation": "Gedichte (Sammlung INr 36888, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.387Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "Zu guten Muß-Almanachen / Muß man haben dreierlei Sachen. / Deutschheit, Romantik und Melancholei / Rühre zu Brei;",
+  "language": [],
+  "musenalm_id": 36889,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Recept. / Nach der Weise des Kinderliedes: / Wer will gute Kuchen backen, Der muß haben sieben Sachen, u.s.w.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. v. Schlegel",
+  "scans": [
+    "alm_335_36889_4p4ia8wi3v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1. / Recept. / Nach der Weise des Kinderliedes: / Wer will gute Kuchen backen, Der muß haben sieben Sachen, u.s.w.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "10y39d91ra8g8il",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.061Z"
+    }
+  ]
+}

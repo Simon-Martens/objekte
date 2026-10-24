@@ -1,0 +1,45 @@
+{
+  "annotation": "Im Garten (Sammlung INr 45851, Obj 258)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "Die Nelken durften mit ihr gehen, / Sie glühten so roth in der weißen Hand,",
+  "language": [],
+  "musenalm_id": 45854,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 261,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Eggers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uebx8930woqvkoc",
+      "agents": "dh41pv1tstggnwb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.247Z"
+    }
+  ]
+}

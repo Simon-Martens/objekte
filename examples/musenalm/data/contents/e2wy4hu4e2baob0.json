@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Legenden (Sammlung INr 31944, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.863Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Der kategor'sche Imprativ: / Du sollst! von Mund zu Munde lief,",
+  "language": [],
+  "musenalm_id": 31946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Was ihr wollt!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Otmar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Was ihr wollt!",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "po9lh98be9ztlz2",
+      "agents": "fct0t8vge28lj72",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.565Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.565Z"
+    }
+  ]
+}

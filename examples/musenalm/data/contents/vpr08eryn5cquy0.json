@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. # Bezeichnung vom Titel; s. Textbezug INr 21669, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21659,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Franz von Sickingen läßt sich Luthers lateinische / Schriften deutsch vorlesen und bewundert sie",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_291_21659_9n8dwxigql.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Franz von Sickingen läßt sich Luthers lateinische / Schriften deutsch vorlesen und bewundert sie",
+  "updated": "2002-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wzsj7g5z0lyxpqb",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.038Z"
+    }
+  ]
+}

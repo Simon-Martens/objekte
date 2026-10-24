@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Da sind wir ja im Hause von Herrn von Bär. Des alten Bären, ganz recht, beste Tante; aber was veranlaßte Sie, Ihr Landgut zu verlassen,",
+  "language": [],
+  "musenalm_id": 115723,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alt und Jung, / oder: / Die Hochzeit des Weiberfeindes. / Lustspiel in zwei Aufzügen, / frei nach dem Französischen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Freimund Ohnesorgen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alt und Jung, / oder: / Die Hochzeit des Weiberfeindes. / Lustspiel in zwei Aufzügen, / frei nach dem Französischen",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rrxn0638w6bjooz",
+      "agents": "kolm0v6jb6xsvh5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.540Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.760Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Sohn, halte deine Zeit zu Rathe! / So spricht mein Vater stets zu mir.",
+  "language": [],
+  "musenalm_id": 88811,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gebrauch der Zeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jünger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gebrauch der Zeit",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w2g1vnpw9zp0yw4",
+      "agents": "wbllku5shw1eqif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.018Z"
+    }
+  ]
+}

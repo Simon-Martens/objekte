@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35796,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "J. C. Haug",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gezeichnet von Hiemer gestochen von Rahl in Wien",
+  "scans": [
+    "alm_490_35796_zxspvuy5cq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "J. C. Haug",
+  "updated": "2003-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1tvp7hc1f1eppcs",
+      "agents": "x9exqq2c4bm6xsq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.366Z"
+    },
+    {
+      "id": "g4ytzyh61ftw3ty",
+      "agents": "d645btewd8dbrsc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.366Z"
+    }
+  ]
+}

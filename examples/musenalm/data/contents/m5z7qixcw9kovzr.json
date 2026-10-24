@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "Ein Engländer, der ein großer Liebhaber von ausländischen Thieren und andern Seltenheiten war erhielt einmal durch einen seiner Freunde, der vom Vorgebirge der guten Hoffnung zurück kam, ein lebendiges Zebra weiblichen Geschlechts.",
+  "language": [],
+  "musenalm_id": 123935,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kleider machen Leute / auch im Thierreiche",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kleider machen Leute / auch im Thierreiche",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ak2as6yj77fsdt",
+      "agents": "pt1hiqrxpeom0l4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.855Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.855Z"
+    }
+  ]
+}

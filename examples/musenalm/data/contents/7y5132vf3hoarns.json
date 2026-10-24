@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Der Vorwurf trifft auch euch, den du uns / machst. / Mehr gilt der goldne Becher, als der Saft",
+  "language": [],
+  "musenalm_id": 3881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vertheidigung der Männer gegen / Leonorens Anklage. / (Vergl. Göthe's Torquato Tasso S. 337)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Sartorius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vertheidigung der Männer gegen / Leonorens Anklage. / (Vergl. Göthe's Torquato Tasso S. 337)",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8cc1txxi0ppz3k8",
+      "agents": "601y79rzgdevnp4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.953Z"
+    }
+  ]
+}

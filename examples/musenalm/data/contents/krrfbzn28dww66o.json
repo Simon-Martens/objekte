@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "120",
+  "incipit_statement": "Hoher, schöner Preis für Kampf und Leiden / Theurer, schwer errung'ner Erstlings-Sohn!",
+  "language": [],
+  "musenalm_id": 23667,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Empfindungen / am Grabe / meines Erstgebohrnen. / Bei meinem Wegzug von Carlsruhe nach / Pforzheim, im Juli 1800",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Empfindungen / am Grabe / meines Erstgebohrnen. / Bei meinem Wegzug von Carlsruhe nach / Pforzheim, im Juli 1800",
+  "updated": "2002-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "akyl3nu5qqlqd2l",
+      "agents": "ibdeh1gpf166351",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.010Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.010Z"
+    }
+  ]
+}

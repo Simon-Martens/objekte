@@ -1,0 +1,45 @@
+{
+  "annotation": "Poetisches Tagebuch (Sammlung INr 122450, Obj 10) # Bezeichnung an der Sammlung INr 122450, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Treibt nur die Aerostatik frei! / Dann gibt’s auch noch eine Luft-Polizei",
+  "language": [],
+  "musenalm_id": 122507,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Treibt nur die Aerostatik frei! / Dann gibt’s auch noch eine Luft-Polizei…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard v. Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ozhdk1m5wa8cx72",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.820Z"
+    }
+  ]
+}

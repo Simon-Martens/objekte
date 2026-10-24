@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.532Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Schritt des Jünglings aus dem väterlichen Hause, der Schule oder der Erziehungs-Anstalt, in die Welt, ist zwar nothwendig, aber immer gefährlich, so wie das Versetzen des jungen Baums aus der Baumschule.",
+  "language": [],
+  "musenalm_id": 73421,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. G. Salzmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2011-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ncqyw0gux6tvuda",
+      "agents": "zta4jxuxzdm872n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.307Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.307Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphk INr 68706, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "114",
+  "incipit_statement": "Die Jugend lebt von Hoffnung; das Alter von Erinnerungen. Montaigne hat es vor mir gesagt. Was ist süßer, diese Erinnerungen, oder jene Hoffnungen?",
+  "language": [],
+  "musenalm_id": 68705,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Erinnerungen am Kamine. / Zwei Erzählungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Marmontel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Erinnerungen am Kamine. / Zwei Erzählungen",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a6bvg531logn9fv",
+      "agents": "td2lw6zm1fw2g0a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.447Z"
+    }
+  ]
+}

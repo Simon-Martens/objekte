@@ -1,0 +1,43 @@
+{
+  "annotation": "Ludchens Heimkehr oder die Freunde. Ein ländliches Epos in zwölf Gesängen (Sammlung INr 29595, Obj 5) s. Graphik INr 29611, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.395Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Drauf seufzt es Abends unterm Fenster / Ganz jämmerlich; in seiner Haft",
+  "language": [],
+  "musenalm_id": 29610,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Achter Gesang. / Die Stunde der Prüfung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Achter Gesang. / Die Stunde der Prüfung",
+  "updated": "2002-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fqrbu3p6vo7s3qd",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.492Z"
+    }
+  ]
+}

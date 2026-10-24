@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.121Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Hart ist das Loos / Des ungeliebt Liebenden!",
+  "language": [],
+  "musenalm_id": 67860,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 91,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meinen Schutzgeist",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pustkuchen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meinen Schutzgeist",
+  "updated": "2009-08-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bkxh9u2r1364qtb",
+      "agents": "byx9v0k40wsil7f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.428Z"
+    }
+  ]
+}

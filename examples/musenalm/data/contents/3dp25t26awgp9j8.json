@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen /) Mit Hinweis auf Rückert's trefflichen Barbarossa im Kyffhäuser",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "392",
+  "incipit_statement": "Dort auf der Walser-Haide, / dort auf dem Walser-Feld, / da wird mit rother Schneide / die letzte Mahd bestellt;",
+  "language": [],
+  "musenalm_id": 54809,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Birnbaum / auf dem / Walser-Feld bei Salzburg. / Alte Volkssage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. A. L. Follen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Birnbaum / auf dem / Walser-Feld bei Salzburg. / Alte Volkssage",
+  "updated": "2008-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gro80jdw3yddb61",
+      "agents": "erwaw1pl4i80e4t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.775Z"
+    }
+  ]
+}

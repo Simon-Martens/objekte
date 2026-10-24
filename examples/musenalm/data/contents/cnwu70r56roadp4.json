@@ -1,0 +1,45 @@
+{
+  "annotation": "Sicilianen (Sammlung INr 22172, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.722Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "359",
+  "incipit_statement": "Sonst nichts ist von mir übrig blieben schier, / Als nur ein Schattenbild mit Lebensscheine.",
+  "language": [],
+  "musenalm_id": 22174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / (Er schickt ihr sein Bildniß)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / (Er schickt ihr sein Bildniß)",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8klldlyul9tq2me",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.012Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.012Z"
+    }
+  ]
+}

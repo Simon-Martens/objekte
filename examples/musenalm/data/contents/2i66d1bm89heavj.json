@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Vieles gab dir Natur, sie schmückte mit herrlichem / Liebreitz, / Zog mit liebender Hand dich in die Kreise des / Glücks,",
+  "language": [],
+  "musenalm_id": 52707,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "George Anna Bellamy",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ebenders.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "George Anna Bellamy",
+  "updated": "2007-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zqvy3nn860lsedj",
+      "agents": "5xr1i06rwmguu38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.546Z"
+    }
+  ]
+}

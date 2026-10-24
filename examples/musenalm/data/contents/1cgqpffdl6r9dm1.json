@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 4. /) Illustration zu »Beschreibung des Gartens in Hohenheim. Fortsetzung. / Der Cibele Tempel« von G. H. Rapp INr 74167, Obj 17 /) # Zuschreibung: Fischer S. 216",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74168,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Cibele Tempel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3109_74168_jl6d0zlcod.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Cibele Tempel",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d9xxoc49b4zuxn9",
+      "agents": "4b4lhy0iqevooje",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.810Z"
+    },
+    {
+      "id": "gj8bqyu2fxp1gx6",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.810Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.810Z"
+    }
+  ]
+}

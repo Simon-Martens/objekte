@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64355, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.488Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64362,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sternblume #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlesinger pinxt. J. W. Baumann sculpt.",
+  "scans": [
+    "alm_1069_64362_f6568u0b3c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Sternblume #",
+  "updated": "2009-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "us7dy4ifkfs2l8v",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.076Z"
+    }
+  ]
+}

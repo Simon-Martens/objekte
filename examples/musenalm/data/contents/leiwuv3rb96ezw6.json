@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "Dem Erzvater Abraham auch in etwas / gleich zu kommen,",
+  "language": [],
+  "musenalm_id": 21346,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pastor Dick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Armbruster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pastor Dick",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e38bepbvb27kula",
+      "agents": "at81kdy5mbfogcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.999Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie zu Goethe's Werken. Achte Lieferung. Faust. Erste Hälfte. (Sammlung INr 40807, Obj 12) s. Graphik INr 40805, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Denkt nur, den Schmuck für Gretchen angeschafft, / Den hat ein Pfaff hinweggerafft,",
+  "language": [],
+  "musenalm_id": 40814,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Neunter Aufzug. / Erster Auftritt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Neunter Aufzug. / Erster Auftritt",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wz8wcplrd02hk04",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.090Z"
+    }
+  ]
+}

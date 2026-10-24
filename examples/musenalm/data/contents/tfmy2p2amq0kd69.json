@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Die Zutraulichkeit dieser Vögelchen zu den Menschen ist aus Götze und Thomson bekannt. Anm. des D.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Das Rotkehlchen kehrte, / Wann sich der Kalte Winter näh'rte, / Bei einem alten Landmann ein.",
+  "language": [],
+  "musenalm_id": 83055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Rotkehlchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Krummacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Rotkehlchen",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "32ounhbxloeouif",
+      "agents": "n32rrka2qx8adlb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.936Z"
+    }
+  ]
+}

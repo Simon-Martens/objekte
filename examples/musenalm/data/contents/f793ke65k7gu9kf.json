@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von kleinen Gedichten und prosaischen Aufsätzen, in Stammbücher (Sammlung INr 10242, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.625Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Um glücklich zu seyn, muß uns immer noch etwas zu unserer Glückseligkeit fehlen.",
+  "language": [],
+  "musenalm_id": 9541,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Um glücklich zu seyn, muß uns immer noch etwas zu unserer Glückseligkeit fehlen.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helvetius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "128i5trfsz5xp68",
+      "agents": "1k6fqi9jki7dr83",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.430Z"
+    }
+  ]
+}

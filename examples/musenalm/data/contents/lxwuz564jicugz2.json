@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) Graphik im Kalendarium März /) s. Textbezug INr 81554, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81545,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer schätzt nicht die häuslichen Freuden!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "HR. Grape sc.",
+  "scans": [
+    "alm_3834_81545_9ruyv77i63.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wer schätzt nicht die häuslichen Freuden!",
+  "updated": "2012-06-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wyul8j1aqchtdvr",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.004Z"
+    },
+    {
+      "id": "aeztvyi6vcgafdk",
+      "agents": "t2z8lq4qwm3oov7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.004Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.004Z"
+    }
+  ]
+}

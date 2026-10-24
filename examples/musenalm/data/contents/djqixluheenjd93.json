@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Maria. Königinn von Schottland« von Fr. von Gentz INr 50281, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Smirke p. W. Jury fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Smirke p. W. Jury fec.",
+  "scans": [
+    "alm_7_50283_9iiik5t3kn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-06-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "69qa1gsq8rskx3o",
+      "agents": "4b9le30k3iqc8fh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.887Z"
+    },
+    {
+      "id": "vryplj6uobaksv2",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.887Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.887Z"
+    }
+  ]
+}

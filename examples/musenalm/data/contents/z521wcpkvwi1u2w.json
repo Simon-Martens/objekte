@@ -1,0 +1,45 @@
+{
+  "annotation": "Phantasie zu Beethoven's Pastoral-Symphonie (Sammlung INr 95942, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.367Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Wie schön ist's doch auf Au' und Flur, / In lieber weiter Gotteswelt,",
+  "language": [],
+  "musenalm_id": 95944,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Auf dem Lande",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Auf dem Lande",
+  "updated": "2014-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uq5iojplj1282v5",
+      "agents": "kjfa5zse6o9jzto",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.686Z"
+    }
+  ]
+}

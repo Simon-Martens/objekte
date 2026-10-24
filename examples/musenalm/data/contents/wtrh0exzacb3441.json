@@ -1,0 +1,45 @@
+{
+  "annotation": "Jänner (Sammlung INr 23348, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Auf einem Schachbrett stund der Steine bunte / Schaar / Nach Stand und Würden hingepflanzet",
+  "language": [],
+  "musenalm_id": 23349,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schachspiel. / Nach Aubert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schachspiel. / Nach Aubert",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tfuez3i7sr4npwj",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.245Z"
+    }
+  ]
+}

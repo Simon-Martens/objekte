@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Der Herausgeber hat durch Aufnahme dieser lateinischen Ode mache Liebhaber der lateinischen, französischen und anderer Poesien aufmuntern wollen, ihm auch Beiträge in andern im Vaterlande nicht unbekannten Sprache einzusenden.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Rursus eheu! pessima tu dies jam / Es redux! Quem vel patriae Parentem / Aut virum claerum satages reversa / Nunc jugulare?",
+  "language": [],
+  "musenalm_id": 72567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode / pro die anniversario primo Obitus / Friederici II. / Incusabunt. Fatum. Posteri. / Fuisse. Mortatem. Aus der Schrift: Olym- / pnm. Adiit. Von Birkenstock",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kausch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode / pro die anniversario primo Obitus / Friederici II. / Incusabunt. Fatum. Posteri. / Fuisse. Mortatem. Aus der Schrift: Olym- / pnm. Adiit. Von Birkenstock",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sermo4sh1i26gg8",
+      "agents": "5jdwcyiwfdtu44o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.671Z"
+    }
+  ]
+}

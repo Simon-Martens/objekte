@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. / Fünf Sonette an Ludwig Sigismund Ruhl (Sammlung INr 1879, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "392",
+  "incipit_statement": "Wo bliebest du, herbes Leid, als ich gestiegen / Die Alpen auf und über Apenninen?",
+  "language": [],
+  "musenalm_id": 1881,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Graf Kalkreuth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2000-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d069f7w37w5herr",
+      "agents": "7s14awjauhcdi1w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.764Z"
+    }
+  ]
+}

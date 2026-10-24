@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung an den übrigen Graphiken der Suite /) Gallerie aus Schiller's Gedichten. IV. nach Ramberg (Titel aus dem I-Verz) s. Textbezug (Gedicht) INr 79060, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79061,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Freude, von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg # W. Jury sc.",
+  "scans": [
+    "alm_2395_79061_savvkgvayz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An die Freude, von Schiller",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x0ojqhakoedsqjr",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.856Z"
+    },
+    {
+      "id": "y9ia76wvp7wbywi",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.856Z"
+    }
+  ]
+}

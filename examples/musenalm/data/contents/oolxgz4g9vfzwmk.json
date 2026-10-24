@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 81433, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.958Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81429,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "EUPHROSINEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Meyer inv. Duttenhofer sc.",
+  "scans": [
+    "alm_3113_81429_dgs7yiipy1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "EUPHROSINEN",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8e9mi38ihaut35r",
+      "agents": "oo9udbnis38dav0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.025Z"
+    },
+    {
+      "id": "cd3av3wc7gmukrh",
+      "agents": "2wfa45xu4b0q4dp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.025Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.025Z"
+    }
+  ]
+}

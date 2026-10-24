@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 17993-17996, Obj 43-46",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.067Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17992,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dänische Kriegs- und See- / lieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Lappe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dänische Kriegs- und See- / lieder",
+  "updated": "2001-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mi2om2gpq260ram",
+      "agents": "h8h7559ermyma3h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.838Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Ernstes und Heiteres (Sammlung INr 106441, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Einst war ich mit meinem Liebchen / (Das jetzt mein Weibchen ist) / Auf einen Ball geladen,",
+  "language": [],
+  "musenalm_id": 106444,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Menschenkenner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Menschenkenner",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "in4b921lvjvvbn4",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.996Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.996Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 67156, Obj 29) mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Das Wetter, diese Windleine der mündlichen Conversation, welches nach dem bekannten Sprüchworte niemals seine Zahlung einstellt,",
+  "language": [],
+  "musenalm_id": 67156,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Forst- und Jagddenkwürdigkeiten des ver- / flossenen Jahres aus dem südlichen Deutsch- / lande, besonders aus der Rheingegend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Forst- und Jagddenkwürdigkeiten des ver- / flossenen Jahres aus dem südlichen Deutsch- / lande, besonders aus der Rheingegend",
+  "updated": "2009-10-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bdgkua02c70xpgx",
+      "agents": "20ldxbr4i8whm1q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.251Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.251Z"
+    },
+    {
+      "id": "fxmf6fonwbjuxub",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.251Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.251Z"
+    }
+  ]
+}

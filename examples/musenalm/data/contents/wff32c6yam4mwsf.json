@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 72313, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72301,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "George / von Derfflinger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer d. Bolt sc.",
+  "scans": [
+    "alm_2012_72301_517a4pve0m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "George / von Derfflinger",
+  "updated": "2010-01-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iticc4kypyg4wtg",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.460Z"
+    }
+  ]
+}

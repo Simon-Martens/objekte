@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Welch' mächtige Gottheit schwebt durch / die erhellten Lüfte, / Aus Agras östlichen Gefilden?",
+  "language": [],
+  "musenalm_id": 18314,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hymne auf den Gott Cama. / Nach dem Englischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie Mereau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hymne auf den Gott Cama. / Nach dem Englischen",
+  "updated": "2001-10-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n8a87rswbwg04hr",
+      "agents": "zoqy5th408hrb4e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.740Z"
+    }
+  ]
+}

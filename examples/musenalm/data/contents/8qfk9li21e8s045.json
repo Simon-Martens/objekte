@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VII. (Sammlung INr 77068, Obj 4) Illustration zu »Klage der Ceres« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77136, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77137,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Keime, die dem Auge starben, in der Erde kaltem Schooss, / In das heit're Reich der Farben ringen sie sich freudig los.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naeeke del. C. Mayer sc. Nbg.",
+  "scans": [
+    "alm_2398_77137_7v63undn9t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Keime, die dem Auge starben, in der Erde kaltem Schooss, / In das heit're Reich der Farben ringen sie sich freudig los.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ycosfnu2286j8yo",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.585Z"
+    },
+    {
+      "id": "krh90jsijemo9zf",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.585Z"
+    }
+  ]
+}

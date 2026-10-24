@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Beiträge INr 23834-23836, Obj 53-55",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Die kleine Skizze, mein Theurer, die ich Dir mündlich über meine Reise in die oberelsasser Vogesen mittheilte, genügt Dir also nicht;",
+  "language": [],
+  "musenalm_id": 23833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reise von Strasburg auf den großen Belchen und an die Seen bei Peris, / vom 13. bis zum 17. Julius 1805",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brunck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reise von Strasburg auf den großen Belchen und an die Seen bei Peris, / vom 13. bis zum 17. Julius 1805",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ak1s92jmh9semt0",
+      "agents": "phj6ulx0ajjh1zp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.949Z"
+    }
+  ]
+}

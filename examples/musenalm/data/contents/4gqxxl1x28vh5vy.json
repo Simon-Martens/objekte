@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait des Herausgebers (Silhouette)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68279,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stoy",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moeglich fecit",
+  "scans": [
+    "alm_1158_68279_7a7sc7qncj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Stoy",
+  "updated": "2009-12-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ngbdqzt4a1o668",
+      "agents": "u7vmu4i8zongwyd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.286Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.286Z"
+    }
+  ]
+}

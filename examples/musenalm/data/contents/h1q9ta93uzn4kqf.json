@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.631Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Lieblingsharfner, von allem was Gesang liebt! / Siehst du diese? Lyäus holde Kinder, / Mit den fleischigen runden, derben Backen,",
+  "language": [],
+  "musenalm_id": 41198,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Volker / bei Uebersendung eines Körbchens voll / Weintrauben. / Beutelsbach, den 6ten October 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bührer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Volker / bei Uebersendung eines Körbchens voll / Weintrauben. / Beutelsbach, den 6ten October 1790",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bktbbnryfapd4at",
+      "agents": "utsrdm6m0s2in9m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.229Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.229Z"
+    }
+  ]
+}

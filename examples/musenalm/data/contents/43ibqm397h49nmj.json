@@ -1,0 +1,45 @@
+{
+  "annotation": "Franceska da Rimini. Romanze in zwei Gesängen (INr 100126, Obj 66) Dem Gedicht vorangestellt: Caina attende, chi'n vita ci spense. Dante, div. c. c. 5. v. 107",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "122",
+  "incipit_statement": "Und Tage sind bereits entschwunden / Und Wochen schwanden schon dahin / Seit jenem Abend,",
+  "language": [],
+  "musenalm_id": 100129,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zweiter Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Doerr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zweiter Gesang",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "172oi7q35wprefu",
+      "agents": "rnjsm42qs5m6lrr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.833Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.833Z"
+    }
+  ]
+}

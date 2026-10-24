@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91858,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aurora / Ein Taschenbuch / zur gesellschaftlichen Erheiterung / auf das Jahr 1812. / PRAG / G. W. Enders und Co.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Küsel sen. J. Berka sc.",
+  "scans": [
+    "alm_3725_91858_afmps24ky7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aurora / Ein Taschenbuch / zur gesellschaftlichen Erheiterung / auf das Jahr 1812. / PRAG / G. W. Enders und Co.",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rgm85oiyabv28wz",
+      "agents": "awkkthw51bj1y7d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.448Z"
+    }
+  ]
+}

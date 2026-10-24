@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: O uns're Eichen wanken nicht, / Ob auch die Wellen thürmen; [...] Alexander Graf zu Würtemberg",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.706Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Der Tag neigte sich zu Ende, ein kurzer, frostheller Wintertag. Die letzten Strahlen der Sonne warfen einen breiten, rotglühenden Schimmer wagrecht über die Schneedecke,",
+  "language": [],
+  "musenalm_id": 64206,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Kind von Brabant. / Historische Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Kind von Brabant. / Historische Novelle",
+  "updated": "2009-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tj9elijpfmejlyh",
+      "agents": "hh3dab1czdktu2g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.249Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.249Z"
+    }
+  ]
+}

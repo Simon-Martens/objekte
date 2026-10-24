@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 20940, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.215Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20939,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Aufstand der Bürger in Genua gegen das oester- / reichische Militär",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Jos. Stöber sc. Vienna",
+  "scans": [
+    "alm_277_20939_e3tvy3st99.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Aufstand der Bürger in Genua gegen das oester- / reichische Militär",
+  "updated": "2002-01-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "olk34lzbluts0qd",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.958Z"
+    },
+    {
+      "id": "sb793l8f4njcxb6",
+      "agents": "yk9ibu96ud1308d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.958Z"
+    }
+  ]
+}

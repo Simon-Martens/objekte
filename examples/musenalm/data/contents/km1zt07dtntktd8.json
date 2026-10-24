@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung: Schubert del. am ersten Blatt; Bezeichnung: Riepenhausen sculps. am letzten Blatt der Suite. Folgen des Friedens: Graphik im Kalendarium paginiert 11. s. Textbezug 7208, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7178,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sitten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. # Riepenhausen sculps.",
+  "scans": [
+    "alm_145_7178_6rpwrz42vj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sitten",
+  "updated": "2000-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "venzahh2yei9uk2",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.259Z"
+    },
+    {
+      "id": "erwxnl5byifemp6",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.259Z"
+    }
+  ]
+}

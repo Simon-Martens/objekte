@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 6 Textbezügen zu 6 Graphiken INr 32541-32552, Obj 37-48",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Die wahreste Nachahmung unter allen ist ohnstreitig die theatralische.",
+  "language": [],
+  "musenalm_id": 32540,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XI. / Bemerkungen / Über / die Theatertrachten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XI. / Bemerkungen / Über / die Theatertrachten",
+  "updated": "2003-03-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1nrsteokd2gfk43",
+      "agents": "1j2glyr4uzfohrn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.405Z"
+    }
+  ]
+}

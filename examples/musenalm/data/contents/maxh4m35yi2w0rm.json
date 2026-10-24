@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelkupfer: kol. Illustration zu »Das Gespenst« von Koch (INr 125330, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125320,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gespenst. / Ehrenthal. Gott im Himmel! Was ist das! / Trügen mich meine Sinne? / 11te Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schoeller del. And. Geiger sc.",
+  "scans": [
+    "alm_1266_125320_an6t3910xh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Gespenst. / Ehrenthal. Gott im Himmel! Was ist das! / Trügen mich meine Sinne? / 11te Scene",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pzrq1h1klug81g3",
+      "agents": "7hqczjffzo06i2q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.879Z"
+    },
+    {
+      "id": "ify74t1ugg64wsr",
+      "agents": "ac0tvfubze0cfw9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.879Z"
+    }
+  ]
+}

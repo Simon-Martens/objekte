@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel s. Gedicht INr 28051, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28050,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauentaschenbuch / für das Jahr / 1831, / herausgegeben / von / Georg Döring. / Nürnberg / bei Joh. Leonh. Schrag",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zeichnung v. P. C. Geißler; Gestochen v. R. Rahn Zürich",
+  "scans": [
+    "alm_361_28050_tuj1fiv8yj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauentaschenbuch / für das Jahr / 1831, / herausgegeben / von / Georg Döring. / Nürnberg / bei Joh. Leonh. Schrag",
+  "updated": "2002-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9359fdvlh11cd2w",
+      "agents": "1v07c6j6mxrdvwn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.364Z"
+    },
+    {
+      "id": "928l6fvlur2ua5d",
+      "agents": "2qfnp8a93m1r2da",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.364Z"
+    }
+  ]
+}

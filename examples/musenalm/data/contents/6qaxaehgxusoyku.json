@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juni s. Textbezug INr 72224, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72206,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die St. Clemenscapelle unterhalb Bingen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Lasinsky C. Frommel direxit",
+  "scans": [
+    "alm_867_72206_tq92mm3no6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die St. Clemenscapelle unterhalb Bingen",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3z45mj16jvvz0ep",
+      "agents": "rvw5lmkfyfm128i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.657Z"
+    },
+    {
+      "id": "p0fcq6bkynlhh5r",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.657Z"
+    }
+  ]
+}

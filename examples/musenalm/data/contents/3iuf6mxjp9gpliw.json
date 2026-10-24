@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.462Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Ich weiß ein Mädchen gut und schön, Wie keines mehr auf Erden.",
+  "language": [],
+  "musenalm_id": 3278,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 127,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sander",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen",
+  "updated": "2000-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dhmviak65dwtx44",
+      "agents": "anq3gu79zmuyrfg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.950Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.950Z"
+    }
+  ]
+}

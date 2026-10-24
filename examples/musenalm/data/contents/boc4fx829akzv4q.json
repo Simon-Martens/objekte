@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Bürgschaft« von Fr. Schiller  # Titel s. Strophe aus dem Gedicht INr 64397, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64403,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bürgschaft #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Noack delt. E. Wagner sculpt.",
+  "scans": [
+    "alm_1071_64403_xedrfeye6k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Bürgschaft #",
+  "updated": "2009-05-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1863,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dfyvpjsm82prgqq",
+      "agents": "6g8a6ln0xqsj1k7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.095Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: es to kalon ek tou kalou. / Aeschylus ap. Aristoph. in Ran.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Zu Basra vor dem Portal des Statthalter-Palastes ging der Unterhändler Selim ungeduldig auf und ab; endlich erschien der Wesir Chakan, den er erwartete, zu Pferde mit seinem Gefolge.",
+  "language": [],
+  "musenalm_id": 59130,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nureddin und die schöne Perserin. / (Eine orientalische Novelle.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. F. Gruppe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nureddin und die schöne Perserin. / (Eine orientalische Novelle.)",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1nvv4do6i00qn2m",
+      "agents": "9kqncyvdpl96r3o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.065Z"
+    }
+  ]
+}

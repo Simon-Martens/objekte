@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Blumen zum Feste« INr 132894, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132895,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blumen zum Feste. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leop. Beyer sc.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blumen zum Feste. / Romanze",
+  "updated": "2024-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "882nmum04zae1o5",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.098Z"
+    }
+  ]
+}

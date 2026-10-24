@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.271Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107545,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chapeau / a la Boston",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rein sc. A. V.",
+  "scans": [
+    "alm_2158_107545_lzqo04fdf4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Chapeau / a la Boston",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0b92zbsqbh2bc53",
+      "agents": "fs2n8xd9h7oz0wg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.202Z"
+    }
+  ]
+}

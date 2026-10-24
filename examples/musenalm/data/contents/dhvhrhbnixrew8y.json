@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Spiele fort und laß mich ruhig horchen / Diesen Tönen, diesen holden Schmeichlern,",
+  "language": [],
+  "musenalm_id": 31634,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AN LINA. / Beym Klavier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max. Fischel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AN LINA. / Beym Klavier",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rmlc1rg9zo8vh26",
+      "agents": "9fm6ody20z4gtke",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.652Z"
+    }
+  ]
+}

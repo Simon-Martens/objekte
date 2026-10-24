@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Gräber, grabe mir mein Grab, / Denn mich drängt's hinab, hinab!",
+  "language": [],
+  "musenalm_id": 17714,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebens müde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heydenreich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebens müde",
+  "updated": "2001-09-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ths9aa1e4ktverm",
+      "agents": "2fvtrmjxs50cbdn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.980Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.980Z"
+    }
+  ]
+}

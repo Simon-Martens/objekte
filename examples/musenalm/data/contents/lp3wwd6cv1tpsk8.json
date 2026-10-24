@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Albrecht von Wallenstein« von K. L. von Woltmann INr 68485, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68484,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johann Oxenstierna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas",
+  "scans": [
+    "alm_838_68484_cb2g9h20d5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Johann Oxenstierna",
+  "updated": "2008-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yzcb7zl15l3xmpd",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.524Z"
+    }
+  ]
+}

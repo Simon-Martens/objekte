@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 69500, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Wild braus't vom Wehr der Wasserschlag, / Sanft zieht der Fluß dann spielend weiter.",
+  "language": [],
+  "musenalm_id": 69504,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Einsamkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "O. L. B. Wolff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Einsamkeit",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yhud0y9pqt2rz57",
+      "agents": "9hf3yrzfqx4aso2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.445Z"
+    }
+  ]
+}

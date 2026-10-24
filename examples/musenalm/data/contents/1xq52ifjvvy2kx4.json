@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.120Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "64",
+  "incipit_statement": "Ein ofner Sinn für das, was Schönes je und / Großes / Die Erd' uns aus dem Schaz",
+  "language": [],
+  "musenalm_id": 6368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sittenspruch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. L. Spalding",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sittenspruch",
+  "updated": "2000-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2h1ro7b8weuopj9",
+      "agents": "d9s2lrexo84wbfs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.047Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.047Z"
+    }
+  ]
+}

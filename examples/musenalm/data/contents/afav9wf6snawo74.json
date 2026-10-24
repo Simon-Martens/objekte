@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 9. # Titel und Bez. aus dem G-Verz INr 15495 Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.322Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15422,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verschiedene Gartenscenen, von der Erfindung des Hrn. Architecten Schuricht in Dresden #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schuricht",
+  "scans": [
+    "alm_245_15422_66fmw98ayl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Verschiedene Gartenscenen, von der Erfindung des Hrn. Architecten Schuricht in Dresden #",
+  "updated": "2001-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jzi8vwmzk5ptlkd",
+      "agents": "k2g14ngroxfee4c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.485Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.485Z"
+    }
+  ]
+}

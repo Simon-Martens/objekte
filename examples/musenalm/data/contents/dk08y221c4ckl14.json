@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollständige Bezeichnung aus dem G-Verz /) Illustration zu »Romeo und Julia« von W. Shakespeare; s. Textbezug INr 19323, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9271,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Romeo und Julia. / 2. Aufzug 6. Scene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz; Prot",
+  "scans": [
+    "alm_42_9271_c5dbcoswj7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Romeo und Julia. / 2. Aufzug 6. Scene",
+  "updated": "2000-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rtzo9ikdjj72akh",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.364Z"
+    },
+    {
+      "id": "0fhqi1roa8h5iws",
+      "agents": "4tx9dg1qgn6dynt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.364Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Zusammenfassung der Szene für die Illustration INr 50352, Ob 50",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.792Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "als aber Sidrophel und dessen Gehülfe zum Bratspieß und zur Ofengabel griffen, womit sie den allein gebliebenen zu überwältigen wähnten,",
+  "language": [],
+  "musenalm_id": 50344,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Hudibras Zweites Buch Dritter Gesang] (Fünftes Blatt)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dietrich Wilhelm Soltau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Hudibras Zweites Buch Dritter Gesang] (Fünftes Blatt)",
+  "updated": "2007-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ag5tjp5nq9d3uf3",
+      "agents": "i2xso6w3k57v5qz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.992Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.992Z"
+    }
+  ]
+}

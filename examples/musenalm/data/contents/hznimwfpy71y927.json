@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Bayern. Franken (Sammlung INr 99331, Obj 237)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "394",
+  "incipit_statement": "Auf den Wassern Abendglut, / Hauch des Friedens über ihr;",
+  "language": [],
+  "musenalm_id": 99394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 300,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtgefühl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Scheurlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtgefühl",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wwgjp6iuiq9cl2w",
+      "agents": "kddiuy2wa4u1map",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.974Z"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "annotation": "Vorwort d. Verlegers /) Photos 55611,01; 55611,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.527Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Das Heidelberger Taschenbuch auf 1809 kam zu spät in den Buchhandel, und unter zu ungünstigen Umständen, als daß es sich in die entfernteren Gegenden Deutschlands hätte verbreiten können.",
+  "language": [],
+  "musenalm_id": 55611,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbericht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Verleger",
+  "scans": [
+    "alm_20_55611_01_qqh01gcj3x.jpg",
+    "alm_20_55611_02_a828a9e1cf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vorbericht",
+  "updated": "2008-02-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": []
+}

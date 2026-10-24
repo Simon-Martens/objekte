@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "193",
+  "incipit_statement": "Ein Vater seinem Kinde rief, / Das auf dem Damm des wüth'gen Meeres schlief:",
+  "language": [],
+  "musenalm_id": 101567,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das schlafende Kind. / Nach dem Altdeutschen des Wolfram v. Eschilbach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das schlafende Kind. / Nach dem Altdeutschen des Wolfram v. Eschilbach",
+  "updated": "2013-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "622ryf0g9961uay",
+      "agents": "w54qzevkgviemdi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.782Z"
+    }
+  ]
+}

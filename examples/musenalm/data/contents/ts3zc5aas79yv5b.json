@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert B. 5 Portraits. /) Illustration zu »Es giebt eine Vergeltung. Eine Gallerie von Memento-mori-Stücken für Revolutions-Dilettanten« INr 50016, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.877Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Riep. f.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riep. f.",
+  "scans": [
+    "alm_936_60018_e3m6xe01xo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "prpzl9opkpmauqn",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.961Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.961Z"
+    }
+  ]
+}

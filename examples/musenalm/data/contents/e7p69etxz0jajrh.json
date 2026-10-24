@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Freund, die Sirene singt; mit lächeln- / den / Geberden naht sie sich, die Gaucklerinn.",
+  "language": [],
+  "musenalm_id": 5003,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wohllust",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. K.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Wohllust",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fxqnpqlcmwxwljl",
+      "agents": "ymo6fj9vzc9ufg1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.169Z"
+    }
+  ]
+}

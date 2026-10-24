@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Der Herr, in schlechter Kleidung, trat / An Sanct Jodokus Thür, und bat:",
+  "language": [],
+  "musenalm_id": 59362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / heilige Jodokus und die vier Bettler. / Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. F. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / heilige Jodokus und die vier Bettler. / Legende",
+  "updated": "2008-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bzcxtbv8fh9emp2",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.776Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.776Z"
+    }
+  ]
+}

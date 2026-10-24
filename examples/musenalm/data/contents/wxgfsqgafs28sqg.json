@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.650Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Nicht ohne Zaghaftigkeit leg' ich diese Dichtung als ein Opfer des Dankes für die wiederholten Zeichen Ihrer königlichen Huld zu den Füßen Ihres Thrones nieder.",
+  "language": [],
+  "musenalm_id": 78281,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3.1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mein König und Herr!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unterthänigster Müllner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mein König und Herr!",
+  "updated": "2011-11-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0bs43ixgx4qfo67",
+      "agents": "fy9yit4uuer2yhm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.945Z"
+    }
+  ]
+}

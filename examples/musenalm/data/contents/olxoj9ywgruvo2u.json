@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zahlr. Anmerkungen /) mit einer Illustration s. Graphik INr 102391, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Beikommender sonderbarer Vogel ist hier von Bauern lebendig gefangen worden, diese sind aber, leider! so bäurisch mit ihm umgegangen",
+  "language": [],
+  "musenalm_id": 102392,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Der Rohrdommel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Wildungen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Der Rohrdommel",
+  "updated": "2009-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w4yej101onrnb0f",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.990Z"
+    }
+  ]
+}

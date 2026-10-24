@@ -1,0 +1,58 @@
+{
+  "annotation": "zus. Bez.: Pub. by Ackermann London 1828 /) s. Textbezug INr 34439, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.994Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34438,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "THE SEVENT PLAGUE OF EGYPT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Martin delt. H. Le Keux sculpt.",
+  "scans": [
+    "alm_478_34438_nmfzwinca0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "THE SEVENT PLAGUE OF EGYPT",
+  "updated": "2003-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "op7i9qe6z49exd0",
+      "agents": "cefecuqh5ju4cfh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.969Z"
+    },
+    {
+      "id": "t01wmpp4e6y6np2",
+      "agents": "n5buh6qb5ew8e4a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.969Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 10. /) Graphik im Kalendarium Oktober /) Illustration zu »Camille, oder Briefe zweier Mädchen aus unserm Zeitalter« übers.: J. F. Jünger, Leipzig (Dyk) 1786; s. Textbezug INr 70175, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70162,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihre Freudenbezeugungen waren / rührend / B. IV. S. 37",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del et sc.",
+  "scans": [
+    "alm_799_70162_7y06ylshh2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ihre Freudenbezeugungen waren / rührend / B. IV. S. 37",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b67wrfsa536sda2",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.424Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.424Z"
+    }
+  ]
+}

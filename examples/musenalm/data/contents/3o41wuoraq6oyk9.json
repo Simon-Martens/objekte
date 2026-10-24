@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember /) lt. G-Verz: Illustration zu »Die Artilleristen« in: Kalender, Berliner 1835; alm-870; INr  58991",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.005Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81144,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Gez. v. Holbein. Gest v. Ed. Mandel)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Holbein. Gest v. Ed. Mandel",
+  "scans": [
+    "alm_872_81144_7ufo2cjpvt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gkp29j4dzvkqmga",
+      "agents": "szo3356ebdd17zv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.901Z"
+    },
+    {
+      "id": "0jaht3i0ff104ug",
+      "agents": "ecoa6g9h9p5tcuv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.901Z"
+    }
+  ]
+}

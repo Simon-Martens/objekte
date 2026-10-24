@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.589Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58713,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das neue Palais in Potsdam",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Drawn by M. Mauch. Berlin. Engraved by George Cooke",
+  "scans": [
+    "alm_863_58713_9h6f418drk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das neue Palais in Potsdam",
+  "updated": "2008-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f8s2nszu40wgpec",
+      "agents": "4qmuru1kuzg7ngl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.752Z"
+    },
+    {
+      "id": "u1c2abkyx6k8tzv",
+      "agents": "a7m5750fz1o3qqp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.752Z"
+    }
+  ]
+}

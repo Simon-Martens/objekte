@@ -1,0 +1,45 @@
+{
+  "annotation": "Geistliche Reden, Andachten und Gedichte (Sammlung INr 133131, Obj 9) mit einer Übersetzung von Stampeel s. INr 133134, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Être infini, que l'on adore / Sous des noms, des cultes divers, / Entends d'un peuple, qui t'emplore,",
+  "language": [],
+  "musenalm_id": 133135,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Hymne a l'Être suprême",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Le  Brun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Hymne a l'Être suprême",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q95bgq42ks5no30",
+      "agents": "drhjjgtpuphcz4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.102Z"
+    }
+  ]
+}

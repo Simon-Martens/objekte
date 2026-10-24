@@ -1,0 +1,45 @@
+{
+  "annotation": "# lt. »Erläuterung der Karte« INr 41436 ist die Zeichnung vom Herausgeber und Autor",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.753Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41447,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die westliche arcktische Erde nach den neuesten Entdeckungen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_540_41447_yj2jwj55vo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die westliche arcktische Erde nach den neuesten Entdeckungen",
+  "updated": "2005-11-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v2awovef3f98rz1",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.936Z"
+    }
+  ]
+}

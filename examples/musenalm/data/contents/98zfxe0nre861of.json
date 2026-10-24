@@ -1,0 +1,45 @@
+{
+  "annotation": "Carlsbad und seine Umgebungen, mit deren Natur- und Kunstmerkwürdigkeiten (Sammlung INr 92148, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Dieses soll nach dem Mannheimer Theater geformt seyn. Es befindet sich der Wiese gegenüber auf der neuen Wiese,",
+  "language": [],
+  "musenalm_id": 92160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "l) Das Schauspielhaus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz Sartori",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "l) Das Schauspielhaus",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "18dmzg38g4awn7z",
+      "agents": "swlf1imgk3sevcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.342Z"
+    }
+  ]
+}

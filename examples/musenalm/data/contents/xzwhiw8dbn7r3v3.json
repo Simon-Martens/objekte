@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 68635, Obj 9) mit einer Illustration s. Graphik INr 68643, Obj 17 / ) mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Diese Königin der deutschen Enten besucht uns im mittleren Deutschland nicht ganz selten, dahingegen verweilt sie, wie spröde und schüchterne Damen oft zu thun pflegen, selten so lange, um mit ihr genauere Bekanntschaft machen zu können,",
+  "language": [],
+  "musenalm_id": 68644,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Brandente",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Brandente",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kc4u2yrccs9ymo4",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.379Z"
+    }
+  ]
+}

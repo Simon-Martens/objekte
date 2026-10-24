@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "67",
+  "incipit_statement": "Nun, warum laßt Ihr die Köpfe so hängen? Lustig wie ich es bin! Mit diesen Worten trat Herr Haidvogel, an einem Winter-Abend aus der Stadt zurückkommend, in seine enge Stube,",
+  "language": [],
+  "musenalm_id": 92825,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr Haidvogel / und seine Familie. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Hebbel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herr Haidvogel / und seine Familie. / Novelle",
+  "updated": "2013-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bk0dvzjg1fst5hw",
+      "agents": "slo2tnoqzd1g9wn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.605Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.605Z"
+    }
+  ]
+}

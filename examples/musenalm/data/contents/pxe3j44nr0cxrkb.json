@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: Es war der Maler um sein Bild gekommen, / Da hat der Dichter sich den Stoff genommen.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.524Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "234",
+  "incipit_statement": "Wo stolz sich heben die Karpathenspitzen, / Aus blauer Luft die Adleraugen blitzen",
+  "language": [],
+  "musenalm_id": 81532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Fastnachtsmärchen.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Constant (Dichter der »Parallelen«)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Fastnachtsmärchen.",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c7zz5daqxgem6ht",
+      "agents": "wm9mmfgzc6wy00i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.937Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "2 Gedichte INr 25103, Obj 125 # Anm. am Objekt: Nach der Schlacht von Navarin",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Sie segeln zum verhängnißvollen Hafen, / Denn ihnen ist des Herrn Geheiß erschollen,",
+  "language": [],
+  "musenalm_id": 25104,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Stimme in der Wüste. / Gedichtet und als Manuscripit für Freunde gedruckt im / November 1827. / Die Weltgeschichte ist das Weltgericht #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Streckfuß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Stimme in der Wüste. / Gedichtet und als Manuscripit für Freunde gedruckt im / November 1827. / Die Weltgeschichte ist das Weltgericht #",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tc6fz8l4k6dm5e0",
+      "agents": "ctofceimdkjw1f4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.294Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.294Z"
+    }
+  ]
+}

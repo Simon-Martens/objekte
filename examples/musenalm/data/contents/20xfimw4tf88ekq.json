@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "43",
+  "incipit_statement": "Er könnte sich mit eignem Pflug ernähren; / Allein sein Stand gefiel ihm nicht,",
+  "language": [],
+  "musenalm_id": 3775,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einen / Prediger aus dem Bauernstande, / der alle seine Predigten abschrieb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Zimmermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf einen / Prediger aus dem Bauernstande, / der alle seine Predigten abschrieb",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yb47b9pe65mfh24",
+      "agents": "h8teagsnwe3omy2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.003Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium. Oktober/)  # vollst. Bezeichnung aus dem G-Verz. Illustration zu »Ständchen« von K. Lang INr 35574, Obj 93",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35492,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An der Säugling Wiege sizt lauschend auf den Arm gestützt heil'ge Mutterliebe. S. Langs Staendchen an L.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thourret del. # Walwert sc.",
+  "scans": [
+    "alm_488_35492_q3fg8q1zf5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An der Säugling Wiege sizt lauschend auf den Arm gestützt heil'ge Mutterliebe. S. Langs Staendchen an L.",
+  "updated": "2003-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4z2oqddi9qzgi7p",
+      "agents": "zrmsqolvt94ydaa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.685Z"
+    },
+    {
+      "id": "momupl8ibwcduqg",
+      "agents": "gpm2raqh5h0qeug",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.685Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.685Z"
+    }
+  ]
+}

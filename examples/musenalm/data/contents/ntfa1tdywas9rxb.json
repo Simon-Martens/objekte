@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedicht im Beitrag »Das Marmorbild« INr 26943, Obj 192",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "359",
+  "incipit_statement": "Was weckst du, Frühling, mich von neuem wieder? / Daß all' die alten Wünsche auferstehen,",
+  "language": [],
+  "musenalm_id": 36451,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 197,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was weckst du, Frühling, mich von neuem wieder? / Daß all' die alten Wünsche auferstehen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Freiherr v. Eichendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hujei5ab9ad7ru8",
+      "agents": "h99uxdryiugeh6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.600Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.600Z"
+    }
+  ]
+}

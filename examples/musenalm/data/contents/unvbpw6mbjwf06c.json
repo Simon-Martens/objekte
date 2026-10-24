@@ -1,0 +1,45 @@
+{
+  "annotation": "Hmynen (Sammlung INr 111799, Obj 186)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Mild und weich töne mein Lied / Wie der West, der mit sanftem Anhauch / Des Schwan's Gefieder kräuselt",
+  "language": [],
+  "musenalm_id": 111801,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 188,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pindar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Pichler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pindar",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dmd1985ov2xj5sm",
+      "agents": "xgh72r9y3fxa6u5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.436Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.436Z"
+    }
+  ]
+}

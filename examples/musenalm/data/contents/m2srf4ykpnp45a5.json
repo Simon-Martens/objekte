@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. Re 21 /) mit kleiner Graphik über dem Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Halt Wagen! Hier, auf Friedbergs / stillen Höhen, / Will ich, mit Ernst des Todes,",
+  "language": [],
+  "musenalm_id": 5022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf einer / Reise bey Friedberg / über das Schlachtfeld / Im Frühling 1769",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frh. v. N.",
+  "scans": [
+    "alm_103_5022_hfq1y5sdu9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auf einer / Reise bey Friedberg / über das Schlachtfeld / Im Frühling 1769",
+  "updated": "2000-10-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d1rkcfz6cpey4vr",
+      "agents": "6y2vclvz6pkp0l9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.173Z"
+    }
+  ]
+}

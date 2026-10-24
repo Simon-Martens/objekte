@@ -1,0 +1,58 @@
+{
+  "annotation": "Graphik im Kalendarium März",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.544Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GEMEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hillner pinx. Meno Haas sc. Berlin 1794",
+  "scans": [
+    "alm_3123_92857_2t8wj5ez7x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GEMEN",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vo53oxyvxj4x4a2",
+      "agents": "sjryrwpw74yqnj4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.134Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.134Z"
+    },
+    {
+      "id": "mf85uiglej9pgwx",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.134Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.134Z"
+    }
+  ]
+}

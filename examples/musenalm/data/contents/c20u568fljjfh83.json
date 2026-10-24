@@ -1,0 +1,45 @@
+{
+  "annotation": "Irische Bulls (Sammlung INr 88971, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.749Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "99",
+  "incipit_statement": "Dr. Hutton, in seiner Abhandlung über die Meßkunst (S. 119) sagt: Da die berühmte Quadratur von John Machin, Professor der Astronomie am Greshamer Kollgium, sehr wenig bekannt ist,",
+  "language": [],
+  "musenalm_id": 88998,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "27.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meta Communis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "27.",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bhk5yjq8lc0idit",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.080Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 29996, Obj 27) mit einer Illustration s. Graphik INr 29998, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.056Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Die Nachtigall schlägt, die Taube girrt, / Der Jäger hat sich im Walde verirrt;",
+  "language": [],
+  "musenalm_id": 29997,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tanz im Walde. / Romanze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Raupach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tanz im Walde. / Romanze",
+  "updated": "2002-11-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yulk85jh643pck5",
+      "agents": "uxyu52yd3v030gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.211Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.211Z"
+    }
+  ]
+}

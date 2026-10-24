@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "Liebe, liebe Clementine, nun ist es gewiß, wir gehen mit der Tante nach der Residenz",
+  "language": [],
+  "musenalm_id": 27024,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dornen und Blüthen des Lebens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Caroline Baronin de la Motte Fouqué, geb. von Briest",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dornen und Blüthen des Lebens",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7pqxi1s0e10yznc",
+      "agents": "t59v9lajt8yljq5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.353Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.353Z"
+    }
+  ]
+}

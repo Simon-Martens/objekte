@@ -1,0 +1,45 @@
+{
+  "annotation": "III. Vierzeilen (Sammlung INr 1628, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.138Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Der Unverstand nur ist geehrt, / Der Rohheit nur ist Glück beschieden.",
+  "language": [],
+  "musenalm_id": 19135,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Unverstand nur ist geehrt, / Der Rohheit nur ist Glück beschieden.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l4l8h58jwa1d83w",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.949Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.949Z"
+    }
+  ]
+}

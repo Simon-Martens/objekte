@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.548Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Deutschland, jetzt an mannichfaltigen Bestrebungen reich, hatte vor mehreren Jahrhunderten ein schöneres Besitzthum, es hatte Schulen der Kunst, die das Gepräge des Volksthums und des Zeitgeistes trugen,",
+  "language": [],
+  "musenalm_id": 55618,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber die Gemähldesammlung der Herrn Boißeree / und Bertram. / Geschrieben 1813",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina v. Chezy, geb. Freyin von Klenke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber die Gemähldesammlung der Herrn Boißeree / und Bertram. / Geschrieben 1813",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r8n15mx5prm11iw",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.880Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.880Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Du freyes Volk, das keinen Nationen, / Zumal nicht Stolzen, weichet, das du darfst / Hochaufsehn,",
+  "language": [],
+  "musenalm_id": 8085,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Luther, / Eine Ode",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cramer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Luther, / Eine Ode",
+  "updated": "2000-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "at18i6gpsj5qztd",
+      "agents": "99elj7mdzbtfsl5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.406Z"
+    }
+  ]
+}

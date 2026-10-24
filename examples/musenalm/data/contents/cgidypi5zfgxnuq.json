@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Zu der Linken des Zuschauers Fels und Gebirg, aus dessen mächtigen Bänken und Massen natürliche und künstliche Höhlen neben und über einander gebildet sind.",
+  "language": [],
+  "musenalm_id": 85409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schauplatz / wird im großen Styl nach Poussinischer Weise gedacht. / Seite des Prometheus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goethe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schauplatz / wird im großen Styl nach Poussinischer Weise gedacht. / Seite des Prometheus",
+  "updated": "2012-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ajkkyy4og1gxw1b",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.120Z"
+    }
+  ]
+}

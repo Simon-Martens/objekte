@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Esmeralda« von H. Kletke INr 59520, Obj 39; # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.289Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59519,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Esmeralda #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener",
+  "scans": [
+    "alm_898_59519_m8fbg4h3n9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Esmeralda #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4lqwcy28onephbe",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.765Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.765Z"
+    }
+  ]
+}

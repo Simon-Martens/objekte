@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Ein Festtag sey bey meinen waldichten Gestaden / Den Faunen und den Oreaden,",
+  "language": [],
+  "musenalm_id": 8312,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesang des Obergottes / als der König aus Mähren kurz vor / der Zorndorfer Schlacht bey Frank- / furth ankam / Den 20sten August",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blum",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesang des Obergottes / als der König aus Mähren kurz vor / der Zorndorfer Schlacht bey Frank- / furth ankam / Den 20sten August",
+  "updated": "2000-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9uy8p6judw629pk",
+      "agents": "quu68xfhyzxlogj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.428Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.428Z"
+    }
+  ]
+}

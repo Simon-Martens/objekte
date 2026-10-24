@@ -1,0 +1,45 @@
+{
+  "annotation": "Hafisklänge. An J. W. v. Göthe und Fr. Rückert (Sammlung INr 68056, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Ist im Sommer die Geliebte ferne, / Liebt man hohe Bäum' und tiefe Wasser,",
+  "language": [],
+  "musenalm_id": 68083,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 100,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ist im Sommer die Geliebte ferne, / Liebt man hohe Bäum' und tiefe Wasser,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. B. Rousseau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w0byyolh6129c7m",
+      "agents": "xojpiwzkdga93tk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.106Z"
+    }
+  ]
+}

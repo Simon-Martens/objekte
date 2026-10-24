@@ -1,0 +1,45 @@
+{
+  "annotation": "Erzählende Gedichte (Sammlung INr 55301, Obj 76) mit einer Illustration s. Graphik INr 55307, Obj 82",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "'S ischt Samschtig z'Obed, i der chüele Luft, / Im Nußbaum-Schatte und im Heuet-Duft / Sitzt vor sim Hus der alte Werner do,",
+  "language": [],
+  "musenalm_id": 55308,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. Der Ärne und's Kätherle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abraham Emmanuel Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. Der Ärne und's Kätherle",
+  "updated": "2008-02-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f5gzq0rrw97nkf2",
+      "agents": "94rmjnpm6yfqwop",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.598Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.598Z"
+    }
+  ]
+}

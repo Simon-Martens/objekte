@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April; paginiert 4. Illustration zu »Faust« von J. W. v. Goethe s. Textbezug INr 59635, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59636,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das ist - die - dritte!!! / Faust Abtheil. 5. Sc. 5",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. d. M. f.",
+  "scans": [
+    "alm_922_59636_frrdl2suwc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das ist - die - dritte!!! / Faust Abtheil. 5. Sc. 5",
+  "updated": "2008-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zp4gmyyl5o34p8l",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.986Z"
+    },
+    {
+      "id": "o9hx1l95cgjex6f",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.986Z"
+    }
+  ]
+}

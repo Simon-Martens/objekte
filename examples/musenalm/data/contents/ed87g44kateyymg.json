@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Die Mühlau bei Mannheim, Insel mit Schlößchen zwischen dem Rhein und Neckar",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Beglückte Lenzoase / Von Flut umschlossen rund, / Umhalmt von duft'gem Grase, / Bestirnt mit Blumen bunt,",
+  "language": [],
+  "musenalm_id": 45677,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Preis der Mühlau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Brauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Preis der Mühlau",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pfe7wn7hx90womq",
+      "agents": "q3hkrc4mbx3ugx0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.240Z"
+    }
+  ]
+}

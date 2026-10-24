@@ -1,0 +1,45 @@
+{
+  "annotation": "mit kleiner Graphik über dem Gedicht s. INr 38345, Obj 52",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.180Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Die grossen Verse, welche man / Auf einem grossen Ambos schmiedet,",
+  "language": [],
+  "musenalm_id": 38346,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ueber die kleinen Verse / an Herrn Jacobi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Gleim",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ueber die kleinen Verse / an Herrn Jacobi",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3pe9j3r4yb7tl94",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.356Z"
+    }
+  ]
+}

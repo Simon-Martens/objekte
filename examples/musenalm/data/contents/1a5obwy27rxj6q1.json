@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 60756, Obj 13 /) unter der Graphik: Gedr. bei Altmayer (J. Becker)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.477Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60755,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ST. MATTHÄI KIRCHE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Biermann. Gest. v. Witthöft",
+  "scans": [
+    "alm_884_60755_dwv9pi3tb0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ST. MATTHÄI KIRCHE",
+  "updated": "2008-08-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "odnhij29skrb8y3",
+      "agents": "ulca7kvs9vkm8e6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.147Z"
+    },
+    {
+      "id": "v0ug0u20052lxok",
+      "agents": "eo3qluho8zm4z6j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.147Z"
+    }
+  ]
+}

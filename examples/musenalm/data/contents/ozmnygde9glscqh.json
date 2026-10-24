@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung: Unser brave Arzt, Dr. J. G. Amstein, ist seinen Freunden und der Rath und Hülfe bedürfenden Menschheit dieser Gegend von Chur und Zizers in Bündten durch einen frühzeitigen Tod entrissen worden.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.588Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Ein heller Geist, ein mildes Herz, / Für alles, Hohe Sinn, und reines, treues Streben,",
+  "language": [],
+  "musenalm_id": 53435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Amsteins Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. von Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Amsteins Tod",
+  "updated": "2007-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w2s94i93wi77sim",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.648Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.648Z"
+    }
+  ]
+}

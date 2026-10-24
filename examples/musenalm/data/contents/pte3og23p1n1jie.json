@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zum folgenden Fragment INr 53738, Obj 66",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "Joseph Melchior Würsch, dieser als Mensch und als Künstler gleich schätzenswürdige Mann, war geboren zu Buochs in Unterwalden den 21. August 1732.",
+  "language": [],
+  "musenalm_id": 53737,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Joseph Melchior Würsch, / der Maler / Fragment eines Drama's vom 9. September 1798. / Nekrolog",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Meyer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Joseph Melchior Würsch, / der Maler / Fragment eines Drama's vom 9. September 1798. / Nekrolog",
+  "updated": "2007-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pwbcewhgrmflche",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.651Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.651Z"
+    }
+  ]
+}

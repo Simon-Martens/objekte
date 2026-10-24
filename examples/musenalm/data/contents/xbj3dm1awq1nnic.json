@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bezeichnung an Blatt VII der Suite /) nummeriert XII; Illustration zu »Die Familie von Halden« von A. H. J. Lafontaine; s. Textbezug INr 128011, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.088Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 128010,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (M. S.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. S.",
+  "scans": [
+    "alm_4114_128010_vkguaqz39e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2014-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "37dr9j9qhgbyev7",
+      "agents": "jqx789ngxccpl2l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.977Z"
+    },
+    {
+      "id": "9js8pzkvtd4p25r",
+      "agents": "yk9ibu96ud1308d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.977Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.977Z"
+    }
+  ]
+}

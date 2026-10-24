@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 81740, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Es war eine Schlacht geschlagen, die Wenden sind besiegt, / Und mit der Todeswunde ihr Fürst am Boden liegt,",
+  "language": [],
+  "musenalm_id": 81742,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Die Eiche im Wendlande",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther Nicol",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Die Eiche im Wendlande",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sg156j2m0w43n6q",
+      "agents": "o11zrg5nk396fgh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.878Z"
+    }
+  ]
+}

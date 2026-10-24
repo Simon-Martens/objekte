@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Anhang s. INr 56510, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.991Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Purpurglühend senkten die letzten Strahlen der scheidenden Sonne am westlichen Horizonte sich hinab in die dunkelblauen Fluthen des pittoresken Vierwaldstädter Sees;",
+  "language": [],
+  "musenalm_id": 56509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Euterpe und Vellona. / Wahrheit und Dichtung; / in den Rahmen einer biographischen Skizze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Iganz Ritter Seyfried",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Euterpe und Vellona. / Wahrheit und Dichtung; / in den Rahmen einer biographischen Skizze",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "40r83jx2xy1adjw",
+      "agents": "0jv59az01keoeil",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.740Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.740Z"
+    }
+  ]
+}

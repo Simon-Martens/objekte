@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 70930, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.140Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "22",
+  "incipit_statement": "Reise zu Fuß, reise zu Fuß! / Da vernimmst du Menschgruß.",
+  "language": [],
+  "musenalm_id": 70946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fröhlichen Wanderers Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thorbecke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fröhlichen Wanderers Lied",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wevosw2zyhdp9cj",
+      "agents": "p1d53vycpex1zlo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.501Z"
+    }
+  ]
+}

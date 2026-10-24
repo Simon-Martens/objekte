@@ -1,0 +1,45 @@
+{
+  "annotation": "Tanztouren zu Beckers Taschenbuch 1819 (Sammlung INr 19807, Obj 91) 3 graph. Tanzanleitungen",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.521Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19909,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ecossaisen / I; II; III / V te u. VI te Tour Chasseur oder Walzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roller",
+  "scans": [
+    "alm_267_19909_sdya4u68l6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ecossaisen / I; II; III / V te u. VI te Tour Chasseur oder Walzer",
+  "updated": "2001-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jpqg1siy55uwm8z",
+      "agents": "5e64t7ca8x2wyim",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.993Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 200 /) # Bez. aus dem I-Verz /)  Illustration zu »Zwei Erzählungen aus einer Handschrift von Tausend und Einer Nacht. Erste Erzählung 5. Nacht« INr 45285, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.884Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45286,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nimm diesen reichen Schleier und tödte mich nicht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Schubert del. Riepenhausen sc.",
+  "scans": [
+    "alm_621_45286_4mr16v3m4z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nimm diesen reichen Schleier und tödte mich nicht",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iqt8m3n68vtu85p",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.462Z"
+    },
+    {
+      "id": "vln797b41vnzj0q",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.462Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.462Z"
+    }
+  ]
+}

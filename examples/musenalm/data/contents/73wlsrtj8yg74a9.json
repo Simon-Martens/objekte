@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1. s. Textbezug INr 51245, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.477Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51214,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "an der Sihl, bey Zürich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Heinrich Meyer f. ad nat.",
+  "scans": [
+    "alm_698_51214_6tg1h5f9f2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "an der Sihl, bey Zürich",
+  "updated": "2007-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gsouqqsslbvx99b",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.504Z"
+    }
+  ]
+}

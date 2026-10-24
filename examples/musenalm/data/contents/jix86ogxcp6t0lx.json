@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert II # Titel aus dem G-Verz s. INr 43168 Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43180,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jesus mit der Dornenkrone und Maria #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Guido Reni pinx. L. Schnell sc.",
+  "scans": [
+    "alm_565_43180_bduzgzoyat.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Jesus mit der Dornenkrone und Maria #",
+  "updated": "2006-04-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2vpy1uhehbzmxux",
+      "agents": "azlvdz0ge43hlgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.379Z"
+    },
+    {
+      "id": "63wk9ncxpjxoa37",
+      "agents": "vbyfdjf3wft42hq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.379Z"
+    }
+  ]
+}

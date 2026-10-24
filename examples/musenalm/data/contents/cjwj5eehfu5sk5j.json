@@ -1,0 +1,45 @@
+{
+  "annotation": "Naturbilder und Parabeln (Sammlung INr 55145, Obj 155)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.017Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "360",
+  "incipit_statement": "In einer Stadt verbreitet sich die Mähr', / Es widerfahr' ihr heut' vor andern / Gar eine seltsamn große Ehr',",
+  "language": [],
+  "musenalm_id": 55148,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Die Zionswächter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Rudolf Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Die Zionswächter",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3x6fnu0lul11126",
+      "agents": "0nqqxalglgwp4fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.827Z"
+    }
+  ]
+}

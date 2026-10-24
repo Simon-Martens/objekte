@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 6. /) s. Textbezug INr 59919, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "266",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59920,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Greul zu Avignon 1791",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhaus",
+  "scans": [
+    "alm_934_59920_un3g808hhs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Greul zu Avignon 1791",
+  "updated": "2008-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "naueurzanlxjqmi",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.893Z"
+    },
+    {
+      "id": "odeklmnydt19gtp",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.893Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.893Z"
+    }
+  ]
+}

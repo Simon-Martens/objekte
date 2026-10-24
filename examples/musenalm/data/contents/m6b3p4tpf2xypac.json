@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Sonnett von Julius Schneller INr 68621, Obj 1,0",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68620,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 0.9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CLEOPATRA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Domenichino pt. F. John sc.",
+  "scans": [
+    "alm_228_68620_n3m6e3xtig.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CLEOPATRA",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tmzhcfg8xc0xt6f",
+      "agents": "ke8b3zzq6e79hhk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.473Z"
+    },
+    {
+      "id": "nj4uw1k3k0mebqn",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.473Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.473Z"
+    }
+  ]
+}

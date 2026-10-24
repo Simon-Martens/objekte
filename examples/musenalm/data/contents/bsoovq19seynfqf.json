@@ -1,0 +1,45 @@
+{
+  "annotation": "Speranza (Sammlung INr 99467, Obj 47) IX. Preußen (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.402Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Welch ein Scheiden ist seliger, / Als zu scheiden von Mädchentagen?",
+  "language": [],
+  "musenalm_id": 99480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. / Brautlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Paul Heyse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. / Brautlied",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "999075zy3lz44pc",
+      "agents": "ijwiphnikfuhyxf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.775Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.775Z"
+    }
+  ]
+}

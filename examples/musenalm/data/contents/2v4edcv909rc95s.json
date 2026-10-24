@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Titelgraphik /) # Joh. Hämling wohl fälschlich für: H. Memling",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72890,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Nach Joh. Hämling von H. Ritter)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Joh. Hämling von H. Ritter",
+  "scans": [
+    "alm_2693_72890_o8a0pchaeb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uow0dx5cuvik6f3",
+      "agents": "o5uxoh544mfxugq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.754Z"
+    }
+  ]
+}

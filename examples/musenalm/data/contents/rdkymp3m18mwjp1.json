@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten mit einer Einleitung INr 66232-66239, Obj 6-13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66231,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dunkers / launigte Versuche / in Gedichten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dunker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dunkers / launigte Versuche / in Gedichten",
+  "updated": "2009-08-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "av0miwm49zne72n",
+      "agents": "n5liie3i2dvrx17",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.324Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.324Z"
+    }
+  ]
+}

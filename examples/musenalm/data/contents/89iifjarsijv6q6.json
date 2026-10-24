@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der fünf Landschaften (Sammlung INr 76761, Obj 29) s. Graphik INr 76768, Obj 36 /) mit einem beigegebenen Gedicht s. INr 76769, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.328Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "Dieser Hügel liegt in der Grafschaft Kent, acht Meilen von London, an der Straße nach Dover.",
+  "language": [],
+  "musenalm_id": 76767,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5) Schooters Hill. (Schützenhügel.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5) Schooters Hill. (Schützenhügel.)",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oesn2pfp1pwewmo",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.730Z"
+    }
+  ]
+}

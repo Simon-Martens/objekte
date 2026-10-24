@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Motto: In dunkler Urne mischt des Lebens Loose / Der hohe Geist, der ewig liebt und lebt,[...]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "58",
+  "incipit_statement": "Die helle Morgensonne sendete ihre freundlichsten Strahlen durch die Fenster eines hübschen Landhauses",
+  "language": [],
+  "musenalm_id": 116721,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Geburtagsgabe. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Martha von der Höhe / (Clara von Massow.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Geburtagsgabe. / Novelle",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h8eg66ozx9v1at1",
+      "agents": "gsh6emx95anxaro",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.316Z"
+    }
+  ]
+}

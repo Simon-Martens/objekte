@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 20930, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.410Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20929,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrichs II. schönes Benehmen gegen seine Gemahlinn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Ender del. Jos. Kovatsch sc. Vienna",
+  "scans": [
+    "alm_277_20929_uvcg3kjm93.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrichs II. schönes Benehmen gegen seine Gemahlinn",
+  "updated": "2002-01-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3j4huq2scozbwe0",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.615Z"
+    },
+    {
+      "id": "asd4foscjw2o4am",
+      "agents": "7b9443ro2tn4o8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.615Z"
+    }
+  ]
+}

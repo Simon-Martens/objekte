@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) mit einer Übersetzung s. Gedicht INr 96722, Obj 21 /) mit 2 Illustrationen s. Graphiken im Kalendarium INr 96709, 96710; Obj 8, 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Certaine Fille un peu trop fière, / Prétendont trouver un mari / Jeune, bien-fait, et beau, d'agréable / manière,",
+  "language": [],
+  "musenalm_id": 96723,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / La Fille",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / La Fille",
+  "updated": "2014-05-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yn1p5zwa36fm9y8",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.645Z"
+    }
+  ]
+}

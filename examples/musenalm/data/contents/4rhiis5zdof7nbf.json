@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte Gedichte (Sammlung INr 30244, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Ein Blick war's, der den Lenz gebracht, / Und wieder war's ein Blick,",
+  "language": [],
+  "musenalm_id": 30250,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Blick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Ritter von Tschabuschnigg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Blick",
+  "updated": "2002-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "798tyjabe0u0zq1",
+      "agents": "snndqassjoh7vf0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.316Z"
+    }
+  ]
+}

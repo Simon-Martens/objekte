@@ -1,0 +1,45 @@
+{
+  "annotation": "Peru (INr 41500, Obj 4); s. a. die Graphiken des Taschenbuchs INr 41497, Obj 1; INr 414506-41515, Obj 10-19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.524Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Das so vielfach modificirte Klima von Peru und der von ihm abgehangenden spanischen Besitzungen führt auf keine unpaßliche Art zu dessen Bewohner.",
+  "language": [],
+  "musenalm_id": 41501,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Mensch. / a) Der Original-Bewohner; der Amerikaner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Mensch. / a) Der Original-Bewohner; der Amerikaner",
+  "updated": "2005-11-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cdipyui3fxzuxqx",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.216Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.216Z"
+    }
+  ]
+}

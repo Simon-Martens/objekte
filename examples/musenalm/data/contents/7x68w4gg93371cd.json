@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Des Winters finstre Abendwolken sinken, / Um Berg und Flur wallt düstrer Nebelflor;",
+  "language": [],
+  "musenalm_id": 93131,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie / am Grabe meiner Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lipmann Moses Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie / am Grabe meiner Mutter",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5ykdk0nfkiyx3j1",
+      "agents": "q7zvyheam3iyblc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.384Z"
+    }
+  ]
+}

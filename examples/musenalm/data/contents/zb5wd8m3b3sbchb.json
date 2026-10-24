@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 5. /) Illustration zu »Der König in Brachfeld« von Carl Streckfuß INr 14088, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14060,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der Erzählung von Streckfuß. / Der König in Brachfeld",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_221_14060_ggvbq5x84i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus der Erzählung von Streckfuß. / Der König in Brachfeld",
+  "updated": "2001-04-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ipldkswud3u3lmm",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.618Z"
+    },
+    {
+      "id": "gzyvama86ce7nw4",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.618Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.618Z"
+    }
+  ]
+}

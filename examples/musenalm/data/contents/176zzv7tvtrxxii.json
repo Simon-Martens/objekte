@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.055Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "185",
+  "incipit_statement": "Keine Ursache trägt wohl mehr dazu bei, das Urtheil über den geistigen und sittlichen Werth der Volksherrscher einseitig und befangen zu machen,",
+  "language": [],
+  "musenalm_id": 43589,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus dem Leben / Kaisers Otto des Großen.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Hufnagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus dem Leben / Kaisers Otto des Großen.",
+  "updated": "2006-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "129dnpenqgad19j",
+      "agents": "fsthx6rgk9lzsy9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.368Z"
+    }
+  ]
+}

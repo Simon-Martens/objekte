@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait /) s. Textbezug INr 110764, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110757,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Therese Eunicke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dähling d. Meyer sc.",
+  "scans": [
+    "alm_4245_110757_u13ay4qgcs.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Therese Eunicke",
+  "updated": "2016-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eh71woz8iosxkak",
+      "agents": "fu5wv6odvdsjkbe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.192Z"
+    }
+  ]
+}

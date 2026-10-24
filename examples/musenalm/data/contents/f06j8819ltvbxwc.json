@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 69053, Obj 8 /) Illustration zu »Das Mährchen von der blauen Grotte« von W. Waiblinger INr 69068, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Jos. Führich inv. del. Rom Ludw. Meyer jun. fec. Berlin)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Führich inv. del. Rom Ludw. Meyer jun. fec. Berlin",
+  "scans": [
+    "alm_2655_69055_jlsfrqcy1w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hkg8mox3jxlbdk2",
+      "agents": "m8y5g9ap5pw6fd8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.491Z"
+    },
+    {
+      "id": "su3wa6mpp8kpbvv",
+      "agents": "l5ef0nkmotzvzwh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.492Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.492Z"
+    }
+  ]
+}

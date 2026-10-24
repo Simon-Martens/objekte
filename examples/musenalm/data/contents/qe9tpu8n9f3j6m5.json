@@ -1,0 +1,45 @@
+{
+  "annotation": "Sinngedichte (Sammlung INr 71031, Obj 105)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.793Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Siehe des Lebens Lauf! Erst Duft und geflügelte / Blüte,",
+  "language": [],
+  "musenalm_id": 71061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 134,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bohne",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chrysalethes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Bohne",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "igpbbw25h4xrkgo",
+      "agents": "1s7x50uh0tm3jdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.631Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.631Z"
+    }
+  ]
+}

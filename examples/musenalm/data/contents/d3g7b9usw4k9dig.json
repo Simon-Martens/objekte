@@ -1,0 +1,47 @@
+{
+  "annotation": "mit kleiner Graphik über dem Gedicht",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.529Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Genug fürs Sehn: nun wieder was fürs / Hören! / Gestehn Sie's nur: wir alle sprechen gern;",
+  "language": [],
+  "musenalm_id": 8078,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anrede / an das Leipziger Parterr, / zum neuen Jahre",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michaelis",
+  "scans": [
+    "alm_179_8078_7fldlsnwhk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Anrede / an das Leipziger Parterr, / zum neuen Jahre",
+  "updated": "2000-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i8f0xtgff48qez7",
+      "agents": "s34fjwkh4uvwpky",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.356Z"
+    }
+  ]
+}

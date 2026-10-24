@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten INr 128313-128318, Obj 19-24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.194Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 128312,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herbstblumenkranz / für / Fanny gewunden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. Methus. Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herbstblumenkranz / für / Fanny gewunden",
+  "updated": "2011-08-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xltc9rjh6thifs6",
+      "agents": "9g2bjngyi7jp8ga",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.982Z"
+    }
+  ]
+}

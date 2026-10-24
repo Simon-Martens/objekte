@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "Hervor, hervor o Lied! / Mit stolzem Gang, mit stolzem Tritt; / In deinem sieggewandten Heldentanze!",
+  "language": [],
+  "musenalm_id": 90382,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bruchstück aus einem lyrischen Gedichte, / genannt: / Die Musik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Thomas v. Schönfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bruchstück aus einem lyrischen Gedichte, / genannt: / Die Musik",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lr3lyiqbnfhc4oy",
+      "agents": "g2mjz3npda4fz9f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.563Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.563Z"
+    }
+  ]
+}

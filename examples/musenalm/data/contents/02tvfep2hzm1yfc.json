@@ -1,0 +1,45 @@
+{
+  "annotation": "Slovenische Sagen und Geschichten (Sammlung INr 89695, Obj 19) mit einer Illustration s. Graphik im Kaldendarium INr 89685, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Es war im tiefen Winter, als ein lustiger Sackpfeifer aus Hochenegg, einer Ortschaft im Santhale, unfern Cilli, ganz duselig und seelenfroh von einem Hochzeitsmahle nach Hause torkelte.",
+  "language": [],
+  "musenalm_id": 89703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Der Sackpfeiffer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Der Sackpfeiffer",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wouz80ea3tw0c37",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.376Z"
+    }
+  ]
+}

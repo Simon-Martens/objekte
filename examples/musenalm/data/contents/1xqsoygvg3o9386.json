@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 80434, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Es darf der Mann der Kraft allein vertrauen / Denn ewig muß er mit dem Schicksal ringen;",
+  "language": [],
+  "musenalm_id": 80435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Vorzug der Frauen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Vorzug der Frauen",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "guczqss129lvr02",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.824Z"
+    }
+  ]
+}

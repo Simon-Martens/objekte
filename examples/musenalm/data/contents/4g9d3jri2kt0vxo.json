@@ -1,0 +1,45 @@
+{
+  "annotation": "Bemerkungen über die übrigen Kupfer und Porträte (Sammlung INr 60058, Obj 57) XIX. Erklärung der Kupfer (Sammlung INr 60034, Obj 33) §1§ bez. Graphik (vermutl. Umschlaggraphik) fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "342",
+  "incipit_statement": "Das Bildniß des Kosciusko soll auch ähnlich seyn; doch entspricht es nicht ganz einem Mignatur-Gemälde,",
+  "language": [],
+  "musenalm_id": 60061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bildniß des Kosciusko soll auch ähnlich seyn; doch entspricht es nicht ganz einem Mignatur-Gemälde,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "exe32dyztn1gk92",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.985Z"
+    }
+  ]
+}

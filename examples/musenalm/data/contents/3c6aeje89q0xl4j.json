@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem poetischen Tagebuch (Sammlung INr 95078, Obj 58)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.513Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "361",
+  "incipit_statement": "Ja, die Sänger und die Mimen, die erhalten höchste Ehre, / Als ob Cäsar auf der Bühne über dem im Leben wäre.",
+  "language": [],
+  "musenalm_id": 95083,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ja, die Sänger und die Mimen, die erhalten höchste Ehre, / Als ob Cäsar auf der Bühne über dem im Leben wäre.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bauernfeld",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "unizncjioh5y30e",
+      "agents": "by4fxr8blp8xj25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.788Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.788Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Gedichte (Sammlung INr 29828, Obj 84)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.688Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Nicht sehen kann ich Dich, Dich nicht erfassen, / Mit Blindheit ist mein sterblich Aug befangen;",
+  "language": [],
+  "musenalm_id": 29829,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Trost",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Amalie Schoppe, geb. Weisse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Trost",
+  "updated": "2002-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zatz2r9vgo4q199",
+      "agents": "2nm1hcqes98n5i9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.533Z"
+    }
+  ]
+}

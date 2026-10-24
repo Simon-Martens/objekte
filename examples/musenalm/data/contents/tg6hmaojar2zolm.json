@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 54763, Obj 76) s. Gedicht: »Die Gemsjäger« von J. J. Reithard in: Alpenrosen 1831, INr 54678",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "334",
+  "incipit_statement": "Noch ist es still, doch schon durchrann / das Morgenroth die Nacht;",
+  "language": [],
+  "musenalm_id": 54765,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der alte Gemsjäger. / (Nach einer wahren Begebenheit.) / Seitenstück zu dem im vorigen Jahrgang der Alpenrosen vom / nämlichen Verfasser gedichteten Gemsjäger.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Reithard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der alte Gemsjäger. / (Nach einer wahren Begebenheit.) / Seitenstück zu dem im vorigen Jahrgang der Alpenrosen vom / nämlichen Verfasser gedichteten Gemsjäger.",
+  "updated": "2008-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pvekgllhqu9yj65",
+      "agents": "biljcxuc46g2kmt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.888Z"
+    }
+  ]
+}

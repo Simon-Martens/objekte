@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 115247-115253, Obj 83-89",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.747Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115254,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Spaziergänge am Fuße des Helikon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Therese von Artner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Spaziergänge am Fuße des Helikon",
+  "updated": "2014-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pxc78x06udjlhan",
+      "agents": "easxd2ciuxkfl7o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.538Z"
+    }
+  ]
+}

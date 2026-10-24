@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.440Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87828,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WIENER / Taschenbuch / für / 1804. / Wird jährlich fortgesetzt. / WIEN. / Bey J. B. Degen, / Buchdrucker und Buchhändler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerstner sc.",
+  "scans": [
+    "alm_3100_87828_hj5rksk0id.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WIENER / Taschenbuch / für / 1804. / Wird jährlich fortgesetzt. / WIEN. / Bey J. B. Degen, / Buchdrucker und Buchhändler",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w6lrd0kpadsfydg",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.289Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.289Z"
+    }
+  ]
+}

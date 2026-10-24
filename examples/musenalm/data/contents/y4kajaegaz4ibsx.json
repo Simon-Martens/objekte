@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Wenn die Leser und Leserinnen dieses Almanachs nur der Absicht des Herausgebers, sowohl durch die genaue Beschreibung von 12 Wirtembergischen Schlössern als durch neue Erzählungen und andere Aufsätze zu ihrer angenehmen Unterhaltung",
+  "language": [],
+  "musenalm_id": 58119,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2008-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2js9jl7uwcbzm8j",
+      "agents": "f1yvhyt8r3wpl41",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.940Z"
+    }
+  ]
+}

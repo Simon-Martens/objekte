@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Magdeburgs Zerstörung 1631. Eine Szene des dreißigjährigen Krieges« INr 68989, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.937Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "In frommen Kaisers Muth erwogen, / In hohen Meisters Sinn erdacht, / Durch manch ein treu Geschlecht vollzogen, / So standst du auf in deiner Pracht.",
+  "language": [],
+  "musenalm_id": 68990,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Dom zu Magdeburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Freiherr de la Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Dom zu Magdeburg",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6k8luj7oy2icvuv",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.965Z"
+    }
+  ]
+}

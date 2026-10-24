@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebens-Sprüche. Nach dem Türkischen (Sammlung INr 42814, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.102Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Die Welt gleicht einer Mühle; / Die Menschen sind's Getreide,",
+  "language": [],
+  "musenalm_id": 42818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Welt gleicht einer Mühle; / Die Menschen sind's Getreide,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vermehren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vspmo1npghcltih",
+      "agents": "nvdnek6niibgjex",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.604Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.604Z"
+    }
+  ]
+}

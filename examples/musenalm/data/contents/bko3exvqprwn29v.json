@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.907Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Die Stimme bebt - die Hände sind gefaltet - / Das Auge thränt in Liebe und in Lust;",
+  "language": [],
+  "musenalm_id": 113577,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Quäckerfamilie. / (Nach einer Vorstellung derselben auf einer Privatbühne.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Quäckerfamilie. / (Nach einer Vorstellung derselben auf einer Privatbühne.)",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5zlp8wvmdm92vqx",
+      "agents": "nz03xhzpzbg7xlq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.291Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.291Z"
+    }
+  ]
+}

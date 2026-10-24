@@ -1,0 +1,45 @@
+{
+  "annotation": "Buntes aus einem Tagebuche (Sammlung INr 19327, Obj 53)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "406",
+  "incipit_statement": "Nachdem vom Wolf Homer zerrissen ward vorlängst, / Kommt nun der Fuchs, der Voß sich nennt als / Plattdeutscher,",
+  "language": [],
+  "musenalm_id": 37230,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachtrag zu einer Xenie Schillers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert; Freimund Reimar",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachtrag zu einer Xenie Schillers",
+  "updated": "2000-08-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ea3o30bre9ibi74",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.581Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.581Z"
+    }
+  ]
+}

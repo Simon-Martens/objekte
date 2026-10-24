@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: Verl. v. J. D. Sauerländer] s. Textbezug INr 44308, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44307,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE GENESENDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Rustige del. Ch. Hoffmeister sc.",
+  "scans": [
+    "alm_602_44307_mm31kpbcsa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE GENESENDE",
+  "updated": "2006-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b87ac2hzyucbdaw",
+      "agents": "uqsdu0nifidzvmw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.398Z"
+    },
+    {
+      "id": "4mwxuk98jzrh654",
+      "agents": "zuqeig2avlr6rku",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.398Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.398Z"
+    }
+  ]
+}

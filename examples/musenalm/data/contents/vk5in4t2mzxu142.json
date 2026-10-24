@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.624Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135224,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LETTRES DIVERSES / DE VOLTAIRE / LETTRE PREMIÈRE. / A M. ROUSSEAU, / AUTEUR DU JOURNAL ENYCLOPÉDIQUE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "VOLTAIRE",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "LETTRES DIVERSES / DE VOLTAIRE / LETTRE PREMIÈRE. / A M. ROUSSEAU, / AUTEUR DU JOURNAL ENYCLOPÉDIQUE",
+  "updated": "2025-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hfulkaxgaq0bb6t",
+      "agents": "lj2spuxfjqbh1fh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.115Z"
+    }
+  ]
+}

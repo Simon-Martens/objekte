@@ -1,0 +1,56 @@
+{
+  "annotation": "MADRIGALE (Sammlung INr 71283, Obj 70) TORQUATO TASSO  (s. Zwischentitel INr 71279, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Wenn du, mein Stern, betrachtest / Das schöne Sterngewimmel, / Wollt' ich, ich wär der Himmel,",
+  "language": [],
+  "musenalm_id": 71287,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Torquato Tasso; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV.",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "243iajmj3m9qltl",
+      "agents": "qw7tivvvkqh71up",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.633Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.633Z"
+    },
+    {
+      "id": "hlr7aw04diqk081",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.633Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.633Z"
+    }
+  ]
+}

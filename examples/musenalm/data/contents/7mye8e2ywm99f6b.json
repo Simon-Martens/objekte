@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Ein Meer von Häusern kenn' ich euch, / Und einen Dom darin, [...] Joh. Gab. Seidl",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "313",
+  "incipit_statement": "Wehe dem! wehe, an dessen Händen unrechtes Gut klebet; so lange diese Schuld ihn belastet, kann weder Heil noch Segen ihm erblühen,",
+  "language": [],
+  "musenalm_id": 95017,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Thürmers Kind. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mathilde Feldern Rolf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Thürmers Kind. / Novelle",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z5muae47saeyikk",
+      "agents": "5fgsfkvvla04u8e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.353Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.353Z"
+    }
+  ]
+}

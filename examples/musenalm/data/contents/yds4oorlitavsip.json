@@ -1,0 +1,56 @@
+{
+  "annotation": "Unter der Graphik: Druck & Verlag von G. G. Lange in Darmstadt /) s. Textbezug INr 63923, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.294Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63929,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE AKROPOLIS IN ATHEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. L. Lange Stahlst. v. J. M. Kolb",
+  "scans": [
+    "alm_1052_63929_ni82bopbbj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE AKROPOLIS IN ATHEN",
+  "updated": "2009-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b1e517daaqjo5ex",
+      "agents": "1bkesm7fuy1qaih",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.208Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.208Z"
+    },
+    {
+      "id": "3jkeo867opknxmm",
+      "agents": "key7st6sru3cc9u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.208Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.208Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: Dann ihn wegzutragen vertraut' er den schnellen / Geleitern, / Beyden dem Schlaf und dem Tod, […] Homer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Aus des Lebens wildem Drange / Sehnt der Heros himmelan, / Schwingt im glühenden Gesange / Sich zur heil'gen Sternenbahn",
+  "language": [],
+  "musenalm_id": 71895,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sarpedon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sarpedon",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ifwhwj43i8wstip",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.433Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.433Z"
+    }
+  ]
+}

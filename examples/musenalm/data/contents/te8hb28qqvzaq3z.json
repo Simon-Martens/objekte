@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Sara v. Pillnikau« von Arthur vom Nordstern d. i. G. A. E. v. Nostitz und Jänkendorf INr 20274, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20238,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sara v. Pillnikau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. T. Cheeseman sculp.",
+  "scans": [
+    "alm_270_20238_034uq06epd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sara v. Pillnikau",
+  "updated": "2001-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ejsss6ws888saq5",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.020Z"
+    },
+    {
+      "id": "77ekmmz68gv6hr2",
+      "agents": "74opuoejkgqg6uv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.020Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.020Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "O süsse Ruh im Tannenwalde / Fern ob dem See, / An Rigibergs grüner Halde",
+  "language": [],
+  "musenalm_id": 1227,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied auf dem Rigiberg / gesungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "FRIEDERIKE BRUN",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied auf dem Rigiberg / gesungen",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p2vkhyh0kbe9t24",
+      "agents": "38esu046kftupf5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.653Z"
+    }
+  ]
+}

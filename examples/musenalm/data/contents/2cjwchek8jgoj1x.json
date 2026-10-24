@@ -1,0 +1,45 @@
+{
+  "annotation": "Titel aus dem I-Verz Sammlung von 15 Beiträgen INr 37301-37315 Obj 28-42",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37300,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vermischte, viele hier zum ersten- / male gegebene Anekdoten mit meinem eige- / nen Glossario #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vermischte, viele hier zum ersten- / male gegebene Anekdoten mit meinem eige- / nen Glossario #",
+  "updated": "2004-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ci50r434ghxu4k6",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.879Z"
+    }
+  ]
+}

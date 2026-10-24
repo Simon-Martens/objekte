@@ -1,0 +1,43 @@
+{
+  "annotation": "Frauenrosen. Als Erklärung der Stahlstiche (Sammlung INr 95389, Obj 6) s. Graphik INr 95392, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.839Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Gegrüßt, gegrüßt, Du junge, rothe Rose, / So frisch und hell, als wie der munt're Mai,",
+  "language": [],
+  "musenalm_id": 95393,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rosa blanda. Rosenrothe Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rosa blanda. Rosenrothe Rose",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "672fbips215lva5",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.330Z"
+    }
+  ]
+}

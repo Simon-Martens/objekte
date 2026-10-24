@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.156Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Braunes niedliches Gewinde, / Dieses Liedchen weih ich dir,",
+  "language": [],
+  "musenalm_id": 106037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An ihre Locke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emanuel Straube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An ihre Locke",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xx04rksq3habfua",
+      "agents": "osmeoxw3ivqw3j5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.146Z"
+    }
+  ]
+}

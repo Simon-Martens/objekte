@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Humoristische Gedichte (INr 93576, Obj 85)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Im ganzen Dorfe geht's Gerücht, / Daß ich um Greten freye, / Sie aber läßt das Tändeln nicht, / Die Falsche, Ungetreue!",
+  "language": [],
+  "musenalm_id": 93577,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der geplagte Bräutigam",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der geplagte Bräutigam",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "be85u0wb38faip5",
+      "agents": "epma680nee4q5et",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.210Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.210Z"
+    }
+  ]
+}

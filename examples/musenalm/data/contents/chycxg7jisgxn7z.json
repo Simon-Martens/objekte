@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "Die Kinder, die Kinder / Sind ihren Eltern lieb; / Sie schmeicheln, sind gefällig,",
+  "language": [],
+  "musenalm_id": 8646,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kinderlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hartmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kinderlied",
+  "updated": "2000-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g1ns7s2p2nhofp5",
+      "agents": "kguhc4kb9u0c03l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.100Z"
+    }
+  ]
+}

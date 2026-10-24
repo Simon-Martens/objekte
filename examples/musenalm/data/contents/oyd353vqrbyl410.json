@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus der Oper: Der Narrenthurm von Perinet (Sammlung INr 131415, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "War ein kleines Mandel, / Augen wie ein Brandel, / Ellenlange Handel, / Rothen Schopf",
+  "language": [],
+  "musenalm_id": 131416,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arie. Florian",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perinet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Arie. Florian",
+  "updated": "2016-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lmv29mcngaqa8ss",
+      "agents": "k0pr8qnl9uye038",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.034Z"
+    }
+  ]
+}

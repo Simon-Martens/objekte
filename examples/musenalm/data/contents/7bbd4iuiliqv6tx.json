@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 22649, Obj 7 # Anm. am Objekt: Der Verf. setzt hier die im Morgenblatt vor längerer Zeit angefangene Schilderung fort. Um das Ganze nicht zu trennen, war es nöthig, hier den Anfang wieder abdrucken zu lassen.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Herr Balthasar schob die Kaffeetasse und ein Zeitungsblatt, in dem er eben gelesen, unwillig von sich weg,",
+  "language": [],
+  "musenalm_id": 22709,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Herr Balthasars Leben #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. W. Contessa",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus Herr Balthasars Leben #",
+  "updated": "2002-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1wsszxuv6pera7w",
+      "agents": "jho0bsnjm9w01d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.868Z"
+    }
+  ]
+}

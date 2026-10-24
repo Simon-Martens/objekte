@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug (Gedicht) INr 77635, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77632,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AMALIA, / Prinzessin von Sachsen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Rensch pinx. J. Axmann sculp.",
+  "scans": [
+    "alm_2409_77632_uy9auxlrje.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AMALIA, / Prinzessin von Sachsen",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vmg313pr1dsst8w",
+      "agents": "ail6kpkgq3rdfot",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.744Z"
+    },
+    {
+      "id": "zg7ev942sy3p0hk",
+      "agents": "eb0uid8s7k1f7eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.744Z"
+    }
+  ]
+}

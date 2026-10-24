@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An die Frau Mama« von F. A. INr 794, Obj 72",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.187Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 793,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Frau Mama",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Forkel",
+  "scans": [
+    "alm_60_793_p6p8xw75jt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An die Frau Mama",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y6oihoh5cocyye0",
+      "agents": "xzypb9tyvvvrc9s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.922Z"
+    }
+  ]
+}

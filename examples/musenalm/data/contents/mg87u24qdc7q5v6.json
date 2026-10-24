@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Iphigenie auf Tauris« von J. W. v. Goethe; s. a. Textbezug INr 16738, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9235,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Iphigenia, III. Aufzug, Schluss des I. Auftritt's / Orest's Vision",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dähling del. Schwerdgeburth sc.",
+  "scans": [
+    "alm_40_9235_37vedbyfom.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Iphigenia, III. Aufzug, Schluss des I. Auftritt's / Orest's Vision",
+  "updated": "2000-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vinbh6hyhibpnfy",
+      "agents": "fu5wv6odvdsjkbe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.392Z"
+    },
+    {
+      "id": "xvxz4nk6dba3g5o",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.392Z"
+    }
+  ]
+}

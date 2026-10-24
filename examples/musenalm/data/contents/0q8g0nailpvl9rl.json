@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht INr 60980, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60981,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schubert del. E. G. Krüger sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. E. G. Krüger sc.",
+  "scans": [
+    "alm_950_60981_82cce9t7e9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8zwwjf27muj9hzl",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.812Z"
+    },
+    {
+      "id": "0r0sxpj5fwbk6d8",
+      "agents": "mi3sfg9f1oc68es",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.812Z"
+    }
+  ]
+}

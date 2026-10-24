@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Demetrius« von Fr. Schiller s. Textbezug INr 39894, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.204Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39895,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Demetrius 1r. Aufz. / Ja! wir schwören / Vivat Marina! Russiae regina!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_522_39895_9pkcs6euam.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Demetrius 1r. Aufz. / Ja! wir schwören / Vivat Marina! Russiae regina!",
+  "updated": "2005-08-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1ncnfp9rp1t3mjb",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.874Z"
+    },
+    {
+      "id": "vk6o7dc5b4gvq46",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.874Z"
+    }
+  ]
+}

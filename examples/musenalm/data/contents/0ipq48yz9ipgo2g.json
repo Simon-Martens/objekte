@@ -1,0 +1,43 @@
+{
+  "annotation": "Frauenrosen. Als Erklärung der Stahlstiche (Sammlung INr 95504, Obj 6) s. Graphik INr 95510, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Nicht schüchtern hüllst du dich in Blättermassen, / Du zeigst dich Allen offen, wie du bist,",
+  "language": [],
+  "musenalm_id": 95509,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Damascener Rose. (Rosa Damascena.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Johann Nep. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Damascener Rose. (Rosa Damascena.)",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gp2s3g2eeyqnshv",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.770Z"
+    }
+  ]
+}

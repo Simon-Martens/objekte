@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Die List Penelopens des frommen Weibchens lebe! / Um ihre Tugend her zog sie ein Schutzgewebe.",
+  "language": [],
+  "musenalm_id": 62459,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Penelope",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Penelope",
+  "updated": "2009-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vs5v3pazwjyo8fc",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.063Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.063Z"
+    }
+  ]
+}

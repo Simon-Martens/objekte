@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung aus dem G-Verz /) Illustration zu »Die Osternacht« von L. Schefer INr 22869, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22858,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Osternacht, Novelle von L. Schefer. No. 2",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Näcke; Gruner",
+  "scans": [
+    "alm_304_22858_bsaehuzi9v.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Osternacht, Novelle von L. Schefer. No. 2",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6ncas7fs5onmm58",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.005Z"
+    },
+    {
+      "id": "3m2jidvvsy3p63v",
+      "agents": "aojzejymdgem420",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.005Z"
+    }
+  ]
+}

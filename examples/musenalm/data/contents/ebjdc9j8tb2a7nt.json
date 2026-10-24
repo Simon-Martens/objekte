@@ -1,0 +1,45 @@
+{
+  "annotation": "s. INr 30861-30863, Obj 34-36, # Bezeichnung an der Nachschrift INr 30863, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Piano, ihr Leute! w'rum lärmt ihr so? / Der Dianentempel brennt lichterloh.",
+  "language": [],
+  "musenalm_id": 30860,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geburt, Leben und Tod / Alexander / des Grossen, / ein / Schauspiel / für / Wahnsinnige. / Aufzuführen von einer Horde reisender / Komödianten. / J'écris en insensé, mais j'écris pour des fous. / Voltaire",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geburt, Leben und Tod / Alexander / des Grossen, / ein / Schauspiel / für / Wahnsinnige. / Aufzuführen von einer Horde reisender / Komödianten. / J'écris en insensé, mais j'écris pour des fous. / Voltaire",
+  "updated": "2003-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lzyfxshc78gywgh",
+      "agents": "y0pp926xdweonfb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.707Z"
+    }
+  ]
+}

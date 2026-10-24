@@ -1,0 +1,45 @@
+{
+  "annotation": "2 Beiträge INr 14636, 14637; Obj 90, 91",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "266",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14635,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Philosophische Betrachtungen. / (Aus dem Schahnameh Firdussi's.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Philosophische Betrachtungen. / (Aus dem Schahnameh Firdussi's.)",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "neegxi28hg71jei",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.544Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.544Z"
+    }
+  ]
+}

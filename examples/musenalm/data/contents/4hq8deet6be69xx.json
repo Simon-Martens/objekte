@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht INr 68576, Obj 3,03",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.817Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68575,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "NYMPHE IM BADE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludov. Carracci pt. F. John sc.",
+  "scans": [
+    "alm_227_68575_v1a4kqq2wu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "NYMPHE IM BADE",
+  "updated": "2001-04-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "stpdoew41kst2xo",
+      "agents": "el5barrnwb9etou",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.636Z"
+    },
+    {
+      "id": "n7p1bvxp6ji5bj0",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.636Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.636Z"
+    }
+  ]
+}

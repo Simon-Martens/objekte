@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Uniformkupfer /) s. Textbezug INr 78290, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.081Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78303,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ein Bergschotte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del",
+  "scans": [
+    "alm_928_78303_57qnbp3j1n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ein Bergschotte",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qfthpsivirctqmm",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.841Z"
+    }
+  ]
+}

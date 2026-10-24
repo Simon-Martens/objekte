@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Epigrammatische und andere Gedichte (Sammlung INr 39673, Obj 75)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.714Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "471",
+  "incipit_statement": "Du gäbest der Psycharion / Den goldnen Apfel? Wie, mein Sohn?",
+  "language": [],
+  "musenalm_id": 39684,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "7. / Venus und Amor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "7. / Venus und Amor",
+  "updated": "2005-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "taotcn113i0oz1r",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.110Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.110Z"
+    }
+  ]
+}

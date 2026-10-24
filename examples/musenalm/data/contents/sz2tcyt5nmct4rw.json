@@ -1,0 +1,46 @@
+{
+  "annotation": "Anm. am Objekt: Die nachfolgende schilderung war für ein größeres Werk, nämlich für den zweiten Band der siebenten Section des malerischen und romantischen Deutschlands (Leipzig, bei G. Wigand) bestimmt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.213Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Südöstlich von dem lieblichen, jährlich mehr gewürdigten Kurorte Gleichenberg (im Gratzer Kreise Steiermarks) dessen Anmuth ein lebendiges Denkmal der Munifizenz des Landgouverneurs, Mathias Konstantin, Grafen von Wickenburg, zur Schau stellt,",
+  "language": [],
+  "musenalm_id": 132450,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der steierische Blocksberg. / Bild aus Untersteier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der steierische Blocksberg. / Bild aus Untersteier",
+  "updated": "2022-06-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yxhnf475152wjdj",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.091Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.091Z"
+    }
+  ]
+}

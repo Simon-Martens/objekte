@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Gedicht INr 44033, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44032,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FIORA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. T. Parris pinxt. E. Scriven sculpt.",
+  "scans": [
+    "alm_596_44032_xbqvjy610c.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FIORA",
+  "updated": "2006-06-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ava125m9o2jwle1",
+      "agents": "9gep2y6vxxwiktu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.102Z"
+    },
+    {
+      "id": "npbcmrm75athp8y",
+      "agents": "o67x3gobxm8j07o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.102Z"
+    }
+  ]
+}

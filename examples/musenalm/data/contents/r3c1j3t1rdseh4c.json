@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Betende« von K. Geib INr 62912, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.111Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62896,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Betende / Von K. Geib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. Jos. Stöber sc. Viennae",
+  "scans": [
+    "alm_1031_62896_4tpw5iojoh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Betende / Von K. Geib",
+  "updated": "2009-03-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9x5t6hwlolvxnj1",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.123Z"
+    },
+    {
+      "id": "t5xz6et6j7lb48n",
+      "agents": "yk9ibu96ud1308d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.123Z"
+    }
+  ]
+}

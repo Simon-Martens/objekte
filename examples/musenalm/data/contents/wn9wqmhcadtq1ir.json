@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 98475, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Still breitete der Abend seinen Rosenschleier über die russischen Scheegefilde, in denen seit wenigenTagen hunderttausende erstarrt waren für immer.",
+  "language": [],
+  "musenalm_id": 98474,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Welcher? / Erzählung. / (Seitenstück zur Erzählung: Jenseits des Grabes / im dritten Bande des Wintergartens.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Laun",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Welcher? / Erzählung. / (Seitenstück zur Erzählung: Jenseits des Grabes / im dritten Bande des Wintergartens.)",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e32wz719dr1rl7g",
+      "agents": "z3f86v065s6vcml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.730Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.730Z"
+    }
+  ]
+}

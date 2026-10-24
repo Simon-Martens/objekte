@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.275Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Bei der Gebete lautem Rufen / Von heißer Andacht tief bewegt,",
+  "language": [],
+  "musenalm_id": 20505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Schmetterling am Christus-Grabe in / einer katholischen Kirche. / Am Charfreitage 1819",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ulr. Fr. v. Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Schmetterling am Christus-Grabe in / einer katholischen Kirche. / Am Charfreitage 1819",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bi28wzsictd79ms",
+      "agents": "e47w01a11l8gujn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.854Z"
+    }
+  ]
+}

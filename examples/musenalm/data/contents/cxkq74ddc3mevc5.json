@@ -1,0 +1,45 @@
+{
+  "annotation": "6. Gaseelen (Sammlung INr 41816, Obj 18) Gedichte (Sammlung INr 41810, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.562Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Jüngst sah ich ein Gemälde von Gerippen, / Von Todeslarven mit geschwungnen Hippen",
+  "language": [],
+  "musenalm_id": 41818,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Pfizer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qyzstqhysa68kjj",
+      "agents": "sv92qni765t0f64",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.315Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "190",
+  "incipit_statement": "Tobias haßte den Samuel, / Und hatte solches keinen Hehl, / Was seinem Herzen zur Ehre gereicht, / Gebildeten ist Verstellung ja leicht.",
+  "language": [],
+  "musenalm_id": 94221,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Unerklärliche",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Maltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Unerklärliche",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "brkp02ja0bggfos",
+      "agents": "enmi0t9mog462m5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.719Z"
+    }
+  ]
+}

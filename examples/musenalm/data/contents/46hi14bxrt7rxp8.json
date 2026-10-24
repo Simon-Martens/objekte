@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Beiträgen mit einer Einleitung INr 50488-50492, Obj 22-26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50487,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gaumenwanderungen / oder / Reise eines Leckermaules / durch die / Berühmtesten Tempel des Komus / in Paris",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grimod de la Reyniere; [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gaumenwanderungen / oder / Reise eines Leckermaules / durch die / Berühmtesten Tempel des Komus / in Paris",
+  "updated": "2007-07-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kofo1vw7z4bj7nx",
+      "agents": "ndyaxges5n0jd1z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.687Z"
+    }
+  ]
+}

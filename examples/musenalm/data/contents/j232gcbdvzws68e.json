@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 42. Erster Teil des Gedichts; mit einer Musikbeigabe s. INr 38802, Obj 664",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.543Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Thyrsis singt dir süsse Lieder / Voll von Schmeicheleien vor.",
+  "language": [],
+  "musenalm_id": 38019,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 88,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zauberei der Töne. / Die Mutter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zauberei der Töne. / Die Mutter",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "15hmobncaejiq4t",
+      "agents": "stasese2l43xq94",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.913Z"
+    }
+  ]
+}

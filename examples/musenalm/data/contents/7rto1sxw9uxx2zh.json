@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Frühling kam mit Blumenkörben, / Lud die Menschen freundlich ein:",
+  "language": [],
+  "musenalm_id": 84216,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Blumenwahl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kamla",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Blumenwahl",
+  "updated": "2010-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gsuye27cws4st83",
+      "agents": "aio098gzy3dnj1w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.040Z"
+    }
+  ]
+}

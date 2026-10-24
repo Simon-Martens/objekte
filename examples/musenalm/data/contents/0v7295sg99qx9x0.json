@@ -1,0 +1,45 @@
+{
+  "annotation": "Philosophische Facultät (Sammlung INr 71449, Obj 67) Die vier Facultäten (Sammlung INr 71426, Obj 44) II. Lebensbilder (Sammlung INr 71424, Obj 42)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.693Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "339",
+  "incipit_statement": "besteht aus einem Adjutanten, einem Kammerherrn, einem Cabinets-Secretär, einem Kammerdiener und einer Maitresse.",
+  "language": [],
+  "musenalm_id": 71455,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Camariilla",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav v. Struve",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Camariilla",
+  "updated": "2010-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "klczq77uhv7rw6x",
+      "agents": "qwibej56fq45fjs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.407Z"
+    }
+  ]
+}

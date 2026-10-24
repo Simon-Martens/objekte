@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »An Rosa« von Th. Hell d. i. K. G. Th. Winkler INr 19667, Obj 88 (Photos 19702,01-19702,03)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 19702,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Rosa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dotzauer",
+  "scans": [
+    "alm_265_19702_01_g7e2uob8zw.jpg",
+    "alm_265_19702_02_9ddqaqkexx.jpg",
+    "alm_265_19702_03_vx2c6tpk9p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An Rosa",
+  "updated": "2001-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nlv5mkbzothl2ha",
+      "agents": "ij45jg2izry2pga",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.702Z"
+    }
+  ]
+}

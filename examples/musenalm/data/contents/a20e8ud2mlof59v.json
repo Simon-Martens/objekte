@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Aus dem Tagebuche eines alten Müßiggängers (Sammlung INr 48555, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "In Zeiten, wo das Leben immer entschiedener zerfällt - blos in zwey Hälften: Geschäft und Belustigung, Erwerben und Aufwenden,",
+  "language": [],
+  "musenalm_id": 48559,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Das Erbgut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Das Erbgut",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fnceczo8fg7w2el",
+      "agents": "2wsoz27ytrsps8l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.581Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.581Z"
+    }
+  ]
+}

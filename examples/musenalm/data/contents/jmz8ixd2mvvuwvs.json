@@ -1,0 +1,45 @@
+{
+  "annotation": "Adventlieder (Sammlung INr 55506, Obj 122)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.278Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Und als die Zeit erfüllet ward, / Ward er vom Weib geboren,",
+  "language": [],
+  "musenalm_id": 55508,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 124,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. R. Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2008-02-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f19nirck0lx8m1q",
+      "agents": "0nqqxalglgwp4fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.695Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.309Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Wenn einst mir Lied und Reim gelang, / So krönte Liebe meinen Sang;",
+  "language": [],
+  "musenalm_id": 11795,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "19. / Tristans Sterbelied. / Altfranzösisch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gries",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "19. / Tristans Sterbelied. / Altfranzösisch",
+  "updated": "2001-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "46zi3j7tcifh4fu",
+      "agents": "29ohnryhyvah0tt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.409Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.409Z"
+    }
+  ]
+}

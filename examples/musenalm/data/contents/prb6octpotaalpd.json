@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90204,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Albert / Herzog von Sachsen Teschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Adam fecit",
+  "scans": [
+    "alm_2209_90204_gzlsxe0qde.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Albert / Herzog von Sachsen Teschen",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pn17b5vv10f3kiy",
+      "agents": "v31c77tq4slj851",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.136Z"
+    }
+  ]
+}

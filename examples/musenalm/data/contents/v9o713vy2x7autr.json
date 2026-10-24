@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderlieder (Sammlung INr 36384, Obj 52) IV. Lieder (Sammlung INr 36371, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Hinaus! hinaus, Du junges Blut! / Sieh, Morgenroth und Abendgluth,",
+  "language": [],
+  "musenalm_id": 36385,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Hinaus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. T. Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Hinaus",
+  "updated": "2003-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ngl5iue5a133t2g",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.871Z"
+    }
+  ]
+}

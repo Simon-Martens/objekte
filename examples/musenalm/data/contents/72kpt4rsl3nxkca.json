@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1. s. Textbezug INr 32095, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32087,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wir haben alle einen Vater - / Die Menschen sind Brüder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Rmbg fec. 1798 H. Grape sc.",
+  "scans": [
+    "alm_433_32087_aue55um4jz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wir haben alle einen Vater - / Die Menschen sind Brüder",
+  "updated": "2003-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sryf9xdi6dd0tmo",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.391Z"
+    },
+    {
+      "id": "sn6hh6zhcl40vqj",
+      "agents": "t2z8lq4qwm3oov7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.391Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.391Z"
+    }
+  ]
+}

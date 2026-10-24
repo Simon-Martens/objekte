@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das Haupt des Holofernes« von Fr. Laun d.i. F. A. Schulze INr 71223, Obj 5 /) # Bezeichnung S sc. = liegendes S mit Schwert",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Haupt des Holofernes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. S. sclp.",
+  "scans": [
+    "alm_3621_72122_57hpyz2krb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Haupt des Holofernes",
+  "updated": "2010-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zu9qv98u31deoxx",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.703Z"
+    }
+  ]
+}

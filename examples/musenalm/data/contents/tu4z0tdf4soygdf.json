@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.798Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Es ist eine allgemeine Meinung, daß phantastische, wunderbare Sagen aus vormaliger Zeit, und der Glaube daran, nicht in einem flachen Lande zu Hause sind.",
+  "language": [],
+  "musenalm_id": 30406,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der magische Schlüssel. / Ein dänisches Märchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Kruse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der magische Schlüssel. / Ein dänisches Märchen",
+  "updated": "2002-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tu9ctv28zlyyofi",
+      "agents": "jfhywk4cbxcodws",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.554Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.554Z"
+    }
+  ]
+}

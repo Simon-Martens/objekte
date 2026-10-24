@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Blatt: Widmungsgedicht",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ich stand am Grabe Romeos / Und Juliens im Dämmerschein. / Aus ihrem Sarkophage floß / Der süße Hauch: Gedenke mein!",
+  "language": [],
+  "musenalm_id": 106399,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WIDMUNG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Ferd. Weigl",
+  "scans": [
+    "alm_1790_106399_9iy3im8hz5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WIDMUNG",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gdd17khks45vxs8",
+      "agents": "esza4g1ixbolac8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.102Z"
+    }
+  ]
+}

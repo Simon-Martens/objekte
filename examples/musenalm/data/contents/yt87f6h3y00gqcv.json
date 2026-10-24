@@ -1,0 +1,48 @@
+{
+  "annotation": "Melodieen zum Schillerschen Musenalmanach (Sammlung INr 38801, Obj 663) Vertonung des Gedichts »Macht der Liebe« von T. d. i. Herder INr 37969, Obj 38. (Photos 38804,01; 38804,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.826Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38804,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 666,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Macht der Liebe. / Nach dem Spanischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V.",
+  "scans": [
+    "alm_511_38804_01_fc0dcces6o.jpg",
+    "alm_511_38804_02_2t9aqwhiri.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Macht der Liebe. / Nach dem Spanischen",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oqvthcgx98njzev",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.940Z"
+    }
+  ]
+}

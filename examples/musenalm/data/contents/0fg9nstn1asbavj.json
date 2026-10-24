@@ -1,0 +1,58 @@
+{
+  "annotation": "kol. Illustration zu »Robert und Aline. Eine poetische Erzählung« INr 81980, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81982,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Brama sey mit euch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Weber del. J. Nussbiegel sc.",
+  "scans": [
+    "alm_3830_81982_0m87xfm4h8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Brama sey mit euch",
+  "updated": "2012-06-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3rimaks5iulwepo",
+      "agents": "h38sezk5a79h4rw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.082Z"
+    },
+    {
+      "id": "mklfw14mixavh26",
+      "agents": "1cxxm0968owp2z9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.082Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.082Z"
+    }
+  ]
+}

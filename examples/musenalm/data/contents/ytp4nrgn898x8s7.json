@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Vor seinem Zelte sitzet / Der Marschall im Dämmerschein;",
+  "language": [],
+  "musenalm_id": 81017,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chales Bessières. / (1813.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joahnn Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Chales Bessières. / (1813.)",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zece39rsnevwtms",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.899Z"
+    }
+  ]
+}

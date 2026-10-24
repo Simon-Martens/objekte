@@ -1,0 +1,56 @@
+{
+  "annotation": "»Acht Kupfer zu Butlers Hudibras auf Coeur-Karten« (Herz-Drei) s. Textbezug INr 50342, Obj 40",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.724Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50350,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (D. W. Soltau gezeichnet. D. Berger gestochen)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. W. Soltau gezeichnet. D. Berger gestochen",
+  "scans": [
+    "alm_8_50350_fr60v1kmhv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f9edet2ewirc95u",
+      "agents": "i2xso6w3k57v5qz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.660Z"
+    },
+    {
+      "id": "ank7mpu3q83vfng",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.660Z"
+    }
+  ]
+}

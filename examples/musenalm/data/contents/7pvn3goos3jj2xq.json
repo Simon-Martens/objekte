@@ -1,0 +1,45 @@
+{
+  "annotation": "Alte und junge Weisheit (Sammlung INr 46365, Obj 209)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.721Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Wohl sind dem Menschenherzen / Viel Schranken auferbaut,",
+  "language": [],
+  "musenalm_id": 46368,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 212,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wohl sind dem Menschenherzen / Viel Schranken auferbaut,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Endrulat",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6nsfhgq90mb6hvw",
+      "agents": "iphyvrg6im9wr03",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.522Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Ein lokeres, gut gedüngtes, oder sonst fettes Erdreich, das eine sonnigte und also warme Lage hat, erfordern die Erdmandeln zu ihrem Anbau.",
+  "language": [],
+  "musenalm_id": 74366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anweisung zu dem Anbau der Erdmandeln",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tr.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anweisung zu dem Anbau der Erdmandeln",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mb1l4llsqedzjuk",
+      "agents": "wnbgysvwlvcts0h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.615Z"
+    }
+  ]
+}

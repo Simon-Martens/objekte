@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik im Kalendarium Juni; Illustration zu »Die Kirmse zu Wallendorf« von INr 132966, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132962,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der Kirmse zu Wallendorf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Berka sc. Wien",
+  "scans": [
+    "alm_4864_132962_2enmj0fkhu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus der Kirmse zu Wallendorf",
+  "updated": "2024-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jj6sgioks3l9zli",
+      "agents": "jlkwrxo4vggz8uy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.100Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.100Z"
+    }
+  ]
+}

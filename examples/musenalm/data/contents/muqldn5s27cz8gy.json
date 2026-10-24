@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.972Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Auf der Burg Antonia höchstem Thurme stand / um Mitternacht / Titus bleich und schloß das Auge vor dem Glanz / der Flammenpracht;",
+  "language": [],
+  "musenalm_id": 99770,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 174,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Titus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johannes Minckwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Titus",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5k6olw0eiqsmtlr",
+      "agents": "dpkh7u6gok5xlc0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.828Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.828Z"
+    }
+  ]
+}

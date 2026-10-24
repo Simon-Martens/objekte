@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 8. /) Illustration zu »Siegfried von Lindenberg« von Johann Gottwerth Müller s. Textbezug INr 7382, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7356,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weist Er was? Er ist'n Flegel da will ich / Ihm's Portent drüber geben lassen. / IIr. Th. 3. S.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki, D. del. et sculps.",
+  "scans": [
+    "alm_149_7356_aj4oahenmu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Weist Er was? Er ist'n Flegel da will ich / Ihm's Portent drüber geben lassen. / IIr. Th. 3. S.",
+  "updated": "2000-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m5je4e2d3k48l8p",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.203Z"
+    }
+  ]
+}

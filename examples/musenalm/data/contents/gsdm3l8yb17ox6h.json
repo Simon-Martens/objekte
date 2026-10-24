@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.941Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "329",
+  "incipit_statement": "Einst waren wir, jetzt nicht mehr, seel'ge Geister; / Wir waren stolz, drum hat",
+  "language": [],
+  "musenalm_id": 11464,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "80. / Die Teufel auf dem Carneval. / Nach dem Ital. des Macchiavelli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gries",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "80. / Die Teufel auf dem Carneval. / Nach dem Ital. des Macchiavelli",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0co3u05ic5u9zf4",
+      "agents": "29ohnryhyvah0tt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.195Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24947, Obj 228)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Es schlummerst längst mir im Heiligthum bildender Kraft / An Dich, o Fürst, ein Gesang,",
+  "language": [],
+  "musenalm_id": 24948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 229,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Dem Kronprinzen von Baiern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Dem Kronprinzen von Baiern",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ys71ew9pnmgoyla",
+      "agents": "on0a0wityl8730t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.959Z"
+    }
+  ]
+}

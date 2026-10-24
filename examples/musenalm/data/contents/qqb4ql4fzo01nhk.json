@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Wehre nicht der Liebe, wenn im Lenze / Deines Lebens sie dein Herz beschleicht,",
+  "language": [],
+  "musenalm_id": 952,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Freund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "LAPPE",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Freund",
+  "updated": "2000-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l3bvdihc4d0s98g",
+      "agents": "h8h7559ermyma3h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.795Z"
+    }
+  ]
+}

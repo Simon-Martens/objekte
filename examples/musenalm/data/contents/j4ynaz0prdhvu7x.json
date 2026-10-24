@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 33873, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33872,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Autenrieth sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Autenrieth sc.",
+  "scans": [
+    "alm_470_33872_i4b33sbsy4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-05-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n82nec137fvna9t",
+      "agents": "494d92fqsi62f1e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.695Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.695Z"
+    }
+  ]
+}

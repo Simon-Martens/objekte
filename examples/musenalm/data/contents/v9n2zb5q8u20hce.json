@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite. Illustration zu »Carl IX. oder die Bartholomäusnacht« von Chénier. Im Kalendarium paginiert 9. s. Textbezug INr 7122, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7092,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer in dieser heiligen Handlung von / euch stirbt, der hat im Paradiese die / Märtyrerkrone. / IV. Aufz. 6. Auft.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki f.",
+  "scans": [
+    "alm_143_7092_5xatdj08c4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wer in dieser heiligen Handlung von / euch stirbt, der hat im Paradiese die / Märtyrerkrone. / IV. Aufz. 6. Auft.",
+  "updated": "2000-11-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5cusfr1xjo6ixlv",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.434Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.434Z"
+    }
+  ]
+}

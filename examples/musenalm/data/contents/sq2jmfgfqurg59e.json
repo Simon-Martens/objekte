@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Vorrede",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.974Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Im elften Jahr der Regierung des großen Plampampu, Beherrschers von Persien, kam ein unbekannter alter Mann in die Residenz,",
+  "language": [],
+  "musenalm_id": 13085,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sami. / 1. Noch zittern Tausend: sag', wer darf da / lachen? / 2. Wer seine Seele rein erhalten; wer / Gehandelt und getragen, wie ein Mann - / Der darfs - - / Otway",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sami. / 1. Noch zittern Tausend: sag', wer darf da / lachen? / 2. Wer seine Seele rein erhalten; wer / Gehandelt und getragen, wie ein Mann - / Der darfs - - / Otway",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iaq2psmua1h12j8",
+      "agents": "2wsoz27ytrsps8l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.555Z"
+    }
+  ]
+}

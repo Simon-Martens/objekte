@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. VolksLieder der Franken die historische Wichtigkeit haben (Sammlung INr 9084, Obj 48) /) Beilagen (Sammlung INr 9080, Obj 38)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "344",
+  "incipit_statement": "Nous entrerons dans la carrière / Quand nos ainés n' y seront plus;",
+  "language": [],
+  "musenalm_id": 16747,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Les Enfans",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rouget de Lille",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Les Enfans",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "67herpzlvlq6tls",
+      "agents": "6awzqzeuszi4ulr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.818Z"
+    }
+  ]
+}

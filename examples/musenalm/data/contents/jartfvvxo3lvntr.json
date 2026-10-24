@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Was lockt mich wieder hin nach diesem Thale? / Und welche Fessel hält mich an der Klippe?",
+  "language": [],
+  "musenalm_id": 1582,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hirtenknabe. / Dramatische Idylle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adam Oehlenschläger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hirtenknabe. / Dramatische Idylle",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "88ifa5x38jo78d0",
+      "agents": "1g34ln4fr2bstzc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.720Z"
+    }
+  ]
+}

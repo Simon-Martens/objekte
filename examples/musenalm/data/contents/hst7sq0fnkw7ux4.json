@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.946Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Gottlob! nun ist mein Tempel der Musen / Bis auf seine Priester und Priesterinnen - fertig, / Und freudig erbebt mir das Herz im Busen,",
+  "language": [],
+  "musenalm_id": 118736,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog / by Eröffnung eines Liebhabertheaters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog / by Eröffnung eines Liebhabertheaters",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zp3365f2v09fyfb",
+      "agents": "nz03xhzpzbg7xlq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.555Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.555Z"
+    }
+  ]
+}

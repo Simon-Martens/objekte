@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Vor Kaiser Joseph's Majestät / Der Großen Zahl versammelt steht,",
+  "language": [],
+  "musenalm_id": 86596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von Gottes Gnaden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alex. Gigl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Von Gottes Gnaden",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y8qjez0dgqhxv6d",
+      "agents": "a4c7kvlookqn9md",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.318Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.318Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Geistliche Lieder (Sammlung INr 15292, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Wer einsam sitzt in seiner Kammer, / Und schwere, bittre Thränen weint,",
+  "language": [],
+  "musenalm_id": 15295,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "NOVALIS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2001-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8diz2f9bsc0en7a",
+      "agents": "k7dxkcfehvip7xf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.707Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.707Z"
+    }
+  ]
+}

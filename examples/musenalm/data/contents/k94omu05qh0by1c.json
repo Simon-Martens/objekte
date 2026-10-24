@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.016Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Süßes Bild von meinem Sehnen, / Die du längst durchschaut mein Leiden,",
+  "language": [],
+  "musenalm_id": 62735,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glosse. / Alle zwey muß uns ein Wehe / Mit der höchsten Lust umfangen, / Dich, indem du siehst mein Bangen, / Mich, weil, daß du's siehst, ich sehe. / (Calderon.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freiherr v. d. Malsburg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glosse. / Alle zwey muß uns ein Wehe / Mit der höchsten Lust umfangen, / Dich, indem du siehst mein Bangen, / Mich, weil, daß du's siehst, ich sehe. / (Calderon.)",
+  "updated": "2009-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b2ggmthfhf6f5wl",
+      "agents": "7pclzh61bvgdvvq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.040Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.040Z"
+    }
+  ]
+}

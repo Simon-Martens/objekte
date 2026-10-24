@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwei panegyrische Oden (Sammlung INr 67845, Obj 76) # Anm. am Objekt: Georg Hermes, Dr. der Theologie und Philosophie, und Prof. der kathol. Theologie auf der Universität zu Bonn (vorher zu Münster) [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "O Theurer, der die Pfade der Dunkelheit / Beleuchtend, manchen Jüngling, der Weisheit hold,",
+  "language": [],
+  "musenalm_id": 67846,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / An Hermes #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. J. Elshoff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / An Hermes #",
+  "updated": "2009-08-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ixx3c30ofmfw6ur",
+      "agents": "dwr1hpigqj7vgxc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.111Z"
+    }
+  ]
+}

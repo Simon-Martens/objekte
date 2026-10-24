@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »7.« INr 70721, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Auf des Eiland's ödem Strande, / In der Nacht bei Sternenschein / Sitzt der bleiche Geist und starret / In die wüste See hinein",
+  "language": [],
+  "musenalm_id": 70724,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "98jhslmxkxv8d7o",
+      "agents": "16uxlf73ehnhqr1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.401Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.401Z"
+    }
+  ]
+}

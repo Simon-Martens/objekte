@@ -1,0 +1,45 @@
+{
+  "annotation": "s.Textbezug INr 86855, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.380Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86856,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erwartung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Dworzack sc.",
+  "scans": [
+    "alm_1607_86856_wwww83khy1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Erwartung",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "39n2h8b06yb9tym",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.282Z"
+    }
+  ]
+}

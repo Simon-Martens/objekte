@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 39",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Zween Mönche von des Indus Strand / Hausirten einst, nach alter Sitte, / Mit Stab und Ranzen durch das Land,",
+  "language": [],
+  "musenalm_id": 63029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beiden Bonzen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "X *****",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beiden Bonzen",
+  "updated": "2000-10-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "10fr6bubrhxjzqn",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.192Z"
+    }
+  ]
+}

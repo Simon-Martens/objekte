@@ -25,6 +25,7 @@ pulldown-cmark = "0.13"
 ammonia = "4"
 rpassword = "7"
 qrcode = { version = "0.14.1", default-features = false, features = ["svg"] }
+lol_html = "2"
 
 tower = { version = "0.5", features = ["util"] }
 

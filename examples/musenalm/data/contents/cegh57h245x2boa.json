@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Den tiefen Meeresfrieden deckt die Nacht, / Nur an dem Kiele plätschern leis die Wogen.",
+  "language": [],
+  "musenalm_id": 46228,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wanderstrophen. / Nach Albion",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gisbert Freiherr Vincke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wanderstrophen. / Nach Albion",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8hx230clpd6xjqh",
+      "agents": "9yqqagre869w9wq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.223Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.223Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 55860, Obj 5) s. Graphik INr 55863, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.549Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "Im heroischen Zeitalter der Griechen und der Deutschen findet sich manches Uebereinstimmende in den Sitten und Gewohnheiten, besonders aber in den Beschäftigungen der Frauen. Dort wie hier gab es nur zwei Stände: einen herrschenden und einen dienenden,",
+  "language": [],
+  "musenalm_id": 55862,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Die Königin Bertha am Spinnrocken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Die Königin Bertha am Spinnrocken",
+  "updated": "2008-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pq9lvvy0pz7lvjs",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.708Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.708Z"
+    }
+  ]
+}

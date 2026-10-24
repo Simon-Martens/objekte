@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Genoveva« von L. Tieck # Titel s. Textbezug INr 66255, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.645Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66254,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Genoveva mit dem Kinde im Gefängnis #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Hensel gez. Stahlstich v. Ernst Rauch Darmstadt",
+  "scans": [
+    "alm_1100_66254_rnvswhdyy3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Genoveva mit dem Kinde im Gefängnis #",
+  "updated": "2009-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ex000r79ldpyuw",
+      "agents": "902nw56856wz9rx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.323Z"
+    },
+    {
+      "id": "jv7ad428n1kx3ut",
+      "agents": "k7ib4tmw0w1jiao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.323Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.323Z"
+    }
+  ]
+}

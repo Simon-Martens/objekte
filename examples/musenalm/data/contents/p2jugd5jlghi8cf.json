@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "138",
+  "incipit_statement": "Eichhörnchen auf dem Tannengipfel, / Es lugt hinaus, es lugt hinunter.",
+  "language": [],
+  "musenalm_id": 100135,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eichhörnchen. / (Aus der Kinderheimat)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Güll",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eichhörnchen. / (Aus der Kinderheimat)",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q20kos02qpo42hz",
+      "agents": "zkduqdsojdaomfd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.860Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 19934, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "Neues Jahr war aufgegangen, / Rings bot Lippe sich und Hand,",
+  "language": [],
+  "musenalm_id": 19960,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anna's Neujahr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anna's Neujahr",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tg510rdaoarqptb",
+      "agents": "xrm3e2g6mht03kn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.896Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.896Z"
+    }
+  ]
+}

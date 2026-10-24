@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die zweite Liebe, oder: Ruben Loew« von G. v. Reinbek INr 59393, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ruben Loew. / Seite 300.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. fec. Fr. Wi. Meyer senior sc.",
+  "scans": [
+    "alm_894_59394_0y732y5kcl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ruben Loew. / Seite 300.",
+  "updated": "2008-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ha2634goxka10en",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.781Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.781Z"
+    },
+    {
+      "id": "1ec3a1hfchjsz94",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.782Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.782Z"
+    }
+  ]
+}

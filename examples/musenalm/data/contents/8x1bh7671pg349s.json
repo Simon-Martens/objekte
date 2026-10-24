@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.542Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Es funkeln die Sterne gar grimmig kalt, / Im eisigen Schmucke glänzet der Wald;",
+  "language": [],
+  "musenalm_id": 30435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Winterlandschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Raupach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Winterlandschaft",
+  "updated": "2002-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a4jq505eiug4o2a",
+      "agents": "uxyu52yd3v030gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.517Z"
+    }
+  ]
+}

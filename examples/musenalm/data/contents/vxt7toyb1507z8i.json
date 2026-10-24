@@ -1,0 +1,45 @@
+{
+  "annotation": "# franz. Vorlage: »L’ambassadeur« von Eugène Scribe (vgl. Nouvelle biographie générale XLIII, S. 647) und Anne-Honoré-Joseph Duveyrier dit Mélesville (vgl. Nouvelle biographie générale XV, S. 559)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.988Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "137",
+  "incipit_statement": "Nun, Isabella! Es scheint nicht, als ob unsre neue Wohnung hier Dich sehr entzückte?",
+  "language": [],
+  "musenalm_id": 127890,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gesandte. # / Lustspiel in einem Aufzuge. / Nach dem Französischen / von / Theodor Hell.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell [bearb.]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Gesandte. # / Lustspiel in einem Aufzuge. / Nach dem Französischen / von / Theodor Hell.",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oyrk1yhr2ycxqhd",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.932Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.932Z"
+    }
+  ]
+}

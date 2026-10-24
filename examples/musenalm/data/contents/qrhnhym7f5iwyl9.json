@@ -1,0 +1,45 @@
+{
+  "annotation": "Kriegslieder (Sammlung INr 31722, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.356Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "152",
+  "incipit_statement": "Voran! Voran! die Fahnen wehen; / Von neuem tönt der Rosse Huf;",
+  "language": [],
+  "musenalm_id": 31694,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Beim Wiederbeginne des Krieges im März / 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hinsberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Beim Wiederbeginne des Krieges im März / 1799",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4hbmfabkak10r6g",
+      "agents": "fd94g9jto2pspie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.645Z"
+    }
+  ]
+}

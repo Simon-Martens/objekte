@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am Gedicht INr 122837 Obj 180",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.332Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "Den Landgraf Friedrich hät die Macht / Der Feinde eingeschlossen, / Da öffnet sich das Thor bei Nacht, / Da trabt auf flinken Rossen / Herr Friedrich aus der Burg geschwind / Mit seinem ganzen Hofgesind",
+  "language": [],
+  "musenalm_id": 122839,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 182,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich mit der gebißnen Wange",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Julius Sturm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich mit der gebißnen Wange",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "btyxkj65lkwjrl0",
+      "agents": "thvjtwgntimiqn7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.826Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.826Z"
+    }
+  ]
+}

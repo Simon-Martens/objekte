@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Der alti Sollach'er z'Voarischzell, / A' Zeitl vor sein' End; / Da sitzt er amal vor'n Haus heraußt,",
+  "language": [],
+  "musenalm_id": 46175,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vom alte Sollacher. / (Oberbayrisch.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Kobell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vom alte Sollacher. / (Oberbayrisch.)",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ff4856y8nsr3iy1",
+      "agents": "v85g9rage9lbu6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.240Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.240Z"
+    }
+  ]
+}

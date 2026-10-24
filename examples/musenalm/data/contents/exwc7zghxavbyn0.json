@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Sonnen steigen und verschwinden, / jedem Tage folgt die Nacht,",
+  "language": [],
+  "musenalm_id": 87711,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wirklichkeit und Dichtung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Freih. v. d. Golz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wirklichkeit und Dichtung",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f7c9a67fnv7wmdz",
+      "agents": "wlbkks5lix9gijw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.181Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.181Z"
+    }
+  ]
+}

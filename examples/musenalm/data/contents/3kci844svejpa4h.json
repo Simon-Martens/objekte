@@ -1,0 +1,45 @@
+{
+  "annotation": "§4§ Seite fehlt, Bezeichnung und Titel aus dem I-Verz, Incipit aus der Musikbeigabe s. INr 21389, Obj 67. s. a. Gedicht »An Hartmanns Schatten« von Schreiber in: Musenalmanach, Schwäbischer 1786 INr 21534",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.399Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Eures Sophrons Seele, Freunde, trübt in Schwermuth sich. / Habt ihr Thränen, Freunde, habt ihr Thränen? Weint für ihn.",
+  "language": [],
+  "musenalm_id": 21388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meine Freunde §4§",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hartmann, verstorbener Professor in Mietau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meine Freunde §4§",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3jmops0lnf58f7u",
+      "agents": "kguhc4kb9u0c03l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.094Z"
+    }
+  ]
+}

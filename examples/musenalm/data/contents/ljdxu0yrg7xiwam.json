@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 70289, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70264,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "M. J. LEOPOLD HERZ. V. BRAUNS. / Geb. 1752. Gest. 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Rode inv. Meno Haas del. et sculp.",
+  "scans": [
+    "alm_805_70264_78g8h8ka1i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "M. J. LEOPOLD HERZ. V. BRAUNS. / Geb. 1752. Gest. 1785",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2lnw6x7ykld07g4",
+      "agents": "onjbwk6cew0f5xx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.563Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.563Z"
+    },
+    {
+      "id": "6iz8z7yuna12q5h",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.564Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.564Z"
+    }
+  ]
+}

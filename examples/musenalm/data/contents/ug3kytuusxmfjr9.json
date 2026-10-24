@@ -1,0 +1,45 @@
+{
+  "annotation": "Dunkers launigte Versuche in Gedichten (Sammlung INr 66231, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.672Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Hier erhält das Publikum abermahls eine Auswahl von einigen meiner Gedichte, die ich mit der Zeit zu sammeln und als drittes Bändchen meiner Schriften herauszugeben willens bin,",
+  "language": [],
+  "musenalm_id": 66232,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hier erhält das Publikum abermahls eine Auswahl von einigen meiner Gedichte, die ich mit der Zeit zu sammeln und als drittes Bändchen meiner Schriften herauszugeben willens bin,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dunker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-08-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tz1422aky9xr71n",
+      "agents": "n5liie3i2dvrx17",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.324Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.324Z"
+    }
+  ]
+}

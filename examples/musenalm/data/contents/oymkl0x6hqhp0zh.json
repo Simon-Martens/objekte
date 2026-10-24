@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung an der 1. Graphik im Kalendarium. paginiert 7. Illustration zu »Aurora von Königsmark« von L. D. Gloxin s. Textbezug INr 32207, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32191,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Friedrich August u. von Beichling. / Aurora von Königsmark. Seite 43",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury del. & sc.",
+  "scans": [
+    "alm_438_32191_64vry317zg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Friedrich August u. von Beichling. / Aurora von Königsmark. Seite 43",
+  "updated": "2003-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mr97f14uel4j1cs",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.405Z"
+    }
+  ]
+}

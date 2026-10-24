@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Torquato Tasso« von J. W. von Goethe s. Textbezug INr 42098, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.258Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42105,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Torquato Tasso / Act I. Scene I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geissler del. Fleischmann sc.",
+  "scans": [
+    "alm_535_42105_vtnysjx24s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Torquato Tasso / Act I. Scene I.",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vqmuk3uujypz0ty",
+      "agents": "1v07c6j6mxrdvwn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.186Z"
+    },
+    {
+      "id": "opu701ouaxeyan2",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.186Z"
+    }
+  ]
+}

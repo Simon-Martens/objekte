@@ -1,0 +1,45 @@
+{
+  "annotation": "6. Kleinigkeiten (Sammlung INr 68682, Obj 56) VIII. Gedichte (Sammlung INr 68676, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.693Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Es zeigt der dicke Förster Zahn / Vom Urlaub' seine Rückkehr an.",
+  "language": [],
+  "musenalm_id": 68686,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Ueberflüßige Anzeige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Ueberflüßige Anzeige",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8csmk5kfgl4bc8o",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.407Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Mit der Sonne mildem Strahl, / Mit den Blüthen ohne Zahl, / Mit dem Jubel in den Lüften,",
+  "language": [],
+  "musenalm_id": 62066,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Dorothea. / (Eine poetische Epistel.) / Vivamus, mea Lesbia, atque amemus. / Catull. V.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Pockels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Dorothea. / (Eine poetische Epistel.) / Vivamus, mea Lesbia, atque amemus. / Catull. V.)",
+  "updated": "2009-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "owxr8std44tleer",
+      "agents": "byawwvreucy8ohr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.970Z"
+    }
+  ]
+}

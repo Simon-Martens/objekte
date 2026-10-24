@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Goed VIII. 79, 148 /) Frühlingsstimmen (Sammlung INr 48984, Obj 12) Blumen (Sammlung INr 48975, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Vom frühen Strahl der Sonne leichtgetroffen, / Vernehmend schon des Frühlings mildes Wehen,",
+  "language": [],
+  "musenalm_id": 48985,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Hyazinthen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Hyazinthen",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mefjf4woxtzpcx4",
+      "agents": "1s7x50uh0tm3jdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.526Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Wallenstein, Die Piccolomini« von Fr. Schiller s. Textbezug INr 39244, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.536Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39243,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Piccolomini 4r. Aufz. 7r. Auftritt. / Schreib - Judas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Hess sc.",
+  "scans": [
+    "alm_515_39243_xv1824c5zq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Piccolomini 4r. Aufz. 7r. Auftritt. / Schreib - Judas",
+  "updated": "2005-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "butzetcgrbz7jm4",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.912Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.912Z"
+    }
+  ]
+}

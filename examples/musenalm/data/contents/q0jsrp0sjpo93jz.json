@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.293Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Es lebe das Mädchen im vierzehnten Jahr, / Und wär' sie noch dreymal so alt!",
+  "language": [],
+  "musenalm_id": 3194,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Toleranzlied / nach Sheridan",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gu.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Toleranzlied / nach Sheridan",
+  "updated": "2000-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yydu3epasjza5ki",
+      "agents": "byuhkknqr79s51g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.936Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette, Octaven (Sammlung INr 71005, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "War mir ein heiter Liebesloos gefallen, / Ein sel'ger Tanz, ein Gruß auf stillen Auen:",
+  "language": [],
+  "musenalm_id": 71006,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Todtenopfer für L. A. P.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Todtenopfer für L. A. P.",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "podv95yp0nuklbx",
+      "agents": "iz27nbfvrc0qfs3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.312Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.312Z"
+    }
+  ]
+}

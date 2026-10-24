@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Naturhistorische Aufsätze (Sammlung INr 70518, Obj 10) mit zahlreichen Anmerkungen /) mit einer Illustration s. Graphik INr 70519, Obj 11 /) s. den Beitrag »Der Luchs«  von v. Wildungen in: Taschenbuch für Forst- und Jagdfreunde 1800; alm-1135, INr 66444",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Die wilde Katze in Folio - gleich ihr ein Mörder und Buschklepper ohne Gleichen, dessen Räubereien aber nach Standesgebühr in's Große gehen. So lautet die Jäger-Diagnose und das lakonische, nicht empfehlende Creditiv,",
+  "language": [],
+  "musenalm_id": 70520,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rothluchs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rothluchs",
+  "updated": "2009-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dnfti0tc4n0uugu",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.390Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.390Z"
+    }
+  ]
+}

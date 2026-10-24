@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die seltsame Wette« von A. v. Tromlitz d.i. K. A. F. v. Witzleben INr 110845, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "352",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110846,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "OBERST ROSEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch ge. Fr. Stöber gest. in Stahl 1829",
+  "scans": [
+    "alm_3467_110846_8gtyb4hyk7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "OBERST ROSEN",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0s912h0xidp5ylw",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.198Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.198Z"
+    },
+    {
+      "id": "rqo7yga1upkje0j",
+      "agents": "waiqlzuy6anjx1t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.198Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.198Z"
+    }
+  ]
+}

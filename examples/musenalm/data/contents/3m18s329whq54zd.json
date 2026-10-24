@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 10 Gedichten INr 54582-54891, Obj 88-97 /) Fortsetzung aus: Alpenrosen 1828; INr 54416-54419",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54581,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte aus Jens Imm. Baggesen's / Nachlasse.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jens Imm. Baggesen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte aus Jens Imm. Baggesen's / Nachlasse.",
+  "updated": "2008-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aqpao3lnsg770z4",
+      "agents": "jq74p3fe1dijn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.715Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 48904, Obj 15 und Mitteilung der Verleger zur Veröffentlich von 2 Reproduktionsstichen INr 48906, Obj 17 sowie 1. Reproduktionsstich  (Rubens pinx. Thelott sc.) INr 48905, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.686Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48907,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Entbindung der Königin / von Medici",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rubens pinx. Fr. Bolt sc. 1803",
+  "scans": [
+    "alm_669_48907_yqpfg7dkn8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Entbindung der Königin / von Medici",
+  "updated": "2007-04-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8jyhch52dzutt4v",
+      "agents": "co7d0f8bep36m8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.233Z"
+    },
+    {
+      "id": "iz4gyu17ejoz5v3",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.233Z"
+    }
+  ]
+}

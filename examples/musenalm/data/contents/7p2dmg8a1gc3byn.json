@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.984Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "Nur ein Weilchen blüht der Mai; / Und dann huscht er schnell vorbei!",
+  "language": [],
+  "musenalm_id": 2976,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Niederschlagendes Pulver für / die Damen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. L-n.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Niederschlagendes Pulver für / die Damen",
+  "updated": "2000-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ig6lc8b4p1ryl8j",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.873Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.873Z"
+    }
+  ]
+}

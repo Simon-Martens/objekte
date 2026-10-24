@@ -1,0 +1,45 @@
+{
+  "annotation": "Schweizerreise 1833 (Sammlung INr 41865, Obj 67)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.864Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "171",
+  "incipit_statement": "Wo der Montblanc im ew'gen Lichte schimmert, / Wilkommner Nachbar himmlischer Gestirne,",
+  "language": [],
+  "musenalm_id": 41870,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Der Einsiedler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Der Einsiedler",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dbjdu7m1bodt57r",
+      "agents": "dgebk50hujqbvc5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.944Z"
+    }
+  ]
+}

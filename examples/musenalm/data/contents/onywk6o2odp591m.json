@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik im Kalendarium INr 59471 Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.649Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Sonne, Mond und Sterne drehen / Sich am Himmel, das ist klar;",
+  "language": [],
+  "musenalm_id": 59480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Die Rückkehr von der Kirmes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Kletke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Die Rückkehr von der Kirmes",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d2i6aoqrjulgo2v",
+      "agents": "oxvlsvgq5f4m5gr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.891Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.891Z"
+    }
+  ]
+}

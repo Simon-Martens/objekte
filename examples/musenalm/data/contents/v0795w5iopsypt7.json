@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgt: Sammlung von 12 Beiträgen INr 50475-50486, Obj 9-20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.324Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50474,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Küchen- und Tafel-Kalender",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Grimod de la Reyniere; [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Küchen- und Tafel-Kalender",
+  "updated": "2007-07-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "so30vdmuegsfnfi",
+      "agents": "ndyaxges5n0jd1z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.723Z"
+    }
+  ]
+}

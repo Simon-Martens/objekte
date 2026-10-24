@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zur Novelle",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "In Ungarn liegt nicht ferne von der österreichisch-ungarischen Grenze eine große schöne Herrschaft, die wir Mostfá nennen wollen, obgleich sie anders heißt.",
+  "language": [],
+  "musenalm_id": 58063,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / graue Frau von Plassenstein. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf von Mailath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / graue Frau von Plassenstein. / Novelle",
+  "updated": "2008-06-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "azgp0ruv651a58c",
+      "agents": "ynz1wrh0mfk3t8y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.825Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 2. s. Textbezug INr 51230, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.044Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51215,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hünenberg, im Canton Zug",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Wolf pinx Joh. Heinrich Meyer sc.",
+  "scans": [
+    "alm_698_51215_x4mzgr4kd8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hünenberg, im Canton Zug",
+  "updated": "2007-08-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mcn3yb0o5ap9mtw",
+      "agents": "15nxavhh0a5c2o4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.541Z"
+    },
+    {
+      "id": "a671sk88hbxyqhz",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.541Z"
+    }
+  ]
+}

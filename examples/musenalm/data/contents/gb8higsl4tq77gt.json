@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Uniformkupfer /) s. Textbezug INr 78289, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.079Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78302,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ein Croat",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Meil del.",
+  "scans": [
+    "alm_928_78302_rb2yuuf40k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ein Croat",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jvar15itz4xxria",
+      "agents": "mmq9ql2t3b3zqca",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.841Z"
+    }
+  ]
+}

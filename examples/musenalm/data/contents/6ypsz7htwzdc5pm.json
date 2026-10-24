@@ -1,0 +1,45 @@
+{
+  "annotation": "Eleusina (Sammlung INr 32281, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.698Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32283,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem geliebten Bruder, / Ludwig Wilhelm Christian / von Halem, / dem Vertrauten seiner Seele, / widmet dieses / der Bruder, / Gerhard Anton von Halem",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gerhard Anton von Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem geliebten Bruder, / Ludwig Wilhelm Christian / von Halem, / dem Vertrauten seiner Seele, / widmet dieses / der Bruder, / Gerhard Anton von Halem",
+  "updated": "2003-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fj65l49mv4jv7ek",
+      "agents": "v5ht3d6rw3do6ml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.411Z"
+    }
+  ]
+}

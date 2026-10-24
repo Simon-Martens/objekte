@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-08T10:28:28.712Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "In ihrer Augen Spiegel / Les' ich ihr sanft Gemüth,",
+  "language": [],
+  "musenalm_id": 140516,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die köstlicheren Gaben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Gräffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die köstlicheren Gaben",
+  "updated": "2026-09-10T10:33:06.584Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "diou8z2uf7iax9v",
+      "agents": "cjjmyv8q19tuj7i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-08T10:30:02.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-10T10:33:06.585Z"
+    }
+  ]
+}

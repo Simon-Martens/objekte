@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Minna« von Langbein in: Musenalmanach (Göttinger ) 1787 INr 17690",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.553Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 3430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Minna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Benda",
+  "scans": [
+    "alm_85_3430_okowyfhj9a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Minna",
+  "updated": "2000-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9z4j5n3lgn8sr4p",
+      "agents": "sn75dvdam4298qi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.748Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.748Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.480Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "49",
+  "incipit_statement": "Treue Liebe sucht die Stille, / Nur verschwiegen blühet sie!",
+  "language": [],
+  "musenalm_id": 87121,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heinrich und Daura",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Winfried",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Heinrich und Daura",
+  "updated": "2013-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c157b0bedb3b7ms",
+      "agents": "gj3r3a4y3md15rv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.204Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.204Z"
+    }
+  ]
+}

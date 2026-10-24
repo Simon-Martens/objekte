@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Nur nicht auf diese Art räsonnirt! rief der alte Freimund aus; das Leben läßt sich einmal nicht so betrachten und noch weniger nach einigen Maximen einrichten.",
+  "language": [],
+  "musenalm_id": 1950,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Zauberschloß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Zauberschloß",
+  "updated": "2000-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eorbc7ubp2gquw6",
+      "agents": "lu281a3pqqlvbj5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.700Z"
+    }
+  ]
+}

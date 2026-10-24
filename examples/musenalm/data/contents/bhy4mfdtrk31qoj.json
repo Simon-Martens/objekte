@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite bzw aus dem G-Verz /) Graphik im Kalendarium Juni; paginiert 6. /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Anfange des siebzehnten Jahrhunderts« von Fr. Wilken INr 58497, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58500,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Leipziger Thor im J. 1690",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Stridbeck # L. Wolf del. Jügel sc.",
+  "scans": [
+    "alm_855_58500_kjnb4314wa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Leipziger Thor im J. 1690",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ig6m8mj9i9sv0uf",
+      "agents": "hme5av0o5bms2s7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.751Z"
+    },
+    {
+      "id": "w4fi4wdyi2luje7",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.751Z"
+    },
+    {
+      "id": "5flfw91klxaccaz",
+      "agents": "flivu8hnh9tq1va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.751Z"
+    }
+  ]
+}

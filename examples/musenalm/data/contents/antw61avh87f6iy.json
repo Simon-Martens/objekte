@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Maria und das Milchmädchen« INr 132903, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.290Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 132904,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria und das Milchmädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leop. Beyer sc.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria und das Milchmädchen",
+  "updated": "2024-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "28skp3zj5zyqy25",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.098Z"
+    }
+  ]
+}

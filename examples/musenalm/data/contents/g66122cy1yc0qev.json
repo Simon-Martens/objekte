@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Statistischer Versuch über den Kanton Wallis« INr 52448, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.043Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52445,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "L'Hospice du St. Bernard",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Hegi sc.",
+  "scans": [
+    "alm_720_52445_ql5k0un1kc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "L'Hospice du St. Bernard",
+  "updated": "2007-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ijjmlgeqa2vpz8m",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.683Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.683Z"
+    }
+  ]
+}

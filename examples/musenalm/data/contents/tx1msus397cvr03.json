@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zur Vorrede INr 73114, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Es läßt nur gar zu artig und zu süß, / Wenn manche Bien' an beyden Hinter- / beinen / Recht ein paar lederen, schöngelbe / Hosen wies,",
+  "language": [],
+  "musenalm_id": 73116,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es läßt nur gar zu artig und zu süß, / Wenn manche Bien' an beyden Hinter- / beinen / Recht ein paar lederen, schöngelbe / Hosen wies,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brockes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6up2czcsxd16kve",
+      "agents": "k8ohbwqlm1cvazn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.660Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "127",
+  "incipit_statement": "Zu Frankfurt am Main war es, an der Friedberger Gasse, und zwar im Gasthaus zum gelben Hirsch, da saßen die Beiden beisammen;",
+  "language": [],
+  "musenalm_id": 44449,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fray Diaból. / ein Salto mortal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Starklof",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fray Diaból. / ein Salto mortal",
+  "updated": "2006-07-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bx11nvco74pc9kv",
+      "agents": "tux46t2b96six6d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.241Z"
+    }
+  ]
+}

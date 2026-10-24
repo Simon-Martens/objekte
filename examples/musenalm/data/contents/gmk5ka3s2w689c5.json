@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel s. Textbezug INr 79312, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79313,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Apollo und Marsyas #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gemalt v. Guido Reni Gest. v. Ant. Karcher",
+  "scans": [
+    "alm_1575_79313_58ch5dolaw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Apollo und Marsyas #",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jkfb9rxykra8upb",
+      "agents": "azlvdz0ge43hlgu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.829Z"
+    },
+    {
+      "id": "yiscd6maaktntsg",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.830Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.830Z"
+    }
+  ]
+}

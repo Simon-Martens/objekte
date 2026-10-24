@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "Eingehüllt in Nebelwogen, / Ruht die Flur in todtem Grau.",
+  "language": [],
+  "musenalm_id": 22129,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1 / Abschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Mosengeil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1 / Abschied",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hyvjekclf3g8vny",
+      "agents": "on9jq8q7af8kfmj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.862Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.862Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Januar; Illustration zu »Zur Geschichte von Berlin und Potsdam unter der Regierung des Königs Friedrich des Zweiten« INr 58680, Obj 18 /) s.a. Textbezug INr 58684, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.697Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58667,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Groskanzler / Samuel Freih. von Cocceji",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. F. Bolt sc.",
+  "scans": [
+    "alm_862_58667_i9ge3934a0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Groskanzler / Samuel Freih. von Cocceji",
+  "updated": "2008-07-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xce89ymz1r6qsg6",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.769Z"
+    },
+    {
+      "id": "tfs1w5g74exuf0d",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.769Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.769Z"
+    }
+  ]
+}

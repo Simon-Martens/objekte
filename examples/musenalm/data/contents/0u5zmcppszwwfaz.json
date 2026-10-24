@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.581Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Diejenigen, welche geneigt sind, meinen Almanach für die Folge mit Ihren Beiträgen zu beehren, muss ich, wegen der Anordnung des Ganzen, bitten, mir die Gedichte spätestens am Ende des März-Monathes zuzusenden.",
+  "language": [],
+  "musenalm_id": 42745,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tq82h8vgqq7vkna",
+      "agents": "nvdnek6niibgjex",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.223Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.223Z"
+    }
+  ]
+}

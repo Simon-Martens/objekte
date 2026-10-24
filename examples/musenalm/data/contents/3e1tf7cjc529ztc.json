@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 55006, Obj 16)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.566Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "An der getreuen Mutter sog / Das unbewehrte Lamm, auf welches hoch vom Aether",
+  "language": [],
+  "musenalm_id": 55008,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. Das Lamm und der Geyer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Rudolf Wyss der ältere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. Das Lamm und der Geyer",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4jqbmn1att5e9h5",
+      "agents": "kq69ntdbn8wcwoq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.794Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.794Z"
+    }
+  ]
+}

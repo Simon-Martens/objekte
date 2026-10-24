@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Die Wachtel« von L. C. E. H. F. von Wildungen INr 66543, Obj 11 /) Das Gedicht »Nänie. Auf den Tod einer Wachtel« von Ramler in: Musenalmanach, Göttinger 1771; INr 4904",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Weint, ihr Kinder der Freude, weine Jocus! / Weine Phantasius!",
+  "language": [],
+  "musenalm_id": 66545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nänie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nänie",
+  "updated": "2009-09-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "19wdabymy6q42zg",
+      "agents": "uxrssb0qlf0ghgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.306Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.306Z"
+    }
+  ]
+}

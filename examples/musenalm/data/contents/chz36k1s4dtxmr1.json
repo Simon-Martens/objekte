@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 5. /) s. INr 18600, Obj 16 # Bezeichnung vom Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.002Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18598,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Franken in Mainz überfallen / die Preußen in Marienborn in der / Nacht vom 30ten auf den 31ten Maÿ 1790",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_191_18598_8z65f46gyz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Franken in Mainz überfallen / die Preußen in Marienborn in der / Nacht vom 30ten auf den 31ten Maÿ 1790",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yx6kes34pc4ws76",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.308Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.308Z"
+    }
+  ]
+}

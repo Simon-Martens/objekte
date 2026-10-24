@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel. lt. G-Verz Die Titelvignette eröffnet einen zweiten Planeten-Cyklus nach Raffael",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.073Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67894,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 0.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "W. G. BECKERS TASCHENBUCH / 1826 / Leipzig bei Georg Joachim Göschen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rensch del. Fleischmann sc.",
+  "scans": [
+    "alm_274_67894_k206na85f8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "W. G. BECKERS TASCHENBUCH / 1826 / Leipzig bei Georg Joachim Göschen",
+  "updated": "2002-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "22wrtahyrowqpxm",
+      "agents": "ail6kpkgq3rdfot",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.496Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.496Z"
+    },
+    {
+      "id": "1xzcw6a0v3gqwk7",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.496Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.496Z"
+    }
+  ]
+}

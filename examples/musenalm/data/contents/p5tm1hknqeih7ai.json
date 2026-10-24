@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 41852, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.091Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Sechszehn Jahr' - und wie ein greiser / Alter sitz' ich, matt und krank;",
+  "language": [],
+  "musenalm_id": 41855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Moos-Thee. / 1826. / Nonum prematur in annum / Horaz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Freiligrath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Moos-Thee. / 1826. / Nonum prematur in annum / Horaz",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ub4g6m7na01txz",
+      "agents": "vmnuom11udo0f3y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.281Z"
+    }
+  ]
+}

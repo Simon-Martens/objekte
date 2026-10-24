@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Die Schlacht bey St. Jacob an der Birs. 1444« INr 52330, Obj 24 s.a. Textbezug INr 52337, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.309Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "116",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52329,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "St. Jacob bey Basel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Vischer del. F. Hegi sc.",
+  "scans": [
+    "alm_713_52329_chog2toj9u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "St. Jacob bey Basel",
+  "updated": "2007-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dm0wiqsvv2ixczm",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.634Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.634Z"
+    }
+  ]
+}

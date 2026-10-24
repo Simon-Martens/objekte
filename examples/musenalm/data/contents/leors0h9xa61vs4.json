@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59413,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AUGUSTE / Fürstin von Liegnitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Krüger del. F. Bolt sc.",
+  "scans": [
+    "alm_896_59413_8sozb9288b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AUGUSTE / Fürstin von Liegnitz",
+  "updated": "2008-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iec0ay7pbp481w0",
+      "agents": "dp1i9gllz2qxsbz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.905Z"
+    },
+    {
+      "id": "kqek46zy7m3gjs6",
+      "agents": "habfmm8n5c0f9yx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.905Z"
+    }
+  ]
+}

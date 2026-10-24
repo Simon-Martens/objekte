@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Lieder (INr 93545, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.137Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Wand'rer eile! / Finstre Wolken zieh'n über dich hin,",
+  "language": [],
+  "musenalm_id": 93553,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ruf nach der Heymath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ph. Millauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ruf nach der Heymath",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uig0okqw3ym2jhv",
+      "agents": "y5noma4e54pxjw8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.037Z"
+    }
+  ]
+}

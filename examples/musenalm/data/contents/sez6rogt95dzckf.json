@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.440Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "Jahr' auf Jahren entfliehn, es bricht der / Winter des Lebens / Stürmend herein,",
+  "language": [],
+  "musenalm_id": 4211,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 156,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neujahr 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Knebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neujahr 1795",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i3hran8ej0y0jem",
+      "agents": "ymo6fj9vzc9ufg1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.097Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.097Z"
+    }
+  ]
+}

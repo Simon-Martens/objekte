@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "39",
+  "incipit_statement": "Fort! rief ein Filz, an Tausend reich, / Zu einem Armen, fort mit euch!",
+  "language": [],
+  "musenalm_id": 76348,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Armeninstitut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Petrak",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Armeninstitut",
+  "updated": "2003-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g04uhsfriaahj45",
+      "agents": "vdepyw8qrxrqtk6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.827Z"
+    }
+  ]
+}

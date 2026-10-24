@@ -1,0 +1,47 @@
+{
+  "annotation": "Historisch-malerische Reise durch Neapel und Sicilien. Wien, MDCCCVI. Bey J. V. Degen, Buchdrucker und Buchhändler (Sammlung INr 88045, Obj 7) s. Textbezug INr 88118, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.101Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88070,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht der Ruinen einer alten Cisterne in der Gegend von Catanea, vormahls / Capo d'Acqua genannt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "de Boresdon del. J. Blaschke sc.",
+  "scans": [
+    "alm_3102_88070_s85zj09zcj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht der Ruinen einer alten Cisterne in der Gegend von Catanea, vormahls / Capo d'Acqua genannt",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ikuoxffx8j6wblg",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.101Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.101Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.501Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "Das Kindlein liegt zu Bette, die Wangen fahl und bleich, / Und draußen blüht der Frühlig so frisch und farbenreich,",
+  "language": [],
+  "musenalm_id": 90585,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 181,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. Des Kindes Klage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiacinth von Schulheim. (Graz.)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. Des Kindes Klage",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4qzf0zysc54jdmh",
+      "agents": "miy11spit4lljvz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.063Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.063Z"
+    }
+  ]
+}

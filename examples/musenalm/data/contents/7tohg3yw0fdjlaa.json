@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Mein Auge sinkt, mein Herz das bricht, / Laß Waffenbruder, laß mich nicht.",
+  "language": [],
+  "musenalm_id": 19665,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Godwin's Vermächtniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Jördens",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Godwin's Vermächtniß",
+  "updated": "2001-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vxu3h5tbanpqjdl",
+      "agents": "oh4d93bbuy1nwo1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.768Z"
+    }
+  ]
+}

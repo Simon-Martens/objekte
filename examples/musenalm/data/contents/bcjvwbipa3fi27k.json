@@ -1,0 +1,45 @@
+{
+  "annotation": "Denkmäler der Vorzeit (Sammlung INr 45195, Obj 8) s. Graphik INr 45210, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.251Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Unter den zahlreichen Klöstern, welche Hirschau in ihrem Aufblühen begünstigt hat, ist Maulbronn, obgleich von einem andern Orden, der Cistercienster.",
+  "language": [],
+  "musenalm_id": 45211,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maulbronn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Pfister",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maulbronn",
+  "updated": "2006-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zaqt9zzrza0uuw6",
+      "agents": "hrkytlpebpsdn8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.490Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.490Z"
+    }
+  ]
+}

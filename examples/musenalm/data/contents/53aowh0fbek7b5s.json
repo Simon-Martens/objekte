@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Stufenleiter des Weibes. Sonettenkranz (Sammlung INr 80835, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Wer nennet mir der Blätter reiche Fülle, / In denen jene Wunderblume strahlt?",
+  "language": [],
+  "musenalm_id": 80837,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Jungfrau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Agnes Franz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Jungfrau",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7emxb2ncxwbpkpz",
+      "agents": "mkd957rgkmp3pvz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.878Z"
+    }
+  ]
+}

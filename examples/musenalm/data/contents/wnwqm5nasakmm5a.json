@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.318Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41467,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1) Der Fliegenschnapper.2) Puppengehäuse eines mexica- / nischen Papilions. 3) Puppengehäuse der kleinen Pfau-Phalaene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Capieux sc. 1804",
+  "scans": [
+    "alm_541_41467_obiy7bubir.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1) Der Fliegenschnapper.2) Puppengehäuse eines mexica- / nischen Papilions. 3) Puppengehäuse der kleinen Pfau-Phalaene",
+  "updated": "2005-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4pku7m27cg7m4xm",
+      "agents": "7hrej40ja61vll9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.296Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.296Z"
+    }
+  ]
+}

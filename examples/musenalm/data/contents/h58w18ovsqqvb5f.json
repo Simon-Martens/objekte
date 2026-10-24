@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. aus dem I-Verz. /) paginiert S. 228. /) Illustration zu » Erzählung eines Druiden« INr 95677, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95678,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich bin ein Blutschänder , ein Unge- / heuer und verdiene nicht zu leben!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Schubert del. Riepenhausen",
+  "scans": [
+    "alm_620_95678_lddil6ttvn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich bin ein Blutschänder , ein Unge- / heuer und verdiene nicht zu leben!",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t8qytw7hhonz8kw",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.777Z"
+    },
+    {
+      "id": "ucjl2p222ifso9f",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.777Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.777Z"
+    }
+  ]
+}

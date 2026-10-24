@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Hier sah ich, wie das Joch der brüderlichen / Strafen / Den steifen Hals der Eigenliebe bog;",
+  "language": [],
+  "musenalm_id": 10692,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Reisende / über die königlichen Galeeren in Toulon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Thümmel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Reisende / über die königlichen Galeeren in Toulon",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3j9sn76q3i77hs3",
+      "agents": "t5xduzz1g6d3iy5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.431Z"
+    }
+  ]
+}

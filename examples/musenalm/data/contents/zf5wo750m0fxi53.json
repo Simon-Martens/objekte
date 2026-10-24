@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Textbezug INr 103070, Obj 19 /) unter der Graphik: Stich und Druck durch Kunst-Verlag von Creuzbauer in Carlsruhe",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103069,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Palikaren. / Artistische Zugabe der Verlagshandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Hess pinx. C. Frommel direxit. W. Hessloehl sculp",
+  "scans": [
+    "alm_3406_103069_44vtn85ewi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Palikaren. / Artistische Zugabe der Verlagshandlung",
+  "updated": "2010-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cp6i78vc5eyn5vq",
+      "agents": "4snauxg0721u4vq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.016Z"
+    },
+    {
+      "id": "z31h3enyelh6fy1",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.016Z"
+    },
+    {
+      "id": "wnhl3wdw937abl3",
+      "agents": "g141z8lw112bbl6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.016Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.016Z"
+    }
+  ]
+}

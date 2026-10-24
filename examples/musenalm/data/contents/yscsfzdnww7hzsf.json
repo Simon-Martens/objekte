@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) (Motiv: Die Welttyrannin Rom als Siegesopfer der deutschen Freiheit) s. einleitendes Gedicht und Beitrag »Deutschland ein historisches Gemäld« von F. C. Schlenkert INr 73850, 73851; Obj 30, 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73822,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schenau del. C. F. Stoelzel del)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schenau del. C. F. Stoelzel del",
+  "scans": [
+    "alm_3648_73822_qo7sy0vv13.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2011-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b35uhpmmcrd8i5a",
+      "agents": "0hfa1bhqyn0q95c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.235Z"
+    },
+    {
+      "id": "7tno6nmklx75mch",
+      "agents": "e5dzzklohvjx1fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.235Z"
+    }
+  ]
+}

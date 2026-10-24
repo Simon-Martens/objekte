@@ -1,0 +1,45 @@
+{
+  "annotation": "Bruchstücke eines Lehrgedichtes (Sammlung INr 37123, Obj 248)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "420",
+  "incipit_statement": "Wol sein Erkenntnißkreis ist jedem Geist bestimmt, / Doch unbestimmt, wieviel er [i]n den Kreis aufnimmt",
+  "language": [],
+  "musenalm_id": 37161,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 286,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wol sein Erkenntnißkreis ist jedem Geist bestimmt, / Doch unbestimmt, wieviel er [i]n den Kreis aufnimmt…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uqztwdvtw4o80mm",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.868Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.868Z"
+    }
+  ]
+}

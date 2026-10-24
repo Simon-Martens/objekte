@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von kleinen Gedichten und prosaischen Aufsätzen, in Stammbücher (Sammlung INr 10242, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.762Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Das Herz des Empfindsamen ist gleich einem hohl geschliffenen Spiegel, in welchem sich alles Schöne und Häßliche,",
+  "language": [],
+  "musenalm_id": 9547,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Herz des Empfindsamen ist gleich einem hohl geschliffenen Spiegel, in welchem sich alles Schöne und Häßliche,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lavater",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s438qltjn6kfhuq",
+      "agents": "adxjhf2nm1jjsuh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.370Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.370Z"
+    }
+  ]
+}

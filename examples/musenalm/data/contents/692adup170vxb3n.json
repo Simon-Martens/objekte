@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert X. /) Illustration zu »Mandat Generalcommandant der pariser Nationalgarde und Clermont Tonnere Exdeputirter der konstituirenden National-Versammlung, Opfer der pariser Revoluzion am 10. August 1792« INr 59881, Obj 47 s.a. Textbezug No. XI. INr 59870, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59867,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einsegnung der September Opfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Geyser sc.",
+  "scans": [
+    "alm_933_59867_15f2ba8j1p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Einsegnung der September Opfer",
+  "updated": "2008-09-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t6naqts92us2vud",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.860Z"
+    },
+    {
+      "id": "xlvnglebk0irwqs",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.860Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.860Z"
+    }
+  ]
+}

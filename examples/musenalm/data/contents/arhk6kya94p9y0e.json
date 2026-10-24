@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder aus dem Gebirge (Sammlung INr 24499, Obj 77)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Ich hatt' einst einen Genossen treu, / Wo ich war, war er auch dabey;",
+  "language": [],
+  "musenalm_id": 24500,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Der treue Gefährte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Anastasius Grün",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Der treue Gefährte",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eajfeqipe5o934q",
+      "agents": "7s5akx33j2gpr6y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.258Z"
+    }
+  ]
+}

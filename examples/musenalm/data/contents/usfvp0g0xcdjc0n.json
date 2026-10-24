@@ -1,0 +1,56 @@
+{
+  "annotation": "Ueber Shakspears Sonette einige Worte, nebst Proben einer Uebersetzung derselben (Sammlung INr 77092, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "334",
+  "incipit_statement": "In jener Jahreszeit steht jetzt mein Leben, / Wo gelbe Blätter, einzeln, wen'ge bangen,",
+  "language": [],
+  "musenalm_id": 77114,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "73.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakspear [übers.] L. Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "73.",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nzc2fc3n4eoahii",
+      "agents": "confomdodiakpla",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.451Z"
+    },
+    {
+      "id": "jelcz6z1lya55ze",
+      "agents": "ajsovud6xavcdfb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.451Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.451Z"
+    }
+  ]
+}

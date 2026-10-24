@@ -1,0 +1,45 @@
+{
+  "annotation": "Zeitgedichte. (Aus dem Stehgreife.) (Sammlung INr 70653, Obj 48)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Nun glaub' an alle Wunder ich, / Die Frankreichs Bulletins uns melden;",
+  "language": [],
+  "musenalm_id": 70654,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Duroc auf dem Schlachtfelde bei Bauzen. / Nach / Lesung des französischen Zeitungsberichtes. / (Im Juni 1813.) 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Duroc auf dem Schlachtfelde bei Bauzen. / Nach / Lesung des französischen Zeitungsberichtes. / (Im Juni 1813.) 1.",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "id4800igwsj66sc",
+      "agents": "scmt2snhwdglbs9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.488Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.488Z"
+    }
+  ]
+}

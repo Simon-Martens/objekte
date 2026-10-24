@@ -1,0 +1,45 @@
+{
+  "annotation": "Wandergrüße. Erinnerungen aus dem Tagebuche einer Herbstreise (Sammlung INr 81147, Obj 19) mit Anm. /) mit einer Illustration s. Graphik INr 8141, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.438Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Still und klar, ein feuchter Spiegel / Trägt der Strom den schwanken Kahn",
+  "language": [],
+  "musenalm_id": 81152,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vineta",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Stieglitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vineta",
+  "updated": "2008-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "34gysn29l3pkcz8",
+      "agents": "1obisuoppirekjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.866Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.866Z"
+    }
+  ]
+}

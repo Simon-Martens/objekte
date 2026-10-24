@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 8. /) Graphik im Kalendarium August /) Illustration zu »Mode Thorheiten«, hier zu »Noch ein Wunderdoktor« aus: Berlinische Monathsschrift 1784 November, S. 445 /) s. Textbezug INr 70220, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70206,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Le Medecin miraculeux Mathes / Der Wunder Doctor Mathes / ibid. 1784. Nov. S. 445",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Clar et Henne sc.",
+  "scans": [
+    "alm_800_70206_uetpm65gqi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Le Medecin miraculeux Mathes / Der Wunder Doctor Mathes / ibid. 1784. Nov. S. 445",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "upr0ti9e8parry6",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.628Z"
+    },
+    {
+      "id": "wf4d8updrmdw4p6",
+      "agents": "cj6pzq84zp925pc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.628Z"
+    },
+    {
+      "id": "zbu5fmta492r7fd",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.628Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.628Z"
+    }
+  ]
+}

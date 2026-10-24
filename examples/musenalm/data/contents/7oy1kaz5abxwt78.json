@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine historische Merkwürdigkeiten (Sammlung INr 98046, Obj 24) mit zwei Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.186Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "278",
+  "incipit_statement": "In dem hiesigen Konsistorial-Archive findet sich eine kurze handschriftliche Nachricht von den noch übrigen Gebeinen der heil. Elisabeth,",
+  "language": [],
+  "musenalm_id": 98047,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Noch etwas zur Geschichte der Reliquien / der heil. Elisabeth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Noch etwas zur Geschichte der Reliquien / der heil. Elisabeth",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5158oblfg9sx1k6",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.472Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.472Z"
+    }
+  ]
+}

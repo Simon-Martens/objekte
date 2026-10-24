@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-09-09T08:23:53.433Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Vor ungefähr 70 Jahren lebte in ** ein reicher Kaufmann, Nahmens Bracke, den man in'sgemein den Glückspilz nannte,",
+  "language": [],
+  "musenalm_id": 140522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Glückspilz und der Unglücks- / vogel. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lembert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Glückspilz und der Unglücks- / vogel. / Novelle",
+  "updated": "2026-09-09T08:26:54.596Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "tmjwy2a78q86gc4",
+      "agents": "uylk38bu9ebsams",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-09T08:26:52.635Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-09T08:26:54.597Z"
+    }
+  ]
+}

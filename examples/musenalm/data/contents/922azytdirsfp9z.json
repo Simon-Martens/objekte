@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Seilg, als ich der Deinige, / Herzgeliebte! nur war, / Du nur die Meinige;",
+  "language": [],
+  "musenalm_id": 66004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wiedererwachen der alten Liebe . / (Eine Variation der Horazischen Ode: / Donec gratus eram tibi.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfr. Bueren",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Wiedererwachen der alten Liebe . / (Eine Variation der Horazischen Ode: / Donec gratus eram tibi.)",
+  "updated": "2009-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kyombvffvgwuzy1",
+      "agents": "ztyz68vc4kj5ehs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.929Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.929Z"
+    }
+  ]
+}

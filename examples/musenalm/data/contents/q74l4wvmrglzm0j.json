@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten  und  2 Briefen mit einem Nachwort INr 61162-6116,7 Obj 13-18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61161,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aehrenlese. / Aus dem Nachlasse der Karschin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aehrenlese. / Aus dem Nachlasse der Karschin",
+  "updated": "2008-12-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aj6767bqj1sa14k",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.922Z"
+    }
+  ]
+}

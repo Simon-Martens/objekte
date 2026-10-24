@@ -1,0 +1,45 @@
+{
+  "annotation": "Siebentes Jahr (Sammlung INr 48772, Obj 83)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.824Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Was ich nie gekonnt, beneiden / Könnt' ich fast dich frohen Mann,",
+  "language": [],
+  "musenalm_id": 48744,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wünsche, / an Herrn Prediger C. H. Schultze in Döbritz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wünsche, / an Herrn Prediger C. H. Schultze in Döbritz",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hdswqf9loyoaxhs",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.801Z"
+    }
+  ]
+}

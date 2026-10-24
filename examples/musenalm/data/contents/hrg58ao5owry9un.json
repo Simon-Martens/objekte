@@ -1,0 +1,45 @@
+{
+  "annotation": "22. Erinnerungen an drei bald auf einander verstorbene Freunde des Verfassers. Utz. Ramler. von Blankenburg (Sammlung INr 37467, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.564Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "358",
+  "incipit_statement": "Ein deutscher Dichter, Deutschlands werth, / Von aller Welt geliebt, gelesen und verehrt,",
+  "language": [],
+  "musenalm_id": 37468,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Utz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. Weiße",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Utz",
+  "updated": "2005-03-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "05onsfzea1n4q37",
+      "agents": "b4ycj3ue3as52r2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.917Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.917Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.868Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Durch die Bekanntschaften, die mir meine Schriften, und vorzüglich mein praktischen Geschäfte der Roß-Arznei- und Reitkunst, in dem Publikum erworben habe,",
+  "language": [],
+  "musenalm_id": 85198,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anzeigen. / An Pferdeliebhaber und Pferdekäufer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. von Tennecker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Anzeigen. / An Pferdeliebhaber und Pferdekäufer",
+  "updated": "2012-05-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eajiuat2a8vzbri",
+      "agents": "ngfhgg967qz5l80",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.337Z"
+    }
+  ]
+}

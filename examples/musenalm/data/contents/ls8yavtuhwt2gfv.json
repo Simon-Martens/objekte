@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "Ein heil'ger Funke sprang in die Seele Dir, / Als Du, noch Jüngling, voll von dem heißen Drang,",
+  "language": [],
+  "musenalm_id": 14244,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Füger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriele Batsányi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Füger",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p3llcdzbni91gpr",
+      "agents": "sjp9eapkpagxg0d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.495Z"
+    }
+  ]
+}

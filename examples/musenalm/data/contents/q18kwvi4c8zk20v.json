@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.130Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Progne und Philomele sind Schwestern; die / eine verkündet / Uns den Sommer,",
+  "language": [],
+  "musenalm_id": 6641,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE SCHWALBE UND / DIE NACHTIGALL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "FR. L. GR. z. STOLBERG",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DIE SCHWALBE UND / DIE NACHTIGALL",
+  "updated": "2000-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sck0cg6vh3yi9vu",
+      "agents": "7gwss5mvx858qah",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.235Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.235Z"
+    }
+  ]
+}

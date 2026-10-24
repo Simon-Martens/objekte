@@ -1,0 +1,67 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.775Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44594,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinisches / Taschenbuch / 1857",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zwecker del. Grünewald & Cooke sc.",
+  "scans": [
+    "alm_610_44594_sk4tmmcn93.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / 1857",
+  "updated": "2006-08-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sla9qh4iysii724",
+      "agents": "usgtr6dipvre26m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.453Z"
+    },
+    {
+      "id": "xw767frk9hfwu4w",
+      "agents": "1ih3q5zwi5sbzkz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.453Z"
+    },
+    {
+      "id": "6n5mto075zp9o5n",
+      "agents": "uohs1l6y8ng1p96",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.453Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.453Z"
+    }
+  ]
+}

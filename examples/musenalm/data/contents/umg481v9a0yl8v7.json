@@ -1,0 +1,45 @@
+{
+  "annotation": "Musikalische Sonette (Sammlung INr 55116, Obj 126)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "Mit Heldenkraft und hohen Geists Gewalten / Hast über deine Zeit ingrimmig bitter / Zerschlagen einst der Welschen lose Zitter,",
+  "language": [],
+  "musenalm_id": 55123,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 133,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. Christian Ritter von Gluck",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Theodor Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. Christian Ritter von Gluck",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v97ujj0ywgv7dak",
+      "agents": "2zdwvvsdgu1m59h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.611Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.611Z"
+    }
+  ]
+}

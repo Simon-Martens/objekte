@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Gedichten INr 25145-25147, Obj 167-169",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25144,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 166,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedichte. / Atlantica",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nicolaus Lenau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedichte. / Atlantica",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k5svq74onmuofd1",
+      "agents": "96po1brlxwvvsud",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.384Z"
+    }
+  ]
+}

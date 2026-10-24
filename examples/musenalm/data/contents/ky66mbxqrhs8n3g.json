@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einigen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Nachdem der Sylvan in einigen seiner Jahrgänge keine Nachrichten von Wolfsjagden bringen konnte,",
+  "language": [],
+  "musenalm_id": 67486,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X. / Die neuesten Wolfsjagden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fischer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X. / Die neuesten Wolfsjagden",
+  "updated": "2009-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5yjeq9puqibz72s",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.336Z"
+    }
+  ]
+}

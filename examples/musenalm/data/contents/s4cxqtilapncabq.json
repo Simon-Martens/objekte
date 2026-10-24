@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25139, 161)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Du holdes, du süßes, du liebliches Kind! / Gieb, gieb mir, hier dunkelt's, ein Küßchen, geschwind!",
+  "language": [],
+  "musenalm_id": 25142,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Walzer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Kopisch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Walzer",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "93o2npg0gdmm8zb",
+      "agents": "aq3u8k3couckqq1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.380Z"
+    }
+  ]
+}

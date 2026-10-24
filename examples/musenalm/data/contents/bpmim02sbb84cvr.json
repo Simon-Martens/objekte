@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Charade (Sammlung INr 13330, Obj 120) Charaden und Räthsel (Sammlung INr 13329, Obj 119)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.550Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "349",
+  "incipit_statement": "Darf dir die Liebe fromme Gabe bieten? / O nimm sie an mit Blicken sanft und hold!",
+  "language": [],
+  "musenalm_id": 13333,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "c.) An Laura",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "c.) An Laura",
+  "updated": "2001-04-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lajn73hueq0rbxl",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.630Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwischentitel. Es folgt: Sammlung von 5 Beiträgen INr 23628-23632, Obj 46-50",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.163Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 23627,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Protokolle / des / bewußt- und tendenzlosen Clubbs / zu Amenfeld. / Von / Janus (Johannes Müller), / Dr. Illuminatus",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Janus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Protokolle / des / bewußt- und tendenzlosen Clubbs / zu Amenfeld. / Von / Janus (Johannes Müller), / Dr. Illuminatus",
+  "updated": "2002-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1zr8iiwfpj7m5j2",
+      "agents": "4i4jxrnu4zolag5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.951Z"
+    }
+  ]
+}

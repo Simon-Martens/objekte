@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73943,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FREDERIC HENRI / CHARLES / Second fils de S. A. R. le Prince / de Prusse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Wolffgang Sc. A. V. 1756",
+  "scans": [
+    "alm_2513_73943_ohqlmavc70.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FREDERIC HENRI / CHARLES / Second fils de S. A. R. le Prince / de Prusse",
+  "updated": "2010-02-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1757,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cb6ejmvl8ug0axw",
+      "agents": "t0skl0zuoovbyqo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.702Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.702Z"
+    }
+  ]
+}

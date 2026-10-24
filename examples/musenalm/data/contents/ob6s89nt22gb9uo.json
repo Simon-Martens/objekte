@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3. /) Graphik im Kalendarium Mai /) Illustration zu »Die Section, oder Unschuld, Treue und Wiedersehen« INr 89073, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89063,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "- und Nanny fühlte Kraft in sich-",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+  "scans": [
+    "alm_988_89063_muo5fzacnr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "- und Nanny fühlte Kraft in sich-",
+  "updated": "2009-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aypj0k1dqk8pbgz",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.416Z"
+    },
+    {
+      "id": "dh1r3gesktsev1f",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.416Z"
+    }
+  ]
+}

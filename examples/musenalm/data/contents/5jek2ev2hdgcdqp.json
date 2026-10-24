@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Der Lustgarten und die Anpflanzungen zu Harbke« von Mumhard INr 74623, Obj 8 ff",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74617,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Plan / vom / Gräflich von Veltheimsch. / Garten und Lustwalde / bey Harbke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. von H. Degeling. gestochen von Carl Ausfeld. 1802",
+  "scans": [
+    "alm_3116_74617_dofvnnoehy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Plan / vom / Gräflich von Veltheimsch. / Garten und Lustwalde / bey Harbke",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4vm9k63ae9iddca",
+      "agents": "eozidzwycwakle8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.571Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.571Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Kurze geographisch-statistische Darstellung des Cantons Schaffhausen« INr 57518, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57522,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf der neuen Promenade in Schafhausen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Hauenstein pinx. J. H. Meyer sculps.",
+  "scans": [
+    "alm_711_57522_temcb6q8a9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Auf der neuen Promenade in Schafhausen",
+  "updated": "2007-10-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "78kkyn4q74g9qxq",
+      "agents": "qfq553jmfkso7qx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.649Z"
+    },
+    {
+      "id": "8aghjj10n0s6k0i",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.649Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.649Z"
+    }
+  ]
+}

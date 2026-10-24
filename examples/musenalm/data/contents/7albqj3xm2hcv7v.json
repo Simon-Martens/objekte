@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Quentin Durward« von W. Scott s. Textbezug INr 43724, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43723,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Quentin Durwald",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Desenne del. Dav. Weiss sc. Viennae",
+  "scans": [
+    "alm_583_43723_d3nwnsuwwg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Quentin Durwald",
+  "updated": "2006-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vam027g57m0vtuc",
+      "agents": "04yo8c8ph9dhugl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.081Z"
+    },
+    {
+      "id": "y8g0g8ji1xx0ku4",
+      "agents": "yf7uqcfkp0nwlnb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.081Z"
+    }
+  ]
+}

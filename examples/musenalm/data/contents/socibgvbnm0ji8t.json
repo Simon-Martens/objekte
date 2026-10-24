@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Der Abend wiegte schon die Erde, / Und an den Bergen hing die Nacht. / Goethe",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es war um die Dämmerzeit, draussen auf Wald und Wiese lag noch ein Rest des goldnen Abendscheines, aber in den Gassen der Stadt überragten die Schatten der hohen Häuser allbereits alle Firsten.",
+  "language": [],
+  "musenalm_id": 64363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Majorat. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Hilarius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Majorat. / Novelle",
+  "updated": "2009-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rlj6k595q206yns",
+      "agents": "euexsjcr9ar4su1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.055Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.055Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Vermischte Gegenstände (Sammlung INr 67009, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "In den ritterlichen Zeiten des Mittelalters herrschte ein Herzog über Lothringen, dessen Hof die liebenswürdigsten Frauern und die tapfersten Männer im Felde der Minne und des Krieges aufzuweisen hatte.",
+  "language": [],
+  "musenalm_id": 67016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Die Geweihträger im prosaisch- und poeti- / schen Wettkampfe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Freih. von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Die Geweihträger im prosaisch- und poeti- / schen Wettkampfe",
+  "updated": "2009-09-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fibcnz7hulvjd6y",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.343Z"
+    }
+  ]
+}

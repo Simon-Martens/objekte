@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration §1§ bez. Titelgraphik fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "237",
+  "incipit_statement": "Mild und feundlich, wie eine treue, trostbringende Freundin, zog die goldene Morgensonne an einem der ersten Tage des Frühlings im Jahre 1529 in Osten herauf,",
+  "language": [],
+  "musenalm_id": 94813,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm Overbeck. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mathilde Feldern Rolf",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm Overbeck. / Erzählung",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ci6p8b0t3pj8we2",
+      "agents": "5fgsfkvvla04u8e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.343Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.343Z"
+    }
+  ]
+}

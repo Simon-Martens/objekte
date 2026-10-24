@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 4 Gedichten INr 72135-72138, Obj 10-13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72134,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich Döring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vier Gedichte",
+  "updated": "2010-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qtnya4adu2cwd3t",
+      "agents": "7z02zmx8ocy9uwz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.511Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.511Z"
+    }
+  ]
+}

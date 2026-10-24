@@ -1,0 +1,45 @@
+{
+  "annotation": "Legenden (Sammlung INr 46482, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Philister und Dichter, / Vertraulich gesellt, / Spazieren gingen / Durch's Aehrenfeld.",
+  "language": [],
+  "musenalm_id": 46486,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mißverständniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Bornowsky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mißverständniß",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rw9ny546haatogh",
+      "agents": "59l3z560kdcow7s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.291Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.291Z"
+    }
+  ]
+}

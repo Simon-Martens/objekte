@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Es liegt der König auf dem Pfühle, / Die Brust vom gift'gen Speer durchdrungen,",
+  "language": [],
+  "musenalm_id": 95352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eleonore von Castilien. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Bube",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eleonore von Castilien. / Ballade",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sk1tb2uuio00fgi",
+      "agents": "e0feijwjpugv8vg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.615Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.615Z"
+    }
+  ]
+}

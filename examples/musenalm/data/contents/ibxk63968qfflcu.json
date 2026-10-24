@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Der Dichter steht, das goldne Haar umwunden, / Doch rühret ihn der Krone Flimmer nicht:",
+  "language": [],
+  "musenalm_id": 54023,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phantasie auf den Trümmern des Zähringer- / Schlosses bey Freyburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Münch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Phantasie auf den Trümmern des Zähringer- / Schlosses bey Freyburg",
+  "updated": "2008-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n6z36rnivqpqpks",
+      "agents": "h05fi1l9hhcmfmt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.869Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.869Z"
+    }
+  ]
+}

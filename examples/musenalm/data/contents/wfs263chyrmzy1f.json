@@ -1,0 +1,45 @@
+{
+  "annotation": "Hymnen nach dem Lateinischen (Sammlung INr 15305, Obj 92)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "212",
+  "incipit_statement": "Hört, Sionitinnen, / Meine Gespielinnen! / Seht mich mitleidig an,",
+  "language": [],
+  "musenalm_id": 15306,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die vor Liebe sterbende Maria",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. SCHLEGEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die vor Liebe sterbende Maria",
+  "updated": "2001-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8vad20j1vt9ff8h",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.675Z"
+    }
+  ]
+}

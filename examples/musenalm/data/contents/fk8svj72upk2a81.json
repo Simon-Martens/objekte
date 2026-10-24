@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Reuen sollt' es mich je, von den Schwellen der / prächtigen Hauptstadt / Weit in der schönen Provinz schöneren Städt- / chen zu seyn?",
+  "language": [],
+  "musenalm_id": 122934,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Berlin und Schwedt. / An Henriette T.. zu Berlin. / 1795",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. C. Bindemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Berlin und Schwedt. / An Henriette T.. zu Berlin. / 1795",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "16dvq4zq9hqp1jw",
+      "agents": "maje80twv7ynq1d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.753Z"
+    }
+  ]
+}

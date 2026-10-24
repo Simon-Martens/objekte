@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) paginiert 6. /) Graphik im Kalendarium August /) Illustration zu »Histoire du massacre de la Saint Barthélemi. Seconde partie« INr 75873, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75866,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Blessirter wirft sich in das Bette / der Königin. / Un blessé se jette dans la ruelle de la reine",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del & sc.",
+  "scans": [
+    "alm_835_75866_68wg5svacd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Blessirter wirft sich in das Bette / der Königin. / Un blessé se jette dans la ruelle de la reine",
+  "updated": "2008-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "boe248w1x0v012p",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.664Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.664Z"
+    }
+  ]
+}

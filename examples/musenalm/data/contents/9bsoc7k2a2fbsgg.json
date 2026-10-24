@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "O wie wohl ist mir, daß ich wieder hier bin! Das war ein Wegstück, diese Reuse zu holen! Nein, du böser Bruder! Wenn die Sonne hinab ist, setz' ich dir keinen Fuß mehr in jenen zertrümmerten Thurm.",
+  "language": [],
+  "musenalm_id": 50969,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwanau. / Ein Schweitzerisches Fischergedicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bronner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwanau. / Ein Schweitzerisches Fischergedicht",
+  "updated": "2007-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kknf26h3gy76lxk",
+      "agents": "tgu359r6w056o92",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.934Z"
+    }
+  ]
+}

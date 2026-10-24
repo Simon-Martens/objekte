@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.145Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Kränze von jeglicher Art hast du dir gewunden, und keine / Blume, kein Zweig, der ziert irgend ein dichterisch Haupt,",
+  "language": [],
+  "musenalm_id": 15968,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Göthe. / Im Anfange des Frühlings 1811",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Knebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Göthe. / Im Anfange des Frühlings 1811",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hziqj40m2s4uome",
+      "agents": "ymo6fj9vzc9ufg1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.576Z"
+    }
+  ]
+}

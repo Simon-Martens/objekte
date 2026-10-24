@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.335Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Nun so thue, mein liebe Tochter, / Deinen grössten Lebensschritt,",
+  "language": [],
+  "musenalm_id": 75251,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Muttersegen für den Hochzeitstag / einer / guten Tochter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kausch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Muttersegen für den Hochzeitstag / einer / guten Tochter",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xz9wz76oxdwr0k6",
+      "agents": "5jdwcyiwfdtu44o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.517Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am letzten Blatt der Suite /) Graphik im Kalendarium November; paginiert 11. s. Textbezug INr 73673, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73660,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In uns geht das Deutschthum unter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lud. Wolf inv. del. Riephs. sc.",
+  "scans": [
+    "alm_915_73660_ta3qd0k80b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "In uns geht das Deutschthum unter",
+  "updated": "2008-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a8mdc5k4ha3fbjt",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.712Z"
+    },
+    {
+      "id": "5o262a9whmhfzfo",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.712Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.712Z"
+    }
+  ]
+}

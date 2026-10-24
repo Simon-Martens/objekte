@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung aus dem G-Verz ## Bezeichnung am 2. Blatt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.621Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22863,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hof mit der Riesentreppe im Pallaste des Dogen zu Venedig",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Forbin # F. Wagner #",
+  "scans": [
+    "alm_304_22863_g0skfl9ech.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hof mit der Riesentreppe im Pallaste des Dogen zu Venedig",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f8y1xb3i6gf4nlu",
+      "agents": "zfacgk2g6c23dno",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.005Z"
+    },
+    {
+      "id": "xo9wfdrbry7j6t3",
+      "agents": "zcahh3ez21pnltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.006Z"
+    }
+  ]
+}

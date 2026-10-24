@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Zauberflöte. Der Dorfbarbier. Fidelio. Beitrag zur musikalischen Kunstgeschichte (Sammlung INr 69536, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.256Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "258",
+  "incipit_statement": "Es war Ende 1804, als Freiherr von Braun, der neue Eigenthümer des k.k. priv. Theaters an der Wien, dem, eben in voller Jugendkraft stehenden Ludwig van Beethoven antrug, eine Oper für jene Bühne zu schreiben.",
+  "language": [],
+  "musenalm_id": 69539,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fidelio",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fidelio",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qq9dw084egdv6mx",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.057Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.057Z"
+    }
+  ]
+}

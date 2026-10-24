@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Juni (zus. Bezeichnung: Gedr. v. Altmayer)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73401,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ANDERNACH",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Stanfield. Gest. v. Hasse",
+  "scans": [
+    "alm_879_73401_88riuxgg7j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ANDERNACH",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pqlm5uc47q8iv9o",
+      "agents": "3cqsgosvlzn7mua",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.767Z"
+    },
+    {
+      "id": "x1wttzrxa2cewmg",
+      "agents": "h7uaqdezzsr8nde",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.768Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.242Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "68",
+  "incipit_statement": "Heimlich nur, doch inniglich / Lieben wir uns beyde;",
+  "language": [],
+  "musenalm_id": 2127,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verschwiegenheit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verschwiegenheit",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s6e5m01n9jy1i2r",
+      "agents": "majfhkazcb1ylfy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.717Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.717Z"
+    }
+  ]
+}

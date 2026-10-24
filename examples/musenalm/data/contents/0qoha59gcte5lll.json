@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Wenn nie von Liebe Leid geschehen, / Geschah von Lieb' auch Liebes nicht. / Immermann",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.081Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "279",
+  "incipit_statement": "Die Nacht lag über den Bergen, deren kühngeformte Kuppen sich schwarz gegen den dämmernden Himmel abzeichneten.",
+  "language": [],
+  "musenalm_id": 64054,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Böse von Navarra. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Böse von Navarra. / Novelle",
+  "updated": "2009-05-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "leeu9e3i83gzs0f",
+      "agents": "hh3dab1czdktu2g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.275Z"
+    }
+  ]
+}

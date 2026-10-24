@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert Tab. I. /) kolorierte Illustration zu »Der Iltis« von L. C. E. H. F. von Wildungen INr 66495, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66494,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Iltis",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kehrer del. G. Boettger senior sc.",
+  "scans": [
+    "alm_1136_66494_4l1slamh77.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Iltis",
+  "updated": "2009-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fu6pxsf5qudth1c",
+      "agents": "659oeugsapemrqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.396Z"
+    },
+    {
+      "id": "ice8iud1hjvqd00",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.396Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.396Z"
+    }
+  ]
+}

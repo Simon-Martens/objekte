@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 8693, Obj 99",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.641Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "179",
+  "incipit_statement": "Ueber Thal und Fluss getragen / Ziehet rein der Sonne Wagen,",
+  "language": [],
+  "musenalm_id": 1226,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Mignon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "GOETHE",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Mignon",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9tc06tw8algq8o2",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.653Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.653Z"
+    }
+  ]
+}

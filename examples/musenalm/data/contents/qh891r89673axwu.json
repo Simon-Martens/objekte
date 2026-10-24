@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Scene aus Byrons Gedichten: Don Juan - The Island - Mazeppa« INr 63517, Obj 8 s. Gedicht »Mazeppa« INr 63661, Obj 1,01",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63522,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mazeppa #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Richter pinx. F. Fleischmann sc. Mchn",
+  "scans": [
+    "alm_1043_63522_bzssuuyp5d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mazeppa #",
+  "updated": "2009-04-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h5zxv997b7lx9vd",
+      "agents": "2p87lmr62wiucvw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.173Z"
+    },
+    {
+      "id": "dy2y9nlulb22kbi",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.173Z"
+    }
+  ]
+}

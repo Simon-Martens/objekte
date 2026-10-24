@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.894Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "In jener Nacht, die den ewigen Tag / Uns gab und mit Licht die Welt erfüllt,",
+  "language": [],
+  "musenalm_id": 20504,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hirtenknabe von Bethlehem. / Legende",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Schenk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hirtenknabe von Bethlehem. / Legende",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8c6n4o4p40d8jp7",
+      "agents": "v42buu0bbkquom4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.924Z"
+    }
+  ]
+}

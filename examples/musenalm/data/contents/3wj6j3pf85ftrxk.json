@@ -1,0 +1,45 @@
+{
+  "annotation": "Novellen und Sardellen (Sammlung INr 57377, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.406Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Die schon am Allerheiligsten auf dem Kirchhofe verbreitete, und mit allgemeinem Bedauern vernommene Kunde von dem Tode der eben so liebenswürdigen als allgemein verehrten Gattin des berühmten bayerischen Hofmalers Stieler,",
+  "language": [],
+  "musenalm_id": 57378,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Allerseelen-Nacht. / Phantasie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Allerseelen-Nacht. / Phantasie",
+  "updated": "2008-04-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a505j8k3fk9csu2",
+      "agents": "exegl4z6k8jnby0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.774Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.774Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug (Gedicht) INr 64541, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64547,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fischerlied #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. van Deventer pinx. W. Steelink sculps.",
+  "scans": [
+    "alm_1075_64547_61sqpewxqb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fischerlied #",
+  "updated": "2009-06-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1867,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sgov4ckrida8sbz",
+      "agents": "vyh78l98j4ug2dp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.233Z"
+    },
+    {
+      "id": "8bg1f5m4lmjpksc",
+      "agents": "lwzw1g7isc1pjy6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.233Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.233Z"
+    }
+  ]
+}

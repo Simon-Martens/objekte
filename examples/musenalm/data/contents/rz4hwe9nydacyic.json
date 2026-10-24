@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 37",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Der Löwe wollte Krieg. Sogleich / Ward dieses, durch das ganze Reich",
+  "language": [],
+  "musenalm_id": 5572,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der sich zum Kriege rüstende / Löwe. / Nach Lafontaine",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "v. St-f-d",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der sich zum Kriege rüstende / Löwe. / Nach Lafontaine",
+  "updated": "2000-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zganz56a68pjfiv",
+      "agents": "3m5nfg6fbusqjem",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.260Z"
+    }
+  ]
+}

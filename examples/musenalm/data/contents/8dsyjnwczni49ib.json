@@ -1,0 +1,45 @@
+{
+  "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 93976, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "357",
+  "incipit_statement": "Mit B wärmt, kühlt und nährt es dich. / Mit F erhebt's in Blasen sich,",
+  "language": [],
+  "musenalm_id": 93978,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Buchstabenräthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Buchstabenräthsel",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "64z7bg102191p6o",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.250Z"
+    }
+  ]
+}

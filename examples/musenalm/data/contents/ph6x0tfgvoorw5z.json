@@ -1,0 +1,43 @@
+{
+  "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30226, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ach! auf dem Land' ist ohne Gnade / Der Winterabend wohl betrübt,",
+  "language": [],
+  "musenalm_id": 30227,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Spinnstube",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Spinnstube",
+  "updated": "2002-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6nel4szho3iy8eq",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.577Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.577Z"
+    }
+  ]
+}

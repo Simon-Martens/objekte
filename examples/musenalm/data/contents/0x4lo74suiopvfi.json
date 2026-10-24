@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>Sammlung von 5 Gedichten INr 140501-140505</div>",
+  "content_type": [],
+  "created": "2026-09-08T09:08:10.141Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140500,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Adelaiden. / Sonnettenkranz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Freiherr v. Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Adelaiden. / Sonnettenkranz",
+  "updated": "2026-09-08T10:03:45.438Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "2ht8fytcfvqpago",
+      "agents": "ox2w0lw2pa3no6e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-08T09:10:48.879Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-08T10:03:45.439Z"
+    }
+  ]
+}

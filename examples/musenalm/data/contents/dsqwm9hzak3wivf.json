@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Beitrag »Grillenthal« von K. G. Cramer vorangestellt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48842,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sr. Hochfürstl. Durchl. / Herrn / George, / regierenden Herzoge zu Sachsen / Coburg-Meiningen; / meinem gnädigsten Fürsten und / Herrn, / unterthänigst gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Gottlob Cramer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sr. Hochfürstl. Durchl. / Herrn / George, / regierenden Herzoge zu Sachsen / Coburg-Meiningen; / meinem gnädigsten Fürsten und / Herrn, / unterthänigst gewidmet",
+  "updated": "2007-03-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "phzle8xcaehu50j",
+      "agents": "amqten9820medl4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.665Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.665Z"
+    }
+  ]
+}

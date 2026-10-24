@@ -1,0 +1,47 @@
+{
+  "annotation": "kol. Illustration zu »Die Steinamsel« von  L. C. E. H. F. von Wildungen INr 82156, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.657Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82155,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Steinamsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen ad viv. pinx.",
+  "scans": [
+    "alm_1127_82155_wrh80sjzmm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Steinamsel",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8bnh8ynybxosmt9",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.542Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.542Z"
+    }
+  ]
+}

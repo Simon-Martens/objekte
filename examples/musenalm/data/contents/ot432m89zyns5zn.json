@@ -1,0 +1,43 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 75670, Obj 17) s. Graphik im Kalendarium INr 75667, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Banners Schwert nahm Thorstensohn von seinem Sarge. Wohin er es schwang, da flohen die Feinde, wohin er kam, da waren die Städte erobert,",
+  "language": [],
+  "musenalm_id": 75683,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "No. 10.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göschen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "No. 10.",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aw63wi40togg31f",
+      "agents": "s7zezuvvsuyydzi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.541Z"
+    }
+  ]
+}

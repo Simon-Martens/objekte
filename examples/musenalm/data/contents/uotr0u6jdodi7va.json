@@ -1,0 +1,45 @@
+{
+  "annotation": "VI. Blumenlese aus dem Stammbuche der zu früh verstorbenen Dorchen Weiße in Leipzig (Sammlung INr 39128, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Ich bin froh, schöne Freundin, daß ich Ihr Stammbuch zu lange behielt. Denn noch die vorige Woche hätt' ich - um Sie an den Kaffeetrinker und an das Wassertrinken zugleich zu erinnern -nichts gehabt als diese zwey Sentenzen:",
+  "language": [],
+  "musenalm_id": 39135,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich bin froh, schöne Freundin, daß ich Ihr Stammbuch zu lange behielt. Denn noch die vorige Woche hätt' ich - um Sie an den Kaffeetrinker und an das Wassertrinken zugleich zu erinnern -nichts gehabt als diese zwey Sentenzen:…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul Friedrich Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2005-07-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ivr7cb4emfzjm0",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.813Z"
+    }
+  ]
+}

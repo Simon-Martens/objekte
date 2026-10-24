@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik. Illustration zu »Felix der Glückliche« von G. J. Kuhn INr 54498, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54496,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FELIX DER GLÜCKLICHE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Burgdorfer inv. et sculp.",
+  "scans": [
+    "alm_742_54496_5kyr3eiywd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FELIX DER GLÜCKLICHE",
+  "updated": "2008-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mmpuyuzl14ablqx",
+      "agents": "jl6b68q9vo9ytf5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.646Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.511Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98976,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRÜHLINGSALMANACH / HERAUSGEGEBEN / VON / NICOLAUS LENAU / 1836 / STUTTGART, bei BRODHAG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fellner del. Gnauth sc.",
+  "scans": [
+    "alm_1785_98976_6lgtphjk45.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRÜHLINGSALMANACH / HERAUSGEGEBEN / VON / NICOLAUS LENAU / 1836 / STUTTGART, bei BRODHAG",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p0409wdeec344fs",
+      "agents": "9z4h7ka6ovxy0ac",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.885Z"
+    },
+    {
+      "id": "vu80x9r6ck7hz9c",
+      "agents": "msrf0wfavicqjbz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.885Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.885Z"
+    }
+  ]
+}

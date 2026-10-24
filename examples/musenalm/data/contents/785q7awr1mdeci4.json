@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.642Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "301",
+  "incipit_statement": "Wenn Du aus Tausenden gefunden / Die heißgeliebte schöne Braut,",
+  "language": [],
+  "musenalm_id": 62247,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Wahn der Liebe] 2. / Prüfung / Thema: Es gebe guten Wiederklang! / Drum prüfe, wer sich ewig bindet, / Ob sich das Herz zum Herzen findet; / Der Wahn ist kurz, die Reu' ist lang. / Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Wahn der Liebe] 2. / Prüfung / Thema: Es gebe guten Wiederklang! / Drum prüfe, wer sich ewig bindet, / Ob sich das Herz zum Herzen findet; / Der Wahn ist kurz, die Reu' ist lang. / Schiller",
+  "updated": "2009-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wx1et16ixaoa58b",
+      "agents": "roqd4m2swedwv3j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.242Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.242Z"
+    }
+  ]
+}

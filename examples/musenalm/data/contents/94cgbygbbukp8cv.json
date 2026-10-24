@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124478,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carl Maria von Weber / gewidmet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Rublack",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Carl Maria von Weber / gewidmet",
+  "updated": "2020-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "84zqae1khr0x3dk",
+      "agents": "rgzpulaw84h7q7x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.803Z"
+    }
+  ]
+}

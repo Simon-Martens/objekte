@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 189 /) # Bezeichnung am 1. Blatt der Suite /) s. INr 16766, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9104,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rhein Uibergang der Franken. / (In der Nacht vom 5. auf den 6. Sept.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_194_9104_oa3a4udr5l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rhein Uibergang der Franken. / (In der Nacht vom 5. auf den 6. Sept.)",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hrrkogcgcwk57pn",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.221Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.221Z"
+    }
+  ]
+}

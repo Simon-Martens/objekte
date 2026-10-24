@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.916Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "294",
+  "incipit_statement": "Erwacht, erwacht und vernehmet mein Wort, / Denn jeder Verzug bringt Verderben!",
+  "language": [],
+  "musenalm_id": 20534,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 73,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die heilige Wegzehrung. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Schenk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die heilige Wegzehrung. / Ballade",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r5q2o2g10urlwws",
+      "agents": "v42buu0bbkquom4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.926Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.926Z"
+    }
+  ]
+}

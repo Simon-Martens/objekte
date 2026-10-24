@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.136Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Da war einmal im Morgenland / Ein junger Fürst genau bekannt / Mit einer alten Feie;",
+  "language": [],
+  "musenalm_id": 6659,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER TURBAN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. NICOLAY",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DER TURBAN",
+  "updated": "2000-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9biz96rsrv8gtxt",
+      "agents": "km5yxdev9efbrvi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.237Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "107a /) Sechstes Jahr (Sammlung INr 52099, Obj 83)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "107",
+  "incipit_statement": "Wenn Geschwätz vom Franzmann oder Türken / Meine Ohren plagt am Gallatisch;",
+  "language": [],
+  "musenalm_id": 52109,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 93,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meinen Freund Schultze in Döbritz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meinen Freund Schultze in Döbritz",
+  "updated": "2007-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bnwx0bcjgs3vyjp",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.564Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.564Z"
+    }
+  ]
+}

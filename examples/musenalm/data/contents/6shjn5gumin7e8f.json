@@ -1,0 +1,47 @@
+{
+  "annotation": "# vollst. Bez. an der 1. Illustration /) paginiert 5 /) kol. Illustration zu »Naturgeschichte des Erlenspinners oder Cameelraupenspinners« INr 66147, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.976Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (E. f.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. f.",
+  "scans": [
+    "alm_1114_66149_9jwrpwas6x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2009-08-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "spyle34ahgzonok",
+      "agents": "lyz2x127nyb2cxs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.346Z"
+    }
+  ]
+}

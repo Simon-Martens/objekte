@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Erzählungen (INr 93572, Obj 81) mit einer Illustration s. Graphik INr 93574, Obj 83",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Jahr aus Jahr ein, ohn' Unterlaß / Herr Guck auf seinem Thurem saß, / Zu ihm, wie zu dem Glockenseil, / Führt eine Wendeltreppe steil,",
+  "language": [],
+  "musenalm_id": 93573,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Thürmer. / Eine Erzählung / in sechs Gesängen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Eman. Veith",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Thürmer. / Eine Erzählung / in sechs Gesängen",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l6qr2k4psgxedvs",
+      "agents": "qfipgoo804kgoao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.209Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.209Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 54614, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.986Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54619,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rudolf Fürst'en Tod bey Morgarten / Du faerest schön zu Bergenun ist dir wohl mein Sohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Disteli. gest. v. Merz",
+  "scans": [
+    "alm_743_54619_3q2s419w6d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rudolf Fürst'en Tod bey Morgarten / Du faerest schön zu Bergenun ist dir wohl mein Sohn",
+  "updated": "2008-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pd0e156p3kw7ria",
+      "agents": "yf0tgu146w1t5rh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.269Z"
+    },
+    {
+      "id": "6xqm25x29capuzd",
+      "agents": "lvxce3ttj18wgib",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.269Z"
+    }
+  ]
+}

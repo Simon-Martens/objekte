@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.024Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Die böhmischen Dörfer bestehen zum großen Theile aus elenden Hütten, und die Bettelei soll in ihnen sehr im Schwunge seyn.",
+  "language": [],
+  "musenalm_id": 44977,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Deutschland] Eigenthümliches einzelner Länder und / Städte. / Böhmen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Deutschland] Eigenthümliches einzelner Länder und / Städte. / Böhmen",
+  "updated": "2006-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tbtpmt3350hgcdv",
+      "agents": "b96jiypecb45ptj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.471Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.471Z"
+    }
+  ]
+}

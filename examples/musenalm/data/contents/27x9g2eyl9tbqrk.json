@@ -1,0 +1,53 @@
+{
+  "annotation": "Vertonung des Gedichts »Geißreihen« von G. J. Kuhn INr 54508, Obj 38 /) Photos INr 53509,01-53509,07",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.341Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "232",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53509,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geisreihen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Huber",
+  "scans": [
+    "alm_732_53509_01_crajlrhqug.jpg",
+    "alm_732_53509_02_ulu4ra746g.jpg",
+    "alm_732_53509_03_z6d34yr0vg.jpg",
+    "alm_732_53509_04_gvuiz1kc14.jpg",
+    "alm_732_53509_05_zl9sbj3m3r.jpg",
+    "alm_732_53509_06_3xiaeo5ra9.jpg",
+    "alm_732_53509_07_bzn0mx1sqf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Geisreihen",
+  "updated": "2007-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8w4omefwuj2vnzg",
+      "agents": "sotbd7eujnrv6f6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.495Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.495Z"
+    }
+  ]
+}

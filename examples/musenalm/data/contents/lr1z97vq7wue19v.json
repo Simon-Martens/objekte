@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.345Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Karl hielt, der große Kaiser, wie alte Sage spricht, / Am blauen Limmatstrome in Zürich Pfalzgericht.",
+  "language": [],
+  "musenalm_id": 25620,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 151,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Edelstein von Zürich. / (Petrarca epist. fam. Scheuchzer itin. alpin. Grimm, / deutsche Sagen II, 128 ff.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Adolf Ludwig Follen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Edelstein von Zürich. / (Petrarca epist. fam. Scheuchzer itin. alpin. Grimm, / deutsche Sagen II, 128 ff.)",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tdjdiwj0kvupeze",
+      "agents": "erwaw1pl4i80e4t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.258Z"
+    }
+  ]
+}

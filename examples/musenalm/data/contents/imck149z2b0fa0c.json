@@ -1,0 +1,43 @@
+{
+  "annotation": "Anm. zum Gedicht im I-Verz: s. Gött. Mus. Alm. f. 1800. S.74. Phaetonm von v. Halem /) s. Gedicht in  Musenalmanach (Göttinger) 1800; INr 4598",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Als unbesonnen Phöbus Sohn, / Der Sansculotten Phaeton, / Den Sonnenwagen wandte, / Und fast die Erde brannte,",
+  "language": [],
+  "musenalm_id": 92594,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2012-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2rbiv8x7faj5vks",
+      "agents": "v5ht3d6rw3do6ml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.528Z"
+    }
+  ]
+}

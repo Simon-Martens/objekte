@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Sammlung vorangestellt: Wollten nach manchen Geschichten und Schwänken / Wir uns im Leben fügen und richten, [...] /) Sammlung von 5 Beiträgen INr 89436-89440, Obj 30-34 /) Anm. am Objekt: Siehe den vorigen Jahrgang dieses Taschenbüchleins, Seite 111-127",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichten und Schwänke. / Alten Chroniken nacherzählt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichten und Schwänke. / Alten Chroniken nacherzählt",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9a72quuupv2udop",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.238Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.238Z"
+    }
+  ]
+}

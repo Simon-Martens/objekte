@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 117388, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.070Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "257",
+  "incipit_statement": "Kennst Du die Macht, die heiligste der Mächte, / Die schöner Dir die Welt erscheinen läßt,",
+  "language": [],
+  "musenalm_id": 117389,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Zwei Mächte und Ein Name",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. von Metzerich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Zwei Mächte und Ein Name",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "efy6hnapqfhc9t1",
+      "agents": "em3dkpa48ys3kzf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.562Z"
+    }
+  ]
+}

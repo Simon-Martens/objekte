@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.473Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Die einst mein Arm umschlang, sie schwebt dahin / Von fremdem Arm mit heißem Druck umschlungen -",
+  "language": [],
+  "musenalm_id": 95476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Einer entfernten Tanzenden (?)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prokesch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Einer entfernten Tanzenden (?)",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tpguqyts08u38e0",
+      "agents": "vgizbjkdvsr4bie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.203Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.203Z"
+    }
+  ]
+}

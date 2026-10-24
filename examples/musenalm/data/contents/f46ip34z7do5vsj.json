@@ -1,0 +1,45 @@
+{
+  "annotation": "auch in: Almanach der deutschen Musen 1770 (1. Aufl.), S. 190; Alm-2200, INr 79137; und in: Almanach der deutschen Musen 1770, S. 194; Alm-175 (2. Aufl.), INr 8030",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.430Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Beßtes kleines Clavier, / Schalle, schalle / Lauter Liebe; / Lauter süsse Liebe",
+  "language": [],
+  "musenalm_id": 38377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Phyllis an das Clavier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. v. Gerstenberg. Rosenbaums Lieder Th. II",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Phyllis an das Clavier",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f1jybgtjvit8xcw",
+      "agents": "ih3y4rkhx0a1glf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.071Z"
+    }
+  ]
+}

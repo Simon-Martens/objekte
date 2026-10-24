@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 25479, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.663Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Einen göttlichen Memnonsklang aus Osten / Nannt' in seltsam geformtem Briefe jüngst mich / Ein begeisterter Freund.",
+  "language": [],
+  "musenalm_id": 25491,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "12. / Memnon und Mammon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "12. / Memnon und Mammon",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p3rpzq8tx6fxbgn",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.299Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. an den übrigen Graphiken der Suite /) Illustration zu »Ezzelin von Romano« von G. Pfitzer INr 99083; Obj 109",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.519Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 98980,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE VERSCHWÖRUNG",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fellner del. A. Gnauth sc.",
+  "scans": [
+    "alm_1785_98980_5j7m943dqh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE VERSCHWÖRUNG",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lv5z20867n53dok",
+      "agents": "9z4h7ka6ovxy0ac",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.886Z"
+    },
+    {
+      "id": "iwu5osycht6q4ke",
+      "agents": "msrf0wfavicqjbz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.886Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.886Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 38996, Obj 184)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.619Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "281",
+  "incipit_statement": "Hör' Er nur einmal, Herr Vetter, / Was mir diese Nacht geträumet!",
+  "language": [],
+  "musenalm_id": 39001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 189,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / An meinen Vetter / als er sich leidenschaftlich auf Verfertigung von Sonnen- / uhren legte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Mörike",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / An meinen Vetter / als er sich leidenschaftlich auf Verfertigung von Sonnen- / uhren legte",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9ppspr4iyp239bj",
+      "agents": "sazh274fui35fcn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.927Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.927Z"
+    }
+  ]
+}

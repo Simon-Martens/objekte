@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86254, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.262Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86255,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die kleine Schläferin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Ranftl del. A. Dworzack sc.",
+  "scans": [
+    "alm_1598_86255_y3e1x0pcvy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die kleine Schläferin",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8bmn1wd42qr7md2",
+      "agents": "vyuxy9kfo54vvq8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.185Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.185Z"
+    },
+    {
+      "id": "oxh754x8b4lpd7y",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.186Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.186Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Als Psyche und Amor schieden, / Da schlugen die Herzen bang:",
+  "language": [],
+  "musenalm_id": 86668,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Psyche's Thränen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Hugo",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Psyche's Thränen",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6rdft2cuxjp68g1",
+      "agents": "ut3gc8g2lomjo63",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.171Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.171Z"
+    }
+  ]
+}

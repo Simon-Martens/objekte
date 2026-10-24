@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Freundschaft! Vaterland! Natur! / Süße zauberische Bande!",
+  "language": [],
+  "musenalm_id": 2565,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesang. / (aus einem ungedruckten Singspiel)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R - d.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesang. / (aus einem ungedruckten Singspiel)",
+  "updated": "2000-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vml1dwcer4y7vc1",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.749Z"
+    }
+  ]
+}

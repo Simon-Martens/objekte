@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.265Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Weißt du den Weg zum Mehlfaß wohl? / Er geht, wenn früh der Haushahn kräht, / Mit Pflug und Karst durchs Weitzenfeld,",
+  "language": [],
+  "musenalm_id": 128896,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der treue Eckhard, / oder guter Rath und Wegweiser. /  (S. J. P. Hebels Allem. Gedichte. S. 199)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel [übers.:] Gottlieb Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der treue Eckhard, / oder guter Rath und Wegweiser. /  (S. J. P. Hebels Allem. Gedichte. S. 199)",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y479xegmkj9inuh",
+      "agents": "u04oy46tu9dlk6x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.990Z"
+    },
+    {
+      "id": "h2qcoau1169k3z6",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.990Z"
+    }
+  ]
+}

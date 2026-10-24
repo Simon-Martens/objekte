@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 1. bez. Monat: Januar /) # Bez. an den übrigen Blättern der Suite",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50571,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Urner-Loch, von der Teüfels- Brüke anzusehn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "S. Geßner",
+  "scans": [
+    "alm_681_50571_wtrie3vwjq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Urner-Loch, von der Teüfels- Brüke anzusehn",
+  "updated": "2007-07-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wwsmxnpaybtk9nh",
+      "agents": "pua8u6y6ts6oo5o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.732Z"
+    }
+  ]
+}

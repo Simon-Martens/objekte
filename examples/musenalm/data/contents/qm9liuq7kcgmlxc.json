@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Wilhelm Tell« von Fr. Schiller s. Textbezug INr 39531, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.149Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39532,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm Tell. 4r. Aufz. 2te. Szene / SEID EING-EINIG-EINIG",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. H. Schmidt sc.",
+  "scans": [
+    "alm_519_39532_frnhr9s9u2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm Tell. 4r. Aufz. 2te. Szene / SEID EING-EINIG-EINIG",
+  "updated": "2005-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7xodmrbmpi0dapa",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.172Z"
+    },
+    {
+      "id": "sxaoxoy7ogvausi",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.172Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.172Z"
+    }
+  ]
+}

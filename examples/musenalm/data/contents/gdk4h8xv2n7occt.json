@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Graphik im Kalendarium Juni, nummeriert IV /) Illustration zu »Der Birkhahn« von v. Wildungen INr 120520, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120515,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Birckhuhn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. de Wildungen pinx.",
+  "scans": [
+    "alm_1128_120515_k0ishccqf6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Birckhuhn",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "76mfn8ox90xgckv",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.749Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.749Z"
+    }
+  ]
+}

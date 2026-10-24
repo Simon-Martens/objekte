@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten INr 15292-15299, Obj 80-86",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15292,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 79,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geistliche Lieder",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "NOVALIS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geistliche Lieder",
+  "updated": "2001-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "spjz9elrt0vhcx4",
+      "agents": "k7dxkcfehvip7xf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.272Z"
+    }
+  ]
+}

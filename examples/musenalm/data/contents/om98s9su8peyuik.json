@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.677Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "Eh Noah seine Taube sandte, / Das Glaubensland, das unbekannte, / Zu suchen durch das weite Meer,",
+  "language": [],
+  "musenalm_id": 53326,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Noahs Taube. / Eine Parabel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. v. Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Noahs Taube. / Eine Parabel",
+  "updated": "2007-12-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l9n18yd6g1wyyya",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.592Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.592Z"
+    }
+  ]
+}

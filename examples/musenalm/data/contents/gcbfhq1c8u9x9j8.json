@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Ich steh' zu tief imThale, / Mich trifft kein Sonnenblick, / Kein Strahl von deinem Strahle, / Kein Glück von deinem Glück.",
+  "language": [],
+  "musenalm_id": 45534,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 243,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zu tief!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Harmann Kletke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zu tief!",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "afvlmpbw4t6w9c6",
+      "agents": "oxvlsvgq5f4m5gr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.364Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.364Z"
+    }
+  ]
+}

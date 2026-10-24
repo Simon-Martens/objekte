@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.765Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Lieben Brüder! es reift unsere Kunst vielleicht, / Da, dem Jünglinge gleich, lange sie schon gegährt, / Bald zur Stille der Schönheit;",
+  "language": [],
+  "musenalm_id": 21787,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die jungen Dichter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölderlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die jungen Dichter",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eyraqep6kz7uyhn",
+      "agents": "0lnasue8ibiowgx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.018Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.018Z"
+    }
+  ]
+}

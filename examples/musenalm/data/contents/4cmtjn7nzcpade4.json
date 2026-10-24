@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 5. /) Illustration zu »Numa Pompilius« INr 66316, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66317,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Numa Pompil! Das römische Volck hat dich / zu seinem Könige erkoren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del.& fec. 1798",
+  "scans": [
+    "alm_1124_66317_hz3l6skcjx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Numa Pompil! Das römische Volck hat dich / zu seinem Könige erkoren",
+  "updated": "2009-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k04xfiv349zhrh5",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.285Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.285Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.572Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Es war im Jahre 1735, am Abende des Sontages, an dem man das Evangelium liest: Niemand kann zwei Herrn dienen, als eine Gesellschaft von Bürgern vor dem Schießhause zu Hirschberg fröhlich und guter Dinge war.",
+  "language": [],
+  "musenalm_id": 95184,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der grüne Student. / Ein Märchen im zwei Büchern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alexander Julius Schindler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der grüne Student. / Ein Märchen im zwei Büchern",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wrl8lr9iazhhsfs",
+      "agents": "c5g4qkh29vufd7a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.551Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.551Z"
+    }
+  ]
+}

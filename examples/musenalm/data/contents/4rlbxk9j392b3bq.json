@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 19707, Obj 1",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Es ist so öde auf Droteingholmschloß; / Das Tageslicht in dem untern Geschoß",
+  "language": [],
+  "musenalm_id": 19738,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe bis nach dem Tode",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Artur vom Nordstern",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe bis nach dem Tode",
+  "updated": "2001-11-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gaycgppw6uqsa89",
+      "agents": "1tsjgk40ftnty4f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.022Z"
+    }
+  ]
+}

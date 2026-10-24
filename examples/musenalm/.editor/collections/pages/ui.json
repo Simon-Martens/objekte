@@ -1,0 +1,72 @@
+{
+  "label": "Seiten",
+  "singularLabel": "Seite",
+  "display": "title",
+  "displayFallback": [],
+  "icon": "ri-pages-line",
+  "position": 6,
+  "sidebarGroup": "Content",
+  "showInSidebar": true,
+  "sidebarTree": false,
+  "pageSize": 50,
+  "fields": {
+    "": {
+      "title": "Seite"
+    },
+    "/properties/key": {
+      "title": "Schlüssel"
+    },
+    "/properties/title": {
+      "title": "Titel"
+    },
+    "/properties/url": {
+      "title": "URL"
+    },
+    "/properties/template": {
+      "title": "Vorlage"
+    },
+    "/properties/layout": {
+      "title": "Layout"
+    },
+    "/properties/type": {
+      "title": "Rolle"
+    },
+    "/properties/data": {
+      "title": "Zusatzdaten",
+      "x-editor": "json"
+    },
+    "/properties/created": {
+      "title": "Erstellt"
+    },
+    "/properties/updated": {
+      "title": "Geändert"
+    }
+  },
+  "fieldOrder": [
+    "title",
+    "key",
+    "url",
+    "template",
+    "layout",
+    "data",
+    "type",
+    "created",
+    "updated"
+  ],
+  "search": [
+    "title"
+  ],
+  "list": {
+    "columns": [
+      "title",
+      "key",
+      "url"
+    ],
+    "defaultSort": {
+      "field": "_label",
+      "direction": "asc"
+    },
+    "filters": [],
+    "autoFilters": false
+  }
+}

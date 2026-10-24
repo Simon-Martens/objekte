@@ -1,0 +1,45 @@
+{
+  "annotation": "6. Kleinigkeiten (Sammlung INr 68682, Obj 56) VIII. Gedichte (Sammlung INr 68676, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Was soll das ew'ge Pflanzen, Säen? / So sprach ein weiser aus dem Rath",
+  "language": [],
+  "musenalm_id": 68683,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Der Obscurant",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Der Obscurant",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fmtsg36u4mqg4xj",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.407Z"
+    }
+  ]
+}

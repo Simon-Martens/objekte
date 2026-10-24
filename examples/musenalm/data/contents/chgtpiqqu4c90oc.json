@@ -1,0 +1,45 @@
+{
+  "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung /) mit 2 Beigaben mit Erläuterung INr 60028, 60030, Obj 27-29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "259",
+  "incipit_statement": "Folgende treffliche, und in jeder Zeile Wahrheit enthaltende Note, aus dem fünften Stück der neuen Leipziger gelehrten Anzeigen von 1794, schreibe ich für diejenigen Leser ab, welche diese Zeitung nicht zu Gesicht bekommen haben.",
+  "language": [],
+  "musenalm_id": 60027,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XVI. / Miscellen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XVI. / Miscellen",
+  "updated": "2008-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ur1yz3966meyxgk",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.005Z"
+    }
+  ]
+}

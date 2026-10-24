@@ -1,0 +1,54 @@
+{
+  "annotation": "Kupfer zu König Lear, Othello und Macbeth. Erläutert durch Beifügung der dargestellten Scenen nach der Uebersetzung von Heinrich Voß (Sammlung INr 9343, Obj 7) s. Graphik INr 9337, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.718Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Mein edler Vater, / Ich fühl' es, meine Pflicht ist hier getheilt, / Denn euch verdank' ich Leben und Erziehung,",
+  "language": [],
+  "musenalm_id": 19095,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Othello. / Erster Aufzug, dritte Scene. / Versammlungssaal des Staatsrathes.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Shakespeare; [übers.] Heinrich Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Othello. / Erster Aufzug, dritte Scene. / Versammlungssaal des Staatsrathes.",
+  "updated": "2000-08-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g9s3bcnkv3jj1v8",
+      "agents": "confomdodiakpla",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.650Z"
+    },
+    {
+      "id": "muvj4ngvud6dcgj",
+      "agents": "kqtjs5z40p79gpq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.650Z"
+    }
+  ]
+}

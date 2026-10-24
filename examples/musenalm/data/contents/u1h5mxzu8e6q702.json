@@ -1,0 +1,58 @@
+{
+  "annotation": "Graphik im Kalendarium August /) Illustration zu »Der Maibaum« von R. Puff INr 117681, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117670,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Maibaum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl del. L. Beyer s.",
+  "scans": [
+    "alm_4367_117670_n0w6xeaae7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Maibaum",
+  "updated": "2017-03-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j0w3ghkwaai7rpe",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.538Z"
+    },
+    {
+      "id": "chw0vhmi6lf5i7r",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.538Z"
+    }
+  ]
+}

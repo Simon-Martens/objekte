@@ -1,0 +1,45 @@
+{
+  "annotation": "Canada (Sammlung INr 41426, Obj 6) Die westliche arctische Welt (Sammlung INr 41267, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.041Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "So trefflich nun auch diese Bemühungen sind, Canada in ein bedeutendes kultivirtes Land umzuschaffen,",
+  "language": [],
+  "musenalm_id": 41428,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2) Die Originalbewohner, die Indianer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2) Die Originalbewohner, die Indianer",
+  "updated": "2005-11-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fp8qkcam1xv3a07",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.973Z"
+    }
+  ]
+}

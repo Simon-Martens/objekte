@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 71355, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.342Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Bei dem Anblick dieser Kupfertafel müssen wir unsre schönen Leserinnen bitten, sich des Fächers zu bedienen.",
+  "language": [],
+  "musenalm_id": 71354,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung der 1ten Kupfertafel. / Originies kombabisirt sich um des / Himmelreiches willen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung der 1ten Kupfertafel. / Originies kombabisirt sich um des / Himmelreiches willen",
+  "updated": "2010-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6huisde4zcdtqgp",
+      "agents": "a1tvqjbk8115iq7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.439Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.439Z"
+    }
+  ]
+}

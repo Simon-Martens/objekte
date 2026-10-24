@@ -1,0 +1,45 @@
+{
+  "annotation": "Titel verso /) Vignette: Blaschke sc.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.206Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92720,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Taschenbuch / für / FREUNDE / schöner vaterländischer / GEGENDEN. / Vierter Jahrgang. / Wien, 1808. / Im Verlage bey Anton Doll",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Blaschke sc.",
+  "scans": [
+    "alm_4024_92720_1qapo0pmno.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Taschenbuch / für / FREUNDE / schöner vaterländischer / GEGENDEN. / Vierter Jahrgang. / Wien, 1808. / Im Verlage bey Anton Doll",
+  "updated": "2013-09-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rg1gmvr72cnqymd",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.475Z"
+    }
+  ]
+}

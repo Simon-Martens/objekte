@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.482Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "Ein deutscher Jüngling, welcher als Säugling / einst / An seiner eignen Mutter unsträflicher / Brust, zur geerbten Vatertugend / Weibliche Zärtlichkeit eingesogen,",
+  "language": [],
+  "musenalm_id": 88335,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liederwürdige",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. C. Schmohl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Liederwürdige",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "swea2rkfhy0a5py",
+      "agents": "m59qbdr7ru308p3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.130Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.931Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Muntre Schwestern, / Heut, wie gestern, / Hüpfen wir dahin,",
+  "language": [],
+  "musenalm_id": 47771,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied der fröhlichen Schwestern",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Bothe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied der fröhlichen Schwestern",
+  "updated": "2007-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8pj6puvm4xcnerg",
+      "agents": "naz7pgrgy8ee7vq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.671Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.671Z"
+    }
+  ]
+}

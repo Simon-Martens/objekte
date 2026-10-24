@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "97",
+  "incipit_statement": "Weine nicht, du gräbst mit Flammen- / zügen / Meiner Seele deinen Kummer ein,",
+  "language": [],
+  "musenalm_id": 17386,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Bianka, / bei einer Beerdigung. / A VOI rivolgo il mio debile stile, / Pigro da se: ma'l gran piacer lo sprona; / E chi di VOI ragiona, / Tien dal suggetto vu' habito gentile. / PETRARCA",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gu.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Bianka, / bei einer Beerdigung. / A VOI rivolgo il mio debile stile, / Pigro da se: ma'l gran piacer lo sprona; / E chi di VOI ragiona, / Tien dal suggetto vu' habito gentile. / PETRARCA",
+  "updated": "2001-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8iy932ckbdpfps5",
+      "agents": "byuhkknqr79s51g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.617Z"
+    }
+  ]
+}

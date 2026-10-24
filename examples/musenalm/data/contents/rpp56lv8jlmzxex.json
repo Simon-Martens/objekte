@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.132Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Weißt du, Grambezwinger du! / Das mein Nantchen ohne Ruh",
+  "language": [],
+  "musenalm_id": 2454,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / den Schlaf",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Amarant",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / den Schlaf",
+  "updated": "2000-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iijmaign4qcg8kc",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.049Z"
+    }
+  ]
+}

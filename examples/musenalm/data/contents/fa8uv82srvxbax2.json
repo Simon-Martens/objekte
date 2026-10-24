@@ -1,0 +1,58 @@
+{
+  "annotation": "beschriftet: Jahrg. 1808. Tab. III. /) kol. Illustration zu »Der Bienenfresser« von v. Wildungen INr 102390, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.633Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102389,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Merops apiaster. Der Bienenfresser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. v. Wildungen ad viv. pinx. G. Boettger sen. sc.",
+  "scans": [
+    "alm_1141_102389_2z3709tf7f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Merops apiaster. Der Bienenfresser",
+  "updated": "2009-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fuqoxy0a4vs8ksr",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.990Z"
+    },
+    {
+      "id": "awx2yj5hp3xbpk5",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.990Z"
+    }
+  ]
+}

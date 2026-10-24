@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 8 Beiträgen INr 86025-86032, Obj 29-36 /) XI. Fragmente der Lehre für die Gegenwart und die kommenden Zeitalter (Sammlung IN 85023, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86024,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Spittler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I.",
+  "updated": "2013-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wkl09ym62a863xm",
+      "agents": "2qxaa4m54yby5iw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.026Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.026Z"
+    }
+  ]
+}

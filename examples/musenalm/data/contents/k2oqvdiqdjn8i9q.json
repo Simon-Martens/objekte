@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "263",
+  "incipit_statement": "Ein Hauptgegenstand der Erziehung ist unter anderen auch die Bestrafung der Kinder, und zwar um so mehr, als man zeither dafür und dazwischen absprach.",
+  "language": [],
+  "musenalm_id": 48080,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. Franz Ehrenbergs / Reden über die körperliche Erziehung. / Acht und zwanzigste Rede",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. Franz Ehrenbergs / Reden über die körperliche Erziehung. / Acht und zwanzigste Rede",
+  "updated": "2007-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hivf2uixzc6wcjz",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.624Z"
+    }
+  ]
+}

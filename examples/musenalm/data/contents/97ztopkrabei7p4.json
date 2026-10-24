@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 27413, Obj 140)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "306",
+  "incipit_statement": "Blickest du staunend den Fels und den Forst und der Grotte Geheimniß, / Oder auf blumiger Flur freudig den rieselnden Bach,",
+  "language": [],
+  "musenalm_id": 27417,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Geisterhauch",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Willibald Alexis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Geisterhauch",
+  "updated": "2002-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lcv2o92hy8dlxs7",
+      "agents": "0o91z9eq6iw8en8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.248Z"
+    }
+  ]
+}

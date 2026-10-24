@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "317",
+  "incipit_statement": "Ich trag' einen Brief in den Tiefen der Brust / Voll heiliger Chiffern und Zeichen;",
+  "language": [],
+  "musenalm_id": 42015,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 216,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verschwiegene Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Freiherr von Zu Rhein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verschwiegene Liebe",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "64pw02g2lrxqrfj",
+      "agents": "kbvhytseydcgk8x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.934Z"
+    }
+  ]
+}

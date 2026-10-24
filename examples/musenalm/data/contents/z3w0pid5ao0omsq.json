@@ -1,0 +1,45 @@
+{
+  "annotation": "# Vrwt. zu »Die Intrgigue aus dem Stegreif« von Lebrun (INr 124019, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.924Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Wafflard’s »Voyage à Dieppe« gab mir den Stoff zu dieser Posse, wiewohl nichts aus ihr entlehnt ist, als die projectirte Reise.",
+  "language": [],
+  "musenalm_id": 124020,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorwort #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. L.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorwort #",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zyqfrot0v0btnak",
+      "agents": "dlpgk2os95jpmjk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.857Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.857Z"
+    }
+  ]
+}

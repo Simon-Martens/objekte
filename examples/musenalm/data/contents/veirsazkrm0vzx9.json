@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "33",
+  "incipit_statement": "Sag' an, mein Lied, wo fern und nah / Ich Gottes hohe Wunder sah,",
+  "language": [],
+  "musenalm_id": 34989,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Donaufahrt. / 1779",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Blumauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Donaufahrt. / 1779",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9jeuexk44tahdab",
+      "agents": "p56m9esfl91y36d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.733Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.733Z"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "Vertonung des Gedichts »Abendständchen« von Schink INr 17466, Obj 44 (Photos 17553,01; 17553,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.905Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 17553,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendständchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Methfessel",
+  "scans": [
+    "alm_106_17553_01_van4briz7j.jpg",
+    "alm_106_17553_02_vf3heo4ecd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Abendständchen",
+  "updated": "2001-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b4jm8l7zi6ttjmy",
+      "agents": "t6tmc9piui1sdr1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.818Z"
+    }
+  ]
+}

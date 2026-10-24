@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.285Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Daß die Welt nun endlich einmal ihrer Vollkommnung sichtbar entgegengehe, und das menschliche Geschlecht mit Riesenschritten vorwärts eile, ist wohl heut zu Tage keinem Zweifel mehr unterworfen;",
+  "language": [],
+  "musenalm_id": 53208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beytrag / zur / Bezeichnung des Künstlers. / wie er seyn sollte. / Der Schweizerischen Künstlergesellschaft in Zofingen, / den 29. April 1816, vorgelesen von U. Hegner",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beytrag / zur / Bezeichnung des Künstlers. / wie er seyn sollte. / Der Schweizerischen Künstlergesellschaft in Zofingen, / den 29. April 1816, vorgelesen von U. Hegner",
+  "updated": "2007-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ik9fqqixynq2dr9",
+      "agents": "5xr1i06rwmguu38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.632Z"
+    }
+  ]
+}

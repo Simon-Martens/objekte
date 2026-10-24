@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ritter Toggenburg. Eine Erzählung« von Fouqué INr 48426, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.987Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48428,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Retsch gezeich. Schwerdgeburth gest.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Retsch gezeich. Schwerdgeburth gest.",
+  "scans": [
+    "alm_661_48428_m04803ee8r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3jdd7hj97qlm3vx",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.676Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.676Z"
+    },
+    {
+      "id": "npiyu9q8rtsihr6",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.676Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.676Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "343",
+  "incipit_statement": "An einem unfreundlichen Winterabende, kurz vor der Weihnachtszeit, drängte sich Wiens schöne Welt durch die Säle eines der ersten Gasthöfe.",
+  "language": [],
+  "musenalm_id": 44631,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Bettlerin von Wien. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Franz J. Englert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Bettlerin von Wien. / Novelle",
+  "updated": "2006-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ki08l58lpjfiq7a",
+      "agents": "3otjq4rpoe162xd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.472Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.472Z"
+    }
+  ]
+}

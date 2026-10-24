@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 102334, Obj 140)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Zwei Spiegel enthüllen die menschlichen Fehle: / Der Spiegel des Auges, der Spiegel der Seele;",
+  "language": [],
+  "musenalm_id": 102352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 158,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18. / Die beiden Spiegel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Waldow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18. / Die beiden Spiegel",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "25u1yu1w2mwe8x5",
+      "agents": "nicecucaceak00n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.724Z"
+    }
+  ]
+}

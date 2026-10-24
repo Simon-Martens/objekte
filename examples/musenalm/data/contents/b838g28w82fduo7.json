@@ -1,0 +1,45 @@
+{
+  "annotation": "Vermischte, viele hier zum erstenmal gegebene Anekdoten mit meinem eigenen Glossario (Sammlung INr 37300, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.608Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Ein alter ehrwürdiger Bürgermeister war bey einem angesehenen Kaufmann zu Gaste.",
+  "language": [],
+  "musenalm_id": 37312,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein alter ehrwürdiger Bürgermeister war bey einem angesehenen Kaufmann zu Gaste.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2004-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "63f5iauzicaw7xq",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.924Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.924Z"
+    }
+  ]
+}

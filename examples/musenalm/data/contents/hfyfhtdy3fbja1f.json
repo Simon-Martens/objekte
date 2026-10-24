@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik im Kalendarium INr 85773, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "252",
+  "incipit_statement": "Wirbelnd ertönten die rauschenden Fanfaren. Die Tafel war beendet. Stolz auf das vollendete Werk ihrer Politik blickend, ging Katharina von Medizis, mit huldvoller Anmuth in den geistvollen Zügen die zahllos versammelten Zuschauer grüßend,",
+  "language": [],
+  "musenalm_id": 85805,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maria von Cleves, / Marquisin von Isles, Prinzessin von Conde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sophie May",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maria von Cleves, / Marquisin von Isles, Prinzessin von Conde",
+  "updated": "2008-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ukqjkivazky00ar",
+      "agents": "m7qhw2df2ubnvsa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.168Z"
+    }
+  ]
+}

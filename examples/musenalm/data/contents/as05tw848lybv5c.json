@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.429Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Ha! Was staunen meine Blicke! / Ha ! Wie schwindeln meine Blicke!",
+  "language": [],
+  "musenalm_id": 2363,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 146,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dithyrambe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R. M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dithyrambe",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dzxn9u9w7e5r0fd",
+      "agents": "xudibmgptrwrx3w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.095Z"
+    }
+  ]
+}

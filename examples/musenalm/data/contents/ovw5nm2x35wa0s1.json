@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachgelassene Sprüche (Sammlung INr 24067, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Nicht vor den Bogen tritt der Hirsch und wendet / Die Scheibe seiner Brust dem Pfeile zu -",
+  "language": [],
+  "musenalm_id": 24069,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heinrich von Kleist",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2002-05-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ldnf8736wsgl4vi",
+      "agents": "jaer15own8gb04o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.234Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.234Z"
+    }
+  ]
+}

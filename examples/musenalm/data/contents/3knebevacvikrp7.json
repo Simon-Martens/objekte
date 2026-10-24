@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Dietrich von Harras oder der Rittersprung« von Richard Roos d.i. K. A. Engelhardt INr 79032, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79015,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dietrich von Harras v. R. Roos",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_2389_79015_63mm7klg73.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Dietrich von Harras v. R. Roos",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5wzfmdu96p4ketg",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.854Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.854Z"
+    },
+    {
+      "id": "kokilpod06jo2ms",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.855Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.855Z"
+    }
+  ]
+}

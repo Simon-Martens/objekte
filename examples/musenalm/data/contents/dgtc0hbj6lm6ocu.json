@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3. /) s. Textbezug INr 30265, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.835Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30264,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (nach H. Ramberg in Stahl gest. v. G. Döbler Prag)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach H. Ramberg in Stahl gest. v. G. Döbler Prag",
+  "scans": [
+    "alm_395_30264_iqwsvut99f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2i703x0o9dfj1wr",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.562Z"
+    },
+    {
+      "id": "zy99v8495edzhxk",
+      "agents": "774ug9zf5qb4ald",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.562Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.562Z"
+    }
+  ]
+}

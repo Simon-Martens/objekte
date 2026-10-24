@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel s. Textbezug INr 54616, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54621,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Herr Werner] #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. M. Usteri. Gest. v. F. Buser",
+  "scans": [
+    "alm_743_54621_7ot65i7eui.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Herr Werner] #",
+  "updated": "2008-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6u99ohjxxt91f8n",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.269Z"
+    },
+    {
+      "id": "zhcwx7qz79pvrcg",
+      "agents": "gpua5gdwasv89sy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.269Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Wanderlieder durch die sächsische Schweiz. Gesungen von Helmina (Sammlung INr 61184, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Man kommt zur niedern Hütte, / Und nicht zum festen Schloß. / So pflegt auch Hüttners Sitte, / Seyd fröhlich sein Genoß.",
+  "language": [],
+  "musenalm_id": 61187,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / In der Hütte zu Ottowalde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Helmina",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / In der Hütte zu Ottowalde",
+  "updated": "2008-12-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hl98v54qqgs1f4z",
+      "agents": "t0u8s6dmliqgl2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.137Z"
+    }
+  ]
+}

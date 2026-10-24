@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwey Epilogen gesprochen von Madame Hensel während des Aufenthalts der Hannöverschen Gesellschaft zu Wetzlar (Sammlung 8211, Obj 54)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.153Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Zu wollustreichen Phantasien, / Zu Freuden, welche schöne Seelen / An unsichtbaren Ketten ziehn,",
+  "language": [],
+  "musenalm_id": 8212,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Als am 29ten Junius die Bühne mit Richard dem / Dritten eröfnet wurde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gotter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Als am 29ten Junius die Bühne mit Richard dem / Dritten eröfnet wurde",
+  "updated": "2000-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1772,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e2wmz1oaom5toap",
+      "agents": "hu6ba8zv7wtaxe9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.914Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.914Z"
+    }
+  ]
+}

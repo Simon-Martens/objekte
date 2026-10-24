@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Die junge Melinde nimmt Graumann, / den Alten, / Er schenkt ihr sein Bildniß von Runzeln / und Falten,",
+  "language": [],
+  "musenalm_id": 62107,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Medaillon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Weppen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Medaillon",
+  "updated": "2009-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nv52pn4f66ombtk",
+      "agents": "wx8h2mpbw2hmdqp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.664Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.664Z"
+    }
+  ]
+}

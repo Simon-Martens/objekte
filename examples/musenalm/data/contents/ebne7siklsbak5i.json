@@ -1,0 +1,47 @@
+{
+  "annotation": "Tanztouren zu Beckers Taschenbuch 1820 von Lauchery, Königl. Preuß. Ballet-Meister und Solotänzer in Berlin (Sammlung INr 20053, Obj 135) (Photo 20060 u. 20061)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.095Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20060,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 142,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "La Trevisse. / 4 r. Contredance",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [
+    "alm_268_20060_4b2bvywhkn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "La Trevisse. / 4 r. Contredance",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mm2j1uto1e7mc05",
+      "agents": "czigb25jnrfsy98",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.946Z"
+    }
+  ]
+}

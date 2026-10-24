@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.603Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Es gibt kein Leben mehr auf dieser Welt! / So hör' ich alle klagen / In unsren Fried' und Freudelosen Tagen:",
+  "language": [],
+  "musenalm_id": 88669,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ja und Nein, / oder / der kurzangebundene Freyer. / Eine scherzhafte Erzählung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Danwaller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ja und Nein, / oder / der kurzangebundene Freyer. / Eine scherzhafte Erzählung",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "72w7xpzlspca75o",
+      "agents": "jq74p3fe1dijn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.007Z"
+    }
+  ]
+}

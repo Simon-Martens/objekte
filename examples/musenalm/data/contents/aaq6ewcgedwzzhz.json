@@ -1,0 +1,45 @@
+{
+  "annotation": "$ vermutl Lyser, d. i. J. P. T. Burmeister /) Sammlung von 3 Beiträgen INr 36367-3639, Obj 31-33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Leuchtkugeln",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von einem alten Musikdirector $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Leuchtkugeln",
+  "updated": "2003-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zh0kjx29dk0aysk",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.922Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.922Z"
+    }
+  ]
+}

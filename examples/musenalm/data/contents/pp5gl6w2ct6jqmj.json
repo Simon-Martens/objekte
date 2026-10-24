@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April /) Illustration zu »Der Richter seiner selbst« von J. G. Seidl INr 89566, Obj 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.557Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89542,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Richter seiner selbst",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. del. A. D. sc.",
+  "scans": [
+    "alm_3354_89542_rfmfimkftb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Richter seiner selbst",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "txy9g01oq8nk8xm",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.405Z"
+    },
+    {
+      "id": "1xp5nuz96vo11ty",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.405Z"
+    }
+  ]
+}

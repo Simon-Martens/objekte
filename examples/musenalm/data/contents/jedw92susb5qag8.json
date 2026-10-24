@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 105163, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:37.600Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Schöne Schwestern, frohe Brüder, / Sammlet Euch zum Reihentanz!",
+  "language": [],
+  "musenalm_id": 105175,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gesang zum Tanz, / bei / der Jahresfeier / eines Gesellschafts-Theaters 1784",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zschiedrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gesang zum Tanz, / bei / der Jahresfeier / eines Gesellschafts-Theaters 1784",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8fa3tra8n4qltzy",
+      "agents": "sg73x8kcyc2ixxl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.169Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Juli. Illustration zu »Historisch-statistisches Gemälde von Ost- und Westpreußen. Dritter Abschnitt.« von F. W. Schubert INr 59028, Obj 19 s.a. Textbezug INr 59038, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59020,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Memel im Jahr 1535. / Nach einem in dortiger Stadtkirche befindlichen Oelgemälde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmäsler 1835",
+  "scans": [
+    "alm_871_59020_sqdvl4eods.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Memel im Jahr 1535. / Nach einem in dortiger Stadtkirche befindlichen Oelgemälde",
+  "updated": "2008-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1y9bf2h5wr3vfp8",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.983Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.983Z"
+    }
+  ]
+}

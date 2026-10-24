@@ -1,0 +1,45 @@
+{
+  "annotation": "Liebesaphorismen (Sammlung INr 26051, Obj 45)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.428Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "158",
+  "incipit_statement": "Wie Columbus auf dem Ocean, / Schiff' ich durch die Meere deiner Launen,",
+  "language": [],
+  "musenalm_id": 26074,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie Columbus auf dem Ocean, / Schiff' ich durch die Meere deiner Launen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Hermannsthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aapj58g4ylfgfob",
+      "agents": "rxn9x0k5ac10jd7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.099Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.099Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik im Kalendarium Dezember; paginiert 2. /) Illustration zu »Der Sturm« von W. Shakespeare",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.520Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70440,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14.12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gebt mir eure Hände!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki inv.",
+  "scans": [
+    "alm_147_70440_ekn6zc6g80.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gebt mir eure Hände!",
+  "updated": "2000-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "32spfc8kbt4vlwm",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.525Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.525Z"
+    }
+  ]
+}

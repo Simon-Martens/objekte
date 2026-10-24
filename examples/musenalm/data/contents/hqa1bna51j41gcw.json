@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 146. /) Illustration zu »Amalie. Oder: Die Unglücklichen durch Selbstschuld« INr 47485, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47490,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arme Amalie! Wie hart büst man für die Thorheiten / der grossen Welt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 98",
+  "scans": [
+    "alm_644_47490_i7a7st2znv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Arme Amalie! Wie hart büst man für die Thorheiten / der grossen Welt",
+  "updated": "2007-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "28e8hjlgyv14lhe",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.532Z"
+    },
+    {
+      "id": "od5zld6uiihgazv",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.532Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.532Z"
+    }
+  ]
+}

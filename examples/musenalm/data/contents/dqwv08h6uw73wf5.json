@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezüge INr 115532, 115533; Obj 19, 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.052Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 115531,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CONRAD ECKHOF",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas sc.",
+  "scans": [
+    "alm_1340_115531_c43oi7ek0g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CONRAD ECKHOF",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ke6tl5uw83iwwtz",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.486Z"
+    }
+  ]
+}

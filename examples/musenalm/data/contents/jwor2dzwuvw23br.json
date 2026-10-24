@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Leiden des jungen Werther« von J. W. von Goethe; s. Textbezug INr 116437, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.311Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 116446,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Werthers Leiden. / Zweite Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Leop. Beyer sc.",
+  "scans": [
+    "alm_534_116446_y9jf13d7l3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Werthers Leiden. / Zweite Scene",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rq51y17mql5x55t",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.650Z"
+    },
+    {
+      "id": "jjqfwhnrrin7ube",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.650Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.650Z"
+    }
+  ]
+}

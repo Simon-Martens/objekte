@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.344Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21654,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Den / Reichsfrey / Hochwohlgebohrnen / Freyherrn und Herrn / Ihro / Römisch Kaiserlichen Majestät / Wirklichen Räthen / und / des heiligen römischen Reichs unmittelbarer / freyen Ritterschaft / in / Schwaben, Franken und am / Rheinstrom [...]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Lang",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Den / Reichsfrey / Hochwohlgebohrnen / Freyherrn und Herrn / Ihro / Römisch Kaiserlichen Majestät / Wirklichen Räthen / und / des heiligen römischen Reichs unmittelbarer / freyen Ritterschaft / in / Schwaben, Franken und am / Rheinstrom [...]",
+  "updated": "2002-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rflpbpbte5jxfyx",
+      "agents": "0vejvx9ns82bwxr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.971Z"
+    }
+  ]
+}

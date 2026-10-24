@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmerkung",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.843Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Hélas! Ich lobe mir die braven Schweden! So hätte denn - wenn man den Zeitungen glauben darf, - mein Held, der große Gustav, werth, den Namen jener beiden großen Männer zu tragen,",
+  "language": [],
+  "musenalm_id": 71377,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reverien eines Weltbürgers / bei Gelegenheit des russischen Krieges / mit Schweden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Reverien eines Weltbürgers / bei Gelegenheit des russischen Krieges / mit Schweden",
+  "updated": "2010-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6btnaad8n9cuan1",
+      "agents": "a1tvqjbk8115iq7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.416Z"
+    }
+  ]
+}

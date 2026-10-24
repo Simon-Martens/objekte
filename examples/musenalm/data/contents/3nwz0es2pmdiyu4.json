@@ -1,0 +1,45 @@
+{
+  "annotation": "nummeriert 5; s. Textbezug INr 124964, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.655Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124950,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Thau-Mühle im Liebethale",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther fc.",
+  "scans": [
+    "alm_3698_124950_ugjhydrzpd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Thau-Mühle im Liebethale",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c1nguzeutbn243o",
+      "agents": "k3qfb3024y59h2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.672Z"
+    }
+  ]
+}

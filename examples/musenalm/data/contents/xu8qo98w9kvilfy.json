@@ -1,0 +1,45 @@
+{
+  "annotation": "Nüsse zum Aufknacken für schöne Zähne (Sammlung INr 94332, Obj 55)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "Liegt das Schiff im sichern Hafen, / Ruht es aus nach weiter Fahrt,",
+  "language": [],
+  "musenalm_id": 94341,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. / Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Löwe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. / Räthsel",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5ngfi5ygcjqkqh8",
+      "agents": "6opc5xq453lnr5a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.573Z"
+    }
+  ]
+}

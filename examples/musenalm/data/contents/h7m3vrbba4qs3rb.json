@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24866, Obj 147)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "Schon sah der Mond durchs Fenster, und die Sterne / Sie funkelten schon längst,",
+  "language": [],
+  "musenalm_id": 24869,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Rosalinde und Julia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Veit",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Rosalinde und Julia",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z1q6jr7h82x8uk1",
+      "agents": "5fdnbj9xwyjpym9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.165Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.165Z"
+    }
+  ]
+}

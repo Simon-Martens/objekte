@@ -1,0 +1,56 @@
+{
+  "annotation": "unter der Graphik: Gedr. bei Susemihl /) Illustration zu »Die Moskowiter Braut« von Fr. Pitt INr 102963, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110562,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AFANASIA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. Ender del. J. Passini sc. Vienna",
+  "scans": [
+    "alm_3380_110562_yte24iwjuz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AFANASIA",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kh6bg0nqv2q09gl",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.297Z"
+    },
+    {
+      "id": "1e2jqs2aa1oe6ct",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.297Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.297Z"
+    }
+  ]
+}

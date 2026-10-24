@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.692Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Theile die Nebel, o brich, mit still obsiegendem / Glanze, / Durch die Gewölk hervor,",
+  "language": [],
+  "musenalm_id": 97095,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Phosphorus. / Den 16ten November 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. v. Boguslawski",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Phosphorus. / Den 16ten November 1797",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s8z4sanh4zxweo8",
+      "agents": "3c4z57eb6rjd4gw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.906Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.906Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4. /) Graphik im Kalendarium Januar /) Illustration zu »Die Geschichte des siebenjährigen Krieges in Deutschland« von J. W. v. Archenholz INr 78263, Obj 23 s.a. Textbezug INr 78267, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78245,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "die Sächsische Armée ergiebt sich dem / König zu Kriegsgefangenen, im Lager / bey Pirna, am 17. October 1756",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. C. del. J. N. sc.",
+  "scans": [
+    "alm_928_78245_4bxuc3im9b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "die Sächsische Armée ergiebt sich dem / König zu Kriegsgefangenen, im Lager / bey Pirna, am 17. October 1756",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xk72yh7fjimeknn",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.920Z"
+    },
+    {
+      "id": "0yyfq6a9e3kno5k",
+      "agents": "1cxxm0968owp2z9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.920Z"
+    }
+  ]
+}

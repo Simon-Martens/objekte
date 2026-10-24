@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "O du, den zum Gewissensrath / Sich Theodor erkoren, / O laß, ehrwürdigster Prälat / In deinen hohen Ohren,",
+  "language": [],
+  "musenalm_id": 76347,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Erzvater / der alleinseligmachenden bayrischen Kir- / che, Herrn Pater Frank. / München im Heumond 1786. / Malheur à qui s'éclaire! / Voltaire",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Ratschky",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Erzvater / der alleinseligmachenden bayrischen Kir- / che, Herrn Pater Frank. / München im Heumond 1786. / Malheur à qui s'éclaire! / Voltaire",
+  "updated": "2003-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kd70ljcnjqjayp2",
+      "agents": "y0pp926xdweonfb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.827Z"
+    }
+  ]
+}

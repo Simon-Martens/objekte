@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 44242, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.364Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44237,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "C. F. Lessing",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sohn del. Neubauer sc.",
+  "scans": [
+    "alm_601_44237_2v24z0u0l5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "C. F. Lessing",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yb3w047iglj6ch6",
+      "agents": "kd2m6gqwwqw3i2v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.200Z"
+    }
+  ]
+}

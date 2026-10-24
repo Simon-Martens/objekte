@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.297Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Wahrlich! der Mensch ist nur zum Leiden er- / schaffen auf Erden.",
+  "language": [],
+  "musenalm_id": 127604,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebenszweck. / Nach dem Englischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. F. Klischnige",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebenszweck. / Nach dem Englischen",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bihs8wuh4gr7ufj",
+      "agents": "puwl8qrxpkzfdq3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.947Z"
+    }
+  ]
+}

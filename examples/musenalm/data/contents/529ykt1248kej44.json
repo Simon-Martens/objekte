@@ -1,0 +1,47 @@
+{
+  "annotation": "s. folgendes Gedicht INr 80720, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.241Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80719,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Gatten Heimkehr",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Langer sc.",
+  "scans": [
+    "alm_1798_80719_6b028pmaq1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Des Gatten Heimkehr",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lmiqeb8lu0hlyo6",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.786Z"
+    }
+  ]
+}

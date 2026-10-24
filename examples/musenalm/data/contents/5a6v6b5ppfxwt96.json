@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 2 Illustrationen s. Graphiken INr 41277, 41278; Obj 6, 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.433Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Dreißig Jahre waren kaum verflossen, seit dem Vasco da Gama, der berühmte Seefahrer, die neue Straße nach Indien aufgefunden hatte",
+  "language": [],
+  "musenalm_id": 41289,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das schwarze Kästchen. / Eine wunderbare Historie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludw. Robert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das schwarze Kästchen. / Eine wunderbare Historie",
+  "updated": "2003-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jpoo4l4oq5e2n7x",
+      "agents": "shwrrrsohbx2ih5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.738Z"
+    }
+  ]
+}

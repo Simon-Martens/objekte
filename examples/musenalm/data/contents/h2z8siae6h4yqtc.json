@@ -1,0 +1,56 @@
+{
+  "annotation": "Oden aus dem Horaz (Sammlung INr 91628, Obj 23) mit Erläuterungen s. INr  91640, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.369Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Besser wirst du leben, Licin, wenn weder / Stets das hohe Meer du verfolgst, noch sorgsam, / Vor Orkanen zitternd, zu nah am falschen / Strande du andrängst.",
+  "language": [],
+  "musenalm_id": 91631,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Licinius / II.10.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horaz [übers.] Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Licinius / II.10.",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lys09aiequrncow",
+      "agents": "ogosxb6kwkoek7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.382Z"
+    },
+    {
+      "id": "67dvix926bv78n2",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.382Z"
+    }
+  ]
+}

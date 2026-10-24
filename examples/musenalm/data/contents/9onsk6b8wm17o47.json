@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 18965, Obj 6 (Stich & Druck durch Kunst-Verlag, Creuzbauer in Carlsruhe)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1994,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE CLUBBISTEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "David Wilkie pinx. Hessloehl sculp.",
+  "scans": [
+    "alm_59_1994_i6we5tf2fv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE CLUBBISTEN",
+  "updated": "2000-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vvf15ccm51t5jdo",
+      "agents": "cplmdt0b656898p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.646Z"
+    },
+    {
+      "id": "g144c1ju174562l",
+      "agents": "g141z8lw112bbl6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.646Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.646Z"
+    }
+  ]
+}

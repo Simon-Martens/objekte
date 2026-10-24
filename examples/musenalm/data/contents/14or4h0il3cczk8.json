@@ -1,0 +1,45 @@
+{
+  "annotation": "XIII. Forst- und Jagdanekdoten (Sammlung INr 69606, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "Vor mehrern Jahren vermißte man in Ungarn einen Kaiserlichen Cuirassier, der bei tiefem Schneee verschickt worden war.",
+  "language": [],
+  "musenalm_id": 69607,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "krgqk2lrmsiolw4",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.419Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.419Z"
+    }
+  ]
+}

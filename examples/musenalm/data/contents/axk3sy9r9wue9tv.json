@@ -1,0 +1,46 @@
+{
+  "annotation": "Humoristische Studien (Sammlung INr 64470, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.198Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "247",
+  "incipit_statement": "Es war stark drei Viertel auf zwölf Uhr. Die Lichter waren herab gebrannt, die Stühle waren umgeworfen, und unter dem Tische lag Hugo von Humpenburg, um seinen Rausch auszuschalfen.",
+  "language": [],
+  "musenalm_id": 64472,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der letzte Romantiker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leonhart Wohlmuth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der letzte Romantiker",
+  "updated": "2009-06-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zi718tt6pajg9wz",
+      "agents": "l9rg817tpg32vfy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.197Z"
+    }
+  ]
+}

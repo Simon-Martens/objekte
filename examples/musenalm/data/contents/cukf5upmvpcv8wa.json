@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Ich lass die Frauen, und wähle den Wein, / Viel fröhlicher kann man beym Becher ja seyn,",
+  "language": [],
+  "musenalm_id": 113876,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Becherlust. / (Geschrieben im Jahre 1823.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. C. Baldamus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Becherlust. / (Geschrieben im Jahre 1823.)",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o9b0t857udy05e1",
+      "agents": "gvrm573djft0g9v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.383Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.383Z"
+    }
+  ]
+}

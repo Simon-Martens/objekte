@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Ein Thal, das Alsas Urne tränkte, / War durch ein Völkchen angebaut,",
+  "language": [],
+  "musenalm_id": 32952,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Alsa. / An B. Noel, / Präfekt des Oberrheins und Stifter der dasigen / Gesellschaft der Wissenschaften, Literatur / und Künste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfeffel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Alsa. / An B. Noel, / Präfekt des Oberrheins und Stifter der dasigen / Gesellschaft der Wissenschaften, Literatur / und Künste",
+  "updated": "2003-04-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3lm9icpqoczbhzq",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.657Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.657Z"
+    }
+  ]
+}

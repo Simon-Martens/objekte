@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 80153, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.135Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Ein Engel schlummert in des Menschen Brust, / Die Hoffnung, und erwacht bei seinem Wehschrei,",
+  "language": [],
+  "musenalm_id": 80165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Engel schlummert in des Menschen Brust, / Die Hoffnung, und erwacht bei seinem Wehschrei,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qssqot3s8r8dwu8",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.662Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.662Z"
+    }
+  ]
+}

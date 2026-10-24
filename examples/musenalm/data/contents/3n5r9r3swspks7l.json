@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "29",
+  "incipit_statement": "Vaterländischer Sinn, jeder Vortrefflichkeit / Offnes Auges und frey huldigend, weihet dir / Diese Lieblinge Florens, / Der castalischen Nymphen Schmuck.",
+  "language": [],
+  "musenalm_id": 128853,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Frau Regierungsräthinn Caro- / line Pichler, / geborne von Greiner. / Nebst einem Blumenstrauße. Im Nahmen einiger / Freunde. / Den 4. November 1803",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. J. Fridrich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Frau Regierungsräthinn Caro- / line Pichler, / geborne von Greiner. / Nebst einem Blumenstrauße. Im Nahmen einiger / Freunde. / Den 4. November 1803",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wsbor3pczepqizt",
+      "agents": "t3zz4r3fvdi80ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.988Z"
+    }
+  ]
+}

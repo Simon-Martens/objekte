@@ -1,0 +1,45 @@
+{
+  "annotation": "Sagen aus Ireland (Sammlung INr 43943, Obj 19) Dem Text vorangestellt: Quickly: / Ihrschwarzen, grauen, grünen, weißen Feiern, / Ihr Mondscheinschwärmer! Nächt'ge Phantaseien! [...] Shakespeare. §1§ die Illustration INr 43932, Obj 8 fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.120Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Mick Mac Gregor war der hübscheste, aber auch der wildeste Bursche von Laghan gewesen.",
+  "language": [],
+  "musenalm_id": 43946,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des jungen Sam's Abenteuer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des jungen Sam's Abenteuer",
+  "updated": "2006-06-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f6vk6k2sqf7u5l0",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.284Z"
+    }
+  ]
+}

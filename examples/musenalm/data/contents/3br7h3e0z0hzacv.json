@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Unsere Zeit (Sammlung INr 55186, Obj 196) Epigramme (Sammlung INr 55162, Obj 172)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "384",
+  "incipit_statement": "Im Dunkeln schleicht der Bösewicht, / Denn seine Werke scheu'n das Licht,",
+  "language": [],
+  "musenalm_id": 55195,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 205,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Publicität",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. R. H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Publicität",
+  "updated": "2008-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sqa1rtlz84jzt6a",
+      "agents": "0nqqxalglgwp4fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.797Z"
+    }
+  ]
+}

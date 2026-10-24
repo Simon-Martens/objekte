@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. und Titel aus dem G-Verz s. Textbezug INr 33380, Obj 23; /) Illustration zu »Wallenstein« von Fr. Schiller",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.969Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33412,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier Scenen aus Schillers Wallenstein. 4. Thekla's erste Zusammenkunft mit Friedland #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wächter",
+  "scans": [
+    "alm_463_33412_8r91apbk1b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vier Scenen aus Schillers Wallenstein. 4. Thekla's erste Zusammenkunft mit Friedland #",
+  "updated": "2003-04-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u88gti943sfua3l",
+      "agents": "jgp8dgth3q9useg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.438Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.438Z"
+    }
+  ]
+}

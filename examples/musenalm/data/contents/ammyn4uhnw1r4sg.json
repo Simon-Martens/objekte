@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.230Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15935,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glaube und Andacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. v. P. Veronese Gest. v. Ant. Karcher",
+  "scans": [
+    "alm_253_15935_yioz5sul0l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Glaube und Andacht",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "odwlv0tgq95bf1n",
+      "agents": "biwl8qdoqjku67m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.587Z"
+    },
+    {
+      "id": "7jpui4910fy2l27",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.587Z"
+    }
+  ]
+}

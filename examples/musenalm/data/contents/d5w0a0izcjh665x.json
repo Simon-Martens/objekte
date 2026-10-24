@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r. # lt. G-Verz s. VIII s. Textbezug INr 42147, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.818Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28383,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Nicolas Vogt)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Nicolas Vogt",
+  "scans": [
+    "alm_196_28383_fy7rxgejwr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0jm77ip0l746m7c",
+      "agents": "dmo5v8y61bh4lht",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.422Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.422Z"
+    }
+  ]
+}

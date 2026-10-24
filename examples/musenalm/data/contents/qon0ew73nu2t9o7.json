@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht von Treitschke INr 36095; Obj 3,005",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.033Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36094,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3.004,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ECCE HOMO",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Giorgione pt. F. John sct.",
+  "scans": [
+    "alm_226_36094_bgjoxkh3to.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ECCE HOMO",
+  "updated": "2001-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "181myadqxw8q35p",
+      "agents": "w4bsm84p12dwfus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.844Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.844Z"
+    },
+    {
+      "id": "vv66kp3mkhwp67n",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.845Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.845Z"
+    }
+  ]
+}

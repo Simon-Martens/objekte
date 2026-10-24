@@ -1,0 +1,45 @@
+{
+  "annotation": "Stimmen aus der Luft (Sammlung INr 24440, Obj 185 /) Variationen auf den Refrain des Hexengesanges im Macbeth (Sammlung INr 24432, Obj 10) /) Gedichte (Sammlung INr 24427, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.582Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Doppelt, doppelt; Stroh gestoppelt! / Vers gezählt, und Reim gekoppelt!",
+  "language": [],
+  "musenalm_id": 24445,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Doppelt, doppelt; Stroh gestoppelt! / Vers gezählt, und Reim gekoppelt!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. von Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3usoxuxoczy23y0",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.000Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.000Z"
+    }
+  ]
+}

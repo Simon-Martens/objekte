@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.489Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "181",
+  "incipit_statement": "O sage, mächt'ge Eisenbahn, / Was hast den Dichtern Du gethan? / Der starke Scherenberg, der fromme Kerner, / Sie schmähen Dich, sie seh'n Dich als Entferner / Der Poesie und der Romantik an.",
+  "language": [],
+  "musenalm_id": 46554,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Eisenbahn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elise von Hohenhausen geb. von Ochs",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Eisenbahn",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rgoygwwk80izioo",
+      "agents": "egwykz1ou8cu8sz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.405Z"
+    }
+  ]
+}

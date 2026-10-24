@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 110743,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Almanach / fürs / Theater / 1812. / von / Aug. Wilh. Iffland. / mit 3 Bildnißen / Berlin / bei Duncker und Humblot",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Jättnig sc.",
+  "scans": [
+    "alm_1344_110743_mbndu67n75.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Almanach / fürs / Theater / 1812. / von / Aug. Wilh. Iffland. / mit 3 Bildnißen / Berlin / bei Duncker und Humblot",
+  "updated": "2010-01-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8k9ltxgfnbog9bc",
+      "agents": "4tklyccarri11wd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.192Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.192Z"
+    }
+  ]
+}

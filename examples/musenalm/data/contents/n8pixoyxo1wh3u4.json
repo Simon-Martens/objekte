@@ -1,0 +1,45 @@
+{
+  "annotation": "IX. Gedichte (Sammlung INr 29266, Obj 52)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.585Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "187",
+  "incipit_statement": "Ich hatte mein freundliches Röschen im Arm, / Wir wollten den Tanzsaal durchkreisen;",
+  "language": [],
+  "musenalm_id": 29270,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Student und die Bauern. / (Ein Gegenstück zur Kirms)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. E. F. Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Student und die Bauern. / (Ein Gegenstück zur Kirms)",
+  "updated": "2002-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1n2bwookb1w3g1x",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.522Z"
+    }
+  ]
+}

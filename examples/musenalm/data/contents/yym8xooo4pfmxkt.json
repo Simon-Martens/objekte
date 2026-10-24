@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80030, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Mit Rosen war des Bechers Rand umgeben, / Mein Liebchen soll und ihre Treue leben!",
+  "language": [],
+  "musenalm_id": 80032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Beim Weine",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Halm",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Beim Weine",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rpwxlzs6fnngbxn",
+      "agents": "g5bo98tjkpy8a15",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.786Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.786Z"
+    }
+  ]
+}

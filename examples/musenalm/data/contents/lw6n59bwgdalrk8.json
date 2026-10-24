@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43398, Obj 27) mit einer Illustration s. Graphik 43391, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Wunderlich ist es auf der Welt dem armen Teufel ergangen. Gottfried ließ sein Vater ihn taufen und bildete sich ein, daß er ihm einen recht frommen Namen gegeben hätte;",
+  "language": [],
+  "musenalm_id": 43400,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der arme Teufel. / Ein geistlicher Schwank",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der arme Teufel. / Ein geistlicher Schwank",
+  "updated": "2006-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "juapn3948vagipi",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.225Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. Graphik im Kalendarium paginiert 3. s. Textbezug INr 43518, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.362Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43528,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht von Nassau",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Reinermann del. Haldenwang sc.",
+  "scans": [
+    "alm_574_43528_0m4xmw2p09.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht von Nassau",
+  "updated": "2006-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ncsrf6oizungjgk",
+      "agents": "fcqt2gq0p7946y6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.300Z"
+    },
+    {
+      "id": "kqm6ovkdd6tkcl2",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.300Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.300Z"
+    }
+  ]
+}

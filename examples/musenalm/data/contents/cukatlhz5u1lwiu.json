@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Sohn der Haide« von Köffinger INr 57902, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.875Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "228",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 57903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER SOHN DER HAIDE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. v. Barabás gez. Stahlstich v. Mahlknecht in wien",
+  "scans": [
+    "alm_770_57903_xurn86wy1k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER SOHN DER HAIDE",
+  "updated": "2008-06-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8z6o7s75xkd4n2x",
+      "agents": "jt9vrpcti67n6hx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.843Z"
+    },
+    {
+      "id": "3l2k1srxajrwici",
+      "agents": "z8rsr5de0jmn33o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.843Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.843Z"
+    }
+  ]
+}

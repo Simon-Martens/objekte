@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.226Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "241",
+  "incipit_statement": "Vorm Gasthof zum schwarzen Roß im Städtchen C..... hielt eine Postchaise. Ein stattlicher Mann von etwa fünfzig Jahren stieg aus,",
+  "language": [],
+  "musenalm_id": 83999,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fünfzig Jahr. / Eine Novelle (nach einem wirklichen Criminalfall.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "L. Rellstab",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Fünfzig Jahr. / Eine Novelle (nach einem wirklichen Criminalfall.)",
+  "updated": "2009-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qn9ln9cd0v4n97h",
+      "agents": "zi8zh5xhvi7k26j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.982Z"
+    }
+  ]
+}

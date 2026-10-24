@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 29929, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.869Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29930,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (D. Tennier pinx. W. Jury fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Tennier pinx. W. Jury fec.",
+  "scans": [
+    "alm_387_29930_7m5mbmm79g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bl0c6wtrwuvi0pl",
+      "agents": "cbhn52mhk8pern1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.316Z"
+    },
+    {
+      "id": "l4182yxvz02m34x",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.316Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.316Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Brücke von Mantible« von Calderon s. Textbezug INr 34652, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.983Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34651,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Calderon's Brücke von Mantible",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Stilke del. M. Esslinger sc.",
+  "scans": [
+    "alm_355_34651_sisgjbaxyh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus Calderon's Brücke von Mantible",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ntk8ej2vbcfgqst",
+      "agents": "4ht5ezov61cxhie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.822Z"
+    },
+    {
+      "id": "yg4kev94ci8115m",
+      "agents": "zfprrqdgr3ky9ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.822Z"
+    }
+  ]
+}

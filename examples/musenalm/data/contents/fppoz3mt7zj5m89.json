@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. # vollst. Bezeichnung und Titel aus dem G-Verz; Illustration zu »Die Wahlverwandschaften« von J. W. v. Goethe, Tübingen 1809; s. a. Textbezug INr 9212, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9205,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. Ottilie mit dem Säugling im schwankenden Kahne #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dähling #; H. Schmidt",
+  "scans": [
+    "alm_38_9205_0tbta5hq9j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "V. Ottilie mit dem Säugling im schwankenden Kahne #",
+  "updated": "2000-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zih9a62g8t4eh23",
+      "agents": "fu5wv6odvdsjkbe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.267Z"
+    },
+    {
+      "id": "qglbp94ehlyhzin",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.267Z"
+    }
+  ]
+}

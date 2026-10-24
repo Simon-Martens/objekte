@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Gedicht INr 60976, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60977,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schnorr del. J. G. Böttger fec. Dresdae)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr del. J. G. Böttger fec. Dresdae",
+  "scans": [
+    "alm_950_60977_q0tewff6te.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rtogm1wvzuw7cis",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.940Z"
+    },
+    {
+      "id": "5n9d1mgisbu1mln",
+      "agents": "iypyb8g8bxed1eq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.940Z"
+    }
+  ]
+}

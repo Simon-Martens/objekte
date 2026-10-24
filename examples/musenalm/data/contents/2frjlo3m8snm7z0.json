@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 162 # Bezeichnung am 1. Blatt der Suite /) s. Textbezug INr 16759, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.282Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9094,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marats Ex Apotheose. / (8. Februar.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_194_9094_khxfl8vqvg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Marats Ex Apotheose. / (8. Februar.)",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l9hloz02dfg2cl5",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.327Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.327Z"
+    }
+  ]
+}

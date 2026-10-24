@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung zweier Strophen aus dem Gedicht »Die Elbfahrt« von Voß INr 5171, Obj 104 [ v. Döhren sc.]",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.467Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5172,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rundgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Weiß",
+  "scans": [
+    "alm_104_5172_pbxvs3hgfe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rundgesang",
+  "updated": "2000-10-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nkd454h96zx5hst",
+      "agents": "x1lckegivk1oedd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.103Z"
+    }
+  ]
+}

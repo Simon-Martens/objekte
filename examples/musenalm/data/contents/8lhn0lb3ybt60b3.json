@@ -1,0 +1,56 @@
+{
+  "annotation": "# Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.780Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22379,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Magdalena #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Correggio pinx. Schwerdgeburth sculp.",
+  "scans": [
+    "alm_300_22379_p7ctucd9m5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Magdalena #",
+  "updated": "2002-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kgcvhj2yz2sw8u8",
+      "agents": "irhvezh3jd0m3va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.910Z"
+    },
+    {
+      "id": "3ktd8re3whtv7f8",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.910Z"
+    }
+  ]
+}

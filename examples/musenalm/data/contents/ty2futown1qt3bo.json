@@ -1,0 +1,45 @@
+{
+  "annotation": "Allemannische Lieder (Sammlung INr 63159, Obj 35)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.844Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Stand uf, stand uf, minHirtebueb, / Stand uf, es isch schon Zit!",
+  "language": [],
+  "musenalm_id": 63164,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Hirtin Morgenlied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hofmann v. Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Hirtin Morgenlied",
+  "updated": "2009-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h7v9vyapygzml77",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.258Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Weithin dehnte sich die Wüste - / Unabsehbar heißer Sand, / Drüber wolkenlos der Himmel, / Roth und glühend ausgesppannt.",
+  "language": [],
+  "musenalm_id": 95413,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bilder der Wüste",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Marsano",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bilder der Wüste",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "knu2pz76hvsbamz",
+      "agents": "rpi79icfm69ol8h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.423Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.423Z"
+    }
+  ]
+}

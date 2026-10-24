@@ -1,0 +1,46 @@
+{
+  "annotation": "mit Versen des Claudian",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.229Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Du bist ein Artist, Florimund, und dein guter Genius führte dich nach Italien, wo du die Schatten der großen Künstler des Alterthums, ihren Reliqiuen gegenüber",
+  "language": [],
+  "musenalm_id": 71362,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kleanth an Florimund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kleanth an Florimund",
+  "updated": "2010-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6sfvy3pinxo9tgd",
+      "agents": "a1tvqjbk8115iq7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.587Z"
+    }
+  ]
+}

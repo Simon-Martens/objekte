@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.231Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "Der Damm zerreißt, das Feld erbraust, / die Fluten spülen, die Fläche saust.",
+  "language": [],
+  "musenalm_id": 15813,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johanna Sebus / Zum Andenken / der / Siebzehnjährigen Schönen Guten aus dem Dorfe Brienen / die / am 13. Januar 1809 / bey dem großen Eisgange des Rheins / und dem dem großen Bruche des Dammes von / Cleverham / Hülfe reichend unterging",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Johanna Sebus / Zum Andenken / der / Siebzehnjährigen Schönen Guten aus dem Dorfe Brienen / die / am 13. Januar 1809 / bey dem großen Eisgange des Rheins / und dem dem großen Bruche des Dammes von / Cleverham / Hülfe reichend unterging",
+  "updated": "2001-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bj764afyf0bo8kj",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.402Z"
+    }
+  ]
+}

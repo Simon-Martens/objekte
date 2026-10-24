@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Beiträgen INr 117536-117538, Obj 61-63",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.392Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117535,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein dreiblättriger Klee",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippine Hemerlein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein dreiblättriger Klee",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1861,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yrq4e0lyp03uva6",
+      "agents": "uhkusxxiyptfiir",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.315Z"
+    }
+  ]
+}

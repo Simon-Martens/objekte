@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Maire von Quille-Reine« aus »Kettenglieder« von C. Spindler; s. Textbezug INr 103205, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 103204,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER MAIRE VON QUILLE REINE. / Spindler's Kettenglieder, Bd. III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. Führich del. Leop. Beyer sc.",
+  "scans": [
+    "alm_3413_103204_ok1tw20e0l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DER MAIRE VON QUILLE REINE. / Spindler's Kettenglieder, Bd. III.",
+  "updated": "2010-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2frd028lkx335yp",
+      "agents": "m8y5g9ap5pw6fd8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.011Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.011Z"
+    },
+    {
+      "id": "962lv647ir7adx6",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.011Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.011Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "Dieß ist der Ritter Quixot! Wer ist, der an / Tugend ihm gleiche?",
+  "language": [],
+  "musenalm_id": 2352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 135,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unter / Don Quixotes Bildniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göckingh",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unter / Don Quixotes Bildniß",
+  "updated": "2000-08-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "368mg95tadwsf7q",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.094Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.094Z"
+    }
+  ]
+}

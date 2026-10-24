@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 33228, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.187Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33240,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (gez. von S. Henry geb. Chodowiecka. gestochen von E. Henne)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. von S. Henry geb. Chodowiecka. gestochen von E. Henne",
+  "scans": [
+    "alm_462_33240_kwc3p4myke.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4kl5cgiljt6sxvi",
+      "agents": "0pkz0bij2veoozn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.624Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.624Z"
+    },
+    {
+      "id": "umlrsz5obaq5luc",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.625Z"
+    }
+  ]
+}

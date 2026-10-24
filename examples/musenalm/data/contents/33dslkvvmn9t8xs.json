@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.312Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Nicht Freundschaft, die Mänaden-Taumel- / schürzt, / Die mit dem Traum im Morgenhauch ver- / schwindet,",
+  "language": [],
+  "musenalm_id": 18017,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Karl Reinhard. Halberstadt, am 13. Mai, 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Kleist",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Karl Reinhard. Halberstadt, am 13. Mai, 1790",
+  "updated": "2001-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ewf9q8yp181azdo",
+      "agents": "jmf1cq3z5z89c29",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.859Z"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Wilm's erstes Lied. Traum der trauernden Mutter« von Fr. Kind INr 19413, Obj 29 /) Anhang zu Beckers Taschenbuch 1815 enthaltend: Composition und Tänze, von Dotzauer, Marschner, und Methfessel (Sammlung INr 61731, Obj 83) /) (Photos 61735,01-61735,03)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.214Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61735,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilms erstes Lied. / (Traum der trauernden Mutter.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Methfessel",
+  "scans": [
+    "alm_263_61735_01_a8ne5k95ls.jpg",
+    "alm_263_61735_02_udic2qtufa.jpg",
+    "alm_263_61735_03_m30pn4ikum.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wilms erstes Lied. / (Traum der trauernden Mutter.)",
+  "updated": "2001-11-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z7h258074sh3xss",
+      "agents": "b0s74m54xi13z2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.985Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.848Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "Unsern Liebling auch drückt nun die Last mühseligen Al- / ters, / Die wir so lang ihm gefernt, klagte der Grazien / Chor;",
+  "language": [],
+  "musenalm_id": 78417,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wielands Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Meinert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wielands Tod",
+  "updated": "2011-11-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yao3s4coiqqtkuc",
+      "agents": "6g8r11hxaocz3tf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.766Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.766Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 8. /) Illustration zu »Karls des Großen Geburt und Jugendjahre« von Fouqué s. Textbezug INr 26593, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.703Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26594,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Karls des Großen Geburt und Jugendjahre / von de la Motte Fouqué",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff del. Fr. Geissler sc.",
+  "scans": [
+    "alm_348_26594_ydw3tlveg5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Karls des Großen Geburt und Jugendjahre / von de la Motte Fouqué",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mc5l833jybewjva",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.303Z"
+    },
+    {
+      "id": "fdq49ueqqn1obkp",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.303Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März. Illustration zu »Geschichte der Königin Elisabeth von England« INr 75600, Obj 25; s.a. Textbezug INr 75595, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75582,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Königin umarmt Th. Gresham, einen / patriotischen Kaufmann vor allem Volk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. J. Penzel fec.",
+  "scans": [
+    "alm_2141_75582_n1pw5wjaz9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Königin umarmt Th. Gresham, einen / patriotischen Kaufmann vor allem Volk",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bvu9h3sc6zkkevm",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.737Z"
+    },
+    {
+      "id": "pbrw2weuldhwztc",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.737Z"
+    }
+  ]
+}

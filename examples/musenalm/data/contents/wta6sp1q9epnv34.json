@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1. /) Illustration zu »Stolz und Liebe« von A. Lafontaine",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 10652,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Stolz und Liebe von Lafontaine / Wie glücklich bin ich riefen beyde. / S. 30",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. Cl. Kohl sc.",
+  "scans": [
+    "alm_203_10652_8obnrz7jtx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus Stolz und Liebe von Lafontaine / Wie glücklich bin ich riefen beyde. / S. 30",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rqauqopszkv82o1",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.283Z"
+    },
+    {
+      "id": "tfxt098dvgdx80z",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.283Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.283Z"
+    }
+  ]
+}

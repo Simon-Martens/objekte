@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3. /) Illustration zu »Die Hundsgrotte bei Puzzuolo« von A. Lafontaine in: Taschenbuch zum geselligen Vergnügen 1801 INr 11585",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11890,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus der Hundsgrotte bei Puzzuolo v. A. Lafontaine / Ebendaselbst. S. 83",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. G. Kininger del. Cl. Kohl sc.",
+  "scans": [
+    "alm_209_11890_k2ma4tstgr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus der Hundsgrotte bei Puzzuolo v. A. Lafontaine / Ebendaselbst. S. 83",
+  "updated": "2001-03-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7f9g6hox30xiceo",
+      "agents": "60p50kezhrh7h42",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.486Z"
+    },
+    {
+      "id": "4xwffgka3yecq4u",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.486Z"
+    }
+  ]
+}

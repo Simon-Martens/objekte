@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Dort fliegt der Storch und setzt sich auf das Dach; / Sieht aus als denk' er seinen Reisen nach.",
+  "language": [],
+  "musenalm_id": 52993,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gespräch im Lenze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ulrich Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gespräch im Lenze",
+  "updated": "2007-11-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4z04ij019mlu7y8",
+      "agents": "5xr1i06rwmguu38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.841Z"
+    }
+  ]
+}

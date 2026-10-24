@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.789Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Ein schöner, junger Rittersmann / Schleicht mir den ganzen Tag,",
+  "language": [],
+  "musenalm_id": 2203,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8oc7x7c5fgbpr2c",
+      "agents": "majfhkazcb1ylfy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.811Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.811Z"
+    }
+  ]
+}

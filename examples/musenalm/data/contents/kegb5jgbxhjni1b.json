@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Gedicht INr 109842, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.175Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 109841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der erste Blick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Pagis pin. C. Kotterba sc.",
+  "scans": [
+    "alm_1795_109841_0oa7fkr35k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der erste Blick",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9qq39voxz0ronvw",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.360Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.360Z"
+    }
+  ]
+}

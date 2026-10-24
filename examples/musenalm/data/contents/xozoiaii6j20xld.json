@@ -1,0 +1,46 @@
+{
+  "annotation": "Dem Text vorangestellt: Wähn', auf Gottes schöner Erde, / Dich, o Mensch, doch nie allein: [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Am 23. November, also am Tage des heiligen Clemens, vorigen Jahres war es, wenn ich nicht irre, daß ich, bey einem meiner Freunde, zum Fenster hinaussah",
+  "language": [],
+  "musenalm_id": 89398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hätt' ich das gewußt. / Aus dem Leben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hätt' ich das gewußt. / Aus dem Leben",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jztnx1u3wficqsb",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.960Z"
+    }
+  ]
+}

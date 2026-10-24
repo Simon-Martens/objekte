@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Buche der Weisheit des Mirza-Schaffy (Sammlung INr 45360, Obj 69)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.624Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Es sucht der Weise / Daß er das Rechte finde: / Jung wird er nicht zum Greise, / Alt wird er nicht zum Kinde!",
+  "language": [],
+  "musenalm_id": 45366,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es sucht der Weise / Daß er das Rechte finde: / Jung wird er nicht zum Greise, / Alt wird er nicht zum Kinde!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Bodenstedt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jegjw5ovcolv424",
+      "agents": "3bb8mhymqsjn5dk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.227Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.227Z"
+    }
+  ]
+}

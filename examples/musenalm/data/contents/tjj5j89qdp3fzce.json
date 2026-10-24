@@ -1,0 +1,47 @@
+{
+  "annotation": "Gedicht zum Januar",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.751Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Wem, auf des Berges Felsenstern, / Von Stürmen rund umheult,",
+  "language": [],
+  "musenalm_id": 103281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Januar]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Ernst Ludwig Posselt",
+  "scans": [
+    "alm_4186_103281_guzpgcxgfe.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "[Januar]",
+  "updated": "2015-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zlvk0vuir840e96",
+      "agents": "b68wiq4xeilaqf3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.921Z"
+    }
+  ]
+}

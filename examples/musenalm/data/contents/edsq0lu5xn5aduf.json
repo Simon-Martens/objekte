@@ -1,0 +1,56 @@
+{
+  "annotation": "MONTEMAYOR (s. Zwischentitel INr 71317, Obj 104)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Unter auserlesnen Schatten / Eines grünen Bordes hin, / Wo ein sorgenfreyer Sinn, / Wie es Zeit und Ort gestatten, / Fände mamcher Lust Gewinn.",
+  "language": [],
+  "musenalm_id": 71318,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 105,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AUS DER DIANA. / ABSCHIED SIRENO'S UND DIANENS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Montemayor; [übers.] A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "AUS DER DIANA. / ABSCHIED SIRENO'S UND DIANENS",
+  "updated": "2010-09-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l7b6q8clsgzoapi",
+      "agents": "6gm74tq7w8r8big",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.616Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.616Z"
+    },
+    {
+      "id": "vucb6t6bhjcy54j",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.617Z"
+    }
+  ]
+}

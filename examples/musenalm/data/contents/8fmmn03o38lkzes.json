@@ -1,0 +1,45 @@
+{
+  "annotation": "# Titel s. Textbezug INr 63403, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64008,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Retter #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. W. Baumann sct.",
+  "scans": [
+    "alm_1055_64008_tbmp0c2uck.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Retter #",
+  "updated": "2009-05-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qmc0d77jyrxj3y4",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.174Z"
+    }
+  ]
+}

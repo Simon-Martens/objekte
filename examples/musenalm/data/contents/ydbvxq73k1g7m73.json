@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: M. s. Barrow's Reisen ins innere Afrika",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "Wer bist du, Fremdling? So befragte / Ein Doktor jüngst ein seltnes Thier",
+  "language": [],
+  "musenalm_id": 36,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DAS EINHORN #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "PFEFFEL",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DAS EINHORN #",
+  "updated": "2001-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kh4jagf7svxxikl",
+      "agents": "w9gq57fj1dkxv1n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.892Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.892Z"
+    }
+  ]
+}

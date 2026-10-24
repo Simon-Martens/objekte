@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Das achtzehnte Jahrhundert begriff den Werth der Zeitblätter gar nicht, die beperrückten Herren jener Zeit hätten es wahrscheinlich nicht gedacht, daß die Höchsten im Staate, geachtete, berühmte Schriftsteller des kommenden Jahrhunderts",
+  "language": [],
+  "musenalm_id": 70677,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zeitungen und Zeitschriften und deren Herausgeber im neunzehnten Jahrhundert",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zeitungen und Zeitschriften und deren Herausgeber im neunzehnten Jahrhundert",
+  "updated": "2010-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bijmu670cc6tmmf",
+      "agents": "p9xocrmcb2o8pu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.700Z"
+    }
+  ]
+}

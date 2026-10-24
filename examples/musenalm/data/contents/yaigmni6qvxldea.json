@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Reiselied für Kinder« von Elisa, d. i. Charlotte Elisabeth von der Recke. INr 12161, Obj 112",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.349Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "272",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12163,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reiselied für Kinder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Himmel",
+  "scans": [
+    "alm_211_12163_8rjkgwbnor.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Reiselied für Kinder",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h9pasyfvov08i8q",
+      "agents": "4aev8zh8ffifhaz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.606Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.606Z"
+    }
+  ]
+}

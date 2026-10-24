@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.201Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Es war gegen das Ende des siebenjährigen Krieges, als an einem stürmischen Winterabende",
+  "language": [],
+  "musenalm_id": 29903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Versprechen. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Borromäus von Miltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Versprechen. / Erzählung",
+  "updated": "2002-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nc9yh1rs7ducm2c",
+      "agents": "e36ydmk4x9m4umt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.475Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.475Z"
+    }
+  ]
+}

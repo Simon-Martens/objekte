@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Rächer« von dem Verfasser von »Wahl und Führung« INr 62852, Obj 34",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.637Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62828,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rächer. / Von dem Verfasser von Wahl und Führung / St. 103 u. 104",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Heideloff del. Fleischmann sc.",
+  "scans": [
+    "alm_1030_62828_51h7fy4boh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Rächer. / Von dem Verfasser von Wahl und Führung / St. 103 u. 104",
+  "updated": "2009-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0yrl9itk10imdko",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.162Z"
+    },
+    {
+      "id": "snyc011dlj5ok5o",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.162Z"
+    }
+  ]
+}

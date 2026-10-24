@@ -1,0 +1,45 @@
+{
+  "annotation": "Neue Charaden (Sammlung INr 61848, Obj 80)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "298",
+  "incipit_statement": "Ein Wort von zwei Silben: Die erste bezeichnet einen wichtigen Theil der Festungswerke; die zweite etwas unentbehrliches bei jedem Wagen, oder Karren.",
+  "language": [],
+  "musenalm_id": 61849,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Aschenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2009-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8cjly45ud7fised",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.108Z"
+    }
+  ]
+}

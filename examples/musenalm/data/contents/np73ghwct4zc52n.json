@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.372Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Meinen wärmsten Dank, verehrungswürdige Leserinnen, für ihre gütige Aufmerksamkeit: Sie hat mich und die Meinen ermuntert, uns deren auch durch eine dritte Fortsetzung würdig zu machen,",
+  "language": [],
+  "musenalm_id": 46757,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meinen wärmsten Dank, verehrungswürdige Leserinnen, für ihre gütige Aufmerksamkeit: Sie hat mich und die Meinen ermuntert, uns deren auch durch eine dritte Fortsetzung würdig zu machen,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-10-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ajgh0l04ctrzo3s",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.497Z"
+    }
+  ]
+}

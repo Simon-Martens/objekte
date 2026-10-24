@@ -1,0 +1,45 @@
+{
+  "annotation": "Capitalia, die verliehen werden sollen (Sammlung INr 37217, Obj 44) Intelligenz-Blatt. Nro. I (Sammlung INr 37316, Obj 43)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.967Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Kujacius Wurm D. jur. will sein böses Gewissen einem jungen Praktiko gegen landesübliche Interessen auf Darlehn geben;",
+  "language": [],
+  "musenalm_id": 37319,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kujacius Wurm D. jur. will sein böses Gewissen einem jungen Praktiko gegen landesübliche Interessen auf Darlehn geben;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2004-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "71pcoccpvrwcr8g",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.146Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.146Z"
+    }
+  ]
+}

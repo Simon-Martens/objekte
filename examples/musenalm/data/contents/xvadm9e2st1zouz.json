@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Erscheinung« von A. G. Eberhard INr 11677, Obj 113",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "306",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11678,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Erscheinung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Naumann",
+  "scans": [
+    "alm_205_11678_rktu7o40sm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Erscheinung",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "swvydtgwrmptzo6",
+      "agents": "ubitdekwc4vpg28",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.349Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.349Z"
+    }
+  ]
+}

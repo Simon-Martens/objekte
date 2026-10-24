@@ -1,0 +1,45 @@
+{
+  "annotation": "VIII. Oesterreich (",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Ihr trinkt den Grimm, der so tief in euch gährt, / Aus der Zeit vergiftetem Born,",
+  "language": [],
+  "musenalm_id": 99462,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Rothen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Adam Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Rothen",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xo72yks70nel93a",
+      "agents": "roqd4m2swedwv3j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.787Z"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "s. Beitrag INr 112735, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.478Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112734,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE GESCHWISTER AM GRABE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. C. Geissler gez. nach Parris. Stahlstich durch Carl Mayer's Kunst-Anstalt in Nürnberg",
+  "scans": [
+    "alm_2481_112734_hwl6pu82iw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE GESCHWISTER AM GRABE",
+  "updated": "2010-02-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "twmrc3y7t62novx",
+      "agents": "9gep2y6vxxwiktu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.263Z"
+    },
+    {
+      "id": "2n5ehyqfgjwctdi",
+      "agents": "1v07c6j6mxrdvwn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.263Z"
+    },
+    {
+      "id": "6ltbz83hp2gqhny",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.263Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.263Z"
+    }
+  ]
+}

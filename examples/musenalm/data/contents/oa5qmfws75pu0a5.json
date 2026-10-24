@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik (Portrait) im Kalendarium Januar /) s. Textbezug INr 96202, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96186,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Giesbert Wilhelm v. Romberg, / Kön. Pr. General Lieut. v. d. Inf.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas",
+  "scans": [
+    "alm_2183_96186_45oqa1a089.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Giesbert Wilhelm v. Romberg, / Kön. Pr. General Lieut. v. d. Inf.",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ef78fyn2mne79rn",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.874Z"
+    }
+  ]
+}

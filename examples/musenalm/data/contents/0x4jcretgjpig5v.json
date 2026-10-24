@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung vom 1. Blatt der Suite /) Leben Gözens von Berlichingen Teil 2 (Sammlung INr 21728, Obj 10), Graphik im Kalendarium paginiert 11.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.629Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21738,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Muse Stunden des Greises",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner",
+  "scans": [
+    "alm_293_21738_k1x5899tsq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Muse Stunden des Greises",
+  "updated": "2002-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ncj32r6ia3elw10",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.006Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.006Z"
+    }
+  ]
+}

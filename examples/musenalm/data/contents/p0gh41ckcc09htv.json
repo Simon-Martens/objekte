@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 26123, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47991,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4.04,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GREIFENSTEIN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Schwemminger pinxt.J. Axmann sc. Viennae",
+  "scans": [
+    "alm_344_47991_plsqmz8tww.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GREIFENSTEIN",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zxejftk0g0y1qwq",
+      "agents": "eb0uid8s7k1f7eo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.421Z"
+    }
+  ]
+}

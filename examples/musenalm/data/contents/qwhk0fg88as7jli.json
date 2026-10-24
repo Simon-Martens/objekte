@@ -1,0 +1,45 @@
+{
+  "annotation": "Ungarische Sagen ( Sammlung INr 116062, Obj 66)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "302",
+  "incipit_statement": "Auf der von Eisenstadt nach Oedenburg führenden Straße, kaum einige hundert Schritte von der Stadt entfernt, befindet sich eine massive steinerne Martersäule,",
+  "language": [],
+  "musenalm_id": 116065,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Das Rathkreuz oder Rothekreuz bei / Eisenstadt",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Das Rathkreuz oder Rothekreuz bei / Eisenstadt",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k97r206e9vf4cu8",
+      "agents": "wzmgymh9fjau9gk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.415Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.415Z"
+    }
+  ]
+}

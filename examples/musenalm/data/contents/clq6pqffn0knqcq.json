@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Ihr lärmt und rauscht und ahnet nicht, / Was mich die Arme quält, […] Goethe",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.166Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Der milde Schein der Frühlingssonne des Jahres 1709 hatte, selbst in dem so nördlich gelegenen Schweden, zu Anfang des Maimondes schon Tausende von Blätter- und Blüthenknospen geöffnet,",
+  "language": [],
+  "musenalm_id": 77279,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Margarethe Rosen / Eine Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. v. Wachsmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Margarethe Rosen / Eine Erzählung",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a0616rrfnevr3sv",
+      "agents": "6kzqe6d8kkkucin",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.718Z"
+    }
+  ]
+}

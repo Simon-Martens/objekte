@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24836, Obj 117)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Zum König der Vandalen sprach Feldherr Belisar. / Du kannst uns nicht entrinnen mit deiner kleinen Schaar;",
+  "language": [],
+  "musenalm_id": 24841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die silberne Kette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Simrock",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die silberne Kette",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ccqh14noc7dakc0",
+      "agents": "dgebk50hujqbvc5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.897Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.897Z"
+    }
+  ]
+}

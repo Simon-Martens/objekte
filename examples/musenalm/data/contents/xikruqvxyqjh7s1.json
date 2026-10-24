@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 18949, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.072Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 2014,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "EIN SPANISCHER HIRT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Velasquez pinx. Knolle sc.",
+  "scans": [
+    "alm_63_2014_bwi1zq69ni.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "EIN SPANISCHER HIRT",
+  "updated": "2000-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "srd16fhsam9ujyg",
+      "agents": "wfn3txh2geqopji",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.698Z"
+    },
+    {
+      "id": "a0v5qh5ka9b585c",
+      "agents": "t5cr5186y55pnr9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.698Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "4a # Bez. vom Titel /) paginiert IV. Illustration zu »Die güldene Halskette. Seitengemälde zur Rückkehr zur Spindel. Nach vorgezeichneten Kupfern. Jutta von Rosenheim« INr 50165, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.308Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61108,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J. M. Usteri. H. Lips)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. M. Usteri. H. Lips",
+  "scans": [
+    "alm_3_61108_6a3q428vfm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2007-06-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d1c2u3wxvnkiith",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.767Z"
+    },
+    {
+      "id": "uwjjbztohe2opqz",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.767Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.767Z"
+    }
+  ]
+}

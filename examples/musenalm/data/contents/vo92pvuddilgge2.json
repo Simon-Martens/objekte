@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 67745, Obj 15. /) Zuweisung s. T/B XXIV, 311: Verz. d. Gemälde Nr. 62",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.858Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67744,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AMOR DER BOGENSCHNITZER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Parmegianino",
+  "scans": [
+    "alm_237_67744_f5obhxg4th.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AMOR DER BOGENSCHNITZER",
+  "updated": "2001-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ryqirgyz73w0co2",
+      "agents": "9jpuprs0mmmdbwt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.259Z"
+    },
+    {
+      "id": "qvizlzfl48poq3o",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.259Z"
+    }
+  ]
+}

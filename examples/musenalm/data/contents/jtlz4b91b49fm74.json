@@ -1,0 +1,45 @@
+{
+  "annotation": "Politische Allerlei (Sammlung INr 34364,Obj 87)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "166",
+  "incipit_statement": "Die Geschichte belehrt fast Niemand als die Gelehrten die sie lehren,",
+  "language": [],
+  "musenalm_id": 34372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. / Geschichte als Lehrerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. / Geschichte als Lehrerin",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "db4o6jdyz3y44po",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.530Z"
+    }
+  ]
+}

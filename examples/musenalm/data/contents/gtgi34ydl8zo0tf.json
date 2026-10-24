@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.837Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "199",
+  "incipit_statement": "Um Heu zu kaufen fragte heute / Der Herr von Bley am Markt die Leute:",
+  "language": [],
+  "musenalm_id": 84159,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 155,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Heukauf. / (Nach Brebeuf.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Göckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Heukauf. / (Nach Brebeuf.)",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jocm9lzjmupblkq",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.957Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.957Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Sie kniete so weiß im dunkeln Chor / Gebeugt von Herzensnöthen; / Sie neigte sich zu des Priesters Ohr / Und sprach mit holdem Erröthen:",
+  "language": [],
+  "musenalm_id": 100477,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 141,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Don Sancho",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Pfau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Don Sancho",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8u7aey8yemyizx0",
+      "agents": "faiv8kpnorpjyle",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.764Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.764Z"
+    }
+  ]
+}

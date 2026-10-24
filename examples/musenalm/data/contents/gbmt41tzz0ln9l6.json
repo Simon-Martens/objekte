@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 3 Beiträgen INr 59180-59182, Obj 20-22 /) Dem Text vorabgestellt: Le Donne son' venute in eccellenza Di ciascun' arte ove hanno posto cura. Ariosto",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.955Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59179,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus dem Leben italienischer Künstlerinnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alfred v. Reumont",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus dem Leben italienischer Künstlerinnen",
+  "updated": "2008-08-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ipah9ec20fprajp",
+      "agents": "q99l6w88p9m3j5v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.908Z"
+    }
+  ]
+}

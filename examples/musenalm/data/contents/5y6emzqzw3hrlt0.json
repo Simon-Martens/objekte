@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.070Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "242",
+  "incipit_statement": "Ihr kläfft, weiß nicht warum, mich an: / Ich neckt' euch nie in meinem Leben.",
+  "language": [],
+  "musenalm_id": 3899,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rime et raison. / An die Kläffer",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Menschenschreck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rime et raison. / An die Kläffer",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4gfraxhqq6s8mbx",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.036Z"
+    }
+  ]
+}

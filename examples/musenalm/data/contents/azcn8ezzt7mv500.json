@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der böse Rath« von J. R. Wysz d.J. INr 54266, Obj 88 /) unter der Graphik: Alpenr. 1827",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.439Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "286",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54267,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum bösen Rath, / am Thunersee",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Lory Pere del. Friedrich Geissler sculp. 1826",
+  "scans": [
+    "alm_739_54267_lco6oajqx1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zum bösen Rath, / am Thunersee",
+  "updated": "2008-01-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mnplozxk7p5ll5u",
+      "agents": "apfgolbsarcaim2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.779Z"
+    },
+    {
+      "id": "opadp7wqadepx95",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.779Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.779Z"
+    }
+  ]
+}

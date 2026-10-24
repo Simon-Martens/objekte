@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem analogen Gemählde. Der Vater ist wieder da, oder: Ehrlich währt am längsten (Sammlung INr 131411, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Im einfachen Wagen erschien unser Franz, / Verschmähend das stolze Gepränge,",
+  "language": [],
+  "musenalm_id": 131413,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Arie. Sturm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bäuerle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Arie. Sturm",
+  "updated": "2016-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oeks0yu8r5wm0z8",
+      "agents": "1lkxjega66pfmft",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.034Z"
+    }
+  ]
+}

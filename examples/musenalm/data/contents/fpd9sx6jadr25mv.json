@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 69543, Obj 81)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Ich stand in einer Eiche dunklem Schatten, / In süßer Lust sah ich die Blätter beben,",
+  "language": [],
+  "musenalm_id": 69545,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 83,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Künstler an das Publikum. / Sonett",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. Frank",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Künstler an das Publikum. / Sonett",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cnr7d6r2trsyxq2",
+      "agents": "km9osfzve59w4c0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.260Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.260Z"
+    }
+  ]
+}

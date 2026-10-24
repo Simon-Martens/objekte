@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 77842, Obj 3",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "293",
+  "incipit_statement": "Ich zeichnete zu Rom im Garten von San Giovanni und Paolo, da wo die bekannte hohe Palme (Phönix dactylifera) mit ihrem im Sturme so eigen rauschenden Blättern bis zu den Giebeln des genannten Klosters aufsteigt.",
+  "language": [],
+  "musenalm_id": 77855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nenella",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton, Ritter von Perger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nenella",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s299uekyg889364",
+      "agents": "k1vb2ltzit1pkxn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.771Z"
+    }
+  ]
+}

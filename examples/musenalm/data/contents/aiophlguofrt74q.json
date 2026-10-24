@@ -1,0 +1,47 @@
+{
+  "annotation": "# JB lt. Vorwort des Herausgebers: Herr Becker von Darmstadt /) Neustich der Illustrationen zu Tiecks: Minnelieder aus dem schwäbischen Zeitalter. Neu bearbeitet und herausgegeben mit Kupfern, Berlin, Realschulbuchhandlung, 1803",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.510Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (J.B.  Nach P. O. Runge)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.B. # Nach P. O. Runge",
+  "scans": [
+    "alm_4018_91087_vt7h8yayfg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ppx5fs45m5p7ubx",
+      "agents": "ulpxxa93c10hsa7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.294Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.294Z"
+    }
+  ]
+}

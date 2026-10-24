@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen, Balladen, Erzählungen (Sammlung INr 55641, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.830Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Ach Söhnchen, liebes Söhnchen, / Was suchst du nur immer allein?",
+  "language": [],
+  "musenalm_id": 55654,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. / Der blaue Mondschein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. / Der blaue Mondschein",
+  "updated": "2008-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "207cwh5v02eyhg8",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.723Z"
+    }
+  ]
+}

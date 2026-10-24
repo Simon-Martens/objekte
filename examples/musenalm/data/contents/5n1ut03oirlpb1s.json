@@ -1,0 +1,47 @@
+{
+  "annotation": "1. Vertonung des Gedichts »Die Spinnerin« von J. H. Voß INr 6392, Obj 56",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.656Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Spinnerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. F. G. Schwenke",
+  "scans": [
+    "alm_124_6393_0sk8wrohng.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Spinnerin",
+  "updated": "2000-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "msxtejbjljre5cr",
+      "agents": "ril08zfv8fsz27l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.125Z"
+    }
+  ]
+}

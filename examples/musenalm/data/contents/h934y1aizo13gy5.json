@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung s. INr 86351, Obj 30, kommentierenden Einschüben und Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "130",
+  "incipit_statement": "Des Hauses, wo die Hind, im Lied' erwähnend, / Brenn' ich vor Durst, mich nach derselben sehnend,",
+  "language": [],
+  "musenalm_id": 86352,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Das Lob von Damaskus und seinem paradiesischen Thale]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hammer-Purgstall",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Das Lob von Damaskus und seinem paradiesischen Thale]",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lbiv5rjwfzhbzej",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.408Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.408Z"
+    }
+  ]
+}

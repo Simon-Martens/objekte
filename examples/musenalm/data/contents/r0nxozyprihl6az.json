@@ -1,0 +1,49 @@
+{
+  "annotation": "Photos 55604,01-55604,03",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.184Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Unter diesem Titel bieten wir dem Publikum ein Werk an, das vielleicht in der Anlage, wie in der Ausführung gleich eigenthümlich genannt werden kann.",
+  "language": [],
+  "musenalm_id": 55604,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Leser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Verfasser",
+  "scans": [
+    "alm_19_55604_01_dnfc99cdm5.jpg",
+    "alm_19_55604_02_thh0z144h4.jpg",
+    "alm_19_55604_03_9cj8ojrwtx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An die Leser",
+  "updated": "2008-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8oan914q3zyfeh7",
+      "agents": "f9dgwof9o4ukhch",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.918Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.918Z"
+    }
+  ]
+}

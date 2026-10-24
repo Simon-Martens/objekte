@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Paulowna« INr 62433, Obj 102",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.616Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62434,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Paulowna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz del. C. Felsing sc. Darmstadt",
+  "scans": [
+    "alm_1024_62434_fpu5pipuoi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Paulowna",
+  "updated": "2009-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fvi7y03l94v3cub",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.009Z"
+    },
+    {
+      "id": "9ak5cqh8md2xntl",
+      "agents": "kacgedziyeqhpsh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.009Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.009Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.086Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "373",
+  "incipit_statement": "An der Cyclopen Höhle gieng / Des Morgens Amor einst vorüber,",
+  "language": [],
+  "musenalm_id": 11506,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 187,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "121. / Die Trauringe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sonnleithner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "121. / Die Trauringe",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k7c77yinaqa1sra",
+      "agents": "v2707y6y5mu8c55",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.570Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.570Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "auszufaltende kolorierte Karte",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120089,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Karte (gezeichnet von C. L. Oesfeld gestochen von C. C. Glaßbach sen: zu Berlin)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gezeichnet von C. L. Oesfeld gestochen von C. C. Glaßbach sen: zu Berlin",
+  "scans": [
+    "alm_3957_120089_kwyeh4tlfo.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2013-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6beostvd7ti5s7g",
+      "agents": "lnn52xz2952audn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.706Z"
+    },
+    {
+      "id": "kd95rcrcdjf9zfh",
+      "agents": "6wpxf2bdypg3j23",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.706Z"
+    }
+  ]
+}

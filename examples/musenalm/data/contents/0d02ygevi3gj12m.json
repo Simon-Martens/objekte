@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung aus dem G-Verz /) Illustration zu »König Lear« von W. Shakespeare; s. Textbezug INr 19093, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9336,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "König Lear. / 1. Aufz. 1. Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz #; J. N. Adam sculp.",
+  "scans": [
+    "alm_46_9336_gvfgjq66xb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "König Lear. / 1. Aufz. 1. Scene",
+  "updated": "2000-08-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f4e05w4mjsp0z95",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.420Z"
+    },
+    {
+      "id": "rphkzuwnpe0oyvy",
+      "agents": "pwu0ag06fns429a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.420Z"
+    }
+  ]
+}

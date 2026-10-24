@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.929Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 5536,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musen Almanach / für 1782 / Herausgegeben / von / Voss und Goeking / Hamburg / bey Carl Ernst Bohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmaesler inv. del. et sc. a Berlin",
+  "scans": [
+    "alm_114_5536_x0g33g2rog.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Musen Almanach / für 1782 / Herausgegeben / von / Voss und Goeking / Hamburg / bey Carl Ernst Bohn",
+  "updated": "2000-10-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z2txdguaa0gp40j",
+      "agents": "n3n9pdzq4tdymdn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.189Z"
+    }
+  ]
+}

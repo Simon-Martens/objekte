@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.470Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92421,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mnemosyne / Taschenbuch / des / Andenkens. / Erstes Heft. / Berlin 1817. / zum besten der Armen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "B. Rode del. C. Büscher sc.",
+  "scans": [
+    "alm_2283_92421_5u7owyd2im.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mnemosyne / Taschenbuch / des / Andenkens. / Erstes Heft. / Berlin 1817. / zum besten der Armen",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yrfhusk2wka4t8k",
+      "agents": "rookj8hzrynkcws",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.202Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>&nbsp;Illustration zu <em>Rübezahl</em> INr 140791</div>",
+  "content_type": [],
+  "created": "2026-10-22T09:46:23.743Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140792,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rübezahl",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Steindr. v. C. W. Medau in Leitmeritz Langhans grav.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rübezahl",
+  "updated": "2026-10-22T10:38:26.248Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "o6a4jigfn3r0g1d",
+      "agents": "cgmvj1ypmw4qftg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-22T10:14:17.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-10-22T10:38:26.249Z"
+    }
+  ]
+}

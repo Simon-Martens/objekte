@@ -1,0 +1,45 @@
+{
+  "annotation": "17. Blumen vom Harze (Sammlung INr 11389, Obj 72) Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "243",
+  "incipit_statement": "Unter jenen Blumenkelchen / Wo von Sonnenglanz umlacht,",
+  "language": [],
+  "musenalm_id": 11392,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Eingange der Baumannshöhle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Eingange der Baumannshöhle",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yfaw0uu31cg6saz",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.517Z"
+    }
+  ]
+}

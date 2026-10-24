@@ -1,0 +1,47 @@
+{
+  "annotation": "kol. Illustration zu »Leopold der Heilige« INr 127954, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127953,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leopold und Agnes beten im Kloster Neuburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Elsasser del. J. Berka sc.",
+  "scans": [
+    "alm_4468_127953_y0a7w3hn7o.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Leopold und Agnes beten im Kloster Neuburg",
+  "updated": "2017-09-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g277ngkyuy5e1v1",
+      "agents": "awkkthw51bj1y7d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.969Z"
+    }
+  ]
+}

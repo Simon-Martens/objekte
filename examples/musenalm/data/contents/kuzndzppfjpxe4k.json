@@ -1,0 +1,45 @@
+{
+  "annotation": "Rabbinische Legenden (Sammlung INr 128594, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.325Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Als Seth den Zweig des Paradieses, den ihm der Wächter an der Pforte des heiligen Gartens zur letzten Labung seines kranken Vaters darboth, vor Adam gebracht",
+  "language": [],
+  "musenalm_id": 128596,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der Stab Moses",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Leon",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der Stab Moses",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tqeswsa1x1wgiw0",
+      "agents": "r0cj8qhqzdwnywn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.993Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.993Z"
+    }
+  ]
+}

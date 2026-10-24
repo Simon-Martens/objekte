@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Ich würde selbst glauben, daß es mir geträumt hätte - sagte der Wandrer, welcher über das Meer her von Englands grünen Hügeln wieder zurückgekehrt war.",
+  "language": [],
+  "musenalm_id": 96856,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die große Höhle bei Castleton in dem / hohen Peak von Derbishire",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Moritz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die große Höhle bei Castleton in dem / hohen Peak von Derbishire",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qrvqowdk8rt2jxs",
+      "agents": "qapn0q7880prdww",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.430Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.430Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Die Graphik auch in: Cornelia 1873, INr 64736",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.094Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60833,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Im Schilde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Gassen. P. Singer sc.",
+  "scans": [
+    "alm_946_60833_feaeumdig5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Im Schilde",
+  "updated": "2008-11-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "djdbugvl79jk0lp",
+      "agents": "froxop3q12d5p35",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.755Z"
+    },
+    {
+      "id": "79lxq1vsia1d3eq",
+      "agents": "5foajacecptnfzr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.755Z"
+    }
+  ]
+}

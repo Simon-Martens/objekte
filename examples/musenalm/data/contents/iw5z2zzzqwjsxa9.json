@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "103",
+  "incipit_statement": "Kennst Du der Furien schlimmsten, Freund? Ich / hoffe nein.",
+  "language": [],
+  "musenalm_id": 99889,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herrn Eberhard Lempp. / Auf eine übereilt angenommene Einladung zum Abendessen. / (April 1855.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Mörike",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herrn Eberhard Lempp. / Auf eine übereilt angenommene Einladung zum Abendessen. / (April 1855.)",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qyvyh5ygvi3wrpj",
+      "agents": "sazh274fui35fcn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.709Z"
+    }
+  ]
+}

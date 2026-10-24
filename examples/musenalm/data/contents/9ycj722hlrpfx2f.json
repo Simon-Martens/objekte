@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »An einen Freund« von Sophie Mereau INr 32236, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32237,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Freund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_439_32237_fkusahu5av.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "An einen Freund",
+  "updated": "2003-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rnlivys0pk7beao",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.028Z"
+    }
+  ]
+}

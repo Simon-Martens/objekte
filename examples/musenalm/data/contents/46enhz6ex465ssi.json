@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.552Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Sey mir, säuselnder Wald, sey mir, o Bach, / gegrüßt, / Der in plätscherndem Fall moosigte Räder dreht,",
+  "language": [],
+  "musenalm_id": 16070,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Papiermühle zu Wernde, bey Göt- / tingen, wo Hölty dichtete",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kölle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Papiermühle zu Wernde, bey Göt- / tingen, wo Hölty dichtete",
+  "updated": "2001-06-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ewnrreh312yh6n",
+      "agents": "c98kgeq0jg98qoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.778Z"
+    }
+  ]
+}

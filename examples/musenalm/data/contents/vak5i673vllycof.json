@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "268",
+  "incipit_statement": "Was mir, o Freund, mein kleines Gut be- / schert / Ob durch Getraid es seinen Herrn ernehrt,",
+  "language": [],
+  "musenalm_id": 8917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachahmung / Der 16ten Epistel im I. Buche des Horaz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Schmitt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachahmung / Der 16ten Epistel im I. Buche des Horaz",
+  "updated": "2001-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ng0dtkimwk6gb9z",
+      "agents": "57y4of9yk0759mz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.425Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.425Z"
+    }
+  ]
+}

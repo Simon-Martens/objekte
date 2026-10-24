@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.496Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Längst schon hört' ich es verhallen, / Philomelens süßes Lied, / Alle Blüthen sind gefallen, / Und der Sommer flieht.",
+  "language": [],
+  "musenalm_id": 110243,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haushaltung des Gefühls. / (Nach einer bekannten russischen Melodie.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Freih. v. Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Haushaltung des Gefühls. / (Nach einer bekannten russischen Melodie.)",
+  "updated": "2011-12-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5ceptp2lpl9zymw",
+      "agents": "e47w01a11l8gujn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.265Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.265Z"
+    }
+  ]
+}

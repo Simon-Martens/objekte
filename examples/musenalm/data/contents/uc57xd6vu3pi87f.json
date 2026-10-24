@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59424,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Marmor Palais in Potsdam",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Rösel. G. Cooke fect.",
+  "scans": [
+    "alm_896_59424_s85m7mpl9x.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Marmor Palais in Potsdam",
+  "updated": "2008-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hmy82mz10m3yvzj",
+      "agents": "fvvo7u8gqk8l3ze",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.871Z"
+    },
+    {
+      "id": "kg04ahn7tjp0foo",
+      "agents": "a7m5750fz1o3qqp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.871Z"
+    }
+  ]
+}

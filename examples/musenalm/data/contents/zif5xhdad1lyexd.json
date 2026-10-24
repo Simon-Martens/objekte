@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Illustrationen s. Graphiken im I-Verz INr 13511, 135313; Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Du brauchst ziemlich lange, sagte Frau von Helwig zu ihrem Neffen, der beschäftigt war, ein altes Ölgemälde mit vergoldetem Haken und starkem seidenen Bande an der Wand zu befestigen,",
+  "language": [],
+  "musenalm_id": 135321,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wie gewonnen, so zerronnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Fitzinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wie gewonnen, so zerronnen",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j8jlzo56t4zi5r3",
+      "agents": "arq1wi6im7bawmi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.143Z"
+    }
+  ]
+}

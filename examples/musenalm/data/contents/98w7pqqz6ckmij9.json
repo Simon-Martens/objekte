@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.029Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Mädchen, süße Rosenblume, / Andes Lebensbaumes Zweigen / Frisch und farbig aufgewachsen,",
+  "language": [],
+  "musenalm_id": 53823,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Sophia. / 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. Gebauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Sophia. / 1818",
+  "updated": "2008-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yzcy8t5y6xh1g5s",
+      "agents": "ep2ivkqi4f7w9jh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.611Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.611Z"
+    }
+  ]
+}

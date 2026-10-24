@@ -1,0 +1,45 @@
+{
+  "annotation": "Entgegnung des Herausgebers auf das Gedicht und Anhang von X. Y. Z. INr 3261, 3262; Obj 110, 111",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.261Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "170",
+  "incipit_statement": "Verdammt er mein Gedicht mit Recht, / So hilft wahrhaftig kein Vertreten;",
+  "language": [],
+  "musenalm_id": 3263,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 112,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meine Meinung. / In Sachen X. Y. Z. ctra. Herrn S.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. A. Bürger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meine Meinung. / In Sachen X. Y. Z. ctra. Herrn S.",
+  "updated": "2000-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "unncwr8itcd1ib7",
+      "agents": "ofgx2kmc8bbxji2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.067Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.067Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer poetischen Beigabe s. INr 58751, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Lord Byron's Gedichte sind dem deutschen Publikum theils vom Originale, theils durch Übersetzungen wohl bekannt genug, als daß man sich weitläufig über ihre Vortrefflichkeit verbreiten sollte.",
+  "language": [],
+  "musenalm_id": 58750,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Belagerung von Korinth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. H. Spiker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Belagerung von Korinth",
+  "updated": "2008-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g4lstlzv3h248p1",
+      "agents": "ifwkraj21mnbg9a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.974Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.974Z"
+    }
+  ]
+}

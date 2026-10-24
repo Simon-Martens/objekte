@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.822Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Auf den Ankerplatz der Erde / Kommt ein Fremdling staunend an, / Und die Arbeit, die Beschwerde, / Heften sich an seine Bahn.",
+  "language": [],
+  "musenalm_id": 101417,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hoffnung und Glaube",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Welcker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Hoffnung und Glaube",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a8cvwijo4zpgdgm",
+      "agents": "c2o5asnj6lueudj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.995Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.995Z"
+    }
+  ]
+}

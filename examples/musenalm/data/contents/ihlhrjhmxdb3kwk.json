@@ -1,0 +1,45 @@
+{
+  "annotation": "Eine Postillons-Nacht (Sammlung INr 45790, Obj 197)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Auf fährt die Dirn. Sie kennt den Hans / An seinem Lied, kein Andrer kann's!",
+  "language": [],
+  "musenalm_id": 45796,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 203,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Merckel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6.",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hpy8g8ok4ly8r7s",
+      "agents": "43zf9fb3jx70ouy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.333Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.333Z"
+    }
+  ]
+}

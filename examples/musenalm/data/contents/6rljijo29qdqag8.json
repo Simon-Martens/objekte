@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Titel (INr 124494, Obj 1)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.040Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Keine Einwendung, Ihre Mutter billigt den Plan. Als der berühmteste Schwarzkünstler, Alchimist und Prophet erscheine ich vor Ihrem Vater, er soll von dem Unbegreiflichen ganz entzückt werden, und mir den schönsten Lohn gewähren, Emilien.",
+  "language": [],
+  "musenalm_id": 124499,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abracadabra / Eine Posse in einem Aufzuge",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Franz August von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abracadabra / Eine Posse in einem Aufzuge",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "06fnlvm4vtnulg0",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.804Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.804Z"
+    }
+  ]
+}

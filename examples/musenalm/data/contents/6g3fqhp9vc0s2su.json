@@ -1,0 +1,45 @@
+{
+  "annotation": "Die sechs Schubartschen Zeichnungen (Sammlung INr 60313, Obj 40) XV. Erklärung der Kupfer (Sammlung INr 60312, Obj 39) s. Graphik INr 60316, Obj 43",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Unsre Leser erinnern sich, daß einige Irländer, unddarunter der berüchtigte Rebell Napper-Tandy, zu Hamburg 1798 auf Veranlassung des brittischen Residenten, verhaftet,",
+  "language": [],
+  "musenalm_id": 60318,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Napper-Tandys Gefangennehmung / zu Hamburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vom alten Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Napper-Tandys Gefangennehmung / zu Hamburg",
+  "updated": "2008-10-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1tdgqx5k1q5sgjg",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.916Z"
+    }
+  ]
+}

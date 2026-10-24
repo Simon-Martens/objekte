@@ -1,0 +1,45 @@
+{
+  "annotation": "Kleine Romane und Erzählungen (Sammlung INr 43398, Obj 27) mit 2 Illustrationen s. Graphiken INr  43383, 43384; Obj 12, 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.614Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Eine Erbschaft von einigen tausend Rubeln und der Ruf der prächtigen Kaiserstadt an der Newa, in welcher die nordische Semiramis mit Weisheit thronte,",
+  "language": [],
+  "musenalm_id": 43401,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Entführung. / Eine russische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Entführung. / Eine russische Novelle",
+  "updated": "2006-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "le0nyo9qu1xvk15",
+      "agents": "j6u4xe56jqv8urn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.225Z"
+    }
+  ]
+}

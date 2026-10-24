@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel s. Textbezug INr 69021, Obj 10 /) Illustration zu  »Die Britten in Rom« von W. Waiblinger INr 69042, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.496Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Britten in Rom #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Lindau del. Romae. A. Schule sc. Lipsiae",
+  "scans": [
+    "alm_2654_69022_quvr3fmgi5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Britten in Rom #",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k5n6m1l6c4c1taw",
+      "agents": "lbjc9wym039t07j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.460Z"
+    },
+    {
+      "id": "36zhls6rn7va7y0",
+      "agents": "ri87ed3zfsk183z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.460Z"
+    }
+  ]
+}

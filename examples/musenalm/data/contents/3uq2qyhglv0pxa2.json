@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "201",
+  "incipit_statement": "Der Aberglaub' schlich abgezehrt und mager / Schon Jahr lang im Land umher.",
+  "language": [],
+  "musenalm_id": 83408,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Tod des Aberglaubens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. Maus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Tod des Aberglaubens",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rbc554d30e1n12z",
+      "agents": "53w7kjcrm8k37r9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.960Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "graph. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.463Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81199,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GEDENKE MEIN / 1850 / WIEN, / Verlag von Pfautsch & Voss",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Langer",
+  "scans": [
+    "alm_1807_81199_7r6dbheyoy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GEDENKE MEIN / 1850 / WIEN, / Verlag von Pfautsch & Voss",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cjvs5b4akqgjd9o",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.803Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.803Z"
+    }
+  ]
+}

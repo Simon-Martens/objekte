@@ -1,0 +1,45 @@
+{
+  "annotation": "Bezeichnung aus dem G-Verz /) Illustration zu »Die drei Söhne« von L. Brachmann INr 20393, Obj 61",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20342,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die drei Söhne von L. Brachmann",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg",
+  "scans": [
+    "alm_272_20342_ejjkh9evd8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die drei Söhne von L. Brachmann",
+  "updated": "2001-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mkb408aq07yp1hz",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.677Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.677Z"
+    }
+  ]
+}

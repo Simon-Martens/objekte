@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Laß dich den jungen Frühling locken / Aus deinem Tempe, Freund! Komm, siehe / zu Berlin / Die Königinn der Blumen blühn;",
+  "language": [],
+  "musenalm_id": 38404,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 111,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn ***",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Karschinn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn ***",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4e586qasfnoifgx",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.959Z"
+    }
+  ]
+}

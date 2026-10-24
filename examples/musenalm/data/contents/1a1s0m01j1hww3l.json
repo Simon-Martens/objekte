@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik. Illustration zum Gedicht »Das Tirolermädchen« von Tiedge INr 13384, Obj 21 /) # Titel aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13366,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Tirolermädchen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg. del. W. Böhm. sc.",
+  "scans": [
+    "alm_217_13366_a4hfoyojlg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Tirolermädchen #",
+  "updated": "2001-04-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y9dgrl4i50xf4uj",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.604Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.604Z"
+    },
+    {
+      "id": "adsus014gb1dsjk",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.604Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.604Z"
+    }
+  ]
+}

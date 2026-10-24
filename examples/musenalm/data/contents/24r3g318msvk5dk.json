@@ -1,0 +1,45 @@
+{
+  "annotation": "7. Epigramme (Sammlung INr 66902, Obj 56) VIII. Gedichte (Sammlung INr 66895, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Wann ziehst du deine Stachel ein, mein Kind?",
+  "language": [],
+  "musenalm_id": 66903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Wolf und das Stachelschwein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Haug",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Wolf und das Stachelschwein",
+  "updated": "2009-09-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wx8p02ftnmxewcn",
+      "agents": "xw7hg4qczu30jj0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.436Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.436Z"
+    }
+  ]
+}

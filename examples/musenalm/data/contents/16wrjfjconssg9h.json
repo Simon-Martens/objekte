@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Prosaische Fabeln. Erste Lieferung (Sammlung INr 72846, Obj 49)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "261",
+  "incipit_statement": "Lasset uns die Freundschaft des - Affen suchen, - sprachen die Thiere untereinander. Es ist ein angenehmer, witziger und gescheidter Kopf;",
+  "language": [],
+  "musenalm_id": 72857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11.",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l78mqtcxf95jdfn",
+      "agents": "byawwvreucy8ohr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.500Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.500Z"
+    }
+  ]
+}

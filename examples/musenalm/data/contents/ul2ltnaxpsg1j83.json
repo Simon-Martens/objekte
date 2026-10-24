@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert No 9. s. Textbezug INr 32590, Obj 45",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32453,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Kraus del. J. Penzel sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kraus del. J. Penzel sc.",
+  "scans": [
+    "alm_450_32453_wq5om6783j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "09g6i0nwku9tg6t",
+      "agents": "vvn2bsy8p7l2qv3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.078Z"
+    },
+    {
+      "id": "t74mg2d67n6lhzr",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.078Z"
+    }
+  ]
+}

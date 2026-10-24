@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Geist der Zeit (Sammlung INr 129853, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Verworrnes Bild voll wechselnder Gestalten, / Wie es auf Maskenbällen sonst nur blüht,",
+  "language": [],
+  "musenalm_id": 129856,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tracht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Freiherr v. Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tracht",
+  "updated": "2022-03-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lwsz7rmmd0pewsl",
+      "agents": "otquhrfmf15x6tw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.049Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Zugvögel« von Karoline d.i. vermutl. Engelhard, Karoline INr 42631, Obj 165",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "200",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42630,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 164,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zugvögel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Reissiger",
+  "scans": [
+    "alm_560_42630_30mepz25of.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zugvögel",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ysdswl7bnvower0",
+      "agents": "k0n1jmo4kd47515",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.243Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.243Z"
+    }
+  ]
+}

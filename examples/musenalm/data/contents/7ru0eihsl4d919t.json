@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "Wohl tief in des Baches umdüstertem / Grund, / Da steht und wehet ein Baum,",
+  "language": [],
+  "musenalm_id": 18307,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Corin und Aline",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Henriette Schubart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Corin und Aline",
+  "updated": "2001-10-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z5xn6ws5n03rvdj",
+      "agents": "od6meihhmql1c8r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.687Z"
+    }
+  ]
+}

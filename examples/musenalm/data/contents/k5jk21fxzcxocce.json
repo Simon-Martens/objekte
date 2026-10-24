@@ -1,0 +1,45 @@
+{
+  "annotation": "lt. I-Verz mit einer Illustration §1§ bez. Graphik im Kalendarium fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Vor seiner Hütte ruhig im Schatten sizt / Der Pilger, dem Genügsamen raucht sein Herd.",
+  "language": [],
+  "musenalm_id": 82198,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abendphantasie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hölderlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abendphantasie",
+  "updated": "2012-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yl9d9kvy4foenra",
+      "agents": "0lnasue8ibiowgx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.835Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.835Z"
+    }
+  ]
+}

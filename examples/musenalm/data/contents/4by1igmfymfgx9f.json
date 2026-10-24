@@ -1,0 +1,43 @@
+{
+  "annotation": "Die frühe Liebschaft INr 29320, Obj 5 s. Graphik INr 29326, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Da draußen auf dem Hügel sitzt ein Bursche, sagten sie zum Rector, der will bei uns studieren lernen.",
+  "language": [],
+  "musenalm_id": 29325,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3.",
+  "updated": "2002-10-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ddp8281r4itk108",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.501Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.501Z"
+    }
+  ]
+}

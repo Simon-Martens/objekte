@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte. Elegien der Liebe (Sammlung INr 109737, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.338Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Träume der Lust, des beginnenden Glücks sind wieder / geschäftig, / Und wie die Bienen des Stocks fliehen und kehren / sie heim.",
+  "language": [],
+  "musenalm_id": 109739,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Omnia pro veris credam, sint ficta licebit. / Cur ego non votis blandiar ipse meis? / OVID",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Rogge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Omnia pro veris credam, sint ficta licebit. / Cur ego non votis blandiar ipse meis? / OVID",
+  "updated": "2016-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i6h5o0qs7wdwpnp",
+      "agents": "qg9jxudttjp2daq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.206Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.206Z"
+    }
+  ]
+}

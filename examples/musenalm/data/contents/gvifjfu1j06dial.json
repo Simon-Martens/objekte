@@ -1,0 +1,45 @@
+{
+  "annotation": "Lebensweisen eines Hoch- und Gutschmeckers Nebst der Rede, die er einstmahls in einer großen Gesellschaft hielt. (Aus dem Almanac des gourmands) (Sammlung INr 52190, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.224Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Ein berühmter Pariser Gutschmecker, welcher in einer Gesellschaft speisete, unter der sich auch einige Profane, das heißt, mäßige junge Leute befanden, wurde in einen Disput verwickelt,",
+  "language": [],
+  "musenalm_id": 52223,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein berühmter Pariser Gutschmecker, welcher in einer Gesellschaft speisete, unter der sich auch einige Profane, das heißt, mäßige junge Leute befanden, wurde in einen Disput verwickelt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Balthazar Grimod de la Reynière; [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "scrzyv0d8t5yp6k",
+      "agents": "ndyaxges5n0jd1z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.489Z"
+    }
+  ]
+}

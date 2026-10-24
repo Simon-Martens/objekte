@@ -1,0 +1,45 @@
+{
+  "annotation": "Gesänge vermischten Inhalts 1791 (Sammlung INr 9401, Obj 189)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Die alten Deutschen waren / Nicht schmeidig wie der Aal;",
+  "language": [],
+  "musenalm_id": 9438,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 226,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XXXVII. / An die Redlichkeit. / Mel. steht in Siegfr. Schmieds Auswahl aus Lang- / beins Gedichten. Leipz. 1790",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Langbein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XXXVII. / An die Redlichkeit. / Mel. steht in Siegfr. Schmieds Auswahl aus Lang- / beins Gedichten. Leipz. 1790",
+  "updated": "2001-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kly0smpk7zuxwtp",
+      "agents": "9ld8yawtzix8v24",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.508Z"
+    }
+  ]
+}

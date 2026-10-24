@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 115954, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.388Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "Ein flugesmatter Rabe ruft / Zu einem zweiten durch die Luft: / Du guter Bruder, sag' mir an, / Wo ich den Hunger stillen kann!",
+  "language": [],
+  "musenalm_id": 115956,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die beiden Raben. / (Nach dem Russischen des Puschkin.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vincenz Zusner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die beiden Raben. / (Nach dem Russischen des Puschkin.)",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fqz28l699ce8wcm",
+      "agents": "bl67sc1w31pzw0u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.506Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.506Z"
+    }
+  ]
+}

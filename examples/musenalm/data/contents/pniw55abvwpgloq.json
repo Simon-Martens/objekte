@@ -1,0 +1,45 @@
+{
+  "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "149",
+  "incipit_statement": "Dir sang ich, als Naiden, / Auf leichtem Hirten-Rohr / Einst meine Sehnsucht vor:",
+  "language": [],
+  "musenalm_id": 23324,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / meine Frau, / an ihrem Geburtstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / meine Frau, / an ihrem Geburtstage",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gehv2qdz5z0n8l9",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.202Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.202Z"
+    }
+  ]
+}

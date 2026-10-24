@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium November nummeriert 11; s. Textbezug INr 135482, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.247Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135494,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Kapelle von Sempach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Boettger senior sc. Lips 1813",
+  "scans": [
+    "alm_2071_135494_2pesgginxz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Kapelle von Sempach",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a9cz57uorz762hb",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.151Z"
+    }
+  ]
+}

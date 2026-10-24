@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Titelgraphik INr 62967, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.331Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Voll frommen Sinns, in weiblich-holder Güte, / Drückst Du, o Herrliche! noch fern von Schmerz,",
+  "language": [],
+  "musenalm_id": 62970,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Titelkupfer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Titelkupfer",
+  "updated": "2009-03-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4x7w1jfxtx5tk4q",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.215Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.215Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Wenn die Welt der Frühling grüßt, / Aufgebrochen aus den Schalen",
+  "language": [],
+  "musenalm_id": 5511,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meinen Bruder. / Bei Uebersendung einiger Land- / schaften",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fraül. vom H.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meinen Bruder. / Bei Uebersendung einiger Land- / schaften",
+  "updated": "2000-10-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f7rx3m54p59no8v",
+      "agents": "13xjh9gg49rip3p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.129Z"
+    }
+  ]
+}

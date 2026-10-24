@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.051Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Dieser bunte Strauß von Nelken / Und Resede wird verwelken;",
+  "language": [],
+  "musenalm_id": 83726,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Wilhelminen. / Als ich ihr eine Blumenstrauß brachte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. C. Bindemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Wilhelminen. / Als ich ihr eine Blumenstrauß brachte",
+  "updated": "2011-07-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "erfp93lh7fonryg",
+      "agents": "maje80twv7ynq1d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.032Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.031Z"
+    }
+  ]
+}

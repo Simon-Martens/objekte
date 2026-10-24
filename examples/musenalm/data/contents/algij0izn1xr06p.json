@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 12. (Apostelfigur vom Sebaldusgrab Nürnberg) s. Textbezug INr 26993, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26994,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. Bartholomaeus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Erfunden und in Erz gegossen von Peter Fischer, gez. und gest. von Albt. Reindel",
+  "scans": [
+    "alm_350_26994_96v7obx9g8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. Bartholomaeus",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kcdsw06q3k3s2dj",
+      "agents": "2j4fmhpjuaqhaao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.900Z"
+    },
+    {
+      "id": "8r4it7jr4drybh2",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.900Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.900Z"
+    }
+  ]
+}

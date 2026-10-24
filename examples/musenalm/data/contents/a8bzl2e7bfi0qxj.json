@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.699Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106592,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HELENA / TASCHENBUCH / FÜR / 1839. / Dritter Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stich u. Druck von C. Martin",
+  "scans": [
+    "alm_1834_106592_ewsi9m3ar3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HELENA / TASCHENBUCH / FÜR / 1839. / Dritter Jahrgang. / Bunzlau. / Appun's Buchhandlung",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hl8bmny03wfyiyl",
+      "agents": "u3ev7bjxvo21hzz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.224Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.224Z"
+    }
+  ]
+}

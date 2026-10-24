@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 110. /) Illustration zu »Charlotte Kronau« INr 46983, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 46986,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Mechau del. Geyser sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mechau del. Geyser sc.",
+  "scans": [
+    "alm_634_46986_binsv4mfht.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-12-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tv27dkosendeo1f",
+      "agents": "37z1qs9sbpbcupa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.400Z"
+    },
+    {
+      "id": "2q719txincdmnqj",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.400Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.400Z"
+    }
+  ]
+}

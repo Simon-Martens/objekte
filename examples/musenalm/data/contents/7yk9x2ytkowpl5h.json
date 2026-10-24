@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1. /) Titelgraphik /) # Titel aus dem G-Verz s. Textbezug INr 26476, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.236Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26473,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutter mit vier Kindern #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Naeke del. A. Reindel sc.",
+  "scans": [
+    "alm_347_26473_nw32525yt2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mutter mit vier Kindern #",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ond97fbj2qkkd5",
+      "agents": "jnsjgzgb69y7llq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.071Z"
+    },
+    {
+      "id": "c5rsv13444ivpw0",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.071Z"
+    }
+  ]
+}

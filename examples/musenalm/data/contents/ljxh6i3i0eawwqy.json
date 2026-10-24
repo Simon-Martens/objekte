@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Balladen Legenden und Romanzen (INr 93502, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.778Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Stolz stand Graf Hugh im Rittersaal, / In Mitte seiner Ahnenbilder,",
+  "language": [],
+  "musenalm_id": 93505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Messe um Mitternacht. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Messe um Mitternacht. / Ballade",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "goryhdj2p542h78",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.588Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.588Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Zwingenberg am Neckar« von V. F. S. Fischer INr 67254, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.711Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "88",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67255,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwingenberg am Neckar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas jun. del. G. Boettger sen. sc. 1820",
+  "scans": [
+    "alm_1149_67255_tvojn8pqce.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zwingenberg am Neckar",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oygiupz8k19hi5o",
+      "agents": "93i1cvgb16cjfey",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.089Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.089Z"
+    },
+    {
+      "id": "awk38vwc3ol1sb3",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.090Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.090Z"
+    }
+  ]
+}

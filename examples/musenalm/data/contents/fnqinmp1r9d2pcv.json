@@ -1,0 +1,45 @@
+{
+  "annotation": "bezieht sich auf: William Tenant in: Indian Recreations. Edingburgh and London 1804. 2 Vol.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.876Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "In unsern Zeiten, wo fast alles gesammelt, und jede wichtige und unwichtige Nachricht für unsere Enkel aufgespeichert wird,",
+  "language": [],
+  "musenalm_id": 16120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bruchstücke einer Indischen / Dorfstatistik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Ittner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bruchstücke einer Indischen / Dorfstatistik",
+  "updated": "2001-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nvvyfexwf5m66ro",
+      "agents": "imr7l7jckky4gjp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.920Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.920Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 36888, Obj 13)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.389Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Einst ein Ritter lag am Herzen / Seinem Lieb, in Lust und Scherzen.",
+  "language": [],
+  "musenalm_id": 36891,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Tagelied / nach dem Provenzalischen / des / Bertrand de Lamanon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. v. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Tagelied / nach dem Provenzalischen / des / Bertrand de Lamanon",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "makwxbpiymsdp70",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.061Z"
+    }
+  ]
+}

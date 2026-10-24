@@ -1,0 +1,45 @@
+{
+  "annotation": "Feldblumen (Sammlung INr 57754, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.871Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "385",
+  "incipit_statement": "Die Gundelrebe war das letzte Tagebuchblatt Albrechts, und das Himmelsröschen ist ganz von mir, d.h. von dem Sammler und Referenten der obigen Blätter",
+  "language": [],
+  "musenalm_id": 57773,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "19. Himmelsröschen. / Wien, 1. Mai 1835",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adalbert Stifter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "19. Himmelsröschen. / Wien, 1. Mai 1835",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d0x3b1pza7dqz6g",
+      "agents": "gqt48yh8xk0p2zo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.681Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.681Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 40",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.371Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "71",
+  "incipit_statement": "Wandelte mich die Natur / In ein Veilchen dieser Heiden,",
+  "language": [],
+  "musenalm_id": 5361,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Minna, als sie Veilchen pflückte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "*",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Minna, als sie Veilchen pflückte",
+  "updated": "2000-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2r960xf9ghyzcdk",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.085Z"
+    }
+  ]
+}

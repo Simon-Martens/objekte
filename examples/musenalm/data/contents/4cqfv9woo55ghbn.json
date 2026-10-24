@@ -1,0 +1,45 @@
+{
+  "annotation": "Auf Frühlingswanderungen (Sammlung INr 100194, Obj 134)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Fast metallisch thun die Schläge / Fern am Waldholz mir sich kund.",
+  "language": [],
+  "musenalm_id": 100197,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Schläge der Waldaxt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Mayer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Schläge der Waldaxt",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2gpmyqln129a9sy",
+      "agents": "24r7c2wzrpocitx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.850Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.850Z"
+    }
+  ]
+}

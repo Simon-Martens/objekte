@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.244Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Himmelskind, wo ist dein Licht? / Wo dein reines Feuer?",
+  "language": [],
+  "musenalm_id": 2141,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Mond. / Im Junius 1771",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "K. M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Mond. / Im Junius 1771",
+  "updated": "2000-08-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1s5hy3do7yheflv",
+      "agents": "gatmelequdj4iw3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.718Z"
+    }
+  ]
+}

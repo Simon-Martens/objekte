@@ -1,0 +1,58 @@
+{
+  "annotation": "Titel aus dem G-Verz s. Textbezug INr 33666, Obj 21 /) Graphik in zweitem Exemplar variant: unbezeichnet",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.917Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33667,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen, die ihren Vogel beweint #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mme. Chaudet pint. del. Lambert sculp.",
+  "scans": [
+    "alm_467_33667_yxqh6m7oyx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen, die ihren Vogel beweint #",
+  "updated": "2003-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "288v886en5tlcac",
+      "agents": "61bxtdz3i3z69es",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.812Z"
+    },
+    {
+      "id": "u6p8f0nzkyq9krh",
+      "agents": "9lwet5ce7lt672a",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.812Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.812Z"
+    }
+  ]
+}

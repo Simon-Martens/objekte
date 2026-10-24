@@ -1,0 +1,45 @@
+{
+  "annotation": "Logogryphen, Charaden und Räthsel (Sammlung INr 13503, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.115Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "364",
+  "incipit_statement": "Zwei kleine Silben nennen dir / Den Mann, bei dessen Namen wir",
+  "language": [],
+  "musenalm_id": 13513,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 150,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Dambeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Charade",
+  "updated": "2001-04-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qyka4uq2s8r0t4k",
+      "agents": "ipn2nvswkmowzx4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.573Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.573Z"
+    }
+  ]
+}

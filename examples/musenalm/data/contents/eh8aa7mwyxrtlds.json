@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.192Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "Die treueste Gefährtinn deiner Sorgen, / Die, wenn du zweifelst, dich zu Rechte / weist,",
+  "language": [],
+  "musenalm_id": 31284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glückwunsch / zum Namensfest meines lieben Oheims Franz / von Rodius [...] / Bey Uebersendung eines gestickten Uhr- / küssens. / Den 4. Oktober 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gabriela von Baumberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glückwunsch / zum Namensfest meines lieben Oheims Franz / von Rodius [...] / Bey Uebersendung eines gestickten Uhr- / küssens. / Den 4. Oktober 1792",
+  "updated": "2003-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "md2gsmn0vu16r7s",
+      "agents": "sjp9eapkpagxg0d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.625Z"
+    }
+  ]
+}

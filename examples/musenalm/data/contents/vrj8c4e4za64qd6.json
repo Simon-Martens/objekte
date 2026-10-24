@@ -1,0 +1,45 @@
+{
+  "annotation": "# Anm. am Objekt: Von diesem schönen Gedicht des Herrn Prof. Meißners sind zwey Abdrücke vorhanden, die voneinander beträchtlich abweichen. Ich bin dem Abdruck  im Apollo gefolgt",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.082Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Mit der Sonne letztem Strahle / Schmückt die Abendwolke sich",
+  "language": [],
+  "musenalm_id": 47228,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Sommerabend. / An Lina",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Sommerabend. / An Lina",
+  "updated": "2006-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kqn8spyxa1qw61y",
+      "agents": "pbt3h5zr358vg6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.614Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.614Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 40 Epigrammen INr 131309-131317, 131352-131382; Obj 228-267",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "269",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131308,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 227,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epigramme",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epigramme",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q9pff7995dm6nbm",
+      "agents": "hdhytmzu9u57ana",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.029Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.029Z"
+    }
+  ]
+}

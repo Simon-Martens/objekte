@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. aus dem Vorwort /) Illustration zu »Der Frühlingstag auf der Dorfpfarre« von F. W. A. Schmidt INr 52091, Obj 75",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.054Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52093,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "der Frühlingstag auf der Dorfpfarre / Mittags",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chodowiecki",
+  "scans": [
+    "alm_15_52093_e6vzu9pg8s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "der Frühlingstag auf der Dorfpfarre / Mittags",
+  "updated": "2007-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2dfqstt85ywm5no",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.684Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.684Z"
+    }
+  ]
+}

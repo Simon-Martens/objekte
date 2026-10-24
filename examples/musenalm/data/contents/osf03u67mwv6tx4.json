@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung: Schubert del. am ersten Blatt; Bezeichnung: Riepenhausen sculps. am letzten Blatt der Suite. Graphik im Kalendarium paginiert 7. s. Textbezug 7208, Obj 50",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7174,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Folgen des Friedens / Wissenschaften",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. # Riepenhausen sculps.",
+  "scans": [
+    "alm_145_7174_nwjhm6kppd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Folgen des Friedens / Wissenschaften",
+  "updated": "2000-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lw7jqm2jp4wvrpo",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.258Z"
+    },
+    {
+      "id": "j7aeiixnrhbs29p",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.258Z"
+    }
+  ]
+}

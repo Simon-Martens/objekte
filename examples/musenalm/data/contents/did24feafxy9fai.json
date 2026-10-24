@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.767Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 31936,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nicht die Gebete der fürchtenden, langen Verlassenen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Hein. Ramberg del. Hanover Ridley sc. London",
+  "scans": [
+    "alm_364_31936_hsz5yvoop5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nicht die Gebete der fürchtenden, langen Verlassenen",
+  "updated": "2002-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hzg9gfb1crn8qqu",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.417Z"
+    },
+    {
+      "id": "z6zwwq0vy39fv8z",
+      "agents": "01vck2fus4d9d65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.417Z"
+    }
+  ]
+}

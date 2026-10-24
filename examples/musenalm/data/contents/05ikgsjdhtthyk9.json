@@ -1,0 +1,54 @@
+{
+  "annotation": "Musikbeigabe zu »Die Damascener« von F. A. Kuhn INr 79476, Obj 9 /) Photos 79482,01-79482,08",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 79482,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grosser Marsch der Araber aus dem Trauerspiel: die Damascener, von Dr. Kuhn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ritter Spontini",
+  "scans": [
+    "alm_436_79482_01_2ta6piqzi7.jpg",
+    "alm_436_79482_02_ayvx7v9mao.jpg",
+    "alm_436_79482_03_oju8z0dh0m.jpg",
+    "alm_436_79482_04_60zxgaemcc.jpg",
+    "alm_436_79482_05_9rqeadqaf4.jpg",
+    "alm_436_79482_06_oku4wjysuy.jpg",
+    "alm_436_79482_07_znaepj3qsk.jpg",
+    "alm_436_79482_08_vpkmjwz5gd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Grosser Marsch der Araber aus dem Trauerspiel: die Damascener, von Dr. Kuhn",
+  "updated": "2003-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pg1lwhigy067sax",
+      "agents": "buonylpc1f9dik9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.629Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.629Z"
+    }
+  ]
+}

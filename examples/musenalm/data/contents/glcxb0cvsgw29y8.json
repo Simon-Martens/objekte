@@ -1,0 +1,58 @@
+{
+  "annotation": "# Titel vom Textbezug INr 44362, Obj 10 [unter der Graphik Verl. v. J. D. Sauerländer]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.591Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44363,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Madonna mit dem Erlöser #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Steinle del. F. Backenberg sc.",
+  "scans": [
+    "alm_603_44363_xhalcirlay.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Madonna mit dem Erlöser #",
+  "updated": "2006-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2629egy2sipkoga",
+      "agents": "wdyn1i7226e5p59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.317Z"
+    },
+    {
+      "id": "e4mrpx9kjky3753",
+      "agents": "8x02yubdd9ru1dh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.317Z"
+    }
+  ]
+}

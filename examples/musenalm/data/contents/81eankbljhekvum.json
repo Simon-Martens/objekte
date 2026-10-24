@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 6 Illustrationen s. Umschlaggraphiken INr 74151, 74205; Obj 1, 56 und Graphiken INr 74181-74184, Obj 32-35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.740Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "Die Zeichnungen von Gefässen und Monumenten, welche der Herr Hofbildhauer Isopi voriges Jahr zu diesem Taschenbuch lieferte, haben den Beifall des Publikums erhalten.",
+  "language": [],
+  "musenalm_id": 74180,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorschläge / zu schönen BrunnenVerzierungen. / Von Herrn Hofbildhauer Isopi",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorschläge / zu schönen BrunnenVerzierungen. / Von Herrn Hofbildhauer Isopi",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pks4yeogt5zb7b7",
+      "agents": "0qzneijgjsm86gl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.546Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.546Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Es ist besserals es war« von Calderon s. Textbezug INr 27749, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27744,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Calderon's Lustspiel: / Es ist besser als es war",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Schnorr del. Passini sc. Vienna",
+  "scans": [
+    "alm_356_27744_t0m1zu56sb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus Calderon's Lustspiel: / Es ist besser als es war",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vu7xt4y6v822uiw",
+      "agents": "7yfzgmx3iovs38k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.363Z"
+    },
+    {
+      "id": "80ipf6otwjer0me",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.363Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.363Z"
+    }
+  ]
+}

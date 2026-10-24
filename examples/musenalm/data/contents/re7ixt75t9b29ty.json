@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 66592, Obj 10 /) mit zahlreichen Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.483Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der leichtfüßigen Gazellen oder Antilopen mannigfaltiges und zahlreiches Heer trennet das Geschlecht des stolzen Hirsches von der Sippschaft der kletternden Ziege",
+  "language": [],
+  "musenalm_id": 66593,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Die Gemse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Die Gemse",
+  "updated": "2009-09-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vfy9t3qih397gw3",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.076Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.076Z"
+    }
+  ]
+}

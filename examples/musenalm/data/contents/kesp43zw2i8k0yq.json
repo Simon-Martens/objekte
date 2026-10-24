@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.810Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Hier sah ich gestern junge Rosen / Am mütterlichen Stocke blühn.",
+  "language": [],
+  "musenalm_id": 8475,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rosen, / im Namen eines jungen Frauenzimmers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raufseisen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rosen, / im Namen eines jungen Frauenzimmers",
+  "updated": "2026-06-23T09:01:04.875Z",
+  "variant_title": "",
+  "year": 1774,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m1lis1ftti2ei9b",
+      "agents": "humak5vwmky1m2j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.670Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.670Z"
+    }
+  ]
+}

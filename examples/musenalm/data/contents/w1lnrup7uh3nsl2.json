@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.715Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "338",
+  "incipit_statement": "Mit uns sey Gott! Es schalle / Der Kriegsdrommete Ton!",
+  "language": [],
+  "musenalm_id": 77372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schlachtgesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schaller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schlachtgesang",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ra2zdfbbcm1bcro",
+      "agents": "76znd1aywy8qgx0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.877Z"
+    }
+  ]
+}

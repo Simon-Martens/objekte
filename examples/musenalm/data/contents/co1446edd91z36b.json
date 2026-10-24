@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.299Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Von dem Idar, der sein Haupt so stolz über das schöne Land des Hunsrückens hinaushebt, schweift der Blick weithin über die Wälder, Fluren und Wiesen,",
+  "language": [],
+  "musenalm_id": 44532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Geschichte von den zwei Müllers- / kindern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. von Horn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Geschichte von den zwei Müllers- / kindern",
+  "updated": "2006-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7fwe49qci0eis59",
+      "agents": "u657j3m1foor2a9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.295Z"
+    }
+  ]
+}

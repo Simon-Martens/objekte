@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März /) Illustration zu »Geschichte von Pommern und Rügen. Viertes Buch. Vom Aussterben der stettiner Linie bis auf die Einführung der Kirchenverbesserung. Vom  Jahre 1464-1536« INr 88740, Obj 17 /) s.a. Textbezug INr 88754, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.148Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88729,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "UNIVERSTÄTS GEBAEUDE ZU GREIFSWALD",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brüggemann del. H. Fincke sc.",
+  "scans": [
+    "alm_873_88729_9oh1g6sdjj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "UNIVERSTÄTS GEBAEUDE ZU GREIFSWALD",
+  "updated": "2008-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n2fuia2erdp73rz",
+      "agents": "6y1rbulpf63gd61",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.038Z"
+    },
+    {
+      "id": "wck0ehrqziegvay",
+      "agents": "kxthlk7g2kfou9x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.038Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.038Z"
+    }
+  ]
+}

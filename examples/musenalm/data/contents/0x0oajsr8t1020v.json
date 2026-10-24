@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelgraphik s. Gedicht INr 63176, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 63173,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nach einem Oberdeutschen Original- / Oelgemälde vom Jahr 1494",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Keller del. I. Krepp sc.",
+  "scans": [
+    "alm_1035_63173_ktcvy0e1fi.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Nach einem Oberdeutschen Original- / Oelgemälde vom Jahr 1494",
+  "updated": "2009-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "45mvacuu11pblt7",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.259Z"
+    }
+  ]
+}

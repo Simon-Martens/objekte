@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.037Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Herr, bleib' bei uns - die Welt, die du geschaffen, / So reich an Licht, an Blüten und an Wonnen / Stirbt aus vor Schmerz und im Tumult der Waffen,",
+  "language": [],
+  "musenalm_id": 46210,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr, bleib' bei uns, denn es will Abend / werden. / (1848-1849)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cajetan Cerri",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Herr, bleib' bei uns, denn es will Abend / werden. / (1848-1849)",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s1dr1fmweiylcb5",
+      "agents": "ett5544anganpff",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.151Z"
+    }
+  ]
+}

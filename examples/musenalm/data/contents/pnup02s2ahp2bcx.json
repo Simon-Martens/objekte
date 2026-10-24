@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium April; paginiert 1. mit Erläuterung im G-Verz INr 58442, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58432,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Du wurdest meinem Reiche geboren. / Erfülle deine grosse Bestimmung: / gläntze",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf del. Riep. sc.",
+  "scans": [
+    "alm_847_58432_flmshogm2w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Du wurdest meinem Reiche geboren. / Erfülle deine grosse Bestimmung: / gläntze",
+  "updated": "2008-07-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mebe4nqqloxus6i",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.871Z"
+    },
+    {
+      "id": "dfxtn9f6igzp2kq",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.871Z"
+    }
+  ]
+}

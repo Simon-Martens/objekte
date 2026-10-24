@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik im Kalendarium Februar, nummeriert 2. /) s. Textbezug INr 130943,Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130928,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kurzer Galop rechts",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'Argent sc",
+  "scans": [
+    "alm_3126_130928_dapv8qfxrf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kurzer Galop rechts",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9vxz4pbbdow2zqv",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.078Z"
+    }
+  ]
+}

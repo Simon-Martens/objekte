@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Ferdinand Hold« von C. L. von Klencke, aus dem Nachlaß hrsg. von Hel. von Hastfer s. INr 28415, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.795Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28409,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus Ferdinand Hold von Fr. v. Hastfer. / Ich bin schon versprochen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury fec.",
+  "scans": [
+    "alm_368_28409_q7sipbkqb8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus Ferdinand Hold von Fr. v. Hastfer. / Ich bin schon versprochen",
+  "updated": "2002-10-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yiehazic2sh59u4",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.421Z"
+    }
+  ]
+}

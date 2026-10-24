@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.682Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81130,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Grossfürst / ALEXANDER NICOLAJEWITSCH. / Russlands Thronfolger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Fr. Krüger gest. v. Auguste Hüssener",
+  "scans": [
+    "alm_872_81130_qwckjpehul.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Grossfürst / ALEXANDER NICOLAJEWITSCH. / Russlands Thronfolger",
+  "updated": "2008-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x218664huifbe8t",
+      "agents": "dp1i9gllz2qxsbz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.817Z"
+    },
+    {
+      "id": "pyc9je7my00n5nc",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.817Z"
+    }
+  ]
+}

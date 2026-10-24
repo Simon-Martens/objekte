@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 69449, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.466Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 69448,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bienne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Juillerat del. F. Hegi sc.",
+  "scans": [
+    "alm_721_69448_8our894zul.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bienne",
+  "updated": "2007-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c6glvx40vda81eg",
+      "agents": "xh6k6nw5l5dihva",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.382Z"
+    },
+    {
+      "id": "ynn09yjvcg11s3u",
+      "agents": "zbskhchsoqwsntq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.382Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.382Z"
+    }
+  ]
+}

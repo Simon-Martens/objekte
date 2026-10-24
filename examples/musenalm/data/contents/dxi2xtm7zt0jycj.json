@@ -1,0 +1,45 @@
+{
+  "annotation": "Klänge aus Thüringen (Sammlung INr 30393, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.665Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Ein fremder Knabe wandelt singend / Von Land zu Land.",
+  "language": [],
+  "musenalm_id": 30396,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Kinder-Kreuzzug. / (1212.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bechstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Kinder-Kreuzzug. / (1212.)",
+  "updated": "2002-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vf4qzs166d8veo6",
+      "agents": "6qn9afrpxniwvx7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.531Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.531Z"
+    }
+  ]
+}

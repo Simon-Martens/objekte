@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) # Titel s. Textbezug (Gedicht) INr 64295, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 64290,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Trauernde #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T. Faed del. J. W. Baumann sculpt.",
+  "scans": [
+    "alm_1066_64290_jl5an4mmk0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Trauernde #",
+  "updated": "2009-05-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "luvj85gux7vm4ff",
+      "agents": "ofsrnfvgg6uzxbg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.990Z"
+    },
+    {
+      "id": "1umijaxpx1a0fog",
+      "agents": "x7b3q8mt71tqkdg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.990Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.990Z"
+    }
+  ]
+}

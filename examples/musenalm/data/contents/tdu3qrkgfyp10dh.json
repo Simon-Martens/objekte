@@ -1,0 +1,45 @@
+{
+  "annotation": "Diavolini (Sammlung INr 23478, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.195Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Publicisten und Juristen, / Streitet euch doch weiter nicht!",
+  "language": [],
+  "musenalm_id": 23496,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18. Ungewürdigte Autorität. / Indessen gefällt mir diese Art (das öffentliche Gerichtsverfahren) [...] / Göthe, Ital. Reise 3. Oct 1786",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hoffmann von Fallersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18. Ungewürdigte Autorität. / Indessen gefällt mir diese Art (das öffentliche Gerichtsverfahren) [...] / Göthe, Ital. Reise 3. Oct 1786",
+  "updated": "2002-05-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "k8zjhtslmrt3ews",
+      "agents": "ye6ke5f7oymjxx2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.236Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.236Z"
+    }
+  ]
+}

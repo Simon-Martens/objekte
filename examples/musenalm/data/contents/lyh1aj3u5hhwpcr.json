@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der neue Pygmalion« von K. Immermann INr 33779, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.035Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22758,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der neue Pygmalion von Immermann 1s. Blatt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. 1824 Meno Haas sc. Berlin",
+  "scans": [
+    "alm_303_22758_fuz69mz6qb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der neue Pygmalion von Immermann 1s. Blatt",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uacp8zynnov38s3",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.941Z"
+    },
+    {
+      "id": "yg9ugukl2empspj",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.941Z"
+    }
+  ]
+}

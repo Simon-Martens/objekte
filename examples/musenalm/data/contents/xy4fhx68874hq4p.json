@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Charaden (Sammlung INr 22616, Obj 129) Charaden und Räthsel (Sammlung INr 22609, Obj 122)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "428",
+  "incipit_statement": "Zwei Räuber liegen in der Höhle, / Ich möcht' ihr Kamerade seyn,",
+  "language": [],
+  "musenalm_id": 22619,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 132,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Sylbenräthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Förster",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Sylbenräthsel",
+  "updated": "2002-03-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i59ent4qz6gdvq9",
+      "agents": "5dfik7lfhc9fltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.985Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.985Z"
+    }
+  ]
+}

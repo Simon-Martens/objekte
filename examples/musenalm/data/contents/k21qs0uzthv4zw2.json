@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Oktober nummeriert IV /) Illustration zu »Das Gewitter in Venedig« von L. Schlecht INr 120428, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.391Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 120417,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Gewitter in Venedig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Russ del. S. Langer sc.",
+  "scans": [
+    "alm_4571_120417_l45ij2yemp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Gewitter in Venedig",
+  "updated": "2018-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "thk5c1pdupbnhgz",
+      "agents": "iexyvzdzwrb4rqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.659Z"
+    },
+    {
+      "id": "iaodoj4i8q0c9pr",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.659Z"
+    }
+  ]
+}

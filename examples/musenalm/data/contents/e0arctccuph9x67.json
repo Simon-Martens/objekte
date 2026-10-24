@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Als Petrus Fische fing, ward er bestellt, / Er sollte Menschen fangen;",
+  "language": [],
+  "musenalm_id": 3351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fischer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Giseke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Fischer",
+  "updated": "2000-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u8wd0ddzmzupkv4",
+      "agents": "41u796off43ym0d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.771Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.771Z"
+    }
+  ]
+}

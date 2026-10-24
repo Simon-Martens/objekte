@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122126, Obj 201)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.232Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "»Ich bin rot und hab’s erwogen / Und verkünd’ es unverweilt! / Und geköpft sei Jeder, welcher / Das Prinzip nicht mit mir theilt!«",
+  "language": [],
+  "musenalm_id": 122128,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 203,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Für die Roten. /„Blut ist ein gar besondrer Saft“",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottfried Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Für die Roten. /„Blut ist ein gar besondrer Saft“",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eaxa1ejezv3op3w",
+      "agents": "3pzkf5igvpvswjd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.814Z"
+    }
+  ]
+}

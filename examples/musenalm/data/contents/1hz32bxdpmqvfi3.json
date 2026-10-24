@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die sanfte Frau« von Fr. Kind INr 29100, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.607Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 29101,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus dem Gedicht: DIe sanfte Frau, / von Fr. Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. W. Jury",
+  "scans": [
+    "alm_376_29101_5i62ppy82j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus dem Gedicht: DIe sanfte Frau, / von Fr. Kind",
+  "updated": "2002-10-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "al9viqy4wpaq83i",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.402Z"
+    },
+    {
+      "id": "lrmxfvirpi507rz",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.402Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.402Z"
+    }
+  ]
+}

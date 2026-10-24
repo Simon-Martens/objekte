@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.426Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Vor etwa zwanzig Jahren lebte / ein Kaufmann zu Berlin,",
+  "language": [],
+  "musenalm_id": 2730,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / drey Schwiegersöhne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Goeckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / drey Schwiegersöhne",
+  "updated": "2000-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iowar5uortwoqvz",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.947Z"
+    }
+  ]
+}

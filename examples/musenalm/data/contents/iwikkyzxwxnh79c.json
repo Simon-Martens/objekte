@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Ludwig Christoph Heinrich Hölty's Sämtliche Werke, kritisch und chronologisch herausgegeben von Wilhelm Michael. Weimar 1914. Bd. 1. S. 114; s. Re 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.956Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Wie war ich doch so wonnereich, / Dem Kayser und dem König gleich",
+  "language": [],
+  "musenalm_id": 2427,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 53,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerung",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "P.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerung",
+  "updated": "2000-08-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zrtoq927hlwxfp6",
+      "agents": "zddol7mg2ooigi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.014Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.014Z"
+    }
+  ]
+}

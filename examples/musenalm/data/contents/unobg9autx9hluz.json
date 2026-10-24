@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigrammatische Spiele (Sammlung INr 65436, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "Hündchen, das stets so treu, wo mein Mädchen sitzt oder / wandelt, / Ihr zur Seite sich schmiegt,",
+  "language": [],
+  "musenalm_id": 65447,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Winterling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11.",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "brcuawbg39u5ac5",
+      "agents": "e0tovmmp7jpcteo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.130Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.130Z"
+    }
+  ]
+}

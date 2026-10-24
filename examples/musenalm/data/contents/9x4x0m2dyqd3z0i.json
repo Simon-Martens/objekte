@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Vier zu Delft« von Bernd v. Guseck d.i. C. G. v. Berneck INr 111128, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 111129,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hörnach",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Retzsch del. L. Sichling sc.",
+  "scans": [
+    "alm_3483_111129_59jtt14oxa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hörnach",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9hxyybwk2ktf6n9",
+      "agents": "15dx9apva9mgxq4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.374Z"
+    },
+    {
+      "id": "wevrxgpcmxkavlp",
+      "agents": "4h5l66xotmujbik",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.374Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.374Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "In einer kleinen Hütte, die zu den kunstreichen Pallästen Athens, welche Perikles kluger Kunstsinn überall hervorzauberte, einen großen Abstich machte, erblickte ich das Licht.",
+  "language": [],
+  "musenalm_id": 37441,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "V. / Bruchstücke / aus dem Leben Kerinen's",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Adolph Wagner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "V. / Bruchstücke / aus dem Leben Kerinen's",
+  "updated": "2005-03-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wsyv8yfh7ra6l11",
+      "agents": "x7c2pl3bvx7jtlf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.916Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.916Z"
+    }
+  ]
+}

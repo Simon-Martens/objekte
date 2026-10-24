@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Nikias, trefflicher Mann, du Arzt des Leib's / und der Seele! / Krank! ich bin es fürwahr;",
+  "language": [],
+  "musenalm_id": 1312,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Amyntas. / Elegie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "GOETHE",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Amyntas. / Elegie",
+  "updated": "2000-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g4fm5kc85aqmlyb",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.894Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.894Z"
+    }
+  ]
+}

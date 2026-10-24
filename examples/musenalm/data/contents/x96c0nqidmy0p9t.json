@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am 1. Blatt der Suite; /) Graphik im Kalendarium paginiert 2. /) Illustration zu »Die lustigen Weiber von Windsor« von W. Shakespeare s. Textbezug INr 6926, Obj 85",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 6882,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lieber Herr Doctor ich kann / nicht fechten. / II. Aufz. 11. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. et sc.",
+  "scans": [
+    "alm_139_6882_twqf7fwsxh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lieber Herr Doctor ich kann / nicht fechten. / II. Aufz. 11. Auftr.",
+  "updated": "2000-11-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nn7itr4q8583z9r",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.245Z"
+    }
+  ]
+}

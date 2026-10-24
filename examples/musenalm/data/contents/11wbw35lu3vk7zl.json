@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.900Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "167",
+  "incipit_statement": "Wir stellen zuvörderst eine rührende Gruppe, ein erschütterndes Bild vor das Auge des Lesers: einen greisen Vater in Thränen zerflossen neben dem Sterbelager seines letzten Kindes,",
+  "language": [],
+  "musenalm_id": 121220,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rothmäntler. / National- und Charakter-Gemälde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. A. Moshamer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rothmäntler. / National- und Charakter-Gemälde",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zy5zphc5ahd2tsm",
+      "agents": "hsujjp5smywjyiq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.611Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.611Z"
+    }
+  ]
+}

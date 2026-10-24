@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.730Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Vater, es schauet mein Auge zu dir! / Schauet empor aus umkettendem Staube;",
+  "language": [],
+  "musenalm_id": 101546,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gebet eines Jünglings",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Harro Harring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gebet eines Jünglings",
+  "updated": "2013-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pa58apslhgk8j2v",
+      "agents": "8z1guozb85nkm4q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.915Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.915Z"
+    }
+  ]
+}

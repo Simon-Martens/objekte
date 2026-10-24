@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 15162, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.601Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15161,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CLEOPATRA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Domenichino p. F. John sc.",
+  "scans": [
+    "alm_239_15161_w7swt8n66r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CLEOPATRA",
+  "updated": "2001-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s27bfb6e2wf0rvy",
+      "agents": "ke8b3zzq6e79hhk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.510Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.510Z"
+    },
+    {
+      "id": "z376cmf8v5kd1w8",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.510Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.510Z"
+    }
+  ]
+}

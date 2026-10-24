@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "Sterblich bin ich, ich weiß es, und Staub; - / doch wann ich der Sterne",
+  "language": [],
+  "musenalm_id": 4145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der königliche Sternseher. (Aus dem Griechischen des Königs Ptolemäus.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-r-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der königliche Sternseher. (Aus dem Griechischen des Königs Ptolemäus.)",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ablv64n3ldr7iax",
+      "agents": "3xjka4czdksw7yb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.041Z"
+    }
+  ]
+}

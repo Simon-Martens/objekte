@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Lös't mir das Räthsel dieser Liebe! / Lös't mir das Räthsel dieses Hasses! [...] Ein alter ital. Dichter",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.413Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "321",
+  "incipit_statement": "Über die Lagunen hatte die Nacht ihren dunklen Schleier gedeckt; Venedigs geängstigte Bewohner lagen zum größten Theil in den Armen der Ruhe,",
+  "language": [],
+  "musenalm_id": 95319,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die beiden Lucretien. / Historisch-romantische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Menk-Dittmarsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die beiden Lucretien. / Historisch-romantische Erzählung",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gzyxf46g5wn8m3k",
+      "agents": "rgo231qcrzevoqg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.689Z"
+    }
+  ]
+}

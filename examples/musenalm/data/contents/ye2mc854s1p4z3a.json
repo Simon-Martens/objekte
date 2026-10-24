@@ -1,0 +1,45 @@
+{
+  "annotation": "/ Dem Text vorangestellt: Und ihr dränget euch, fröhlich und frei, aus kräftiger Wurzel / Unter einander herauf und ergreift, wie der Adler, die Beute, / Mit gewaltigem Arme den Raum. / Hölderlin",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.298Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Ein Frühlingstag, schön und lichthell, wie die Träume der Jugend, schimmerte über den Bergen Apuliens.",
+  "language": [],
+  "musenalm_id": 63931,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Normann. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Bernd von Guseck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Normann. / Novelle",
+  "updated": "2009-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f9xitn8x3achv3v",
+      "agents": "hh3dab1czdktu2g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.209Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.209Z"
+    }
+  ]
+}

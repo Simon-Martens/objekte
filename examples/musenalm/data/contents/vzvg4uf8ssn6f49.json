@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem I-Verz ## Anm. am Objekt mit Hinweis auf 3 Ausgaben: Paris 1628, Paris 1638, Paris 1789",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Die nachfolgenden Zeilen haben die Absicht, den Freunden dieser Blätter die Denkwürdigkeiten der Königinn Margaretha zu empfehlen,",
+  "language": [],
+  "musenalm_id": 25840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erinnerungen / an die Denkwürdigkeiten der Königinn Marga- / retha von Navarra, ersten Gemahlinn Hein- / richs IV. von Frankreich ##",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Prof. Sartorius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erinnerungen / an die Denkwürdigkeiten der Königinn Marga- / retha von Navarra, ersten Gemahlinn Hein- / richs IV. von Frankreich ##",
+  "updated": "2000-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "scs4ts9lf0tybrw",
+      "agents": "601y79rzgdevnp4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.225Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.225Z"
+    }
+  ]
+}

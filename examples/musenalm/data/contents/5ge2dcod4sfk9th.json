@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 36",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.126Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "56",
+  "incipit_statement": "Hier liegt ein Mann, der, als er lebte, / Stets zwischen Glaubenszweifeln schwebte;",
+  "language": [],
+  "musenalm_id": 5763,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift eines Kleinmütigen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. R.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift eines Kleinmütigen",
+  "updated": "2000-10-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gcmf9sxpenlaw8k",
+      "agents": "it8ptc76fbrkd73",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.703Z"
+    }
+  ]
+}

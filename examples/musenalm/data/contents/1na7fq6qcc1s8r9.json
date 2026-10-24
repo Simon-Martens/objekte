@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Re 9 /) Türkische Kriegslieder von Uzim Abdallah. 1788 (Sammlung INr 3616, Obj 65)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.378Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "133",
+  "incipit_statement": "Vergnügt wie dort die Sonn' aufgeht, / Geh' ich aus meinem Zelt,",
+  "language": [],
+  "musenalm_id": 3619,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "c. Spahi's Morgenlied im Lager",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Uzim Abdallah",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "c. Spahi's Morgenlied im Lager",
+  "updated": "2000-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dip3as8g0msbb79",
+      "agents": "27lkhlbux1m8s5c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.086Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.086Z"
+    }
+  ]
+}

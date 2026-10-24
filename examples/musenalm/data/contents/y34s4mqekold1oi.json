@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "280",
+  "incipit_statement": "Du Muster aller Präciesen! / Du vielversprechend Nichts! Wann wird dein / Plaudern ruhn?",
+  "language": [],
+  "musenalm_id": 9007,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Stoßgebet / in schlechter Gesellschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wezel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Stoßgebet / in schlechter Gesellschaft",
+  "updated": "2001-01-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1778,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hde6d22ahy1gamk",
+      "agents": "qqujkyt6v8xr4cn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.270Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.270Z"
+    }
+  ]
+}

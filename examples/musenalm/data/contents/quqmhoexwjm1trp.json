@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 133522, Obj 28)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "Wie lieb' ich dieß Plätzchen, / Wie würdest auch Du / So gerne hier weilen / In träumender Ruh'!",
+  "language": [],
+  "musenalm_id": 133525,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Wie lieb' ich dieß Plätzchen!...",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emil Kuh",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Wie lieb' ich dieß Plätzchen!...",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0dwgxibpkxm9rit",
+      "agents": "22q23j0k41ox8sk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.109Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.109Z"
+    }
+  ]
+}

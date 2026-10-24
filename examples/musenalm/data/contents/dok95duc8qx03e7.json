@@ -1,0 +1,45 @@
+{
+  "annotation": "Sinngedichte (Sammlung INr 71031, Obj 105)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "142",
+  "incipit_statement": "Aus des Bannes Quaal, des verbannenden, himm- / lische Freiheit! / Führst Du in's ewige Licht,",
+  "language": [],
+  "musenalm_id": 71055,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 128,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freiheit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Chrysalethes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freiheit",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h601k0w9zxs7ynz",
+      "agents": "1s7x50uh0tm3jdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.572Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.572Z"
+    }
+  ]
+}

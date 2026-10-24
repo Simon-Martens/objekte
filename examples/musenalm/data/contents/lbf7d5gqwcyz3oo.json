@@ -1,0 +1,56 @@
+{
+  "annotation": "gest. Titel mit kleiner Graphik (Merkurmotiv nach Raffael)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.841Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20335,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "W. G. BECKER'S / TASCHENBUCH / zum / geselligen Vergnügen. / Herausgegeben / von / Friedrich Kind. / Auf das Jahr 1823. / Mit Königl. Sächsischem allergnädigsten Privilegio. / LEIPZIG / bei Georg Joachim Göschen / Wien in der Carl Geroldschen Buchhandlung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rensch del. Fleischmann sc.",
+  "scans": [
+    "alm_272_20335_8qrt8t2vl6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "W. G. BECKER'S / TASCHENBUCH / zum / geselligen Vergnügen. / Herausgegeben / von / Friedrich Kind. / Auf das Jahr 1823. / Mit Königl. Sächsischem allergnädigsten Privilegio. / LEIPZIG / bei Georg Joachim Göschen / Wien in der Carl Geroldschen Buchhandlung",
+  "updated": "2001-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6a8v0ifhahteei8",
+      "agents": "ail6kpkgq3rdfot",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.814Z"
+    },
+    {
+      "id": "wytchmduir00l08",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.814Z"
+    }
+  ]
+}

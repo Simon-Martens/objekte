@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 3561, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.243Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "15",
+  "incipit_statement": "Auch des Lebens Bestes schwindet. / Rinn', o Thräne, nur herab!",
+  "language": [],
+  "musenalm_id": 3560,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebenslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Bouterwek",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebenslied",
+  "updated": "2000-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u20ovxo9483cte4",
+      "agents": "27lkhlbux1m8s5c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.066Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.066Z"
+    }
+  ]
+}

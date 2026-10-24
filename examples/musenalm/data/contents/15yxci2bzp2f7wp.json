@@ -1,0 +1,58 @@
+{
+  "annotation": "Illsutartion zu »Eine Novelle aus Montecucoli's Leben« von Weingarten INr 94007, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.862Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 94008,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Novelle: Aus Montecucoli's Leben, / von Weingarten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. Rieder del. Bl. Höfel sc. Wr. Neustadt",
+  "scans": [
+    "alm_1865_94008_86btmvnduc.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Novelle: Aus Montecucoli's Leben, / von Weingarten",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oyci4q76s07qndh",
+      "agents": "djf4nkfvic4s191",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.336Z"
+    },
+    {
+      "id": "gx1yte71afg7930",
+      "agents": "y1qct7tl0hidcy2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.336Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.336Z"
+    }
+  ]
+}

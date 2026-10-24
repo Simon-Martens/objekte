@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.469Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 129038,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Coëffures de Dresde. / 1 Noble simplicité. 2. assurance propre / 3 à la bonne fortune 4. Conservation bien attrappés",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rosmaesler del & sc. Dresde",
+  "scans": [
+    "alm_157_129038_koijrv3vpp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Coëffures de Dresde. / 1 Noble simplicité. 2. assurance propre / 3 à la bonne fortune 4. Conservation bien attrappés",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "amzd6iqa72b6hdk",
+      "agents": "n3n9pdzq4tdymdn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.999Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.999Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Die ihr den Kranz der deutschen / Bardenehre / In's Haupthaar schlingt, ihr schweiget / von der That,",
+  "language": [],
+  "musenalm_id": 21519,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zum Gedächtnisse / des Herzogs Leopold von Braunschweig- / Wolfenbüttel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stäudlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zum Gedächtnisse / des Herzogs Leopold von Braunschweig- / Wolfenbüttel",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ancriwmacwixw00",
+      "agents": "2f965te58psi6tx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.022Z"
+    }
+  ]
+}

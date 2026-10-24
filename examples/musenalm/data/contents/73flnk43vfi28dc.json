@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Gedicht vorangestellt: Rura mihi et rigui placeant in valibus amnes, [...] Virg.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.028Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Empfangt mich, ihr Höhen, / Von Tannen umkränzt;",
+  "language": [],
+  "musenalm_id": 84064,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 59,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rückkehr auf's Land",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Winfried",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rückkehr auf's Land",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bdn690di5ocy7vq",
+      "agents": "gj3r3a4y3md15rv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.971Z"
+    }
+  ]
+}

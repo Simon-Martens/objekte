@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Die Schwester« von H. Gunnacker INr 67926, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67916,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schwester",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. M. H. sc.",
+  "scans": [
+    "alm_1011_67916_4yksj66b45.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Schwester",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mn5ph4azssz34fs",
+      "agents": "8exhybkwm7lsegf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.299Z"
+    },
+    {
+      "id": "rjo3l4fnxspfks4",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.299Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.299Z"
+    }
+  ]
+}

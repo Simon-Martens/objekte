@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 37",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.421Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Der Geograph, Herr ** ruhet hier. / Er hat im Leben sich dermaßen / Schon selbst gelobt,",
+  "language": [],
+  "musenalm_id": 63037,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift auf den Geogra- / phen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-tt-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift auf den Geogra- / phen",
+  "updated": "2000-10-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vy3d28etxdds9ls",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.143Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.143Z"
+    }
+  ]
+}

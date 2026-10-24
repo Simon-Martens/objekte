@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »König Ingulf und seine Tochter« von dem Verfasser von »Wahl und Führung« INr 62925, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.120Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62899,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "König Ingulf und seine Tochter. / Von dem Verf. von Wahl und Führung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Opiz del. J. Lips sculp.",
+  "scans": [
+    "alm_1031_62899_ia73zb9s34.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "König Ingulf und seine Tochter. / Von dem Verf. von Wahl und Führung",
+  "updated": "2009-03-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l04ue6lc0ejz8es",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.123Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.123Z"
+    },
+    {
+      "id": "o7ia6wu56aegnaa",
+      "agents": "iwoqrcn7d9iuxfi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.124Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.124Z"
+    }
+  ]
+}

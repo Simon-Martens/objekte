@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte; mit einer Musikbeigabe s. INr 11182, Obj 75,01",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.199Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "239",
+  "incipit_statement": "Wohl denk' ich allenthalben, / O du Entfernte, dein! / Früh wenn die Wolken falben",
+  "language": [],
+  "musenalm_id": 11181,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "36. / Der Entfernten. / 1789. / Die Compos. ist von H. Capellmstr. Naumann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. v. Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "36. / Der Entfernten. / 1789. / Die Compos. ist von H. Capellmstr. Naumann",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "74ps8ii7abk270o",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.325Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.325Z"
+    }
+  ]
+}

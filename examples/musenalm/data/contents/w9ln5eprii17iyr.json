@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.555Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Die Armuth am Verstand mit Vortheil zu versteken, / Muß oft ein Körnlen izt ein groser Scheffel deken.",
+  "language": [],
+  "musenalm_id": 93234,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf die großen Hüte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. v. Eschstruth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf die großen Hüte",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l49dglolsur5kd7",
+      "agents": "wyoix05eehnfe9p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.298Z"
+    }
+  ]
+}

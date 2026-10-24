@@ -1,0 +1,45 @@
+{
+  "annotation": "Sechs Sonnette zu den Kupfern (Sammlung INr 94350, Obj 6) s. Graphik INr 94354, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Am milden Frühlingsabend Zephyrswehen, / Wie lieblich kühlt es uns die glüh'nden Wangen!",
+  "language": [],
+  "musenalm_id": 94355,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die liebliche Schöne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "I. F. Castelli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die liebliche Schöne",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2t927yk6w9q57nt",
+      "agents": "7dzepqoa9ah8w0r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.246Z"
+    }
+  ]
+}

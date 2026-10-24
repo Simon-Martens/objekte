@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80309, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Von hohen Buchen rauscht herab / Geheimnißvolles Wort,",
+  "language": [],
+  "musenalm_id": 80311,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der alte Jäger",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fridolin Freiherr von Wend",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der alte Jäger",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "74g7r5yjnrwu15y",
+      "agents": "9hjrqh1l94hv21m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.943Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.943Z"
+    }
+  ]
+}

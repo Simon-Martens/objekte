@@ -1,0 +1,43 @@
+{
+  "annotation": "paginiert 5. /)  Illustration zu »Die Ischiesen« von G. H. L. Nicolovius INr 23262, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.575Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52265,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ischiesen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Penzel del & fec. 1793",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Ischiesen",
+  "updated": "2002-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r8hh5plk3t754pm",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.647Z"
+    }
+  ]
+}

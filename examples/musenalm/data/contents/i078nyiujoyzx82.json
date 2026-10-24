@@ -1,0 +1,45 @@
+{
+  "annotation": "Distichen (Sammlung INr 22543, Obj 76)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.882Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "270",
+  "incipit_statement": "Immer zur Erde hinab zieht der Leib die gewichtige / Schwere,",
+  "language": [],
+  "musenalm_id": 22454,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 77,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Immer zur Erde hinab zieht der Leib die gewichtige / Schwere,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz Rudolph Herrmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zmatr5h92roaxf4",
+      "agents": "kvqo68p64ik630m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.921Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.921Z"
+    }
+  ]
+}

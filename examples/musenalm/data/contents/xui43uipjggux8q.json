@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Wo du noch weilest, trauter, den der Himnmel / Mir bestimmet zum Bruder in dem Thale,",
+  "language": [],
+  "musenalm_id": 52559,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den künftigen Freund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Thaddäus Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den künftigen Freund",
+  "updated": "2007-11-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c4qhi0ly4cs0ptv",
+      "agents": "1mr5htila6mqzxe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.500Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.500Z"
+    }
+  ]
+}

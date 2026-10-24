@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz (INr 128612, Obj. 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Man kann den Werth oder Unwerth einer Bühne in einem wesentlichen Theile schon erkennen, ohne einer einzigen Darstellung beigewohnt zu haben: dies geschieht, wenn man ihr Repertoire einer nähern Prüfung unterwirft.",
+  "language": [],
+  "musenalm_id": 128620,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Ueber das Repertoire",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Aug. Klingemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Ueber das Repertoire",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2ptq8dnk7jew5ev",
+      "agents": "4s7269wm8jxsp50",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.994Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.994Z"
+    }
+  ]
+}

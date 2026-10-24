@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 133574, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.598Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Willkommen, wunderreiche Sonne, / Du Abglanz von dem ew'gen Licht!",
+  "language": [],
+  "musenalm_id": 133575,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Ein Blinder an die Sonne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Raupach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Ein Blinder an die Sonne",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c7xdhbnjof3dkn2",
+      "agents": "uxyu52yd3v030gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.112Z"
+    }
+  ]
+}

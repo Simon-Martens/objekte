@@ -1,0 +1,46 @@
+{
+  "annotation": "Von der Welt (Sammlung INr 75163, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.952Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "80",
+  "incipit_statement": "deren man mit blossen Augen über 3000 zält, funkeln und blizzen so, daß man sie nicht ohne Grund für Sonnen, d.i. für Körper von eignem Licht hält.",
+  "language": [],
+  "musenalm_id": 75165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Tabelle"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Fixsterne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Fixsterne",
+  "updated": "2011-05-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b716c3hiwku1x8c",
+      "agents": "58byfz890fzelu8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.557Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.557Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Geh' heim! - Der ew'ge Richter sieht's. / Hebel",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.295Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "65",
+  "incipit_statement": "Die frühesten Morgenglocken schwiegen noch, und schon war der schumtzigste ekelhafteste Winkel der alten Stadt Neapel mit einem Bodensatze von Bevölkerung erfüllt,",
+  "language": [],
+  "musenalm_id": 86116,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Alibi. / Kriminalgeschichte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Silesius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Alibi. / Kriminalgeschichte",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ehrlsjpgxcntvn6",
+      "agents": "kjfa5zse6o9jzto",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.189Z"
+    }
+  ]
+}

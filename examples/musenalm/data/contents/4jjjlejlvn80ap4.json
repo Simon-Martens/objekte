@@ -1,0 +1,45 @@
+{
+  "annotation": "Beitrag in 4 Abschnitten INr 8001-8004, Obj 20-23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 8000,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Krieg / der französischen Nation / gegen / die coalierten Mächte Europens. / Erster Jahrgang. / 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Krieg / der französischen Nation / gegen / die coalierten Mächte Europens. / Erster Jahrgang. / 1792",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bzmoy9vasha7jel",
+      "agents": "b68wiq4xeilaqf3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.116Z"
+    }
+  ]
+}

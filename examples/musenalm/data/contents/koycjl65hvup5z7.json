@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.867Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "An einem Baum im Föhrenwalde / Auf eines Berges sanfter Halde / Hängt noch ein altes Glaubenschild,",
+  "language": [],
+  "musenalm_id": 114001,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Marienbild im Walde. / Eine Idylle. / Zur glorreichsten Feier des 4. Octobers 1834",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Reil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Marienbild im Walde. / Eine Idylle. / Zur glorreichsten Feier des 4. Octobers 1834",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "owi95chi67h2k3h",
+      "agents": "iy0f9gplf8lpfrd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.550Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.550Z"
+    }
+  ]
+}

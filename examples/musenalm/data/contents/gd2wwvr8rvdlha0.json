@@ -1,0 +1,54 @@
+{
+  "annotation": "Illustration zu »Das Lamm. Eine Schäfererzählung« von R. Levesque INr 45263, Obj 18 §1§ Graphik fehlt",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.879Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45264,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Fiorello del. Riepenhausen sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fiorello del. Riepenhausen sc.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bydz6yor62653wh",
+      "agents": "82hnuogab8tns1x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.136Z"
+    },
+    {
+      "id": "3x7vhv5bjfvbxfw",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.136Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anm. am Gedicht zu: Wunderhold : Bürgers Blümchen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "Kein Blümchen sprießet auf der Flur; / Die liegt, verhüllt, im weichen Flaume,",
+  "language": [],
+  "musenalm_id": 62708,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Emilien. / Den 22. Januar 1818",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Emilien. / Den 22. Januar 1818",
+  "updated": "2009-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "52lkeyhp7uhg5ru",
+      "agents": "j6u4xe56jqv8urn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.254Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.254Z"
+    }
+  ]
+}

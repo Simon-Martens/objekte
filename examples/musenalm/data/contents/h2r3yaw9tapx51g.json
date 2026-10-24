@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.001Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Zum Bade steigt vom Wiesenplan / Ein Mägdlein in den Brunnen,",
+  "language": [],
+  "musenalm_id": 113902,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Drey Winterrosen. / (Altdeutsch.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Drey Winterrosen. / (Altdeutsch.)",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e8yngalgkw0805h",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.484Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.484Z"
+    }
+  ]
+}

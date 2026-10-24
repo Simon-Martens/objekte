@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.277Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "94",
+  "incipit_statement": "Wenn du hoch auf Bergeswegen / Atmest der Genesung Luft,",
+  "language": [],
+  "musenalm_id": 45375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 84,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mit einem Petschafte, das den Aes- / kulap darstellte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Curtius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mit einem Petschafte, das den Aes- / kulap darstellte",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y1r2bthh8vg6i1v",
+      "agents": "bmboy2xxmlf33nl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.189Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.189Z"
+    }
+  ]
+}

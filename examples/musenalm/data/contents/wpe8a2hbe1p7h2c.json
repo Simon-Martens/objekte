@@ -1,0 +1,45 @@
+{
+  "annotation": "s. kol. Titelgraphik INr 132",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.629Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Der Anblick eines schönen muthigen Pferdes, dessen harmonische Bauart die ganze Aufmerksamkeit von Knaben bis zum Greise auf sich zieht, ist eine Naturerscheinung.",
+  "language": [],
+  "musenalm_id": 132020,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erklärung des Titelkupfers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. von Tennecker, Lieutenant",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erklärung des Titelkupfers",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pzwlaz3s8yyhjxr",
+      "agents": "ngfhgg967qz5l80",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.005Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.005Z"
+    }
+  ]
+}

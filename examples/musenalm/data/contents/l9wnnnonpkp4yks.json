@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Zenobia« von Calderon s. Textbezug INr 34656, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34655,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus Calderon'ds Zenobia",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Heideloff del. C. Meyer sc.",
+  "scans": [
+    "alm_355_34655_canitvelfg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aus Calderon'ds Zenobia",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "quucty0yjcopdf2",
+      "agents": "da1kftrnv0p7ngp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.822Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.822Z"
+    }
+  ]
+}

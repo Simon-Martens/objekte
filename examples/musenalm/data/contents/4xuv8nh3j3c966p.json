@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.333Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59137,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Entwurf u. Lithographie von H. Asmus in Berlin)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Entwurf u. Lithographie von H. Asmus in Berlin",
+  "scans": [
+    "alm_881_59137_uthttr1stp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mu189x8sdvui22t",
+      "agents": "wvzx8yp0t9tqzmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.065Z"
+    }
+  ]
+}

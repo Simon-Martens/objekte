@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik; Illustration zu »Deutschland ein historisches Gemaelde« von Fr. Chr. Schlenkert INr 60887, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60870,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Schenau gez. C. E. Stoelzel gest. 1794)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schenau gez. C. E. Stoelzel gest. 1794",
+  "scans": [
+    "alm_948_60870_6ktml5jwrt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-11-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nctpvvfjrmmpa5p",
+      "agents": "0hfa1bhqyn0q95c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.814Z"
+    },
+    {
+      "id": "5sp3z1ch2511y5t",
+      "agents": "e5dzzklohvjx1fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.814Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.814Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Berauscht von der süßen Trunkenheit der Liebe pries einst der Sultan Mamoun in einer vertraulichen Stunde",
+  "language": [],
+  "musenalm_id": 29016,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Die Fußtapfen des Löwen, / eine orientalische Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Charlotte von Ahlefeldt, geb. von Seebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Die Fußtapfen des Löwen, / eine orientalische Erzählung",
+  "updated": "2002-10-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wdnw1v2ebkaysl1",
+      "agents": "l4enih6aag2oyqg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.183Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.183Z"
+    }
+  ]
+}

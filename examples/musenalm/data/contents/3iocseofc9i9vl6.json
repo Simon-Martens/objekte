@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.962Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Was in der Gegenwart Breite gehört, in die / Länge der Zukunft; / Herrlich stellt dem Verstand, schön dem Geschmack es sich dar.",
+  "language": [],
+  "musenalm_id": 23917,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 81,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Verstand, Geschmack und Genie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Büschenthal",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Verstand, Geschmack und Genie",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "302pznya8xncfd2",
+      "agents": "q7zvyheam3iyblc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.196Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.196Z"
+    }
+  ]
+}

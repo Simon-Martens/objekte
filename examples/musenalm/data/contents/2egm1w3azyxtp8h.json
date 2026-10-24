@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Die Liebe hat nicht Zügel, / Sie weilt in keinem Raum, / Sie zieht mit freyem Flügel / Durch's Leben wie der Traum;",
+  "language": [],
+  "musenalm_id": 124441,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Noch eine Frage. / Nach de la Motte Fouqué's: Der alte Held",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baron Eyb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Noch eine Frage. / Nach de la Motte Fouqué's: Der alte Held",
+  "updated": "2009-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2m1674s9fz3tkl6",
+      "agents": "otquhrfmf15x6tw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.785Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.785Z"
+    }
+  ]
+}

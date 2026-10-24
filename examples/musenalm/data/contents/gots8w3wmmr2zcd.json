@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.849Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "223",
+  "incipit_statement": "Mein B..., nach dem Beruf zu spielen / Ist kein Beruf den Höfen so gemein,",
+  "language": [],
+  "musenalm_id": 871,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Herrn von B.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frh. v. N.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Herrn von B.",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dr5t3jibgp6boe6",
+      "agents": "6y2vclvz6pkp0l9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.674Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.674Z"
+    }
+  ]
+}

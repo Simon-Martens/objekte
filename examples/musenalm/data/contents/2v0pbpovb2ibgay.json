@@ -1,0 +1,45 @@
+{
+  "annotation": "Räthsel, Charaden und Logogryphen (Sammlung INr 20026, Obj 109)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "407",
+  "incipit_statement": "Wie vermehrt mein Hausstand sich! / Gestern Abends, Freund, ergötze",
+  "language": [],
+  "musenalm_id": 20033,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 115,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Seifried",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Charade",
+  "updated": "2001-12-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mjiz61no5czz9s3",
+      "agents": "htjq8uohs4h9hsk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.050Z"
+    }
+  ]
+}

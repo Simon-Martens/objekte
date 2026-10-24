@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 63 Beiträgen mit einer einleitenden Bemerkung INr 40099-40162, Obj 32-95",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.953Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "343",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40098,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Blätter / aus F. H. Jacobi's Nachlaß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Jacobi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Blätter / aus F. H. Jacobi's Nachlaß",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ous9mo26mwtv2jq",
+      "agents": "02o1v7ogp6q644r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.960Z"
+    }
+  ]
+}

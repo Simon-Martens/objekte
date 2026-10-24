@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 76460, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.670Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76454,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ansicht bei Potschappel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther fec.",
+  "scans": [
+    "alm_3704_76454_dun8e5ilsd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ansicht bei Potschappel",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2kkhruw7uzjx32o",
+      "agents": "k3qfb3024y59h2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.686Z"
+    }
+  ]
+}

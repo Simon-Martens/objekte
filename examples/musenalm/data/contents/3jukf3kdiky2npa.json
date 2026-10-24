@@ -1,0 +1,50 @@
+{
+  "annotation": "Vertonung des Gedichts »Kriegslied für Schweizer« von A. Stähele INr 53432, Obj 62 /) Photos 53433,01-53433,04",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.579Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "312",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53433,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kriegslied für Schweizer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Huber",
+  "scans": [
+    "alm_731_53433_01_f41b4ppa7u.jpg",
+    "alm_731_53433_02_mwnxt2cxnm.jpg",
+    "alm_731_53433_03_3nev16yvyz.jpg",
+    "alm_731_53433_04_si6ceh06we.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kriegslied für Schweizer",
+  "updated": "2007-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dklbn9lgtf8wbv6",
+      "agents": "sotbd7eujnrv6f6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.647Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.647Z"
+    }
+  ]
+}

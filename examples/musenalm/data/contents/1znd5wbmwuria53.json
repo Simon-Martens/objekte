@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Bayard« von Kotzebue /) s. Textbezug INr 114480, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 114481,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (L. Maillard el. J. Gerstner sc)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Maillard el. J. Gerstner sc",
+  "scans": [
+    "alm_1845_114481_lbnrwj2khx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hlo2nmiehy6gay2",
+      "agents": "jqx789ngxccpl2l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.460Z"
+    },
+    {
+      "id": "ftfeylbv4snalpf",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.460Z"
+    }
+  ]
+}

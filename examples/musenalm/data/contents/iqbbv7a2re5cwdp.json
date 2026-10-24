@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Genießt den Reiz des Lebens, / Rasch eilt der Stunden Lauf,",
+  "language": [],
+  "musenalm_id": 66022,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied / zum dritten Erinnerungsfeste westfälischer / Musensöhne, gefeiert am 14. Juni 1821 / im Soolbade bei Unna",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Rautert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied / zum dritten Erinnerungsfeste westfälischer / Musensöhne, gefeiert am 14. Juni 1821 / im Soolbade bei Unna",
+  "updated": "2009-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kyg8m8qb9b0argo",
+      "agents": "rfgzar1lasfs7j7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.298Z"
+    }
+  ]
+}

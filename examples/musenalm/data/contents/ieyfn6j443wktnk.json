@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigaben zu »Diana« INr 107393, Obj 11 /) mit einer Musikbeigabe s. INr 107395, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Ach des Glückes goldener Stern / Sah nicht in mein welkendes Leben,",
+  "language": [],
+  "musenalm_id": 107394,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ach des Glückes goldener Stern / Sah nicht in mein welkendes Leben,…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frey nach J. P. Charrin erzählt von Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "za30dx9sr4a8b9l",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.208Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.208Z"
+    }
+  ]
+}

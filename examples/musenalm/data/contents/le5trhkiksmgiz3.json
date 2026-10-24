@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Minnelied« von Bürger INr 768, Obj 46 (Photos 767,01; 767,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 767,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (Hiller)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hiller",
+  "scans": [
+    "alm_60_767_01_l6srxd6lnx.jpg",
+    "alm_60_767_02_0fywwuxm2b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1773,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ut7nj1kazoxrvu0",
+      "agents": "93qj54q4os5w6av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.632Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.632Z"
+    }
+  ]
+}

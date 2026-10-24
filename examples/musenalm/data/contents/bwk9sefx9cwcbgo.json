@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Einträgen A-C",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "A. Der erste Ankläger unserer Schauspieler beim jüngsten Gericht, wenn die Buchstaben aufstehn und Rechnung fordern werden von ihnen über die verletzten Rechte der Aussprache.",
+  "language": [],
+  "musenalm_id": 115607,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bauholz / zu einem / satyrisch dramatischen Conversations- / Lexicon",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. G. Saphir",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bauholz / zu einem / satyrisch dramatischen Conversations- / Lexicon",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a6ppd08uspzjw5x",
+      "agents": "31iymrx6tazubtp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.356Z"
+    }
+  ]
+}

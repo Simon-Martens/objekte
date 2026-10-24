@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik (Portrait) INr 77779, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.836Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Der Roman Walladmor war diejenige Production durch welche W. Häring zuerst die allgemeinste Aufmerksamkeit auf sich zog.",
+  "language": [],
+  "musenalm_id": 77780,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wilhelm Häring. (Willibald Alexis)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Wilhelm Häring. (Willibald Alexis)",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c3le2jn8smrawec",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.696Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.696Z"
+    }
+  ]
+}

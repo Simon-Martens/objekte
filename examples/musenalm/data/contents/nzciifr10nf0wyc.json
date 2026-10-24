@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Beiträgen INr 39553-39558, Obj 38-43",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.340Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "385",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39552,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Blätter / aus / Agathens Papieren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Blätter / aus / Agathens Papieren",
+  "updated": "2005-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7g5ry9lkiyau8s3",
+      "agents": "w1gkyrmb6cwa21o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.051Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.051Z"
+    }
+  ]
+}

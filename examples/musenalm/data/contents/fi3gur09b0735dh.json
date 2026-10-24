@@ -1,0 +1,45 @@
+{
+  "annotation": "nach dem Reprint Hildesheim, New York (Olms) 1979 autopsiert",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.578Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Ein jedes Land hat seine Sitten: / So henkt, zum Beispiel, bey den Britten / Man einen Juden nie allein;",
+  "language": [],
+  "musenalm_id": 7723,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marcolph und der Jude",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Einem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Marcolph und der Jude",
+  "updated": "2000-09-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tvovzof7y5k999x",
+      "agents": "cnpmi5umijfxrao",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.277Z"
+    }
+  ]
+}

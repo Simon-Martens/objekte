@@ -1,0 +1,45 @@
+{
+  "annotation": "$ vermutl. Lyser d. i. J. P. T. Burmeister",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.957Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "251",
+  "incipit_statement": "Die sogenannten Wunderkinder waren mir von jeher in den Tod zuwider. Die Erfahrung hat es bestätigt, daß von den unzähligen frühreifen Genies, welche seit Mozart auftauchten,",
+  "language": [],
+  "musenalm_id": 36411,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 75,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Clara Wiek",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet $",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Clara Wiek",
+  "updated": "2003-12-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3g8gx3ts0zg91og",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.818Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.818Z"
+    }
+  ]
+}

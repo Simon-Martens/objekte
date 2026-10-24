@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "378",
+  "incipit_statement": "Männer, welche eine Höh' erklommen, / Sind als Richter werth uns und willkommen.",
+  "language": [],
+  "musenalm_id": 94953,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kritiker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. Lenau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kritiker",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w9lmjn36ezmf1wp",
+      "agents": "96po1brlxwvvsud",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.369Z"
+    }
+  ]
+}

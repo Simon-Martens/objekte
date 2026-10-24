@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium September /) nummeriert 5. /) Illustration zu »Die Todtenbraut« INr 93833, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93823,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich bin schon ein Bräutigam!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. v. Perger del. S. Langer sc.",
+  "scans": [
+    "alm_989_93823_41js6yc9np.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich bin schon ein Bräutigam!",
+  "updated": "2009-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gxan8600107pge6",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.644Z"
+    },
+    {
+      "id": "ptkeso3n7zhptek",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.644Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.644Z"
+    }
+  ]
+}

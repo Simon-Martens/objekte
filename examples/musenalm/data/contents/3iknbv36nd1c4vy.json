@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 131945, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "324",
+  "incipit_statement": "Scherz und Frohsinn zu erheben, / Gram und Kummer zu zerstreun, / Wiegt der Liebe sanftes Beben / Weichgeschaffne Herzen ein.",
+  "language": [],
+  "musenalm_id": 131948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Voigt, d. f. K. M. i. Leipzig",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oyglkozm3do9x4y",
+      "agents": "ist0hhj6cs5q2wv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.084Z"
+    }
+  ]
+}

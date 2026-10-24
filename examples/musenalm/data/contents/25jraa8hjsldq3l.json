@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zum folgenden Gedicht INr 32357, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.647Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Die jüngste Tochter der allgemein geschätzten Dichterin Friederike Brun; ein liebenswürdiges Mädchen von noch nicht vierzehn Jahren,",
+  "language": [],
+  "musenalm_id": 32356,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An / Ida Brun",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An / Ida Brun",
+  "updated": "2003-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r42k9lvh9obr9wp",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.405Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.405Z"
+    }
+  ]
+}

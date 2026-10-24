@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) mit 6 Illustrationen im Kalendarium INr 75580-75585, Obj 5-10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.422Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In den so denkwürdigen Jahrbüchern der Britten ist keine Regierung so reich an großen, außerordentlichen Begebenheiten, als die Regierung der Königin Elisabeth;",
+  "language": [],
+  "musenalm_id": 75600,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichte / der / Königin Elisabeth / von / England",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Archenholz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichte / der / Königin Elisabeth / von / England",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vajsq72fc8nhwbo",
+      "agents": "5t8j3g93hqkrq0k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.449Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.449Z"
+    }
+  ]
+}

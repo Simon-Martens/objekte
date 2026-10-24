@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.640Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "340",
+  "incipit_statement": "Rasch spricht er ab; ich sei ein Thor, / Weil ich mit ihm kein Wort verlor;",
+  "language": [],
+  "musenalm_id": 11255,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 145,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "103. / Gegenseitiges Urtheil",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. v. Salis",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "103. / Gegenseitiges Urtheil",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t9xxqw9q7xwhykq",
+      "agents": "ftlu3x5ip5cgcvs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.431Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.431Z"
+    }
+  ]
+}

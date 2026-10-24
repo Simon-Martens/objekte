@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von   Gedichten INr 37124-371        # Aus: Die Weisheit des Brahmanen. Ein Lehrgedicht in Bruchstücken. Leipzig (Weidmann) 1836-1839. Die Sammlung wird fortgesetzt in: Musenalmanach, Deutscher (Chamisso, Schwab, Gaudy) 1837 INr 25235-25334",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "399",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37123,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 247,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bruchstücke eines Lehrgedichts #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bruchstücke eines Lehrgedichts #",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g3o6yxjgkgjbxnf",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.575Z"
+    }
+  ]
+}

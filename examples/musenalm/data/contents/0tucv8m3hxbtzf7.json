@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 198. /) Illustration zu »Luise Selneck oder der Sieg über den Hagestolz« INr 47369, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.321Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47372,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Keine Complimente! Häusslichkeit / ist die Zierde des Weibes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc.",
+  "scans": [
+    "alm_642_47372_io6qypu8ps.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Keine Complimente! Häusslichkeit / ist die Zierde des Weibes",
+  "updated": "2006-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z0dktulub11bmiz",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.049Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.049Z"
+    },
+    {
+      "id": "bw6j9yk2coovc38",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.050Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.050Z"
+    }
+  ]
+}

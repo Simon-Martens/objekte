@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 24277, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.337Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Komm her, mein Sohn, laß dich bewehren, / Komm, waffne fröhlich Herz und Hand.",
+  "language": [],
+  "musenalm_id": 24281,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Lehre an den Sohn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. M. Arndt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Lehre an den Sohn",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "76g23r1tzpqhgid",
+      "agents": "qab571spaxuq9fk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.256Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.256Z"
+    }
+  ]
+}

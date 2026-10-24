@@ -1,0 +1,43 @@
+{
+  "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30230, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.935Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "So mancher trinkt in vollern Zügen / Die Lust, die ihm noch Glanz verleiht,",
+  "language": [],
+  "musenalm_id": 30231,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Heimlichkeiten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Heimlichkeiten",
+  "updated": "2002-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o3v30umavom6p93",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.578Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.578Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "Wie still ists in dem Hain der Lieder, / Der von Elisens Hymnen schwoll,",
+  "language": [],
+  "musenalm_id": 20252,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf den Tod einer Sängerin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tiege",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf den Tod einer Sängerin",
+  "updated": "2001-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iy2p79p18zpyudc",
+      "agents": "54yrh3deen85ult",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.093Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.093Z"
+    }
+  ]
+}

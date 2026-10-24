@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.114Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Mit wundersamen, heil'gem Regen, / In leichtem Phantasieenspiel / Erstehet mit des Herzens Schlägen / Ein unnennbares Tiefgefühl.",
+  "language": [],
+  "musenalm_id": 53485,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Künstlerglück",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jak. Lips",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Künstlerglück",
+  "updated": "2007-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tx18o8pvl3c7ryk",
+      "agents": "iwoqrcn7d9iuxfi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.838Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.838Z"
+    }
+  ]
+}

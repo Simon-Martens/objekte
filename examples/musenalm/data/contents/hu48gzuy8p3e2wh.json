@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 35054, Obj 8)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.487Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Der Muse folgt nach der Bretagne Strand; / Altar und Thron sind umgestürzt, der Schrecken / Herrscht über Blut und Trümmern rings im Land",
+  "language": [],
+  "musenalm_id": 35058,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die stille Gemeinde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelbert von Chamisso",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die stille Gemeinde",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ydcpucbkc5zpjrs",
+      "agents": "3emdj29jey7pglq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.772Z"
+    }
+  ]
+}

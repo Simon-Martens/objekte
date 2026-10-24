@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Vergebens war mein Bemühen, vor Anbruch des Abends noch den herrlichen Rigi zu erreichen; ein arges Ungewitter zog auf den Wolken tragenden Häuptern der Berge sich zusammen,",
+  "language": [],
+  "musenalm_id": 106040,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rösli",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. X. Told",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Rösli",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xcv5schxddxw6jq",
+      "agents": "tglq0d4pyb420do",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.241Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.241Z"
+    }
+  ]
+}

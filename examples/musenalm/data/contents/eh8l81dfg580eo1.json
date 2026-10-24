@@ -1,0 +1,43 @@
+{
+  "annotation": "Nachklänge (Sammlung INr 94772, Obj 12) der Sammlung vorangestelltes Gedicht",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.379Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "59",
+  "incipit_statement": "Mißtraue des Glückes neidischer List: / Vor'm Weinen schickt es das Lachen;",
+  "language": [],
+  "musenalm_id": 94773,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mißtraue des Glückes neidischer List: / Vor'm Weinen schickt es das Lachen;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4hsbs8kc2ksti6c",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.687Z"
+    }
+  ]
+}

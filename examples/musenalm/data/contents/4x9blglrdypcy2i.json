@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 76764, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.430Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76742,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aussicht nach dem Winterberge mit dem Försterhause in Postelwitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Günther sc.",
+  "scans": [
+    "alm_2386_76742_a00ii7eosg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aussicht nach dem Winterberge mit dem Försterhause in Postelwitz",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x89oe38qd4ybz0n",
+      "agents": "k3qfb3024y59h2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.801Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.801Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert V. Illustration zu »Bertha. Oder: Der Lohn der Tugend und Schönheit und des Fleißes« INr 48323, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.525Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 48294,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Was Bertha besitzt gehört nun auch ihrem Anton",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury fec.",
+  "scans": [
+    "alm_658_48294_subfcug780.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Was Bertha besitzt gehört nun auch ihrem Anton",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rhq06nxthjfpyn0",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.645Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.645Z"
+    }
+  ]
+}

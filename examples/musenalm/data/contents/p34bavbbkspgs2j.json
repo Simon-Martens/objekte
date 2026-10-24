@@ -1,0 +1,46 @@
+{
+  "annotation": "s. vorst. Gedicht INr 20538, Obj 77",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.755Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Allbekannt ist Stolbergs freie Nachbildung dieser alten Ballade, unter der Aufschrift: die Büßende,",
+  "language": [],
+  "musenalm_id": 20539,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachwort des Verfassers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachwort des Verfassers",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f64uktvxpwyvoby",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.908Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.908Z"
+    }
+  ]
+}

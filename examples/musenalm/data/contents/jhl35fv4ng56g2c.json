@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus der Vorrede (INr 123066, Obj 2)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "229",
+  "incipit_statement": "Wir königlicher Hirt von den geschornen Schafen, / Wir sind wohl recht geplagt mit Essen, Trincken, / Schlafen;",
+  "language": [],
+  "musenalm_id": 123137,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sultan Bimbambum / oder / der Triumph der Wahrheit. / Eine moralische Heroi-Tragi-Comödia",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Kotzebue",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sultan Bimbambum / oder / der Triumph der Wahrheit. / Eine moralische Heroi-Tragi-Comödia",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "48kzs55cmx8gwr7",
+      "agents": "sse24vstbh0jbtd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.829Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.829Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert Tab. I. /) kolorierte  Illustration zu »Der Luchs« von L. C. E. H. F. von Wildungen INr 66444, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.664Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66443,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Luchs",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kehrer del.",
+  "scans": [
+    "alm_1135_66443_um83hxtj3s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Luchs",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3h1r80anod7fh4p",
+      "agents": "659oeugsapemrqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.245Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.245Z"
+    }
+  ]
+}

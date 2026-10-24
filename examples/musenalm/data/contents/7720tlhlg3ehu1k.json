@@ -1,0 +1,46 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.754Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Bekanntlich hat man es in Deutschland mit der Nelken- und AurikelFlor durch die künstliche Befruchtung derselben und den dadurch erhaltenen Samen, so weit gebracht, daß man die schönsten Sorten nach England, Italien Pohlen u.s.w. verschicken konnte.",
+  "language": [],
+  "musenalm_id": 74387,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Von der Hyacinthe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pfr. Steeb",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Von der Hyacinthe",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "otynbtg8e42bw1h",
+      "agents": "zu59eup06ilx8r1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.759Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.759Z"
+    }
+  ]
+}

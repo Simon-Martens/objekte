@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r. # Bezeichnungen aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.078Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20325,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Rentsch; Müller)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Rentsch; Müller",
+  "scans": [
+    "alm_271_20325_oep6xh0n12.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0rb3cfm2v5f2fos",
+      "agents": "ail6kpkgq3rdfot",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.698Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.698Z"
+    }
+  ]
+}

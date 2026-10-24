@@ -1,0 +1,45 @@
+{
+  "annotation": "Aus dem Tagebuch (Sammlung INr 14976, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.474Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Wer durch's Lebensmeer gesucht, / Und ein Gut gefunden, / Flüchte sich zur stillen Bucht,",
+  "language": [],
+  "musenalm_id": 14982,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Lied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Lied",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9k8hdttufkxu6sm",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.623Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.623Z"
+    }
+  ]
+}

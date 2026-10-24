@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.408Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Kein Kochbuch hab' ich geschrieben / Auch ein Gebetbuch nicht, / Und viele Dutzend Strümpfe / Hab' ich gestrickt auch nicht.",
+  "language": [],
+  "musenalm_id": 100457,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bekenntniß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adelheid von Stolterforth",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bekenntniß",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t1ig8fvl1ywajp8",
+      "agents": "3jhgiv1hh1vm2en",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.982Z"
+    }
+  ]
+}

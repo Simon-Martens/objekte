@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.726Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "290",
+  "incipit_statement": "Der Jüngling, von der Vorwelt Kraft beschämt, / Flieht aus diesem Spiel zu edleren Genüssen;",
+  "language": [],
+  "musenalm_id": 42000,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 201,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zuversicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Freiherr v. Feuchtersleben",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zuversicht",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p3whpm40yhy9ww8",
+      "agents": "kul4vu28bmx1z4v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.934Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.934Z"
+    }
+  ]
+}

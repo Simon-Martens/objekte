@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am letzten Blatt der Suite /) Graphik (Portrait) im Kalendarium /) s. Textbezug INr 96243, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.191Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96227,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heinrich Johann Freiherr / von Günther, / Kön. Pr. Gen. Lieut. und Chef des / Regiments Towarczis",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas",
+  "scans": [
+    "alm_2184_96227_ptsxai422n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Heinrich Johann Freiherr / von Günther, / Kön. Pr. Gen. Lieut. und Chef des / Regiments Towarczis",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rq2cmtxvycd3iaz",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.755Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.755Z"
+    }
+  ]
+}

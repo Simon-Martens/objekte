@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "121",
+  "incipit_statement": "Wie lief nicht Jung und Alt und Herrn und / Fraun, / Dein geographisch Feuerwerk zu schaun!",
+  "language": [],
+  "musenalm_id": 96375,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Stuwer. / Als er in einem Feuerwerk die geographi- / sche Karte Oetreichs dargestellt hatte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Stein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Stuwer. / Als er in einem Feuerwerk die geographi- / sche Karte Oetreichs dargestellt hatte",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ycblukyu61e6b3z",
+      "agents": "x9u4n2qst16e030",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.689Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert XII. /) Illustration zu »Ludwig XVI. König von Frankreich« INr 59832, Obj 34 s.a. Textbezug INr 59828, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59830,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hinrichtung Ludwigs XVI. / Ludwig: Nation, ich sterbe unschuldig",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc. 1793",
+  "scans": [
+    "alm_932_59830_ll58rz91m5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hinrichtung Ludwigs XVI. / Ludwig: Nation, ich sterbe unschuldig",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "621zaeo65n7rknf",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.941Z"
+    },
+    {
+      "id": "7srmg2dz0ttuj55",
+      "agents": "c0fepqesuedn747",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.941Z"
+    }
+  ]
+}

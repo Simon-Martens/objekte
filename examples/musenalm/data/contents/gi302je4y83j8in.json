@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.237Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54838,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Bräutigam gez. Brennhäuser gest.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bräutigam gez. Brennhäuser gest.",
+  "scans": [
+    "alm_18_54838_bz617wnzoa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kw27eahndodg8mx",
+      "agents": "xpwqwrivxcv6zzc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.692Z"
+    },
+    {
+      "id": "cxhjly03kmzpmvy",
+      "agents": "jgge0q6uinm3xf0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.693Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.693Z"
+    }
+  ]
+}

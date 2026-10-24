@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den Stahlstichen gestochen von Ed. Schuler, Fleischmann und Roßmäsler (Sammlung INr 63765, Obj 5) s. Titelportrait INr 63762, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Der Rose gleich im jungen Lenzgefilde, / Mit königlichem Liebreiz, sanft und gut,",
+  "language": [],
+  "musenalm_id": 63766,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Zu dem Bildniß der Herzogin von Orleans",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Geib",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Zu dem Bildniß der Herzogin von Orleans",
+  "updated": "2009-04-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "79iaxl0nt9e2jig",
+      "agents": "1em6w40r21dweqr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.053Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.053Z"
+    }
+  ]
+}

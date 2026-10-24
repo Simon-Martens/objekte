@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der fünf Landschaften (Sammlung INr 76761, Obj 29) s. Graphik INr 76738, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.886Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "265",
+  "incipit_statement": "Eine Stunde ohngefähr von Leipzig liegt ein freundliches Dörfchen, mitten unter Wiesen, Feldern und köstlicher Waldung, das diesen Namen führt.",
+  "language": [],
+  "musenalm_id": 76762,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Schleussig",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Schleussig",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "id78kvh1uhw87cj",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.831Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.831Z"
+    }
+  ]
+}

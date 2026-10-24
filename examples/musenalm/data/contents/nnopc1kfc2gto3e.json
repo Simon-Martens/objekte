@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait # vollst. Bezeichnung aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43575,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pauline / Königin von Würtemberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. M. del. # F. Fleischmann sc.",
+  "scans": [
+    "alm_578_43575_n8mzf5i1c7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pauline / Königin von Würtemberg",
+  "updated": "2006-05-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n31rbbyyo9ujy2s",
+      "agents": "dmfllispixrqk5r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.064Z"
+    },
+    {
+      "id": "1zewm57ilk6g2lc",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.064Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "53",
+  "incipit_statement": "Durch Bozen's Gassen ein Karren / Darauf ein Mann ist zu erschau'n;",
+  "language": [],
+  "musenalm_id": 45929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutsch und Welsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schneller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Deutsch und Welsch",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7o96wf8jrmv3obf",
+      "agents": "8riqsaw5cr1uasn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.237Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.237Z"
+    }
+  ]
+}

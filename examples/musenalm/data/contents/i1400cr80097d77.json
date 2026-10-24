@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 105850, Obj 5)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Es ist ein edles herzerhebendes Geschäft, / im Kreise guter Menschen für den Mann / un dfür das Weib der Armuth und des Elends / zu sprechen,",
+  "language": [],
+  "musenalm_id": 105855,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epilog. / Gesprochen am 22. May 1796. / Zum Besten der Armen. / Im Theater der Perrinischen Gartengesell- / schaft zu Dresden.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epilog. / Gesprochen am 22. May 1796. / Zum Besten der Armen. / Im Theater der Perrinischen Gartengesell- / schaft zu Dresden.",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e6m7acz77hvxbg1",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.954Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.954Z"
+    }
+  ]
+}

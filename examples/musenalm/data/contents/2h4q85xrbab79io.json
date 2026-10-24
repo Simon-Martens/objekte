@@ -1,0 +1,45 @@
+{
+  "annotation": "Drey Erzählungen (Sammlung INr 38320, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "25",
+  "incipit_statement": "Am Himmelsthor, sollt' auf Sankt Pe- / ters Fragen / Rufin Bericht von seinem Glauben sagen;",
+  "language": [],
+  "musenalm_id": 38323,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Aus dem Himmel. / Rufin, am Himmelsthore",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Aus dem Himmel. / Rufin, am Himmelsthore",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m1pa4c9ndc9e63d",
+      "agents": "6cp00jd21onlhwl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.899Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.899Z"
+    }
+  ]
+}

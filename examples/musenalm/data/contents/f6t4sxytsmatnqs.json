@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.112Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "203",
+  "incipit_statement": "Tiek's Kater, grimmig ist er zwar; / Doch frißt er nicht die Mäuse.",
+  "language": [],
+  "musenalm_id": 4808,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Originalität des gestiefelten Katers",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Originalität des gestiefelten Katers",
+  "updated": "2000-10-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "avew3sabri4ssey",
+      "agents": "teyd4hg5cxxyi5t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.044Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.044Z"
+    }
+  ]
+}

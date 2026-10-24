@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die Räthselhafte, oder der verfolgte Anhänger Schill's« von Otto von Deppen d.i. K. F. H. Strass INr 112550, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "314",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 112551,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bitte bitte! erzähle weiter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Ender J. Passsini sc. Viennae",
+  "scans": [
+    "alm_2474_112551_dcq1o166fu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bitte bitte! erzähle weiter",
+  "updated": "2010-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "627hg7xo33gda3m",
+      "agents": "gwpog0zaym1qin6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.468Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.468Z"
+    },
+    {
+      "id": "9a2cqkzlyp7tyoc",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.469Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.469Z"
+    }
+  ]
+}

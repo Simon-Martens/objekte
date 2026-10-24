@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert 7. /) Graphik im Kalendarium Juli /) Illustration zu »Camille, oder Briefe zweier Mädchen aus unserm Zeitalter« übers.: J. F. Jünger, Leipzig (Dyk) 1786; s. Textbezug INr 70172, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 70159,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aber wie! könten Sie sich wohl entschlie- / ßen die Maitresse meines Sohnes zu seyn, / oder wenigstens dafür zu gelten!. / B. III. S. 81",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del et sc.",
+  "scans": [
+    "alm_799_70159_i836fo0ras.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aber wie! könten Sie sich wohl entschlie- / ßen die Maitresse meines Sohnes zu seyn, / oder wenigstens dafür zu gelten!. / B. III. S. 81",
+  "updated": "2008-06-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s8cifaw3u3fm1ja",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.413Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 54321, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.959Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54297,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Landsturm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. N. König del. H. Lips sculp.",
+  "scans": [
+    "alm_701_54297_32yq9mluba.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Landsturm",
+  "updated": "2007-09-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0926vnjwgolot90",
+      "agents": "grbttvgkqnprgwf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.737Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.737Z"
+    },
+    {
+      "id": "dso8lc818lkjrx3",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.738Z"
+    }
+  ]
+}

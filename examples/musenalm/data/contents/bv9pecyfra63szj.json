@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.604Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ein gebautes Land von so großem Umfange, als Heßen, das so mannichfaltige Küchengemüse hervorbringt, kan unmöglich aller Blumen unempfänglich seyn.",
+  "language": [],
+  "musenalm_id": 93166,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein gebautes Land von so großem Umfange, als Heßen, das so mannichfaltige Küchengemüse hervorbringt, kan unmöglich aller Blumen unempfänglich seyn.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zbjy6qmw40kd3f8",
+      "agents": "wyoix05eehnfe9p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.558Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.558Z"
+    }
+  ]
+}

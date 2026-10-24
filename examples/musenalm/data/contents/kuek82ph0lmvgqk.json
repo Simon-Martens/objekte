@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "210",
+  "incipit_statement": "Du schweigst. Auch Du, statt offen Dich zu zeigen, / Auch Du erwählst mit leichtem Sinn das Leichte,",
+  "language": [],
+  "musenalm_id": 45742,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An eine Freundin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bernhard von Lepel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An eine Freundin",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t2mpvvo8vfrsx4i",
+      "agents": "mkmpkja16nfssf1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.281Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.281Z"
+    }
+  ]
+}

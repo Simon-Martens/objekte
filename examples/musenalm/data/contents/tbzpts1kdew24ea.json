@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.274Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "221",
+  "incipit_statement": "Ich fühlte meine Sehkraft sich entzünden, / Daß, wär ein Glanz auch noch so ätherhell,",
+  "language": [],
+  "musenalm_id": 10725,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "33. / Aus Dante's Himmelreich, / dreißigstem Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Schlegel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "33. / Aus Dante's Himmelreich, / dreißigstem Gesang",
+  "updated": "2001-02-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ghua2hg5olv3gnn",
+      "agents": "prpkg06tick1nmr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.406Z"
+    }
+  ]
+}

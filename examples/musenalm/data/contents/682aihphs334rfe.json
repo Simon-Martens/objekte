@@ -1,0 +1,45 @@
+{
+  "annotation": "Vorwort zum folgenden Beitrag INr 43877, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "146",
+  "incipit_statement": "Friedrich Eberhard Schulz ist den 12. Juli 1799 zu Darmstadt geboren. Sein Vater war landgräflich hessischer Rittmeister. Noch nicht sechs Jahre alt raubte ihm der Tod die Mutter, ein sogenannter Ehrenhandel den Vater, der nach Rußland flüchtete",
+  "language": [],
+  "musenalm_id": 43876,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Briefe in die Heimath. / Von Friedrich Eberhard Schulz. / Vorwort",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Briefe in die Heimath. / Von Friedrich Eberhard Schulz. / Vorwort",
+  "updated": "2006-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nxncs1srzy9189q",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.287Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.287Z"
+    }
+  ]
+}

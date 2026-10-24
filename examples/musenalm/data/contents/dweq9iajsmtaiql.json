@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Liebliche Blumen, ihr Töchter der Flur, / Freundliche Gaben der schönen Natur,",
+  "language": [],
+  "musenalm_id": 84214,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Sprache der Blumen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Sprache der Blumen",
+  "updated": "2010-12-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i8y2asepwq3e57e",
+      "agents": "zx4hokgptxl8kwz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.039Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.039Z"
+    }
+  ]
+}

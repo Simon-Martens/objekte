@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 37067, Obj 192)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.499Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "Sultanen, zaudert nicht! es gilt, ein Fest zu feiern! / Berauscht mit Palmwein euch aus halbenStraußeneiern!",
+  "language": [],
+  "musenalm_id": 37068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 193,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Am Kongo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferdinand Freiligrath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Am Kongo",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "flw1d34d4o22pov",
+      "agents": "vmnuom11udo0f3y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.658Z"
+    }
+  ]
+}

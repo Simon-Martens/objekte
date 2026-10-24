@@ -1,0 +1,45 @@
+{
+  "annotation": "Frühlingsbilder, neue drey (Sammlung INr 34390, Obj 113)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.973Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Aber fort, zum nahen Dorf nun endlich, / Das mir längst gewinkt aus braunen Reisern,",
+  "language": [],
+  "musenalm_id": 34393,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. Das Dorf",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Rud. Wyß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. Das Dorf",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1dmrcjezidsenco",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.820Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.820Z"
+    }
+  ]
+}

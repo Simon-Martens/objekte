@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. an den übrigen Graphiken der Suite /) Der Dankpsalm des Unterwaldners. Eine Reihe von Darstellungen als Gegenstück zum Vaterunser eines Unterwaldners von J. M. Usteri in Zürich mit einer Erklärung von G. A. Neuhofer (INr 78167, Obj 14) s. Textbezüge INr 78181, Obj 28 u. INr 78165, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. Hilf deinem Volke, und segne / seyn Erbe, und weide und behüte / sie ewiglich. Ps. 28. vers. 9.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Usteri inv. P. J. Laminit sc.",
+  "scans": [
+    "alm_2197_78182_m59gvy8elt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "VII. Hilf deinem Volke, und segne / seyn Erbe, und weide und behüte / sie ewiglich. Ps. 28. vers. 9.",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g17l35m23odi1rv",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.689Z"
+    },
+    {
+      "id": "2i6yptwyupx85f1",
+      "agents": "d123jyjypc3gn2x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.689Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.689Z"
+    }
+  ]
+}

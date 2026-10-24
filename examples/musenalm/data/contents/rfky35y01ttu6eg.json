@@ -1,0 +1,45 @@
+{
+  "annotation": "Poetisches Allerlei (Sammlung INr 34377, Obj 100)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.599Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "Lieblich bist du, Zephyr, wenn du schweigend die Blüthen-Düfte, und die kleinste Blüte weiter hauchest",
+  "language": [],
+  "musenalm_id": 34383,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Die Windharfe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Die Windharfe",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ycmukl97zjm0p65",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.672Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.672Z"
+    }
+  ]
+}

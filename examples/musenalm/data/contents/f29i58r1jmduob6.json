@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. an Blatt 1-4 der Suite /) paginiert No. 5. s. Textbezug INr 72779, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.068Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72771,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Armuth und Gelehrsamkeit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. et d. C. F. Stoelzel sc. Dresd. 1802",
+  "scans": [
+    "alm_2657_72771_rx17bwzt60.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Armuth und Gelehrsamkeit",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ncm9jpwgpphhj8n",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.710Z"
+    },
+    {
+      "id": "hx55ktmq80sjuqs",
+      "agents": "e5dzzklohvjx1fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.710Z"
+    }
+  ]
+}

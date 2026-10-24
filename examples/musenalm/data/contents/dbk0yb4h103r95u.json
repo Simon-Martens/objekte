@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert 4. /) s. Textbezug INr 72810, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.745Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72811,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Leseconvent",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg inv. Riep. sc.",
+  "scans": [
+    "alm_2658_72811_u6hqbvkct5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein Leseconvent",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nztwmxy19mjvo8g",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.411Z"
+    },
+    {
+      "id": "sg5zzotmu178s0w",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.411Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.411Z"
+    }
+  ]
+}

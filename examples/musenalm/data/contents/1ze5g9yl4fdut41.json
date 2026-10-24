@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik (Portrait) im Kalendarium März; nummeriert 3. /) s. Textbezug INr 96066, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.179Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96053,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CHISTOFLE CHARLES / DE BULOW",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Berger sculpsit 1784",
+  "scans": [
+    "alm_3974_96053_z1w87s50du.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CHISTOFLE CHARLES / DE BULOW",
+  "updated": "2013-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "df2z65wqx41f1cf",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.656Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.656Z"
+    }
+  ]
+}

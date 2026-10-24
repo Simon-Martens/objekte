@@ -1,0 +1,45 @@
+{
+  "annotation": "Fragmente aus meiner Schreibtafel. Auf einer Sommerreise 1796 gesammelt. (Sammlung INr 51199, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.669Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "85",
+  "incipit_statement": "Ich bin nicht der Einzige, der die Bemerkung giebt, daß es dem Reisenden überall in der Schweiz, nur nicht in den Städten dieses Landes gefällt.",
+  "language": [],
+  "musenalm_id": 51201,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schweizerstädte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Zschokke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schweizerstädte",
+  "updated": "2007-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bh1a4ws5u3u7unp",
+      "agents": "2zqoqv8fdrs839t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.591Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.591Z"
+    }
+  ]
+}

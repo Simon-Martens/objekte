@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Humoristische Gedichte (INr 93428, Obj 113) mit Anm.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.652Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "240",
+  "incipit_statement": "Mit einem Chor von Neulingsschatten, / Der Parze jüngstem Raub, betrat / Miß Helena, noch hier die Sehnsucht ihres Gatten, / Des Orkus dunkeln Pfad.",
+  "language": [],
+  "musenalm_id": 93429,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Helena in der Unterwelt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Dambeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Helena in der Unterwelt",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a9ko1f8tiwi343p",
+      "agents": "ipn2nvswkmowzx4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.418Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.418Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "In den uns übrig gebliebenen Schriften der alten Hebräer finden sich, leider! nur sparsam, zerstreute Nachrichten von dem Jagdwesen diese Volkes.",
+  "language": [],
+  "musenalm_id": 109000,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Einige Worte / über das Jagdwesen der alten Hebräer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herr Superintendent und Consistorialrath Dr. Justi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Einige Worte / über das Jagdwesen der alten Hebräer",
+  "updated": "2015-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sockh91dzsgvfc5",
+      "agents": "8v1rr9tn9rr7ndn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.870Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.870Z"
+    }
+  ]
+}

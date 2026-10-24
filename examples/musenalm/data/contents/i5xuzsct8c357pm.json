@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: In dunklen Hainen, / Wo Quellen rauschen [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.639Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "255",
+  "incipit_statement": "Der Abend sank auf das Thal hernieder und ein Stern nach dem andern tauchte am östlichen Himmel empor,",
+  "language": [],
+  "musenalm_id": 86226,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Rabenvater. / Volkssage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. A. Gerle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Rabenvater. / Volkssage",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0zpge2lzqghgrjr",
+      "agents": "1g5ju8pfs3rggmg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.220Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.220Z"
+    }
+  ]
+}

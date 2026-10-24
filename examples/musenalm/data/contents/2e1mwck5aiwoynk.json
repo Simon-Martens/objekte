@@ -1,0 +1,45 @@
+{
+  "annotation": "V. Bemerkungen, Anekdoten und Einfälle (Sammlung INr 11340, Obj 23) Prosaische Aufsätze (Sammlung INr 11335, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.666Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "In den Zugaben zu den Göttingischen gel. Anz. 1782. 465. sagt der Recensent",
+  "language": [],
+  "musenalm_id": 11351,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Der Dichter Günther und der Recensent",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Der Dichter Günther und der Recensent",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "671mr8ic14qec84",
+      "agents": "6cp00jd21onlhwl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.517Z"
+    }
+  ]
+}

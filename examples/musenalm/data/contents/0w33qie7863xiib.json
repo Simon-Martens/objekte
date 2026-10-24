@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "205",
+  "incipit_statement": "Herrlich ist des Frühlings Glanz, / Golden blinkt des Sommers Kranz,",
+  "language": [],
+  "musenalm_id": 95790,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorsaz. / In der Melodie: Süße heilige Natur, / von F. Schulz",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Lindemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorsaz. / In der Melodie: Süße heilige Natur, / von F. Schulz",
+  "updated": "2012-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hbcj5d8wq4mnc8n",
+      "agents": "0vejvx9ns82bwxr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.675Z"
+    }
+  ]
+}

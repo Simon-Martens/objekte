@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Die drei Wunderringe. Volkssage« von Norbert Blum INr 89652, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89654,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die drei Wunder Ringe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Weigl d. L. Beyer s.",
+  "scans": [
+    "alm_3357_89654_57kivn9onp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die drei Wunder Ringe",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b4ezosfrac8qw63",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.442Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.442Z"
+    },
+    {
+      "id": "mbyq9hxudwgu4n6",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.442Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.442Z"
+    }
+  ]
+}

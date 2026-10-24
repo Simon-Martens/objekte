@@ -4,6 +4,29 @@
 
 This implements the revised repository MVP. The Astro application remains a separate legacy frontend on its existing port.
 
+## Repositories
+
+The large **Repository** select at the top of the sidebar switches between
+**Lenz-Archiv** and **Musenalm**. `examples/projects.json` lists their IDs, labels,
+and paths (relative to the catalog file), with `lenz-archiv` as the default.
+Set `EDITOR_PROJECTS` to another catalog to register repositories. Use `EDITOR_ROOT`
+instead for the original single-project setup; the two settings are mutually exclusive.
+Restart the server after changing the catalog.
+
+Each repository has its own `/projects/<id>/` URL namespace, editor, read caches,
+settings, and draft store. A tab remains on its own repository when another tab
+switches projects. Switching uses the existing unsaved-change prompt. All configured
+repositories share the server's account database, sign-in, and account roles; collection
+operation permissions still apply. Only catalog-listed directories are mounted.
+Unprefixed GET links redirect to the default repository; writes require a project URL.
+
+The mount layer uses an HTML parser to scope navigation, form actions, validation,
+and draft URLs in full pages and Datastar fragments. It leaves source form values,
+JSON responses, and file downloads unchanged. Assets are shared across mounts.
+
+See [Musenalm import notes](../../examples/musenalm/README.md) for the XML conversion,
+embedded relationships, source-data limitations, and validation command.
+
 ## Run
 
 Requires the repository's Rust toolchain and Node/npm for the asset build. From the repository root:
@@ -25,6 +48,7 @@ To delete all Rust server accounts and sessions, stop the server and run `cargo 
 | `EDITOR_DATA_DIR` | Workspace `.data`; must be outside the repository |
 | `EDITOR_BIND` | `127.0.0.1:4322` |
 | `EDITOR_ASSETS_DIR` | This crate's `assets/dist` |
+| `EDITOR_PROJECTS` | Project catalog JSON; defaults to `examples/projects.json` when `EDITOR_ROOT` is unset |
 | `EDITOR_DEV` | Set to `1` (or pass `--dev`) for live Vite assets, disk templates and HTTP cookies |
 | `EDITOR_VITE_URL` | `http://127.0.0.1:5173` in dev mode; otherwise unset. Override with a local Vite HTTP origin |
 | `EDITOR_INSECURE_COOKIE` | Optional `1` for HTTP outside dev mode; dev mode automatically omits `Secure`. Otherwise cookies require HTTPS |
@@ -62,9 +86,13 @@ Without dev mode, templates are embedded in the binary and parsed at startup, as
 
 ## Read caching and concurrent editing
 
-The core caches parsed collection records, prepared list values, paginated query results, ID-to-file lookups and incoming-reference indexes. Reads check file metadata for external changes; on Unix this includes modification time, change time, size and file identity. Additions, deletions and atomic replacements invalidate affected results without a TTL. List and reference dependencies include other collections so changed relation labels and derived values are refreshed. Reference indexes also track mapped documents and settings. Parsed-record entries are capped at 10,000; prepared lists and sorted queries each retain up to 16 entries.
+The core caches parsed collection records and decoded list/search projections **per record**. Each projection tracks the record lookups used by its derived fields and reference labels, including missing targets. A changed record rebuilds its own projection and the projections that depend on it; unrelated records and collections keep their cached work. Literal and regex queries, categories, and child-list scopes reuse these projections.
 
-Metadata directory scans still run to detect external edits. New searches filter cached values in memory; pagination reuses sorted results. Filename-based child lists load only their members. Configuration and schema changes still require restarting the server.
+Queries retain ordered record IDs/paths, facets and dependency versions, rather than copies of full records. Page rendering retrieves only the requested rows and computes their match excerpts. A collection edit invalidates its query results; an edit in another collection invalidates only queries with a dependency on that record. ID-to-file and incoming-reference indexes remain separate; the reference index also tracks mapped documents and settings.
+
+Caches use byte-weighted LRU eviction through the `lru` crate: approximate retained-data budgets are **64 MiB for parsed records, 64 MiB for prepared records, and 16 MiB for query results** per editor instance. Oversized entries are used without caching and do not flush smaller entries. These are cache budgets, not a process memory limit: active requests, filesystem snapshots and ID/reference indexes also allocate memory. There is no record-count cutoff or inactivity timeout. Cached data is released on replacement, eviction or editor shutdown, once active readers release it; closing a browser tab does not clear the shared server cache.
+
+Reads still scan file metadata to discover external edits, additions, deletions and atomic replacements. A query takes one metadata snapshot across collections and reuses it for dependency checks and ID lookups. On Unix the stamps include modification time, change time, size and file identity. There is no watcher or TTL, and an unchanged warm query still has metadata-scan cost. Filename-based child lists parse only their members and dependencies. Configuration and schema changes still require restarting the server.
 
 Editing commands serialize per draft, rather than holding the global session registry during file access, validation or rendering. Related-record saves lock parent and child drafts in a consistent order. Version checks continue to reject stale commands. The project write lock remains in place to protect reference integrity across writes, and blocking work stays on Tokio's blocking pool.
 
@@ -110,6 +138,7 @@ Request errors are sent as notification patches for Datastar requests, with HTTP
 | Request | Result |
 | --- | --- |
 | `GET /collections/{collection}?q=…&offset=…` | Searchable, paginated list; `tree` contains a JSON array of tree values |
+| `GET /collections/{collection}/search-validation?q=…` | Validate regex syntax without searching or reading records |
 | `GET /collections/{collection}/records/{id}` | Record preview |
 | `GET /collections/{collection}/records/{id}/delete` | Review deletion, list placements and incoming references |
 | `POST /collections/{collection}/records/{id}/delete/unlink` | Remove one placement with the parent revision; return to deletion review |
@@ -186,6 +215,10 @@ Each collection's `ui.json` can define:
 ```
 
 Columns use top-level schema field names, plus `_label` and `_id`. `_manual` is supported as a default sort key. Column checkboxes update the list immediately and keep the chooser open; Done dismisses it. Runtime column choices, sort direction, search, category and filters are URL parameters and survive pagination. Sorting does not rewrite stored order. Numeric columns sort numerically; missing values remain last. Search returns matching field values, including fields outside the selected columns, with escaped Unicode-aware highlighting.
+
+Search defaults to case-insensitive literal text. Click **`Aa` (Match case)** inside the search box to require matching capitalization (`case_sensitive=1` in the URL); click again to ignore case. The button is shown only in literal mode, and its setting is remembered when switching to regex and back. Click the **`.*` button inside the search box** to enable ripgrep-style regular expressions (`regex=1` in the URL); click again to return to literal matching. Both options survive sorting, pagination, filters and column changes. **Show all** clears the active search and resets pagination while preserving these options and the current filters. For example, `Berlin|Weimar` matches either name, `^Goethe` matches at the start of a field/line, and `\bLenz\b` matches a whole word. Regex whitespace is significant. Inline flags such as `(?-i)` can opt into case-sensitive matching. While regex mode is enabled, typing validates the pattern after a 150 ms pause. Invalid patterns turn the input text and border red and show a brief explanation. Checks use the same Rust matcher as search, without reading records or refreshing results; superseded checks are cancelled and stale responses ignored. Correcting the pattern or switching to literal mode clears the feedback. Submission still validates independently.
+
+`grep-regex` and `grep-matcher`, the reusable ripgrep crates, handle both search modes and highlighting. They search decoded JSON/YAML values and readable Markdown text in configured visible search fields, plus the record ID and list label. `Ber**lin**` can therefore match `Berlin`; JSON escapes are decoded first. Matches do not cross field boundaries. This is Rust regex syntax, without PCRE2 look-around or backreferences. Regex mode applies to collection search (including a child list opened through Browse list); media browsing and relation-picker searches keep their existing behavior.
 
 `filters` chooses desirable fields explicitly. `autoFilters: true` also derives filters from visible scalar fields: numbers get ranges; booleans get true/false/not-set; relations, enums and strings with at most 40 distinct values get selectors; larger string vocabularies get a contains input. Rich text and hidden fields are not automatically included. Counts are computed over the category before query/filter application, with a separate matching count. The Rust core owns query semantics, matching, counts and ordering.
 

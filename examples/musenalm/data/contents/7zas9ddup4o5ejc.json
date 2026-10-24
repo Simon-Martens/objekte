@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "54",
+  "incipit_statement": "Du pflegtest, ganz umsonst, Amint! / Das Schlimmste stets dir von der Zukunft vor- / zustellen.",
+  "language": [],
+  "musenalm_id": 84029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Furcht vor der Zukunft. / (Nach Cailli.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Göckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Furcht vor der Zukunft. / (Nach Cailli.)",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zar9nd5ox0c1azg",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.095Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug 88954, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.878Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88945,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MATHILDE, / Tochter Kaisers Rudolph I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. v. Mezler Gest. v. I. Krepp",
+  "scans": [
+    "alm_1004_88945_tp56bpgwur.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MATHILDE, / Tochter Kaisers Rudolph I.",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9bysgagtlyjmp60",
+      "agents": "4ydtp3mjohkj17q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.960Z"
+    },
+    {
+      "id": "8eurab3475iiijl",
+      "agents": "oqniiai3xrx228t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.960Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.960Z"
+    }
+  ]
+}

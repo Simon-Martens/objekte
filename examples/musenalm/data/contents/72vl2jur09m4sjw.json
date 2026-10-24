@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 63057, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.927Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Freund, es flieht die Zeit auf Schwingen, / Die kein Adlerflug ereilt.",
+  "language": [],
+  "musenalm_id": 62058,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lebenslied. / (Mit einer Melodie von Naumann.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. H. Bothe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lebenslied. / (Mit einer Melodie von Naumann.)",
+  "updated": "2009-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ot1zl9aifq4s4m1",
+      "agents": "naz7pgrgy8ee7vq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.105Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.105Z"
+    }
+  ]
+}

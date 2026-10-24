@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Othello« von W. Shakespeare s. Textbezug INr 19097, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9339,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Othello. / 5. Aufz. 2. Scene",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Opiz del. A. Delvaux sc.",
+  "scans": [
+    "alm_46_9339_3k6zz0ioxz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Othello. / 5. Aufz. 2. Scene",
+  "updated": "2000-08-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ppbscfo64gueg6z",
+      "agents": "1mpfrjn3gtg55av",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.421Z"
+    },
+    {
+      "id": "rn5xna9hotwsjtk",
+      "agents": "4oq6qeg5u3kwukz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.421Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.421Z"
+    }
+  ]
+}

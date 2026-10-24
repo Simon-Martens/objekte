@@ -1,0 +1,45 @@
+{
+  "annotation": "Denkmäler deutscher Dichterinnen (Sammlung INr 27226, Obj 88). Lebensdaten nach biographischen Anmerkungen am Gedicht: 1728-1758",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "Von der Begeist'rung Feuerhauch durchdrungen, / hing sie an Klopstock's herrlichen Gebilden;",
+  "language": [],
+  "musenalm_id": 27228,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 90,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Margareth Klopstock, geb. Moller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Raßmann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Margareth Klopstock, geb. Moller",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gf62wud29vqf82b",
+      "agents": "4g2r3ta4uzw1gqd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.174Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.174Z"
+    }
+  ]
+}

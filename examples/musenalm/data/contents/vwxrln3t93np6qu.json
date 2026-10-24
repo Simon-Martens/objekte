@@ -1,0 +1,69 @@
+{
+  "annotation": "s. Textbezug INr 59153, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.252Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59154,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "GNEISENAU, BLÜCHER, YORK",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gez. von Meyerheim Entw. von Rauch. Gest. von Sagert",
+  "scans": [
+    "alm_881_59154_mj8j59pmnq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "GNEISENAU, BLÜCHER, YORK",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "job9xatm8bmgbwu",
+      "agents": "fep8fdjaqu5b315",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.763Z"
+    },
+    {
+      "id": "klfsuvbogtdqnhe",
+      "agents": "hy6ig57her0xbis",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.763Z"
+    },
+    {
+      "id": "alm0as7qkj0v3mq",
+      "agents": "kvb3cdehg6i8s0c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.763Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.763Z"
+    }
+  ]
+}

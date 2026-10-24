@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 3. s. Textbezug INr 50973, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.732Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50956,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Reichenau, in Bündten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Heinrich Meyer f. ad nat.",
+  "scans": [
+    "alm_694_50956_x85ujdvihv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Reichenau, in Bündten",
+  "updated": "2007-08-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h6ojpm7srpkwysw",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.448Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.448Z"
+    }
+  ]
+}

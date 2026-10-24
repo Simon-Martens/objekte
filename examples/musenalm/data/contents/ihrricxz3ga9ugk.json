@@ -1,0 +1,47 @@
+{
+  "annotation": "Melodieen zum Schillerschen Musenalmanach (Sammlung INr 38801, Obj 663) Vertonung des Gedichts »Zauberey der Töne / Die Mutter« von W. d. i. Herder INr 38019, Obj 88",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 38802,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 664,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zauberey der Töne / Die Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T.",
+  "scans": [
+    "alm_511_38802_bh7nuldisu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zauberey der Töne / Die Mutter",
+  "updated": "2005-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9bmmiwent69rcpz",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.940Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.940Z"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "annotation": "Artikel 1-11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.504Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "233",
+  "incipit_statement": "Die Natur hat jedem Menschen ein gleiches Recht auf den Genuß aller Güter",
+  "language": [],
+  "musenalm_id": 70470,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elf Hauptartikel / des Revolutionscomités der Babeuf'schen Verschwörung, / 1796",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Babeuf; [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elf Hauptartikel / des Revolutionscomités der Babeuf'schen Verschwörung, / 1796",
+  "updated": "2010-02-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jxlbxsej06w95ra",
+      "agents": "q15qoneod81i828",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.232Z"
+    }
+  ]
+}

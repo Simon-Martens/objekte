@@ -1,0 +1,56 @@
+{
+  "annotation": "# vollst. Bez. s. Textbezug INr 59769, Obj 24 . Illustration zu »Gegenwärtiger Zustand von Ostindien« von M. C. Sprengel INr 59784, Obj 20; s.a. Beitrag»Kurzgefaßte Nachricht von dem Leben Warren Hastings« in: Kalender, Historisch-Genealogischer oder Jahrbuch der merkwürdigsten neuen Weltbegebenheiten 1787; alm 927, INr 80792",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.885Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59791,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WARREN HASTINGS / General Gouverneur von Bengalen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "West # D. Berger sculp. 1785",
+  "scans": [
+    "alm_926_59791_1mybngyo0g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WARREN HASTINGS / General Gouverneur von Bengalen",
+  "updated": "2008-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a6ntsta6gdpfg5s",
+      "agents": "0snp2jvahzvvvvn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.904Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.904Z"
+    },
+    {
+      "id": "rn4t7dy9xs2g25f",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.905Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.905Z"
+    }
+  ]
+}

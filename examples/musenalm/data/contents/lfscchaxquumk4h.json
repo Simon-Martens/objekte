@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Denksprüche (Sammlung INr 10375, Obj 15)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "115",
+  "incipit_statement": "Suche nicht außer dir, was du in dir selbst finden mußt;",
+  "language": [],
+  "musenalm_id": 10380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Streithorst",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2001-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7cc8yxjlsz2wrhz",
+      "agents": "8ory2boej7zqotd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.311Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.311Z"
+    }
+  ]
+}

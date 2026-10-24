@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Es träufelt in's Herz hinein / Manch' Thrän' von meinem Jammer!",
+  "language": [],
+  "musenalm_id": 120759,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Stein im Herzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Barach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Stein im Herzen",
+  "updated": "2018-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y4l2ez085q7x5lx",
+      "agents": "69l66ginedg3y8r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.722Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.722Z"
+    }
+  ]
+}

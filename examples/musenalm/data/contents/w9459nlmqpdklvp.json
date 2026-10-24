@@ -1,0 +1,45 @@
+{
+  "annotation": "Bunte Steine (Sammlung INr 22931, Obj 78)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.920Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Lucull, der sonst so reiche Mann, / verkauft nun auch sein Haus;",
+  "language": [],
+  "musenalm_id": 22935,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dir Verschwenderin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ferd. Philippi",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dir Verschwenderin",
+  "updated": "2002-03-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9hs7cf7064xs4ym",
+      "agents": "03ne3lu95zmw8rf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.037Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.037Z"
+    }
+  ]
+}

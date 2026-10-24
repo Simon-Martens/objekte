@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "319",
+  "incipit_statement": "Der Künstler sieht auf seinen rauhen Wegen / Zwei Mächte neben sich, die ihn geleiten;",
+  "language": [],
+  "musenalm_id": 80500,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freund und Feind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl von Holtei",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Freund und Feind",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b3f0zarjyluoc18",
+      "agents": "zg6jbd5dfgl0cyy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.850Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.850Z"
+    }
+  ]
+}

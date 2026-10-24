@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.667Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "325",
+  "incipit_statement": "Eine Gesellschaft von Fremden ließ sich mittelst der Fähre oberhalb der Nydeckbrücke zu Bern über die Aar setzen.",
+  "language": [],
+  "musenalm_id": 44151,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der grüne Schüler. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav von Heeringen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der grüne Schüler. / Novelle",
+  "updated": "2006-06-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i9xa3rfxw29ug9g",
+      "agents": "hffp5p53qsk8bxy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.232Z"
+    }
+  ]
+}

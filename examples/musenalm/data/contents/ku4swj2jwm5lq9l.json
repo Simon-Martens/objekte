@@ -1,0 +1,58 @@
+{
+  "annotation": "Fortsetzung von Dritte Aufstellung von Volksscenen (Titel aus dem I-Verz) s. Textbezug (Gedicht) INr 77580, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.308Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77579,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IN SMYRNA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wittmer del. F. Wagner sc.",
+  "scans": [
+    "alm_2408_77579_veozxbk9o1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "IN SMYRNA",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ltsfv4bt8nzwfkp",
+      "agents": "wonrwfgfu74j7s7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.669Z"
+    },
+    {
+      "id": "g27usymnfee60vf",
+      "agents": "zcahh3ez21pnltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.669Z"
+    }
+  ]
+}

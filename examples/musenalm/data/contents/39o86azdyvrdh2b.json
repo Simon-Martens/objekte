@@ -1,0 +1,45 @@
+{
+  "annotation": "<div>&nbsp;Charadenkranz an Johanna (Sammlung INr 140449)&nbsp;</div>",
+  "content_type": [],
+  "created": "2026-09-10T09:13:39.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "337",
+  "incipit_statement": "Erstickende Dürre / Quälet die Erde, / Der lechzende Wandrer / Schauet zum Himmel,",
+  "language": [],
+  "musenalm_id": 140554,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Graf Mailath",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5.",
+  "updated": "2026-09-10T09:20:30.253Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "hoqi0ud0jsykkv0",
+      "agents": "ynz1wrh0mfk3t8y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-10T09:19:33.604Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-10T09:20:30.254Z"
+    }
+  ]
+}

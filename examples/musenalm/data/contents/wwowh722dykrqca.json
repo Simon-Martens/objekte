@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.870Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "177",
+  "incipit_statement": "Käme der Hirt von Ida zurück, ihr lieblichen / Schwestern, / Abzusprechen über euch;",
+  "language": [],
+  "musenalm_id": 6523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An zwei Schwestern / Nach Voltaire",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fk.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An zwei Schwestern / Nach Voltaire",
+  "updated": "2000-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o15zeuwc3upjrxr",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.176Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.176Z"
+    }
+  ]
+}

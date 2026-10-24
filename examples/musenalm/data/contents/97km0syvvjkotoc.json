@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 82110, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.570Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82122,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das teutsche Haus und der weisse Thurm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Duttenhofer",
+  "scans": [
+    "alm_3070_82122_xefrtufy1h.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das teutsche Haus und der weisse Thurm",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o5shm5a6znzfv1p",
+      "agents": "xo0woto4ruw1tjl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.942Z"
+    },
+    {
+      "id": "us3erxr8y4qf9xw",
+      "agents": "2wfa45xu4b0q4dp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.942Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.942Z"
+    }
+  ]
+}

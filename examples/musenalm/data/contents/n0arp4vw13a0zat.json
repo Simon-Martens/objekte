@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 6. /) Graphik im Kalendarium November /) Textbezug unklar",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.646Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 89066,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ich lebe nur um dich zu lieben!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Perger del. Langer sc.",
+  "scans": [
+    "alm_988_89066_m8r1tedav9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ich lebe nur um dich zu lieben!",
+  "updated": "2009-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nvl92clh1k5kvpy",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.417Z"
+    },
+    {
+      "id": "2ypl0myvs2f8ada",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.417Z"
+    }
+  ]
+}

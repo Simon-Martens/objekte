@@ -1,0 +1,47 @@
+{
+  "annotation": "# s. T/B XXI, 160 /) kol. Trachtenkupfer;  Illustration zu »Kurze geographisch-statistische Darstellung des Cantons St. Gallen« INr 51910, Obj 10 /) s.a. Textbezug INr 51927, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.818Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 51911,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Canton St. Gallen / Eine Toggenburgerinn",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "König",
+  "scans": [
+    "alm_708_51911_pc2z1pneiz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Canton St. Gallen / Eine Toggenburgerinn",
+  "updated": "2007-10-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8tu622q0aos6k9m",
+      "agents": "grbttvgkqnprgwf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.533Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.533Z"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "# Bez. aus dem G-Verz /) Graphik im Kalendarium Januar;  paginiert 1. /) Illustration zu »Zur Geschichte von Berlin und seinen Bewohnern bis zum Anfange des siebzehnten Jahrhunderts« von Fr. Wilken INr 58497, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.182Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58486,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Lustgarten im J. 1690 von der Orangerie, dem jetzigen Neuen Posthofe angesehen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Stridbeck # L. Wolf del. Jügel sc.",
+  "scans": [
+    "alm_855_58486_pj7h8vdzpl.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Lustgarten im J. 1690 von der Orangerie, dem jetzigen Neuen Posthofe angesehen",
+  "updated": "2008-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j8mk3ojdee2x3js",
+      "agents": "hme5av0o5bms2s7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.982Z"
+    },
+    {
+      "id": "zcj2qxxxubogkv3",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.982Z"
+    },
+    {
+      "id": "is2ox585a7rohjn",
+      "agents": "flivu8hnh9tq1va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.982Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.982Z"
+    }
+  ]
+}

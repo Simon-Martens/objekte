@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Schon längst wollte ich es wagen, dieß Opfer meiner Ehrfurcht HöchstDenenselben zu überreichen; Schüchternheit hielt mich aber zurück;",
+  "language": [],
+  "musenalm_id": 46948,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Durchlauchtigste Churfürstin / Gnädigste Fürstinn und Frau!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unterthänigster ehrfurchtsvollster Franz Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Durchlauchtigste Churfürstin / Gnädigste Fürstinn und Frau!",
+  "updated": "2006-12-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cevrvh0yfnkmnz8",
+      "agents": "p2324zi05z6zxr4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.576Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite (A). Détail aus »Southwark-Fair. Der Jahrmarkt von Southwark.« paginiert K. s. Textbezug INr 7479, Obj 56",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7480,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Hogarth inv. Riepenh del. sculps.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hogarth inv. Riepenh del. sculps.",
+  "scans": [
+    "alm_151_7480_tdbe59tzqa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i4fuv0eoibziffs",
+      "agents": "yylanvnf5ct4jbi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.276Z"
+    },
+    {
+      "id": "7ac8kodlqunu3ul",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.276Z"
+    }
+  ]
+}

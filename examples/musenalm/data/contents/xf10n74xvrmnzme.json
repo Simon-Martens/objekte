@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Tab. V. /) kol. Illustration zu »Der große Brachvogel« INr 66797, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 66796,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Numenius arquata. Grosser Brachvogel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Hergenroeder del. G. Boettger senior sc. 1811",
+  "scans": [
+    "alm_1142_66796_4b1otcknea.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Numenius arquata. Grosser Brachvogel",
+  "updated": "2009-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h9qexeo307f3esw",
+      "agents": "o58ig7o5mujizos",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.346Z"
+    },
+    {
+      "id": "4te4j7o1a18lk87",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.346Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.346Z"
+    }
+  ]
+}

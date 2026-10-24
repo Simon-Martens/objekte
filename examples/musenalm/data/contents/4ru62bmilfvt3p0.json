@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert 4",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.548Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28115,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (E. Riepenh. f.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "E. Riepenh. f.",
+  "scans": [
+    "alm_151_28115_nsulzde7f9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2000-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6xwhrds6ts1hgpf",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.282Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.282Z"
+    }
+  ]
+}

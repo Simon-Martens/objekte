@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 6 /) s. INr 18587, Obj 17 # Bezeichnung vom Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.609Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7996,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Baptiste in der Schlacht bei / Jemappe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_176_7996_abr8ad2yfp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Baptiste in der Schlacht bei / Jemappe",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5x3wivzdgjvrazt",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.115Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.115Z"
+    }
+  ]
+}

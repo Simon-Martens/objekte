@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 9. /) Illustration zu »Die zwei Brüder« von Fouqué s. Textbezug INr 26769, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.320Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26770,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Brüder. / S.98",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Schnorr del. M. Esslinger sc.",
+  "scans": [
+    "alm_349_26770_76bnig1lhj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Brüder. / S.98",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ux9683gq5wgtkss",
+      "agents": "7yfzgmx3iovs38k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.085Z"
+    },
+    {
+      "id": "ks8jyzbksl5qe5l",
+      "agents": "zfprrqdgr3ky9ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.085Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.085Z"
+    }
+  ]
+}

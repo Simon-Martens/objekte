@@ -1,0 +1,45 @@
+{
+  "annotation": "XVI. Erläuterung der Kupfer (Sammlung INr 59972, Obj 37) s. Graphik INr 59971, Obj 36",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.643Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "355",
+  "incipit_statement": "Diese Anekdote erzählt ein Deutsches Journal, folgender Gestalt: Ein Bauersmann, schlecht und recht, stand früh Morgens vor seiner Hütte und schickte ein Vater Unser gen Himmel.",
+  "language": [],
+  "musenalm_id": 59974,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die Emigranten und der deutsche Bauer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die Emigranten und der deutsche Bauer",
+  "updated": "2008-09-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z6yiagk80sysssu",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.084Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.084Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Minnelieder (Sammlung INr 45312, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Und bist du auch des Sängers Braut, / Ich fordre keinen Reim von dir.",
+  "language": [],
+  "musenalm_id": 45320,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Oskar von Redwitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8.",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ifhjpeuwrtzy6go",
+      "agents": "vu0g3gx3he98jzd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.496Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.496Z"
+    }
+  ]
+}

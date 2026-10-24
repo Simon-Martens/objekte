@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:35.319Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "208",
+  "incipit_statement": "Für diesen Jahrgang des Taschenbuchs war auch die Fortsetzung der, mit so viel Beifall aufgenommenen Nachrichten über die Fabriken, Manufakturen und den Handel des Herzogthums Berg von Herrn Hofkammerrath Lenzen bestimmt,",
+  "language": [],
+  "musenalm_id": 101717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nacherinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nacherinnerung",
+  "updated": "2009-02-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zdtgd4oedttg7d5",
+      "agents": "2nr9q3fe1nc6c2b",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.033Z"
+    }
+  ]
+}

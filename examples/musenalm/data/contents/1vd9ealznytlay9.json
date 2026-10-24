@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. an Blatt 1 und 6 der Suite; paginiert 2. /) Illustration zu »Altenburgische Ernte« von Franz v. Gaudy INr 59555, Obj 73 # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59554,
+  "musenalm_pagination": [
+    "4. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Altenburgische Ernte #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Auguste Hüssener sc.",
+  "scans": [
+    "alm_898_59554_tphw1hc5jk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Altenburgische Ernte #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xdtlafgw3cirfha",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.972Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.972Z"
+    }
+  ]
+}

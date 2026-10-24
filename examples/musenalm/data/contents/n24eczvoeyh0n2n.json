@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.397Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "Es flüstert sanft die Weide, / Am waldumkränzten See,",
+  "language": [],
+  "musenalm_id": 62880,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dein Plätzchen. / An Fräulein Gehardine von Gall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friederike Brun geb. Münter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dein Plätzchen. / An Fräulein Gehardine von Gall",
+  "updated": "2009-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g3vorxoh20a39bq",
+      "agents": "38esu046kftupf5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.071Z"
+    }
+  ]
+}

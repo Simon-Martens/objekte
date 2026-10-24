@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Egmont« von J. W. von Goethe s. Textbezug INr 40652, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 40651,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Egmont. IVr. Aufz. 2te. Scene. / Alba. Wie in einem Loostopf greifst du in die dunkle Zukunft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. C. A. Schwerdgeburth sc.",
+  "scans": [
+    "alm_529_40651_xw6kxwgrex.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Egmont. IVr. Aufz. 2te. Scene. / Alba. Wie in einem Loostopf greifst du in die dunkle Zukunft",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0nc37fmuac3evh4",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.953Z"
+    },
+    {
+      "id": "1mz8j11rxgau6nx",
+      "agents": "bmci0b7r798ev4s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.953Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.953Z"
+    }
+  ]
+}

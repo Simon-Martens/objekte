@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium; an der Graphik: Hermann Lange pag. 209. IIllustration zu »Herrmann Lange« von A. Lafontaine",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35799,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hermann Lange im Kreise der Seinigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc. 1800",
+  "scans": [
+    "alm_490_35799_iz7dbp6bpt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Hermann Lange im Kreise der Seinigen",
+  "updated": "2003-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bkz5lsecxzlp3ek",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.691Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.691Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Gedicht INr 117354, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.610Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 117355,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Liebesbote",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Laufberger del. Ig. Lechleitner sc.",
+  "scans": [
+    "alm_3226_117355_duaxiw2xma.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Liebesbote",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1859,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "afeudm4tkv1xc9g",
+      "agents": "pp02s3wj2qujsyg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.528Z"
+    }
+  ]
+}

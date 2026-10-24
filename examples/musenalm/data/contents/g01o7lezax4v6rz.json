@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Dies Naturgemählde von dem Verfasser der Atala ist zuerst aufgestellet in der Bibliothéque Francoise, red. par Ch. Sougens, 2me année, no. 3. p. 168",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.229Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Ein natürliches Gefühl lehrt den Unglücklichen, daß er die Täuschungen des Glückes durch das Andenken an ihre vergangenen Freuden zurückzurufen suche.",
+  "language": [],
+  "musenalm_id": 32329,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Eine Nacht bei den Amerika- / nischen Wilden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. A. Chateaubriand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Eine Nacht bei den Amerika- / nischen Wilden",
+  "updated": "2003-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "was7c9brzh11e0g",
+      "agents": "bjsbuc294wnuf3p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.744Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.744Z"
+    }
+  ]
+}

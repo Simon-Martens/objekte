@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Aus dem Schenkenbuch (Sammlung INr 100638, Obj 301)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.995Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "395",
+  "incipit_statement": "Der König Dionysius / Bemerkt mit Aengsten und Verdruß,",
+  "language": [],
+  "musenalm_id": 100640,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 303,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. Dionysius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. Dionysius",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nt3s5nugto6n8zx",
+      "agents": "ozbm86woe020u89",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.832Z"
+    }
+  ]
+}

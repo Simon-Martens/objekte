@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.223Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "Auf einer Gondelwiege fährt in's Leben - / Ein wildes Meer - der kleine Schiffer aus,",
+  "language": [],
+  "musenalm_id": 32160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schiffahrt des Lebens, aus einer Epistel / an Hrn. v. K.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "U. Freih. v. Schlippenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schiffahrt des Lebens, aus einer Epistel / an Hrn. v. K.",
+  "updated": "2003-02-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rkv0mc4k3okbklv",
+      "agents": "e47w01a11l8gujn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.630Z"
+    }
+  ]
+}

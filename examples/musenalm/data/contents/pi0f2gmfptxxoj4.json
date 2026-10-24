@@ -1,0 +1,67 @@
+{
+  "annotation": "graph. Titel [unter der Graphik: W. Maas impr.]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.866Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44302,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rheinisches / Taschenbuch / 1847",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zwecker del. Grünewald & Cooke sc.",
+  "scans": [
+    "alm_602_44302_4krwqrw3hy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rheinisches / Taschenbuch / 1847",
+  "updated": "2006-07-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t6lsvltjmcbsfdf",
+      "agents": "usgtr6dipvre26m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.259Z"
+    },
+    {
+      "id": "m0nommden6k4neq",
+      "agents": "1ih3q5zwi5sbzkz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.259Z"
+    },
+    {
+      "id": "a3icyezyhsy34wa",
+      "agents": "uohs1l6y8ng1p96",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.259Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.259Z"
+    }
+  ]
+}

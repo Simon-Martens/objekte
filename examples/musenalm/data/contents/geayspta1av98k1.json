@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik: J. D. Sauerländer's Verlag] s. Textbezug INr 44442, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.412Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44441,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HANS UND GRETE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sonderland pinx. Ch. Hoffmeister sc.",
+  "scans": [
+    "alm_604_44441_h0x0s4w1tb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HANS UND GRETE",
+  "updated": "2006-07-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1850,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zoqq9ufjcnu77qi",
+      "agents": "qy6yej73pl7anzc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.303Z"
+    },
+    {
+      "id": "obd3ovyh4l8px7j",
+      "agents": "zuqeig2avlr6rku",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.303Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.303Z"
+    }
+  ]
+}

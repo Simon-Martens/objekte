@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.560Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "173",
+  "incipit_statement": "Und nimmer ist dies Sehnen noch in mir? / Was will die fremde, wundersame Thräne?",
+  "language": [],
+  "musenalm_id": 83884,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 123,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehen. / Sonett",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Lautsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehen. / Sonett",
+  "updated": "2010-02-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2leo8dgzsthqonp",
+      "agents": "lddxtb72o5kmwcl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.680Z"
+    }
+  ]
+}

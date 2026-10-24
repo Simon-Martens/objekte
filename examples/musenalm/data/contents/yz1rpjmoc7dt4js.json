@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.893Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Najaden und Dryaden eilen / Im Mondesglanz zu frohen Reih'n,",
+  "language": [],
+  "musenalm_id": 42783,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf Danneckers Sappho",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werthes",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf Danneckers Sappho",
+  "updated": "2006-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r4he8gbyohef5k0",
+      "agents": "2dkhavramcy8bv0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.809Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.809Z"
+    }
+  ]
+}

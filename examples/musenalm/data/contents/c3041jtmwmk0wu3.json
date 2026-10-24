@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am Gedicht INr 122782, Obj 125",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.077Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Wenn mir ein guter Genius / Zur Seite ging’ und stände / Und Pfade, die ich selbst nicht fand",
+  "language": [],
+  "musenalm_id": 122783,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 126,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Genius und Dämon",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Marggraff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Genius und Dämon",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zeejuyyw8gwat3r",
+      "agents": "xpfslvhm6lhhpgp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.697Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.697Z"
+    }
+  ]
+}

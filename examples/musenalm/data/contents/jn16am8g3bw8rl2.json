@@ -1,0 +1,46 @@
+{
+  "annotation": "Beigabe zu »Das eisene Haus. / Von der RükSeite« INr 74175, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Botanischen Kennern ist es vielleicht angenehm, ein Verzeichniß der rarsten Pflanzen zu sehen, wie sie vor Kurzem in dem eisernen Haus (ausschließlich der übrigen Gewächs- und Treibhäusern) verwahrt wurden.",
+  "language": [],
+  "musenalm_id": 74177,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Botanischen Kennern ist es vielleicht angenehm, ein Verzeichniß der rarsten Pflanzen zu sehen, wie sie vor Kurzem in dem eisernen Haus (ausschließlich der übrigen Gewächs- und Treibhäusern) verwahrt wurden.…",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Gottlob Heinrich Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tpjz0284sh2mzhr",
+      "agents": "0qzneijgjsm86gl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.499Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.499Z"
+    }
+  ]
+}

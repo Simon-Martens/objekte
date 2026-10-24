@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.124Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Nahe bei der Stadt C. war ein Selbstmord vorgefallen. Da der Fall einen durch Geist und dichterische Gaben ausgezeichneten Mann betraf, und die Motive dieses unglücklichen Schrittes im Dunkeln blieben",
+  "language": [],
+  "musenalm_id": 113253,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kraft oder Schwäche. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Lüdemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kraft oder Schwäche. / Eine Novelle",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rfdqnlcgypnnhcs",
+      "agents": "jqanokpcqaenxu5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.197Z"
+    }
+  ]
+}

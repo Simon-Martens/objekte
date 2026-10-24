@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am letzten Blatt der Suite /) Graphik (Portrait) im Kalendarium September; nemmeriert 12. /) s. Textbezug INr 96249, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.884Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96238,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Heinrich von der Lahr, / Kön. Pr. Gen. Lieut. und Chef des / Mineur Corps",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas",
+  "scans": [
+    "alm_2184_96238_cmjnidz1mz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Heinrich von der Lahr, / Kön. Pr. Gen. Lieut. und Chef des / Mineur Corps",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gml3ftzkbx3cgdh",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.729Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.729Z"
+    }
+  ]
+}

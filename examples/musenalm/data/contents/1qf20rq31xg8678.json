@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VIII, 124 /) Gedichte (Sammlung INr 24793, Obj 74)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.254Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Im stummen Walde lauscht das Schweigen, / Und dennoch redest du zu mir;",
+  "language": [],
+  "musenalm_id": 24801,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 82,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "8. Liebesnähe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "P. A.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "8. Liebesnähe",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lspounzc6uyk2cd",
+      "agents": "7vx6qiqaoli0gyj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.073Z"
+    }
+  ]
+}

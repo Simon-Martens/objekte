@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.494Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "135",
+  "incipit_statement": "Hell ist der Himmel, still die Luft, / Des Allerwachens Stimme ruft.",
+  "language": [],
+  "musenalm_id": 72595,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morgengedanken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. I. S. C. - a.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Morgengedanken",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vxsxr7fc53sdhb0",
+      "agents": "kpi9u93u4rl2rz9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.460Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Musikheiligen Kalender (INr 37589, Obj 2) Liste mit biogr. Angaben zu ausgewählten Musikern mit Geburtstag im Juni",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.025Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 37605,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Tabelle"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "JUNI",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Friedrich Reichardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "JUNI",
+  "updated": "2005-04-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "frqhjqc8icmpld1",
+      "agents": "it8ptc76fbrkd73",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.149Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.149Z"
+    }
+  ]
+}

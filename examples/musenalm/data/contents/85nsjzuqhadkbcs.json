@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 35",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.310Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Zum Bade! zum Bade! / Vom Blumengestade / Hinab in die wallenden Fluten!",
+  "language": [],
+  "musenalm_id": 5431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Badelied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Mn.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Badelied",
+  "updated": "2000-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tyfi5x68qmwe69c",
+      "agents": "z3510nlbg6hd1qt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.071Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.071Z"
+    }
+  ]
+}

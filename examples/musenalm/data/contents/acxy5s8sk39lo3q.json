@@ -1,0 +1,45 @@
+{
+  "annotation": "VII. Agrionien (Sammlung INr 75408, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Zwei Sylben geb' ich Euch zu rathen auf. / Die erste findet in der Töne Lauf / Ihr leicht bei jedem Eurer Instrumente.",
+  "language": [],
+  "musenalm_id": 75421,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "13. / Charade",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Th. Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "13. / Charade",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yx2ckxpql0qkzr5",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.723Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.723Z"
+    }
+  ]
+}

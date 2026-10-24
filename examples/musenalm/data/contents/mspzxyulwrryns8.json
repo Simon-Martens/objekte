@@ -1,0 +1,45 @@
+{
+  "annotation": "Eine Nacht unter Schleichhändlern. Skizzen aus England (Sammlung INr 43917, Obj 28) Dem Text vorangestellt: Um ein Uhr ließ ein heftig Sturmgebraus / Das Schiff so recht in Meeres Trog gelangen; [...] Byron",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "Man hörte die schwere Brandung mit furchtbarem Getöse an die Felsen schlagen",
+  "language": [],
+  "musenalm_id": 43923,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Die Jagd",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Die Jagd",
+  "updated": "2006-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "odwl2ulmuart69j",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.310Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.310Z"
+    }
+  ]
+}

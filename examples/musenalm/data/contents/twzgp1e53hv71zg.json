@@ -1,0 +1,45 @@
+{
+  "annotation": "Lyrische Blätter (Sammlung INr 80540, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.727Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "144",
+  "incipit_statement": "Eine Rose, / Die aus grünem Moose / Sanft das Köfpchen mir entgegegenwiegte,",
+  "language": [],
+  "musenalm_id": 80543,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Rose",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dr. C. Dräxler-Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Rose",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uilvqgfldy67g2a",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.756Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.756Z"
+    }
+  ]
+}

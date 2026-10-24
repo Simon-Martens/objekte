@@ -1,0 +1,45 @@
+{
+  "annotation": "Rückblicke und Bemerkungen (Sammlung INr 98428, Obj 59)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.827Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "341",
+  "incipit_statement": "Ein alter Grieche ging aus seinem Grabe, / Wohl durch ein kräftig Wunder war's geschehn,",
+  "language": [],
+  "musenalm_id": 98430,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Moderner Zeitvertreib",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Moderner Zeitvertreib",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "myz250cq0s2wugs",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.817Z"
+    }
+  ]
+}

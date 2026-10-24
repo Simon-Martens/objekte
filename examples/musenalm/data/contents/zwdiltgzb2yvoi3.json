@@ -1,0 +1,45 @@
+{
+  "annotation": "XII. Agrionien für das Jahr 1815 (Sammlung INr 39576, Obj 61)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.466Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "448",
+  "incipit_statement": "Hui! bei des zweiten Klingen, / Wie wird dem ersten warm;",
+  "language": [],
+  "musenalm_id": 39582,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Charade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Charade",
+  "updated": "2005-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "50gn2kmhj8f8d1m",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.208Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.208Z"
+    }
+  ]
+}

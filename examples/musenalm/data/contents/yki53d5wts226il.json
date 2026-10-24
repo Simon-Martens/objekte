@@ -1,0 +1,45 @@
+{
+  "annotation": "mit 5 Illustrationen s. Titelgraphik INr 69569, Obj 1, Graphiken INr 69572, Obj 4, INr 6974-6976, Obj 6-8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.873Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Du beschuldigst mich der Unempfindlichkeit gegen die Reitze des Geschlechts, dem Götter und Menschen huldigen; ich sey ein wahrer Weiberfeind, sagst du",
+  "language": [],
+  "musenalm_id": 69573,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Menander und Glycerion]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Wieland",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Menander und Glycerion]",
+  "updated": "2010-05-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lxpvt86o6flpt4k",
+      "agents": "dn0yjm1srfyi7cs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.261Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.261Z"
+    }
+  ]
+}

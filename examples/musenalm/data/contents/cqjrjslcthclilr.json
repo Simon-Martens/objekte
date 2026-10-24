@@ -1,0 +1,45 @@
+{
+  "annotation": "s. vorstehende Graphik INr 80822, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.207Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Kallirrhoi, helle Flut fließt aus deiner schönen Quelle: / Schöne Stunden flossen auch Liebenden an dieser Stelle!",
+  "language": [],
+  "musenalm_id": 80824,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebestrauer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebestrauer",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wakfnrnyn83qfm9",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.981Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.981Z"
+    }
+  ]
+}

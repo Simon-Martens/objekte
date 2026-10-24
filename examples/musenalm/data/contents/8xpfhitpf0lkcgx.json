@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.317Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "79",
+  "incipit_statement": "Des alten Ritters Tochter / Die war gar wunderschön, / Es war in Weit' und Ferne / Keine schön're Blüthe zu sehn.",
+  "language": [],
+  "musenalm_id": 126012,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schön-Ada. / Ballade",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Harro Harring",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schön-Ada. / Ballade",
+  "updated": "2019-05-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jyd857sq4paby99",
+      "agents": "8z1guozb85nkm4q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.871Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.871Z"
+    }
+  ]
+}

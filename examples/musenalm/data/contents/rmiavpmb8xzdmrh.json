@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. vom Titelblatt /) unter dem Beitrag: Leipzig, gedruckt bey Christian Friedrich Solbrig /) Der Beitrag wird fortgesetzt in: Kalender, Historischer für Damen 1792 (Schiller); alm 2143, INr 75687",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.210Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Seit dem Anfang des Religionskriegs in Deutschland bis zum Münsterschen Frieden, ist in der politischen Welt Europens kaum etwas großes und merkwürdiges geschehen, woran die Reformation nicht den vornehmsten Antheil gehabt hätte.",
+  "language": [],
+  "musenalm_id": 75652,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Geschichte des / Dreyßigjährigen Kriegs",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Geschichte des / Dreyßigjährigen Kriegs",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4n2xcx2qj9oupy1",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.720Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.720Z"
+    }
+  ]
+}

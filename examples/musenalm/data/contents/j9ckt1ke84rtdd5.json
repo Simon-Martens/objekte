@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Sympathie« von W. Gerhard INr 22198, Obj 87 /) Musik zu dem Taschenbuch zum geselligen Vergnügen auf das Jahr 1820 (Sammlung INr 22229, Obj 118) (Photos 22232,01; 22232,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22232,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 121,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sympathie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. A. Kanne",
+  "scans": [
+    "alm_298_22232_01_1qck9gjjgk.jpg",
+    "alm_298_22232_02_5wqsaa2mi0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sympathie",
+  "updated": "2002-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5j0qm34xxi30fxb",
+      "agents": "lfya0d0pv8esiqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.898Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.898Z"
+    }
+  ]
+}

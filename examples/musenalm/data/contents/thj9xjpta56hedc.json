@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "148",
+  "incipit_statement": "Die Krieger pflegten vor der Abendstunde / Die Ritterschaft im Hof; die Freude schien / Hier mit der Heldenkraft in engem Bunde,",
+  "language": [],
+  "musenalm_id": 128929,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aus dem Liede der Nibelungen, / einem altdeutschen Gedichte. / Der Zank der Königinnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hinsberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Aus dem Liede der Nibelungen, / einem altdeutschen Gedichte. / Der Zank der Königinnen",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y8ufyv9k8bnh9yi",
+      "agents": "fd94g9jto2pspie",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.997Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.997Z"
+    }
+  ]
+}

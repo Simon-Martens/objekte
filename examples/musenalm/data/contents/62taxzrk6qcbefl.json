@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.330Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Die Stadt Salzungen zeichnet sich durch viele und vielerley milde Stiftungen vor andern Landstädten so sehr aus, …",
+  "language": [],
+  "musenalm_id": 119715,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Politische Geschichte von der innern / Landesverfassung / Vom Spital Sanct Johannis zu / Salzungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Julius Walch, Superintendens",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Politische Geschichte von der innern / Landesverfassung / Vom Spital Sanct Johannis zu / Salzungen",
+  "updated": "2012-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "s403clkx7lzttvc",
+      "agents": "6zkobaxgueenzog",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.504Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.504Z"
+    }
+  ]
+}

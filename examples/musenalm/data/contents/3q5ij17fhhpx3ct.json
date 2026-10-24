@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Hört, drey Mittel weiß ich nur / Wider Amors Triebe: / Hungern ist die erste Kur / Wider böse Liebe.",
+  "language": [],
+  "musenalm_id": 30961,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Weltweisen Krates / Mittel wider die Liebe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Hegrad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Weltweisen Krates / Mittel wider die Liebe",
+  "updated": "2003-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "px8n0x35za8qccx",
+      "agents": "74pcpa7ejqsofji",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.513Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.513Z"
+    }
+  ]
+}

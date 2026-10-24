@@ -1,0 +1,45 @@
+{
+  "annotation": "Übersetzung des vorstehenden Gedichts INr 97171, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.860Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Nichtreicher Mann / Der zum Reichen kommt / Rede nützlich oder schweige / Viel Redseligkeit / Glaub ich schlimm zu gehen / Dem der zum Mißmuthigen kommt!",
+  "language": [],
+  "musenalm_id": 97172,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nichtreicher Mann / Der zum Reichen kommt / Rede nützlich oder schweige / Viel Redseligkeit / Glaub ich schlimm zu gehen / Dem der zum Mißmuthigen kommt!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mann Friedrich Bauer Fallenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xrwn676rmris4th",
+      "agents": "3gtxsu95wib1zui",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.821Z"
+    }
+  ]
+}

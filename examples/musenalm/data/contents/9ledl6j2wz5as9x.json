@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.545Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Sarah, wenn du mich liebtest wie ich dich, wenn du dasselbe fühltest, was in meiner Seele tobt, dann könntest du nicht kalt und ruhig mir die Hand zum Abschiede reichen,",
+  "language": [],
+  "musenalm_id": 44584,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Morley-Hall. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pauline Schanz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Morley-Hall. / Novelle",
+  "updated": "2006-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1856,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vxnojukfv28ub4g",
+      "agents": "a9ocixlq34hpcgc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.313Z"
+    }
+  ]
+}

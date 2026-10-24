@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Erster Abschnitt. Ortsbeschreibung« INr 82080, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.008Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82089,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der schöne Brunnen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gezeichnet von G. C. Wilder. Gestochen von Fr. Geisler",
+  "scans": [
+    "alm_3069_82089_3knyn0gk7m.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der schöne Brunnen",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rzgkf2gih2qxw63",
+      "agents": "xo0woto4ruw1tjl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.839Z"
+    },
+    {
+      "id": "tpxxvyutiemor3h",
+      "agents": "0sr6u70smh34y2z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.839Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.839Z"
+    }
+  ]
+}

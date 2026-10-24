@@ -1,0 +1,45 @@
+{
+  "annotation": "auch in: Almanach der deutschen Musen 1770 (1. Aufl.), S. 166; Alm-2200, INr 79122; und in: Almanach der deutschen Musen 1770 (2. Aufl.), S. 170; Alm-175, INr 8014",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.650Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "92",
+  "incipit_statement": "Blau, wenn sie nichts uns zeigt, zeigt / sich die Athmosphäre;",
+  "language": [],
+  "musenalm_id": 38388,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Dichter / der sich auf blau Papier drucken ließ",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Kästner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Dichter / der sich auf blau Papier drucken ließ",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xcsrfa6g0fznygd",
+      "agents": "6cp00jd21onlhwl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.789Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.789Z"
+    }
+  ]
+}

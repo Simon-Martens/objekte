@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einem Prolog s. INr 34493, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.384Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Komm, Liebchen! Schon zittert / Der Mond auf den Wellen; / Sie flüstern und schwellen / Und fragen nach dir.",
+  "language": [],
+  "musenalm_id": 34492,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Albrecht Dürer in Venedig. / Lustspiel in einem Aufzuge / Zum erstenmal dargestellt auf dem königlichen Hoftheater in München am 7. April 1828 zur dreihundertjährigen Ge- / dächtnißfeyer Dürers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Schenk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Albrecht Dürer in Venedig. / Lustspiel in einem Aufzuge / Zum erstenmal dargestellt auf dem königlichen Hoftheater in München am 7. April 1828 zur dreihundertjährigen Ge- / dächtnißfeyer Dürers",
+  "updated": "2003-06-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9rltv5z9jwswvy9",
+      "agents": "v42buu0bbkquom4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.491Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.491Z"
+    }
+  ]
+}

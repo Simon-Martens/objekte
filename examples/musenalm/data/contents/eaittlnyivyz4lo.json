@@ -1,0 +1,47 @@
+{
+  "annotation": "kol. Illustration zu »So hassen Damen« von Kurländer (INr 124886, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "336",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124887,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "So hassen Damen. 15te Sc. / Gräfin Thalheim. / Mir, mir allein würde er glauben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brückner",
+  "scans": [
+    "alm_1254_124887_lyj4gxx1oz.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "So hassen Damen. 15te Sc. / Gräfin Thalheim. / Mir, mir allein würde er glauben",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yr07wtptbh6sqs1",
+      "agents": "55cqr78phstoqzu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.865Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.865Z"
+    }
+  ]
+}

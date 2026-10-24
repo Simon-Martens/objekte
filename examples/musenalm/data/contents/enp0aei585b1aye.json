@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung an der Titelgraphik /) Illustration zu »Die furchtbare Nachahmung« von H. Gundacker INr 124768, Obj 23  /) s. Textbezug (Gedicht) INr 124748, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.113Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124747,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lucrezia",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Stich u. Dr. d. Kunstanst. d. östr. Loyd. N. Barthelemess sc.",
+  "scans": [
+    "alm_1918_124747_mvl9u322ol.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Lucrezia",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6fogofyi2tqnmg5",
+      "agents": "sr3lslil8wne8za",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.863Z"
+    }
+  ]
+}

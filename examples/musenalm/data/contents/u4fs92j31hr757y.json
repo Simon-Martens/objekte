@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.820Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "90",
+  "incipit_statement": "Als einst die Welt nun war herfür, / Auch Adam frisch und froh,",
+  "language": [],
+  "musenalm_id": 42540,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Den Neuvermählten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Eckermann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Den Neuvermählten",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7ewylc1s9hgccja",
+      "agents": "kzwzs9hnc6kboxh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.252Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.252Z"
+    }
+  ]
+}

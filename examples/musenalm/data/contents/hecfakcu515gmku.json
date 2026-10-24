@@ -1,0 +1,47 @@
+{
+  "annotation": "[unter der Graphik: W. Maas impr. Verl. v. L. D. Sauerländer] s. Textbezug INr 44164, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44163,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DIE JUNGE WITTWE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Rustige pinx. W. Otto sc.",
+  "scans": [
+    "alm_600_44163_booepuv3m1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "DIE JUNGE WITTWE",
+  "updated": "2006-06-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1845,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xbah25gkl47077r",
+      "agents": "uqsdu0nifidzvmw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.384Z"
+    }
+  ]
+}

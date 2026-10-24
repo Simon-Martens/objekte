@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 1. /) Graphik vor dem Kalendarium /) s. Textbezug INr 92549, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.723Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92526,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Kind beim unschuldigen Spiel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Study del. D. Berger sc. 1808",
+  "scans": [
+    "alm_448_92526_8p7fbqnz6n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Kind beim unschuldigen Spiel",
+  "updated": "2003-03-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "aj5bhin0292ddm7",
+      "agents": "rcmptupq08d0ih1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.315Z"
+    },
+    {
+      "id": "cii9zoxijhzgczf",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.315Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.315Z"
+    }
+  ]
+}

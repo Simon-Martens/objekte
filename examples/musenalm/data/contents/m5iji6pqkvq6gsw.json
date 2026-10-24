@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.517Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25866,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BAEREN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Gauermanns pinx. J. Passini Vienæ",
+  "scans": [
+    "alm_339_25866_ysgwowmlhv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BAEREN",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9coyuep87q6w3vh",
+      "agents": "39mc6151u0cpcgt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.106Z"
+    },
+    {
+      "id": "hal5rk8kfpo29wb",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.106Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.106Z"
+    }
+  ]
+}

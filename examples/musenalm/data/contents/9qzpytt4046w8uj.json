@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Kirchgang« von G. Schilling INr 20121, Obj 42",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.098Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20092,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Kirchgang von Schilling",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. F. Fleischmann sculp.",
+  "scans": [
+    "alm_269_20092_he6dad38ei.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Kirchgang von Schilling",
+  "updated": "2001-12-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fvojxvl3130kq1b",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.946Z"
+    },
+    {
+      "id": "txa4w9ffiv7ivkp",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.946Z"
+    }
+  ]
+}

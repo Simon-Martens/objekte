@@ -1,0 +1,45 @@
+{
+  "annotation": "Umschlaggraphik r. # nach einer Zeichnung von Goethe s. L/R 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.000Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 18543,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schillers / ALMANACH / 1799",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_35_18543_cr4stdccfu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schillers / ALMANACH / 1799",
+  "updated": "2000-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fz26is4g38pbelb",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.937Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.937Z"
+    }
+  ]
+}

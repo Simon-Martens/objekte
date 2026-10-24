@@ -1,0 +1,45 @@
+{
+  "annotation": "Wellenstimmen. Sechs Gedichte. Als Erklärung der Stahlstiche (Sammlung INr 94978, Obj 4) s. Graphik INr 94980, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.923Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "Es staunt vor meiner Majestät, / Dess' Fuß an meinem Throne steht;",
+  "language": [],
+  "musenalm_id": 94981,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Donau",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann N. Vogl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Donau",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tchw181gxd5bsjy",
+      "agents": "zx75lnlmbmrud1g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.625Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.625Z"
+    }
+  ]
+}

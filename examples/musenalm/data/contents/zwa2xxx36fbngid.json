@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 12. /) Graphik im Kalendarium Dezember /) Illustration zu »Geschichte des dreißigjährigen Kriegs« von Fr. Schiller INr 75652, Obj 37 /) s.a. Textbezug INr 75643, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75630,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der kranke Torstensohn hat bey Janckowitz / gesiegt und findet seine Gemahlin wieder",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. Geyser sc.",
+  "scans": [
+    "alm_2142_75630_eve300t7h9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der kranke Torstensohn hat bey Janckowitz / gesiegt und findet seine Gemahlin wieder",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ngfdvh4infmgvx0",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.692Z"
+    },
+    {
+      "id": "z9obtlp6l5xi0ky",
+      "agents": "lfyqx1j23ipmczg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.692Z"
+    }
+  ]
+}

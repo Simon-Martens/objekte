@@ -1,0 +1,48 @@
+{
+  "annotation": "<div>Vertonung des Gedichts »Rundgesang zur Verlobungsfeier« INr 140418</div>",
+  "content_type": [],
+  "created": "2026-08-26T08:54:13.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140417,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Rundgesang zur Verlobungsfeier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. G. Tag",
+  "scans": [
+    "alm_5013_140417_001_pydwi4fahy.jpg",
+    "alm_5013_140417_002_9emsrw4g21.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Rundgesang zur Verlobungsfeier",
+  "updated": "2026-08-27T09:07:47.259Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "b1p3g6dqmr4oomh",
+      "agents": "mxi7h5rzgqwc6st",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-08-26T08:55:20.724Z",
+      "edit_comment": "",
+      "type": "Komponist:in",
+      "uncertain": false,
+      "updated": "2026-08-27T09:07:47.258Z"
+    }
+  ]
+}

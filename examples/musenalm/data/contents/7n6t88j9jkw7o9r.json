@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.193Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "Dürft' ich den Geliebten sehen, / Würde mir so wohl und leicht, / Und der bangen Seele Wehen / Wie ein Nebelhauch verscheuctt.",
+  "language": [],
+  "musenalm_id": 135370,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pryamus und Thisbe. / (Eine Mythe des Alterthums.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich von Hentl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Pryamus und Thisbe. / (Eine Mythe des Alterthums.)",
+  "updated": "2025-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gogxfmb8cj7fvi4",
+      "agents": "15ch4q36f8n1et3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.148Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.958Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Benedikt, ein armer aber wohlverdienter Candidat des Predigtamtes ward, bald nach dem Ende des siebenjährigen Krieges, in der sächsischen Landstadt B. als Diakonus eingestellt.",
+  "language": [],
+  "musenalm_id": 76897,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Beichtkind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gustav Schilling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Beichtkind",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z7tnkqnpv5pabt0",
+      "agents": "tiijnij1nbeebby",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.704Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.704Z"
+    }
+  ]
+}

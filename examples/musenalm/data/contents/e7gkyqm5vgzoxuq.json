@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 109839, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.186Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Zwei Wiegenfeste feiert / Das Herz mit lautem Schlag: / Denn Mutter, so wie Tochter, / Gebar der Welt Ein Tag.",
+  "language": [],
+  "musenalm_id": 109840,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter mit dem Kind",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabriel Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter mit dem Kind",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lgei5l4zgt868rw",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.248Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.248Z"
+    }
+  ]
+}

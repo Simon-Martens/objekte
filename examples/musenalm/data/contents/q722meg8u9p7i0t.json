@@ -1,0 +1,57 @@
+{
+  "annotation": "I. Biographie (Sammlung INr 67453, Obj 8) mit Anm. am Objekt: Aus den »Beiträgen zur Kunde Preussens« 5ten Bande, 6tem Hefte, Seite 500 und aus handschriftlichen Notizen gezogen. Die biographischen Nachrichten in der gedachten Zeitschrift flossen aus der Feder des unlängst verstorbenen Professors v. Baczko in Königsberg, der Jesters Freund war. /) mit einer Publikationsliste /) mit einer Illustration s. Titelportrait INr 67447, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Die Herausgeber des Sylvans lösen ohne Verzug ihr, im vorigen Jahrgange Seite 166 abgelegtes, Versprechen und machen ihre verehrten Leser mit einem unserer würdigsten forstmännischen Zeitgenossen bekannt,",
+  "language": [],
+  "musenalm_id": 67454,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Leben und Wirken des / Königlich Preussischen Oberforstmeisters / Jester zu Königsberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Die Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Leben und Wirken des / Königlich Preussischen Oberforstmeisters / Jester zu Königsberg",
+  "updated": "2009-11-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eb932n227ay78mj",
+      "agents": "ju4ru5jtl9hri75",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.275Z"
+    },
+    {
+      "id": "5af087stxvfo25g",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.275Z"
+    }
+  ]
+}

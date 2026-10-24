@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Herodes gab sein Jahresfest. / O da gings voll und hoch!",
+  "language": [],
+  "musenalm_id": 17651,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die / Kraft des Tanzens",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Ung.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die / Kraft des Tanzens",
+  "updated": "2001-09-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "75evsfrk38x2hhq",
+      "agents": "e50fn3dat2tsaev",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.721Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.721Z"
+    }
+  ]
+}

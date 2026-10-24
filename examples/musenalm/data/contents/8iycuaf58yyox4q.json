@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 75253, Obj 68 /) vollst. Bez. aus dem I-Verz.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.343Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "111",
+  "incipit_statement": "Traum meines Glükes, wo jagst du mich hin? / umgaukelst mich immer doch, wo ich auch bin.",
+  "language": [],
+  "musenalm_id": 75255,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Maurersorgen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S..",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Maurersorgen",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "scnqbtxf28dk8ci",
+      "agents": "ii78f2x1yo6pd2c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.518Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.518Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Weiblicher Sinn und weibliches Leben. Erstes Buch. Nach Zügen aus der heiligen Geschichte (Sammlung INr 50444, Obj 6)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.171Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "139",
+  "incipit_statement": "Noch ein kleines Ereigniß hat uns die heilige Geschichte aufbewahrt, das uns einen interessanten Blick in das weibliche Herz werfen läßt.",
+  "language": [],
+  "musenalm_id": 50455,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Die Sünderinn / oder / die tiefen Bewegungen des weiblichen Herzens. / Luk. 7, V. 36-48",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Ehrenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Die Sünderinn / oder / die tiefen Bewegungen des weiblichen Herzens. / Luk. 7, V. 36-48",
+  "updated": "2007-07-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lcxyunl1reox8zz",
+      "agents": "w1gkyrmb6cwa21o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.709Z"
+    }
+  ]
+}

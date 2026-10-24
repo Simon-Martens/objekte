@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.568Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "91",
+  "incipit_statement": "Wo die Ströme siegend fliegen / Aus der starren Felsenhand,",
+  "language": [],
+  "musenalm_id": 24789,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Fremdlings-Tod",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Georg Rapp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Fremdlings-Tod",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wxv6p6epfs8dlo5",
+      "agents": "hoxjtedfq4ub3f9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.111Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.111Z"
+    }
+  ]
+}

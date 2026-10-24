@@ -1,0 +1,58 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite. s. Textbezug INr 33231, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33259,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (gez. von S. Henry geb. Chodowiecka. gestochen von E. Henne)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "gez. von S. Henry geb. Chodowiecka. gestochen von E. Henne",
+  "scans": [
+    "alm_462_33259_gfi3rwrec2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fi063uc78t9162v",
+      "agents": "0pkz0bij2veoozn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.853Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.853Z"
+    },
+    {
+      "id": "fmdmey3oezi15nd",
+      "agents": "xjs462ntht4ail3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.853Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.853Z"
+    }
+  ]
+}

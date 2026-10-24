@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.116Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "227",
+  "incipit_statement": "Auf dem Wege von Salzburg nach Berchtesgaden, an der Stelle, wo sich das Thal mit der freundlichen Stadt zuerst den Blicken zeigt, hielt an einem der schönsten Sommerabende ein offener Wagen.",
+  "language": [],
+  "musenalm_id": 86685,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 70,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Ausflug nach Berchtesgaden. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Dornau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein Ausflug nach Berchtesgaden. / Novelle",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "usv7s1bdhxixo4g",
+      "agents": "15ch4q36f8n1et3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.168Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.168Z"
+    }
+  ]
+}

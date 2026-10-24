@@ -1,0 +1,45 @@
+{
+  "annotation": "Vierzeilen (Sammlung INr 46626, Obj 169)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "Wer wiegte dich einst auf seinem Schooß? du liebliches / Kind! / Und hatte dich lieb und herzte dich groß? du liebliches / Kind!",
+  "language": [],
+  "musenalm_id": 46632,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 175,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer wiegte dich einst auf seinem Schooß? du liebliches / Kind! / Und hatte dich lieb und herzte dich groß? du liebliches / Kind!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Victor Precht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0l6v3pjdeokjcuc",
+      "agents": "pbmqtudxmyu5ypb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.188Z"
+    }
+  ]
+}

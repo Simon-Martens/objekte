@@ -1,0 +1,45 @@
+{
+  "annotation": "Winter. Der Weihnachtsabend. Drei kleine Dialogen (Sammlung INr 95938, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.998Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "255",
+  "incipit_statement": "O, Vater! was das für eine Freuide seyn wird, wenn sie nun nach Haus kommen, und den Baum mit den Lichtern finden werden,",
+  "language": [],
+  "musenalm_id": 95841,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Der Pachter und seine Tochter",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Der Pachter und seine Tochter",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h95ho7eoe6bvjik",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.454Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.454Z"
+    }
+  ]
+}

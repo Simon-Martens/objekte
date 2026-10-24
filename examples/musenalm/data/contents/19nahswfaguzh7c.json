@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. am 6. Blatt der Suite /) s. Textbezug INr 58137, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 58138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eichelberg",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "E. Stoll del. D'argent sc.",
+  "scans": [
+    "alm_776_58138_mujrbbhzef.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eichelberg",
+  "updated": "2008-06-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rk4udkegg7pfhk9",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.817Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.817Z"
+    }
+  ]
+}

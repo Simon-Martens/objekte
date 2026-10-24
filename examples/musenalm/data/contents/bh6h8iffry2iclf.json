@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Ahnungen« von Arthur vom Nordstern d.i. G. A. E. v. Nostitz-Jänkendorf INr 19517, Obj 51 /) Anhang zu Becker's Taschenbuch 1816 enthaltend: Compositionen und Tänze, von Bergt, Dotzauer, Marschner, Methfessel, Pohlenz und Minna Schütz (Sammlung INr 61749, Obj 112) /) (Photos 61751,01;61751,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.431Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61751,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 114,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ahnungen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bergt",
+  "scans": [
+    "alm_264_61751_01_buyomf2vbe.jpg",
+    "alm_264_61751_02_ctvmfyf5yx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ahnungen",
+  "updated": "2001-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jhdksqowcfozugk",
+      "agents": "1tsjgk40ftnty4f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.073Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.073Z"
+    }
+  ]
+}

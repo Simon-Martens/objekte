@@ -1,0 +1,45 @@
+{
+  "annotation": "... eine Stelle aus [Johannes von] Müllers Schweizergeschichte (Neue Ausg. Bd. 2. S. 177. etc) und einer Notiz aus einer handschriftlichen Nachricht über die Grafen von Neuenburg und von Nidau hier nachzutragen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.744Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Man erlaube uns, zu besserem Verständniß des vorstehenden Gedichts, und zur bestimmten Anzeige des eigentlich Historischen darin, und besonders der Verhältnisse von Erlachs zu dem Grafen von Nidau und seinen zwey Söhnen,...",
+  "language": [],
+  "musenalm_id": 52908,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nacherinnerung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. R. Wyß, der jüngere",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nacherinnerung",
+  "updated": "2007-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fu9ateoa0irje40",
+      "agents": "i634jvfoategs25",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.718Z"
+    }
+  ]
+}

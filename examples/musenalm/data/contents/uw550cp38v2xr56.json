@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Tab II. /) kol. Illustration zu »Der Windhund« von W. F. von der Borch INr 67139, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.812Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Canis Grajus. Der Windhund",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Sandhaas del. Westermayr sc.",
+  "scans": [
+    "alm_1146_67138_a6h4ifykud.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Canis Grajus. Der Windhund",
+  "updated": "2009-10-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bupy144luq7wpvs",
+      "agents": "93i1cvgb16cjfey",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.337Z"
+    },
+    {
+      "id": "4gpewu9pxjc01u1",
+      "agents": "2d34emvmf13qf3h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.337Z"
+    }
+  ]
+}

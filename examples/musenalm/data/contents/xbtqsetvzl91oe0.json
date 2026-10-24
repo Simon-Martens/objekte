@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung am ersten Blatt der Suite",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.892Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28849,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc: Aus der Mann von Wort von Iffland",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "W. A.",
+  "scans": [
+    "alm_373_28849_3cr2hapw5i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc: Aus der Mann von Wort von Iffland",
+  "updated": "2002-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6a7m8elg8yawpyp",
+      "agents": "72r3qe0psneye9d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.567Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.567Z"
+    }
+  ]
+}

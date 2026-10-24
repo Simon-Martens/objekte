@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zwei Illustrationen s. Graphiken in: Taschenbuch zum geselligen Vernügen 1807, INr 12903, 12904",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Idola, die Pflegetochter des Zauberer's Darischmann und der Fee Almaide, liebte das hohe, prächtige Felsenschloß ihres Vaters weit weniger,",
+  "language": [],
+  "musenalm_id": 12497,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der glänzende Saal und die / dunkle Grotte. / Ein Märchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. G. Eberhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der glänzende Saal und die / dunkle Grotte. / Ein Märchen",
+  "updated": "2001-03-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h3utao7t176r761",
+      "agents": "9ndls4gksm9067r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.376Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.376Z"
+    }
+  ]
+}

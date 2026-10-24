@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.761Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "Rosette hat ein Haar, so dunkel, als der / Schleyer / Von einer sternenlosen Nacht,",
+  "language": [],
+  "musenalm_id": 38319,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gemälde / eines kleinen Mädchens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Karschin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gemälde / eines kleinen Mädchens",
+  "updated": "2000-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t07ihdjvx9o4fhq",
+      "agents": "acb1mm3415v67ho",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.692Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.692Z"
+    }
+  ]
+}

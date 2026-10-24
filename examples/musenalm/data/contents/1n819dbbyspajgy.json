@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.323Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Daß ich einst in diesen Baum / Einen Spruch geschrieben, / Ist mir nur als ferner Traum / Dämmernd noch geblieben",
+  "language": [],
+  "musenalm_id": 122944,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 203,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vernarbt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jegór v. Sivers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vernarbt",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qnszubwzpjkarly",
+      "agents": "gpow9s19ygz3th4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.824Z"
+    }
+  ]
+}

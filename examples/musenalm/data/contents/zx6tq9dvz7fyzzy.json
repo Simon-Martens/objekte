@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Was uns auch nehmen mag der Neid, / Den ernsten Sinn in heit'rer Zeit; [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.087Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Es ist doch etwas ganz Eigenes um einen Ausflug in das Freie, zu welchem sich eine Trias, oder eine Mehrzahl von Schriftstellern verbindet.",
+  "language": [],
+  "musenalm_id": 93021,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das / Testament. / Bild aus dem Dichterleben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Gabr. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das / Testament. / Bild aus dem Dichterleben",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fzjowns7z85mc2k",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.642Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.642Z"
+    }
+  ]
+}

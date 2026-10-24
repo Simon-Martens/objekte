@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.687Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "306",
+  "incipit_statement": "Ach hätt' ich Deine Liebe nicht / Ich wüßt' nicht, was mir frommt,",
+  "language": [],
+  "musenalm_id": 45566,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 275,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zuflucht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Eggers",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Zuflucht",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ossuia02ws59ngx",
+      "agents": "dh41pv1tstggnwb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.931Z"
+    }
+  ]
+}

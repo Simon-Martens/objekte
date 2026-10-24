@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium Februar /) s. Textbezug 97373, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.951Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97347,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FEBRUAR 29 Tage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Arndt sc.",
+  "scans": [
+    "alm_3653_97347_fwr9hurqb1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FEBRUAR 29 Tage",
+  "updated": "2011-03-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ibwund6c10owmn9",
+      "agents": "72r3qe0psneye9d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.735Z"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "annotation": "## Titel s. »Der Garten der Tuilerien in Paris. Mit Kupfern, nach den Zeichnungen der Hn. F. und L. Catel / Die Terrasse gegen der Seine. (Viertes Kupfer: Eine Treppe der Terrasse.) INr 74452, Obj 20 /)  # Zuschreibung: Fischer S. 364",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.007Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74453,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine Treppe der Terrasse ##",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. und L. Catel",
+  "scans": [
+    "alm_3114_74453_ussptfld3t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Eine Treppe der Terrasse ##",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nbd11pv5k148rzw",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.268Z"
+    },
+    {
+      "id": "ee98pgplx24wf23",
+      "agents": "u6cqibk97sma4dm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.268Z"
+    },
+    {
+      "id": "5tftcdkeul0xpkb",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.268Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.268Z"
+    }
+  ]
+}

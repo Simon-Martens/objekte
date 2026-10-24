@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 11. /) Illustration zu »Vier Wochen im Bade« von F. Kind INr 13430, Obj 67",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.648Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13377,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vier Wochen im Bade. v. F. Kind. S. 164",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury inv. et fec.",
+  "scans": [
+    "alm_217_13377_t0yq2us0l7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vier Wochen im Bade. v. F. Kind. S. 164",
+  "updated": "2001-04-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ug4z6rj9qrav7ob",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.641Z"
+    }
+  ]
+}

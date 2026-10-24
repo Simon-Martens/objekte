@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait # Bezeichnung am letzten Blatt der Suite /) Illustration zu »Anna von Östreich und Kardinal Mazarin« von Friedrich Buchholz INr 68935, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.565Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68920,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Anna von Oestreich",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "M. Haas sc.",
+  "scans": [
+    "alm_839_68920_rwcf3k21qj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Anna von Oestreich",
+  "updated": "2008-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ce8fxbyi5xgozq6",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.528Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.528Z"
+    }
+  ]
+}

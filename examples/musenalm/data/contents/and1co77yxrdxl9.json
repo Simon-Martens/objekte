@@ -1,0 +1,45 @@
+{
+  "annotation": "XIX. Erklärung der Kupfer (Sammlung INr 60034, Obj 33) s. Graphik INr 60039, Obj 38",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "322",
+  "incipit_statement": "Im Winter 1793, und im Frühjahr 1794, waren im Hannöverschen, Hessischen, Bayreuthischen, in den Kaiserlichen Staaten zu Wien, Frankfurt am M. u.s.w. viele Damen von hohem und niederen Stande beschäftigt,",
+  "language": [],
+  "musenalm_id": 60038,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Patriotische Beschäftigung einger Deutschen Damen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Patriotische Beschäftigung einger Deutschen Damen",
+  "updated": "2008-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fnecqs4lftupfhe",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.980Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.980Z"
+    }
+  ]
+}

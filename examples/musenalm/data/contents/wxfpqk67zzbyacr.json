@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Sanct Theodolus« von J. R. Wysz d.J. INr 54543, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "216",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 54544,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SANCT THEODOLUS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Disteli del. R. Rahn sc. in Zürich",
+  "scans": [
+    "alm_742_54544_bsyigem53l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SANCT THEODOLUS",
+  "updated": "2008-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q7vzbrzwy24mw8h",
+      "agents": "yf0tgu146w1t5rh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.877Z"
+    },
+    {
+      "id": "xnv8ju5gzvoe52t",
+      "agents": "2qfnp8a93m1r2da",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.878Z"
+    }
+  ]
+}

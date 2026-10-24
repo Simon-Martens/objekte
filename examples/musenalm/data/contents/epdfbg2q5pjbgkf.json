@@ -1,0 +1,45 @@
+{
+  "annotation": "s. die Graphiken INr 41758-41760, Obj 15-17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.497Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "55",
+  "incipit_statement": "Selbst die todte Natur zeigt hier eine große Mannigfaltigkeit.",
+  "language": [],
+  "musenalm_id": 41755,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Das Kaiserreich Japan (Niphon) und die dazu gehörenden Inseln] / Natur-Produkte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Das Kaiserreich Japan (Niphon) und die dazu gehörenden Inseln] / Natur-Produkte",
+  "updated": "2005-12-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z6jmyz2iie7xaun",
+      "agents": "rj7yi1mmlcs4tml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.213Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.213Z"
+    }
+  ]
+}

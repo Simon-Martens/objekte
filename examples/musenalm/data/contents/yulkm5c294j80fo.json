@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.963Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "95",
+  "incipit_statement": "Nun, Kinder, sagte der Bürgermeister und Kammerrath Staar zu seiner versammelten Familie, über vier Wochen ist der wichtige Tag, wo der Krähwinkeler Vogel abgeschossen werden soll.",
+  "language": [],
+  "musenalm_id": 123160,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Das Vogelschießen zu Krähwinkel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Wahlert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Das Vogelschießen zu Krähwinkel",
+  "updated": "2019-05-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9z1uwsb61b5r61d",
+      "agents": "s0zlclb66w9xa97",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.686Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.686Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Der Thurm der Sultanstochter« von v. Nell INr 93997, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.089Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93996,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zur Novelle: Die Sultanstochter, von Nell",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Rieder del. C. Kotterba sc.",
+  "scans": [
+    "alm_1865_93996_dy05790bvr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zur Novelle: Die Sultanstochter, von Nell",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "amye2t0prlhxlpo",
+      "agents": "djf4nkfvic4s191",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.353Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.353Z"
+    },
+    {
+      "id": "i9diwupqyq2cbz9",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.354Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.354Z"
+    }
+  ]
+}

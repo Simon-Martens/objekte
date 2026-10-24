@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Die Wünsche lob' ich, welche weis' ihr Kinder wünscht. / Ihr aber hebt nicht, wenn vom Vater ihr vernehmt / Der neuen Botschaft unvorhergesehnes Wort.",
+  "language": [],
+  "musenalm_id": 62470,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Danaiden in Argos. / Aus Aeschylos Schutzgenossinen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aeschylos; [übers.] Heinrich Voß d. jüng.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Danaiden in Argos. / Aus Aeschylos Schutzgenossinen",
+  "updated": "2009-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5es6kra3qd7ow0f",
+      "agents": "9q1rj1t9phz8fdv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.142Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.142Z"
+    },
+    {
+      "id": "j4apfz9bipk1qch",
+      "agents": "kqtjs5z40p79gpq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.142Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.142Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Endlich kommt auf dein Verlangen / Deiner Karoline Bild.",
+  "language": [],
+  "musenalm_id": 18242,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 37,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Adelheim. / Bei Übersendung ihres / Bild- / nisses. / Aus einem ungedruckten Romane",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Philippine Engelhard, geb. Gatterer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Adelheim. / Bei Übersendung ihres / Bild- / nisses. / Aus einem ungedruckten Romane",
+  "updated": "2001-10-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ptbplqdftjqwbiw",
+      "agents": "e50fn3dat2tsaev",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.888Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.888Z"
+    }
+  ]
+}

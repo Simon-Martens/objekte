@@ -1,0 +1,47 @@
+{
+  "annotation": "Tänze mit Musik herausgegeben von Herrn Lauchery Königl. Balletmeister und Solo-Tänzer (Sammlung INr 20571, Obj 110)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.501Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20574,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "La Vestale, II.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [
+    "alm_271_20574_ul8f8wczd5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "La Vestale, II.",
+  "updated": "2001-12-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9o1g7bw0m2e3yho",
+      "agents": "czigb25jnrfsy98",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.878Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.878Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Graphik INr 29982, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.392Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Wenn die Kunst in einen beschränkten Zustand versetzt, so thut sie es entweder, um durch einen Scherz über die eingebildete,",
+  "language": [],
+  "musenalm_id": 29983,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ländlich-häusliche Scene / von R. Brakenburg. / 14 Zoll Höhe, 11 Zoll Breite",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ländlich-häusliche Scene / von R. Brakenburg. / 14 Zoll Höhe, 11 Zoll Breite",
+  "updated": "2002-11-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9blefyz3xlj5ip2",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.378Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.378Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 80487, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.801Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Bist du nicht müde, armer Mann? / Der Schweiß dir auf der Stirne steht!",
+  "language": [],
+  "musenalm_id": 80489,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Was sich nicht erkaufen läßt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Chr. Kuffner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Was sich nicht erkaufen läßt",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q8nsovrigkyrshn",
+      "agents": "6sneav5elo06of1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.883Z"
+    }
+  ]
+}

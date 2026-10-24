@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Oden (INr 93514, Obj 23)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.779Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "106",
+  "incipit_statement": "Zittre, du sterbender Blick, dich badend in volleren Tropfen, / Der noch zögernd verweilt, eh' der Erinn'rung er fließt.",
+  "language": [],
+  "musenalm_id": 93516,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihr letzter Kuß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. C. Graf v. Sermage",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihr letzter Kuß",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g7jt52tepn13s75",
+      "agents": "nf6hcprj7w45n4m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.590Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.590Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Devisen (Sammlung INr 67931, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.031Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Und wieder naht Erinnrung jener Stunden, / Der Tag verblutet sich ins helle Blau,",
+  "language": [],
+  "musenalm_id": 67948,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "17.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Alphons Hamböck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "17.",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pu418zhwb2qvazl",
+      "agents": "690p6l7d7zmbgvd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.973Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.973Z"
+    }
+  ]
+}

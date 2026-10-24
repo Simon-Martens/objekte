@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 99056, Obj 82)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.907Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Du Baum, so morsch und lebensarm, / So ausgehöhlt, sei mir gegrüßt;",
+  "language": [],
+  "musenalm_id": 99061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 87,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen Baum",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nikolaus Lenau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen Baum",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yofkpvwg52rtgx6",
+      "agents": "96po1brlxwvvsud",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.825Z"
+    }
+  ]
+}

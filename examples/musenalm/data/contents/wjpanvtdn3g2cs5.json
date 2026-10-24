@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik im Kalendarium August /) # Titel s.Textbezug INr 85058, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.736Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85045,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein englischer Reiswagen für zwei Personen #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'A. f.",
+  "scans": [
+    "alm_3122_85045_oc6hc9uey1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein englischer Reiswagen für zwei Personen #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uaaepdd3v4z3ha0",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.232Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.232Z"
+    }
+  ]
+}

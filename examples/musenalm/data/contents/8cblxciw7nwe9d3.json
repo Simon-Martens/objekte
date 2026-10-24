@@ -1,0 +1,56 @@
+{
+  "annotation": "s. hierzu Sonett von Treitschke INr 14350, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.424Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14349,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CHARITAS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carlo Cignani p. F. John sc.",
+  "scans": [
+    "alm_225_14349_8ow9bjkenk.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CHARITAS",
+  "updated": "2001-04-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "foanvvgt65t4my1",
+      "agents": "ljxbpe0bzkp08sq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.616Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.616Z"
+    },
+    {
+      "id": "2dvfbxp1y1516ms",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.617Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.617Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Ehrentafel der Humanität im Verhalten von Christen gegen Juden (Sammlung INr 119042, Obj 21)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.454Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Unter den Journalen aller civilisirten Länder sind es die geachteteren, welche die Emancipation der Juden als eine rein menschliche Angelegenheit betrachten.",
+  "language": [],
+  "musenalm_id": 119060,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Presse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joseph Wertheimer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Presse",
+  "updated": "2017-06-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "psmi4ftj1vel4ww",
+      "agents": "t40io73vfefta51",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.663Z"
+    }
+  ]
+}

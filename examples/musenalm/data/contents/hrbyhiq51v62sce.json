@@ -1,0 +1,45 @@
+{
+  "annotation": "Silhouetten aus dem Künstlerleben (Sammlung INr 121094, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Im Palais des Fürsten von Esterhazy in der Wallnerstraße zu Wien war eine große, kunstsinnige Gesellschaft versammelt,",
+  "language": [],
+  "musenalm_id": 121097,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Die Macht des Genies",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Steinebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Die Macht des Genies",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ktmy0g4lq8d8nqg",
+      "agents": "lzi1zyn6aqla0ny",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.724Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Widmungsgedicht; s. Titelportrait INr 116760, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.589Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "7",
+  "incipit_statement": "Das Auge ist der Seele klarer Spiegel, / Die Züge künden, was das Herz verschließt,",
+  "language": [],
+  "musenalm_id": 116766,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vor dem Bilde / Ihrer Majestät / SOPHIE, / Königin der Niederlande, Prinzessin von / Würtemberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Steinebach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vor dem Bilde / Ihrer Majestät / SOPHIE, / Königin der Niederlande, Prinzessin von / Würtemberg",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1851,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r68epdfl1o8pdcc",
+      "agents": "lzi1zyn6aqla0ny",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.526Z"
+    }
+  ]
+}

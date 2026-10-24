@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "175",
+  "incipit_statement": "Auf dem Hügel waldumsäumet / Liegt der Hirtenknab' und träumet,",
+  "language": [],
+  "musenalm_id": 81319,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der treue Hirtenknabe. / Historische Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ignaz V. Zingerle",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der treue Hirtenknabe. / Historische Sage",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jp0l4vdcwqygsma",
+      "agents": "q8nfldmjay7nmqe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.969Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.969Z"
+    }
+  ]
+}

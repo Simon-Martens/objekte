@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Skizzenbuch. Das Weib« von W. Irving; am oberen rechten Rand: B. 1. S. 53. s. Textbezug INr 43791, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.505Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43790,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Skizzenbuch. / (Das Weib)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. Langer sc. Viennae",
+  "scans": [
+    "alm_585_43790_l5ztp58s7s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Skizzenbuch. / (Das Weib)",
+  "updated": "2006-05-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iqjm9avk9bciw1m",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.406Z"
+    }
+  ]
+}

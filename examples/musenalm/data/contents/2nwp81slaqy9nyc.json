@@ -1,0 +1,45 @@
+{
+  "annotation": "Lieder (Sammlung INr 27442, Obj 169)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.620Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "456",
+  "incipit_statement": "Ihr Haus steht dicht in Linden, / Mein' Gais gras't auf der Höh.",
+  "language": [],
+  "musenalm_id": 27447,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 174,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Eitle Sorge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Schütz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Eitle Sorge",
+  "updated": "2002-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tj0qd65m68h905a",
+      "agents": "j5e1jto7rj2ibw3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.526Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.526Z"
+    }
+  ]
+}

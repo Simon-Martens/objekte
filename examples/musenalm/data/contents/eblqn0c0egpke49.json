@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.334Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Die Geige klingt durch die stille Nacht - / Die kranke Mutter im Bette wacht,",
+  "language": [],
+  "musenalm_id": 117236,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 68,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gedicht / Der Todtentanz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Pauline Schanz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Gedicht / Der Todtentanz",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zvr9ob031c06tle",
+      "agents": "a9ocixlq34hpcgc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.575Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.575Z"
+    }
+  ]
+}

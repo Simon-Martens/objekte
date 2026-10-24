@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 2. / s. Textbezug INr 61360, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "44",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71361,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Magnetiseur",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki sculpsit 1790",
+  "scans": [
+    "alm_3605_71361_c2ica0v56t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Magnetiseur",
+  "updated": "2010-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c6sg9ewb21ccxrl",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.587Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.587Z"
+    }
+  ]
+}

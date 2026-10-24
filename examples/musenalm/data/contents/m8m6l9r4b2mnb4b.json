@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.092Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "186",
+  "incipit_statement": "Der Delinquent, den ich hierbei, / Mein theurer Irwing, übersende,",
+  "language": [],
+  "musenalm_id": 4149,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 94,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den Herrn Ober-Consistorial-Rath / von Irwing in Berlin; bei Uebersen- / dung eines Auerhahns",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "v. Gökingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den Herrn Ober-Consistorial-Rath / von Irwing in Berlin; bei Uebersen- / dung eines Auerhahns",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1uqex8n3zb48h9v",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.041Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.041Z"
+    }
+  ]
+}

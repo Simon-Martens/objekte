@@ -1,0 +1,45 @@
+{
+  "annotation": "mit Anmm",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.981Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "109",
+  "incipit_statement": "Allein nicht lange: so hüllet die Nacht / in düstere Schatten, / Längs an der Seine, die traubenreichen Ge- / filde von Burgund:",
+  "language": [],
+  "musenalm_id": 131015,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Chorpult / Dritter Gesang",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Hübner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Chorpult / Dritter Gesang",
+  "updated": "2003-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "phddb8i9mtwn1ol",
+      "agents": "0b9nelfb23buwgh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.080Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.080Z"
+    }
+  ]
+}

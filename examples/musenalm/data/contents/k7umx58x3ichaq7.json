@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder (Sammlung INr 83395, Obj 82) s. Graphik in: Taschenbuch, Niederrheinisches für Liebhaber des Schönen und Guten 1802; INr 83226",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.022Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "189",
+  "incipit_statement": "Ha! mich ergreift der Schlachtengeist. / Fort! fort! wohin mich das Getümmel reißt,",
+  "language": [],
+  "musenalm_id": 83398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 85,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Amazonenschlacht. / Von Rubens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Amazonenschlacht. / Von Rubens",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ih4lfwhnscl2utf",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.159Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.159Z"
+    }
+  ]
+}

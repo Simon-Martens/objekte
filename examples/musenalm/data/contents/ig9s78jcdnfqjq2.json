@@ -1,0 +1,47 @@
+{
+  "annotation": "Vetonung des Gedichts »Liebeslied« von S. W. Schiessler INr 91959, Obj 104",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.465Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "238",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 91958,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 103,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebeslied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. D. Weber",
+  "scans": [
+    "alm_3725_91958_8b2pxg4qzp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Liebeslied",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q5vqqdi7nlldnh3",
+      "agents": "k27n7bervsmisrr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.394Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.394Z"
+    }
+  ]
+}

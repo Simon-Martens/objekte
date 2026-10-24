@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Gedicht INr 44031, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.584Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44030,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARGOT DU CLOS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Drawn by F. Stone Engraved by C. Rolls",
+  "scans": [
+    "alm_596_44030_7xusw67a9j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARGOT DU CLOS",
+  "updated": "2006-06-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bkafdwx4ssy7hz2",
+      "agents": "jij8m2y7q2rp7we",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.317Z"
+    },
+    {
+      "id": "irj18zvyizsmils",
+      "agents": "v9uxeb4p9b2c1mo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.317Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.317Z"
+    }
+  ]
+}

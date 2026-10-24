@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik zum Kalendarium; nummeriert 9.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.661Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108554,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Göttin der Freyheit eingeführt im / National-Convent",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1794",
+  "scans": [
+    "alm_2173_108554_2cu02wlis2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Göttin der Freyheit eingeführt im / National-Convent",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c95tohshcm92o6c",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.333Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.333Z"
+    },
+    {
+      "id": "6ut92jor8xlv9r3",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.333Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.333Z"
+    }
+  ]
+}

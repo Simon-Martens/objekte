@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Einige Vorschläge zu Gebäuden für die GartenLandschaft« INr 74244, Obj 38 /) # Titel aus dem Text /) # Zuschreibung: Fischer S. 244",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "172",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 74246,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Haus des Weingärtners #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_3110_74246_i4wxi1qw0f.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Haus des Weingärtners #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0c1wf642ikr09ko",
+      "agents": "wal6qjr1bhcbnqq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.569Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.569Z"
+    }
+  ]
+}

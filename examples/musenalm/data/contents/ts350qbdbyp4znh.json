@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 86544, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.303Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 86545,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der hohe Waffenschmied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Leander Russ del. Adolph Dworzak sc.",
+  "scans": [
+    "alm_1602_86545_p5o0vpyi5q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der hohe Waffenschmied",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m3mvfe4r8fxe9kf",
+      "agents": "lxermqe8s0e7u3t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.278Z"
+    },
+    {
+      "id": "ox3rifn43f76n3l",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.278Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.278Z"
+    }
+  ]
+}

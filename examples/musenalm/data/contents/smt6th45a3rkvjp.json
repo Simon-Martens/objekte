@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "23",
+  "incipit_statement": "Von der Hoffnung willst du scheiden? / Willst auf ewig ihr entfliehn?",
+  "language": [],
+  "musenalm_id": 47960,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Melinde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Elisa v. d. Recke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Melinde",
+  "updated": "2007-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rxh8qvyt27zoo35",
+      "agents": "w70q3jb7y9a6a6k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.258Z"
+    }
+  ]
+}

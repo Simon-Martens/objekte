@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.268Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "367",
+  "incipit_statement": "Groß zu handeln, tief zu denken, / Fördert nicht in Liebssachen.",
+  "language": [],
+  "musenalm_id": 94949,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unmuth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schober",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unmuth",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fnqvm42cqbsgpt5",
+      "agents": "demesi9ujep1ia6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.369Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.369Z"
+    }
+  ]
+}

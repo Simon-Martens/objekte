@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.851Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Vergilbtes Schlingkraut, weiße Knochen, / Geborst'ne Säulen, graues Moos;",
+  "language": [],
+  "musenalm_id": 81695,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Bowitsch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Marius",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1857,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tx43b8jyndat28t",
+      "agents": "2dt1fmi332m0mq0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.889Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.889Z"
+    }
+  ]
+}

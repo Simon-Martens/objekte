@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Ein bretonischer Dichter« von H. Leuthold INr 64577, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.861Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "220",
+  "incipit_statement": "Ein Marmorbild, aus Maß und Anmuth ganz gebaut, / Weckt so den Schönheitssinn des jugendlichen Weibes,",
+  "language": [],
+  "musenalm_id": 64609,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kunstgelübde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Antoine Baptiste Brizeux; [übers.] H. Leuthold",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Kunstgelübde",
+  "updated": "2009-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1868,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5iqredvjglchlae",
+      "agents": "87b0ropx1b7ybuw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.028Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.028Z"
+    }
+  ]
+}

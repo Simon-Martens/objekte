@@ -1,0 +1,45 @@
+{
+  "annotation": "Es folgen: 9 Gedichte INr 65869-65870, 65872-65878; Obj 61-69",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "105",
+  "incipit_statement": "Verschwunden sind des Frühlings muntre Farben, / Es zieht der Herbst mit kalten Nebel ein,",
+  "language": [],
+  "musenalm_id": 65868,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Elisabeth's Namenstage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilh. Smets",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Elisabeth's Namenstage",
+  "updated": "2009-08-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7w178cu3gnq3xi8",
+      "agents": "whg5xn8e9tsvu69",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.027Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.027Z"
+    }
+  ]
+}

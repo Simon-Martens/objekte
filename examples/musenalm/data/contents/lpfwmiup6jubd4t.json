@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbst (Sammlung INr 36781, Obj 36)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.788Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Bei wilder Taub' und Tannenzeischen / Im tiefsten Dickicht, hat / Ein Jägersmann sein friedlich Häuschen",
+  "language": [],
+  "musenalm_id": 36789,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Jäger im Grunenthal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Jäger im Grunenthal",
+  "updated": "2004-03-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "grmrqtvloury5kg",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.797Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.797Z"
+    }
+  ]
+}

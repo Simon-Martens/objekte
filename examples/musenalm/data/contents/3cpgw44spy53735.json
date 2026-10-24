@@ -1,0 +1,47 @@
+{
+  "annotation": "Neue Tänze von Gründling Enthaltend 2 Quadr. 2 Minu. 6 Angl. und 3 Walzer (Sammlung INr 11077, Obj 219)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.452Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11088,
+  "musenalm_pagination": [
+    "2. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 230,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Walzer 1",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gründling",
+  "scans": [
+    "alm_204_11088_sv29uxbgwa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Walzer 1",
+  "updated": "2001-02-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4xg534ssgosc52g",
+      "agents": "ebwakyru5wp8wvq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.417Z"
+    }
+  ]
+}

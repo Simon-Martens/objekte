@@ -1,0 +1,47 @@
+{
+  "annotation": "auszufaltende Illustration zu »Die Ruinen der Burg Blankenstein, im Großherzogthume Hessen« von Justi INr 97780, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.854Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "150",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 97779,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Blankenstein",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Engellschall del. Lithographie von C. F. Müller in Carlsruhe",
+  "scans": [
+    "alm_3498_97779_ks0jc91r8t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Blankenstein",
+  "updated": "2010-03-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r5op4vs4y54b44o",
+      "agents": "vurjmtt5tprr0cw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.931Z"
+    }
+  ]
+}

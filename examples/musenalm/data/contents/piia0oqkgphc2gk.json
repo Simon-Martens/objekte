@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.558Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Es war in der sechsten Stunde des Morgens am Donnerstage den eilften Juli 1697, ais auf der schmalen, schlecht unterhaltenen Landstraße von Meudon nach Marly ein königlicher, mit sechs Pferden bespannter Reisewagen rasch dahinrollte.",
+  "language": [],
+  "musenalm_id": 58038,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prinz Conti. / Historische Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Walter Tesche",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prinz Conti. / Historische Novelle",
+  "updated": "2008-06-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5nknk2izjf1e1xf",
+      "agents": "ayxe6k12ru1cyko",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.962Z"
+    }
+  ]
+}

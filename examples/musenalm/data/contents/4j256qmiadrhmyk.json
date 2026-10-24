@@ -1,0 +1,43 @@
+{
+  "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29406, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.409Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Nun dürfen sie allein sich setzen, / Wenn abends die Geschäfte ruhn,",
+  "language": [],
+  "musenalm_id": 29405,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Vertraulichkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Vertraulichkeit",
+  "updated": "2002-10-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r39l99aqvwwhgmb",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.494Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.494Z"
+    }
+  ]
+}

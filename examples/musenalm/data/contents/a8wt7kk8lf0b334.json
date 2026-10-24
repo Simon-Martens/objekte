@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 60995, Obj 4) s. Graphik INr 61012, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.484Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Feldherr der Athener, erschient nach der glorreichen Seeschlacht bei Salamis bei den olimpischen Spielen.",
+  "language": [],
+  "musenalm_id": 61000,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IV. / Themistokles,",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IV. / Themistokles,",
+  "updated": "2008-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yty7hmc3n726xo7",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.936Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.936Z"
+    }
+  ]
+}

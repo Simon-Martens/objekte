@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Walpurgis« von A-b-t. INr 93504, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.768Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93503,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (K. Russ del. J. G. Mansfeld sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. Russ del. J. G. Mansfeld sc.",
+  "scans": [
+    "alm_2616_93503_emzmu325w6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j66aq7dbatfh5uf",
+      "agents": "idfscx4za8n0e97",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.585Z"
+    },
+    {
+      "id": "oplhar36h5svlkz",
+      "agents": "x056xs6zlyqcn0t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.585Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.585Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.809Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "151",
+  "incipit_statement": "Der du müde des Lebens an diesem Hügel / vorbeiwallst, / Dich in die Arme dem Grab selber zu wer- / fen bereit,",
+  "language": [],
+  "musenalm_id": 21299,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf das Grab von vier geliebten Töchtern / Einer Mutter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Stäudlin",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf das Grab von vier geliebten Töchtern / Einer Mutter",
+  "updated": "2002-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "55s2lyu9tjhakpe",
+      "agents": "2f965te58psi6tx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.913Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.913Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Das Herz von Mid-Lothian« von W. Scott s. Textbezug INr 43768, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43767,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Herz von Mid-Lothian",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Barth sc.",
+  "scans": [
+    "alm_584_43767_ymy6pajims.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Herz von Mid-Lothian",
+  "updated": "2006-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wssofgfcvdfkezn",
+      "agents": "ak2qa5c9tflxdbf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.131Z"
+    }
+  ]
+}

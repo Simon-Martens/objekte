@@ -1,0 +1,58 @@
+{
+  "annotation": "3c /) paginiert III. Illustration zu »Muttertreue. Ein häusliches Gemälde des XVI. Jahrhunderts« von J. E. F. W. Müller INr 50099, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 61059,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12.03,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zeigst ihm frühe den Weg thätig und nützlich zu seyn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Usteri del. H. Lips sculp.",
+  "scans": [
+    "alm_1_61059_5a8d6oijof.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zeigst ihm frühe den Weg thätig und nützlich zu seyn",
+  "updated": "2007-06-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d6mdctaykxqvfoi",
+      "agents": "0popc5h02ada6w6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.848Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.847Z"
+    },
+    {
+      "id": "583wvuuv24lgbpx",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.848Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.848Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.960Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Auch Toskana, dieses schöne Land, das unter der Medizeer Herrschaft so lange ruhig die Vortheile seiner Lage und Industrie genoß,",
+  "language": [],
+  "musenalm_id": 91029,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Königreich Hetrurien",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwaldopler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Königreich Hetrurien",
+  "updated": "2013-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m2c9iop8dawyaam",
+      "agents": "lgm7bery1pehuzm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.342Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.342Z"
+    }
+  ]
+}

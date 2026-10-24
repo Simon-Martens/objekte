@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:34.039Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "372",
+  "incipit_statement": "Schreib' mir mein Testament auf, sprach zur Spinne / Die alte Fledermaus, schreib: Ich vermach' / Den hohlen Baum, den Rauchfang und die Rinne / An meine Jungen,",
+  "language": [],
+  "musenalm_id": 100604,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 268,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Testament der Fledermaus",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Lingg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Testament der Fledermaus",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hz44q9in8tpf8n2",
+      "agents": "0cypjj5vas77v7w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.947Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.947Z"
+    }
+  ]
+}

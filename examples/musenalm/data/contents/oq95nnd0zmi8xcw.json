@@ -1,0 +1,43 @@
+{
+  "annotation": "Vorwort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Mit nicht geringerem Vergnügen als im vorigen Jahre übergebe ich auch diesen Jahrgang dem Publiko, das mich durch mehrere handschriftliche Versicherungen seines Beyfalls sowohl, als auch des Nutzens, der durch diese Forstkleinigkeit gestiftet worden ist,",
+  "language": [],
+  "musenalm_id": 66067,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. G. Leonhardi, Ordent. Prof. d. Oekonomie",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2009-08-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ond68cjav8kyw34",
+      "agents": "u39rqutfrws01lt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.350Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.350Z"
+    }
+  ]
+}

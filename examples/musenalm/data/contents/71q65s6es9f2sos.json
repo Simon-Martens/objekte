@@ -1,0 +1,45 @@
+{
+  "annotation": "Morgenländische Sittenbilder. Schluß der Auszüge aus dem Achlak al-mohseni (Sammlung INr 14324, Obj 40)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.600Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "213",
+  "incipit_statement": "Auf einem Zuge des Sultans Mahmud stellte sich seinen Augen ein sehr schöner junger Türke dar,",
+  "language": [],
+  "musenalm_id": 14330,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "36. / Ordnung der Herren und Diener",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jos. v. Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "36. / Ordnung der Herren und Diener",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h51h53veovayci3",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.634Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.634Z"
+    }
+  ]
+}

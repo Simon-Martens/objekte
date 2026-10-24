@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.651Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "292",
+  "incipit_statement": "Möchte ich doch, mein Verehrtester, Sie überzeugen können, auf welche Probe Sie durch Ihre befehlende freundschaftliche Bitte, den Grazien Ihres Damenkalenders ein Blumenopfer zu bringen, meine Bescheidenheit gesetzt haben!",
+  "language": [],
+  "musenalm_id": 33758,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 113,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sendschreiben an Herrn D. Cotta. / Statt eines Beitrags zum Taschenbuche / für Damen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weisser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sendschreiben an Herrn D. Cotta. / Statt eines Beitrags zum Taschenbuche / für Damen",
+  "updated": "2003-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ys78trk5fi8b6u4",
+      "agents": "teyd4hg5cxxyi5t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.680Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.680Z"
+    }
+  ]
+}

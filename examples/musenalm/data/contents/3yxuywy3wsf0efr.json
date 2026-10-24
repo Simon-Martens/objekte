@@ -1,0 +1,45 @@
+{
+  "annotation": "Zu den landschaftlichen Kupfern (Sammlung INr 20736, Obj 6) s. Graphik INr 67906, Obj 11,01",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.613Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "19",
+  "incipit_statement": "Es giebt wohl wenige ausgezeichnete Gelehrte, Dichter und sonstige Freunde des Schönen und Guten,",
+  "language": [],
+  "musenalm_id": 20737,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Arthurs vom Nordstern Garten zu / Dresden, in der Wildsdruffer Vorstadt gelegen. / Gezeichnet und gestochen von Frenzel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d. Herausg.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Arthurs vom Nordstern Garten zu / Dresden, in der Wildsdruffer Vorstadt gelegen. / Gezeichnet und gestochen von Frenzel",
+  "updated": "2002-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "g0422rdxv6uzsc5",
+      "agents": "optixied5re5eqj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.788Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.788Z"
+    }
+  ]
+}

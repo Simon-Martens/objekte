@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Ste. 154 /) # vollst. Bez. aus dem I-Verz /) Illustration zu »Therese die Einsiedlerin« von B. INr 45255, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.808Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "154",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45256,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kommen Sie, und führen Sie mich nach Hause!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Schubert del. Riepenhausen sc.",
+  "scans": [
+    "alm_619_45256_xrhegcisk2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kommen Sie, und führen Sie mich nach Hause!",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c8mniractt2xu0e",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.455Z"
+    },
+    {
+      "id": "jqxr4ozwcaooh4r",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.455Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.455Z"
+    }
+  ]
+}

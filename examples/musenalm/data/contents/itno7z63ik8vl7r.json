@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 78296 Obj 48",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.090Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78308,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leopold Joseph Maria Reichsgr. / v. Daun / Röm. Kays. Generalfeldmarschall",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Nussbiegel. sc.",
+  "scans": [
+    "alm_928_78308_994onxoa17.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Leopold Joseph Maria Reichsgr. / v. Daun / Röm. Kays. Generalfeldmarschall",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "puz3a6wsv7x21jq",
+      "agents": "1cxxm0968owp2z9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.842Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.842Z"
+    }
+  ]
+}

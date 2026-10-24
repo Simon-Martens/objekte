@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.907Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "206",
+  "incipit_statement": "Dort auf dem graubemoosten Stein / Hüllt, schützend gegen Wind, / Die blasse Frau in's warme Tuch / Ein rosenwangig Kind.",
+  "language": [],
+  "musenalm_id": 80620,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 52,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Auswanderer",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Roswitha Kind",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Auswanderer",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m0t16cr9ul2c1y9",
+      "agents": "3xtuaei5ajd8iii",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.965Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.965Z"
+    }
+  ]
+}

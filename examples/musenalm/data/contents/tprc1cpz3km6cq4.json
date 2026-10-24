@@ -1,0 +1,56 @@
+{
+  "annotation": "Historisch-mahlerische Reise durch Syrien, Phönicien und Nieder-Aegypten (Sammlung INr 87983, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.015Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 87989,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Waffen-Herold eines Bey zu Cairo, begleitet von einem Zwerge",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Cassas del. J. Gerstner sc.",
+  "scans": [
+    "alm_3101_87989_udbszzukq2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Waffen-Herold eines Bey zu Cairo, begleitet von einem Zwerge",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xwylfl4uwjlkm6q",
+      "agents": "mwzww6qj9viy1kj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.902Z"
+    },
+    {
+      "id": "j7abno91k5f2wwt",
+      "agents": "attflh3iz28ntym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.902Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.902Z"
+    }
+  ]
+}

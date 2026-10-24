@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.144Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "Wie kömmt es, bester Ramt, / Dass unsre Mädchen insgesammt / So gern die weisse Farbe tragen,",
+  "language": [],
+  "musenalm_id": 72617,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 78,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unsre weisgekleideten / Mädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Kausch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unsre weisgekleideten / Mädchen",
+  "updated": "2010-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yyl0hrvffszq98g",
+      "agents": "5jdwcyiwfdtu44o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.502Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.502Z"
+    }
+  ]
+}

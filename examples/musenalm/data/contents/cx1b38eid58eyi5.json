@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.843Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "318",
+  "incipit_statement": "Herzog Wilhelm, Herzog Wilhelm, / Gnade für die arme Stadt,",
+  "language": [],
+  "musenalm_id": 46087,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 191,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Peeping Tom",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "George Hesekiel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Peeping Tom",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eqxuyrzzaj5h8g6",
+      "agents": "v3swaugl78suots",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.459Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.459Z"
+    }
+  ]
+}

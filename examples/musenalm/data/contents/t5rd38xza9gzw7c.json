@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug (Gedicht) INr 76965, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.452Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76949,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LAURA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. S. v. C del. F. in N. sc.",
+  "scans": [
+    "alm_2394_76949_47w3bn878t.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LAURA",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xrzi047urak6bi2",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.523Z"
+    },
+    {
+      "id": "rf709d29tly5ngr",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.523Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.523Z"
+    }
+  ]
+}

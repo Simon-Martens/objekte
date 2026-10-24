@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: aus Pallas Reisen d.i.: Pallas, Peter Simon: Reise durch verschiedene Provinzen des Russischen Reichs. St. Petersburg 1771-1801",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.675Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41598,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ruinen von Ablaikit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frosch sc.",
+  "scans": [
+    "alm_547_41598_q7vii7z379.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ruinen von Ablaikit",
+  "updated": "2005-12-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eam689qpnidhz67",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.931Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.931Z"
+    }
+  ]
+}

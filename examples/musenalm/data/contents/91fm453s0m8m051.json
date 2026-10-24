@@ -1,0 +1,56 @@
+{
+  "annotation": "über der Graphik: S. 43. /) Graphik im Kalendarium Juni; s. Textbezug (Gedicht) INr 131681, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.220Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 131672,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (gez. v. Holbein gest. v. Rossmässler)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Holbein gest. v. Rossmässler",
+  "scans": [
+    "alm_4824_131672_kjzwu8j08d.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2022-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rnswnl1edds2bx1",
+      "agents": "szo3356ebdd17zv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.036Z"
+    },
+    {
+      "id": "xn8b6hd9m3kwfif",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.036Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.036Z"
+    }
+  ]
+}

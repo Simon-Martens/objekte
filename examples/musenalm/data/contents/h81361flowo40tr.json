@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Sunnawith« von Hill INr 62531, Obj 94",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.587Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "192",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62532,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Todtenbeschwörung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Portmann sc.",
+  "scans": [
+    "alm_1025_62532_jsxn8jbsvn.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Todtenbeschwörung",
+  "updated": "2009-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "427l666szy0gr0x",
+      "agents": "dtwggxcbl5w7fng",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.007Z"
+    }
+  ]
+}

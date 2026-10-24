@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "188",
+  "incipit_statement": "Ein magrer Spatz aus einem magern Theile / Des Königreichs, das seine Mörderpfeile",
+  "language": [],
+  "musenalm_id": 4151,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der emigrirte Spatz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. F. Pockels",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der emigrirte Spatz",
+  "updated": "2000-09-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ewcs3rw0q55fffc",
+      "agents": "byawwvreucy8ohr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.813Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.813Z"
+    }
+  ]
+}

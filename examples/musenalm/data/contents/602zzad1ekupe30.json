@@ -1,0 +1,47 @@
+{
+  "annotation": "s. vorstehendes Gedicht INr 80858, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:24.522Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "6",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 80859,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorbei",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Dvorcàck sc.",
+  "scans": [
+    "alm_1801_80859_c1xovqpq4e.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Vorbei",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mst3plflv3c2uof",
+      "agents": "masan4fv3ew8l5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.001Z"
+    }
+  ]
+}

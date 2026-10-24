@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.888Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "264",
+  "incipit_statement": "Außer den gemeinen Honigbienen, welche, wie bekannt; allezeit in Gesellschaften bey einander leben, giebt es noch verschiedne andere Arten von diesen Insecten, die ein einsiedlerisches Leben führen,",
+  "language": [],
+  "musenalm_id": 123936,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beschreibung / des merkürdigen Netzes / der sogenannten / Tapeziererbiene",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Beschreibung / des merkürdigen Netzes / der sogenannten / Tapeziererbiene",
+  "updated": "2010-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2vg18y84hiwr8pq",
+      "agents": "pt1hiqrxpeom0l4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.855Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.855Z"
+    }
+  ]
+}

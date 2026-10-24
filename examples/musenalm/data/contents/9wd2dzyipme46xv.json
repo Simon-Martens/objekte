@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Einleitung INr 284, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.921Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Schütte die Blumen nur her zu meinen / Füssen und deinen! / Welch ein chaotisches Bild holder / Verwirrung du streust!",
+  "language": [],
+  "musenalm_id": 18549,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der neue Pausias / und / Sein Blumenmädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "GOETHE",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der neue Pausias / und / Sein Blumenmädchen",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dp07rqw9qese90g",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.457Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.457Z"
+    }
+  ]
+}

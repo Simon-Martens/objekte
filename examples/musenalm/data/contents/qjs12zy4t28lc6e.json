@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 182 /) # Bezeichnung am 1. Blatt der Suite /) s. Textbezug INr 16769, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9103,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kriegs Glük der Britten in OstIndien / Eroberung der Insel Ceylan",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_194_9103_zihvshjqh0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kriegs Glük der Britten in OstIndien / Eroberung der Insel Ceylan",
+  "updated": "2001-01-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "v957qwk159bdlke",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.221Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.221Z"
+    }
+  ]
+}

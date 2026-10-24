@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt: Jenaische Handschrift der Minnelieder",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "113",
+  "incipit_statement": "Der kann nimmer Rosen pflegen, / Wer sie hütet, daß kein warmer Regen / Ihre Zweige mag begießen.",
+  "language": [],
+  "musenalm_id": 97258,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Meister Alexanders Klage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Mann Friedrich Bauer Fallenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Meister Alexanders Klage",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ia0chdk23s8lc1",
+      "agents": "3gtxsu95wib1zui",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.399Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.399Z"
+    }
+  ]
+}

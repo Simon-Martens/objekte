@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 11. /) # Bez. s. Textbezug INr 60210, Obj 49",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "320",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabmal des Generals Marceau",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Sergent",
+  "scans": [
+    "alm_939_60208_tz39zlvffg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Grabmal des Generals Marceau",
+  "updated": "2008-10-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kv2b9m6wfq10sgy",
+      "agents": "ll2sifvc81lxqrn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.706Z"
+    }
+  ]
+}

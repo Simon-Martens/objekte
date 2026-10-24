@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "42",
+  "incipit_statement": "Der arme Mann, Hübel Rudi, den der Vogt (durch seine Niederträchtigkeiten) elend gemacht, saß eben neben dem Bette seiner todtkranken Mutter.",
+  "language": [],
+  "musenalm_id": 84882,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 66,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein paar Scenen / aus / Lienhard und Gertrud / Ein Sterbebette",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ein paar Scenen / aus / Lienhard und Gertrud / Ein Sterbebette",
+  "updated": "2010-01-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4d8ref542uai1wn",
+      "agents": "cscicyuzoiqv1zx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.136Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.136Z"
+    }
+  ]
+}

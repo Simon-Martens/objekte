@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.479Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "101",
+  "incipit_statement": "Gott sey gelobt, sagte der Winzer Franz zu Ludmillen seiner achtzehnjährigen Schwester",
+  "language": [],
+  "musenalm_id": 27712,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 62,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sankt Salvator von Chrudim. / Legende aus dem dreissigjährigen Kriege",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm von Studnitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sankt Salvator von Chrudim. / Legende aus dem dreissigjährigen Kriege",
+  "updated": "2002-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wu2k1sqyh904t32",
+      "agents": "li9wd1vvzigu4ia",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.986Z"
+    }
+  ]
+}

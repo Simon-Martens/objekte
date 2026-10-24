@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 2. /) Illustration zum Gedicht »Die Wette« von A. G. Eberhard in: Taschenbuch zum geselligen Vergnügen 1807 INr 12917",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.751Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13072,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Wette. von A. G. Eberhard S. 36",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Cl. Kohl sc.",
+  "scans": [
+    "alm_215_13072_zrblt8fn57.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Wette. von A. G. Eberhard S. 36",
+  "updated": "2001-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "althaonffp1y2g9",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.652Z"
+    },
+    {
+      "id": "c03o7g9sqatb9m2",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.652Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.652Z"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "annotation": "Ergötzlichkeiten in acht Bildern (Sammlung INr 30220, Obj 5) s. Graphik INr 30222, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.926Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Zur Freude braucht's nicht großer Thaten; / Ein voller Becher thut es auch;",
+  "language": [],
+  "musenalm_id": 30223,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Trink- und Tanzgesellschaft",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Trink- und Tanzgesellschaft",
+  "updated": "2002-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y4rra9xko78dr3h",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.576Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.576Z"
+    }
+  ]
+}

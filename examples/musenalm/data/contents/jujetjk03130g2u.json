@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Die See spülte warme kleine Wellen an's Ufer und brach sich mildrauschend an den Klippen,",
+  "language": [],
+  "musenalm_id": 1912,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Gianetto, der Afrikaner. / (Nach einer wahren Begebenheit.) / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Borromäus von Miltitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Gianetto, der Afrikaner. / (Nach einer wahren Begebenheit.) / Novelle",
+  "updated": "2000-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iobzdatc4n8bpmd",
+      "agents": "e36ydmk4x9m4umt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.935Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.935Z"
+    }
+  ]
+}

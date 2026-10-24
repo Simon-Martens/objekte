@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnette (Sammlung INr 131175, Obj 115)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.018Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "Ein holdes, süßes Bild ist mir erschienen - / Ich weiß nicht, kam es aus des Aethers Helle?",
+  "language": [],
+  "musenalm_id": 131176,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 116,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein holdes, süßes Bild ist mir erschienen - / Ich weiß nicht, kam es aus des Aethers Helle?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8lm72r01tmqsr1y",
+      "agents": "wty417vt1e1tkcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.024Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "dem Gedicht vorangestellt: Xenium INr 1864, Obj 108",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "343",
+  "incipit_statement": "Erhabner Greis, der Du Hafisens Tönen / Zuerst geneigt, sie grüßend aufgenommen,",
+  "language": [],
+  "musenalm_id": 1863,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Prolog an Göthe / zu / einer Uebersetzung / Hafisischer Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "August Graf von Platen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Prolog an Göthe / zu / einer Uebersetzung / Hafisischer Gedichte",
+  "updated": "2000-08-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rx1p1weds1ab55u",
+      "agents": "on0a0wityl8730t",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.909Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Monogramen (Sammlung INr 122649, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:47.786Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "28",
+  "incipit_statement": "Wollt ihr ein Bild von des Avernus Tiefe, / Die kein Virgil, kein Dante noch beschrieb?",
+  "language": [],
+  "musenalm_id": 122653,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Maria am Brunneck",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Emil",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Maria am Brunneck",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "t4862pkd3tposjv",
+      "agents": "wzmgymh9fjau9gk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.792Z"
+    }
+  ]
+}

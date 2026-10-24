@@ -1,0 +1,45 @@
+{
+  "annotation": "Nachlese zu den Gesängen der Liebe (Sammlung INr 37883, Obj 175)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.526Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "287",
+  "incipit_statement": "Die Holde naht, es wallt in leichten Falten / Ein Schneegewand um ihre Lichtgestalt,",
+  "language": [],
+  "musenalm_id": 37885,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 177,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Der erste Kuß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolf Peters",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Der erste Kuß",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p10dt29r8gnnqab",
+      "agents": "2a0ac584t4bjbwu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.910Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.910Z"
+    }
+  ]
+}

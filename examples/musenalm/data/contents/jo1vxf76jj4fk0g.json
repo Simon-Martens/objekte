@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Die Aussicht« von Tiedge INr 14132, Obj 79 (Photos 14173,01; 14173,02)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.956Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "11",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 14173,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 120,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Aussicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bergt",
+  "scans": [
+    "alm_221_14173_01_uitsx0xwrx.jpg",
+    "alm_221_14173_02_1x44ubilf8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Aussicht",
+  "updated": "2001-04-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "clk6qvl2br7cuha",
+      "agents": "25ubfkw7g6ebn5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.461Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.461Z"
+    }
+  ]
+}

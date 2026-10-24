@@ -1,0 +1,43 @@
+{
+  "annotation": "Idyllische Scenen ländlicher Liebe (Sammlung INr 29393, Obj 5) s. Graphik INr 29416, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.567Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Es sag' ein Tag dem andernTage, / Daß freudenvolle Hochzeit sey;",
+  "language": [],
+  "musenalm_id": 29415,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Nachfeier",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "St. Schütze",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Nachfeier",
+  "updated": "2002-10-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zr9f605zxcjztt2",
+      "agents": "wmmsyhgqh7dhs7c",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.395Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.395Z"
+    }
+  ]
+}

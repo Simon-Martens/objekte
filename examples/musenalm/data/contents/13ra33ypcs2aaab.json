@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:53.577Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "83",
+  "incipit_statement": "Waldfegerlein des Morgens fruh / Saß auf dem Zweig in guter Ruh,",
+  "language": [],
+  "musenalm_id": 25565,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 96,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mährchen vom Waldfegerlein, / der kleinen Marie erzählt. / Ay Nachtigol, Waldvegerlein! / Lied aus dem Kuhländchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hermann Kurtz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mährchen vom Waldfegerlein, / der kleinen Marie erzählt. / Ay Nachtigol, Waldvegerlein! / Lied aus dem Kuhländchen",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hzawpwynttiw4wr",
+      "agents": "nqtxuhztjt7w83e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.284Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.284Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Assonanzen (Sammlung INr 9318, Obj 155) X. Vermischte Gedichte (Sammlung INr 1871, Obj 153)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.701Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "392",
+  "incipit_statement": "Seh' ich deine Wangen glühen / Rosenroth vor meinen Blicken, / Scheint es mir wie Morgenröthe,",
+  "language": [],
+  "musenalm_id": 1642,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 159,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. Der Liebe Morgenröthe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. Der Liebe Morgenröthe",
+  "updated": "2000-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hwtev23194aa0hn",
+      "agents": "nkp5jpl8qj93tqy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.980Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.980Z"
+    }
+  ]
+}

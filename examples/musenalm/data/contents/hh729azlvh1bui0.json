@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 83948, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.721Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83939,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Margeretha / Gemalin Kaiser Leopold I.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Weigl d. M. Hofmann sc.",
+  "scans": [
+    "alm_1012_83939_t1uxmacq8j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Margeretha / Gemalin Kaiser Leopold I.",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "vm3tsr1m0xxwrpd",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.147Z"
+    },
+    {
+      "id": "bkqo4c9er6dvmd0",
+      "agents": "fdgsbm5wkwqc1i4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.147Z"
+    }
+  ]
+}

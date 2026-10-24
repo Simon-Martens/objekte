@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.042Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "131",
+  "incipit_statement": "Wenn ein Gott sich gönnt zu ruhn / Erst nach solchen Thaten, / Wieviel hat ein Mensch zu thun, / Eh' ihm Ruh' zu rathen.",
+  "language": [],
+  "musenalm_id": 42572,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwierige Relation",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Werder",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Schwierige Relation",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e5r654k02d1mtx5",
+      "agents": "7ioe1hp46372lt8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.153Z"
+    }
+  ]
+}

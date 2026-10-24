@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik (Portrait) im Kalendarium October",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 135810,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ANTON / Ritter von Schmerling / k.k. Geh.-Rath u. Staatsminister",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Carl Mayer Nbg",
+  "scans": [
+    "alm_2116_135810_wktwdis07p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ANTON / Ritter von Schmerling / k.k. Geh.-Rath u. Staatsminister",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1864,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gh1n8jpgkimmxmq",
+      "agents": "xz56cgtd44xrisw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.155Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.155Z"
+    }
+  ]
+}

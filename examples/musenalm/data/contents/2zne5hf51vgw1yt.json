@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) s. Textbezug INr 106013, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106007,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FORTUNA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach R. v. Lampi jun. Joh. Passini sc.",
+  "scans": [
+    "alm_1770_106007_hbhe04wnms.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FORTUNA",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5dd6ku1rxspwvn4",
+      "agents": "9bf124dmrve4x6q",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.298Z"
+    },
+    {
+      "id": "etp7234cc9vpdmt",
+      "agents": "5pkyzklke319amr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.298Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.298Z"
+    }
+  ]
+}

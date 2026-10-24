@@ -1,0 +1,45 @@
+{
+  "annotation": "Beigabe zu »Umgebungen von Carlsbad. Erster Spaziergang.  Laurenzberg, Laurenzcapelle, Sonnenschirm, Dorotheentempel, Säuerling, Friederikens-Fels.« von Fr. Sarori INr 92164, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Dorotheens Tempel, dich grüß' ich mit süßer Erinn- / rung. Hier am geweihten Ort kommt mir ein freundlicher Traum.",
+  "language": [],
+  "musenalm_id": 92165,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dorotheens Tempel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Körner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dorotheens Tempel",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3bqoawzk3fgcx9j",
+      "agents": "epma680nee4q5et",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.246Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.246Z"
+    }
+  ]
+}

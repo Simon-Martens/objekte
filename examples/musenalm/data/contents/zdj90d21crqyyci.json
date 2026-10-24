@@ -1,0 +1,45 @@
+{
+  "annotation": "Agnes. Bruchstücke einer ländlichen Todtenfeyer. 1812 (Sammlung INr 34053, Obj 51)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.571Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "Wär' ich wie ihr, ihr sommerlichen Schwalben, / Ich wandert' aus von dieser öden Heide;",
+  "language": [],
+  "musenalm_id": 34072,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 71,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XX.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XX.",
+  "updated": "2003-05-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2r0kj0szxp5wqtt",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.668Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.668Z"
+    }
+  ]
+}

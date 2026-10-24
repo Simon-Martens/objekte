@@ -1,0 +1,45 @@
+{
+  "annotation": "Schlaf' ein! Ein Kranz von sieben Sonetten. Seitenstück zu Ernst von Houwalds: Wach auf! Im Taschenbuche Urania 1820. Seite 323 u. f. (Sammlung INr 14641, Obj 96) s. Urania 1820 INr 1586-1592",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.046Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "277",
+  "incipit_statement": "Schlaf' ein, du Haß, im Busen oft genähret, / Wenn mir der Menge Zweck und Ziel erschien,",
+  "language": [],
+  "musenalm_id": 14644,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 99,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Der Haß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Der Haß",
+  "updated": "2001-05-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "58nj4iuro2wnc8v",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.694Z"
+    }
+  ]
+}

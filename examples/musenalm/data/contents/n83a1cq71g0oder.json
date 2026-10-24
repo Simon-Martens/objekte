@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 27 Beiträgen INr 67932-67958, Obj 23-49",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.401Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "183",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67931,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Devisen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Alphons Hamböck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Devisen",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4l52o9ld2talxt3",
+      "agents": "690p6l7d7zmbgvd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.221Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.221Z"
+    }
+  ]
+}

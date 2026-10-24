@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 329 /) # Bezeichnung vom Titel s. Textbezug INr 9183, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.602Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "328",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9193,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bonaparte zu St. Cloud, im Rath / der Fünfhundert / (10. Nov.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_200_9193_evek9kcyem.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bonaparte zu St. Cloud, im Rath / der Fünfhundert / (10. Nov.)",
+  "updated": "2001-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "37v9oijr9kreqgd",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.429Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.429Z"
+    }
+  ]
+}

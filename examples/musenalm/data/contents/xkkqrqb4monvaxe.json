@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.950Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "77",
+  "incipit_statement": "Von Hunger, und Kummer und Blöße be- / dräut, / Sank Jost zu Lonnerstadt nieder,",
+  "language": [],
+  "musenalm_id": 3198,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 46,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Jost zu Lonnerstadt, / ein Volksmährchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schlez",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Jost zu Lonnerstadt, / ein Volksmährchen",
+  "updated": "2000-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j7rx9tdv4ko48b1",
+      "agents": "emp0e7sw474z41u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.013Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.013Z"
+    }
+  ]
+}

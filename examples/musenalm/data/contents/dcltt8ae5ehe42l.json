@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium April /) Illustration zu »Pyramus und Thisbe« von V. E. Käfer INr 125602, Obj 39",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.679Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 125571,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pyramus und Thisbe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Clementine Russ del. Jos. Jung sc.",
+  "scans": [
+    "alm_1003_125571_27i6ewf0kw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pyramus und Thisbe",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l000t0gmghf8u07",
+      "agents": "iexyvzdzwrb4rqw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.901Z"
+    }
+  ]
+}

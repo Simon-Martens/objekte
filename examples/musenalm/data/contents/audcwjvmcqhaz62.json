@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 34",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Die ihr so schön erzogen / Von Liebeshänden seid, / Ihr glüklichen Levkojen,",
+  "language": [],
+  "musenalm_id": 5371,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An die Levkojen, / die ich an Schönhannchen sandte",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "K. S.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An die Levkojen, / die ich an Schönhannchen sandte",
+  "updated": "2000-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1779,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ka59q4yrk8ilxua",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.147Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.147Z"
+    }
+  ]
+}

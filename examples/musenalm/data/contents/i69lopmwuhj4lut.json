@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Verbiete Du dem Seidenwurm, zu spinnen. / Göthe",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "215",
+  "incipit_statement": "Es war in Nantes. An dem Fenster eines kleinen, weißen Hauses, das sich in den Fluthen der vorbeiströmenden Loire spiegelte, saß ein juges Mädchen und schrieb.",
+  "language": [],
+  "musenalm_id": 57934,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf- und Untergang. / Lebensbild",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Betty Paoli",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf- und Untergang. / Lebensbild",
+  "updated": "2008-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ynsfo387djffvt6",
+      "agents": "rpx0m3s76l0s5s5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.752Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.752Z"
+    }
+  ]
+}

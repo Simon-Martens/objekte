@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.573Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "217",
+  "incipit_statement": "Eine glühende Septembersonne schoß ihre fast senkrechten Strahlen auf die weiten Baumwollen- und Zuckerfelder und ausgedehnten Sümpfe und Prairien Louisianas herab.",
+  "language": [],
+  "musenalm_id": 2081,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tochter der Riccarees / Lebensbild aus Louisiana",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Gerstäcker",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Tochter der Riccarees / Lebensbild aus Louisiana",
+  "updated": "2000-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1847,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "w4t05o7dp0mn17r",
+      "agents": "dwrg9ycvjrih35y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.964Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.964Z"
+    }
+  ]
+}

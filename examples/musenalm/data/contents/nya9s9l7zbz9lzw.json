@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.945Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Häufet nicht Stein auf Stein dem wahrhaft Gro- / ßen zum Denkmal:",
+  "language": [],
+  "musenalm_id": 42490,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Häufet nicht Stein auf Stein dem wahrhaft Gro- / ßen zum Denkmal:…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Neumann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5jv7lah1pqygxsj",
+      "agents": "qwgxcg99zpa7j4i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.958Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.958Z"
+    }
+  ]
+}

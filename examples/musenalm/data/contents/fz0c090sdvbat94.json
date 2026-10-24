@@ -1,0 +1,56 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.677Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65213,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15.01,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ifflands Gartenhaus im Thiergarten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. Delkeskamp ad nat. del. J. B. Hössel sc. Berlin",
+  "scans": [
+    "alm_270_65213_wdjr61uuaf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ifflands Gartenhaus im Thiergarten",
+  "updated": "2001-12-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3kpxgsvu6tt7qle",
+      "agents": "cujq2jko4r27xf5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.948Z"
+    },
+    {
+      "id": "f3b67vdpjx7wf39",
+      "agents": "t4wlsbli26ob7y0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.948Z"
+    }
+  ]
+}

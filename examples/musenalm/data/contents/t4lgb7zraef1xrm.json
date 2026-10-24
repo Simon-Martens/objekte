@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 78294, Obj 46",
+  "content_type": [],
+  "created": "2026-06-11T10:18:22.084Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78305,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fr. Wilh. Freyh. v. Seydlitz. / K. Preuss. General v. d. Cavallerie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Liebe sc.",
+  "scans": [
+    "alm_928_78305_4zut61vui6.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fr. Wilh. Freyh. v. Seydlitz. / K. Preuss. General v. d. Cavallerie",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1789,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c2cn0s5qdzseqye",
+      "agents": "v0k80momy67j3zt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.841Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.841Z"
+    }
+  ]
+}

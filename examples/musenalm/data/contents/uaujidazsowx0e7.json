@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug INr 43964, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.060Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43965,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Brief",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Painted by J. Webster Engraved by W. H. Simmons",
+  "scans": [
+    "alm_592_43965_54a2r5av9j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Brief",
+  "updated": "2006-06-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dco2a0hkz7ehbbd",
+      "agents": "5wlmh2lsqqbn9op",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.277Z"
+    }
+  ]
+}

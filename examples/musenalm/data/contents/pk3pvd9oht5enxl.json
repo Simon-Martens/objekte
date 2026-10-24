@@ -1,0 +1,45 @@
+{
+  "annotation": "Der Auswanderer (Sammlung INr 38955, Obj 143)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.228Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "O Liebes-Stern und süßer Traum, / Nie konnt' ich dich erreichen,",
+  "language": [],
+  "musenalm_id": 38958,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 146,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Der Hafen. / 1830",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Arnold Ruge",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Der Hafen. / 1830",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pbpu7ltbeo9hcr1",
+      "agents": "2dj29f5bkwyeiuj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.876Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.876Z"
+    }
+  ]
+}

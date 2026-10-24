@@ -1,0 +1,45 @@
+{
+  "annotation": "s. folgendes Gedicht INr 3305, Obj 154",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Wär' ich, o Holde! / So reich an Golde, / Als ich an Reimen, / An Morgenträumen",
+  "language": [],
+  "musenalm_id": 3304,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 153,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Sophien, / bey Übersendung einer Porzellain-Tasse / mit Göckingks Schattenrisse und einem / Tempel der Freundschaft. / Ellrich d. 8. März 1785",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göckingk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Sophien, / bey Übersendung einer Porzellain-Tasse / mit Göckingks Schattenrisse und einem / Tempel der Freundschaft. / Ellrich d. 8. März 1785",
+  "updated": "2000-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1786,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pam6vqqh4j92lqf",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.033Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.033Z"
+    }
+  ]
+}

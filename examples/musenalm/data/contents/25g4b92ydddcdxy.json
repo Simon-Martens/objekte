@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. doppelseitiges Uniformkupfer, nummeriert 5. /) lt. G-Verz: Verschiedene Nationen; s. Textbezug INr 130313, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.731Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130327,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Geissler. del. et fec.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Geissler. del. et fec.",
+  "scans": [
+    "alm_2206_130327_iow8o06jx0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j2de9afph6pfmgn",
+      "agents": "iojwntogak3m4db",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.065Z"
+    }
+  ]
+}

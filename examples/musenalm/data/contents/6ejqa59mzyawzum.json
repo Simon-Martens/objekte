@@ -1,0 +1,45 @@
+{
+  "annotation": "Zehn Liebeslieder (Sammlung INr 1224516, Obj 76) # Bezeichnung an der Sammlung INr 1224516, Obj 76",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.313Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "47",
+  "incipit_statement": "Der Tag will grau’n – ich steh’ auf der Schwelle – / Nun hin durch die Zäune still und sacht – / Umsonst! mir folgt durch die Nacht, durch die Nacht / Das Kettengerassel, das Hundgebelle!",
+  "language": [],
+  "musenalm_id": 122526,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 86,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "X.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Alfred Meißner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "X.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1854,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x31ccssbt32x6td",
+      "agents": "u04485bs7e2mwe0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.821Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.821Z"
+    }
+  ]
+}

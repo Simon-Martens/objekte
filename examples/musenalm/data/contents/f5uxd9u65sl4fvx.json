@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Titelgraphik INr 110850, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:40.729Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "197",
+  "incipit_statement": "Zu Villa nova, im Piemontesischen, saß der Herzog von Nemours mit seinen Officieren, meist jungen Edlen seines Alters an der Tafel.",
+  "language": [],
+  "musenalm_id": 110857,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Bild. / Anekdote aus dem Leben des Herzogs von Nemours, / im Jahre 1850",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. v. Tromlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Bild. / Anekdote aus dem Leben des Herzogs von Nemours, / im Jahre 1850",
+  "updated": "2010-03-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "infkhb1qtvvw26q",
+      "agents": "iiexbt3f7jmpzqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.337Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.337Z"
+    }
+  ]
+}

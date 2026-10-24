@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert No. 7. /) # vollst. Bezeichnung und Titel s. Textbezug INr 65249, Obj 27",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 65236,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Gegend von Gröplingen #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Menken jun. gez. Jöntzen gedr.",
+  "scans": [
+    "alm_1091_65236_0ulales7ou.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Gegend von Gröplingen #",
+  "updated": "2009-07-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rzx85i4z7xdfced",
+      "agents": "w5tebnwey2al0s8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.258Z"
+    },
+    {
+      "id": "sx7dyohnw7tao0r",
+      "agents": "h46qu65kp4gpmhg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.258Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.258Z"
+    }
+  ]
+}

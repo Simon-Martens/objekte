@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 35157,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "F. Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. Graff pinx. W. Ketterlinus sculp.",
+  "scans": [
+    "alm_485_35157_76to6cnbrj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "F. Schiller",
+  "updated": "2003-08-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tzjnn1gzgsfrnjj",
+      "agents": "5sntayo8ftw7b4o",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.792Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.792Z"
+    },
+    {
+      "id": "0bavtkxn377wg3z",
+      "agents": "nosdr0xhdl5gm9i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.793Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.793Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 116318, Obj 33)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.928Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "196",
+  "incipit_statement": "Wie d'Leut san, san oft d'Vögl aa', / Wie d'Vögl san, oft d'Leut,",
+  "language": [],
+  "musenalm_id": 116319,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / D' Vögl. / (Oberbaierisch.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Franz von Kobell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / D' Vögl. / (Oberbaierisch.)",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xfs889q3jwqvk8w",
+      "agents": "v85g9rage9lbu6h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.616Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.616Z"
+    }
+  ]
+}

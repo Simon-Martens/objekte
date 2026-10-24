@@ -1,0 +1,47 @@
+{
+  "annotation": "# Bez. aus dem I-Verz /) paginert /) kol. graphische Stickanleitung. Beigabe zu »Das sammetähnliche Stricken« von Netto INr 76040, Obj 52 und »Von durchbrochener Stickerei« von Netto INr 76041, Obj 53",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "graph. Anleitung"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[graph. Anleitung (Netto)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Netto",
+  "scans": [
+    "alm_3280_76042_9zdrv6b855.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-03-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pfzc1nztift5tma",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.549Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.549Z"
+    }
+  ]
+}

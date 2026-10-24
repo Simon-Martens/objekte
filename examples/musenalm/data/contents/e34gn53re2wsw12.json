@@ -1,0 +1,48 @@
+{
+  "annotation": "Vertonung des Gedichts »Lied« von V. Hugo übers. von K. F. Dräxler (Pseud.: Manfred) Photos 56442,01; 56442,02",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.411Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Wozu der Vöglein Chöre belauschen fern und nah'? / das Schönste was ich höre ist deine Stimme ja",
+  "language": [],
+  "musenalm_id": 56442,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "LIED / von Victor Hugo / deutsch von C. Dräxler-Manfred. / Musik von F. Mendelssohn-Bartholdi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Mendelssohn-Bartholdi",
+  "scans": [
+    "alm_757_56442_01_vt3vtdxwyq.jpg",
+    "alm_757_56442_02_1dr4l9y0p2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "LIED / von Victor Hugo / deutsch von C. Dräxler-Manfred. / Musik von F. Mendelssohn-Bartholdi",
+  "updated": "2008-04-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o5rwf07jfw4t3pr",
+      "agents": "npt6h0ma3vwxx6n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.637Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.637Z"
+    }
+  ]
+}

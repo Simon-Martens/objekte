@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.215Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Schlummre sanft den langen Schlummer! / Kleiner Engel, in dein Grab / Wein' ich jetzt, voll herbem Kummer, / Heißer Thränen viel hinab.",
+  "language": [],
+  "musenalm_id": 62137,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Am Grabe meines Theodors",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dorothee Spangenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Am Grabe meines Theodors",
+  "updated": "2009-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2h6gl1mtvgw9ekv",
+      "agents": "u7poegszzbmufqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.129Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.129Z"
+    }
+  ]
+}

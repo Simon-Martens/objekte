@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.842Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "35",
+  "incipit_statement": "Ha, Deukalion! Du wirst mir Rechenschaft geben können, wie es zugeht, daß auf Erden mehr Weiber als Männer sind.",
+  "language": [],
+  "musenalm_id": 71958,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Schöpfung des Menschen. / Ein Göttergespräch. / Merkur. Deukalion",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. J. Pfeiffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Schöpfung des Menschen. / Ein Göttergespräch. / Merkur. Deukalion",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9aur1uo338c1dye",
+      "agents": "56d4anfaubc9l80",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.416Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.416Z"
+    }
+  ]
+}

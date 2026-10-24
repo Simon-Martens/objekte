@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.592Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "307",
+  "incipit_statement": "Einer der kräftigsten weiblichen Charaktere, der an der Spitze einer Regierung gestanden, ist Margaretha aus dem Hause Anjou,",
+  "language": [],
+  "musenalm_id": 39288,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 55,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "XII. / Margaretha von Anjou / Gemahlin Heinrichs VI. von England, / Anna Nevil, / und / Elisabeth Woodville",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. G. Bredow",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "XII. / Margaretha von Anjou / Gemahlin Heinrichs VI. von England, / Anna Nevil, / und / Elisabeth Woodville",
+  "updated": "2005-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "z7p3f2q7uz4oraq",
+      "agents": "dtbajicc1tr9ej0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.923Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.923Z"
+    }
+  ]
+}

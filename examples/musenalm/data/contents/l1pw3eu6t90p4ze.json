@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik s. Textbezug INr 34283, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.632Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34278,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der gute Hirte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Murillo pinxt. Forssell sculpt.",
+  "scans": [
+    "alm_477_34278_txq4555e5y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der gute Hirte",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ldrplunxoons3gs",
+      "agents": "zikixfku6z2uhtf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.787Z"
+    },
+    {
+      "id": "bfrb6ayy8toueb2",
+      "agents": "vn5l930p5j41o40",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.787Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.787Z"
+    }
+  ]
+}

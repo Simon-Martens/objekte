@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. im I-Verz: Die [...] Gedichte gehören zu einem noch ungedruckten und leider unvollendet gebliebenen Roman, Heinrich von Afterdingen, welchen Tieck aus der Handschrift unsers unvergesslichen, durch einen frühzeitigen Tod uns entrissenen Herzensfreundes herausgeben wird.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.151Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "160",
+  "incipit_statement": "Der ist Herr der Erde, / Wer ihre Tiefen mißt, / Und jeglicher Beschwerde / In ihrem Schooß vergißt.",
+  "language": [],
+  "musenalm_id": 15274,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bergmanns-Leben",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "NOVALIS",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bergmanns-Leben",
+  "updated": "2001-05-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f7c02rlf420142n",
+      "agents": "k7dxkcfehvip7xf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.706Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.706Z"
+    }
+  ]
+}

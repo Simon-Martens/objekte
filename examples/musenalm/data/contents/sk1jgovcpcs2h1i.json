@@ -1,0 +1,45 @@
+{
+  "annotation": "nummeriert 10. /) # Titel s. Gedicht INr 106349, Obj 101 und »Lösung der Andeutungen« (INr 106360, Obj 112)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.633Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 106265,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Weltton und Natur #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "V. G. inv. et sc.",
+  "scans": [
+    "alm_4208_106265_1bq5q1i3g5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Weltton und Natur #",
+  "updated": "2015-08-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xacj23vwc2w7vsf",
+      "agents": "mwvtf64bmzwstck",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.901Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.901Z"
+    }
+  ]
+}

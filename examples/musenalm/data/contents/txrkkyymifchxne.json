@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonnette (Sammlung INr 131168, Obj 108)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.019Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "300",
+  "incipit_statement": "Hell ist der Kranz, den deine Hände binden, / O Hebe, Göttin, die der Erd' entrückt,",
+  "language": [],
+  "musenalm_id": 131169,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Hell ist der Kranz, den deine Hände binden, / O Hebe, Göttin, die der Erd' entrückt,…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Böhlendorff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0w8mq2kkc97ryn0",
+      "agents": "wty417vt1e1tkcs",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.024Z"
+    }
+  ]
+}

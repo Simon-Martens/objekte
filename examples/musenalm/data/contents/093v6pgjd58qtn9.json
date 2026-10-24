@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.635Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Wie man's mit der Natur schätzbaresten / Geschenken: / Dem Denken und dem Handeln hält?",
+  "language": [],
+  "musenalm_id": 31594,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ANTWORT",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Max Fischel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "ANTWORT",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "f3dzrjzeoux19lq",
+      "agents": "9fm6ody20z4gtke",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.117Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.117Z"
+    }
+  ]
+}

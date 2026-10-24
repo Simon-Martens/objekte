@@ -1,0 +1,45 @@
+{
+  "annotation": "# vollst. Bezeichnung aus dem I-Verz. s. Meisners Beitrag in: Alpenrosen, ein Schweizer Almanach 1815, INr 53016",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.057Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "41",
+  "incipit_statement": "Man hat uns von mehrern Seiten her versichern wollen, daß die geehrten Leser und Leserinnen der Alpenrosen uns auf unserm vorjährigen Gang durch das Museum der vaterländischen Naturgeschichte mit vieler Theilnahme und besonderem Vergnügen begleitet",
+  "language": [],
+  "musenalm_id": 53083,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Noch ein / Gang durch das Museum / der / vaterländischen Naturgeschichte in Bern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meisner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Noch ein / Gang durch das Museum / der / vaterländischen Naturgeschichte in Bern",
+  "updated": "2007-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fgj21w41tm3snjp",
+      "agents": "k4ji2bliezq9pwr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.541Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.541Z"
+    }
+  ]
+}

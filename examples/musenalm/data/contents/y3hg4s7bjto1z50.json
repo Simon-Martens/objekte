@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.737Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Ein Normanns-HeldenSchiff auf WinterFahrt / War in geräum'ger FelsBucht eingeeist,",
+  "language": [],
+  "musenalm_id": 24769,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die zwei Wächter. / Altnordische Sage",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich de La Motte Fouqué",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die zwei Wächter. / Altnordische Sage",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "x0oa0b95i5dnbqu",
+      "agents": "vwa4f73bcjeod59",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.153Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.153Z"
+    }
+  ]
+}

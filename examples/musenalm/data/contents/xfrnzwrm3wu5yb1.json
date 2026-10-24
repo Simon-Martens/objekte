@@ -1,0 +1,45 @@
+{
+  "annotation": "Sommer (Sammlung INr 23314, Obj 29)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.185Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Mehrere Orte in der Nähe von Freyburg befanden sich zu dieser Zeit in den bedrängtesten Umständen.",
+  "language": [],
+  "musenalm_id": 23316,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem / Landständischen Präsidenten / Freyherrn von Baden, / am / Nahmensfeste desselben / Von seinen Kindern / bey der Tafel überreicht. / Freiburg im Breisgau, am 13. Juny 1799",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. J.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem / Landständischen Präsidenten / Freyherrn von Baden, / am / Nahmensfeste desselben / Von seinen Kindern / bey der Tafel überreicht. / Freiburg im Breisgau, am 13. Juny 1799",
+  "updated": "2002-05-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qscq7i6x6ewx5ue",
+      "agents": "uiwqqj09qcwc44l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.065Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.065Z"
+    }
+  ]
+}

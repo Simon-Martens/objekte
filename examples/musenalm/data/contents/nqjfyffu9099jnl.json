@@ -1,0 +1,45 @@
+{
+  "annotation": "1. Empfindungen im Walde (Sammlung INr 67280, Obj 51) VIII. Gedichte (Sammlung INr 67279, Obj 50)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.684Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Mein still Gebet hab ich vollendet, / Dem Thron' des Ew'gen mich genaht",
+  "language": [],
+  "musenalm_id": 67289,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "11. / Der Einsiedler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Freiherr von der Borch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "11. / Der Einsiedler",
+  "updated": "2009-10-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xi0czbc4po7otme",
+      "agents": "2xhyvvcaj1v6uqn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.406Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.406Z"
+    }
+  ]
+}

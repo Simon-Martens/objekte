@@ -1,0 +1,45 @@
+{
+  "annotation": "Vowort des Herausgebers",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.966Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Mein erster Versuch, die neuesten Weltbegebenheiten in einem Taschenbuche vorzutragen, hat das Glück gehabt, den Beifall des deutschen Piublikums zu finden",
+  "language": [],
+  "musenalm_id": 80759,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vorrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. C. Sprengel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vorrede",
+  "updated": "2008-09-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rtjr6j7ju7pdghe",
+      "agents": "1eqjoxnybezb6wq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.968Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.968Z"
+    }
+  ]
+}

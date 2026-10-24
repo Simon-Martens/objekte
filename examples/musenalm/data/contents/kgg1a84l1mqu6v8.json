@@ -1,0 +1,47 @@
+{
+  "annotation": "# vollst. Bez. aus dem I-Verz. /) paginiert S. 102. /) Illustration zu »Luise von Richt« von Sophie Mereau INr 95671, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.576Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95672,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Treue versprochen?",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Schubert del. Riepenhausen",
+  "scans": [
+    "alm_620_95672_qa8s72wlme.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Treue versprochen?",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p8gqv4f0hgj1xwv",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.795Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.795Z"
+    }
+  ]
+}

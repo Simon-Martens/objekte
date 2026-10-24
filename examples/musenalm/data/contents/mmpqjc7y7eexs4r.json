@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.203Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Noch immer ist der Wunsch nicht erfüllt worden, daß uns ein sachkundiger Mann ein Werk über die Allegorie in den bildenden Künsten geben möchte, das vom klassischen Alterthum ausginge,",
+  "language": [],
+  "musenalm_id": 62152,
+  "musenalm_pagination": [
+    "1. Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 110,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Menschenleben. / Eine allegorische Galerie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. Böttiger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Menschenleben. / Eine allegorische Galerie",
+  "updated": "2009-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3ylw9ex4dcm7kjz",
+      "agents": "7cdnqd525rp9gi5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.128Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.128Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Lyrisches (Sammlung INr 86138, Obj 30)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.053Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "282",
+  "incipit_statement": "Ach! es war ein trübes Weinen, / Als ich von den lieben Meinen / Scheiden mußte,",
+  "language": [],
+  "musenalm_id": 86146,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vergleich",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "P. Renn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vergleich",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m1tm37t0tjdlzn9",
+      "agents": "qnb96innln6psir",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.098Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.098Z"
+    }
+  ]
+}

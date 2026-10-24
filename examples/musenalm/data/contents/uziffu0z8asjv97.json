@@ -1,0 +1,45 @@
+{
+  "annotation": "Kalenderräthsel (Sammlung INr 114976, Obj 47)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.704Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "123",
+  "incipit_statement": "Es ist ein Nam' im Jänner, / Ein Name seltnerArt;",
+  "language": [],
+  "musenalm_id": 114980,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 51,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4. / Sylbenräthsel. / (Dreisylbig.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4. / Sylbenräthsel. / (Dreisylbig.)",
+  "updated": "2009-01-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "n682smn6dil7dgx",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.602Z"
+    }
+  ]
+}

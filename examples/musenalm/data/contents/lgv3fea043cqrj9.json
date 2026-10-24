@@ -1,0 +1,58 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:33.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "332",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 102845,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Joli ist wohl jaloux?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Emil von Loqueyssie del. Dav. Weiss sc. Viennae",
+  "scans": [
+    "alm_3373_102845_trd0dssgu9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Joli ist wohl jaloux?",
+  "updated": "2010-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8ybvhg4udwo9je5",
+      "agents": "o9xuskcqhm8it0x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.863Z"
+    },
+    {
+      "id": "822es4t96xdpo0k",
+      "agents": "yf7uqcfkp0nwlnb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.863Z"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "annotation": "paginiert 1. /) s. Textbezug INr 88168, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 88178,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schönberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Schilbach del. C. & F. Haldenwang sc.",
+  "scans": [
+    "alm_575_88178_2gk93iuzkr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schönberg",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gji3fyldrsbx5vp",
+      "agents": "wqze1ivkmgxwz33",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.114Z"
+    },
+    {
+      "id": "efs7usf4gouh7yp",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.114Z"
+    },
+    {
+      "id": "zv0b3kviyejnd46",
+      "agents": "mdifn6ta9ogjkym",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.114Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.114Z"
+    }
+  ]
+}

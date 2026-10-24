@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Anna Musen. Aus dem Tagebuche ihres Bruders.« von Fr. Lohmann INr 60571, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.949Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "84",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 60572,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sc. aus. Anna Musen, von Friedericke Lohmann",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. H. Ramberg inv. del. W. Jury fec.",
+  "scans": [
+    "alm_393_60572_7jxb5xny6n.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sc. aus. Anna Musen, von Friedericke Lohmann",
+  "updated": "2002-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jk2lo34t1lhyc3v",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.034Z"
+    },
+    {
+      "id": "nynrpi7xuq4103i",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.034Z"
+    }
+  ]
+}

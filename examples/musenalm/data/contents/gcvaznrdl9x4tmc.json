@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. aus dem G-Verz; Graphik im Kalendarium Mai; paginiert 10.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.742Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59616,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Willkommen ihr Zurückgekehrten",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Wolf; Riepenhausen",
+  "scans": [
+    "alm_921_59616_de9irtx7zx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Willkommen ihr Zurückgekehrten",
+  "updated": "2008-08-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j6ndb75idojawxt",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.017Z"
+    },
+    {
+      "id": "ditc174xvzjjv8m",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.017Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.017Z"
+    }
+  ]
+}

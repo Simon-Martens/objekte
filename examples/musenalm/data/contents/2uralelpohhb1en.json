@@ -1,0 +1,45 @@
+{
+  "annotation": "Mit der Parodie »Das Leibgericht« von Röller (INr 130286, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.707Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Ich kenn ein Blümlein Wunderschön, / Und trage darnach Verlangen; / Ich möcht es gerne zu suchen gehn; / Allein ich bin gefangen.",
+  "language": [],
+  "musenalm_id": 130285,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Das Blümlein Wunderschön / von / Göthe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Göthe",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Das Blümlein Wunderschön / von / Göthe",
+  "updated": "2009-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8hbymun1j81ivpk",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.063Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.063Z"
+    }
+  ]
+}

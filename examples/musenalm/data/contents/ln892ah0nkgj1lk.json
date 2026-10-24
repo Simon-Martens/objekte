@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 116025, Obj 31)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:42.898Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Sah einen Büchersaal, - wie sich kein zweiter, / Erbaut von kühner Meisterhand, erhoben;",
+  "language": [],
+  "musenalm_id": 116027,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Die Bibliothek",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Andreas Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Die Bibliothek",
+  "updated": "2010-03-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qh036iru6ji7nvj",
+      "agents": "w54qzevkgviemdi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.478Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.478Z"
+    }
+  ]
+}

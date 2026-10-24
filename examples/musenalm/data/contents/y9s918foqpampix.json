@@ -1,0 +1,47 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 77728, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.071Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77729,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aurora",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hessloehl sc.",
+  "scans": [
+    "alm_2411_77729_4uu3i3q4j3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aurora",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1840,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m3fyilq6iiew6br",
+      "agents": "g141z8lw112bbl6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.659Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.659Z"
+    }
+  ]
+}

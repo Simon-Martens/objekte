@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 44110, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.188Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44109,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SCHEHERESADE MAEHRCHEN ERZAEHLEND",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gem. von Jacobs Gest. v. T. S. Engleheart",
+  "scans": [
+    "alm_598_44109_9f6xze04tb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SCHEHERESADE MAEHRCHEN ERZAEHLEND",
+  "updated": "2006-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zteassb930l8gv8",
+      "agents": "un29hedh6lcz8d7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.380Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.380Z"
+    },
+    {
+      "id": "hmk7fr9yq6i8a3r",
+      "agents": "8w6n9g0x6dcpwhp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.381Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.381Z"
+    }
+  ]
+}

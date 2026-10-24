@@ -1,0 +1,45 @@
+{
+  "annotation": "Bez. aus dem I-Verz; Historische Aufsätze (Sammlung INr 43465, Obj 28) mit einer Illustration s. Titelgraphik INr 43438, Obj 2",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.161Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "36",
+  "incipit_statement": "Schüchtern wagt die Verfasserin, noch einmal zu einem Gegenstande und Begebenheiten zurückzukehren, von denen sie schon einigemal Bruchstücke vorgelegt.",
+  "language": [],
+  "musenalm_id": 43466,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Johanna von Kent. / Gemahlin Eduards, Prinzen von Wales",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cäcilia",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Johanna von Kent. / Gemahlin Eduards, Prinzen von Wales",
+  "updated": "2006-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "la099skxdjbvjnp",
+      "agents": "e2rrjjwetvb2bmn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.378Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.378Z"
+    }
+  ]
+}

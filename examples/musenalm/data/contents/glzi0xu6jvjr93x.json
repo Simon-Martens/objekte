@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 66544, Obj 12 /) mit zahlreichen Anmerkungen /) mit einem beigegebenen Gedicht s. INr 66545, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.131Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "Die Reihe der einheimischen wilden Hühnerarten, angeführt vonm majestätischen Auerhahn, beschließt nun die runde niedliche Wachtel,",
+  "language": [],
+  "musenalm_id": 66543,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Die Wachtel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Die Wachtel",
+  "updated": "2009-09-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5iwqn10nrddzor4",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.356Z"
+    }
+  ]
+}

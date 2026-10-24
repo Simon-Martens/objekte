@@ -1,0 +1,45 @@
+{
+  "annotation": "Norische Bergsagen (Sammlung INr 124795, Obj 26) mit einer Illustration s. Graphik im Kalendarium INr 124783, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.143Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "74",
+  "incipit_statement": "Wohlgemuth ruderte eines Abends ein Bursche dem oberen  Ende des Schwarzensees zu,",
+  "language": [],
+  "musenalm_id": 124840,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "6. / Eine Nacht auf dem See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Gab. Seidl",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "6. / Eine Nacht auf dem See",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1849,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "oc8gr2rwmtctf9e",
+      "agents": "uto0tazb8xl0ih3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.865Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.865Z"
+    }
+  ]
+}

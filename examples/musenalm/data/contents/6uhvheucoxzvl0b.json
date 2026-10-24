@@ -1,0 +1,45 @@
+{
+  "annotation": "Lyrische Blätter (Sammlung INr 80462, Obj 11)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.690Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "69",
+  "incipit_statement": "Noch als Jüngling in die Rinde / Schnitt ich einer jungen Linde / Jenen holden Namen,",
+  "language": [],
+  "musenalm_id": 80467,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die Rinde",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Manfred",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die Rinde",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e1e0zjw6haers3m",
+      "agents": "komn1vrjagnnzo8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.074Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.074Z"
+    }
+  ]
+}

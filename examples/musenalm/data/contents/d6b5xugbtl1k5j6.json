@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert p. 226 /) Illustration zu »Der Additionsfehler« INr 119764, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.977Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 119732,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Zwey so ädle Jünglinge sollten nur Schwerter / führen, um für einander in Gefahren zu kämpfen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Boettger Senior del. & sc. 1804",
+  "scans": [
+    "alm_3703_119732_pr1v1l2rtf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Zwey so ädle Jünglinge sollten nur Schwerter / führen, um für einander in Gefahren zu kämpfen",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6y0dn3decmq8ogv",
+      "agents": "ovdtazhywl54x00",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.622Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.622Z"
+    }
+  ]
+}

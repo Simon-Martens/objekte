@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.547Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "66",
+  "incipit_statement": "Dein göttlich Lied, o Young, das uns des / Lebens Werth, / Und das weit größre Glück, das Glück des Sterbens / lehrt;",
+  "language": [],
+  "musenalm_id": 5226,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "In ein Exemplar von der deutschen / Uebersetzung der Youngischen Nachtge- / danken, daß der sel. Fr. Gräfin / C. C. zu Stolberg zugehörte. 1760",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Ebert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "In ein Exemplar von der deutschen / Uebersetzung der Youngischen Nachtge- / danken, daß der sel. Fr. Gräfin / C. C. zu Stolberg zugehörte. 1760",
+  "updated": "2000-10-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ab5b5z637szcmvm",
+      "agents": "6bfutz0x9ote9sz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.961Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.961Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.280Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Freund! der Himmel ist schön und so herrlich die / herbstliche Sonne, / Und kein Wölkchen verhüllt ihren gemilderten / Strahl!",
+  "language": [],
+  "musenalm_id": 21980,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 144,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Elegie. / An B. zum Abschied",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinhard",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Elegie. / An B. zum Abschied",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kb6v0h7a1cq5s9p",
+      "agents": "wdbc0arxqqntge1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.856Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.856Z"
+    }
+  ]
+}

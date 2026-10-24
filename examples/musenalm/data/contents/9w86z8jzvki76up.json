@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 8. /) Illustration zu »Die Ziegenhirten« von H. Kletke INr 59516, Obj 35; # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.944Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59517,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Ziegenhirten #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. H.",
+  "scans": [
+    "alm_898_59517_gyb5nde78z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Ziegenhirten #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ira42jehfz9kauk",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.735Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.735Z"
+    }
+  ]
+}

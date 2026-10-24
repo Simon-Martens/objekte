@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »An die Schonende während sie sang« von F. W. A. Müller INr 36800, Obj 55",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.548Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 36801,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 56,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Fühlst du vielleicht, was dem Entfernten fehle, / Und heftest, Dir bewußt der kleinen Schuld / Die Augen fester drum aufs Notenpult;",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dähling del. Meno Haas sc. Berlin1800",
+  "scans": [
+    "alm_499_36801_3jxgv0wg4k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Fühlst du vielleicht, was dem Entfernten fehle, / Und heftest, Dir bewußt der kleinen Schuld / Die Augen fester drum aufs Notenpult;",
+  "updated": "2004-03-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jte5d658wicqi6e",
+      "agents": "fu5wv6odvdsjkbe",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.778Z"
+    },
+    {
+      "id": "cv99hgd7yc0818v",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.778Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.778Z"
+    }
+  ]
+}

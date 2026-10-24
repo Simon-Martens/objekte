@@ -1,0 +1,43 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.477Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 31571,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Neuer Wiener / MUSEN- / ALMANACH / auf das Jahr / 1801. / Herausgegeben / von / F. A. Gaheis. / In Commission / bei Carl Schaumburg & Comp",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Joh. Renard sc.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Neuer Wiener / MUSEN- / ALMANACH / auf das Jahr / 1801. / Herausgegeben / von / F. A. Gaheis. / In Commission / bei Carl Schaumburg & Comp",
+  "updated": "2003-02-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wilcypj48l3rf8b",
+      "agents": "i12ai2j0lbm7v44",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.388Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.388Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März; pag. Taf. III. # vollst. Bez. aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.902Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62052,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / 6.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fr. Kaiser del. 1803. Thelott sc.",
+  "scans": [
+    "alm_1018_62052_7iokeg6kd8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "5. / 6.",
+  "updated": "2009-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xgwe68n0g08dylf",
+      "agents": "temkw600l59vchm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.102Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.102Z"
+    },
+    {
+      "id": "ms63ivpgn89kzzh",
+      "agents": "f8vs62ntusa9nl2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.103Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.103Z"
+    }
+  ]
+}

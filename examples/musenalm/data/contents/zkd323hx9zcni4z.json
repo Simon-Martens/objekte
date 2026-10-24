@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 6 Gedichten mit einer Illustration INr 55302-55308, Obj 77-83",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.492Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "209",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55301,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 76,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Erzählende Gedichte",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Abraham Emmanuel Fröhlich",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Erzählende Gedichte",
+  "updated": "2008-02-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ehoabnht3s6afeg",
+      "agents": "94rmjnpm6yfqwop",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.643Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.643Z"
+    }
+  ]
+}

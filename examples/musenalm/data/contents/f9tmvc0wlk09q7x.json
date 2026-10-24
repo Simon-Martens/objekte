@@ -1,0 +1,45 @@
+{
+  "annotation": "Sommer (Sammlung INr 36764, Obj 19) mit einer Illustration s. Graphik INr 36770, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.301Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "76",
+  "incipit_statement": "Uns schmeckten von des Landsmanns Tisch, / Im Birkgebüsch, / Vortreflich Krebs' und Fladen;",
+  "language": [],
+  "musenalm_id": 36769,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der See bei Lanke",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. W. A. Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der See bei Lanke",
+  "updated": "2004-03-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5gam0742bc8chdt",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.883Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.883Z"
+    }
+  ]
+}

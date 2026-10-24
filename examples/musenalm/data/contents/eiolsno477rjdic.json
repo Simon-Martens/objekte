@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 80153, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.889Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "159",
+  "incipit_statement": "Wer Unrecht übt an Andern durch Gewalt, / Ist hassenswerth; und doppelt, wer durch List.",
+  "language": [],
+  "musenalm_id": 80157,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 36,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer Unrecht übt an Andern durch Gewalt, / Ist hassenswerth; und doppelt, wer durch List.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b5egb5ptf14hahw",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.962Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.962Z"
+    }
+  ]
+}

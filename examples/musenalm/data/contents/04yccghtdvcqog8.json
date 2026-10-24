@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Aus dem Niederländischen (Sammlung INr 122286, Obj 310); # Bezeichnung an der Sammlung INr 122282, Obj 306",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.980Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "360",
+  "incipit_statement": "Daß ich wär der Mondenschein / Ist mein heiß Verlangen, / Durch’s geschloss’ne Fensterlein / Wär ich dann gegangen",
+  "language": [],
+  "musenalm_id": 122287,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 311,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Louise von Ploennies",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "va9fa233oj0tw3j",
+      "agents": "x92gop17wjmkkw4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.687Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.687Z"
+    }
+  ]
+}

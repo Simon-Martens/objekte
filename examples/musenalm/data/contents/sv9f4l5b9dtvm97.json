@@ -1,0 +1,45 @@
+{
+  "annotation": "3. Poetische Salve - meist aus epigrammatischem Hagel bestehend - den flüchtigen Homöopathen nachgesendet (Sammlung INr 64960, Obj 20) Homöopatho-Mastix geflochten von ungrischen Ärzten 1831 (Sammlung INr 64949, Obj 9)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.097Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "Mit scharfem Schwerte Simon Petrus schlug / Ein Ohr des Malchus ab, der's Andere behalten,",
+  "language": [],
+  "musenalm_id": 64971,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Deutscher Hieb",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Deutscher Hieb",
+  "updated": "2009-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q6jt6bssxzkyb2h",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.836Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.836Z"
+    }
+  ]
+}

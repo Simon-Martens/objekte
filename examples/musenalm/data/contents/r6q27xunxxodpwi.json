@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 7. # Bezeichnung und Titel aus dem G-Verz INr 15573, Obj 78",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.351Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 15505,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Freye Gartenscenen von Herrn Brandts Erfindung #",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Brandt",
+  "scans": [
+    "alm_246_15505_j9h0umfgb2.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Freye Gartenscenen von Herrn Brandts Erfindung #",
+  "updated": "2001-05-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ytaho8m9pv6txzu",
+      "agents": "8rv1oo9bmtatyb4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.736Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.736Z"
+    }
+  ]
+}

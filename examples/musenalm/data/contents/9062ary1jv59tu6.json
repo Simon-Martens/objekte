@@ -1,0 +1,43 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.961Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33589,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihrer / Königlichen Hoheit / Catharine Charlotte / Königl. Prinzessin von Württemberg, / geb. Herzogin von Sachsen-Hildburghausen, / in tieffster Ehrfurcht geweihet",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "vom Verleger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ihrer / Königlichen Hoheit / Catharine Charlotte / Königl. Prinzessin von Württemberg, / geb. Herzogin von Sachsen-Hildburghausen, / in tieffster Ehrfurcht geweihet",
+  "updated": "2003-05-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "67cvxmunzktnk18",
+      "agents": "0rnyqiybfu5n3e2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.715Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.715Z"
+    }
+  ]
+}

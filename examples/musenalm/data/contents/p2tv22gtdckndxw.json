@@ -1,0 +1,47 @@
+{
+  "annotation": "Graphik im Kalendarium Mai /) # Titel s.Textbezug INr 85055, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.255Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "8",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85042,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein englischer Schwimmer #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "d'A. f.",
+  "scans": [
+    "alm_3122_85042_efc76v7qkt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ein englischer Schwimmer #",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nynrlhm3469482i",
+      "agents": "6n5p36f2mzfscsm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.184Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.184Z"
+    }
+  ]
+}

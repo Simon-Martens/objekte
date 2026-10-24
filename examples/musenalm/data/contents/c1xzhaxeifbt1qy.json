@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait. Illustration zu »Statistischer Versuch über das Fürstenthum Neuenburg und Vallangin« INr 52429, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.502Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 52426,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRED. GUILLAUME / ROI de PRUSSE / PRINCE de NEUCHATEL",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Gerard pinx. Leopold Robert de la Chaux de fonds del. et sculp.",
+  "scans": [
+    "alm_718_52426_ed9rbtnonw.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRED. GUILLAUME / ROI de PRUSSE / PRINCE de NEUCHATEL",
+  "updated": "2007-11-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yscawxo3yt7stbj",
+      "agents": "bngwvjxc7lwq3li",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.877Z"
+    },
+    {
+      "id": "duxmlu2wd8nsw91",
+      "agents": "1iq3f8ed71ls2hd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.877Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.877Z"
+    }
+  ]
+}

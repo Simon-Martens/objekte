@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait s. Textbezug INr 78099, Obj 11",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.407Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 78089,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FRIEDRICH SCHLEIERMACHER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach Krüger. Augusta Hüssener sc. Berlin",
+  "scans": [
+    "alm_2930_78089_m5xyfcto9j.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FRIEDRICH SCHLEIERMACHER",
+  "updated": "2010-02-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fsi5wys24057336",
+      "agents": "dp1i9gllz2qxsbz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.800Z"
+    },
+    {
+      "id": "8cawme0m542ejgi",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.800Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.800Z"
+    }
+  ]
+}

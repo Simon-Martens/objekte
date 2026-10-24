@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.353Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "112",
+  "incipit_statement": "Ich ritt von Sir Drunkner nach Hause. Ein Drunkner hatte Energie; ein gewöhnliches philosophisches Räuschchen widerstand ihm,",
+  "language": [],
+  "musenalm_id": 39275,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Die drey Schwestern,",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Verfasser des Herrmann von Löbeneck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Die drey Schwestern,",
+  "updated": "2005-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jadghms11z1ot4o",
+      "agents": "rplcedkwg5rqz7n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.761Z"
+    }
+  ]
+}

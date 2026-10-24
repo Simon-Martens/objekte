@@ -1,0 +1,58 @@
+{
+  "annotation": "<div># Zwei Darstellungen. s. Textbezug »Die guten Frauen, als Gegenbilder der bösen Weiber« von Goethe INr 32883, Obj 35</div>",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.944Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 32886,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 38,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Und er soll dein Herr seyn / Die Männer müssen niemals müde werden! / Aus Ifflands Hausfrieden #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. L. Catel (Zeichnung) und G. C. Gropius (Stich)",
+  "scans": [
+    "alm_456_32886_l7z2ymelcg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Und er soll dein Herr seyn / Die Männer müssen niemals müde werden! / Aus Ifflands Hausfrieden #",
+  "updated": "2026-10-23T11:50:00.179Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "hbwf3kmsfyyeo1u",
+  "contributors": [
+    {
+      "id": "e0s4rudvyswssm8",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-23T11:50:00.177Z",
+      "edit_comment": "",
+      "type": "Zeichner:in",
+      "uncertain": false,
+      "updated": "2026-10-23T11:50:00.177Z"
+    },
+    {
+      "id": "2apen1b3rl2msmm",
+      "agents": "8mt05gws3vpx1mi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-23T11:50:00.178Z",
+      "edit_comment": "",
+      "type": "Kupferstecher:in",
+      "uncertain": false,
+      "updated": "2026-10-23T11:50:00.178Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.392Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Eisern war einst Sehn' und Nerve, / Gold mein glänzernd Haar;",
+  "language": [],
+  "musenalm_id": 69505,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 43,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied eines Achtzigjährigen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "N. von Lagusius",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied eines Achtzigjährigen",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ktn2u30xi2pzsvo",
+      "agents": "zh8bub9m84qyjna",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.445Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.445Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:09.999Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "27",
+  "incipit_statement": "Schlaf, lieber Knabe! bis der Morgen / Am Himmel grau't,",
+  "language": [],
+  "musenalm_id": 62068,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Mutter bei der Wiege ihres / Neugebornen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dorothee Spangenberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Mutter bei der Wiege ihres / Neugebornen",
+  "updated": "2009-02-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dvfbkh34vi790zu",
+      "agents": "u7poegszzbmufqb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.971Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.971Z"
+    }
+  ]
+}

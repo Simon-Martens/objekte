@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 9. /) Illustration zu »Undine« von Fouqué. s. Textbezug INr 27160, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.363Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27155,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Undine",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Kolbe del. M. Eßlinger sc.",
+  "scans": [
+    "alm_351_27155_owdz2ocmsv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Undine",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eb8q3ptjd8k0ep4",
+      "agents": "n8dsvfjir5hw9xq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.374Z"
+    },
+    {
+      "id": "yutzr5k0ra9eek1",
+      "agents": "zfprrqdgr3ky9ts",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.375Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.375Z"
+    }
+  ]
+}

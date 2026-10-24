@@ -1,0 +1,45 @@
+{
+  "annotation": "7. Distichen (Sammlung INr 67427, Obj 64) VIII. Gedichte (Sammlung INr 67420, Obj 57)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.065Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "204",
+  "incipit_statement": "Mädchen, du gräbst mir umsonst in die Rinde die / Schwüre der Treue,",
+  "language": [],
+  "musenalm_id": 67435,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Platane",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Aloys Schreiber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Platane",
+  "updated": "2009-11-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qoqr08ljic7hawn",
+      "agents": "mo7kunctv2y3z7j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.352Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.352Z"
+    }
+  ]
+}

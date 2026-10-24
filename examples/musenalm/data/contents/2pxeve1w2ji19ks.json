@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bezeichnung am ersten Blatt der Suite /) Graphik im Kalendarium Oktober /) Illustration zu »Marianne«",
+  "content_type": [],
+  "created": "2026-06-11T10:18:36.707Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 105227,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herr Präsident. Können Sie noch fühllos sein. / IIr. Aufz. VIIIr. Auftr.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. Hofmann del. Berger sc.",
+  "scans": [
+    "alm_3259_105227_9apzaf8eau.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herr Präsident. Können Sie noch fühllos sein. / IIr. Aufz. VIIIr. Auftr.",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "14w5w73b40mdrti",
+      "agents": "d91op1cpa09sjn3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.112Z"
+    },
+    {
+      "id": "kmc4hur5ce3x9xm",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.112Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.112Z"
+    }
+  ]
+}

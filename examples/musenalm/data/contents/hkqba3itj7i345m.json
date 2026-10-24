@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Das Auge« von A. v. Chamisso INr 30430, Obj 23",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.538Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "86",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 30431,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Auge, / von Adelbert von Chamisso",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Danhauser del. Leop. Beyer sc. Viennae",
+  "scans": [
+    "alm_399_30431_4bfcybxyt8.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Auge, / von Adelbert von Chamisso",
+  "updated": "2002-11-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "83b26xt3j1djhcn",
+      "agents": "te5k7582adtmhfm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.516Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.516Z"
+    },
+    {
+      "id": "sv36m2bcb6evzq1",
+      "agents": "02b4dyph2gwi3m2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.517Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.517Z"
+    }
+  ]
+}

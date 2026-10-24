@@ -1,0 +1,45 @@
+{
+  "annotation": "Gaben der flüchtigen Muse (Sammlung INr 56097, Obj 17)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:07.618Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "330",
+  "incipit_statement": "Wann heut der Bauer Peter in Tripstrill / Neu den verfall'nen Schweinstall bauen will,",
+  "language": [],
+  "musenalm_id": 56120,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theorie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Robert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Theorie",
+  "updated": "2008-03-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fi8a41mmnh1kk8v",
+      "agents": "shwrrrsohbx2ih5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.798Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.798Z"
+    }
+  ]
+}

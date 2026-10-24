@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Siegsgesang für Freie« von Matthisson INr 12662, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12663,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Siegsgesang für Freie",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gluck",
+  "scans": [
+    "alm_213_12663_ccpcrvit9y.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Siegsgesang für Freie",
+  "updated": "2001-08-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gll0xkftpohnwnf",
+      "agents": "bcx2c0r10adpoyu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.540Z"
+    }
+  ]
+}

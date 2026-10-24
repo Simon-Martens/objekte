@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.757Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "253",
+  "incipit_statement": "Ein Kloster der Ursulinernonnen, das wir hier nicht näher bezeichnen mögen, unfern der Donau, in einer der herrlichsten Gegenden Oestreichs,",
+  "language": [],
+  "musenalm_id": 2032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Die Bekenntnisse. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich v. Heyden",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Die Bekenntnisse. / Eine Novelle",
+  "updated": "2000-08-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o69plmny9oeioun",
+      "agents": "y4sojkg698u6ihg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.986Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.986Z"
+    }
+  ]
+}

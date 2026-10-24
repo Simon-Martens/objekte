@@ -1,0 +1,58 @@
+{
+  "annotation": "[unter der Graphik:  Verlag V. J. D. Sauerländer.] s. Textbezug INr 44364, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.034Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "38",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 44365,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SONNTAGMORGEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gem. v. J. Becker gest. v. F. Backenberg",
+  "scans": [
+    "alm_603_44365_7m9g5mxebd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SONNTAGMORGEN",
+  "updated": "2006-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jz838embjgmubdr",
+      "agents": "elnezcuv2gdb85i",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.272Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.272Z"
+    },
+    {
+      "id": "sx7m0pjo14sevlo",
+      "agents": "8x02yubdd9ru1dh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.273Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.273Z"
+    }
+  ]
+}

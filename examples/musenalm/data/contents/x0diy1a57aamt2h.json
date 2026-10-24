@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Der Lootse« von J. F. Cooper; am oberen rechten Rand: Cooper's Werke B. 19. s. Textbezug in 43802, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.887Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43803,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "CATHARINA",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Waldherr in München Rosmäler 1829",
+  "scans": [
+    "alm_585_43803_5ovww0coj4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "CATHARINA",
+  "updated": "2006-05-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pplh9h6ohd59q1q",
+      "agents": "alpfalhrosucjiz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.946Z"
+    },
+    {
+      "id": "qxib8uipk4wbuxg",
+      "agents": "r5lvflbm4gsd3kb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.946Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.946Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:08.436Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "231",
+  "incipit_statement": "Kein Mensch kann seinem Schicksale entgehen, ist schon vor Jahrtausenden behauptet worden. Ich glaube nicht an Vorausbestimmung, halte vielmehr den Glauben an diese für eine Gotteslästerung;",
+  "language": [],
+  "musenalm_id": 57361,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Eine / Stunde auf dem Schandpfahle. / Fragment aus dem Leben eines Verurtheilten",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Eine / Stunde auf dem Schandpfahle. / Fragment aus dem Leben eines Verurtheilten",
+  "updated": "2008-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y2xcnghnptogttt",
+      "agents": "exegl4z6k8jnby0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.874Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.874Z"
+    }
+  ]
+}

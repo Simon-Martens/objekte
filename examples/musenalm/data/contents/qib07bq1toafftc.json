@@ -1,0 +1,45 @@
+{
+  "annotation": "Mutterherz. Vier Romanzen (Sammlung INr 14438, Obj 37)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "214",
+  "incipit_statement": "Glocken läuten, Orgel tönet, / Und es harrt der Bräutigam,",
+  "language": [],
+  "musenalm_id": 14442,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 41,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "4.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Al. Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "4.",
+  "updated": "2001-04-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cpx3nxhgcsex10t",
+      "agents": "xk1o4h9hiuycys6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.660Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Bez. am 8. Blatt der Suite /) kol. Graphik im Kalendarium - Februar; s. Gedichte INr 56645, 56646; Obj 11, 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.476Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 56644,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Wasser",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Cl. Kohl sc.",
+  "scans": [
+    "alm_32_56644_uqeyrx7cwj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Das Wasser",
+  "updated": "2008-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1792,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "by4tgcsvz8jtldf",
+      "agents": "bteik61qqrceqcm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.003Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.003Z"
+    }
+  ]
+}

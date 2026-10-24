@@ -1,0 +1,58 @@
+{
+  "annotation": "lllustration zu »Cunz von der Rosen, Kayser Maximilian des Ersten kurzweiliger Rath« INr 130259, Obj 30 /) über der Graphik p. 218",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.673Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 130260,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Cunz von der Rosen, Kayser Maximilian des / Ersten kurzweiliger Rath",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Catel pinx. J. Penzel fec.",
+  "scans": [
+    "alm_1227_130260_qjunmctq13.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Cunz von der Rosen, Kayser Maximilian des / Ersten kurzweiliger Rath",
+  "updated": "2009-12-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i6x6ep3otdlfux2",
+      "agents": "5gkb4vp0l46mhri",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.061Z"
+    },
+    {
+      "id": "q4v3n6w05audtu8",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.061Z"
+    }
+  ]
+}

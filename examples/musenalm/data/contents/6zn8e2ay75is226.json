@@ -1,0 +1,45 @@
+{
+  "annotation": "Romanzen (Sammlung INr 68181, Obj 198)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "218",
+  "incipit_statement": "An des Arno blauem Strande / Glänzte Hugo's Felsenschloß:",
+  "language": [],
+  "musenalm_id": 68182,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 199,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "I. / Hugo",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Kreuser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "I. / Hugo",
+  "updated": "2009-11-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yoakgnjwwbh7zb6",
+      "agents": "nwzqfwyixmokyap",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.330Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.330Z"
+    }
+  ]
+}

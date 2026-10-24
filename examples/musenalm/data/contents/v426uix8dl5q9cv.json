@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "128",
+  "incipit_statement": "Veilchen aus dem stillen Thale, / Muster der Bescheidenheit,",
+  "language": [],
+  "musenalm_id": 35578,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Theresen. / Bei Ueberreichung eines Veilchenstraußes. / Im Merz 1797",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Eb. Fr. Hübner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Theresen. / Bei Ueberreichung eines Veilchenstraußes. / Im Merz 1797",
+  "updated": "2003-08-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hv789j0oy8pfwxx",
+      "agents": "0ootbto1f9k75z9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.703Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.703Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 5. u. 6. Blatt der Suite /) Illustration zu »Albrecht von Wallenstein« von K. L. von Woltmann INr 68485, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.506Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68482,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Herzog Bernhard / von Weimar",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas",
+  "scans": [
+    "alm_838_68482_i0detg9sd0.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Herzog Bernhard / von Weimar",
+  "updated": "2008-06-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "84tqwvz9ztpw7hi",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.524Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.524Z"
+    }
+  ]
+}

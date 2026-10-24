@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.266Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "195",
+  "incipit_statement": "Der Sohn des Königs liebte / Ein Mädchen, jung und zart,",
+  "language": [],
+  "musenalm_id": 95788,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Treue Liebe. / Neubearbeitet, nach der bekannten Melodie: / Es war einmal ein Mädchen, u.s.w.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. Lindemann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Treue Liebe. / Neubearbeitet, nach der bekannten Melodie: / Es war einmal ein Mädchen, u.s.w.",
+  "updated": "2012-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "heyprr8yb44fg2r",
+      "agents": "0vejvx9ns82bwxr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.675Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.675Z"
+    }
+  ]
+}

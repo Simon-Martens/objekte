@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 3. /) Illustration zu »Der Gang zur Thalmühle« von Fr. Rochlitz INr 13596, Obj 30",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.769Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13572,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Gang zur Thalmühle von Fr. Rochlitz",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramberg del. Heß sc.",
+  "scans": [
+    "alm_218_13572_bjhnlc0s48.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Gang zur Thalmühle von Fr. Rochlitz",
+  "updated": "2001-04-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6dyrio4cp4fnpfw",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.654Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.654Z"
+    }
+  ]
+}

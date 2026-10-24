@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 2 Gedichten INr 93464, 93467; Obj 149, 150 /) XV. Uebersetzungen und Bearbeitungen von Gedichten aus fremden Sprachen (INr 93456, Obj 141)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.590Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "299",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 93463,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 148,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Chöre / aus Tasso's Amintas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Tasso [übers.] unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Chöre / aus Tasso's Amintas",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rlzu46ugvaljt61",
+      "agents": "qw7tivvvkqh71up",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.301Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.301Z"
+    }
+  ]
+}

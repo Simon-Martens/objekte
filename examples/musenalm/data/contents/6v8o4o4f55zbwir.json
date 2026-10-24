@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung aus dem Titel (INr 124388, Obj 1); $ vermutlich Louis Marie Charles Henri Mercier Dupaty (vgl Nouvelle biographie générale XV, Sp. 266)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "211",
+  "incipit_statement": "Schon gut; der Hauptmann Merwall darf sich verlassen, daß sein Besuch meinem Herrn gemeldet wird, sobald er aufwacht.",
+  "language": [],
+  "musenalm_id": 124451,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Krankenwärterinn. / Ein Lustspiel in einem Aufzuge. / Nach / Dupaty und nach einer kleinen Erzählung / bearbeitet",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Dupaty $ [bearb.] Franz August von Kurländer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Krankenwärterinn. / Ein Lustspiel in einem Aufzuge. / Nach / Dupaty und nach einer kleinen Erzählung / bearbeitet",
+  "updated": "2009-12-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2lkc8yi6m5x47zr",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.802Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.802Z"
+    }
+  ]
+}

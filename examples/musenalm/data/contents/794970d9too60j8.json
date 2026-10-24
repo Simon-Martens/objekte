@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 27758, Obj 21",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.859Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27761,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Karl der Große / In Stein gearbeitet von Schonhofer / im Jahre 1361",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schonhofer; A. R.",
+  "scans": [
+    "alm_356_27761_n3w3jp077p.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Karl der Große / In Stein gearbeitet von Schonhofer / im Jahre 1361",
+  "updated": "2002-08-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9ke8zozeoxlm1g4",
+      "agents": "2cs55gmjk0f1klo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.179Z"
+    },
+    {
+      "id": "tet0mno5c1lqvpm",
+      "agents": "suh3wpuo01wl4gq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.179Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.179Z"
+    }
+  ]
+}

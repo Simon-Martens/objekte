@@ -1,0 +1,45 @@
+{
+  "annotation": "Politische Allerlei (Sammlung INr 34364,Obj 87)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.654Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "168",
+  "incipit_statement": "Die Natur zeugt und gebiert stumm in jedem Frühling ihre neuen Welten,",
+  "language": [],
+  "musenalm_id": 34374,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 97,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "10. / Die laute Gewalt des Zeitgeistes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Paul",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "10. / Die laute Gewalt des Zeitgeistes",
+  "updated": "2003-05-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6qbbgjgnm6o5dvz",
+      "agents": "y5wtm06nok2j69h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.530Z"
+    }
+  ]
+}

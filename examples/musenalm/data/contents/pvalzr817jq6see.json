@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VIII. 79, 148 /) Romanzen (Sammlung INr 48994, Obj 22)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.021Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "63",
+  "incipit_statement": "Wann der Landmann, schlummertrunken, / Zu dem sauren Tagewerke / Sich erhebt,",
+  "language": [],
+  "musenalm_id": 49005,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 33,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sankt Ildefons. / Aus dem König Wamba des Lope de Vega",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-d.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sankt Ildefons. / Aus dem König Wamba des Lope de Vega",
+  "updated": "2007-04-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c2fb2t8buo293ae",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.470Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.470Z"
+    }
+  ]
+}

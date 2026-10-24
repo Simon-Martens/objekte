@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.099Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "315",
+  "incipit_statement": "Die Gegend lag gehüllt im Flor / Der Mitternacht, da stürzt in wilder Eile",
+  "language": [],
+  "musenalm_id": 11230,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 122,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "82. / Das Geheul der Wölfe",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Meinert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "82. / Das Geheul der Wölfe",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8f4jxz9o025p0hg",
+      "agents": "6g8r11hxaocz3tf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.469Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.469Z"
+    }
+  ]
+}

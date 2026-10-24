@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 5. /) Illustration zu »Welleda und Ganna« von Fouqué s. Textbezug IN 26983, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.300Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 26980,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Welleda und Ganna. / S. 331",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Schnorr del. H. C. Müller sc.",
+  "scans": [
+    "alm_350_26980_sbvp7hx6od.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Welleda und Ganna. / S. 331",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wad4jg5c0ukvjmp",
+      "agents": "7yfzgmx3iovs38k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.368Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.368Z"
+    }
+  ]
+}

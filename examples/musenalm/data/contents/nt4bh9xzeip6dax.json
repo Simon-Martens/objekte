@@ -1,0 +1,43 @@
+{
+  "annotation": "mit einer Musikbeigabe s. INr 37609, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.580Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Linde, liebe schöne Linde, / Dir vorübergehn / Wäre große, große Sünde. / Linde! du bist schön.",
+  "language": [],
+  "musenalm_id": 37610,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Linde",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "GLEIM",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Linde",
+  "updated": "2005-04-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5irchodsojk7p5e",
+      "agents": "33cr5ecwlcsbopd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.095Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.095Z"
+    }
+  ]
+}

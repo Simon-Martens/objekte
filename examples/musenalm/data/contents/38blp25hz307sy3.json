@@ -1,0 +1,45 @@
+{
+  "annotation": "Anrede von Sultaninnen in Schreiben. Übersetzt aus der Sammlung von Staatsschreiben des türkischen Dichters Rabi (Sammlung INr 94097, Obj 26)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.250Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "249",
+  "incipit_statement": "Sonne der Sphäre der Keuschheit, welche die Welt erleuchtet, Mond des Mondkreises der Reinheit, welcher mit Lichtthau befeuchtet,",
+  "language": [],
+  "musenalm_id": 94100,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nr. 112",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. von Hammer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nr. 112",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d0sqcehv9d6tjrz",
+      "agents": "tawz02p17yaumx1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.366Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.366Z"
+    }
+  ]
+}

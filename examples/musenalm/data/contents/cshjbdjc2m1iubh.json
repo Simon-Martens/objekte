@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.218Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "153",
+  "incipit_statement": "Laß der Unschuld Rosenschimmer / Deiner Wangen Schmincke seyn;",
+  "language": [],
+  "musenalm_id": 96396,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 65,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mutterlehren",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Drexler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Mutterlehren",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dpv9dbhcpjh5atr",
+      "agents": "j4fihvyes63kxz4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.667Z"
+    }
+  ]
+}

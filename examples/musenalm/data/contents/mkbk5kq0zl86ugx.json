@@ -1,0 +1,47 @@
+{
+  "annotation": "Bez. am nächsten Blatt der Suite. s. Textbezug INr 33869, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:57.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33868,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Autenrieth sc.)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Autenrieth sc.",
+  "scans": [
+    "alm_470_33868_p9pduksmqy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-05-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1815,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qffd7xqad21wr68",
+      "agents": "494d92fqsi62f1e",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.772Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.772Z"
+    }
+  ]
+}

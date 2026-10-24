@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer kol. Illustration (INr 125016, Obj 11); # Augustin-Eugène Scribe (vgl. Nouvelle Biographie Générale XLIII, S. 649); ## Bezeichnung aus dem Titel (INr 125008, Obj 3)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:49.075Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "141",
+  "incipit_statement": "Warum liesest du nicht weiter? / Weil ich über das, was ich Ihnen eben vorlas, im Stillen sehr ernsthafte Betrachtungen anstellte.",
+  "language": [],
+  "musenalm_id": 125015,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "szen. Darstellung"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Geheimniss. / Schauspiel in einem Aufzuge. / Nach Scribe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Scribe # [bearb.] F. A. Kurländer #",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Geheimniss. / Schauspiel in einem Aufzuge. / Nach Scribe",
+  "updated": "2010-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2jrbzb9d2u3s840",
+      "agents": "cp675a99tnl2fek",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.863Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.863Z"
+    }
+  ]
+}

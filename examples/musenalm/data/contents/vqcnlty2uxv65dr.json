@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) paginiert. 10. /) Graphik im Kalendarium Oktober /) Illustration zu »Agnes Bernauerin« von Joseph August von Törring-Cronsfeld /) s. Textbezug INr 85950, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.623Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 85947,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ha! wär ich ein Donner, daß ich sie er- / reichen zerschmettern könnte! / Act V. Sc. V.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "A. W. Küffner inv. del. & sc.",
+  "scans": [
+    "alm_3916_85947_rwx45boovj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ha! wär ich ein Donner, daß ich sie er- / reichen zerschmettern könnte! / Act V. Sc. V.",
+  "updated": "2013-01-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1788,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "szq4qzo5mfzxt4n",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.304Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.304Z"
+    }
+  ]
+}

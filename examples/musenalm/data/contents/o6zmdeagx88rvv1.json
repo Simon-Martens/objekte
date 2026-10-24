@@ -1,0 +1,45 @@
+{
+  "annotation": "gest. Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 25913,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 3,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VESTA / Taschenbuch für das Jahr 1832. / II. Jahrgang. / Druck und Verlag von Franz Ludwig / in / WIEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Burkhart sc.",
+  "scans": [
+    "alm_343_25913_x29gdg60v3.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "VESTA / Taschenbuch für das Jahr 1832. / II. Jahrgang. / Druck und Verlag von Franz Ludwig / in / WIEN",
+  "updated": "2002-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "zcjhcq3bu20rqog",
+      "agents": "327xfzdoy71t9fl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.345Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.345Z"
+    }
+  ]
+}

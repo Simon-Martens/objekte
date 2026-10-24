@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug INr 19001, Obj 18",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.759Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 1966,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "EIN PFERDERENNEN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Frommel direxit. Swebach pinx.",
+  "scans": [
+    "alm_54_1966_sbug82orus.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "EIN PFERDERENNEN",
+  "updated": "2000-08-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "6vu1p7dwcyc0o2l",
+      "agents": "zamlvijrca61n42",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.663Z"
+    },
+    {
+      "id": "babrpv7653o9vtt",
+      "agents": "yxu70p4laeh97im",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.663Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.663Z"
+    }
+  ]
+}

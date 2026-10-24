@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.189Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "378",
+  "incipit_statement": "Gott grüße dich, Frau Hasel mein, / Wie freut mich's, dich zu sehen!",
+  "language": [],
+  "musenalm_id": 94138,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 67,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Mädchen und die Haselstaude. / Altdeutsch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Mädchen und die Haselstaude. / Altdeutsch",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1829,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wu97l3d6tb1urum",
+      "agents": "cr0uh3kmaadt1st",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.658Z"
+    }
+  ]
+}

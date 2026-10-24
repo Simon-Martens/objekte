@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite /) Graphik (Portrait) im Kalendarium Juli /) s. Textbezug INr 96208, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.181Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 96192,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "George Ludwig Egidius v. Köhler, / K. P. General Lieut. v. d. Kavallerie",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Meno Haas",
+  "scans": [
+    "alm_2183_96192_b81mz7g757.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "George Ludwig Egidius v. Köhler, / K. P. General Lieut. v. d. Kavallerie",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tywa1tjddg6bcqw",
+      "agents": "vtesijhtxlwbnoh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.754Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.754Z"
+    }
+  ]
+}

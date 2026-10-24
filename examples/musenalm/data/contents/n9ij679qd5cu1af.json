@@ -1,0 +1,45 @@
+{
+  "annotation": "Klagen einer Gattin um ihren Gatten (Sammlung INr 27165, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.128Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "Ich lebe noch, im trägen Gange schleichen / Die Stunden hin, in ekler Wiederkehr",
+  "language": [],
+  "musenalm_id": 27183,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 45,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "18.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. L. Kannegießer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "18.",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "49e7t0uij2impj4",
+      "agents": "vmqur31l5jqxgmx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.059Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.059Z"
+    }
+  ]
+}

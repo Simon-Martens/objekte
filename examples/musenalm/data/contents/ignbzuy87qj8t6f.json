@@ -1,0 +1,43 @@
+{
+  "annotation": "s. Graphik INr 68592, Obj 2,04 /) Das Original befindet sich im Cabinette des Herrn Moriz von Fries",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.355Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Bereitet Eurem Herrn die rechte Bahn! / Was Gott verhieß soll in Erfüllung gehen.",
+  "language": [],
+  "musenalm_id": 68593,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 2.05,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. / Johannes der Täufer. / Gemählde von Guernico",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Treitschke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. / Johannes der Täufer. / Gemählde von Guernico",
+  "updated": "2001-04-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2md6kf0orwd7qiq",
+      "agents": "zxn7he3vfca86w3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.442Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.442Z"
+    }
+  ]
+}

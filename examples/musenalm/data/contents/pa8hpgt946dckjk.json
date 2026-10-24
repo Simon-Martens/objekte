@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 2. /) Illustration zu »Die Belagerung von Aubigny« von F. Rochlitz INr 13383, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 13368,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Belagerung von Aubigny. v. F. Rochlitz. S. 50",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Jury inv. et fec.",
+  "scans": [
+    "alm_217_13368_r8lly118wa.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Belagerung von Aubigny. v. F. Rochlitz. S. 50",
+  "updated": "2001-04-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m40gyrgzvg5z6dn",
+      "agents": "zluip2dqc7bl84y",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.641Z"
+    }
+  ]
+}

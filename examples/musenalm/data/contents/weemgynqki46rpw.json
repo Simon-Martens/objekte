@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:14.746Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "118",
+  "incipit_statement": "Leyer, säusle sanften Klang / Nur vernehmlich kaum, / Sanft, wie Bienenchorgesang / Um den Lindenbaum,",
+  "language": [],
+  "musenalm_id": 69438,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Abend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Anton X. Schurz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Abend",
+  "updated": "2009-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ledx04z2bfz4hnn",
+      "agents": "m6v439nrgynzyi9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.332Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.332Z"
+    }
+  ]
+}

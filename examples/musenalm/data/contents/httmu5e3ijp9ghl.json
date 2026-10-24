@@ -1,0 +1,45 @@
+{
+  "annotation": "Bilder aus der Natur (Sammlung INr 14809, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.934Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Willst, Nachtviole, nicht die Aeuglein schließen? / Schon hält die Schwestern dein der Schlaf gefangen,",
+  "language": [],
+  "musenalm_id": 14812,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 35,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Jeitteles",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III.",
+  "updated": "2001-05-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ib0rrwv8zlkrlq1",
+      "agents": "cr0uh3kmaadt1st",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.679Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.679Z"
+    }
+  ]
+}

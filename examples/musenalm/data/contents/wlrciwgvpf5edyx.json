@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 4. /) Graphik im Kalendarium April. /) Illustration zu »Der nordische Krieg vom Jahre 1700 bis 1721« INr 75769, Obj 31; s.a. Textbezug INr 75766, Obj 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.164Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 75746,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Carl XII., Mazeppa und Poniatowsky, / nach der Schlacht bey Poltawa",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Penzel fec. 1793. D. Chod. del.",
+  "scans": [
+    "alm_2140_75746_wifwo1450z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Carl XII., Mazeppa und Poniatowsky, / nach der Schlacht bey Poltawa",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4ywxv69aqwih44b",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.780Z"
+    },
+    {
+      "id": "jqxur7s1hrgyzar",
+      "agents": "sx2y3zvwrjtbxnz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.780Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.780Z"
+    }
+  ]
+}

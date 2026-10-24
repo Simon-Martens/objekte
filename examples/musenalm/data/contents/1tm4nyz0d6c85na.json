@@ -1,0 +1,45 @@
+{
+  "annotation": "Vierzeilen (Sammlung INr 46626, Obj 169)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Schwachheit und Laster selbst entschuldigt stets die / Welt; / Der Selbstsucht und dem Glück nur huldigt stets die / Welt;",
+  "language": [],
+  "musenalm_id": 46634,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 177,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schwachheit und Laster selbst entschuldigt stets die / Welt; / Der Selbstsucht und dem Glück nur huldigt stets die / Welt;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Victor Precht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "my9dwl68gde3nqj",
+      "agents": "pbmqtudxmyu5ypb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.188Z"
+    }
+  ]
+}

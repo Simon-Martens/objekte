@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbst 1833 in Neuseß (Sammlung INr 98982, Obj 8) Gedichte (Sammlung INr 98981, Obj 7)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Eh ich dießmal von dir schiede, / Mahnet meine Liebe mich, / Ob ich endlich nicht im Liede / Nennen wollt; o Neuseß, dich,",
+  "language": [],
+  "musenalm_id": 99028,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 54,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Abschied von Neuseß",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Rückert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Abschied von Neuseß",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d0ca19pwx8wbidu",
+      "agents": "m5fhxx0l8loyyhu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.751Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.751Z"
+    }
+  ]
+}

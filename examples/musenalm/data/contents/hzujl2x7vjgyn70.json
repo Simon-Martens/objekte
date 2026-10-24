@@ -1,0 +1,47 @@
+{
+  "annotation": "mit kleiner Graphik über dem Titel",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.553Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Gebt mir den königlichen Reben- / saft, / Erzeugt am Rhein, gereift am / letzten Hügel",
+  "language": [],
+  "musenalm_id": 4850,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode auf die Geburt des Prinzen / Friedrich Wilhelms / von Preussen. / Berlin, den 25. Sept. 1744",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ramler",
+  "scans": [
+    "alm_102_4850_32ufvcv2te.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ode auf die Geburt des Prinzen / Friedrich Wilhelms / von Preussen. / Berlin, den 25. Sept. 1744",
+  "updated": "2000-10-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1771,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "671r49gejsowvda",
+      "agents": "uxrssb0qlf0ghgw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.275Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.275Z"
+    }
+  ]
+}

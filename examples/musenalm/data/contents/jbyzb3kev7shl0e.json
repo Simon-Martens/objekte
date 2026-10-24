@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.385Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "51",
+  "incipit_statement": "Die Sprache haben sie mit Dichtern zwar gemein, / Doch ihren Nektar, ja den trinken sie allein.",
+  "language": [],
+  "musenalm_id": 93193,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Götter",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. T. Dick",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Götter",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "983dkugdgj76g1i",
+      "agents": "7muxj8z983an85h",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.497Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.497Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "I. Jean Paul (Sammlung INr 115611, Obj 19) Manieren (Sammlung INr 115610, Obj 18)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:41.110Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "81",
+  "incipit_statement": "Zum Nutzen- und Nießebrauche der kritischen Caligula habe ich aus der einköpfigen Vorrede eine mehrköpfige gemacht,",
+  "language": [],
+  "musenalm_id": 115612,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Vor- Nach- Ein- und Ausrede",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. G. Saphir",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Vor- Nach- Ein- und Ausrede",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "so6sm4e1sgre8o8",
+      "agents": "31iymrx6tazubtp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.356Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.356Z"
+    }
+  ]
+}

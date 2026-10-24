@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.269Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "219",
+  "incipit_statement": "Des Nordens stiller Erdenpol von Strahlen / Der Sonne lang verwais't, sehnt sich und träumet / Von seiner Gluthenbraut, die lang ach! säumet",
+  "language": [],
+  "musenalm_id": 59217,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Nordlicht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Koreff",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Nordlicht",
+  "updated": "2008-08-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1820,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0kzosorvz74eahj",
+      "agents": "v63rmmxw84k8ut2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.933Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.933Z"
+    }
+  ]
+}

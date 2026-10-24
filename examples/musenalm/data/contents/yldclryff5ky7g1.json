@@ -1,0 +1,45 @@
+{
+  "annotation": "Modekupfer paginiert 4",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.308Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7931,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 7,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Divers Habillemens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riep. f.",
+  "scans": [
+    "alm_146_7931_6cvc60h3rf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Divers Habillemens",
+  "updated": "2000-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1790,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "jg6d2o67fnlvrlf",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.255Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.255Z"
+    }
+  ]
+}

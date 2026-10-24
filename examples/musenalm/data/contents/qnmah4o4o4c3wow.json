@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.222Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "104",
+  "incipit_statement": "Im schnellen Flug der Horen / Schwand deiner Nähe Glück,",
+  "language": [],
+  "musenalm_id": 18339,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Nachruf der Freunde. / An Theone",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Müller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Nachruf der Freunde. / An Theone",
+  "updated": "2001-10-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4etb3gw4r2e0g27",
+      "agents": "xudibmgptrwrx3w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.848Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.848Z"
+    }
+  ]
+}

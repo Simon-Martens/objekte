@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 7. /) Illustration zu »Die Savoyarden« von H. Kletke INr 59514, Obj 33; # Titel vom Textbezug",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.772Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59515,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 34,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Savoyarden #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "A. H.",
+  "scans": [
+    "alm_898_59515_1kl83cnunv.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Savoyarden #",
+  "updated": "2008-08-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0avvhxkp5zpt7jr",
+      "agents": "bapys0xj1dvdjus",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.019Z"
+    }
+  ]
+}

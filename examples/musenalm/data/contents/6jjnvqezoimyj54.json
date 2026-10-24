@@ -1,0 +1,45 @@
+{
+  "annotation": "auch in: Musenalmanach, Göttinger 1770, S. 160; Alm-177, INr 38442",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.811Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "235",
+  "incipit_statement": "Triumph! Er kann vor Rußlands Siegern, / Der stolze Feind, er kann nicht stehn.",
+  "language": [],
+  "musenalm_id": 79153,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ode auf die Eroberung / von Choczym",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Willamov",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Ode auf die Eroberung / von Choczym",
+  "updated": "2010-01-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1770,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "17319g5pm6wap3p",
+      "agents": "wvbgxqiz4g0b63p",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.824Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.824Z"
+    }
+  ]
+}

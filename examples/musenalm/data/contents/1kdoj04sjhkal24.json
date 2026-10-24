@@ -1,0 +1,43 @@
+{
+  "annotation": "# Bez. vom Titelblatt /) Erklärung der Kupfer (Sammlung INr 60995, Obj 4) s. Graphik INr 61017, Obj 26",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.394Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "König von Sparta, weihet sich nebst dreihundert Spartanern, nachdem er die jüngsten Krieger unter allerlei Vorwande zurük geschikt hat, bei Thermopilä dem Tode fürs Vaterland.",
+  "language": [],
+  "musenalm_id": 61005,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "IX. / Leonidas,",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "F. C. Schlenkert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "IX. / Leonidas,",
+  "updated": "2008-11-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1796,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3hblrt8tu3z69zs",
+      "agents": "st35mqg7m56yox6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.998Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.998Z"
+    }
+  ]
+}

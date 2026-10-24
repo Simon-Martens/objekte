@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Geschichte der nordamericanischen Independenz« INr 68522, Obj 23 s.a. Textbezug INr 68534, Obj 35",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.681Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "182",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68539,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (D. Berger sculps. 1783)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Berger sculps. 1783",
+  "scans": [
+    "alm_925_68539_3yydfdr5iq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2008-09-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "y6zvlnm16c34zub",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.247Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.247Z"
+    }
+  ]
+}

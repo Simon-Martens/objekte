@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert Ste. 46 /) Illustration zu »Glück aus Unglück« von A. Lafontaine INr 45253, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.702Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "46",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 45254,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Er betrachtete ihn einen Augenblick",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Riepenhausen sc. Schubert del.",
+  "scans": [
+    "alm_619_45254_vr78i10aic.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Er betrachtete ihn einen Augenblick",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "50m941nhv3hdz70",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.324Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.324Z"
+    },
+    {
+      "id": "63gehmzni9cn9la",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.324Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.324Z"
+    }
+  ]
+}

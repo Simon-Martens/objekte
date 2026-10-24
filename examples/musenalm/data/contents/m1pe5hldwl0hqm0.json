@@ -1,0 +1,45 @@
+{
+  "annotation": "Sonette (Sammlung INr 95199, Obj 106)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.451Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "371",
+  "incipit_statement": "Hin durch den nächltich dunklen Himmel schießen / Oft Feuerballen, die sich jäh entzünden;",
+  "language": [],
+  "musenalm_id": 95201,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 107,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Meteore",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. A. Kaltenbrunner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Meteore",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bjoa6xhrij1k5ey",
+      "agents": "roqd4m2swedwv3j",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.201Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.201Z"
+    }
+  ]
+}

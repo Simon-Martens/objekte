@@ -1,0 +1,58 @@
+{
+  "annotation": "# vollst. Bez. aus dem I-Verz. Illustration zu »Liebe und Dankbarkeit« von A. Lafontaine INr 68700, Obj 8",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.551Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "24",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 68701,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ihr müßt nehmen!",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. Riepenhausen sc.",
+  "scans": [
+    "alm_618_68701_r8w1a721xf.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ihr müßt nehmen!",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9fckmg18opi0tj9",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.151Z"
+    },
+    {
+      "id": "k29n23umqdbgop7",
+      "agents": "s50e2koeoxpuipg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.151Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.151Z"
+    }
+  ]
+}

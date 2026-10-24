@@ -1,0 +1,45 @@
+{
+  "annotation": "Anm. am Objekt mit Hinweis auf: A. G. Meißner:  »Leben des Leo Baptista Alberti« und Übersetzung von fünfundsechzig Fabeln in: Für ältere Literatur und neuere Lectüre. 1. Jg. 1. Stück.  Leipzig 1783",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.030Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "Minchen brach vom vollen Baume, / Der in ihres Vaters Garten / Mit so vielen andern prangte,",
+  "language": [],
+  "musenalm_id": 47759,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Winterbirne. / Nach Leo Baptista Alberti",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. G. Eck der Sohn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Winterbirne. / Nach Leo Baptista Alberti",
+  "updated": "2007-01-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3a551hh6aygckjk",
+      "agents": "t4962qj1xtqcfm9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.540Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.540Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "paginiert 6. /) Illustration zu »Wer auf Gott vertraut hat gut gebaut« von R. Blum INr 83962, Obj 25",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.734Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 83946,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wer auf Gott vertraut / hat gut gebaut",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Weigl del. Kautzner sc.",
+  "scans": [
+    "alm_1012_83946_9usevzqmdq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wer auf Gott vertraut / hat gut gebaut",
+  "updated": "2009-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1848,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "irkaktvwy1f759i",
+      "agents": "0ygqbogww13lys8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.148Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.148Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Le Vaillant und Mungo Park« von F. X. Schnetzler INr 159, Obj 41",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.634Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "174",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 162,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 44,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Niger. Aus der Reise von Mungo Park",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Lips del. et sculp.",
+  "scans": [
+    "alm_26_162_8ztg3g9dh1.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Niger. Aus der Reise von Mungo Park",
+  "updated": "2001-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "q2thulm8pul5uoe",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.975Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.975Z"
+    }
+  ]
+}

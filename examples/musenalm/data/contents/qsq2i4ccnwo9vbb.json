@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium s. Textbezug INr 53258, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.477Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 53268,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Reichenberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Merk. gest. v. L. Schnell",
+  "scans": [
+    "alm_576_53268_cpjb2u0xxx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Der Reichenberg",
+  "updated": "2006-05-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1821,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bwelgaqq3icaoyw",
+      "agents": "0ub52c1r9o49z3w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.641Z"
+    },
+    {
+      "id": "73ln0scs3ih8ei2",
+      "agents": "vbyfdjf3wft42hq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.641Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.641Z"
+    }
+  ]
+}

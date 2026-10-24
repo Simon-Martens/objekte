@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:45.147Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "156",
+  "incipit_statement": "Jetzt kommt mir mancher Autor vor, / Als wenn er eine Trommel wär;",
+  "language": [],
+  "musenalm_id": 12860,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 130,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Etwas von den heutigen Schrift- / stellern",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Xy.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Etwas von den heutigen Schrift- / stellern",
+  "updated": "2001-03-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1784,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pv5q5aab3h9djux",
+      "agents": "h8teagsnwe3omy2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.320Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.320Z"
+    }
+  ]
+}

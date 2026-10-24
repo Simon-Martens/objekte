@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.627Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62820,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "WILHELMINE / Erzherzogin von Hessen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Agricola pinx. J. Felsing jun. sc.",
+  "scans": [
+    "alm_1030_62820_swzis5c2jy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "WILHELMINE / Erzherzogin von Hessen",
+  "updated": "2009-03-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gvulqkcbvv0jms8",
+      "agents": "97s72f57lh9d1qo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.161Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.161Z"
+    },
+    {
+      "id": "xgvw9diieb8txfq",
+      "agents": "7d7eetuzv17gjex",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.162Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.162Z"
+    }
+  ]
+}

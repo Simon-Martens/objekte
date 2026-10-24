@@ -1,0 +1,45 @@
+{
+  "annotation": "Gnomen (Sammlung INr 80153, Obj 32)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.821Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "161",
+  "incipit_statement": "Ob Liebe Herrschaft oder Knechtschaft sei? / Wer möchte das mit Sicherheit entscheiden?",
+  "language": [],
+  "musenalm_id": 80171,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ob Liebe Herrschaft oder Knechtschaft sei? / Wer möchte das mit Sicherheit entscheiden?…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "M. Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "yjpj2e3bmt8aa4b",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.825Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.825Z"
+    }
+  ]
+}

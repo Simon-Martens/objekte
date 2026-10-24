@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. vorst. Gedicht; Pseud. Garten und Park (Sammlung INr 52866, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:06.105Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "48",
+  "incipit_statement": "Hoch in der Lüfte Revier, am schroffen, am nacken- / den Felsen / Glühet mein purpurner Schein,",
+  "language": [],
+  "musenalm_id": 52875,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 21,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "9. Ebendieselbe",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lotte",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "9. Ebendieselbe",
+  "updated": "2007-11-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1814,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "34ymhkgayimiuhy",
+      "agents": "nj18pm3lt87v37m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.688Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.688Z"
+    }
+  ]
+}

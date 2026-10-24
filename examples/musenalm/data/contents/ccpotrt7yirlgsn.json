@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.117Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Es war an einem schönen Sommernachmittage, als drei junge Männer in lebhaften Gesprächen im schattigen Lindengange auf und nieder wandelten.",
+  "language": [],
+  "musenalm_id": 119390,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 95,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Reisenden. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Tieck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Reisenden. / Eine Novelle",
+  "updated": "2017-07-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qznpfnvcopk1rrg",
+      "agents": "jo4gipjsowa4j99",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.699Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.699Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Illustration zu »Mathilde, Gemahlin Heinrichs des Voglers« von J. B. Engelmann INr 62997, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 62984,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Mathilde. / Gemahlin Heinrich des Voglers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Götzenberger del. Fleischmann sc.",
+  "scans": [
+    "alm_1033_62984_4x64qtep7r.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Mathilde. / Gemahlin Heinrich des Voglers",
+  "updated": "2009-03-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nay8l8vcb03ewgh",
+      "agents": "k52j0ci4hisa6dc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.169Z"
+    },
+    {
+      "id": "nil2m4pe1ejc1xf",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.169Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.169Z"
+    }
+  ]
+}

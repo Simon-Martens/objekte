@@ -1,0 +1,56 @@
+{
+  "annotation": "s. Textbezug (Gedicht) INr 95100, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.448Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95099,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (nach Grevedon Ch. Hoffmeister Wien)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "nach Grevedon Ch. Hoffmeister Wien",
+  "scans": [
+    "alm_1879_95099_2kdtg5912b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1842,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u1s16406gl7p6hf",
+      "agents": "fnowuly66bkynwc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.392Z"
+    },
+    {
+      "id": "5nkcbifxrdrwzhx",
+      "agents": "zuqeig2avlr6rku",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.392Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.392Z"
+    }
+  ]
+}

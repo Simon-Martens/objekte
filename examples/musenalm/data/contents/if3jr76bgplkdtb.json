@@ -1,0 +1,45 @@
+{
+  "annotation": "Drei Blätter aus meinen Erinnerungen (Sammlung INr 77705, Obj 19)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.847Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "303",
+  "incipit_statement": "Wenn ich mich der Zeit erinnere, wo der Roman Walladmor entstand, erschien und wirkte, möchte ich glauben, daß in jedes Schriftstellers Leben etwas von dem Dämonischen spukt, von dem Goethe spricht,",
+  "language": [],
+  "musenalm_id": 77706,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Walladmor",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Häring (W. Alexis)",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Walladmor",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1839,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0rsppmplfgbz5zj",
+      "agents": "0o91z9eq6iw8en8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.827Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.827Z"
+    }
+  ]
+}

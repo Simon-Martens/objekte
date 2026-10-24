@@ -1,0 +1,45 @@
+{
+  "annotation": "Graphik im Kalendarium paginiert 2.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.807Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 50869,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Wäggis am Vier-Waldstätter-See",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Heinr. Meyer f.",
+  "scans": [
+    "alm_691_50869_zz6vg5dk5i.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Wäggis am Vier-Waldstätter-See",
+  "updated": "2007-07-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1791,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1rbr4o59ku5gm93",
+      "agents": "riqoiuak8ign3sj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.819Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.819Z"
+    }
+  ]
+}

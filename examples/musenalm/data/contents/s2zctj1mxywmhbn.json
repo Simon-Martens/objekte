@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem I-Verz. Fragmente von Briefen einer Mutter an ihre verheirathete Tochter. Als Beilage zu den Kupfern. (Sammlung INr 32713, Obj 25) s. Graphik INr 32717, Obj 29",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.716Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "126",
+  "incipit_statement": "Alles,was ich iezt erblicke, alles was mich umgiebt, scheint mir Beziehung auf dich und auf unsre Hoffnung zu haben.",
+  "language": [],
+  "musenalm_id": 32716,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Huber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2.",
+  "updated": "2003-04-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "if0hpriiymfa50x",
+      "agents": "6pw6iul8mmx44oj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.537Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.537Z"
+    }
+  ]
+}

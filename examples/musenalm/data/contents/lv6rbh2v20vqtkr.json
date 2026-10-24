@@ -1,0 +1,58 @@
+{
+  "annotation": "Beigabe zu »Das bescheidene Landgut. Nach Erfindung und Zeichnung von Herrn Klinsky« INr 81434, Obj 7 /) # zus. Zuschreibung: Fischer S. 334",
+  "content_type": [],
+  "created": "2026-06-11T10:18:21.365Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "18",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 81437,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Karte (erf. v. Klinsky)]",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "erf. v. Klinsky",
+  "scans": [
+    "alm_3113_81437_bmjer91n01.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2010-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qgfj8hidg5c0tln",
+      "agents": "jluxmeayxx3ga35",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.799Z"
+    },
+    {
+      "id": "dc8vlr62e8zovlr",
+      "agents": "yos6i167q0dzqb7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.799Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.799Z"
+    }
+  ]
+}

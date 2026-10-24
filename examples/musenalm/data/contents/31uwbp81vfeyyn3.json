@@ -1,0 +1,45 @@
+{
+  "annotation": "Im I-Verz: Dritte Christabends-Erzählung",
+  "content_type": [],
+  "created": "2026-06-11T10:18:27.733Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "230",
+  "incipit_statement": "Auf einem einsamen Dorfe lebte seit vielen Jahren ein Pfarrer in stiller, aber schöner Wirksamkeit. Kein Nothleidender blieb ohne Hülfe oder Rat,",
+  "language": [],
+  "musenalm_id": 91110,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 39,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Selig sind die Barmherzigen; / denn sie werden Barmherzig- / keit erlangen. / (Zum Christabend 1828.)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Wilhelm Carové",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Selig sind die Barmherzigen; / denn sie werden Barmherzig- / keit erlangen. / (Zum Christabend 1828.)",
+  "updated": "2013-09-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "h2t9i1cztxy39jn",
+      "agents": "9zdfy29sj074b5x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.231Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.231Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "XIV. Gedichte (Sammlung INr 75002, Obj 58) Anm. am Objekt: Veranlaßt durch den Tod eines jungen Sängers /) s. Gedicht INr 75001, Obj 57",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Ob rauschend auch am Fels die Wogen schäumen, / Ob Fluthen auch sich wild an Fluthen drängen;",
+  "language": [],
+  "musenalm_id": 75004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 60,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Auf den Tod enes jungen Sängers",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stöber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Auf den Tod enes jungen Sängers",
+  "updated": "2010-02-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1830,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hxdol77wd63zy0s",
+      "agents": "utgjxyadq6s0v86",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.586Z"
+    }
+  ]
+}

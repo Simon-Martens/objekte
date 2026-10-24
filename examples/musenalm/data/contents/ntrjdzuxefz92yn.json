@@ -1,0 +1,46 @@
+{
+  "annotation": "mit zahlreichen Tabellen /) mit einer Karte s. INr 73410, Obj 16",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.881Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "163",
+  "incipit_statement": "Die Statistik, eine Wissenschaft, die als solche, erst in neuester Zeit begründet ist, hat zur Aufgabe: in Zahlen und Thatsachen das Bild und den Zustand eines Staates oder überhaupt eines politischen Ganzen zu entwerfen,",
+  "language": [],
+  "musenalm_id": 73409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text",
+    "Tabelle"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Statistische Uebersicht der Stadt Berlin]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Dieterici",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Statistische Uebersicht der Stadt Berlin]",
+  "updated": "2008-08-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1844,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "39b0t1oas2v2n8z",
+      "agents": "53uc7pgvyf38nsz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.768Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.768Z"
+    }
+  ]
+}

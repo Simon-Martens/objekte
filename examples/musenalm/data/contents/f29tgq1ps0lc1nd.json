@@ -1,0 +1,45 @@
+{
+  "annotation": "dem Text vorangestellt: Furcht soll das Haupt des Glücklichen umschwebebn, / Denn ewig wanket des Geschickes Wage. / Schiller.",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.062Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "In der Königin-Grafschaft, ungefähr sechzig ireländische Meilen südwestlich von Dublin, sieht der Wanderer auf einem kleinen Hügel die Trümmer einer Burg,",
+  "language": [],
+  "musenalm_id": 43966,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der seidene Thomas. / Nach ireländischen Chroniken erzählt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adrian",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der seidene Thomas. / Nach ireländischen Chroniken erzählt",
+  "updated": "2006-06-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "l5sffy95x5mp1hj",
+      "agents": "meerjmdgjan7zwy",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.277Z"
+    }
+  ]
+}

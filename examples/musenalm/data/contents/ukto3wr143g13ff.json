@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.943Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "21",
+  "incipit_statement": "Mein Freund! du nennst das kurze leichte Leben, / So weit du es getragen hast, / So weit dem Himmel dir noch Raum zu geben, / Beliebt, doch lange schwere Last:",
+  "language": [],
+  "musenalm_id": 64798,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / EPISTOLA / DE / ARTE HUMORISTICA / AD / UDALRICUM GERMANUM / PER / ERASMUM SINCERUM. / Dulce satis humor,  - - - - - - / - - - - - superat tener omni- / bus humor. / Virgil. Ecl. III. 82. et Georg. II. 330",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Erasmus Sincerus",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / EPISTOLA / DE / ARTE HUMORISTICA / AD / UDALRICUM GERMANUM / PER / ERASMUM SINCERUM. / Dulce satis humor,  - - - - - - / - - - - - superat tener omni- / bus humor. / Virgil. Ecl. III. 82. et Georg. II. 330",
+  "updated": "2009-06-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pgvuxui3gr85ijv",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.034Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.034Z"
+    }
+  ]
+}

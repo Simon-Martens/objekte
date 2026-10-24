@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.227Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "283",
+  "incipit_statement": "Vermummet kommt geritten / Im Mantel ein Reitersmann",
+  "language": [],
+  "musenalm_id": 24951,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 232,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "König Rudolph und der Hufschmidt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. R. Hagenbach",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "König Rudolph und der Hufschmidt",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "9k3vr1a4o0fspyr",
+      "agents": "0nqqxalglgwp4fv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.959Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.959Z"
+    }
+  ]
+}

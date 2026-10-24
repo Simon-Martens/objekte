@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am ersten Blatt der Suite /) Graphik im Kalendarium August; nummeriert 5. /) s. Textbezug INr 108648, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:39.657Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 108639,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Pabst Etienne II. als Büssender, vor / Pipin dem Kurzen",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. C. Schule sc. 1796",
+  "scans": [
+    "alm_2175_108639_ff21cqf2nd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Pabst Etienne II. als Büssender, vor / Pipin dem Kurzen",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o6ra3extvc27916",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.276Z"
+    },
+    {
+      "id": "vd3t42ewdulpazr",
+      "agents": "c0fepqesuedn747",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.277Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.277Z"
+    }
+  ]
+}

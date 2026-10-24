@@ -1,0 +1,43 @@
+{
+  "annotation": "Motto",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.327Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Der Mann, der nicht Musik hat in ihm selbst, / Den nicht die Eintracht süßer Töne rührt, / Taugt zu Verrat, Räuberei und Tücken, / Die Regung seines Sinn's ist dumpf wie Nacht, / Sein Trachten düster wie der Exebus; / Trau' keinem Solchen!",
+  "language": [],
+  "musenalm_id": 69472,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 10,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Marchand of Venise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. Shakspear [übers. unbezeichnet]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Marchand of Venise",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "requpi9xq3bnawd",
+      "agents": "confomdodiakpla",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.436Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.436Z"
+    }
+  ]
+}

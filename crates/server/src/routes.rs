@@ -29,6 +29,7 @@ pub fn router(state: Arc<AppState>) -> Router {
         .route("/auth/login", get(login_page).post(login))
         .route("/auth/logout", post(logout))
         .route("/collections/{name}", get(collection))
+        .route("/collections/{name}/search-validation", get(search_validation))
         .route("/collections/{name}/records/{id}", get(record))
         .route("/collections/{name}/records/{id}/export", get(export))
         .route("/collections/{name}/edit-sessions", post(create))
@@ -252,6 +253,34 @@ async fn collection(
     })
     .await
 }
+#[derive(Deserialize)]
+struct SearchValidation {
+    #[serde(default)]
+    q: String,
+}
+async fn search_validation(
+    State(state): App,
+    Path(name): Path<String>,
+    Query(query): Query<SearchValidation>,
+    headers: HeaderMap,
+) -> Result<Response> {
+    state.auth.actor(&headers).await?;
+    state.editor.config().collection(&name)?;
+    state.editor.require_operation(&name, "read")?;
+    // Compile only: live feedback must not scan records or run a search.
+    blocking(move || {
+        let error = structured_editor_core::SearchMatcher::new(&query.q, true)
+            .err()
+            .map(|error| {
+                let message = error.to_string();
+                let detail = message.lines().last().unwrap_or(&message);
+                detail.strip_prefix("error: ").unwrap_or(detail).to_owned()
+            });
+        Ok(axum::Json(serde_json::json!({ "error": error })).into_response())
+    })
+    .await
+}
+
 async fn record(
     State(state): App,
     Path((name, id)): Path<(String, String)>,

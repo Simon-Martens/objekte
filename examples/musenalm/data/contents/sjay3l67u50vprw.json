@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.891Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "136",
+  "incipit_statement": "H*** ist der Ort, wo ich gefangen bin. / In Banden wein' ich hier mein Trauerleben / hin,",
+  "language": [],
+  "musenalm_id": 18032,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Liebe im Kerker",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubart",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Liebe im Kerker",
+  "updated": "2001-09-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "anrc04lx65pjbef",
+      "agents": "e0jidz7fwbzecy6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.673Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.673Z"
+    }
+  ]
+}

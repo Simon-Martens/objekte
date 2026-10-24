@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.377Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Minnasänger, komm und störe / Meine Einsamkeit! / Bringe mir die ganze Chöre",
+  "language": [],
+  "musenalm_id": 8594,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Schmidt. / Halberst. den 11ten März 1772",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. A. Unzer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Schmidt. / Halberst. den 11ten März 1772",
+  "updated": "2000-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1775,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rncp6bijcvpgtht",
+      "agents": "72ib6ghxkur1aqm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.489Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.489Z"
+    }
+  ]
+}

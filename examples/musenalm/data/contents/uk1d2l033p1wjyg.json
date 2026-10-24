@@ -1,0 +1,56 @@
+{
+  "annotation": "# Bez. am 1. Blatt der Suite/) kol. Trachtenkupfer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.315Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72448,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15.02,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Frauenzimmer von Stande / Dame de qualité",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chod. del. Bollinger sc. 96",
+  "scans": [
+    "alm_834_72448_7gr8d1e0fd.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Frauenzimmer von Stande / Dame de qualité",
+  "updated": "2008-06-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kt4kmbxpuizbf8y",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.669Z"
+    },
+    {
+      "id": "k0kwy5yaql0iysq",
+      "agents": "xudps8vzrobe0d5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.669Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.669Z"
+    }
+  ]
+}

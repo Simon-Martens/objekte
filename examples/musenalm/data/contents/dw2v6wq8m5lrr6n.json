@@ -1,0 +1,47 @@
+{
+  "annotation": "lt. G-Verz: aus d. Asiat. Mag.",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.696Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 42234,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Tiegerjagd im Wasser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Frosch sc.",
+  "scans": [
+    "alm_554_42234_iejehsne15.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Tiegerjagd im Wasser",
+  "updated": "2005-12-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1812,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "iu0jyqcbggayst9",
+      "agents": "pvuse6e3t44mmjj",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.108Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.108Z"
+    }
+  ]
+}

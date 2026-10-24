@@ -1,0 +1,45 @@
+{
+  "annotation": "Sieben Elegien aus Selinos Erinnerungen (Sammlung INr 131143, Obj 86)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.010Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "274",
+  "incipit_statement": "Schauer durchzogen die Luft; es hingen die falbi- / gen Blätter / Halb an den Blumen und halb streuten die / Winde sie schon;",
+  "language": [],
+  "musenalm_id": 131146,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 89,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schauer durchzogen die Luft; es hingen die falbi- / gen Blätter / Halb an den Blumen und halb streuten die / Winde sie schon;…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2016-09-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mvc05asi23y0b49",
+      "agents": "hdhytmzu9u57ana",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.022Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.022Z"
+    }
+  ]
+}

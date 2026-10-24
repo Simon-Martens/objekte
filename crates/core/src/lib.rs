@@ -7,13 +7,16 @@ mod json_documents;
 mod media;
 mod policy;
 mod project_config;
+mod search;
 pub mod ui;
 pub use collation::alphabetic_cmp;
+pub use search::SearchMatcher;
 
 pub use config::{CategoryEntry, CategoryLevel, Collection, Config, IdStrategy, MediaCollection};
 pub use documents::{
     CategoryNode, ChildCollection, Document, Editor, HierarchyNode, ListFacet, ListMatch, ListPage,
-    ListRequest, ListRow, ParentLink, RecordSummary, Reference, RenameResult, ValidationIssue, display_text,
+    ListRequest, ListRow, ParentLink, RecordSummary, Reference, RenameResult, ValidationIssue,
+    display_text,
 };
 pub use media::{MediaEntry, MediaKind};
 

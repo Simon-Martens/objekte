@@ -1,0 +1,45 @@
+{
+  "annotation": "Doppelreime an die Geliebte (Sammlung INr 94847, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.717Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "176",
+  "incipit_statement": "Alle die Weisen meinen, / Dunkler Schatten und Licht",
+  "language": [],
+  "musenalm_id": 94848,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 28,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Gottfried Neumann",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2010-01-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dmnb0fnr46d2a48",
+      "agents": "u56d09jffk0z5ur",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.713Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.713Z"
+    }
+  ]
+}

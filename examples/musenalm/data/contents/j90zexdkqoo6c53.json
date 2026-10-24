@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.683Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "129",
+  "incipit_statement": "Wie viele Morgen werden tagen, / Wie viel Abende vergeh'n, / Eh' die Herzen nicht mehr schlagen / Und die Zeiten stille steh'n?",
+  "language": [],
+  "musenalm_id": 101391,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 72,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Unsterblichkeit",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Brosse",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Unsterblichkeit",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "uh140u3z0b5xfz1",
+      "agents": "rd2srgji4gtrv3g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.709Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.709Z"
+    }
+  ]
+}

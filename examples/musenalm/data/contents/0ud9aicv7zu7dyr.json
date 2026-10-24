@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Einiges über den südlichen Theil des Kantons Basel oder mein Gang nach Eptingen« INr 82801, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:18:26.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "34",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82802,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bad Rauch-Eptingen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Follenweider delt. Lith. von A. Merian",
+  "scans": [
+    "alm_3736_82802_twzp6i3sac.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Bad Rauch-Eptingen",
+  "updated": "2011-12-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qkgxx5konrieimi",
+      "agents": "3w4eg8ezib2fp09",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.137Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.137Z"
+    }
+  ]
+}

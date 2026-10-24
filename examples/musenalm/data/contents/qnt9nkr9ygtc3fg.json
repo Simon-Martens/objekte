@@ -1,0 +1,48 @@
+{
+  "annotation": "6 Angloisen 2 Quadrillen 2 Menuetten und 4 Walzer von Kapellmeister Vinzenz Mascheck in Prag (Sammlung INr 11736, Obj 172) (Photos 11743,01; 11743,02; 11743,03)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.515Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "14",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11743,
+  "musenalm_pagination": [
+    "3. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 181,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Quadrille allemando 1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Vinzenz Mascheck",
+  "scans": [
+    "alm_205_11743_01_xsualid3i0.jpg",
+    "alm_205_11743_02_jn9y8oeptr.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Quadrille allemando 1.",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1801,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e51hilma39uy9pr",
+      "agents": "f5hnxd5mx1nzaii",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.503Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.503Z"
+    }
+  ]
+}

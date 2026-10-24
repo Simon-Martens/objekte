@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.939Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "17",
+  "incipit_statement": "Es war ein wunderherrlicher, klarer Wintermorgen des Jahres 1819; Sonnenlicht, kalte, frische Luft und feste Schneebahn, wie es der Nordländer liebt, als ein eleganter Reisewagen vor dem ansehnlichen Gasthofe einer mittelgroßen Hansestadt",
+  "language": [],
+  "musenalm_id": 69476,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Meister und der Maestro. / Novelle",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "J. P. Lyser",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Meister und der Maestro. / Novelle",
+  "updated": "2008-04-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5bcf0qr4vem2vpl",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.266Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.266Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Vierzeilen (Sammlung INr 46626, Obj 169)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.272Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "275",
+  "incipit_statement": "Die dunklen Augen, den schelmischen Mund: von dei- / ner Mutter erbtest du sie! / Die frischen Wangen, die reine Stirn: mit keiner / Schminke färbtest du sie!",
+  "language": [],
+  "musenalm_id": 46633,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 176,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die dunklen Augen, den schelmischen Mund: von dei- / ner Mutter erbtest du sie! / Die frischen Wangen, die reine Stirn: mit keiner / Schminke färbtest du sie!…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Victor Precht",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "takh1675yx2wtko",
+      "agents": "pbmqtudxmyu5ypb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.188Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.188Z"
+    }
+  ]
+}

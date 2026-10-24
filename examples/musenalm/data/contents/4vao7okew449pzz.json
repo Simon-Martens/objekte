@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.200Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "3",
+  "incipit_statement": "Aus meiner frühen Kindheit erinnere ich mich weniger Begebenheiten klar und bestimmt, die Prügel ausgenommen, welche mir wöchentlich mehrere Male zu Theil wurden.",
+  "language": [],
+  "musenalm_id": 65350,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Leben und Liebe. / Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Glaßbrenner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Leben und Liebe. / Novelle",
+  "updated": "2009-07-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1835,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7xrjlvtag1cknui",
+      "agents": "zyl5m77hvrod1w7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.197Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.197Z"
+    }
+  ]
+}

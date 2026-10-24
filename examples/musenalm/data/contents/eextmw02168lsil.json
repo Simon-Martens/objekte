@@ -1,0 +1,56 @@
+{
+  "annotation": "Gallerie aus Fr. Schiller's Gedichten. II. (Sammlung INr 76915, Obj 5) Illustration zu »Hero und Leander« INr 76925, Obj 15",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.680Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 76926,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Schillers Hero und Leander",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Brückner sc.",
+  "scans": [
+    "alm_2393_76926_j3ckyui23q.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Schillers Hero und Leander",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dzrl09fvwzc9ce6",
+      "agents": "7yfzgmx3iovs38k",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.753Z"
+    },
+    {
+      "id": "adth6jvmz0f6hg6",
+      "agents": "55cqr78phstoqzu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.753Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.753Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Goed VIII. 80, 154 /) Nachlese (Sammlung INr 71100, Obj 172)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:18.485Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "245",
+  "incipit_statement": "Ihr Saiten! tönet sanft und leise, / Vom leichten Finger kaum geregt,",
+  "language": [],
+  "musenalm_id": 71100,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 173,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Theelied",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-d.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Theelied",
+  "updated": "2010-09-01T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1813,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nzpuj5la56fad8h",
+      "agents": "6fcfejb1bewhh5z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.602Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.602Z"
+    }
+  ]
+}

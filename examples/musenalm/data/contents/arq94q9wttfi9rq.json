@@ -1,0 +1,45 @@
+{
+  "annotation": "Strandlieder (Sammlung INr 38915, Obj 103)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.805Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "145",
+  "incipit_statement": "Es hielt mit weichem, dunklem Arm die Nacht / Rings Erd' und Meer in schlummerndem Umfangen.",
+  "language": [],
+  "musenalm_id": 38918,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 106,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / In der Nacht",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Adolph Stahr",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / In der Nacht",
+  "updated": "2005-04-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "liw7kwazj2l9iuu",
+      "agents": "bb9z2ffyn7qc15x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.250Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.250Z"
+    }
+  ]
+}

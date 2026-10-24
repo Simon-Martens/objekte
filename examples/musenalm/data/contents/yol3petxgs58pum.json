@@ -1,0 +1,45 @@
+{
+  "annotation": "Heinrich von Kempten. Romanzenkette (Sammlung INr 80992, Obj 64)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.705Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "289",
+  "incipit_statement": "Was der Gewalt nicht glückte - zu groß ist Otto's Kraft - / Das soll der List gelingen, meint Mailands Bürgerschaft.",
+  "language": [],
+  "musenalm_id": 80997,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 69,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Ueberfall",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Fernand",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Ueberfall",
+  "updated": "2010-01-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1846,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bgfofwd3zcbtia0",
+      "agents": "big4tm69ocucym5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.948Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.948Z"
+    }
+  ]
+}

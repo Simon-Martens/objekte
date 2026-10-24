@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium März",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.662Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 90179,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 5,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Aigen bey Salzburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Schindler del. S. Langer sc.",
+  "scans": [
+    "alm_3723_90179_7ga7ru3qfy.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Aigen bey Salzburg",
+  "updated": "2011-10-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1852,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "47lxm4pahl6w0uq",
+      "agents": "b015htf5wn6svli",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.420Z"
+    },
+    {
+      "id": "kwxwnl5k8ztkg9o",
+      "agents": "qlgmphiynirko34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.420Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.420Z"
+    }
+  ]
+}

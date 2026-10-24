@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:01.546Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "226",
+  "incipit_statement": "Alle Kränze, die ich winde, leg' ich hin zu deinen Füßen! / Jede Perle, die ich finde, leg' ich hin zu deinen Füßen!",
+  "language": [],
+  "musenalm_id": 46606,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 149,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Ghaselen] 2.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Stens",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[Ghaselen] 2.",
+  "updated": "2006-09-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1855,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "tgr2wzjgi150l3l",
+      "agents": "olg75dhvf6ogs1r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.313Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.313Z"
+    }
+  ]
+}

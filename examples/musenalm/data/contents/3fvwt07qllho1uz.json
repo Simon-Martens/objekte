@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:54.157Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Vous savez qu’Apollon, le Dieu de la lumière, / N’a pas toujours du Ciel éclairé la carrière;",
+  "language": [],
+  "musenalm_id": 135247,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VARIANTE / D’une Epître de Voltaire à FRÉDÉRIC LE GRAND, / lors de son Avenement à la Couronne de Prusse",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voltaire",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VARIANTE / D’une Epître de Voltaire à FRÉDÉRIC LE GRAND, / lors de son Avenement à la Couronne de Prusse",
+  "updated": "2025-07-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 0,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "plsgpf0s2axjyzf",
+      "agents": "lj2spuxfjqbh1fh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.139Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.139Z"
+    }
+  ]
+}

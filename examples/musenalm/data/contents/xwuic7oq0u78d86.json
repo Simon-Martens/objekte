@@ -1,0 +1,45 @@
+{
+  "annotation": "Gallerie aus Schillers Gedichten. VI (Sammlung INr 77068, Obj 4) Illustration zu »Die Erwartung« von Fr. Schiller s. Gedicht von Th. Hell d.i. K. G. T. Winkler INr 77069, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.763Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77070,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Seh' ich nichts Weißes dort schimmern? / Glänzt's nicht wie seid'nes Gewand?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schnorr v. K. del. Fr. Stöber sc. Viennae",
+  "scans": [
+    "alm_2397_77070_fj1jb6brxq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Seh' ich nichts Weißes dort schimmern? / Glänzt's nicht wie seid'nes Gewand?",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "4a1mkgk5y7ms8r5",
+      "agents": "3dvnowzet6ad8zl",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.761Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.761Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Anmerkung des Herausgebers INr 69654, Obj 32",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.852Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "102",
+  "incipit_statement": "Daß man nicht immer findet, wo man sucht, oft aber am meisten da, wo man am wenigsten erwartet hat, das weiß, glaube ich, ausser den Herren Gelehrten, niemand so gut, als der Jäger.",
+  "language": [],
+  "musenalm_id": 69653,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. / Schreiben an den Herausgeber, / die Justiz-Spürhunde betreffend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hr. Reg. Rath Bunsen zu Arolsen",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. / Schreiben an den Herausgeber, / die Justiz-Spürhunde betreffend",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "rascnsja7bxv9ts",
+      "agents": "d1cx5vxdeeve5kc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.417Z"
+    }
+  ]
+}

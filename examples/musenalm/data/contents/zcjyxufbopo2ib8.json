@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Die Braut von Messina« von Fr. Schiller",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.630Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 28414,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Beatrice Don Manuel / Beatrice - Du bists, Ich hab dich wieder --- / Die Braut von Messina von Schiller",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fried. Kaiser inv. et scul. Weimar 1804",
+  "scans": [
+    "alm_368_28414_oemo3le8sx.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Beatrice Don Manuel / Beatrice - Du bists, Ich hab dich wieder --- / Die Braut von Messina von Schiller",
+  "updated": "2002-10-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1805,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hvgvzhiwjvnoj1f",
+      "agents": "temkw600l59vchm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.116Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.116Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.890Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "98",
+  "incipit_statement": "Mit dir, unvergeßlicher Knabe, / Ging heilige Unschuld zu Grabe,",
+  "language": [],
+  "musenalm_id": 24284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Grabschrift auf O. L. / 6 Jahre alt",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ulrich Hegner",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Grabschrift auf O. L. / 6 Jahre alt",
+  "updated": "2002-06-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fl355030frlsndi",
+      "agents": "5xr1i06rwmguu38",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.031Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.031Z"
+    }
+  ]
+}

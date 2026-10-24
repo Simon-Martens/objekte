@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 2. /) s. Textbezug INr 21858, Obj 22",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "20",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21859,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Gattin",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki del. & sc. 1799",
+  "scans": [
+    "alm_296_21859_zoey6c3zrq.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Gattin",
+  "updated": "2002-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qph7kpe5wl1137h",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.024Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.024Z"
+    }
+  ]
+}

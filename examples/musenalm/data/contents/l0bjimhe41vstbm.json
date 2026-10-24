@@ -1,0 +1,43 @@
+{
+  "annotation": "<div>Widmungsgedicht</div>",
+  "content_type": [],
+  "created": "2026-09-15T09:00:11.234Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ein Armer bracht' vor einem Jahr / Euch seine schlichte Gabe dar,",
+  "language": [],
+  "musenalm_id": 140561,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ein Armer bracht' vor einem Jahr / Euch seine schlichte Gabe dar,",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "W. M.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-09-15T10:02:42.818Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "y9m87jlnedapje3",
+      "agents": "c1znfhi5uhuknon",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-09-15T10:02:42.269Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-09-15T10:02:42.819Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Musikbeigabe. s. INr 3040, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.611Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "30",
+  "incipit_statement": "Winzermütter, leert die Fässer! / Winzerväter, schärft die Messer!",
+  "language": [],
+  "musenalm_id": 3039,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Lied zur Weinlese 1783",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "T. B. Berger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Lied zur Weinlese 1783",
+  "updated": "2000-09-08T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1785,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7sg7a70le4stue5",
+      "agents": "lmhkzj71seuklka",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.970Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.970Z"
+    }
+  ]
+}

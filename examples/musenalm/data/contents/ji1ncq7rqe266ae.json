@@ -1,0 +1,45 @@
+{
+  "annotation": "Inschriften (Sammlung INr 5943, Obj 25)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.453Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "37",
+  "incipit_statement": "Heiß war dein Lebenstag, du Krieger: Thaten des Ruhmes, Größere Thaten des Wohls",
+  "language": [],
+  "musenalm_id": 5945,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 27,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Auf dem Sarge Georg Ludewigs, / Herzogs von Holstein Gottorp. / (Im Namen seines Sohns, des Bischofs / von Lübeck)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Voß",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Auf dem Sarge Georg Ludewigs, / Herzogs von Holstein Gottorp. / (Im Namen seines Sohns, des Bischofs / von Lübeck)",
+  "updated": "2000-10-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "97pfzzpez86lhkd",
+      "agents": "e9fuwd867vi6q65",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.267Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.267Z"
+    }
+  ]
+}

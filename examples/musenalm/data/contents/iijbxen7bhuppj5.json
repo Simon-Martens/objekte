@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Demetrius« von Fr. Schiller s. Textbezug INr 39904, Obj 20",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "50",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 39903,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 19,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Czarin schweigt? ruft die tobende Menge, Sie verläugnet ihn? So / stirb denn, Betrüger! - Und durchbohrt liegt der falsche Demetrius zu den / Füßen der Marfa. / Nach Schillers Skizze S. 368",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "H. Ramberg del. A. W. Böhm sc.",
+  "scans": [
+    "alm_522_39903_7ckc5be7hu.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Czarin schweigt? ruft die tobende Menge, Sie verläugnet ihn? So / stirb denn, Betrüger! - Und durchbohrt liegt der falsche Demetrius zu den / Füßen der Marfa. / Nach Schillers Skizze S. 368",
+  "updated": "2005-08-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1818,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3tom6463xtd5t8y",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.173Z"
+    },
+    {
+      "id": "659yupydl5gh2zg",
+      "agents": "5xfyxcom8t9257f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.173Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.173Z"
+    }
+  ]
+}

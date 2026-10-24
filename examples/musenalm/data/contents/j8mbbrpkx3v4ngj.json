@@ -1,0 +1,58 @@
+{
+  "annotation": "s. Textbezug INr 33158, Obj 9",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.829Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "32",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (Hartmann del. H. Lips sculp.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hartmann del. H. Lips sculp.",
+  "scans": [
+    "alm_461_33174_0fjahtbcxm.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2003-04-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xo7dq2i3awowphm",
+      "agents": "0khisp5x3ouhx44",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.701Z"
+    },
+    {
+      "id": "xcehgjpzuxlfu5r",
+      "agents": "rpaa721tugmmh0s",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.701Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.701Z"
+    }
+  ]
+}

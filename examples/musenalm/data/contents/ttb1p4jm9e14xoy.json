@@ -1,0 +1,45 @@
+{
+  "annotation": "Viertes Jahr (Sammlung INr 48699, Obj 46)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:02.563Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "72",
+  "incipit_statement": "Wann am Fenster, das vom Sturme klirrt, / Kaum ich's wage nach dem Hof verstohlen / Hinzulauschen,",
+  "language": [],
+  "musenalm_id": 48710,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 58,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Winterwonne",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmidt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Winterwonne",
+  "updated": "2007-02-06T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2j921cgng9wa6ud",
+      "agents": "crhcmocsovty64w",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.413Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.413Z"
+    }
+  ]
+}

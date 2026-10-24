@@ -1,0 +1,45 @@
+{
+  "annotation": "Die Spinnerin (Sammlung INr 40374, Obj 24)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:00.339Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Wir lustigen Mädchen, / Wir drehen das Fädchen / Gar flink und gewandt / Mit emsiger Hand,",
+  "language": [],
+  "musenalm_id": 40376,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Spinnstube",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Jean Pierre C. Grafen von Sermage",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Spinnstube",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "o143270b7ih84kx",
+      "agents": "nf6hcprj7w45n4m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.195Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.195Z"
+    }
+  ]
+}

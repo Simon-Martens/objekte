@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Stahlstiche in sieben Gedichten (Sammlung INr 64451, Obj 4) mit einer Illustration s. Graphik INr 64466, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.531Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Uns saß er viele Tage, / Saß viele Jahre lang, / Harrend ohne Schmerz und Klage / Bis das Fenster klang,",
+  "language": [],
+  "musenalm_id": 64459,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VII. Ritter Toggenburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schiller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VII. Ritter Toggenburg",
+  "updated": "2009-06-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1865,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ke0rg1s442109vl",
+      "agents": "z7x6qq4zgxumydc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.150Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.150Z"
+    }
+  ]
+}

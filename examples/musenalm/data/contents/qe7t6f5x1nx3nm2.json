@@ -1,0 +1,45 @@
+{
+  "annotation": "Hebels hochdeutsche Fassung des allem. Gedichts INr 16014, Obj 33",
+  "content_type": [],
+  "created": "2026-06-11T10:17:42.901Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Willkomm, willkomm! Schon wieder da, / Und schon den falben Bergen nah,",
+  "language": [],
+  "musenalm_id": 208,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 92,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "DER ABENDSTERN",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hebel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "DER ABENDSTERN",
+  "updated": "2001-06-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a672caspsyqw1n4",
+      "agents": "u04oy46tu9dlk6x",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.001Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.001Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Illustration zu »Allzu eifrig« von Gathy (INr 124280, Obj 12); # Pseudonym",
+  "content_type": [],
+  "created": "2026-06-11T10:18:48.970Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 124272,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "(Nagel.) Kommen Sie mit zum Notar und / hängen Sie sich an den Nagel. / (All zu eifrig.) (Letzte Scene)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Lyser dell.",
+  "scans": [
+    "alm_1301_124272_zc1up3g96g.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "(Nagel.) Kommen Sie mit zum Notar und / hängen Sie sich an den Nagel. / (All zu eifrig.) (Letzte Scene)",
+  "updated": "2010-01-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5c02dfymc7wb9pa",
+      "agents": "4u8ho959cgz0cdc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.859Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.859Z"
+    }
+  ]
+}

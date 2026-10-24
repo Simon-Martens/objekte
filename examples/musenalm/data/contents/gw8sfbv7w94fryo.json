@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.828Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "194",
+  "incipit_statement": "Ein Elfe leicht und schön war ich, / Und fröhlich wie die Luft: / Zwey blaue Flügel trugen mich",
+  "language": [],
+  "musenalm_id": 14701,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Glühwürmchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Baron Franz von Schlechta",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Glühwürmchen",
+  "updated": "2001-05-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "c4jjypdcqa5v6r7",
+      "agents": "x1uz1klk4dlr9er",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.538Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.538Z"
+    }
+  ]
+}

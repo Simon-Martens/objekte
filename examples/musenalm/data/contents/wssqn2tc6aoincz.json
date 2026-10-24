@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert 178 /) # Bezeichnung vom Titel s. Textbezug INr 18677, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.107Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "178",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 9136,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kray an Marceaus SterbeBette. / (20 Sept.)",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Küffner",
+  "scans": [
+    "alm_195_9136_dfmwzfz8ws.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kray an Marceaus SterbeBette. / (20 Sept.)",
+  "updated": "2001-01-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0xc3jpofhu908pp",
+      "agents": "ro7bj2n3atpgubn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.393Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.393Z"
+    }
+  ]
+}

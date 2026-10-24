@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Wiegenlied für die Frau Capellmeisterin Naumann« INr 11451, Obj 132",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.653Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "310",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 11452,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 131,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Musikbeigabe (Himmel)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Himmel",
+  "scans": [
+    "alm_207_11452_9g3tz1m2sj.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2001-02-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "a2p201dfsux4f08",
+      "agents": "4aev8zh8ffifhaz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.515Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.515Z"
+    }
+  ]
+}

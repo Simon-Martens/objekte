@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.948Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "140",
+  "incipit_statement": "Umsonst, o Freund! um mir des süßen Danks / Gerechten Zoll zu sparen, hüllst Du Dich",
+  "language": [],
+  "musenalm_id": 23900,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 61,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Unmütter. / Eine Epistel / an / Gottfried von Ammann / in Augsburg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schaller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Unmütter. / Eine Epistel / an / Gottfried von Ammann / in Augsburg",
+  "updated": "2002-05-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ud3qz5656y5aa9o",
+      "agents": "76znd1aywy8qgx0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.194Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.194Z"
+    }
+  ]
+}

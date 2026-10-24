@@ -1,0 +1,45 @@
+{
+  "annotation": "# Autor lt. I-Verz: Friedr. v. Heyden",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.165Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "438",
+  "incipit_statement": "Komm, Brüder, zum Rheine! / Noch sitzet der Alte, / Und hält sich verborgen / Am dunkeln Gesteine",
+  "language": [],
+  "musenalm_id": 26569,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 98,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die deutschen Krieger und der Vater Rhein. / In der Neujahrsnacht 1814",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Friedr. Horn",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die deutschen Krieger und der Vater Rhein. / In der Neujahrsnacht 1814",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3hit6ocoh6ie1gb",
+      "agents": "y4sojkg698u6ihg",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.951Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.951Z"
+    }
+  ]
+}

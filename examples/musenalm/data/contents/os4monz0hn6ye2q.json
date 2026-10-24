@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:51.260Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "31",
+  "incipit_statement": "Ein Ehmann kam beym Spiel dem Licht zu nah: / Flugs stand sein Kakadu in hellen Flammen da.",
+  "language": [],
+  "musenalm_id": 128855,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 40,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der feine Geruch",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Richter",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der feine Geruch",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e9zw8ar5qhyoxpt",
+      "agents": "vnh3lwvt81shntt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.988Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.988Z"
+    }
+  ]
+}

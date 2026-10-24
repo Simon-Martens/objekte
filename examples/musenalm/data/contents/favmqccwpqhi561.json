@@ -1,0 +1,45 @@
+{
+  "annotation": "Herbstblumen (Sammlung INr 118816, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:44.561Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "110",
+  "incipit_statement": "Es ist eine weit größere Kunst, Wahrheit Andern zu verkünden, als sie von Andern anzuhören.",
+  "language": [],
+  "musenalm_id": 118824,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 22,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es ist eine weit größere Kunst, Wahrheit Andern zu verkünden, als sie von Andern anzuhören.…",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ph. Millauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2017-06-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5zx90xb7lt4zsjk",
+      "agents": "y5noma4e54pxjw8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.594Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.594Z"
+    }
+  ]
+}

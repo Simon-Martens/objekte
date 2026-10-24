@@ -1,0 +1,45 @@
+{
+  "annotation": "Einleitung zum Gedicht INr 18549, Obj 4,01",
+  "content_type": [],
+  "created": "2026-06-11T10:17:40.791Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "Pausias von Sicyon der Mahler, war, als Jüngling, in Glyceren, seine Mitbürgerin verliebt (...) / Plinius B. XXXV. C. XI.",
+  "language": [],
+  "musenalm_id": 284,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der neue Pausias / und / Sein Blumenmädchen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "GOETHE",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der neue Pausias / und / Sein Blumenmädchen",
+  "updated": "2000-07-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "33xub58ncog41fs",
+      "agents": "1rzr5ghkrk52eb2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.667Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.667Z"
+    }
+  ]
+}

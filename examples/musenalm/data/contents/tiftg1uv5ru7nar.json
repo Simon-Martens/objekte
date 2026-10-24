@@ -1,0 +1,56 @@
+{
+  "annotation": "paginiert 3. /) s. Textbezug INr 27456, Obj 7",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.979Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 27457,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik (C. Stürmer del. A. Weber sc.)]",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Stürmer del. A. Weber sc.",
+  "scans": [
+    "alm_353_27457_l8b1aohwmb.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2002-08-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "pfmmits667lxa2u",
+      "agents": "6bm0o5ohkrr9ip0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.042Z"
+    },
+    {
+      "id": "v2wsfwfozz371lu",
+      "agents": "g7nwy8gxkm3sfp2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.042Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.042Z"
+    }
+  ]
+}

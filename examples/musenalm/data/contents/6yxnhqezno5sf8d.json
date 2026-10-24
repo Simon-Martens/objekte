@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Ruth. Gedicht in vier Gesängen« von Karl Streckfuß INr 59379, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "132",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 59380,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Es ist mit alles verkündet, / Was du gutes gethan an deiner Schwieger Naemi",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "L. Wolf inv. fec. Fr. Wi. Meyer sen. sc.",
+  "scans": [
+    "alm_894_59380_bm4nyknqni.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Es ist mit alles verkündet, / Was du gutes gethan an deiner Schwieger Naemi",
+  "updated": "2008-08-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1824,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "3gozjc8exbcovwq",
+      "agents": "o59s6jd1d24jajk",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.019Z"
+    },
+    {
+      "id": "y9e9x2wd93zwx8h",
+      "agents": "u1e1ebqdfclrxya",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.019Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.019Z"
+    }
+  ]
+}

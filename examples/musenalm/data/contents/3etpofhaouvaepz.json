@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:43.658Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Vergebens such' ich, Gott der Leier! / Zu diese Festes beßrer Feier,",
+  "language": [],
+  "musenalm_id": 6488,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 49,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der achzehnte Mai. / 1792",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. A. Ebert",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der achzehnte Mai. / 1792",
+  "updated": "2000-11-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mh1nbdj4irerlla",
+      "agents": "6bfutz0x9ote9sz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.125Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.125Z"
+    }
+  ]
+}

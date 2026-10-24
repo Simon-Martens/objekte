@@ -1,0 +1,45 @@
+{
+  "annotation": "mit einer Illustration s. Graphik INr 68704, Obj 12",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.393Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "87",
+  "incipit_statement": "Warte ein wenig, liebe Marie, sagte der Vater; Sophie'n wird die Zeit indessen im Garten nicht lang werden.",
+  "language": [],
+  "musenalm_id": 68703,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "3. / Marie und Wilhelm",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. W. K. Starke",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "3. / Marie und Wilhelm",
+  "updated": "2006-09-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "sk3ikgh9gnznf5z",
+      "agents": "lw3uqo50dp1mpif",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.447Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.447Z"
+    }
+  ]
+}

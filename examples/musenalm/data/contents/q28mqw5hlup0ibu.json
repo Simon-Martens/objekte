@@ -1,0 +1,45 @@
+{
+  "annotation": "s. Textbezug INr 41226, Obj 6",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.276Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 41245,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Karte"
+  ],
+  "numbering": 25,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Küsten-Länder / von / Ober- u. Nieder-Guinea",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gründling sc.",
+  "scans": [
+    "alm_538_41245_5mdbzjn1g5.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Die Küsten-Länder / von / Ober- u. Nieder-Guinea",
+  "updated": "2005-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1802,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b1ubvyjggu2f1ve",
+      "agents": "ebwakyru5wp8wvq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.719Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.719Z"
+    }
+  ]
+}

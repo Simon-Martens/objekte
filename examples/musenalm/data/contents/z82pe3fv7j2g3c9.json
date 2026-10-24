@@ -1,0 +1,47 @@
+{
+  "annotation": "<div>&nbsp;# Bez. an der Titelgraphik; über der Graphik S. 22</div>",
+  "content_type": [],
+  "created": "2026-10-14T09:39:47.632Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "60",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 140717,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[Graphik] Unterzeichnet: F. Jügel sc. #",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "F. Jügel sc. #",
+  "scans": [
+    "alm_5003_140717_wtsy18iznh.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "",
+  "updated": "2026-10-14T10:29:33.949Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "gpj6tpa1lmk3vpy",
+  "contributors": [
+    {
+      "id": "j7lzd5ptngon2fu",
+      "agents": "flivu8hnh9tq1va",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-10-14T09:45:45.674Z",
+      "edit_comment": "",
+      "type": "Kupferstecher:in",
+      "uncertain": false,
+      "updated": "2026-10-14T10:29:33.948Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Fabeln von Lafontaine. / Fables de Lafontaine (Sammlung INr 96717, Obj 16) Übersetzung des nachstehenden franz. Gedichts INr 96719, Obj 18 /) mit 2  Illustrationen s. Graphiken im Kalendarium INr 96705, 96706; Obj 4, 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.425Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "2",
+  "incipit_statement": "Was? Erdensorgen sollten / noch / Mich quälen? Nein, Ade du / böse / Verruchte Welt!",
+  "language": [],
+  "musenalm_id": 96718,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 17,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Die Maus als Einsiedler",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "La Fontaine [übers. unbezeichnet]",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Die Maus als Einsiedler",
+  "updated": "2014-05-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1811,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5z0bkewj9qgmxtu",
+      "agents": "3i4im09snt5w2js",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.690Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.690Z"
+    }
+  ]
+}

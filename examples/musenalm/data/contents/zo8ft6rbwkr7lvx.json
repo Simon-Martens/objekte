@@ -1,0 +1,45 @@
+{
+  "annotation": "X. Agrionien für das Jahr 1828. gesammelt von Th. Hell (Sammlung INr 40837, Obj 41)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.850Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "446",
+  "incipit_statement": "Auf mein Erstes stellen Theologen / Rechtsgelehrt' und Aerzte dieser Zeit,",
+  "language": [],
+  "musenalm_id": 40853,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 57,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "16. / Sylbenräthsel. / Zwei Sylben",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schink",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "16. / Sylbenräthsel. / Zwei Sylben",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7abeswd9dc7v2hm",
+      "agents": "scmt2snhwdglbs9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.941Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 37 /) mit Anmerkungen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.267Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "Kömmt diese Dedikation, / Durch Schiffer, Peter Jog von Bremen, / Nach Wunsch, vor Euer Hoheit Thron,",
+  "language": [],
+  "musenalm_id": 63018,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An den König von Siam, / bei Uebersendung der Werke des / Verf.",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "-tt-",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An den König von Siam, / bei Uebersendung der Werke des / Verf.",
+  "updated": "2000-10-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1780,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dn9djyobgmms22j",
+      "agents": "1miqgfh3e5edmw6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.059Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.059Z"
+    }
+  ]
+}

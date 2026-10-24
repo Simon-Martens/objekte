@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 11 Gedichten INr 100642-100652, Obj 305-315",
+  "content_type": [],
+  "created": "2026-06-11T10:18:32.996Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "397",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 100641,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 304,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "III. Balladen, Sagen und Romanzen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Christian Schad",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "III. Balladen, Sagen und Romanzen",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1858,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ba0c308kp27n33e",
+      "agents": "ozbm86woe020u89",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.832Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.832Z"
+    }
+  ]
+}

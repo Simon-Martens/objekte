@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 113388, Obj 14)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:43.816Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "89",
+  "incipit_statement": "Vom Himmel sinkt der Frühling nieder, / Weckt aus dem Schlummer die Natur,",
+  "language": [],
+  "musenalm_id": 113398,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 24,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epilog, / gesprochen am Schlusse eines Gesellschafts- / Theaters",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Johann Langer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epilog, / gesprochen am Schlusse eines Gesellschafts- / Theaters",
+  "updated": "2010-02-15T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "j93u4tqfehkupxa",
+      "agents": "nz03xhzpzbg7xlq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.548Z"
+    }
+  ]
+}

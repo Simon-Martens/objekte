@@ -1,0 +1,58 @@
+{
+  "annotation": "zus. Bez.: Pub. by Ackermann London 1828 /) s. Textbezug INr 34426, Obj 10",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.989Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "10",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 34426,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 9,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "BRIDAL MORNING",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. Stepanoff delt. E. Finden sculpt.",
+  "scans": [
+    "alm_478_34426_ek386ipi3u.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "BRIDAL MORNING",
+  "updated": "2003-05-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1828,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xpnd8ykxz0vhhz5",
+      "agents": "6pt03l90qpia7vf",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.718Z"
+    },
+    {
+      "id": "jly9mhu3uzwqwld",
+      "agents": "n0s2frkyl2br3jb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.718Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.718Z"
+    }
+  ]
+}

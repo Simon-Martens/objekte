@@ -1,0 +1,45 @@
+{
+  "annotation": "IV. Elegien (INr 93525, Obj 34)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.038Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "147",
+  "incipit_statement": "Wenn dir das Schicksal schon am Mutterherzen / Feindselig und ergrimmt zur Seite stand,",
+  "language": [],
+  "musenalm_id": 93533,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Schicksal",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "K. A. Schneider",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Schicksal",
+  "updated": "2010-02-11T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "5jk0kvqfdynpt1u",
+      "agents": "p0usds5em1danm0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.460Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.460Z"
+    }
+  ]
+}

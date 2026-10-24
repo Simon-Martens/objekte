@@ -1,0 +1,43 @@
+{
+  "annotation": "Der Sängerin Tonleiter in acht Bildern (Sammlung INr 30259, Obj 4) s. Graphik INr 30268, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:17:55.840Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Ach! wie so gänzlich anders hat sich das Blatt gewendet! / Ist denn der Traum, der schöne, so plötzlich schon geendet?",
+  "language": [],
+  "musenalm_id": 30269,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "5. / Die Krankheit",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Theodor Hell",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "5. / Die Krankheit",
+  "updated": "2002-11-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "m3bcrs0vsrdspwf",
+      "agents": "xf5qiko3g7u0aeu",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.563Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.563Z"
+    }
+  ]
+}

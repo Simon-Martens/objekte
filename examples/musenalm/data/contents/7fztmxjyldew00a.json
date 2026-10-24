@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:17.427Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "191",
+  "incipit_statement": "In diesen heil'gen Hallen / Kennt man die Rache nicht! / Und ist ein Mensch gefallen, / Führt Liebe ihn zur Pflicht.",
+  "language": [],
+  "musenalm_id": 72061,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 137,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Hallen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Reinbeck",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Hallen",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1808,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bes94kx11kx6i61",
+      "agents": "j6u4xe56jqv8urn",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.522Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.522Z"
+    }
+  ]
+}

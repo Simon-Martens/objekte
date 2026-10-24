@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelgraphik /) 10 Portraitmedaillons um Leier mit Lorbeerkranz /) s. Textbezug mit Tabelle der Lebensdaten INr 95923, Obj 4",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.833Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 95921,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "SHAKESPEARE / DANTE / MILTON / PETRARCA / CERVANTES / CALDERON / LESSING / HOELTY / ERNST SCHULZE / CAMOENS",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "S. de Perger del. 1825. G. Kotterba sculp.",
+  "scans": [
+    "alm_4091_95921_hat73fpz3b.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "SHAKESPEARE / DANTE / MILTON / PETRARCA / CERVANTES / CALDERON / LESSING / HOELTY / ERNST SCHULZE / CAMOENS",
+  "updated": "2014-02-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1827,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cc9yp3euyr0tb4u",
+      "agents": "p5mavct50g7b89r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.607Z"
+    },
+    {
+      "id": "7nfjwwcj4bzzhu6",
+      "agents": "7gvrwgge5t8klb1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.607Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.607Z"
+    }
+  ]
+}

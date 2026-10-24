@@ -1,0 +1,46 @@
+{
+  "annotation": "Dem Text vorangestellt: S'ist Simon und Judä, / Da ras't der See und will sein Opfer haben. / Schiller im Tell /) mit beigegebenem Gedicht INr 65336, Obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.770Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "251",
+  "incipit_statement": "Es war einer jener schönen Sommerabende, wo das Glück, allein zu sein, Herz und Gedanken aus dem wüsten Treiben der Erwerbshaftigkeit gerettet zu haben, die Seligkeit wieder einmal mir selbst anzugehören und als Wesen meiner Art athmen und sinnen",
+  "language": [],
+  "musenalm_id": 65335,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa",
+    "Gedicht/Lied"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Die Leiden eines Modernen. / Skizze aus dem Leben.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "And. Schumacher",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Die Leiden eines Modernen. / Skizze aus dem Leben.",
+  "updated": "2009-07-23T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1843,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "b5ggxei7g9j4049",
+      "agents": "w54qzevkgviemdi",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.530Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.530Z"
+    }
+  ]
+}

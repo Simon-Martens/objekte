@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:31.988Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "100",
+  "incipit_statement": "Sind wir doch Adams Kinder all, / Wie Moses unsd beschrieben.",
+  "language": [],
+  "musenalm_id": 96523,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der / Unterschied. / Nach dem Altfranzösischen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "von Halem",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der / Unterschied. / Nach dem Altfranzösischen",
+  "updated": "2014-04-24T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1810,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "upvt4gu5qh37yby",
+      "agents": "v5ht3d6rw3do6ml",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.738Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.738Z"
+    }
+  ]
+}

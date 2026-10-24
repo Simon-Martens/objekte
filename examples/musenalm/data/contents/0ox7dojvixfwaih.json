@@ -1,0 +1,47 @@
+{
+  "annotation": "Tänze mit Musik Contredanses, Quadrille, Cotillon und Ecossaise, welche bei Hofe getanzt werden nebst Musik zu einem neuen Walzer herausgegeben von Herrn Lauchery Königl. Balletmeister und Solo-Tänzer in Berlin (Sammlung INr 20421, Obj 88)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.671Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "40",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 20441,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "graph. Tanzanleitung"
+  ],
+  "numbering": 108,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ecossaise",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauchery",
+  "scans": [
+    "alm_272_20441_id0ck9cc3z.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ecossaise",
+  "updated": "2001-12-17T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1823,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hvyfjx0ieebg8bd",
+      "agents": "czigb25jnrfsy98",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.007Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.007Z"
+    }
+  ]
+}

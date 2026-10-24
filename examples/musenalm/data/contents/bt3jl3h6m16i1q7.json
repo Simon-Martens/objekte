@@ -1,0 +1,56 @@
+{
+  "annotation": "Einige Satyren und Episteln des Horaz. Im Versmaaß der Urschrift (Sammlung INr 91743, Obj 12) mit Erläuterungen s. INr 91748, Obj 17",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.516Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "143",
+  "incipit_statement": "Nichts anstaunen, daß ist, o Numinicus, nahe das / erste, / Einzige Gut, das beglücken uns kann und glücklich erhal- / ten.",
+  "language": [],
+  "musenalm_id": 91747,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sechste Epistel / des ersten Buchs. / An Numicius",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Horaz [übers.] Neuffer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sechste Epistel / des ersten Buchs. / An Numicius",
+  "updated": "2010-02-19T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "lwhtokfj8u856ir",
+      "agents": "ogosxb6kwkoek7l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.295Z"
+    },
+    {
+      "id": "o2hakomi72sj1ru",
+      "agents": "uimoj64mrnawl5d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.295Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.295Z"
+    }
+  ]
+}

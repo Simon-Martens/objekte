@@ -1,0 +1,45 @@
+{
+  "annotation": "Zwischentitel. Es folgt: Sammlung von 16 Musikbeigaben INr12638-12853, Obj 161-176",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.992Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "1",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12637,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Titel"
+  ],
+  "numbering": 160,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Tänze fürs Klavier / 2 Menuetten, / 2 Quadrillen, / 6 Angloisen und / 6 Walzer / von Vinzenz Mascheck. / 1806",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Tänze fürs Klavier / 2 Menuetten, / 2 Quadrillen, / 6 Angloisen und / 6 Walzer / von Vinzenz Mascheck. / 1806",
+  "updated": "2001-03-21T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mwcq85f7jsguv1k",
+      "agents": "f5hnxd5mx1nzaii",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.560Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.560Z"
+    }
+  ]
+}

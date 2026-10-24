@@ -1,0 +1,45 @@
+{
+  "annotation": "Charaden und Räthsel (Sammlung INr 133786, Obj 73)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:53.685Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "207",
+  "incipit_statement": "In einer verborgenen Klause / Im engsten Kämmerlein, / Dort ist ein Jüngling zu Hause,",
+  "language": [],
+  "musenalm_id": 133787,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Rätsel"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Räthsel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. J. Keller",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. Räthsel",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1817,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xogrx6grdwp6k4q",
+      "agents": "t0ac1fy2s8750zm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.120Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.120Z"
+    }
+  ]
+}

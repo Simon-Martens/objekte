@@ -1,0 +1,43 @@
+{
+  "annotation": "mit 2 graph. Strickanleitungen INr 76470, 76471; Obj 27, 28",
+  "content_type": [],
+  "created": "2026-06-11T10:18:23.146Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "Folgende neue Dessins werden den Liebhaberinnen dieser angenehmen und nützlichen Beschäftigung willkommen seyn:",
+  "language": [],
+  "musenalm_id": 76469,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Das Stricken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "J. F. Netto",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Das Stricken",
+  "updated": "2011-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "853vylzwbkd9lkr",
+      "agents": "yc646lrifh4tem5",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.909Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.909Z"
+    }
+  ]
+}

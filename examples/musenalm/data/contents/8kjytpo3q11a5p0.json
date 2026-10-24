@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Drittes Jahrhundert der Kirchengeschichte« INr 127528, Obj 3 /) nummeriert 44",
+  "content_type": [],
+  "created": "2026-06-11T10:18:50.287Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "96",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 127536,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. Antonius Abbas",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Monsorno inv. Weinrauch sc.",
+  "scans": [
+    "alm_4771_127536_30eh2835rt.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. Antonius Abbas",
+  "updated": "2021-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "nms9bzm65r6b31l",
+      "agents": "h37i7hdd1a10o2d",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.944Z"
+    },
+    {
+      "id": "3tnpzq069hfey0i",
+      "agents": "nhcnwrqiq042uja",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.944Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.944Z"
+    }
+  ]
+}

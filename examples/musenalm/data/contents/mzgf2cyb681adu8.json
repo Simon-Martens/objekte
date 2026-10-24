@@ -1,0 +1,45 @@
+{
+  "annotation": "Epigrammatische Spiele (Sammlung INr 65436, Obj 4)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:12.240Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "16",
+  "incipit_statement": "Ach, ich weiß es, der Männer Jugendblüthe / Wirbt um dich mit erneuten Liebeszeichen,",
+  "language": [],
+  "musenalm_id": 65450,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 18,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "14.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. M. Winterling",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "14.",
+  "updated": "2009-07-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1838,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "obe2ui8b0oqbuu1",
+      "agents": "e0tovmmp7jpcteo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.131Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.131Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte (Sammlung INr 57731, Obj 27)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.758Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "Einst Sanct Johannes aus der Wüste / Zum Jordan, um zu taufen ging,",
+  "language": [],
+  "musenalm_id": 57736,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "[St. Johannistag. An Dora.] 3.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ludwig Storch",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "[St. Johannistag. An Dora.] 3.",
+  "updated": "2008-06-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "0xtu5pwjt58tmee",
+      "agents": "n05stp52kkm5on3",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.791Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.791Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "Illustration zu »Dritter mahlerischer Streifzug nach Kalksburg, Schönbrunn, Hütteldorf und Dornbach« INr 92704, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:29.336Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "180",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 92707,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 8,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sommerhaus im Park der Fürstin Paar",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Loder del. Blaschke sc.",
+  "scans": [
+    "alm_4023_92707_5pvbj8xv0w.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Sommerhaus im Park der Fürstin Paar",
+  "updated": "2013-09-09T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "e8dhkx4hiixnbt5",
+      "agents": "5m3k81xtringcag",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.379Z"
+    },
+    {
+      "id": "22hn1v13hpnw2i3",
+      "agents": "puogqgth9l8pofw",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.379Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.379Z"
+    }
+  ]
+}

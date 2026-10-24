@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:44.535Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "119",
+  "incipit_statement": "Was zürnst du noch mit dem Geschick, / Um den Verlust des frommen Knaben!",
+  "language": [],
+  "musenalm_id": 8734,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 14,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An einen bösen Vater über den Tod seines / fommen Sohnes",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Hensler der j.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An einen bösen Vater über den Tod seines / fommen Sohnes",
+  "updated": "2001-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1776,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "wwenegvt75hx1tt",
+      "agents": "60dpq63kk6xup5g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.274Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.274Z"
+    }
+  ]
+}

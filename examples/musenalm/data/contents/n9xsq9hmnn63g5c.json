@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.225Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "78",
+  "incipit_statement": "In grünlicher Welle, / Mit spiegelnder Helle, / Stark, männlich und frei",
+  "language": [],
+  "musenalm_id": 21364,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 42,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Badelied. / Kl. Tüb. 1780",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Bührer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Badelied. / Kl. Tüb. 1780",
+  "updated": "2002-01-31T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1782,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hjedjopei7dmpr9",
+      "agents": "utsrdm6m0s2in9m",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.849Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.849Z"
+    }
+  ]
+}

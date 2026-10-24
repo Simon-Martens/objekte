@@ -1,0 +1,45 @@
+{
+  "annotation": "Auszüge aus Briefen (Sammlung INr 56231, Obj 79)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:05.270Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Es schließt sich schon von selbst, daß in diesem, meinem Endimion starke Kontraste vorkommen müssen.",
+  "language": [],
+  "musenalm_id": 56232,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 80,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. / Carlsruhe den 24. Aug. 1774",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schmittbaur",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1. / Carlsruhe den 24. Aug. 1774",
+  "updated": "2008-03-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dhhk3rpzwxi2vn2",
+      "agents": "b46jfbgxw32mfow",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.630Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.630Z"
+    }
+  ]
+}

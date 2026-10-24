@@ -1,0 +1,45 @@
+{
+  "annotation": "II. Theaterreden (Sammlung INr 104861, Obj 14) Gedichte (Sammlung INr 104859, Obj 12)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.150Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "26",
+  "incipit_statement": "Wenn Melpomenens Zauberkraft / Im Sturm und Drang der Leidenschaft / Das Haar empört, und unser Herz erschüttert;",
+  "language": [],
+  "musenalm_id": 104867,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Epilog. / Nach der Aufführung des Edelknabe- / ben von Engel, am Geburtstage, Sr./ Durchlaucht, des regierenden Herzogs von / Oldenburg, gesprochen zu Oldenburg / 1778. von Mad. Henschel",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gramberg",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Epilog. / Nach der Aufführung des Edelknabe- / ben von Engel, am Geburtstage, Sr./ Durchlaucht, des regierenden Herzogs von / Oldenburg, gesprochen zu Oldenburg / 1778. von Mad. Henschel",
+  "updated": "2010-03-05T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1781,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "r2fkx1vaat88gw2",
+      "agents": "jn3l1dg6imwx04v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.199Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.199Z"
+    }
+  ]
+}

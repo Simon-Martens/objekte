@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung fehlt an 4 Grafiken der Suite /) Graphik im Kalendarium paginiert 8",
+  "content_type": [],
+  "created": "2026-06-11T10:17:46.292Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 7390,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 29,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "O Kenntest du das Glück das ich dir Zugedacht / Du kleiner Flüchtling du! / Gewiß du eiltest selbst nach Doris Zu, / Und würdest dann von ihr geküßet u: bewacht",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [
+    "alm_148_7390_fl1b4yy1h9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "O Kenntest du das Glück das ich dir Zugedacht / Du kleiner Flüchtling du! / Gewiß du eiltest selbst nach Doris Zu, / Und würdest dann von ihr geküßet u: bewacht",
+  "updated": "2000-11-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1777,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ydnspirwkkinlbo",
+      "agents": "83bgj21cr6rcy33",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.407Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.407Z"
+    }
+  ]
+}

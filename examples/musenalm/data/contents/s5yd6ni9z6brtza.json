@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:49.514Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "157",
+  "incipit_statement": "Nimmer ruht es in dem Innern, / Und in tausend herben Streiten",
+  "language": [],
+  "musenalm_id": 26924,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 173,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Sehnsuchtsweh",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Karl Breidenstein",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Sehnsuchtsweh",
+  "updated": "2002-07-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p55lcxvnjqm2du4",
+      "agents": "gp8p8te9t0lfqlc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.770Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.770Z"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:18:45.866Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 121445,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "MARIA AMALIA / Verwittibte Herzogin / von / Zweibrücken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Lauer pinx. 1795 Karcher sculp.",
+  "scans": [
+    "alm_4605_121445_qe4fbdl49a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "MARIA AMALIA / Verwittibte Herzogin / von / Zweibrücken",
+  "updated": "2018-11-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1797,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1ird6n71um3jc8l",
+      "agents": "revdppcf2mlrn9v",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.682Z"
+    },
+    {
+      "id": "b4681rvxobo4uq6",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.682Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.682Z"
+    }
+  ]
+}

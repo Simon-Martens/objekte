@@ -1,0 +1,58 @@
+{
+  "annotation": "Zweite Ausstellung von Scenen aus dem italienischen Volksleben (Sammlung INr 77536, Obj 9) s. Textbezug (Gedicht) INr 77541, Obj 14",
+  "content_type": [],
+  "created": "2026-06-11T10:18:20.366Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "12",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 77540,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 13,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "ROEMISCHE BRUNNENSCENE",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Toermer del. Wagner sc.",
+  "scans": [
+    "alm_2407_77540_ph4fvp2zqp.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "ROEMISCHE BRUNNENSCENE",
+  "updated": "2010-02-02T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1836,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "fjowbujoqdhqdrh",
+      "agents": "j8muurnc8i80bf2",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.732Z"
+    },
+    {
+      "id": "ui6qgjavu9cxny6",
+      "agents": "zcahh3ez21pnltp",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.732Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.732Z"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "annotation": "mit zahlreichen Einträgen",
+  "content_type": [],
+  "created": "2026-06-11T10:18:30.396Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "198",
+  "incipit_statement": "So wenig, Wien und seine vortrefflichen Komponisten betrachtet, in der Theatermusik geschah, so viel wurde doch sonst in dieser Kunst geleistet,",
+  "language": [],
+  "musenalm_id": 91066,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Musik",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schwaldopler",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Musik",
+  "updated": "2013-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "kgswuur236x0xwq",
+      "agents": "lgm7bery1pehuzm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.508Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.508Z"
+    }
+  ]
+}

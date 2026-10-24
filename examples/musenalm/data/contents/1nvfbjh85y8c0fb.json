@@ -1,0 +1,45 @@
+{
+  "annotation": "Wiederabdruck in: Taschenbuch von der Donau; Alm-2875, INr 91651. Dort vorangestellt die 3 Sonnette von K. Ph. Conz auf die sich Reinhards Gedicht bezieht",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.129Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "273",
+  "incipit_statement": "Die alten Tage hast du mir gesungen, / Das Band der Herzen und den Bund der Lieder.",
+  "language": [],
+  "musenalm_id": 33494,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 48,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An C.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Reinhardt",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An C.",
+  "updated": "2003-04-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1809,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "082xga143b42cs1",
+      "agents": "wdbc0arxqqntge1",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.612Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.612Z"
+    }
+  ]
+}

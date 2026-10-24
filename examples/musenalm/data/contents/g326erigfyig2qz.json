@@ -1,0 +1,45 @@
+{
+  "annotation": "Titelportrait",
+  "content_type": [],
+  "created": "2026-06-11T10:17:50.700Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 21021,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "AMALIA / Kaiserin von Brasilien / geb. Prinzessin von Leuchtenberg",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Fleischmann",
+  "scans": [
+    "alm_280_21021_qcn3tnlrh7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "AMALIA / Kaiserin von Brasilien / geb. Prinzessin von Leuchtenberg",
+  "updated": "2002-01-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1831,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dan8jfai0nwhyl8",
+      "agents": "t4jzdbiq2oijmzh",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.903Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.903Z"
+    }
+  ]
+}

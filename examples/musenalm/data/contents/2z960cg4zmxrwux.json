@@ -1,0 +1,45 @@
+{
+  "annotation": "kol. Modekupfer",
+  "content_type": [],
+  "created": "2026-06-11T10:18:38.418Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 107757,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 16,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Habillemens étrangers. / 1. Würtembergeois. 2. Tyrolois. 3. Suisse / 4. Dantzigois",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "D. Chodowiecki",
+  "scans": [
+    "alm_2161_107757_ehe15zwt7s.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Habillemens étrangers. / 1. Würtembergeois. 2. Tyrolois. 3. Suisse / 4. Dantzigois",
+  "updated": "2010-01-26T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1783,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "dt9ka64ievdx756",
+      "agents": "frgalfp04iv5xmo",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.212Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.212Z"
+    }
+  ]
+}

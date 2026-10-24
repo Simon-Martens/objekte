@@ -1,0 +1,45 @@
+{
+  "annotation": "Kurzdarstellung: lediglich Incipit des ersten Beitrags der Sammlung",
+  "content_type": [],
+  "created": "2026-06-11T10:18:10.458Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "57",
+  "incipit_statement": "Lavater, in seiner schönen Rede, die man im vorjährigen Almanach ablesen kann, sagt bey Erwähnung dieser Auftritte des Entsetzens und Abscheues im republikanischen Frankreiche, eine sehr große und traurige Wahrheit: Der Mensch gewöhnt sich an Alles.",
+  "language": [],
+  "musenalm_id": 60013,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 12,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Einige, wenig bekannte, Züge und / Aufschlüsse, die blutige Geschichte der / August- September-Tage, des / Jahres 1792 betreffend",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Einige, wenig bekannte, Züge und / Aufschlüsse, die blutige Geschichte der / August- September-Tage, des / Jahres 1792 betreffend",
+  "updated": "2008-09-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1795,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "1xypkgjy7l0khbi",
+      "agents": "wrhrh5ct20xv6c8",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.002Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.002Z"
+    }
+  ]
+}

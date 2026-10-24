@@ -1,0 +1,45 @@
+{
+  "annotation": "# s. Re 28",
+  "content_type": [],
+  "created": "2026-06-11T10:17:41.326Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "73",
+  "incipit_statement": "Der Ritter Krebs gab seinem Sohn / Einst im Marschiren Lection.",
+  "language": [],
+  "musenalm_id": 3791,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 23,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Der Krebs und sein Sohn. / Fabel nach Burcard Waldis",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Xz.",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Der Krebs und sein Sohn. / Fabel nach Burcard Waldis",
+  "updated": "2000-09-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1793,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "eas7roplhsn80qw",
+      "agents": "sb9nj6iyuwz4ari",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:56.724Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:56.724Z"
+    }
+  ]
+}

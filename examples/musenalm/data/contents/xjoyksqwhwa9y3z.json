@@ -1,0 +1,45 @@
+{
+  "annotation": "II. (Sammlung INr 25449, Obj 224) Gedichte (Sammlung INr 25438, Obj 209)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:52.158Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "309",
+  "incipit_statement": "Wenn euch weh ist, sagt, was strecket / Sehnend ihr zu mir die Hand?",
+  "language": [],
+  "musenalm_id": 25450,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 225,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "(Spricht der Mond)",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Wilhelm Wackernagel",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "(Spricht der Mond)",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1837,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "2wnfy1om99t4m4a",
+      "agents": "ana89fnya97gfjz",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.061Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.061Z"
+    }
+  ]
+}

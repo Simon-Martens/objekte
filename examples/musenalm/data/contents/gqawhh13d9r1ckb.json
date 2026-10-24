@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:58.872Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "333",
+  "incipit_statement": "Wer einmal den herrlichen Malchenberg bei Darmstadt besuchte, und auf der Spitze des oben befindlichen Thurmes gestanden hat,",
+  "language": [],
+  "musenalm_id": 42140,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 50,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VIII. / Theodor und Adelheid. / Eine Novelle",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Ernst Ortlepp",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VIII. / Theodor und Adelheid. / Eine Novelle",
+  "updated": "2005-09-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1833,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "xjsf0wd3ien54hq",
+      "agents": "8jy8jxpsgv6f24z",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.945Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.945Z"
+    }
+  ]
+}

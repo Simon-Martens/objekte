@@ -1,0 +1,45 @@
+{
+  "annotation": "Parodie auf das »Reiterlied« von Schiller (INr 130287, Obj 10)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:52.708Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "13",
+  "incipit_statement": "Auf, auf Kameraden, auf’s Bret, auf’s Bret, / In die Welt, auf’s Theater gezogen: / Als Akteur, da ist der Mensch noch ’was werth: / da wird noch die Freiheit gewogen",
+  "language": [],
+  "musenalm_id": 130288,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 11,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "II. / Parodie / des / Schillerschen Reiterliedes, / von / Falk",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Falk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "II. / Parodie / des / Schillerschen Reiterliedes, / von / Falk",
+  "updated": "2009-12-22T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1816,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8n5e3dwa75i7l74",
+      "agents": "bjik5dzyzk4cu0g",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:03.064Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:03.064Z"
+    }
+  ]
+}

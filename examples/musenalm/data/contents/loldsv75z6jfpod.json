@@ -1,0 +1,43 @@
+{
+  "annotation": "Es folgt Widmungsgedicht INr 82994, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:18:25.735Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 82993,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Widmung"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Dem / erhabenen Liebhaber und Förderer / alles Schönen und Guten, / Seiner / Kurfürstlichen Durchlaucht / von Pfalz-Bayern / Maximilian Joseph, / seinem / allergnädigsten Fürsten / und Herrn",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Der Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Dem / erhabenen Liebhaber und Förderer / alles Schönen und Guten, / Seiner / Kurfürstlichen Durchlaucht / von Pfalz-Bayern / Maximilian Joseph, / seinem / allergnädigsten Fürsten / und Herrn",
+  "updated": "2010-02-25T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1800,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "bvd743ottvrufeq",
+      "agents": "gmsxseq0l1x8zfa",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.078Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.078Z"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "annotation": "Vertonung des Gedichts »Punschlied. Im Norden zu singen« von F. Schiller. INr 12113, Obj 64",
+  "content_type": [],
+  "created": "2026-06-11T10:17:48.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "162",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 12114,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 63,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Punschlied. Im Norden zu singen",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Zelter",
+  "scans": [
+    "alm_211_12114_blnj9y9n31.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Punschlied. Im Norden zu singen",
+  "updated": "2001-03-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1804,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "u1uowid62lg2wrq",
+      "agents": "1531zhkkyifz60r",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.600Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.600Z"
+    }
+  ]
+}

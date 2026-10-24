@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:13.237Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "164",
+  "incipit_statement": "Die Diplomaten, in welchen Sprachen sie auch unter einander oder mit den Völkern verkehrten, haben es von jeher geliebt, ihren eigenen grammatischen Regeln zu folgen,",
+  "language": [],
+  "musenalm_id": 65004,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 64,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "VI. / Gedanken eines publicistischen Freischützen / über / Intervention und Nicht-Intervention",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Frater Hippolytus a Lapide",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "VI. / Gedanken eines publicistischen Freischützen / über / Intervention und Nicht-Intervention",
+  "updated": "2009-07-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "opnjjom9c9umdi9",
+      "agents": "lebe2rmk32ewec6",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.200Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.200Z"
+    }
+  ]
+}

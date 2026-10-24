@@ -1,0 +1,45 @@
+{
+  "annotation": "Sammlung von 7 Gedichten mit einer Vorrede INr 33251-33257, 33260; Obj 32-38, 41",
+  "content_type": [],
+  "created": "2026-06-11T10:17:56.899Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "9",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 33250,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Sammlung"
+  ],
+  "numbering": 31,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Des Sängers Liebe. / Ein kleiner Roman in Liedern. / Den Manen Chölestinens",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Friedrich Rochlitz",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Des Sängers Liebe. / Ein kleiner Roman in Liedern. / Den Manen Chölestinens",
+  "updated": "2003-04-16T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "7lbdq7zuvrarrnr",
+      "agents": "2wsoz27ytrsps8l",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.710Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.710Z"
+    }
+  ]
+}

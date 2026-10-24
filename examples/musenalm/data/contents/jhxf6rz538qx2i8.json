@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bez. aus dem G-Verz",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.794Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "61",
+  "incipit_statement": "Ha, gefangen! Sieh mit bangem Beben / Kämpft der buntgeschwingte Flatterer,",
+  "language": [],
+  "musenalm_id": 75964,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 30,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Bitte an die Natur, / für Lina",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "C. Lang",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Bitte an die Natur, / für Lina",
+  "updated": "2011-05-27T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1807,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "unfd8y3htzopk6s",
+      "agents": "0vejvx9ns82bwxr",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.694Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.694Z"
+    }
+  ]
+}

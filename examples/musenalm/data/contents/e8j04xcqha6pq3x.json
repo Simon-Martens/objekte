@@ -1,0 +1,47 @@
+{
+  "annotation": "Illustration zu »Kenilworth« von Walter Scott s. Textbezug INr 43627, Obj 5",
+  "content_type": [],
+  "created": "2026-06-11T10:17:59.304Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "4",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 43628,
+  "musenalm_pagination": [
+    "Römische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 6,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Kenilworth",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Wiessner sc. Nbg.1824",
+  "scans": [
+    "alm_580_43628_qakiglxx3l.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Kenilworth",
+  "updated": "2006-05-18T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1825,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "cqyn7zmb0kibrtf",
+      "agents": "v6whpg6896rh6jd",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.043Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.043Z"
+    }
+  ]
+}

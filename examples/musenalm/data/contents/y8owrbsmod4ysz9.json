@@ -1,0 +1,56 @@
+{
+  "annotation": "Titelportrait. s. Textbezug INr 55812, Obj 7 /) unter der Graphik: bei Braun in Carlsruhe",
+  "content_type": [],
+  "created": "2026-06-11T10:18:04.597Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 55807,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 2,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "STEPHANIE / Gros Herzogin von Baden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Kuntz del. A. Kessler sc.",
+  "scans": [
+    "alm_753_55807_o2xj6h44ix.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "STEPHANIE / Gros Herzogin von Baden",
+  "updated": "2008-03-10T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1819,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "hwwcfqu2w2eh31e",
+      "agents": "ziafym76n6gr1cm",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.586Z"
+    },
+    {
+      "id": "wni08jqy6jp35g8",
+      "agents": "37rjw48k1z9br4u",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.586Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.586Z"
+    }
+  ]
+}

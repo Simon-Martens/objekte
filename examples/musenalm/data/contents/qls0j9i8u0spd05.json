@@ -1,0 +1,49 @@
+{
+  "annotation": "Vertonung des Gedichts »Ecce quam bonum« von F. G. Wetzel INr 22407, Obj 30 /) Musik-Beilage zu dem Taschenbuch zum geselligen Vergnügen 1822 (Sammlung INr 22484, Obj 107) (Photos 22486,01-22486,03)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:51.048Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "5",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 22486,
+  "musenalm_pagination": [
+    "1. Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Musikbeigabe"
+  ],
+  "numbering": 109,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Ecce quam bonum!",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "C. Schulz",
+  "scans": [
+    "alm_300_22486_01_39muxwdqr6.jpg",
+    "alm_300_22486_02_52jgqg8r7i.jpg",
+    "alm_300_22486_03_mbc34qzkpg.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Ecce quam bonum!",
+  "updated": "2002-02-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1822,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "qws7tgjfbi64ln1",
+      "agents": "manakippfdpd18n",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.941Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.941Z"
+    }
+  ]
+}

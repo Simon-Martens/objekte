@@ -1,0 +1,56 @@
+{
+  "annotation": "s. INr 67699, Obj 1,05",
+  "content_type": [],
+  "created": "2026-06-11T10:18:11.606Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 67698,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 1.05,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "FLOETENSPIELER",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "G. Dow pt. F. John sc.",
+  "scans": [
+    "alm_233_67698_e43pryiud7.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "FLOETENSPIELER",
+  "updated": "2001-05-07T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1826,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "p5k86uxvzhr4foo",
+      "agents": "qo8f6jhlwjfq6qx",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.081Z"
+    },
+    {
+      "id": "phviz5yz8ivc5ci",
+      "agents": "v005hqamxgclzg4",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.081Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.081Z"
+    }
+  ]
+}

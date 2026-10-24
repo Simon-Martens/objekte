@@ -1,0 +1,45 @@
+{
+  "annotation": "Erklärung der Kupfer (Sammlung INr 15203, Obj 36) s. Graphik INr 15191, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:17:47.922Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "82",
+  "incipit_statement": "Hier macht abermal eine Grabennymphe einem Herrn den Antrag,",
+  "language": [],
+  "musenalm_id": 15215,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 47,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "N. 11",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "unbezeichnet",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "N. 11",
+  "updated": "2001-05-14T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1787,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ebzc4s1wffut7vg",
+      "agents": "vnh3lwvt81shntt",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:57.548Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:57.548Z"
+    }
+  ]
+}

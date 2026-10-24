@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.096Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 71578,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 4,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "HAEUSLICHES GLÜCK / Nur auf diesem Wege reifen des / Lebens bessere Freuden",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Gest. v. Ant. Karcher Mannh.",
+  "scans": [
+    "alm_2668_71578_vprce9of8a.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "HAEUSLICHES GLÜCK / Nur auf diesem Wege reifen des / Lebens bessere Freuden",
+  "updated": "2010-02-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1803,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "i2iolyibrjfheww",
+      "agents": "b334ivfypj3aic9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.660Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.660Z"
+    }
+  ]
+}

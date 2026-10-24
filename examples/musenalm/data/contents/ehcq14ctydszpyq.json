@@ -1,0 +1,45 @@
+{
+  "annotation": "Anmerkung des Herausgebers zum vorstehenden Beitrag INr 69653, Obj 31",
+  "content_type": [],
+  "created": "2026-06-11T10:18:15.853Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "108",
+  "incipit_statement": "Allerdings gehört die vom berühmten Hrn. Prof. Reichard mit dem reichhaltigsten gelehrten Scharfsinn angestellte Untersuchung: Ob es nicht thunlich sey, sich zur Aufsuchung entflohener oder auch wohl noch ganz unbekannter Verbrecher",
+  "language": [],
+  "musenalm_id": 69654,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Text"
+  ],
+  "numbering": 32,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An meine Leser",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Herausgeber",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An meine Leser",
+  "updated": "2009-09-03T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1798,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ctysya6meho6u2r",
+      "agents": "vb68kmtb3e9gd34",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.417Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.417Z"
+    }
+  ]
+}

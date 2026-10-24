@@ -1,0 +1,56 @@
+{
+  "annotation": "Graphik im Kalendarium Dezember /) Illustration zu »Die Madü-Maränen « von Karl Streckfuß INr 72216, Obj 19",
+  "content_type": [],
+  "created": "2026-06-11T10:18:19.059Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 72212,
+  "musenalm_pagination": [],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "S. 180",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "gez. v. Ramberg gest. v. H. Schmidt",
+  "scans": [
+    "alm_867_72212_ipl3m6e58k.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "S. 180",
+  "updated": "2008-07-28T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1832,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d1fm3lx6u580gi7",
+      "agents": "q6h2aw0d0b69xc7",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.658Z"
+    },
+    {
+      "id": "4dsg9ak64y7qpjc",
+      "agents": "2hk8eonosc6wf0f",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.658Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.658Z"
+    }
+  ]
+}

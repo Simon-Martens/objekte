@@ -1,0 +1,45 @@
+{
+  "annotation": "# Bezeichnung am ersten Gedicht (INr 122203, Obj 278)",
+  "content_type": [],
+  "created": "2026-06-11T10:18:46.139Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "314",
+  "incipit_statement": "In einer großen Steigerungshalle / Kam zum Verkauf einst eine Schnalle. / Man wußte nicht, was sie gekostet, / Denn unter Nägeln halbverrostet / Begraben lag sie manche Stunde / In eines Kastens tiefstem Grunde.",
+  "language": [],
+  "musenalm_id": 122203,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 279,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "2. / Die alte Schnalle. / Eine Fabel",
+  "pseudonym": true,
+  "publication_statement": "",
+  "responsibility_statement": "Eduard Brauer",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "2. / Die alte Schnalle. / Eine Fabel",
+  "updated": "2010-01-29T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1853,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "8cy5baemcq2g4e1",
+      "agents": "q3hkrc4mbx3ugx0",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:02.700Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:02.700Z"
+    }
+  ]
+}

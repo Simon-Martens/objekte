@@ -1,0 +1,45 @@
+{
+  "annotation": "",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.075Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "155",
+  "incipit_statement": "Freund, nimm dieß Blatt, den Herold mein- / ner Freude; / Denn Lieb' und Ruhm besucht dein Haus.",
+  "language": [],
+  "musenalm_id": 31409,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 74,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "An Herrn / Joseph, Friedrich Edlen von Retzer. / Bey / Gelegenheit der Einnahme von Fort Louis / den 25. Nov. 1793",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Alxinger",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "An Herrn / Joseph, Friedrich Edlen von Retzer. / Bey / Gelegenheit der Einnahme von Fort Louis / den 25. Nov. 1793",
+  "updated": "2003-01-30T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1794,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ujykho42s866w5e",
+      "agents": "3v0kb6a8a8y5rhb",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.351Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.351Z"
+    }
+  ]
+}

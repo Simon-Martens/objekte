@@ -1,0 +1,47 @@
+{
+  "annotation": "paginiert S. 63. /) Illustration zu »Der Schmidt vor der Himmelspforte. Nachspiel zum Schmidt von Appolda« INr 73172, obj 13",
+  "content_type": [],
+  "created": "2026-06-11T10:18:16.874Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "62",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 73174,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 15,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1. Aufz. 1. Auftr. / So dass der Stuhl in seinem Rücken. / Davon zersprang in tausend Stücken",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nach Flaxmann",
+  "scans": [
+    "alm_1826_73174_e6lfu129n4.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "1. Aufz. 1. Auftr. / So dass der Stuhl in seinem Rücken. / Davon zersprang in tausend Stücken",
+  "updated": "2010-01-20T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1806,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "ok1k1s5xramemyq",
+      "agents": "cyk00jy70gkrpk9",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:00.486Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:00.486Z"
+    }
+  ]
+}

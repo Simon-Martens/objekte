@@ -1,0 +1,45 @@
+{
+  "annotation": "Dem Text vorangestellt: Gleich Blumen ohne Wurzel treibet / Vorüber, was der Traum uns lieh': [...]",
+  "content_type": [],
+  "created": "2026-06-11T10:18:28.283Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "117",
+  "incipit_statement": "Kann ich es doch nie so gut haben, sagte Albert höchst verdrüßlich zu seinem Freund Gotthold, mit dem er an einem schönen Juliusmorgen in einer der offnen Partien des Augartens saß,",
+  "language": [],
+  "musenalm_id": 86128,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Prosa"
+  ],
+  "numbering": 20,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Poesie des Lebens. / Erzählung",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Michael Enk",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "Poesie des Lebens. / Erzählung",
+  "updated": "2010-01-13T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1841,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "d4i1tczozyvdxa3",
+      "agents": "564ow3ktop2urqv",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:19:01.276Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:19:01.276Z"
+    }
+  ]
+}

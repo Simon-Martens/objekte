@@ -1,0 +1,45 @@
+{
+  "annotation": "Gedichte, Atlantica (Sammlung INr 25144, Obj 166)",
+  "content_type": [],
+  "created": "2026-06-11T10:17:54.450Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "295",
+  "incipit_statement": "Freundlich wehn die Abendwinde, / Schimmern Mond und Sterne,",
+  "language": [],
+  "musenalm_id": 25145,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Gedicht/Lied"
+  ],
+  "numbering": 167,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "1.",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Nicolaus Lenau",
+  "scans": [],
+  "subtitle_statement": "",
+  "title_statement": "1.",
+  "updated": "2002-06-12T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1834,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "mllj6lov27fh6qb",
+      "agents": "96po1brlxwvvsud",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:58.384Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:58.384Z"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "annotation": "paginiert S. 124. /) Illustration zu »Amalie. Oder: Die Unglücklichen durch Selbstschuld« INr 47485, Obj 24",
+  "content_type": [],
+  "created": "2026-06-11T10:18:03.784Z",
+  "dimensions": "",
+  "edit_comment": "",
+  "edit_state": "Edited",
+  "extent": "124",
+  "incipit_statement": "",
+  "language": [],
+  "musenalm_id": 47487,
+  "musenalm_pagination": [
+    "Arabische Seitenzählung"
+  ],
+  "musenalm_type": [
+    "Graphik"
+  ],
+  "numbering": 26,
+  "parallel_title": "",
+  "place_statement": "",
+  "preferred_title": "Treues Weibchen, bist du vergnügt?",
+  "pseudonym": false,
+  "publication_statement": "",
+  "responsibility_statement": "Schubert del. D. Berger sc. 1798",
+  "scans": [
+    "alm_644_47487_j6jiurryg9.jpg"
+  ],
+  "subtitle_statement": "",
+  "title_statement": "Treues Weibchen, bist du vergnügt?",
+  "updated": "2007-01-04T00:00:00.000Z",
+  "variant_title": "",
+  "year": 1799,
+  "editor": "",
+  "contributors": [
+    {
+      "id": "gsohnqy2xfeuja7",
+      "agents": "b8kayl1gshcayeq",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.531Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.531Z"
+    },
+    {
+      "id": "igflls0pw2tu1fx",
+      "agents": "qtx54xtziq79pnc",
+      "annotation": "",
+      "conjecture": false,
+      "created": "2026-06-11T10:18:59.531Z",
+      "edit_comment": "",
+      "type": "Autor:in",
+      "uncertain": false,
+      "updated": "2026-06-11T10:18:59.531Z"
+    }
+  ]
+}
