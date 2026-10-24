@@ -9,6 +9,7 @@ pub mod fields;
 mod media;
 mod pickers;
 pub mod projects;
+pub mod request_logging;
 mod routes;
 pub mod sessions;
 pub mod templates;

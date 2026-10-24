@@ -112,8 +112,9 @@ async fn run() -> Result<(), WebError> {
         .map_err(WebError::internal)?;
     tracing::info!(%bind,"Objekte Rust server listening");
     if dev {
-        tracing::info!(vite = ?vite_url, "Development mode: live assets, templates read from disk, HTTP cookies");
+        tracing::info!(vite = ?vite_url, "Development mode: live assets, templates read from disk, HTTP cookies, request timing logs");
     }
+    let app = structured_editor_server::request_logging::development(app, dev);
     axum::serve(listener, app)
         .with_graceful_shutdown(async {
             let _ = tokio::signal::ctrl_c().await;

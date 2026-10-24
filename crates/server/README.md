@@ -26,7 +26,7 @@ To delete all Rust server accounts and sessions, stop the server and run `cargo 
 | `EDITOR_DATA_DIR` | Workspace `.data`; must be outside the repository |
 | `EDITOR_BIND` | `127.0.0.1:4322` |
 | `EDITOR_ASSETS_DIR` | This crate's `assets/dist` |
-| `EDITOR_DEV` | Set to `1` (or pass `--dev`) for live Vite assets, disk templates and HTTP cookies |
+| `EDITOR_DEV` | Set to `1` (or pass `--dev`) for live Vite assets, disk templates, HTTP cookies and request timing logs |
 | `EDITOR_VITE_URL` | `http://127.0.0.1:5173` in dev mode; otherwise unset. Override with a local Vite HTTP origin |
 | `EDITOR_INSECURE_COOKIE` | Optional `1` for HTTP outside dev mode; dev mode automatically omits `Secure`. Otherwise cookies require HTTPS |
 | `RUST_LOG` | `structured_editor_server=info` |
@@ -54,6 +54,7 @@ Open **http://127.0.0.1:4322**, the Rust server URL. Run `cargo run -p structure
 - Vite at `http://127.0.0.1:5173`, without needing an `assets/dist` build. CSS updates in place; TypeScript updates use Vite's reload behavior.
 - HTML templates loaded from `crates/server/templates/` on each render, including nested includes. Vite watches this folder and refreshes the page when an HTML file changes. Rust stays running, preserving server-side edit sessions.
 - Session cookies without `Secure` for local HTTP. `HttpOnly`, `SameSite=Strict`, authentication and CSRF protection still apply.
+- Console logs for each HTTP request and response, including a matching request ID, method, path, response status and elapsed milliseconds. Timing measures server processing until the response is ready, including project dispatch; it does not include transferring the response body to the client. Datastar error responses also report their original `error_status`. Query strings, headers and bodies are omitted. Logs use the existing `RUST_LOG` filter at `info` level and are disabled outside dev mode.
 
 To use another Vite port, set the same `EDITOR_VITE_URL` in both terminals and pass that port to Vite, for example `EDITOR_VITE_URL=http://127.0.0.1:5174 npm --prefix crates/server/assets run dev -- --port 5174` and `EDITOR_VITE_URL=http://127.0.0.1:5174 cargo run -p structured-editor-server -- --dev`.
 
